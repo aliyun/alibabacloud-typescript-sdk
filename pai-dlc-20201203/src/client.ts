@@ -1,13 +1,705 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class AIMasterMessage extends $tea.Model {
+export class JobItemCodeSource extends $dara.Model {
+  /**
+   * @example
+   * master
+   */
+  branch?: string;
+  /**
+   * @example
+   * code-20210111103721-85qz78ia96lu
+   */
+  codeSourceId?: string;
+  /**
+   * @example
+   * 44da109b59f8596152987eaa8f3b2487bb72ea63
+   */
+  commit?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branch: 'Branch',
+      codeSourceId: 'CodeSourceId',
+      commit: 'Commit',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branch: 'string',
+      codeSourceId: 'string',
+      commit: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JobItemDataSources extends $dara.Model {
+  /**
+   * @example
+   * data-20210114104214-vf9lowjt3pso
+   */
+  dataSourceId?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JobItemUserVpc extends $dara.Model {
+  defaultRoute?: string;
+  extendedCidrs?: string[];
+  securityGroupId?: string;
+  switchId?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultRoute: 'DefaultRoute',
+      extendedCidrs: 'ExtendedCidrs',
+      securityGroupId: 'SecurityGroupId',
+      switchId: 'SwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultRoute: 'string',
+      extendedCidrs: { 'type': 'array', 'itemType': 'string' },
+      securityGroupId: 'string',
+      switchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.extendedCidrs)) {
+      $dara.Model.validateArray(this.extendedCidrs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LifecyclePostStartExec extends $dara.Model {
+  command?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.command)) {
+      $dara.Model.validateArray(this.command);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LifecyclePostStart extends $dara.Model {
+  exec?: LifecyclePostStartExec;
+  static names(): { [key: string]: string } {
+    return {
+      exec: 'Exec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exec: LifecyclePostStartExec,
+    };
+  }
+
+  validate() {
+    if(this.exec && typeof (this.exec as any).validate === 'function') {
+      (this.exec as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LifecyclePreStopExec extends $dara.Model {
+  command?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.command)) {
+      $dara.Model.validateArray(this.command);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LifecyclePreStop extends $dara.Model {
+  exec?: LifecyclePreStopExec;
+  static names(): { [key: string]: string } {
+    return {
+      exec: 'Exec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exec: LifecyclePreStopExec,
+    };
+  }
+
+  validate() {
+    if(this.exec && typeof (this.exec as any).validate === 'function') {
+      (this.exec as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobRequestCodeSource extends $dara.Model {
+  /**
+   * @example
+   * master
+   */
+  branch?: string;
+  /**
+   * @example
+   * code-20210111103721-xxxxxxx
+   */
+  codeSourceId?: string;
+  /**
+   * @example
+   * 44da109b5******
+   */
+  commit?: string;
+  /**
+   * @example
+   * /root/data
+   */
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branch: 'Branch',
+      codeSourceId: 'CodeSourceId',
+      commit: 'Commit',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branch: 'string',
+      codeSourceId: 'string',
+      commit: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobRequestDataSources extends $dara.Model {
+  /**
+   * @example
+   * d-cn9dl*******
+   */
+  dataSourceId?: string;
+  dataSourceVersion?: string;
+  /**
+   * @example
+   * /root/data
+   */
+  mountPath?: string;
+  options?: string;
+  /**
+   * @example
+   * oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
+   */
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      dataSourceVersion: 'DataSourceVersion',
+      mountPath: 'MountPath',
+      options: 'Options',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      dataSourceVersion: 'string',
+      mountPath: 'string',
+      options: 'string',
+      uri: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobRequestUserVpc extends $dara.Model {
+  defaultRoute?: string;
+  extendedCIDRs?: string[];
+  /**
+   * @example
+   * sg-abcdef****
+   */
+  securityGroupId?: string;
+  /**
+   * @example
+   * vs-abcdef****
+   */
+  switchId?: string;
+  /**
+   * @example
+   * vpc-abcdef****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultRoute: 'DefaultRoute',
+      extendedCIDRs: 'ExtendedCIDRs',
+      securityGroupId: 'SecurityGroupId',
+      switchId: 'SwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultRoute: 'string',
+      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
+      securityGroupId: 'string',
+      switchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.extendedCIDRs)) {
+      $dara.Model.validateArray(this.extendedCIDRs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyCodeSource extends $dara.Model {
+  /**
+   * @example
+   * master
+   */
+  branch?: string;
+  /**
+   * @example
+   * code******
+   */
+  codeSourceId?: string;
+  /**
+   * @example
+   * 44da109b59f8596152987eaa8f3b2487xxxxxx
+   */
+  commit?: string;
+  /**
+   * @example
+   * /mnt/data
+   */
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branch: 'Branch',
+      codeSourceId: 'CodeSourceId',
+      commit: 'Commit',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branch: 'string',
+      codeSourceId: 'string',
+      commit: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyDataSources extends $dara.Model {
+  /**
+   * @example
+   * d*******
+   */
+  dataSourceId?: string;
+  /**
+   * @example
+   * /mnt/data/
+   */
+  mountPath?: string;
+  /**
+   * @example
+   * oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
+   */
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      mountPath: 'MountPath',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      mountPath: 'string',
+      uri: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyPodsHistoryPods extends $dara.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtFinishTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtStartTime?: string;
+  /**
+   * @example
+   * 10.0.1.3
+   */
+  ip?: string;
+  /**
+   * @example
+   * Worker
+   */
+  podId?: string;
+  /**
+   * @example
+   * fe846462-af2c-4521-bd6f-96787a57591d
+   */
+  podUid?: string;
+  /**
+   * @example
+   * Normal
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * Failed
+   */
+  status?: string;
+  /**
+   * @example
+   * Normal
+   */
+  subStatus?: string;
+  /**
+   * @example
+   * Worker
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtFinishTime: 'GmtFinishTime',
+      gmtStartTime: 'GmtStartTime',
+      ip: 'Ip',
+      podId: 'PodId',
+      podUid: 'PodUid',
+      resourceType: 'ResourceType',
+      status: 'Status',
+      subStatus: 'SubStatus',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtFinishTime: 'string',
+      gmtStartTime: 'string',
+      ip: 'string',
+      podId: 'string',
+      podUid: 'string',
+      resourceType: 'string',
+      status: 'string',
+      subStatus: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyPods extends $dara.Model {
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtCreateTime?: string;
+  /**
+   * @example
+   * 2021-01-12T15:36:05Z
+   */
+  gmtFinishTime?: string;
+  /**
+   * @example
+   * 2021-01-12T14:36:01Z
+   */
+  gmtStartTime?: string;
+  historyPods?: GetJobResponseBodyPodsHistoryPods[];
+  /**
+   * @example
+   * 10.0.1.2
+   */
+  ip?: string;
+  /**
+   * @example
+   * Worker
+   */
+  podId?: string;
+  /**
+   * @example
+   * fe846462-af2c-4521-bd6f-96787a57591d
+   */
+  podUid?: string;
+  /**
+   * @example
+   * Normal
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @example
+   * Normal
+   */
+  subStatus?: string;
+  /**
+   * @example
+   * Worker
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreateTime: 'GmtCreateTime',
+      gmtFinishTime: 'GmtFinishTime',
+      gmtStartTime: 'GmtStartTime',
+      historyPods: 'HistoryPods',
+      ip: 'Ip',
+      podId: 'PodId',
+      podUid: 'PodUid',
+      resourceType: 'ResourceType',
+      status: 'Status',
+      subStatus: 'SubStatus',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreateTime: 'string',
+      gmtFinishTime: 'string',
+      gmtStartTime: 'string',
+      historyPods: { 'type': 'array', 'itemType': GetJobResponseBodyPodsHistoryPods },
+      ip: 'string',
+      podId: 'string',
+      podUid: 'string',
+      resourceType: 'string',
+      status: 'string',
+      subStatus: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.historyPods)) {
+      $dara.Model.validateArray(this.historyPods);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyUserVpc extends $dara.Model {
+  defaultRoute?: string;
+  extendedCidrs?: string[];
+  /**
+   * @example
+   * sg-abcdef****
+   */
+  securityGroupId?: string;
+  /**
+   * @example
+   * vs-abcdef****
+   */
+  switchId?: string;
+  /**
+   * @example
+   * vpc-abcdef****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultRoute: 'DefaultRoute',
+      extendedCidrs: 'ExtendedCidrs',
+      securityGroupId: 'SecurityGroupId',
+      switchId: 'SwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultRoute: 'string',
+      extendedCidrs: { 'type': 'array', 'itemType': 'string' },
+      securityGroupId: 'string',
+      switchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.extendedCidrs)) {
+      $dara.Model.validateArray(this.extendedCidrs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIMasterMessage extends $dara.Model {
   extended?: string;
   jobRestartCount?: number;
   messageContent?: string;
@@ -36,12 +728,16 @@ export class AIMasterMessage extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AliyunAccounts extends $tea.Model {
+export class AliyunAccounts extends $dara.Model {
   aliyunUid?: string;
   employeeId?: string;
   gmtCreateTime?: string;
@@ -64,12 +760,16 @@ export class AliyunAccounts extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AssignNodeSpec extends $tea.Model {
+export class AssignNodeSpec extends $dara.Model {
   /**
    * @example
    * lingjxxxxxxxx
@@ -101,12 +801,16 @@ export class AssignNodeSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AssumeUserInfo extends $tea.Model {
+export class AssumeUserInfo extends $dara.Model {
   accessKeyId?: string;
   id?: string;
   securityToken?: string;
@@ -129,12 +833,16 @@ export class AssumeUserInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CodeSourceItem extends $tea.Model {
+export class CodeSourceItem extends $dara.Model {
   /**
    * @example
    * master
@@ -218,12 +926,16 @@ export class CodeSourceItem extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ContainerSpec extends $tea.Model {
+export class ContainerSpec extends $dara.Model {
   args?: string[];
   command?: string[];
   env?: EnvVar[];
@@ -267,12 +979,28 @@ export class ContainerSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.args)) {
+      $dara.Model.validateArray(this.args);
+    }
+    if(Array.isArray(this.command)) {
+      $dara.Model.validateArray(this.command);
+    }
+    if(Array.isArray(this.env)) {
+      $dara.Model.validateArray(this.env);
+    }
+    if(this.resources && typeof (this.resources as any).validate === 'function') {
+      (this.resources as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CredentialConfig extends $tea.Model {
+export class CredentialConfig extends $dara.Model {
   aliyunEnvRoleKey?: string;
   credentialConfigItems?: CredentialConfigItem[];
   enableCredentialInject?: boolean;
@@ -292,12 +1020,19 @@ export class CredentialConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.credentialConfigItems)) {
+      $dara.Model.validateArray(this.credentialConfigItems);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CredentialConfigItem extends $tea.Model {
+export class CredentialConfigItem extends $dara.Model {
   key?: string;
   /**
    * **if can be null:**
@@ -321,12 +1056,19 @@ export class CredentialConfigItem extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.roles)) {
+      $dara.Model.validateArray(this.roles);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CredentialRole extends $tea.Model {
+export class CredentialRole extends $dara.Model {
   assumeRoleFor?: string;
   assumeUserInfo?: AssumeUserInfo;
   policy?: string;
@@ -352,12 +1094,19 @@ export class CredentialRole extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.assumeUserInfo && typeof (this.assumeUserInfo as any).validate === 'function') {
+      (this.assumeUserInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DataSourceItem extends $tea.Model {
+export class DataSourceItem extends $dara.Model {
   /**
    * @example
    * data-20210114104214-vf9lowjt3pso
@@ -452,12 +1201,16 @@ export class DataSourceItem extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DebuggerConfig extends $tea.Model {
+export class DebuggerConfig extends $dara.Model {
   /**
    * @example
    * {\"description\":\"这是一个新的pytorchjob模板\"}
@@ -510,12 +1263,16 @@ export class DebuggerConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DebuggerJob extends $tea.Model {
+export class DebuggerJob extends $dara.Model {
   /**
    * @example
    * dlc20210126170216-mtl37ge7gkvdz
@@ -600,12 +1357,16 @@ export class DebuggerJob extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DebuggerJobIssue extends $tea.Model {
+export class DebuggerJobIssue extends $dara.Model {
   /**
    * @example
    * {"Name": "CPUBottleneck",  "Triggered": 10, "Violations": 2,  "Details": "{}"}
@@ -665,12 +1426,16 @@ export class DebuggerJobIssue extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DebuggerResult extends $tea.Model {
+export class DebuggerResult extends $dara.Model {
   /**
    * @example
    * {\"description\":\"这是一个新的pytorchjob模板\"}
@@ -730,12 +1495,16 @@ export class DebuggerResult extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EcsSpec extends $tea.Model {
+export class EcsSpec extends $dara.Model {
   /**
    * @example
    * GPU
@@ -836,12 +1605,22 @@ export class EcsSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.paymentTypes)) {
+      $dara.Model.validateArray(this.paymentTypes);
+    }
+    if(Array.isArray(this.supportedGPUDrivers)) {
+      $dara.Model.validateArray(this.supportedGPUDrivers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EnvVar extends $tea.Model {
+export class EnvVar extends $dara.Model {
   /**
    * @example
    * ENABLE_DEBUG
@@ -866,12 +1645,16 @@ export class EnvVar extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EventInfo extends $tea.Model {
+export class EventInfo extends $dara.Model {
   content?: string;
   id?: string;
   podId?: string;
@@ -897,12 +1680,16 @@ export class EventInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ExtraPodSpec extends $tea.Model {
+export class ExtraPodSpec extends $dara.Model {
   initContainers?: ContainerSpec[];
   lifecycle?: Lifecycle;
   podAnnotations?: { [key: string]: string };
@@ -931,12 +1718,34 @@ export class ExtraPodSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.initContainers)) {
+      $dara.Model.validateArray(this.initContainers);
+    }
+    if(this.lifecycle && typeof (this.lifecycle as any).validate === 'function') {
+      (this.lifecycle as any).validate();
+    }
+    if(this.podAnnotations) {
+      $dara.Model.validateMap(this.podAnnotations);
+    }
+    if(this.podLabels) {
+      $dara.Model.validateMap(this.podLabels);
+    }
+    if(Array.isArray(this.sharedVolumeMountPaths)) {
+      $dara.Model.validateArray(this.sharedVolumeMountPaths);
+    }
+    if(Array.isArray(this.sideCarContainers)) {
+      $dara.Model.validateArray(this.sideCarContainers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FreeResourceClusterControlItem extends $tea.Model {
+export class FreeResourceClusterControlItem extends $dara.Model {
   clusterID?: string;
   clusterName?: string;
   crossClusters?: boolean;
@@ -975,12 +1784,16 @@ export class FreeResourceClusterControlItem extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FreeResourceDetail extends $tea.Model {
+export class FreeResourceDetail extends $dara.Model {
   /**
    * @example
    * 2
@@ -1005,12 +1818,16 @@ export class FreeResourceDetail extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FreeResourceItem extends $tea.Model {
+export class FreeResourceItem extends $dara.Model {
   /**
    * @example
    * 2
@@ -1069,12 +1886,16 @@ export class FreeResourceItem extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GPUDetail extends $tea.Model {
+export class GPUDetail extends $dara.Model {
   GPU?: string;
   /**
    * @example
@@ -1102,12 +1923,16 @@ export class GPUDetail extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageConfig extends $tea.Model {
+export class ImageConfig extends $dara.Model {
   auth?: string;
   /**
    * @example
@@ -1134,12 +1959,16 @@ export class ImageConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageItem extends $tea.Model {
+export class ImageItem extends $dara.Model {
   /**
    * @example
    * gpu
@@ -1199,12 +2028,16 @@ export class ImageItem extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class JobDebuggerConfig extends $tea.Model {
+export class JobDebuggerConfig extends $dara.Model {
   debuggerConfigContent?: string;
   debuggerConfigId?: string;
   gmtCreateTime?: string;
@@ -1227,12 +2060,16 @@ export class JobDebuggerConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class JobElasticSpec extends $tea.Model {
+export class JobElasticSpec extends $dara.Model {
   AIMasterDockerImage?: string;
   AIMasterType?: string;
   /**
@@ -1328,12 +2165,16 @@ export class JobElasticSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class JobItem extends $tea.Model {
+export class JobItem extends $dara.Model {
   /**
    * @example
    * PUBLIC
@@ -1680,12 +2521,55 @@ export class JobItem extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.codeSource && typeof (this.codeSource as any).validate === 'function') {
+      (this.codeSource as any).validate();
+    }
+    if(this.credentialConfig && typeof (this.credentialConfig as any).validate === 'function') {
+      (this.credentialConfig as any).validate();
+    }
+    if(Array.isArray(this.dataSources)) {
+      $dara.Model.validateArray(this.dataSources);
+    }
+    if(this.elasticSpec && typeof (this.elasticSpec as any).validate === 'function') {
+      (this.elasticSpec as any).validate();
+    }
+    if(this.envs) {
+      $dara.Model.validateMap(this.envs);
+    }
+    if(Array.isArray(this.jobSpecs)) {
+      $dara.Model.validateArray(this.jobSpecs);
+    }
+    if(Array.isArray(this.nodeNames)) {
+      $dara.Model.validateArray(this.nodeNames);
+    }
+    if(Array.isArray(this.pods)) {
+      $dara.Model.validateArray(this.pods);
+    }
+    if(this.settings && typeof (this.settings as any).validate === 'function') {
+      (this.settings as any).validate();
+    }
+    if(Array.isArray(this.statusHistory)) {
+      $dara.Model.validateArray(this.statusHistory);
+    }
+    if(this.systemEnvs) {
+      $dara.Model.validateMap(this.systemEnvs);
+    }
+    if(Array.isArray(this.thirdpartyLibs)) {
+      $dara.Model.validateArray(this.thirdpartyLibs);
+    }
+    if(this.userVpc && typeof (this.userVpc as any).validate === 'function') {
+      (this.userVpc as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class JobSettings extends $tea.Model {
+export class JobSettings extends $dara.Model {
   advancedSettings?: { [key: string]: any };
   /**
    * @example
@@ -1707,6 +2591,11 @@ export class JobSettings extends $tea.Model {
    * 535.54.03
    */
   driver?: string;
+  /**
+   * @example
+   * true
+   */
+  enableCPUAffinity?: boolean;
   /**
    * @example
    * false
@@ -1770,6 +2659,7 @@ export class JobSettings extends $tea.Model {
       caller: 'Caller',
       disableEcsStockCheck: 'DisableEcsStockCheck',
       driver: 'Driver',
+      enableCPUAffinity: 'EnableCPUAffinity',
       enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
       enableOssAppend: 'EnableOssAppend',
       enableRDMA: 'EnableRDMA',
@@ -1792,6 +2682,7 @@ export class JobSettings extends $tea.Model {
       caller: 'string',
       disableEcsStockCheck: 'boolean',
       driver: 'string',
+      enableCPUAffinity: 'boolean',
       enableErrorMonitoringInAIMaster: 'boolean',
       enableOssAppend: 'boolean',
       enableRDMA: 'boolean',
@@ -1807,12 +2698,22 @@ export class JobSettings extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.advancedSettings) {
+      $dara.Model.validateMap(this.advancedSettings);
+    }
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class JobSpec extends $tea.Model {
+export class JobSpec extends $dara.Model {
   assignNodeSpec?: AssignNodeSpec;
   /**
    * @example
@@ -1875,12 +2776,31 @@ export class JobSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.assignNodeSpec && typeof (this.assignNodeSpec as any).validate === 'function') {
+      (this.assignNodeSpec as any).validate();
+    }
+    if(this.extraPodSpec && typeof (this.extraPodSpec as any).validate === 'function') {
+      (this.extraPodSpec as any).validate();
+    }
+    if(this.imageConfig && typeof (this.imageConfig as any).validate === 'function') {
+      (this.imageConfig as any).validate();
+    }
+    if(this.resourceConfig && typeof (this.resourceConfig as any).validate === 'function') {
+      (this.resourceConfig as any).validate();
+    }
+    if(this.spotSpec && typeof (this.spotSpec as any).validate === 'function') {
+      (this.spotSpec as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Lifecycle extends $tea.Model {
+export class Lifecycle extends $dara.Model {
   postStart?: LifecyclePostStart;
   preStop?: LifecyclePreStop;
   static names(): { [key: string]: string } {
@@ -1897,12 +2817,22 @@ export class Lifecycle extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.postStart && typeof (this.postStart as any).validate === 'function') {
+      (this.postStart as any).validate();
+    }
+    if(this.preStop && typeof (this.preStop as any).validate === 'function') {
+      (this.preStop as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LogInfo extends $tea.Model {
+export class LogInfo extends $dara.Model {
   content?: string;
   id?: string;
   podId?: string;
@@ -1935,12 +2865,16 @@ export class LogInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Member extends $tea.Model {
+export class Member extends $dara.Model {
   /**
    * @example
    * ken_12345
@@ -1965,12 +2899,16 @@ export class Member extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Metric extends $tea.Model {
+export class Metric extends $dara.Model {
   /**
    * @example
    * 1616987726587
@@ -1995,12 +2933,16 @@ export class Metric extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class NodeMetric extends $tea.Model {
+export class NodeMetric extends $dara.Model {
   metrics?: Metric[];
   /**
    * @example
@@ -2021,12 +2963,19 @@ export class NodeMetric extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.metrics)) {
+      $dara.Model.validateArray(this.metrics);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PodItem extends $tea.Model {
+export class PodItem extends $dara.Model {
   /**
    * @example
    * 2021-01-12T14:36:01Z
@@ -2096,12 +3045,19 @@ export class PodItem extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.historyPods)) {
+      $dara.Model.validateArray(this.historyPods);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PodMetric extends $tea.Model {
+export class PodMetric extends $dara.Model {
   metrics?: Metric[];
   /**
    * @example
@@ -2122,12 +3078,19 @@ export class PodMetric extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.metrics)) {
+      $dara.Model.validateArray(this.metrics);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Quota extends $tea.Model {
+export class Quota extends $dara.Model {
   clusterId?: string;
   clusterName?: string;
   quotaConfig?: QuotaConfig;
@@ -2180,12 +3143,31 @@ export class Quota extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.quotaConfig && typeof (this.quotaConfig as any).validate === 'function') {
+      (this.quotaConfig as any).validate();
+    }
+    if(this.totalQuota && typeof (this.totalQuota as any).validate === 'function') {
+      (this.totalQuota as any).validate();
+    }
+    if(this.totalTideQuota && typeof (this.totalTideQuota as any).validate === 'function') {
+      (this.totalTideQuota as any).validate();
+    }
+    if(this.usedQuota && typeof (this.usedQuota as any).validate === 'function') {
+      (this.usedQuota as any).validate();
+    }
+    if(this.usedTideQuota && typeof (this.usedTideQuota as any).validate === 'function') {
+      (this.usedTideQuota as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuotaConfig extends $tea.Model {
+export class QuotaConfig extends $dara.Model {
   allowedMaxPriority?: number;
   enableDLC?: boolean;
   enableDSW?: boolean;
@@ -2211,12 +3193,16 @@ export class QuotaConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuotaDetail extends $tea.Model {
+export class QuotaDetail extends $dara.Model {
   /**
    * @example
    * 2
@@ -2265,12 +3251,19 @@ export class QuotaDetail extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.GPUDetails)) {
+      $dara.Model.validateArray(this.GPUDetails);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResourceConfig extends $tea.Model {
+export class ResourceConfig extends $dara.Model {
   /**
    * @example
    * 10
@@ -2316,12 +3309,16 @@ export class ResourceConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResourceRequirements extends $tea.Model {
+export class ResourceRequirements extends $dara.Model {
   limits?: { [key: string]: string };
   requests?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -2338,12 +3335,22 @@ export class ResourceRequirements extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.limits) {
+      $dara.Model.validateMap(this.limits);
+    }
+    if(this.requests) {
+      $dara.Model.validateMap(this.requests);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Resources extends $tea.Model {
+export class Resources extends $dara.Model {
   /**
    * @example
    * 10
@@ -2375,12 +3382,16 @@ export class Resources extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SanityCheckResultItem extends $tea.Model {
+export class SanityCheckResultItem extends $dara.Model {
   /**
    * @example
    * 1
@@ -2429,12 +3440,16 @@ export class SanityCheckResultItem extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SmartCache extends $tea.Model {
+export class SmartCache extends $dara.Model {
   /**
    * @example
    * 10
@@ -2557,12 +3572,16 @@ export class SmartCache extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SpotSpec extends $tea.Model {
+export class SpotSpec extends $dara.Model {
   spotDiscountLimit?: number;
   spotPriceLimit?: number;
   spotStrategy?: string;
@@ -2582,12 +3601,16 @@ export class SpotSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StatusTransitionItem extends $tea.Model {
+export class StatusTransitionItem extends $dara.Model {
   endTime?: string;
   reasonCode?: string;
   reasonMessage?: string;
@@ -2613,12 +3636,16 @@ export class StatusTransitionItem extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Tensorboard extends $tea.Model {
+export class Tensorboard extends $dara.Model {
   accessibility?: string;
   cpu?: number;
   /**
@@ -2783,12 +3810,22 @@ export class Tensorboard extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tensorboardDataSources)) {
+      $dara.Model.validateArray(this.tensorboardDataSources);
+    }
+    if(this.tensorboardSpec && typeof (this.tensorboardSpec as any).validate === 'function') {
+      (this.tensorboardSpec as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TensorboardDataSourceSpec extends $tea.Model {
+export class TensorboardDataSourceSpec extends $dara.Model {
   /**
    * @example
    * OSS
@@ -2855,12 +3892,16 @@ export class TensorboardDataSourceSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TensorboardSpec extends $tea.Model {
+export class TensorboardSpec extends $dara.Model {
   /**
    * @example
    * ecs.g6.large
@@ -2899,12 +3940,16 @@ export class TensorboardSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Workspace extends $tea.Model {
+export class Workspace extends $dara.Model {
   /**
    * @example
    * ken
@@ -2962,12 +4007,28 @@ export class Workspace extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.members)) {
+      $dara.Model.validateArray(this.members);
+    }
+    if(Array.isArray(this.quotas)) {
+      $dara.Model.validateArray(this.quotas);
+    }
+    if(this.totalResources && typeof (this.totalResources as any).validate === 'function') {
+      (this.totalResources as any).validate();
+    }
+    if(Array.isArray(this.workspaceAdmins)) {
+      $dara.Model.validateArray(this.workspaceAdmins);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateJobRequest extends $tea.Model {
+export class CreateJobRequest extends $dara.Model {
   accessibility?: string;
   codeSource?: CreateJobRequestCodeSource;
   credentialConfig?: CredentialConfig;
@@ -3098,12 +4159,43 @@ export class CreateJobRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.codeSource && typeof (this.codeSource as any).validate === 'function') {
+      (this.codeSource as any).validate();
+    }
+    if(this.credentialConfig && typeof (this.credentialConfig as any).validate === 'function') {
+      (this.credentialConfig as any).validate();
+    }
+    if(Array.isArray(this.dataSources)) {
+      $dara.Model.validateArray(this.dataSources);
+    }
+    if(this.elasticSpec && typeof (this.elasticSpec as any).validate === 'function') {
+      (this.elasticSpec as any).validate();
+    }
+    if(this.envs) {
+      $dara.Model.validateMap(this.envs);
+    }
+    if(Array.isArray(this.jobSpecs)) {
+      $dara.Model.validateArray(this.jobSpecs);
+    }
+    if(this.settings && typeof (this.settings as any).validate === 'function') {
+      (this.settings as any).validate();
+    }
+    if(Array.isArray(this.thirdpartyLibs)) {
+      $dara.Model.validateArray(this.thirdpartyLibs);
+    }
+    if(this.userVpc && typeof (this.userVpc as any).validate === 'function') {
+      (this.userVpc as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateJobResponseBody extends $tea.Model {
+export class CreateJobResponseBody extends $dara.Model {
   /**
    * @example
    * dlc7*******
@@ -3128,12 +4220,16 @@ export class CreateJobResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateJobResponse extends $tea.Model {
+export class CreateJobResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateJobResponseBody;
@@ -3153,12 +4249,22 @@ export class CreateJobResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTensorboardRequest extends $tea.Model {
+export class CreateTensorboardRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @example
@@ -3281,12 +4387,25 @@ export class CreateTensorboardRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.dataSources)) {
+      $dara.Model.validateArray(this.dataSources);
+    }
+    if(Array.isArray(this.tensorboardDataSources)) {
+      $dara.Model.validateArray(this.tensorboardDataSources);
+    }
+    if(this.tensorboardSpec && typeof (this.tensorboardSpec as any).validate === 'function') {
+      (this.tensorboardSpec as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTensorboardResponseBody extends $tea.Model {
+export class CreateTensorboardResponseBody extends $dara.Model {
   /**
    * @example
    * ds-20210126170216-xxxxxxxx
@@ -3325,12 +4444,16 @@ export class CreateTensorboardResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTensorboardResponse extends $tea.Model {
+export class CreateTensorboardResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateTensorboardResponseBody;
@@ -3350,12 +4473,22 @@ export class CreateTensorboardResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteJobResponseBody extends $tea.Model {
+export class DeleteJobResponseBody extends $dara.Model {
   /**
    * @example
    * dlc*************
@@ -3380,12 +4513,16 @@ export class DeleteJobResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteJobResponse extends $tea.Model {
+export class DeleteJobResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteJobResponseBody;
@@ -3405,12 +4542,22 @@ export class DeleteJobResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteTensorboardRequest extends $tea.Model {
+export class DeleteTensorboardRequest extends $dara.Model {
   /**
    * @example
    * 46099
@@ -3428,12 +4575,16 @@ export class DeleteTensorboardRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteTensorboardResponseBody extends $tea.Model {
+export class DeleteTensorboardResponseBody extends $dara.Model {
   /**
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -3458,12 +4609,16 @@ export class DeleteTensorboardResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteTensorboardResponse extends $tea.Model {
+export class DeleteTensorboardResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteTensorboardResponseBody;
@@ -3483,12 +4638,22 @@ export class DeleteTensorboardResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobRequest extends $tea.Model {
+export class GetJobRequest extends $dara.Model {
   /**
    * @example
    * true
@@ -3506,12 +4671,16 @@ export class GetJobRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobResponseBody extends $tea.Model {
+export class GetJobResponseBody extends $dara.Model {
   accessibility?: string;
   /**
    * @example
@@ -3757,12 +4926,49 @@ export class GetJobResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.codeSource && typeof (this.codeSource as any).validate === 'function') {
+      (this.codeSource as any).validate();
+    }
+    if(this.credentialConfig && typeof (this.credentialConfig as any).validate === 'function') {
+      (this.credentialConfig as any).validate();
+    }
+    if(Array.isArray(this.dataSources)) {
+      $dara.Model.validateArray(this.dataSources);
+    }
+    if(this.elasticSpec && typeof (this.elasticSpec as any).validate === 'function') {
+      (this.elasticSpec as any).validate();
+    }
+    if(this.envs) {
+      $dara.Model.validateMap(this.envs);
+    }
+    if(Array.isArray(this.jobSpecs)) {
+      $dara.Model.validateArray(this.jobSpecs);
+    }
+    if(Array.isArray(this.pods)) {
+      $dara.Model.validateArray(this.pods);
+    }
+    if(this.settings && typeof (this.settings as any).validate === 'function') {
+      (this.settings as any).validate();
+    }
+    if(Array.isArray(this.statusHistory)) {
+      $dara.Model.validateArray(this.statusHistory);
+    }
+    if(Array.isArray(this.thirdpartyLibs)) {
+      $dara.Model.validateArray(this.thirdpartyLibs);
+    }
+    if(this.userVpc && typeof (this.userVpc as any).validate === 'function') {
+      (this.userVpc as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobResponse extends $tea.Model {
+export class GetJobResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetJobResponseBody;
@@ -3782,12 +4988,22 @@ export class GetJobResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobEventsRequest extends $tea.Model {
+export class GetJobEventsRequest extends $dara.Model {
   /**
    * @example
    * 2020-11-08T18:00:00Z
@@ -3819,12 +5035,16 @@ export class GetJobEventsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobEventsResponseBody extends $tea.Model {
+export class GetJobEventsResponseBody extends $dara.Model {
   events?: string[];
   /**
    * @example
@@ -3852,12 +5072,19 @@ export class GetJobEventsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobEventsResponse extends $tea.Model {
+export class GetJobEventsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetJobEventsResponseBody;
@@ -3877,12 +5104,22 @@ export class GetJobEventsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobMetricsRequest extends $tea.Model {
+export class GetJobMetricsRequest extends $dara.Model {
   /**
    * @example
    * 2020-11-09T16:00:00Z
@@ -3931,12 +5168,16 @@ export class GetJobMetricsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobMetricsResponseBody extends $tea.Model {
+export class GetJobMetricsResponseBody extends $dara.Model {
   /**
    * @example
    * dlc-20210126170216-*******
@@ -3964,12 +5205,19 @@ export class GetJobMetricsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.podMetrics)) {
+      $dara.Model.validateArray(this.podMetrics);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobMetricsResponse extends $tea.Model {
+export class GetJobMetricsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetJobMetricsResponseBody;
@@ -3989,12 +5237,22 @@ export class GetJobMetricsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobSanityCheckResultRequest extends $tea.Model {
+export class GetJobSanityCheckResultRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4025,12 +5283,16 @@ export class GetJobSanityCheckResultRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobSanityCheckResultResponseBody extends $tea.Model {
+export class GetJobSanityCheckResultResponseBody extends $dara.Model {
   /**
    * @example
    * dlc-20210126170216-xxxxxx
@@ -4058,12 +5320,19 @@ export class GetJobSanityCheckResultResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.sanityCheckResult)) {
+      $dara.Model.validateArray(this.sanityCheckResult);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobSanityCheckResultResponse extends $tea.Model {
+export class GetJobSanityCheckResultResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetJobSanityCheckResultResponseBody;
@@ -4083,12 +5352,22 @@ export class GetJobSanityCheckResultResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPodEventsRequest extends $tea.Model {
+export class GetPodEventsRequest extends $dara.Model {
   /**
    * @example
    * 2020-11-09T16:00:00Z
@@ -4127,12 +5406,16 @@ export class GetPodEventsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPodEventsResponseBody extends $tea.Model {
+export class GetPodEventsResponseBody extends $dara.Model {
   events?: string[];
   /**
    * @example
@@ -4177,12 +5460,19 @@ export class GetPodEventsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPodEventsResponse extends $tea.Model {
+export class GetPodEventsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetPodEventsResponseBody;
@@ -4202,12 +5492,22 @@ export class GetPodEventsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPodLogsRequest extends $tea.Model {
+export class GetPodLogsRequest extends $dara.Model {
   /**
    * @example
    * true
@@ -4253,12 +5553,16 @@ export class GetPodLogsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPodLogsResponseBody extends $tea.Model {
+export class GetPodLogsResponseBody extends $dara.Model {
   /**
    * @example
    * dlc-20210126170216-******
@@ -4300,12 +5604,19 @@ export class GetPodLogsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.logs)) {
+      $dara.Model.validateArray(this.logs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPodLogsResponse extends $tea.Model {
+export class GetPodLogsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetPodLogsResponseBody;
@@ -4325,12 +5636,22 @@ export class GetPodLogsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTensorboardRequest extends $tea.Model {
+export class GetTensorboardRequest extends $dara.Model {
   /**
    * @example
    * dlc-xxxxxxxx
@@ -4358,12 +5679,16 @@ export class GetTensorboardRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTensorboardResponse extends $tea.Model {
+export class GetTensorboardResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Tensorboard;
@@ -4383,12 +5708,22 @@ export class GetTensorboardResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTensorboardSharedUrlRequest extends $tea.Model {
+export class GetTensorboardSharedUrlRequest extends $dara.Model {
   /**
    * @example
    * 86400
@@ -4406,12 +5741,16 @@ export class GetTensorboardSharedUrlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTensorboardSharedUrlResponseBody extends $tea.Model {
+export class GetTensorboardSharedUrlResponseBody extends $dara.Model {
   /**
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -4436,12 +5775,16 @@ export class GetTensorboardSharedUrlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTensorboardSharedUrlResponse extends $tea.Model {
+export class GetTensorboardSharedUrlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetTensorboardSharedUrlResponseBody;
@@ -4461,12 +5804,22 @@ export class GetTensorboardSharedUrlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTokenRequest extends $tea.Model {
+export class GetTokenRequest extends $dara.Model {
   /**
    * @example
    * 60
@@ -4498,12 +5851,16 @@ export class GetTokenRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTokenResponseBody extends $tea.Model {
+export class GetTokenResponseBody extends $dara.Model {
   /**
    * @example
    * 473469C7-AA6F-4DC5-B3DB-xxxxxxxx
@@ -4528,12 +5885,16 @@ export class GetTokenResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTokenResponse extends $tea.Model {
+export class GetTokenResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetTokenResponseBody;
@@ -4553,12 +5914,22 @@ export class GetTokenResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetWebTerminalRequest extends $tea.Model {
+export class GetWebTerminalRequest extends $dara.Model {
   isShared?: boolean;
   /**
    * @remarks
@@ -4582,12 +5953,16 @@ export class GetWebTerminalRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetWebTerminalResponseBody extends $tea.Model {
+export class GetWebTerminalResponseBody extends $dara.Model {
   requestId?: string;
   webTerminalUrl?: string;
   static names(): { [key: string]: string } {
@@ -4604,12 +5979,16 @@ export class GetWebTerminalResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetWebTerminalResponse extends $tea.Model {
+export class GetWebTerminalResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetWebTerminalResponseBody;
@@ -4629,12 +6008,22 @@ export class GetWebTerminalResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEcsSpecsRequest extends $tea.Model {
+export class ListEcsSpecsRequest extends $dara.Model {
   /**
    * @example
    * GPU
@@ -4694,12 +6083,16 @@ export class ListEcsSpecsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEcsSpecsResponseBody extends $tea.Model {
+export class ListEcsSpecsResponseBody extends $dara.Model {
   ecsSpecs?: EcsSpec[];
   /**
    * @example
@@ -4727,12 +6120,19 @@ export class ListEcsSpecsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ecsSpecs)) {
+      $dara.Model.validateArray(this.ecsSpecs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEcsSpecsResponse extends $tea.Model {
+export class ListEcsSpecsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListEcsSpecsResponseBody;
@@ -4752,12 +6152,22 @@ export class ListEcsSpecsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListJobSanityCheckResultsRequest extends $tea.Model {
+export class ListJobSanityCheckResultsRequest extends $dara.Model {
   /**
    * @example
    * desc
@@ -4775,12 +6185,16 @@ export class ListJobSanityCheckResultsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListJobSanityCheckResultsResponseBody extends $tea.Model {
+export class ListJobSanityCheckResultsResponseBody extends $dara.Model {
   /**
    * @example
    * 1AC9xxx-3xxx-5xxx2-xxxx-FA5
@@ -4808,12 +6222,19 @@ export class ListJobSanityCheckResultsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.sanityCheckResults)) {
+      $dara.Model.validateArray(this.sanityCheckResults);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListJobSanityCheckResultsResponse extends $tea.Model {
+export class ListJobSanityCheckResultsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListJobSanityCheckResultsResponseBody;
@@ -4833,12 +6254,22 @@ export class ListJobSanityCheckResultsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListJobsRequest extends $tea.Model {
+export class ListJobsRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @example
@@ -4989,12 +6420,19 @@ export class ListJobsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListJobsShrinkRequest extends $tea.Model {
+export class ListJobsShrinkRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @example
@@ -5145,12 +6583,16 @@ export class ListJobsShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListJobsResponseBody extends $tea.Model {
+export class ListJobsResponseBody extends $dara.Model {
   jobs?: JobItem[];
   /**
    * @example
@@ -5178,12 +6620,19 @@ export class ListJobsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.jobs)) {
+      $dara.Model.validateArray(this.jobs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListJobsResponse extends $tea.Model {
+export class ListJobsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListJobsResponseBody;
@@ -5203,12 +6652,22 @@ export class ListJobsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTensorboardsRequest extends $tea.Model {
+export class ListTensorboardsRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @example
@@ -5335,12 +6794,16 @@ export class ListTensorboardsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTensorboardsResponseBody extends $tea.Model {
+export class ListTensorboardsResponseBody extends $dara.Model {
   /**
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -5368,12 +6831,19 @@ export class ListTensorboardsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tensorboards)) {
+      $dara.Model.validateArray(this.tensorboards);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTensorboardsResponse extends $tea.Model {
+export class ListTensorboardsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTensorboardsResponseBody;
@@ -5393,12 +6863,22 @@ export class ListTensorboardsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartTensorboardRequest extends $tea.Model {
+export class StartTensorboardRequest extends $dara.Model {
   /**
    * @example
    * 380
@@ -5416,12 +6896,16 @@ export class StartTensorboardRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartTensorboardResponseBody extends $tea.Model {
+export class StartTensorboardResponseBody extends $dara.Model {
   /**
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -5446,12 +6930,16 @@ export class StartTensorboardResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartTensorboardResponse extends $tea.Model {
+export class StartTensorboardResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartTensorboardResponseBody;
@@ -5471,12 +6959,22 @@ export class StartTensorboardResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopJobResponseBody extends $tea.Model {
+export class StopJobResponseBody extends $dara.Model {
   /**
    * @example
    * dlc-20210126170216-xxxxxxx
@@ -5501,12 +6999,16 @@ export class StopJobResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopJobResponse extends $tea.Model {
+export class StopJobResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StopJobResponseBody;
@@ -5526,12 +7028,22 @@ export class StopJobResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopTensorboardRequest extends $tea.Model {
+export class StopTensorboardRequest extends $dara.Model {
   /**
    * @example
    * 380
@@ -5549,12 +7061,16 @@ export class StopTensorboardRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopTensorboardResponseBody extends $tea.Model {
+export class StopTensorboardResponseBody extends $dara.Model {
   /**
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -5579,12 +7095,16 @@ export class StopTensorboardResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopTensorboardResponse extends $tea.Model {
+export class StopTensorboardResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StopTensorboardResponseBody;
@@ -5604,12 +7124,22 @@ export class StopTensorboardResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateJobRequest extends $tea.Model {
+export class UpdateJobRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @example
@@ -5630,12 +7160,16 @@ export class UpdateJobRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateJobResponseBody extends $tea.Model {
+export class UpdateJobResponseBody extends $dara.Model {
   /**
    * @example
    * dlc*************
@@ -5660,12 +7194,16 @@ export class UpdateJobResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateJobResponse extends $tea.Model {
+export class UpdateJobResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateJobResponseBody;
@@ -5685,12 +7223,22 @@ export class UpdateJobResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTensorboardRequest extends $tea.Model {
+export class UpdateTensorboardRequest extends $dara.Model {
   accessibility?: string;
   /**
    * @example
@@ -5721,12 +7269,16 @@ export class UpdateTensorboardRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTensorboardResponseBody extends $tea.Model {
+export class UpdateTensorboardResponseBody extends $dara.Model {
   /**
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -5751,12 +7303,16 @@ export class UpdateTensorboardResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTensorboardResponse extends $tea.Model {
+export class UpdateTensorboardResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateTensorboardResponseBody;
@@ -5776,614 +7332,14 @@ export class UpdateTensorboardResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobItemCodeSource extends $tea.Model {
-  /**
-   * @example
-   * master
-   */
-  branch?: string;
-  /**
-   * @example
-   * code-20210111103721-85qz78ia96lu
-   */
-  codeSourceId?: string;
-  /**
-   * @example
-   * 44da109b59f8596152987eaa8f3b2487bb72ea63
-   */
-  commit?: string;
-  /**
-   * @example
-   * /mnt/data
-   */
-  mountPath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      branch: 'Branch',
-      codeSourceId: 'CodeSourceId',
-      commit: 'Commit',
-      mountPath: 'MountPath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      branch: 'string',
-      codeSourceId: 'string',
-      commit: 'string',
-      mountPath: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobItemDataSources extends $tea.Model {
-  /**
-   * @example
-   * data-20210114104214-vf9lowjt3pso
-   */
-  dataSourceId?: string;
-  /**
-   * @example
-   * /mnt/data
-   */
-  mountPath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceId: 'DataSourceId',
-      mountPath: 'MountPath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceId: 'string',
-      mountPath: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class JobItemUserVpc extends $tea.Model {
-  defaultRoute?: string;
-  extendedCidrs?: string[];
-  securityGroupId?: string;
-  switchId?: string;
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultRoute: 'DefaultRoute',
-      extendedCidrs: 'ExtendedCidrs',
-      securityGroupId: 'SecurityGroupId',
-      switchId: 'SwitchId',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultRoute: 'string',
-      extendedCidrs: { 'type': 'array', 'itemType': 'string' },
-      securityGroupId: 'string',
-      switchId: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LifecyclePostStartExec extends $tea.Model {
-  command?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      command: 'Command',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      command: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LifecyclePostStart extends $tea.Model {
-  exec?: LifecyclePostStartExec;
-  static names(): { [key: string]: string } {
-    return {
-      exec: 'Exec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exec: LifecyclePostStartExec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LifecyclePreStopExec extends $tea.Model {
-  command?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      command: 'Command',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      command: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class LifecyclePreStop extends $tea.Model {
-  exec?: LifecyclePreStopExec;
-  static names(): { [key: string]: string } {
-    return {
-      exec: 'Exec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exec: LifecyclePreStopExec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateJobRequestCodeSource extends $tea.Model {
-  /**
-   * @example
-   * master
-   */
-  branch?: string;
-  /**
-   * @example
-   * code-20210111103721-xxxxxxx
-   */
-  codeSourceId?: string;
-  /**
-   * @example
-   * 44da109b5******
-   */
-  commit?: string;
-  /**
-   * @example
-   * /root/data
-   */
-  mountPath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      branch: 'Branch',
-      codeSourceId: 'CodeSourceId',
-      commit: 'Commit',
-      mountPath: 'MountPath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      branch: 'string',
-      codeSourceId: 'string',
-      commit: 'string',
-      mountPath: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateJobRequestDataSources extends $tea.Model {
-  /**
-   * @example
-   * d-cn9dl*******
-   */
-  dataSourceId?: string;
-  dataSourceVersion?: string;
-  /**
-   * @example
-   * /root/data
-   */
-  mountPath?: string;
-  options?: string;
-  /**
-   * @example
-   * oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
-   */
-  uri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceId: 'DataSourceId',
-      dataSourceVersion: 'DataSourceVersion',
-      mountPath: 'MountPath',
-      options: 'Options',
-      uri: 'Uri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceId: 'string',
-      dataSourceVersion: 'string',
-      mountPath: 'string',
-      options: 'string',
-      uri: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateJobRequestUserVpc extends $tea.Model {
-  defaultRoute?: string;
-  extendedCIDRs?: string[];
-  /**
-   * @example
-   * sg-abcdef****
-   */
-  securityGroupId?: string;
-  /**
-   * @example
-   * vs-abcdef****
-   */
-  switchId?: string;
-  /**
-   * @example
-   * vpc-abcdef****
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultRoute: 'DefaultRoute',
-      extendedCIDRs: 'ExtendedCIDRs',
-      securityGroupId: 'SecurityGroupId',
-      switchId: 'SwitchId',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultRoute: 'string',
-      extendedCIDRs: { 'type': 'array', 'itemType': 'string' },
-      securityGroupId: 'string',
-      switchId: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobResponseBodyCodeSource extends $tea.Model {
-  /**
-   * @example
-   * master
-   */
-  branch?: string;
-  /**
-   * @example
-   * code******
-   */
-  codeSourceId?: string;
-  /**
-   * @example
-   * 44da109b59f8596152987eaa8f3b2487xxxxxx
-   */
-  commit?: string;
-  /**
-   * @example
-   * /mnt/data
-   */
-  mountPath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      branch: 'Branch',
-      codeSourceId: 'CodeSourceId',
-      commit: 'Commit',
-      mountPath: 'MountPath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      branch: 'string',
-      codeSourceId: 'string',
-      commit: 'string',
-      mountPath: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobResponseBodyDataSources extends $tea.Model {
-  /**
-   * @example
-   * d*******
-   */
-  dataSourceId?: string;
-  /**
-   * @example
-   * /mnt/data/
-   */
-  mountPath?: string;
-  /**
-   * @example
-   * oss://bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/
-   */
-  uri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceId: 'DataSourceId',
-      mountPath: 'MountPath',
-      uri: 'Uri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceId: 'string',
-      mountPath: 'string',
-      uri: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobResponseBodyPodsHistoryPods extends $tea.Model {
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtCreateTime?: string;
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtFinishTime?: string;
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtStartTime?: string;
-  /**
-   * @example
-   * 10.0.1.3
-   */
-  ip?: string;
-  /**
-   * @example
-   * Worker
-   */
-  podId?: string;
-  /**
-   * @example
-   * fe846462-af2c-4521-bd6f-96787a57591d
-   */
-  podUid?: string;
-  /**
-   * @example
-   * Normal
-   */
-  resourceType?: string;
-  /**
-   * @example
-   * Failed
-   */
-  status?: string;
-  /**
-   * @example
-   * Normal
-   */
-  subStatus?: string;
-  /**
-   * @example
-   * Worker
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreateTime: 'GmtCreateTime',
-      gmtFinishTime: 'GmtFinishTime',
-      gmtStartTime: 'GmtStartTime',
-      ip: 'Ip',
-      podId: 'PodId',
-      podUid: 'PodUid',
-      resourceType: 'ResourceType',
-      status: 'Status',
-      subStatus: 'SubStatus',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreateTime: 'string',
-      gmtFinishTime: 'string',
-      gmtStartTime: 'string',
-      ip: 'string',
-      podId: 'string',
-      podUid: 'string',
-      resourceType: 'string',
-      status: 'string',
-      subStatus: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobResponseBodyPods extends $tea.Model {
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtCreateTime?: string;
-  /**
-   * @example
-   * 2021-01-12T15:36:05Z
-   */
-  gmtFinishTime?: string;
-  /**
-   * @example
-   * 2021-01-12T14:36:01Z
-   */
-  gmtStartTime?: string;
-  historyPods?: GetJobResponseBodyPodsHistoryPods[];
-  /**
-   * @example
-   * 10.0.1.2
-   */
-  ip?: string;
-  /**
-   * @example
-   * Worker
-   */
-  podId?: string;
-  /**
-   * @example
-   * fe846462-af2c-4521-bd6f-96787a57591d
-   */
-  podUid?: string;
-  /**
-   * @example
-   * Normal
-   */
-  resourceType?: string;
-  /**
-   * @example
-   * Running
-   */
-  status?: string;
-  /**
-   * @example
-   * Normal
-   */
-  subStatus?: string;
-  /**
-   * @example
-   * Worker
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreateTime: 'GmtCreateTime',
-      gmtFinishTime: 'GmtFinishTime',
-      gmtStartTime: 'GmtStartTime',
-      historyPods: 'HistoryPods',
-      ip: 'Ip',
-      podId: 'PodId',
-      podUid: 'PodUid',
-      resourceType: 'ResourceType',
-      status: 'Status',
-      subStatus: 'SubStatus',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreateTime: 'string',
-      gmtFinishTime: 'string',
-      gmtStartTime: 'string',
-      historyPods: { 'type': 'array', 'itemType': GetJobResponseBodyPodsHistoryPods },
-      ip: 'string',
-      podId: 'string',
-      podUid: 'string',
-      resourceType: 'string',
-      status: 'string',
-      subStatus: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobResponseBodyUserVpc extends $tea.Model {
-  defaultRoute?: string;
-  extendedCidrs?: string[];
-  /**
-   * @example
-   * sg-abcdef****
-   */
-  securityGroupId?: string;
-  /**
-   * @example
-   * vs-abcdef****
-   */
-  switchId?: string;
-  /**
-   * @example
-   * vpc-abcdef****
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultRoute: 'DefaultRoute',
-      extendedCidrs: 'ExtendedCidrs',
-      securityGroupId: 'SecurityGroupId',
-      switchId: 'SwitchId',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultRoute: 'string',
-      extendedCidrs: { 'type': 'array', 'itemType': 'string' },
-      securityGroupId: 'string',
-      switchId: 'string',
-      vpcId: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -6394,7 +7350,7 @@ export class GetJobResponseBodyUserVpc extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
@@ -6454,15 +7410,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -6473,98 +7429,98 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateJobResponse
    */
-  async createJobWithOptions(request: CreateJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
-    Util.validateModel(request);
+  async createJobWithOptions(request: CreateJobRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateJobResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accessibility)) {
+    if (!$dara.isNull(request.accessibility)) {
       body["Accessibility"] = request.accessibility;
     }
 
-    if (!Util.isUnset(request.codeSource)) {
+    if (!$dara.isNull(request.codeSource)) {
       body["CodeSource"] = request.codeSource;
     }
 
-    if (!Util.isUnset(request.credentialConfig)) {
+    if (!$dara.isNull(request.credentialConfig)) {
       body["CredentialConfig"] = request.credentialConfig;
     }
 
-    if (!Util.isUnset(request.dataSources)) {
+    if (!$dara.isNull(request.dataSources)) {
       body["DataSources"] = request.dataSources;
     }
 
-    if (!Util.isUnset(request.debuggerConfigContent)) {
+    if (!$dara.isNull(request.debuggerConfigContent)) {
       body["DebuggerConfigContent"] = request.debuggerConfigContent;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       body["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.elasticSpec)) {
+    if (!$dara.isNull(request.elasticSpec)) {
       body["ElasticSpec"] = request.elasticSpec;
     }
 
-    if (!Util.isUnset(request.envs)) {
+    if (!$dara.isNull(request.envs)) {
       body["Envs"] = request.envs;
     }
 
-    if (!Util.isUnset(request.jobMaxRunningTimeMinutes)) {
+    if (!$dara.isNull(request.jobMaxRunningTimeMinutes)) {
       body["JobMaxRunningTimeMinutes"] = request.jobMaxRunningTimeMinutes;
     }
 
-    if (!Util.isUnset(request.jobSpecs)) {
+    if (!$dara.isNull(request.jobSpecs)) {
       body["JobSpecs"] = request.jobSpecs;
     }
 
-    if (!Util.isUnset(request.jobType)) {
+    if (!$dara.isNull(request.jobType)) {
       body["JobType"] = request.jobType;
     }
 
-    if (!Util.isUnset(request.options)) {
+    if (!$dara.isNull(request.options)) {
       body["Options"] = request.options;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       body["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       body["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.settings)) {
+    if (!$dara.isNull(request.settings)) {
       body["Settings"] = request.settings;
     }
 
-    if (!Util.isUnset(request.successPolicy)) {
+    if (!$dara.isNull(request.successPolicy)) {
       body["SuccessPolicy"] = request.successPolicy;
     }
 
-    if (!Util.isUnset(request.thirdpartyLibDir)) {
+    if (!$dara.isNull(request.thirdpartyLibDir)) {
       body["ThirdpartyLibDir"] = request.thirdpartyLibDir;
     }
 
-    if (!Util.isUnset(request.thirdpartyLibs)) {
+    if (!$dara.isNull(request.thirdpartyLibs)) {
       body["ThirdpartyLibs"] = request.thirdpartyLibs;
     }
 
-    if (!Util.isUnset(request.userCommand)) {
+    if (!$dara.isNull(request.userCommand)) {
       body["UserCommand"] = request.userCommand;
     }
 
-    if (!Util.isUnset(request.userVpc)) {
+    if (!$dara.isNull(request.userVpc)) {
       body["UserVpc"] = request.userVpc;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateJob",
       version: "2020-12-03",
       protocol: "HTTPS",
@@ -6575,7 +7531,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateJobResponse>(await this.callApi(params, req, runtime), new CreateJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateJobResponse>(await this.callApi(params, req, runtime), new CreateJobResponse({}));
+    } else {
+      return $dara.cast<CreateJobResponse>(await this.execute(params, req, runtime), new CreateJobResponse({}));
+    }
+
   }
 
   /**
@@ -6585,7 +7546,7 @@ export default class Client extends OpenApi {
    * @returns CreateJobResponse
    */
   async createJob(request: CreateJobRequest): Promise<CreateJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createJobWithOptions(request, headers, runtime);
   }
@@ -6598,94 +7559,94 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateTensorboardResponse
    */
-  async createTensorboardWithOptions(request: CreateTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTensorboardResponse> {
-    Util.validateModel(request);
+  async createTensorboardWithOptions(request: CreateTensorboardRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateTensorboardResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accessibility)) {
+    if (!$dara.isNull(request.accessibility)) {
       body["Accessibility"] = request.accessibility;
     }
 
-    if (!Util.isUnset(request.cpu)) {
+    if (!$dara.isNull(request.cpu)) {
       body["Cpu"] = request.cpu;
     }
 
-    if (!Util.isUnset(request.dataSourceId)) {
+    if (!$dara.isNull(request.dataSourceId)) {
       body["DataSourceId"] = request.dataSourceId;
     }
 
-    if (!Util.isUnset(request.dataSourceType)) {
+    if (!$dara.isNull(request.dataSourceType)) {
       body["DataSourceType"] = request.dataSourceType;
     }
 
-    if (!Util.isUnset(request.dataSources)) {
+    if (!$dara.isNull(request.dataSources)) {
       body["DataSources"] = request.dataSources;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       body["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.jobId)) {
       body["JobId"] = request.jobId;
     }
 
-    if (!Util.isUnset(request.maxRunningTimeMinutes)) {
+    if (!$dara.isNull(request.maxRunningTimeMinutes)) {
       body["MaxRunningTimeMinutes"] = request.maxRunningTimeMinutes;
     }
 
-    if (!Util.isUnset(request.memory)) {
+    if (!$dara.isNull(request.memory)) {
       body["Memory"] = request.memory;
     }
 
-    if (!Util.isUnset(request.options)) {
+    if (!$dara.isNull(request.options)) {
       body["Options"] = request.options;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       body["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.quotaId)) {
+    if (!$dara.isNull(request.quotaId)) {
       body["QuotaId"] = request.quotaId;
     }
 
-    if (!Util.isUnset(request.sourceId)) {
+    if (!$dara.isNull(request.sourceId)) {
       body["SourceId"] = request.sourceId;
     }
 
-    if (!Util.isUnset(request.sourceType)) {
+    if (!$dara.isNull(request.sourceType)) {
       body["SourceType"] = request.sourceType;
     }
 
-    if (!Util.isUnset(request.summaryPath)) {
+    if (!$dara.isNull(request.summaryPath)) {
       body["SummaryPath"] = request.summaryPath;
     }
 
-    if (!Util.isUnset(request.summaryRelativePath)) {
+    if (!$dara.isNull(request.summaryRelativePath)) {
       body["SummaryRelativePath"] = request.summaryRelativePath;
     }
 
-    if (!Util.isUnset(request.tensorboardDataSources)) {
+    if (!$dara.isNull(request.tensorboardDataSources)) {
       body["TensorboardDataSources"] = request.tensorboardDataSources;
     }
 
-    if (!Util.isUnset(request.tensorboardSpec)) {
+    if (!$dara.isNull(request.tensorboardSpec)) {
       body["TensorboardSpec"] = request.tensorboardSpec;
     }
 
-    if (!Util.isUnset(request.uri)) {
+    if (!$dara.isNull(request.uri)) {
       body["Uri"] = request.uri;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateTensorboard",
       version: "2020-12-03",
       protocol: "HTTPS",
@@ -6696,7 +7657,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateTensorboardResponse>(await this.callApi(params, req, runtime), new CreateTensorboardResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateTensorboardResponse>(await this.callApi(params, req, runtime), new CreateTensorboardResponse({}));
+    } else {
+      return $dara.cast<CreateTensorboardResponse>(await this.execute(params, req, runtime), new CreateTensorboardResponse({}));
+    }
+
   }
 
   /**
@@ -6706,7 +7672,7 @@ export default class Client extends OpenApi {
    * @returns CreateTensorboardResponse
    */
   async createTensorboard(request: CreateTensorboardRequest): Promise<CreateTensorboardResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTensorboardWithOptions(request, headers, runtime);
   }
@@ -6718,22 +7684,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteJobResponse
    */
-  async deleteJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteJobResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteJobResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteJob",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}`,
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteJobResponse>(await this.callApi(params, req, runtime), new DeleteJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteJobResponse>(await this.callApi(params, req, runtime), new DeleteJobResponse({}));
+    } else {
+      return $dara.cast<DeleteJobResponse>(await this.execute(params, req, runtime), new DeleteJobResponse({}));
+    }
+
   }
 
   /**
@@ -6741,7 +7712,7 @@ export default class Client extends OpenApi {
    * @returns DeleteJobResponse
    */
   async deleteJob(JobId: string): Promise<DeleteJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteJobWithOptions(JobId, headers, runtime);
   }
@@ -6754,29 +7725,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteTensorboardResponse
    */
-  async deleteTensorboardWithOptions(TensorboardId: string, request: DeleteTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTensorboardResponse> {
-    Util.validateModel(request);
+  async deleteTensorboardWithOptions(TensorboardId: string, request: DeleteTensorboardRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteTensorboardResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteTensorboard",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/tensorboards/${OpenApiUtil.getEncodeParam(TensorboardId)}`,
+      pathname: `/api/v1/tensorboards/${$dara.URL.percentEncode(TensorboardId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteTensorboardResponse>(await this.callApi(params, req, runtime), new DeleteTensorboardResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteTensorboardResponse>(await this.callApi(params, req, runtime), new DeleteTensorboardResponse({}));
+    } else {
+      return $dara.cast<DeleteTensorboardResponse>(await this.execute(params, req, runtime), new DeleteTensorboardResponse({}));
+    }
+
   }
 
   /**
@@ -6786,7 +7762,7 @@ export default class Client extends OpenApi {
    * @returns DeleteTensorboardResponse
    */
   async deleteTensorboard(TensorboardId: string, request: DeleteTensorboardRequest): Promise<DeleteTensorboardResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
@@ -6799,29 +7775,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetJobResponse
    */
-  async getJobWithOptions(JobId: string, request: GetJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobResponse> {
-    Util.validateModel(request);
+  async getJobWithOptions(JobId: string, request: GetJobRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetJobResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.needDetail)) {
+    if (!$dara.isNull(request.needDetail)) {
       query["NeedDetail"] = request.needDetail;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetJob",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}`,
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
+    } else {
+      return $dara.cast<GetJobResponse>(await this.execute(params, req, runtime), new GetJobResponse({}));
+    }
+
   }
 
   /**
@@ -6831,7 +7812,7 @@ export default class Client extends OpenApi {
    * @returns GetJobResponse
    */
   async getJob(JobId: string, request: GetJobRequest): Promise<GetJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobWithOptions(JobId, request, headers, runtime);
   }
@@ -6844,37 +7825,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetJobEventsResponse
    */
-  async getJobEventsWithOptions(JobId: string, request: GetJobEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobEventsResponse> {
-    Util.validateModel(request);
+  async getJobEventsWithOptions(JobId: string, request: GetJobEventsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetJobEventsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.maxEventsNum)) {
+    if (!$dara.isNull(request.maxEventsNum)) {
       query["MaxEventsNum"] = request.maxEventsNum;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetJobEvents",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/events`,
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/events`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetJobEventsResponse>(await this.callApi(params, req, runtime), new GetJobEventsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetJobEventsResponse>(await this.callApi(params, req, runtime), new GetJobEventsResponse({}));
+    } else {
+      return $dara.cast<GetJobEventsResponse>(await this.execute(params, req, runtime), new GetJobEventsResponse({}));
+    }
+
   }
 
   /**
@@ -6884,7 +7870,7 @@ export default class Client extends OpenApi {
    * @returns GetJobEventsResponse
    */
   async getJobEvents(JobId: string, request: GetJobEventsRequest): Promise<GetJobEventsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobEventsWithOptions(JobId, request, headers, runtime);
   }
@@ -6897,45 +7883,50 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetJobMetricsResponse
    */
-  async getJobMetricsWithOptions(JobId: string, request: GetJobMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobMetricsResponse> {
-    Util.validateModel(request);
+  async getJobMetricsWithOptions(JobId: string, request: GetJobMetricsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetJobMetricsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.metricType)) {
+    if (!$dara.isNull(request.metricType)) {
       query["MetricType"] = request.metricType;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.timeStep)) {
+    if (!$dara.isNull(request.timeStep)) {
       query["TimeStep"] = request.timeStep;
     }
 
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       query["Token"] = request.token;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetJobMetrics",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/metrics`,
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/metrics`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetJobMetricsResponse>(await this.callApi(params, req, runtime), new GetJobMetricsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetJobMetricsResponse>(await this.callApi(params, req, runtime), new GetJobMetricsResponse({}));
+    } else {
+      return $dara.cast<GetJobMetricsResponse>(await this.execute(params, req, runtime), new GetJobMetricsResponse({}));
+    }
+
   }
 
   /**
@@ -6945,7 +7936,7 @@ export default class Client extends OpenApi {
    * @returns GetJobMetricsResponse
    */
   async getJobMetrics(JobId: string, request: GetJobMetricsRequest): Promise<GetJobMetricsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobMetricsWithOptions(JobId, request, headers, runtime);
   }
@@ -6958,37 +7949,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetJobSanityCheckResultResponse
    */
-  async getJobSanityCheckResultWithOptions(JobId: string, request: GetJobSanityCheckResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetJobSanityCheckResultResponse> {
-    Util.validateModel(request);
+  async getJobSanityCheckResultWithOptions(JobId: string, request: GetJobSanityCheckResultRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetJobSanityCheckResultResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.sanityCheckNumber)) {
+    if (!$dara.isNull(request.sanityCheckNumber)) {
       query["SanityCheckNumber"] = request.sanityCheckNumber;
     }
 
-    if (!Util.isUnset(request.sanityCheckPhase)) {
+    if (!$dara.isNull(request.sanityCheckPhase)) {
       query["SanityCheckPhase"] = request.sanityCheckPhase;
     }
 
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       query["Token"] = request.token;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetJobSanityCheckResult",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/sanitycheckresult`,
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/sanitycheckresult`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetJobSanityCheckResultResponse>(await this.callApi(params, req, runtime), new GetJobSanityCheckResultResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetJobSanityCheckResultResponse>(await this.callApi(params, req, runtime), new GetJobSanityCheckResultResponse({}));
+    } else {
+      return $dara.cast<GetJobSanityCheckResultResponse>(await this.execute(params, req, runtime), new GetJobSanityCheckResultResponse({}));
+    }
+
   }
 
   /**
@@ -6998,7 +7994,7 @@ export default class Client extends OpenApi {
    * @returns GetJobSanityCheckResultResponse
    */
   async getJobSanityCheckResult(JobId: string, request: GetJobSanityCheckResultRequest): Promise<GetJobSanityCheckResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobSanityCheckResultWithOptions(JobId, request, headers, runtime);
   }
@@ -7011,41 +8007,46 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPodEventsResponse
    */
-  async getPodEventsWithOptions(JobId: string, PodId: string, request: GetPodEventsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPodEventsResponse> {
-    Util.validateModel(request);
+  async getPodEventsWithOptions(JobId: string, PodId: string, request: GetPodEventsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetPodEventsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.maxEventsNum)) {
+    if (!$dara.isNull(request.maxEventsNum)) {
       query["MaxEventsNum"] = request.maxEventsNum;
     }
 
-    if (!Util.isUnset(request.podUid)) {
+    if (!$dara.isNull(request.podUid)) {
       query["PodUid"] = request.podUid;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetPodEvents",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/pods/${OpenApiUtil.getEncodeParam(PodId)}/events`,
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/pods/${$dara.URL.percentEncode(PodId)}/events`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetPodEventsResponse>(await this.callApi(params, req, runtime), new GetPodEventsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetPodEventsResponse>(await this.callApi(params, req, runtime), new GetPodEventsResponse({}));
+    } else {
+      return $dara.cast<GetPodEventsResponse>(await this.execute(params, req, runtime), new GetPodEventsResponse({}));
+    }
+
   }
 
   /**
@@ -7055,7 +8056,7 @@ export default class Client extends OpenApi {
    * @returns GetPodEventsResponse
    */
   async getPodEvents(JobId: string, PodId: string, request: GetPodEventsRequest): Promise<GetPodEventsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPodEventsWithOptions(JobId, PodId, request, headers, runtime);
   }
@@ -7068,45 +8069,50 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPodLogsResponse
    */
-  async getPodLogsWithOptions(JobId: string, PodId: string, request: GetPodLogsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetPodLogsResponse> {
-    Util.validateModel(request);
+  async getPodLogsWithOptions(JobId: string, PodId: string, request: GetPodLogsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetPodLogsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.downloadToFile)) {
+    if (!$dara.isNull(request.downloadToFile)) {
       query["DownloadToFile"] = request.downloadToFile;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.maxLines)) {
+    if (!$dara.isNull(request.maxLines)) {
       query["MaxLines"] = request.maxLines;
     }
 
-    if (!Util.isUnset(request.podUid)) {
+    if (!$dara.isNull(request.podUid)) {
       query["PodUid"] = request.podUid;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetPodLogs",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/pods/${OpenApiUtil.getEncodeParam(PodId)}/logs`,
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/pods/${$dara.URL.percentEncode(PodId)}/logs`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetPodLogsResponse>(await this.callApi(params, req, runtime), new GetPodLogsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetPodLogsResponse>(await this.callApi(params, req, runtime), new GetPodLogsResponse({}));
+    } else {
+      return $dara.cast<GetPodLogsResponse>(await this.execute(params, req, runtime), new GetPodLogsResponse({}));
+    }
+
   }
 
   /**
@@ -7116,7 +8122,7 @@ export default class Client extends OpenApi {
    * @returns GetPodLogsResponse
    */
   async getPodLogs(JobId: string, PodId: string, request: GetPodLogsRequest): Promise<GetPodLogsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getPodLogsWithOptions(JobId, PodId, request, headers, runtime);
   }
@@ -7129,37 +8135,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTensorboardResponse
    */
-  async getTensorboardWithOptions(TensorboardId: string, request: GetTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTensorboardResponse> {
-    Util.validateModel(request);
+  async getTensorboardWithOptions(TensorboardId: string, request: GetTensorboardRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetTensorboardResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.jodId)) {
+    if (!$dara.isNull(request.jodId)) {
       query["JodId"] = request.jodId;
     }
 
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       query["Token"] = request.token;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTensorboard",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/tensorboards/${OpenApiUtil.getEncodeParam(TensorboardId)}`,
+      pathname: `/api/v1/tensorboards/${$dara.URL.percentEncode(TensorboardId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTensorboardResponse>(await this.callApi(params, req, runtime), new GetTensorboardResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTensorboardResponse>(await this.callApi(params, req, runtime), new GetTensorboardResponse({}));
+    } else {
+      return $dara.cast<GetTensorboardResponse>(await this.execute(params, req, runtime), new GetTensorboardResponse({}));
+    }
+
   }
 
   /**
@@ -7169,7 +8180,7 @@ export default class Client extends OpenApi {
    * @returns GetTensorboardResponse
    */
   async getTensorboard(TensorboardId: string, request: GetTensorboardRequest): Promise<GetTensorboardResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
@@ -7182,29 +8193,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTensorboardSharedUrlResponse
    */
-  async getTensorboardSharedUrlWithOptions(TensorboardId: string, request: GetTensorboardSharedUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTensorboardSharedUrlResponse> {
-    Util.validateModel(request);
+  async getTensorboardSharedUrlWithOptions(TensorboardId: string, request: GetTensorboardSharedUrlRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetTensorboardSharedUrlResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.expireTimeSeconds)) {
+    if (!$dara.isNull(request.expireTimeSeconds)) {
       query["ExpireTimeSeconds"] = request.expireTimeSeconds;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTensorboardSharedUrl",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/tensorboards/${OpenApiUtil.getEncodeParam(TensorboardId)}/sharedurl`,
+      pathname: `/api/v1/tensorboards/${$dara.URL.percentEncode(TensorboardId)}/sharedurl`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTensorboardSharedUrlResponse>(await this.callApi(params, req, runtime), new GetTensorboardSharedUrlResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTensorboardSharedUrlResponse>(await this.callApi(params, req, runtime), new GetTensorboardSharedUrlResponse({}));
+    } else {
+      return $dara.cast<GetTensorboardSharedUrlResponse>(await this.execute(params, req, runtime), new GetTensorboardSharedUrlResponse({}));
+    }
+
   }
 
   /**
@@ -7214,7 +8230,7 @@ export default class Client extends OpenApi {
    * @returns GetTensorboardSharedUrlResponse
    */
   async getTensorboardSharedUrl(TensorboardId: string, request: GetTensorboardSharedUrlRequest): Promise<GetTensorboardSharedUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTensorboardSharedUrlWithOptions(TensorboardId, request, headers, runtime);
   }
@@ -7227,26 +8243,26 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTokenResponse
    */
-  async getTokenWithOptions(request: GetTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
-    Util.validateModel(request);
+  async getTokenWithOptions(request: GetTokenRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetTokenResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.expireTime)) {
+    if (!$dara.isNull(request.expireTime)) {
       query["ExpireTime"] = request.expireTime;
     }
 
-    if (!Util.isUnset(request.targetId)) {
+    if (!$dara.isNull(request.targetId)) {
       query["TargetId"] = request.targetId;
     }
 
-    if (!Util.isUnset(request.targetType)) {
+    if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetToken",
       version: "2020-12-03",
       protocol: "HTTPS",
@@ -7257,7 +8273,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
+    } else {
+      return $dara.cast<GetTokenResponse>(await this.execute(params, req, runtime), new GetTokenResponse({}));
+    }
+
   }
 
   /**
@@ -7267,7 +8288,7 @@ export default class Client extends OpenApi {
    * @returns GetTokenResponse
    */
   async getToken(request: GetTokenRequest): Promise<GetTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTokenWithOptions(request, headers, runtime);
   }
@@ -7280,33 +8301,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetWebTerminalResponse
    */
-  async getWebTerminalWithOptions(JobId: string, PodId: string, request: GetWebTerminalRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWebTerminalResponse> {
-    Util.validateModel(request);
+  async getWebTerminalWithOptions(JobId: string, PodId: string, request: GetWebTerminalRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetWebTerminalResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.isShared)) {
+    if (!$dara.isNull(request.isShared)) {
       query["IsShared"] = request.isShared;
     }
 
-    if (!Util.isUnset(request.podUid)) {
+    if (!$dara.isNull(request.podUid)) {
       query["PodUid"] = request.podUid;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetWebTerminal",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/pods/${OpenApiUtil.getEncodeParam(PodId)}/webterminal`,
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/pods/${$dara.URL.percentEncode(PodId)}/webterminal`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetWebTerminalResponse>(await this.callApi(params, req, runtime), new GetWebTerminalResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetWebTerminalResponse>(await this.callApi(params, req, runtime), new GetWebTerminalResponse({}));
+    } else {
+      return $dara.cast<GetWebTerminalResponse>(await this.execute(params, req, runtime), new GetWebTerminalResponse({}));
+    }
+
   }
 
   /**
@@ -7316,7 +8342,7 @@ export default class Client extends OpenApi {
    * @returns GetWebTerminalResponse
    */
   async getWebTerminal(JobId: string, PodId: string, request: GetWebTerminalRequest): Promise<GetWebTerminalResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getWebTerminalWithOptions(JobId, PodId, request, headers, runtime);
   }
@@ -7329,42 +8355,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEcsSpecsResponse
    */
-  async listEcsSpecsWithOptions(request: ListEcsSpecsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEcsSpecsResponse> {
-    Util.validateModel(request);
+  async listEcsSpecsWithOptions(request: ListEcsSpecsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListEcsSpecsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.acceleratorType)) {
+    if (!$dara.isNull(request.acceleratorType)) {
       query["AcceleratorType"] = request.acceleratorType;
     }
 
-    if (!Util.isUnset(request.instanceTypes)) {
+    if (!$dara.isNull(request.instanceTypes)) {
       query["InstanceTypes"] = request.instanceTypes;
     }
 
-    if (!Util.isUnset(request.order)) {
+    if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.sortBy)) {
+    if (!$dara.isNull(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListEcsSpecs",
       version: "2020-12-03",
       protocol: "HTTPS",
@@ -7375,7 +8401,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListEcsSpecsResponse>(await this.callApi(params, req, runtime), new ListEcsSpecsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListEcsSpecsResponse>(await this.callApi(params, req, runtime), new ListEcsSpecsResponse({}));
+    } else {
+      return $dara.cast<ListEcsSpecsResponse>(await this.execute(params, req, runtime), new ListEcsSpecsResponse({}));
+    }
+
   }
 
   /**
@@ -7385,7 +8416,7 @@ export default class Client extends OpenApi {
    * @returns ListEcsSpecsResponse
    */
   async listEcsSpecs(request: ListEcsSpecsRequest): Promise<ListEcsSpecsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listEcsSpecsWithOptions(request, headers, runtime);
   }
@@ -7398,29 +8429,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListJobSanityCheckResultsResponse
    */
-  async listJobSanityCheckResultsWithOptions(JobId: string, request: ListJobSanityCheckResultsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobSanityCheckResultsResponse> {
-    Util.validateModel(request);
+  async listJobSanityCheckResultsWithOptions(JobId: string, request: ListJobSanityCheckResultsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListJobSanityCheckResultsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.order)) {
+    if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListJobSanityCheckResults",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/sanitycheckresults`,
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/sanitycheckresults`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListJobSanityCheckResultsResponse>(await this.callApi(params, req, runtime), new ListJobSanityCheckResultsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListJobSanityCheckResultsResponse>(await this.callApi(params, req, runtime), new ListJobSanityCheckResultsResponse({}));
+    } else {
+      return $dara.cast<ListJobSanityCheckResultsResponse>(await this.execute(params, req, runtime), new ListJobSanityCheckResultsResponse({}));
+    }
+
   }
 
   /**
@@ -7430,7 +8466,7 @@ export default class Client extends OpenApi {
    * @returns ListJobSanityCheckResultsResponse
    */
   async listJobSanityCheckResults(JobId: string, request: ListJobSanityCheckResultsRequest): Promise<ListJobSanityCheckResultsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listJobSanityCheckResultsWithOptions(JobId, request, headers, runtime);
   }
@@ -7443,116 +8479,116 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListJobsResponse
    */
-  async listJobsWithOptions(tmpReq: ListJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
-    Util.validateModel(tmpReq);
+  async listJobsWithOptions(tmpReq: ListJobsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListJobsResponse> {
+    tmpReq.validate();
     let request = new ListJobsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.tags)) {
+    if (!$dara.isNull(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accessibility)) {
+    if (!$dara.isNull(request.accessibility)) {
       query["Accessibility"] = request.accessibility;
     }
 
-    if (!Util.isUnset(request.businessUserId)) {
+    if (!$dara.isNull(request.businessUserId)) {
       query["BusinessUserId"] = request.businessUserId;
     }
 
-    if (!Util.isUnset(request.caller)) {
+    if (!$dara.isNull(request.caller)) {
       query["Caller"] = request.caller;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       query["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.fromAllWorkspaces)) {
+    if (!$dara.isNull(request.fromAllWorkspaces)) {
       query["FromAllWorkspaces"] = request.fromAllWorkspaces;
     }
 
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.jobId)) {
       query["JobId"] = request.jobId;
     }
 
-    if (!Util.isUnset(request.jobType)) {
+    if (!$dara.isNull(request.jobType)) {
       query["JobType"] = request.jobType;
     }
 
-    if (!Util.isUnset(request.order)) {
+    if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
 
-    if (!Util.isUnset(request.oversoldInfo)) {
+    if (!$dara.isNull(request.oversoldInfo)) {
       query["OversoldInfo"] = request.oversoldInfo;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.paymentType)) {
+    if (!$dara.isNull(request.paymentType)) {
       query["PaymentType"] = request.paymentType;
     }
 
-    if (!Util.isUnset(request.pipelineId)) {
+    if (!$dara.isNull(request.pipelineId)) {
       query["PipelineId"] = request.pipelineId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceQuotaName)) {
+    if (!$dara.isNull(request.resourceQuotaName)) {
       query["ResourceQuotaName"] = request.resourceQuotaName;
     }
 
-    if (!Util.isUnset(request.showOwn)) {
+    if (!$dara.isNull(request.showOwn)) {
       query["ShowOwn"] = request.showOwn;
     }
 
-    if (!Util.isUnset(request.sortBy)) {
+    if (!$dara.isNull(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tagsShrink)) {
+    if (!$dara.isNull(request.tagsShrink)) {
       query["Tags"] = request.tagsShrink;
     }
 
-    if (!Util.isUnset(request.userIdForFilter)) {
+    if (!$dara.isNull(request.userIdForFilter)) {
       query["UserIdForFilter"] = request.userIdForFilter;
     }
 
-    if (!Util.isUnset(request.username)) {
+    if (!$dara.isNull(request.username)) {
       query["Username"] = request.username;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListJobs",
       version: "2020-12-03",
       protocol: "HTTPS",
@@ -7563,7 +8599,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
+    } else {
+      return $dara.cast<ListJobsResponse>(await this.execute(params, req, runtime), new ListJobsResponse({}));
+    }
+
   }
 
   /**
@@ -7573,7 +8614,7 @@ export default class Client extends OpenApi {
    * @returns ListJobsResponse
    */
   async listJobs(request: ListJobsRequest): Promise<ListJobsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listJobsWithOptions(request, headers, runtime);
   }
@@ -7586,94 +8627,94 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTensorboardsResponse
    */
-  async listTensorboardsWithOptions(request: ListTensorboardsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTensorboardsResponse> {
-    Util.validateModel(request);
+  async listTensorboardsWithOptions(request: ListTensorboardsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListTensorboardsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accessibility)) {
+    if (!$dara.isNull(request.accessibility)) {
       query["Accessibility"] = request.accessibility;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       query["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.jobId)) {
       query["JobId"] = request.jobId;
     }
 
-    if (!Util.isUnset(request.order)) {
+    if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.paymentType)) {
+    if (!$dara.isNull(request.paymentType)) {
       query["PaymentType"] = request.paymentType;
     }
 
-    if (!Util.isUnset(request.quotaId)) {
+    if (!$dara.isNull(request.quotaId)) {
       query["QuotaId"] = request.quotaId;
     }
 
-    if (!Util.isUnset(request.showOwn)) {
+    if (!$dara.isNull(request.showOwn)) {
       query["ShowOwn"] = request.showOwn;
     }
 
-    if (!Util.isUnset(request.sortBy)) {
+    if (!$dara.isNull(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
 
-    if (!Util.isUnset(request.sourceId)) {
+    if (!$dara.isNull(request.sourceId)) {
       query["SourceId"] = request.sourceId;
     }
 
-    if (!Util.isUnset(request.sourceType)) {
+    if (!$dara.isNull(request.sourceType)) {
       query["SourceType"] = request.sourceType;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tensorboardId)) {
+    if (!$dara.isNull(request.tensorboardId)) {
       query["TensorboardId"] = request.tensorboardId;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.userId)) {
       query["UserId"] = request.userId;
     }
 
-    if (!Util.isUnset(request.username)) {
+    if (!$dara.isNull(request.username)) {
       query["Username"] = request.username;
     }
 
-    if (!Util.isUnset(request.verbose)) {
+    if (!$dara.isNull(request.verbose)) {
       query["Verbose"] = request.verbose;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTensorboards",
       version: "2020-12-03",
       protocol: "HTTPS",
@@ -7684,7 +8725,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTensorboardsResponse>(await this.callApi(params, req, runtime), new ListTensorboardsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTensorboardsResponse>(await this.callApi(params, req, runtime), new ListTensorboardsResponse({}));
+    } else {
+      return $dara.cast<ListTensorboardsResponse>(await this.execute(params, req, runtime), new ListTensorboardsResponse({}));
+    }
+
   }
 
   /**
@@ -7694,7 +8740,7 @@ export default class Client extends OpenApi {
    * @returns ListTensorboardsResponse
    */
   async listTensorboards(request: ListTensorboardsRequest): Promise<ListTensorboardsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTensorboardsWithOptions(request, headers, runtime);
   }
@@ -7707,29 +8753,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartTensorboardResponse
    */
-  async startTensorboardWithOptions(TensorboardId: string, request: StartTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartTensorboardResponse> {
-    Util.validateModel(request);
+  async startTensorboardWithOptions(TensorboardId: string, request: StartTensorboardRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<StartTensorboardResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartTensorboard",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/tensorboards/${OpenApiUtil.getEncodeParam(TensorboardId)}/start`,
+      pathname: `/api/v1/tensorboards/${$dara.URL.percentEncode(TensorboardId)}/start`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StartTensorboardResponse>(await this.callApi(params, req, runtime), new StartTensorboardResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartTensorboardResponse>(await this.callApi(params, req, runtime), new StartTensorboardResponse({}));
+    } else {
+      return $dara.cast<StartTensorboardResponse>(await this.execute(params, req, runtime), new StartTensorboardResponse({}));
+    }
+
   }
 
   /**
@@ -7739,7 +8790,7 @@ export default class Client extends OpenApi {
    * @returns StartTensorboardResponse
    */
   async startTensorboard(TensorboardId: string, request: StartTensorboardRequest): Promise<StartTensorboardResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
@@ -7751,22 +8802,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopJobResponse
    */
-  async stopJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopJobResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async stopJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<StopJobResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopJob",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}/stop`,
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/stop`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StopJobResponse>(await this.callApi(params, req, runtime), new StopJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopJobResponse>(await this.callApi(params, req, runtime), new StopJobResponse({}));
+    } else {
+      return $dara.cast<StopJobResponse>(await this.execute(params, req, runtime), new StopJobResponse({}));
+    }
+
   }
 
   /**
@@ -7774,7 +8830,7 @@ export default class Client extends OpenApi {
    * @returns StopJobResponse
    */
   async stopJob(JobId: string): Promise<StopJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopJobWithOptions(JobId, headers, runtime);
   }
@@ -7787,29 +8843,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopTensorboardResponse
    */
-  async stopTensorboardWithOptions(TensorboardId: string, request: StopTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopTensorboardResponse> {
-    Util.validateModel(request);
+  async stopTensorboardWithOptions(TensorboardId: string, request: StopTensorboardRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<StopTensorboardResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopTensorboard",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/tensorboards/${OpenApiUtil.getEncodeParam(TensorboardId)}/stop`,
+      pathname: `/api/v1/tensorboards/${$dara.URL.percentEncode(TensorboardId)}/stop`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StopTensorboardResponse>(await this.callApi(params, req, runtime), new StopTensorboardResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopTensorboardResponse>(await this.callApi(params, req, runtime), new StopTensorboardResponse({}));
+    } else {
+      return $dara.cast<StopTensorboardResponse>(await this.execute(params, req, runtime), new StopTensorboardResponse({}));
+    }
+
   }
 
   /**
@@ -7819,7 +8880,7 @@ export default class Client extends OpenApi {
    * @returns StopTensorboardResponse
    */
   async stopTensorboard(TensorboardId: string, request: StopTensorboardRequest): Promise<StopTensorboardResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
@@ -7832,33 +8893,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateJobResponse
    */
-  async updateJobWithOptions(JobId: string, request: UpdateJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateJobResponse> {
-    Util.validateModel(request);
+  async updateJobWithOptions(JobId: string, request: UpdateJobRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateJobResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accessibility)) {
+    if (!$dara.isNull(request.accessibility)) {
       body["Accessibility"] = request.accessibility;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       body["Priority"] = request.priority;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateJob",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/jobs/${OpenApiUtil.getEncodeParam(JobId)}`,
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateJobResponse>(await this.callApi(params, req, runtime), new UpdateJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateJobResponse>(await this.callApi(params, req, runtime), new UpdateJobResponse({}));
+    } else {
+      return $dara.cast<UpdateJobResponse>(await this.execute(params, req, runtime), new UpdateJobResponse({}));
+    }
+
   }
 
   /**
@@ -7868,7 +8934,7 @@ export default class Client extends OpenApi {
    * @returns UpdateJobResponse
    */
   async updateJob(JobId: string, request: UpdateJobRequest): Promise<UpdateJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateJobWithOptions(JobId, request, headers, runtime);
   }
@@ -7881,41 +8947,46 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateTensorboardResponse
    */
-  async updateTensorboardWithOptions(TensorboardId: string, request: UpdateTensorboardRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTensorboardResponse> {
-    Util.validateModel(request);
+  async updateTensorboardWithOptions(TensorboardId: string, request: UpdateTensorboardRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateTensorboardResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accessibility)) {
+    if (!$dara.isNull(request.accessibility)) {
       query["Accessibility"] = request.accessibility;
     }
 
-    if (!Util.isUnset(request.maxRunningTimeMinutes)) {
+    if (!$dara.isNull(request.maxRunningTimeMinutes)) {
       query["MaxRunningTimeMinutes"] = request.maxRunningTimeMinutes;
     }
 
-    if (!Util.isUnset(request.priority)) {
+    if (!$dara.isNull(request.priority)) {
       query["Priority"] = request.priority;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateTensorboard",
       version: "2020-12-03",
       protocol: "HTTPS",
-      pathname: `/api/v1/tensorboards/${OpenApiUtil.getEncodeParam(TensorboardId)}`,
+      pathname: `/api/v1/tensorboards/${$dara.URL.percentEncode(TensorboardId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateTensorboardResponse>(await this.callApi(params, req, runtime), new UpdateTensorboardResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateTensorboardResponse>(await this.callApi(params, req, runtime), new UpdateTensorboardResponse({}));
+    } else {
+      return $dara.cast<UpdateTensorboardResponse>(await this.execute(params, req, runtime), new UpdateTensorboardResponse({}));
+    }
+
   }
 
   /**
@@ -7925,7 +8996,7 @@ export default class Client extends OpenApi {
    * @returns UpdateTensorboardResponse
    */
   async updateTensorboard(TensorboardId: string, request: UpdateTensorboardRequest): Promise<UpdateTensorboardResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateTensorboardWithOptions(TensorboardId, request, headers, runtime);
   }
