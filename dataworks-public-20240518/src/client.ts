@@ -1432,6 +1432,272 @@ export class DataQualityRuleTemplateSamplingConfig extends $dara.Model {
   }
 }
 
+export class BatchUpdateTasksRequestTasksDataSource extends $dara.Model {
+  /**
+   * @example
+   * odps_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateTasksRequestTasksRuntimeResource extends $dara.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateTasksRequestTasksTags extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
+  /**
+   * @example
+   * 00 00 00 * * ?
+   */
+  cron?: string;
+  /**
+   * @example
+   * 9999-01-01 00:00:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * Normal
+   */
+  recurrence?: string;
+  /**
+   * @example
+   * 1970-01-01 00:00:00
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Scheduler
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cron: 'Cron',
+      endTime: 'EndTime',
+      recurrence: 'Recurrence',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cron: 'string',
+      endTime: 'string',
+      recurrence: 'string',
+      startTime: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateTasksRequestTasks extends $dara.Model {
+  dataSource?: BatchUpdateTasksRequestTasksDataSource;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  name?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 60
+   */
+  rerunInterval?: number;
+  /**
+   * @example
+   * AllAllowed
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 3
+   */
+  rerunTimes?: number;
+  runtimeResource?: BatchUpdateTasksRequestTasksRuntimeResource;
+  tags?: BatchUpdateTasksRequestTasksTags[];
+  /**
+   * @example
+   * 3600
+   */
+  timeout?: number;
+  trigger?: BatchUpdateTasksRequestTasksTrigger;
+  static names(): { [key: string]: string } {
+    return {
+      dataSource: 'DataSource',
+      description: 'Description',
+      envType: 'EnvType',
+      id: 'Id',
+      name: 'Name',
+      owner: 'Owner',
+      rerunInterval: 'RerunInterval',
+      rerunMode: 'RerunMode',
+      rerunTimes: 'RerunTimes',
+      runtimeResource: 'RuntimeResource',
+      tags: 'Tags',
+      timeout: 'Timeout',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSource: BatchUpdateTasksRequestTasksDataSource,
+      description: 'string',
+      envType: 'string',
+      id: 'number',
+      name: 'string',
+      owner: 'string',
+      rerunInterval: 'number',
+      rerunMode: 'string',
+      rerunTimes: 'number',
+      runtimeResource: BatchUpdateTasksRequestTasksRuntimeResource,
+      tags: { 'type': 'array', 'itemType': BatchUpdateTasksRequestTasksTags },
+      timeout: 'number',
+      trigger: BatchUpdateTasksRequestTasksTrigger,
+    };
+  }
+
+  validate() {
+    if(this.dataSource && typeof (this.dataSource as any).validate === 'function') {
+      (this.dataSource as any).validate();
+    }
+    if(this.runtimeResource && typeof (this.runtimeResource as any).validate === 'function') {
+      (this.runtimeResource as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(this.trigger && typeof (this.trigger as any).validate === 'function') {
+      (this.trigger as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAlertRuleRequestNotificationReceivers extends $dara.Model {
   /**
    * @remarks
@@ -2157,6 +2423,13 @@ export class CreateDIAlarmRuleRequestNotificationSettings extends $dara.Model {
    * @deprecated
    */
   inhibitionInterval?: number;
+  /**
+   * @remarks
+   * 告警抑制间隔时长，单位分钟，默认5分钟。
+   * 
+   * @example
+   * 5
+   */
   muteInterval?: number;
   /**
    * @remarks
@@ -2209,6 +2482,10 @@ export class CreateDIAlarmRuleRequestTriggerConditions extends $dara.Model {
    * @deprecated
    */
   ddlReportTags?: string[];
+  /**
+   * @remarks
+   * 在DDL通知的时候才生效，需要生效的DDL列表。
+   */
   ddlTypes?: string[];
   /**
    * @remarks
@@ -3073,6 +3350,7 @@ export class CreateDIJobRequestTransformationRules extends $dara.Model {
 }
 
 export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical extends $dara.Model {
+  expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
@@ -3098,6 +3376,7 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -3105,6 +3384,7 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -3120,6 +3400,7 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 }
 
 export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected extends $dara.Model {
+  expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
@@ -3145,6 +3426,7 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -3152,6 +3434,7 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -3167,6 +3450,7 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 }
 
 export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned extends $dara.Model {
+  expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
@@ -3192,6 +3476,7 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -3199,6 +3484,7 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -3890,17 +4176,6 @@ export class CreateDataQualityEvaluationTaskInstanceRequestRuntimeResource exten
 
 export class CreateDataQualityRuleRequestCheckingConfigThresholdsCritical extends $dara.Model {
   /**
-   * @remarks
-   * 阈值表达式。
-   * 
-   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
-   * 
-   * - 波动上升大于0.01： $checkValue > 0.01 
-   * - 波动下降大于0.01：$checkValue < -0.01 
-   * - 波动率绝对值：abs($checkValue) > 0.01
-   * 
-   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
-   * 
    * @example
    * $checkValue > 0.05
    */
@@ -3955,17 +4230,6 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholdsCritical extend
 
 export class CreateDataQualityRuleRequestCheckingConfigThresholdsExpected extends $dara.Model {
   /**
-   * @remarks
-   * 阈值表达式。
-   * 
-   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
-   * 
-   * - 波动上升大于0.01： $checkValue > 0.01 
-   * - 波动下降大于0.01：$checkValue < -0.01 
-   * - 波动率绝对值：abs($checkValue) > 0.01
-   * 
-   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
-   * 
    * @example
    * $checkValue <= 0.01
    */
@@ -4020,17 +4284,6 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholdsExpected extend
 
 export class CreateDataQualityRuleRequestCheckingConfigThresholdsWarned extends $dara.Model {
   /**
-   * @remarks
-   * 阈值表达式。
-   * 
-   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
-   * 
-   * - 波动上升大于0.01： $checkValue > 0.01 
-   * - 波动下降大于0.01：$checkValue < -0.01 
-   * - 波动率绝对值：abs($checkValue) > 0.01
-   * 
-   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
-   * 
    * @example
    * $checkValue > 0.01
    */
@@ -4602,6 +4855,711 @@ export class CreateResourceGroupResponseBodyResourceGroupOrder extends $dara.Mod
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkflowInstancesRequestDefaultRunPropertiesAlert extends $dara.Model {
+  /**
+   * @example
+   * Sms
+   */
+  noticeType?: string;
+  /**
+   * @example
+   * Succes
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      noticeType: 'NoticeType',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      noticeType: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  blocked?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      blocked: 'Blocked',
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blocked: 'boolean',
+      enabled: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends $dara.Model {
+  /**
+   * @example
+   * 23:59:59
+   */
+  endTime?: string;
+  /**
+   * @example
+   * false
+   */
+  immediately?: boolean;
+  /**
+   * @example
+   * 00:00:00
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Daily
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      immediately: 'Immediately',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      immediately: 'boolean',
+      startTime: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Model {
+  alert?: CreateWorkflowInstancesRequestDefaultRunPropertiesAlert;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  analysis?: CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis;
+  excludeProjectIds?: number[];
+  excludeTaskIds?: number[];
+  includeProjectIds?: number[];
+  includeTaskIds?: number[];
+  /**
+   * @example
+   * ManualSelection
+   */
+  mode?: string;
+  /**
+   * @example
+   * Asc
+   */
+  order?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  parallelism?: number;
+  rootTaskIds?: number[];
+  runPolicy?: CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  runtimeResource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alert: 'Alert',
+      analysis: 'Analysis',
+      excludeProjectIds: 'ExcludeProjectIds',
+      excludeTaskIds: 'ExcludeTaskIds',
+      includeProjectIds: 'IncludeProjectIds',
+      includeTaskIds: 'IncludeTaskIds',
+      mode: 'Mode',
+      order: 'Order',
+      parallelism: 'Parallelism',
+      rootTaskIds: 'RootTaskIds',
+      runPolicy: 'RunPolicy',
+      runtimeResource: 'RuntimeResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alert: CreateWorkflowInstancesRequestDefaultRunPropertiesAlert,
+      analysis: CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis,
+      excludeProjectIds: { 'type': 'array', 'itemType': 'number' },
+      excludeTaskIds: { 'type': 'array', 'itemType': 'number' },
+      includeProjectIds: { 'type': 'array', 'itemType': 'number' },
+      includeTaskIds: { 'type': 'array', 'itemType': 'number' },
+      mode: 'string',
+      order: 'string',
+      parallelism: 'number',
+      rootTaskIds: { 'type': 'array', 'itemType': 'number' },
+      runPolicy: CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy,
+      runtimeResource: 'string',
+    };
+  }
+
+  validate() {
+    if(this.alert && typeof (this.alert as any).validate === 'function') {
+      (this.alert as any).validate();
+    }
+    if(this.analysis && typeof (this.analysis as any).validate === 'function') {
+      (this.analysis as any).validate();
+    }
+    if(Array.isArray(this.excludeProjectIds)) {
+      $dara.Model.validateArray(this.excludeProjectIds);
+    }
+    if(Array.isArray(this.excludeTaskIds)) {
+      $dara.Model.validateArray(this.excludeTaskIds);
+    }
+    if(Array.isArray(this.includeProjectIds)) {
+      $dara.Model.validateArray(this.includeProjectIds);
+    }
+    if(Array.isArray(this.includeTaskIds)) {
+      $dara.Model.validateArray(this.includeTaskIds);
+    }
+    if(Array.isArray(this.rootTaskIds)) {
+      $dara.Model.validateArray(this.rootTaskIds);
+    }
+    if(this.runPolicy && typeof (this.runPolicy as any).validate === 'function') {
+      (this.runPolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkflowInstancesRequestPeriodsBizDates extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-11-24
+   */
+  endBizDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-11-20
+   */
+  startBizDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endBizDate: 'EndBizDate',
+      startBizDate: 'StartBizDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endBizDate: 'string',
+      startBizDate: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkflowInstancesRequestPeriods extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  bizDates?: CreateWorkflowInstancesRequestPeriodsBizDates[];
+  /**
+   * @example
+   * 23:59:59
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 00:00:00
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizDates: 'BizDates',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizDates: { 'type': 'array', 'itemType': CreateWorkflowInstancesRequestPeriodsBizDates },
+      endTime: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.bizDates)) {
+      $dara.Model.validateArray(this.bizDates);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdhocWorkflowInstanceRequestTasksDataSource extends $dara.Model {
+  /**
+   * @example
+   * mysql_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdhocWorkflowInstanceRequestTasksDependencies extends $dara.Model {
+  /**
+   * @example
+   * pre.odps_sql_demo_0
+   */
+  upstreamOutput?: string;
+  static names(): { [key: string]: string } {
+    return {
+      upstreamOutput: 'UpstreamOutput',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      upstreamOutput: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdhocWorkflowInstanceRequestTasksInputsVariables extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
+  name?: string;
+  /**
+   * @example
+   * Value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdhocWorkflowInstanceRequestTasksInputs extends $dara.Model {
+  variables?: ExecuteAdhocWorkflowInstanceRequestTasksInputsVariables[];
+  static names(): { [key: string]: string } {
+    return {
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      variables: { 'type': 'array', 'itemType': ExecuteAdhocWorkflowInstanceRequestTasksInputsVariables },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.variables)) {
+      $dara.Model.validateArray(this.variables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdhocWorkflowInstanceRequestTasksOutputsTaskOutputs extends $dara.Model {
+  /**
+   * @example
+   * pre.odps_sql_demo_0
+   */
+  output?: string;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdhocWorkflowInstanceRequestTasksOutputsVariables extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
+  name?: string;
+  /**
+   * @example
+   * Constant
+   */
+  type?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdhocWorkflowInstanceRequestTasksOutputs extends $dara.Model {
+  taskOutputs?: ExecuteAdhocWorkflowInstanceRequestTasksOutputsTaskOutputs[];
+  variables?: ExecuteAdhocWorkflowInstanceRequestTasksOutputsVariables[];
+  static names(): { [key: string]: string } {
+    return {
+      taskOutputs: 'TaskOutputs',
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskOutputs: { 'type': 'array', 'itemType': ExecuteAdhocWorkflowInstanceRequestTasksOutputsTaskOutputs },
+      variables: { 'type': 'array', 'itemType': ExecuteAdhocWorkflowInstanceRequestTasksOutputsVariables },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.taskOutputs)) {
+      $dara.Model.validateArray(this.taskOutputs);
+    }
+    if(Array.isArray(this.variables)) {
+      $dara.Model.validateArray(this.variables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdhocWorkflowInstanceRequestTasksRuntimeResource extends $dara.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdhocWorkflowInstanceRequestTasksScript extends $dara.Model {
+  /**
+   * @example
+   * echo "helloWorld"
+   */
+  content?: string;
+  /**
+   * @example
+   * para1=$bizdate
+   */
+  parameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      parameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdhocWorkflowInstanceRequestTasks extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Task_0bc5213917368545132902xxxxxxxx
+   */
+  clientUniqueCode?: string;
+  dataSource?: ExecuteAdhocWorkflowInstanceRequestTasksDataSource;
+  dependencies?: ExecuteAdhocWorkflowInstanceRequestTasksDependencies[];
+  inputs?: ExecuteAdhocWorkflowInstanceRequestTasksInputs;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  outputs?: ExecuteAdhocWorkflowInstanceRequestTasksOutputs;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  runtimeResource?: ExecuteAdhocWorkflowInstanceRequestTasksRuntimeResource;
+  script?: ExecuteAdhocWorkflowInstanceRequestTasksScript;
+  /**
+   * @example
+   * 3600
+   */
+  timeout?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ODPS_SQL
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientUniqueCode: 'ClientUniqueCode',
+      dataSource: 'DataSource',
+      dependencies: 'Dependencies',
+      inputs: 'Inputs',
+      name: 'Name',
+      outputs: 'Outputs',
+      owner: 'Owner',
+      runtimeResource: 'RuntimeResource',
+      script: 'Script',
+      timeout: 'Timeout',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientUniqueCode: 'string',
+      dataSource: ExecuteAdhocWorkflowInstanceRequestTasksDataSource,
+      dependencies: { 'type': 'array', 'itemType': ExecuteAdhocWorkflowInstanceRequestTasksDependencies },
+      inputs: ExecuteAdhocWorkflowInstanceRequestTasksInputs,
+      name: 'string',
+      outputs: ExecuteAdhocWorkflowInstanceRequestTasksOutputs,
+      owner: 'string',
+      runtimeResource: ExecuteAdhocWorkflowInstanceRequestTasksRuntimeResource,
+      script: ExecuteAdhocWorkflowInstanceRequestTasksScript,
+      timeout: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dataSource && typeof (this.dataSource as any).validate === 'function') {
+      (this.dataSource as any).validate();
+    }
+    if(Array.isArray(this.dependencies)) {
+      $dara.Model.validateArray(this.dependencies);
+    }
+    if(this.inputs && typeof (this.inputs as any).validate === 'function') {
+      (this.inputs as any).validate();
+    }
+    if(this.outputs && typeof (this.outputs as any).validate === 'function') {
+      (this.outputs as any).validate();
+    }
+    if(this.runtimeResource && typeof (this.runtimeResource as any).validate === 'function') {
+      (this.runtimeResource as any).validate();
+    }
+    if(this.script && typeof (this.script as any).validate === 'function') {
+      (this.script as any).validate();
+    }
     super.validate();
   }
 
@@ -5296,6 +6254,46 @@ export class GetAlertRuleResponseBodyAlertRule extends $dara.Model {
     }
     if(this.triggerCondition && typeof (this.triggerCondition as any).validate === 'function') {
       (this.triggerCondition as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCreateWorkflowInstancesResultResponseBodyResult extends $dara.Model {
+  /**
+   * @example
+   * Invalid Param xxx
+   */
+  failureMessage?: string;
+  /**
+   * @example
+   * Created
+   */
+  status?: string;
+  workflowInstanceIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      failureMessage: 'FailureMessage',
+      status: 'Status',
+      workflowInstanceIds: 'WorkflowInstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failureMessage: 'string',
+      status: 'string',
+      workflowInstanceIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.workflowInstanceIds)) {
+      $dara.Model.validateArray(this.workflowInstanceIds);
     }
     super.validate();
   }
@@ -6142,6 +7140,9 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
    */
   jobSettings?: GetDIJobResponseBodyPagingInfoJobSettings;
   /**
+   * @remarks
+   * The status of the job.
+   * 
    * @example
    * Running
    */
@@ -6598,6 +7599,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTr
 }
 
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask extends $dara.Model {
+  dataSourceId?: number;
   /**
    * @remarks
    * 质量监控任务描述
@@ -6656,6 +7658,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
   trigger?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTrigger;
   static names(): { [key: string]: string } {
     return {
+      dataSourceId: 'DataSourceId',
       description: 'Description',
       hooks: 'Hooks',
       id: 'Id',
@@ -6670,6 +7673,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
 
   static types(): { [key: string]: any } {
     return {
+      dataSourceId: 'number',
       description: 'string',
       hooks: { 'type': 'array', 'itemType': GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskHooks },
       id: 'number',
@@ -9830,14 +10834,6 @@ export class GetTaskResponseBodyTaskSubTasksSubTasks extends $dara.Model {
   runtimeResource?: GetTaskResponseBodyTaskSubTasksSubTasksRuntimeResource;
   /**
    * @remarks
-   * The tenant ID.
-   * 
-   * @example
-   * 1
-   */
-  tenantId?: number;
-  /**
-   * @remarks
    * The timeout period of task running. Unit: seconds.
    * 
    * @example
@@ -9885,7 +10881,6 @@ export class GetTaskResponseBodyTaskSubTasksSubTasks extends $dara.Model {
       rerunMode: 'RerunMode',
       rerunTimes: 'RerunTimes',
       runtimeResource: 'RuntimeResource',
-      tenantId: 'TenantId',
       timeout: 'Timeout',
       trigger: 'Trigger',
       type: 'Type',
@@ -9913,7 +10908,6 @@ export class GetTaskResponseBodyTaskSubTasksSubTasks extends $dara.Model {
       rerunMode: 'string',
       rerunTimes: 'number',
       runtimeResource: GetTaskResponseBodyTaskSubTasksSubTasksRuntimeResource,
-      tenantId: 'number',
       timeout: 'number',
       trigger: GetTaskResponseBodyTaskSubTasksSubTasksTrigger,
       type: 'string',
@@ -10295,14 +11289,6 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   tags?: GetTaskResponseBodyTaskTags[];
   /**
    * @remarks
-   * The tenant ID.
-   * 
-   * @example
-   * 1
-   */
-  tenantId?: number;
-  /**
-   * @remarks
    * The timeout period of task running. Unit: seconds.
    * 
    * @example
@@ -10357,7 +11343,6 @@ export class GetTaskResponseBodyTask extends $dara.Model {
       script: 'Script',
       subTasks: 'SubTasks',
       tags: 'Tags',
-      tenantId: 'TenantId',
       timeout: 'Timeout',
       trigger: 'Trigger',
       type: 'Type',
@@ -10392,7 +11377,6 @@ export class GetTaskResponseBodyTask extends $dara.Model {
       script: GetTaskResponseBodyTaskScript,
       subTasks: GetTaskResponseBodyTaskSubTasks,
       tags: { 'type': 'array', 'itemType': GetTaskResponseBodyTaskTags },
-      tenantId: 'number',
       timeout: 'number',
       trigger: GetTaskResponseBodyTaskTrigger,
       type: 'string',
@@ -11065,14 +12049,6 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The tenant ID.
-   * 
-   * @example
-   * 1
-   */
-  tenantId?: number;
-  /**
-   * @remarks
    * The timeout period of task running. Unit: seconds.
    * 
    * Note: The value of this parameter is rounded up by hour.
@@ -11178,7 +12154,6 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
       taskId: 'TaskId',
       taskName: 'TaskName',
       taskType: 'TaskType',
-      tenantId: 'TenantId',
       timeout: 'Timeout',
       triggerRecurrence: 'TriggerRecurrence',
       triggerTime: 'TriggerTime',
@@ -11220,7 +12195,6 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
       taskId: 'number',
       taskName: 'string',
       taskType: 'string',
-      tenantId: 'number',
       timeout: 'number',
       triggerRecurrence: 'string',
       triggerTime: 'number',
@@ -11253,6 +12227,551 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowResponseBodyWorkflowDependencies extends $dara.Model {
+  /**
+   * @example
+   * Normal
+   */
+  type?: string;
+  /**
+   * @example
+   * pre.odps_sql_demo_0
+   */
+  upstreamOutput?: string;
+  /**
+   * @example
+   * 1234
+   */
+  upstreamTaskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      upstreamOutput: 'UpstreamOutput',
+      upstreamTaskId: 'UpstreamTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      upstreamOutput: 'string',
+      upstreamTaskId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowResponseBodyWorkflowOutputsTaskOutputs extends $dara.Model {
+  /**
+   * @example
+   * pre.odps_sql_demo_0
+   */
+  output?: string;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowResponseBodyWorkflowOutputs extends $dara.Model {
+  taskOutputs?: GetWorkflowResponseBodyWorkflowOutputsTaskOutputs[];
+  static names(): { [key: string]: string } {
+    return {
+      taskOutputs: 'TaskOutputs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskOutputs: { 'type': 'array', 'itemType': GetWorkflowResponseBodyWorkflowOutputsTaskOutputs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.taskOutputs)) {
+      $dara.Model.validateArray(this.taskOutputs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowResponseBodyWorkflowTags extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowResponseBodyWorkflowTasksDataSource extends $dara.Model {
+  /**
+   * @example
+   * mysql_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowResponseBodyWorkflowTasksRuntimeResource extends $dara.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
+  /**
+   * @example
+   * 1234
+   */
+  baselineId?: number;
+  /**
+   * @example
+   * Task_0bc5213917368545132902xxxxxxxx
+   */
+  clientUniqueCode?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  createUser?: string;
+  dataSource?: GetWorkflowResponseBodyWorkflowTasksDataSource;
+  /**
+   * @example
+   * Test
+   */
+  description?: string;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  modifyUser?: string;
+  name?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * 60
+   */
+  rerunInterval?: number;
+  /**
+   * @example
+   * AllAllowed
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 3
+   */
+  rerunTimes?: number;
+  runtimeResource?: GetWorkflowResponseBodyWorkflowTasksRuntimeResource;
+  /**
+   * @example
+   * 3600
+   */
+  timeout?: number;
+  /**
+   * @example
+   * Normal
+   */
+  triggerRecurrence?: string;
+  /**
+   * @example
+   * ODPS_SQL
+   */
+  type?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      baselineId: 'BaselineId',
+      clientUniqueCode: 'ClientUniqueCode',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      dataSource: 'DataSource',
+      description: 'Description',
+      envType: 'EnvType',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      name: 'Name',
+      owner: 'Owner',
+      priority: 'Priority',
+      projectId: 'ProjectId',
+      rerunInterval: 'RerunInterval',
+      rerunMode: 'RerunMode',
+      rerunTimes: 'RerunTimes',
+      runtimeResource: 'RuntimeResource',
+      timeout: 'Timeout',
+      triggerRecurrence: 'TriggerRecurrence',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineId: 'number',
+      clientUniqueCode: 'string',
+      createTime: 'number',
+      createUser: 'string',
+      dataSource: GetWorkflowResponseBodyWorkflowTasksDataSource,
+      description: 'string',
+      envType: 'string',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      name: 'string',
+      owner: 'string',
+      priority: 'number',
+      projectId: 'number',
+      rerunInterval: 'number',
+      rerunMode: 'string',
+      rerunTimes: 'number',
+      runtimeResource: GetWorkflowResponseBodyWorkflowTasksRuntimeResource,
+      timeout: 'number',
+      triggerRecurrence: 'string',
+      type: 'string',
+      workflowId: 'number',
+    };
+  }
+
+  validate() {
+    if(this.dataSource && typeof (this.dataSource as any).validate === 'function') {
+      (this.dataSource as any).validate();
+    }
+    if(this.runtimeResource && typeof (this.runtimeResource as any).validate === 'function') {
+      (this.runtimeResource as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowResponseBodyWorkflowTrigger extends $dara.Model {
+  /**
+   * @example
+   * 00 00 00 * * ?
+   */
+  cron?: string;
+  /**
+   * @example
+   * 1970-01-01 00:00:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * Normal
+   */
+  recurrence?: string;
+  /**
+   * @example
+   * 1970-01-01 00:00:00
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Scheduler
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cron: 'Cron',
+      endTime: 'EndTime',
+      recurrence: 'Recurrence',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cron: 'string',
+      endTime: 'string',
+      recurrence: 'string',
+      startTime: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
+  /**
+   * @example
+   * Workflow_0bc5213917368545132902xxxxxxxx
+   */
+  clientUniqueCode?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  createUser?: string;
+  dependencies?: GetWorkflowResponseBodyWorkflowDependencies[];
+  description?: string;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  modifyUser?: string;
+  name?: string;
+  outputs?: GetWorkflowResponseBodyWorkflowOutputs;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * para1=$bizdate para2=$[yyyymmdd]
+   */
+  parameters?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  tags?: GetWorkflowResponseBodyWorkflowTags[];
+  tasks?: GetWorkflowResponseBodyWorkflowTasks[];
+  trigger?: GetWorkflowResponseBodyWorkflowTrigger;
+  static names(): { [key: string]: string } {
+    return {
+      clientUniqueCode: 'ClientUniqueCode',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      dependencies: 'Dependencies',
+      description: 'Description',
+      envType: 'EnvType',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      name: 'Name',
+      outputs: 'Outputs',
+      owner: 'Owner',
+      parameters: 'Parameters',
+      projectId: 'ProjectId',
+      tags: 'Tags',
+      tasks: 'Tasks',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientUniqueCode: 'string',
+      createTime: 'number',
+      createUser: 'string',
+      dependencies: { 'type': 'array', 'itemType': GetWorkflowResponseBodyWorkflowDependencies },
+      description: 'string',
+      envType: 'string',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      name: 'string',
+      outputs: GetWorkflowResponseBodyWorkflowOutputs,
+      owner: 'string',
+      parameters: 'string',
+      projectId: 'number',
+      tags: { 'type': 'array', 'itemType': GetWorkflowResponseBodyWorkflowTags },
+      tasks: { 'type': 'array', 'itemType': GetWorkflowResponseBodyWorkflowTasks },
+      trigger: GetWorkflowResponseBodyWorkflowTrigger,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dependencies)) {
+      $dara.Model.validateArray(this.dependencies);
+    }
+    if(this.outputs && typeof (this.outputs as any).validate === 'function') {
+      (this.outputs as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.tasks)) {
+      $dara.Model.validateArray(this.tasks);
+    }
+    if(this.trigger && typeof (this.trigger as any).validate === 'function') {
+      (this.trigger as any).validate();
     }
     super.validate();
   }
@@ -11334,6 +12853,175 @@ export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $dara.M
       owner: 'string',
       projectId: 'number',
       spec: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model {
+  /**
+   * @example
+   * 1710239005403
+   */
+  bizDate?: number;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * The account ID of the creator.
+   * 
+   * @example
+   * 1000
+   */
+  createUser?: string;
+  /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @remarks
+   * The time when the instance finished running.
+   * 
+   * @example
+   * 1710239005403
+   */
+  finishedTime?: number;
+  /**
+   * @remarks
+   * The ID of the workflow instance.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The modification time.
+   * 
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
+   * @example
+   * 1000
+   */
+  modifyUser?: string;
+  /**
+   * @remarks
+   * The name of the workflow instance.
+   * 
+   * @example
+   * WorkInstance1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The time when the instance started to run.
+   * 
+   * @example
+   * 1710239005403
+   */
+  startedTime?: number;
+  /**
+   * @remarks
+   * The status of the workflow instance. Valid values:
+   * 
+   * *   NotRun: The instance is not run.
+   * *   Running: The instance is running.
+   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
+   * *   CheckingCondition: Branch conditions are being checked for the instance.
+   * *   WaitResource: The instance is waiting for resources.
+   * *   Failure: The instance fails to be run.
+   * *   Success: The instance is successfully run.
+   * *   Checking: Data quality is being checked for the instance.
+   * 
+   * @example
+   * Success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * 工作流类型
+   * 
+   * @example
+   * Normal
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The ID of the workflow to which the instance belongs.
+   * 
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizDate: 'BizDate',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      envType: 'EnvType',
+      finishedTime: 'FinishedTime',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      name: 'Name',
+      projectId: 'ProjectId',
+      startedTime: 'StartedTime',
+      status: 'Status',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizDate: 'number',
+      createTime: 'number',
+      createUser: 'string',
+      envType: 'string',
+      finishedTime: 'number',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      name: 'string',
+      projectId: 'number',
+      startedTime: 'number',
+      status: 'string',
+      type: 'string',
+      workflowId: 'number',
     };
   }
 
@@ -12163,6 +13851,13 @@ export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSe
    * @deprecated
    */
   inhibitionInterval?: number;
+  /**
+   * @remarks
+   * The duration of the alert suppression interval. Unit: minutes.
+   * 
+   * @example
+   * 5
+   */
   muteInterval?: number;
   /**
    * @remarks
@@ -12215,6 +13910,10 @@ export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesTriggerConditi
    * @deprecated
    */
   ddlReportTags?: string[];
+  /**
+   * @remarks
+   * The types of DDL operations for which the alert rule takes effect. This parameter is returned only if the MetricType parameter is set to DdlReport.
+   */
   ddlTypes?: string[];
   /**
    * @remarks
@@ -12403,7 +14102,7 @@ export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRules extends $dara
 export class ListDIAlarmRulesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The alert rules returned.
+   * The alert rules.
    */
   DIJobAlarmRules?: ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRules[];
   /**
@@ -12488,6 +14187,9 @@ export class ListDIJobEventsResponseBodyPagingInfoDIJobEvent extends $dara.Model
   /**
    * @remarks
    * The alert details.
+   * 
+   * @example
+   * aggregator:avg [**] for 5 minutes, service maybe abnormal
    */
   detail?: string;
   /**
@@ -13908,14 +15610,6 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   projectId?: number;
   /**
    * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @remarks
    * The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field can be set to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks.
    * 
    * @example
@@ -13940,7 +15634,6 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
       name: 'Name',
       notifications: 'Notifications',
       projectId: 'ProjectId',
-      regionId: 'RegionId',
       runtimeConf: 'RuntimeConf',
       target: 'Target',
       trigger: 'Trigger',
@@ -13955,7 +15648,6 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
       name: 'string',
       notifications: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotifications,
       projectId: 'number',
-      regionId: 'string',
       runtimeConf: 'string',
       target: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTarget,
       trigger: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTrigger,
@@ -14693,6 +16385,11 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetai
 
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsCritical extends $dara.Model {
   /**
+   * @example
+   * $checkValue > 0.01
+   */
+  expression?: string;
+  /**
    * @remarks
    * *   \\>
    * *   \\>=
@@ -14712,6 +16409,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -14719,6 +16417,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -14735,6 +16434,11 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsExpected extends $dara.Model {
   /**
+   * @example
+   * $checkValue > 0.01
+   */
+  expression?: string;
+  /**
    * @remarks
    * *   \\>
    * *   \\>=
@@ -14754,6 +16458,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -14761,6 +16466,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -14777,6 +16483,11 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsWarned extends $dara.Model {
   /**
+   * @example
+   * $checkValue > 0.01
+   */
+  expression?: string;
+  /**
    * @remarks
    * *   \\>
    * *   \\>=
@@ -14796,6 +16507,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -14803,6 +16515,7 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -14818,8 +16531,20 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 }
 
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholds extends $dara.Model {
+  /**
+   * @remarks
+   * The threshold settings for critical alerts.
+   */
   critical?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsCritical;
+  /**
+   * @remarks
+   * The expected threshold setting.
+   */
   expected?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsExpected;
+  /**
+   * @remarks
+   * The threshold settings for normal alerts.
+   */
   warned?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsWarned;
   static names(): { [key: string]: string } {
     return {
@@ -14861,6 +16586,10 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
    * { "bizdate": [ "-1", "-7", "-1m" ] }
    */
   referencedSamplesFilter?: string;
+  /**
+   * @remarks
+   * The threshold settings.
+   */
   thresholds?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholds;
   /**
    * @remarks
@@ -15030,11 +16759,6 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleT
   databaseType?: string;
   /**
    * @example
-   * ds=$[yyyymmdd-1]
-   */
-  partitionSpec?: string;
-  /**
-   * @example
    * odps.unit_test.tb_unit_test
    */
   tableGuid?: string;
@@ -15051,7 +16775,6 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleT
   static names(): { [key: string]: string } {
     return {
       databaseType: 'DatabaseType',
-      partitionSpec: 'PartitionSpec',
       tableGuid: 'TableGuid',
       type: 'Type',
     };
@@ -15060,7 +16783,6 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleT
   static types(): { [key: string]: any } {
     return {
       databaseType: 'string',
-      partitionSpec: 'string',
       tableGuid: 'string',
       type: 'string',
     };
@@ -15909,14 +17631,6 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget ex
   databaseType?: string;
   /**
    * @remarks
-   * The configuration of the partitioned table.
-   * 
-   * @example
-   * ds=$[yyyymmdd-1]
-   */
-  partitionSpec?: string;
-  /**
-   * @remarks
    * The ID of the table that is limited by the rule in Data Map.
    * 
    * @example
@@ -15936,7 +17650,6 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget ex
   static names(): { [key: string]: string } {
     return {
       databaseType: 'DatabaseType',
-      partitionSpec: 'PartitionSpec',
       tableGuid: 'TableGuid',
       type: 'Type',
     };
@@ -15945,7 +17658,6 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget ex
   static types(): { [key: string]: any } {
     return {
       databaseType: 'string',
-      partitionSpec: 'string',
       tableGuid: 'string',
       type: 'string',
     };
@@ -16879,7 +18591,6 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
    * The task type.
    */
   taskType?: string;
-  tenantId?: number;
   timeout?: number;
   triggerRecurrence?: string;
   triggerTime?: number;
@@ -16914,7 +18625,6 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
       taskId: 'TaskId',
       taskName: 'TaskName',
       taskType: 'TaskType',
-      tenantId: 'TenantId',
       timeout: 'Timeout',
       triggerRecurrence: 'TriggerRecurrence',
       triggerTime: 'TriggerTime',
@@ -16952,7 +18662,6 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
       taskId: 'number',
       taskName: 'string',
       taskType: 'string',
-      tenantId: 'number',
       timeout: 'number',
       triggerRecurrence: 'string',
       triggerTime: 'number',
@@ -17352,14 +19061,6 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
   taskType?: string;
   /**
    * @remarks
-   * The tenant ID.
-   * 
-   * @example
-   * 1
-   */
-  tenantId?: number;
-  /**
-   * @remarks
    * The timeout period of task running. Unit: seconds.
    * 
    * Note: The value of this parameter is rounded up by hour.
@@ -17469,7 +19170,6 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
       taskId: 'TaskId',
       taskName: 'TaskName',
       taskType: 'TaskType',
-      tenantId: 'TenantId',
       timeout: 'Timeout',
       triggerRecurrence: 'TriggerRecurrence',
       triggerTime: 'TriggerTime',
@@ -17509,7 +19209,6 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
       taskId: 'number',
       taskName: 'string',
       taskType: 'string',
-      tenantId: 'number',
       timeout: 'number',
       triggerRecurrence: 'string',
       triggerTime: 'number',
@@ -17742,7 +19441,6 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
    * The configurations of the runtime environment, such as the resource group information.
    */
   runtimeResource?: ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskRuntimeResource;
-  tenantId?: number;
   /**
    * @remarks
    * The timeout period of task running. Unit: seconds.
@@ -17779,7 +19477,6 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
       rerunMode: 'RerunMode',
       rerunTimes: 'RerunTimes',
       runtimeResource: 'RuntimeResource',
-      tenantId: 'TenantId',
       timeout: 'Timeout',
       trigger: 'Trigger',
       type: 'Type',
@@ -17807,7 +19504,6 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
       rerunMode: 'string',
       rerunTimes: 'number',
       runtimeResource: ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskRuntimeResource,
-      tenantId: 'number',
       timeout: 'number',
       trigger: ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskTrigger,
       type: 'string',
@@ -18191,14 +19887,6 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   stepType?: string;
   /**
    * @remarks
-   * The tenant ID.
-   * 
-   * @example
-   * 1
-   */
-  tenantId?: number;
-  /**
-   * @remarks
    * The timeout period of task running. Unit: seconds.
    * 
    * @example
@@ -18248,7 +19936,6 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
       rerunTimes: 'RerunTimes',
       runtimeResource: 'RuntimeResource',
       stepType: 'StepType',
-      tenantId: 'TenantId',
       timeout: 'Timeout',
       trigger: 'Trigger',
       type: 'Type',
@@ -18278,7 +19965,6 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
       rerunTimes: 'number',
       runtimeResource: ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource,
       stepType: 'string',
-      tenantId: 'number',
       timeout: 'number',
       trigger: ListDownstreamTasksResponseBodyPagingInfoTasksTrigger,
       type: 'string',
@@ -21811,6 +23497,9 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
    */
   orderInstanceId?: string;
   /**
+   * @remarks
+   * The billing method of the resource group. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+   * 
    * @example
    * PrePaid
    */
@@ -21821,12 +23510,34 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
    */
   remark?: string;
   /**
+   * @remarks
+   * The type of the resource group. Valid values:
+   * 
+   * *   CommonV2: serverless resource group
+   * *   ExclusiveDataIntegration: exclusive resource group for Data Integration
+   * *   ExclusiveScheduler: exclusive resource group for scheduling
+   * *   ExclusiveDataService: exclusive resource group for DataService Studio
+   * 
    * @example
    * CommonV2
    */
   resourceGroupType?: string;
   spec?: ListResourceGroupsResponseBodyPagingInfoResourceGroupListSpec;
   /**
+   * @remarks
+   * The status of the resource group. Valid values:
+   * 
+   * *   Normal: The resource group is running or in use.
+   * *   Stop: The resource group is expired.
+   * *   Deleted: The resource group is released or destroyed.
+   * *   Creating: The resource group is being started.
+   * *   CreateFailed: The resource group fails to be started.
+   * *   Updating: The resource group is being scaled in or out, or the configurations of the resource group are being changed.
+   * *   UpdateFailed: The resource group fails to be scaled out or upgraded.
+   * *   Deleting: The resource group is being released or destroyed.
+   * *   DeleteFailed: The resource group fails to be released or destroyed.
+   * *   Timeout: The operations that are performed on the resource group time out.
+   * 
    * @example
    * Normal
    */
@@ -21881,15 +23592,25 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
 
 export class ListResourceGroupsResponseBodyPagingInfo extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The resource groups returned.
+   */
   resourceGroupList?: ListResourceGroupsResponseBodyPagingInfoResourceGroupList[];
   /**
    * @example
@@ -22835,14 +24556,6 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   taskType?: string;
   /**
    * @remarks
-   * The tenant ID.
-   * 
-   * @example
-   * 1
-   */
-  tenantId?: number;
-  /**
-   * @remarks
    * The timeout period of task running. Unit: seconds.
    * 
    * Note: The value of this parameter is rounded up by hour.
@@ -22950,7 +24663,6 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
       taskId: 'TaskId',
       taskName: 'TaskName',
       taskType: 'TaskType',
-      tenantId: 'TenantId',
       timeout: 'Timeout',
       triggerRecurrence: 'TriggerRecurrence',
       triggerTime: 'TriggerTime',
@@ -22988,7 +24700,6 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
       taskId: 'number',
       taskName: 'string',
       taskType: 'string',
-      tenantId: 'number',
       timeout: 'number',
       triggerRecurrence: 'string',
       triggerTime: 'number',
@@ -23510,15 +25221,11 @@ export class ListTasksResponseBodyPagingInfoTasks extends $dara.Model {
    * The configurations of the runtime environment, such as the resource group information.
    */
   runtimeResource?: ListTasksResponseBodyPagingInfoTasksRuntimeResource;
-  scriptParameters?: string;
   /**
-   * @remarks
-   * The tenant ID.
-   * 
    * @example
-   * 1
+   * para1=$bizdate para2=$[yyyymmdd]
    */
-  tenantId?: number;
+  scriptParameters?: string;
   /**
    * @remarks
    * The timeout period of task running. Unit: seconds.
@@ -23569,7 +25276,6 @@ export class ListTasksResponseBodyPagingInfoTasks extends $dara.Model {
       rerunTimes: 'RerunTimes',
       runtimeResource: 'RuntimeResource',
       scriptParameters: 'ScriptParameters',
-      tenantId: 'TenantId',
       timeout: 'Timeout',
       trigger: 'Trigger',
       type: 'Type',
@@ -23598,7 +25304,6 @@ export class ListTasksResponseBodyPagingInfoTasks extends $dara.Model {
       rerunTimes: 'number',
       runtimeResource: ListTasksResponseBodyPagingInfoTasksRuntimeResource,
       scriptParameters: 'string',
-      tenantId: 'number',
       timeout: 'number',
       trigger: ListTasksResponseBodyPagingInfoTasksTrigger,
       type: 'string',
@@ -24014,14 +25719,6 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   taskType?: string;
   /**
    * @remarks
-   * The tenant ID.
-   * 
-   * @example
-   * 1
-   */
-  tenantId?: number;
-  /**
-   * @remarks
    * The timeout period of task running. Unit: seconds.
    * 
    * @example
@@ -24129,7 +25826,6 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
       taskId: 'TaskId',
       taskName: 'TaskName',
       taskType: 'TaskType',
-      tenantId: 'TenantId',
       timeout: 'Timeout',
       triggerRecurrence: 'TriggerRecurrence',
       triggerTime: 'TriggerTime',
@@ -24169,7 +25865,6 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
       taskId: 'number',
       taskName: 'string',
       taskType: 'string',
-      tenantId: 'number',
       timeout: 'number',
       triggerRecurrence: 'string',
       triggerTime: 'number',
@@ -24314,7 +26009,6 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
    * The task type.
    */
   taskType?: string;
-  tenantId?: number;
   timeout?: number;
   triggerRecurrence?: string;
   triggerTime?: number;
@@ -24349,7 +26043,6 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
       taskId: 'TaskId',
       taskName: 'TaskName',
       taskType: 'TaskType',
-      tenantId: 'TenantId',
       timeout: 'Timeout',
       triggerRecurrence: 'TriggerRecurrence',
       triggerTime: 'TriggerTime',
@@ -24387,7 +26080,6 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
       taskId: 'number',
       taskName: 'string',
       taskType: 'string',
-      tenantId: 'number',
       timeout: 'number',
       triggerRecurrence: 'string',
       triggerTime: 'number',
@@ -24859,14 +26551,6 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $dara.Model {
   stepType?: string;
   /**
    * @remarks
-   * The tenant ID.
-   * 
-   * @example
-   * 1
-   */
-  tenantId?: number;
-  /**
-   * @remarks
    * The timeout period of task running. Unit: seconds.
    * 
    * @example
@@ -24916,7 +26600,6 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $dara.Model {
       rerunTimes: 'RerunTimes',
       runtimeResource: 'RuntimeResource',
       stepType: 'StepType',
-      tenantId: 'TenantId',
       timeout: 'Timeout',
       trigger: 'Trigger',
       type: 'Type',
@@ -24946,7 +26629,6 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $dara.Model {
       rerunTimes: 'number',
       runtimeResource: ListUpstreamTasksResponseBodyPagingInfoTasksRuntimeResource,
       stepType: 'string',
-      tenantId: 'number',
       timeout: 'number',
       trigger: ListUpstreamTasksResponseBodyPagingInfoTasksTrigger,
       type: 'string',
@@ -25109,7 +26791,6 @@ export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTask extends $d
    * The configurations of the runtime environment, such as the resource group information.
    */
   runtimeResource?: ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskRuntimeResource;
-  tenantId?: number;
   /**
    * @remarks
    * The timeout period of task running. Unit: seconds.
@@ -25146,7 +26827,6 @@ export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTask extends $d
       rerunMode: 'RerunMode',
       rerunTimes: 'RerunTimes',
       runtimeResource: 'RuntimeResource',
-      tenantId: 'TenantId',
       timeout: 'Timeout',
       trigger: 'Trigger',
       type: 'Type',
@@ -25174,7 +26854,6 @@ export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTask extends $d
       rerunMode: 'string',
       rerunTimes: 'number',
       runtimeResource: ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskRuntimeResource,
-      tenantId: 'number',
       timeout: 'number',
       trigger: ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskTrigger,
       type: 'string',
@@ -25547,8 +27226,380 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfo extends $dara.Model {
   }
 }
 
+export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extends $dara.Model {
+  bizDate?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 100
+   */
+  createUser?: string;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  finishedTime?: number;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 100
+   */
+  modifyUser?: string;
+  /**
+   * @example
+   * WorkflowInstance1
+   */
+  name?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  startedTime?: number;
+  /**
+   * @example
+   * Success
+   */
+  status?: string;
+  type?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizDate: 'BizDate',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      envType: 'EnvType',
+      finishedTime: 'FinishedTime',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      name: 'Name',
+      projectId: 'ProjectId',
+      startedTime: 'StartedTime',
+      status: 'Status',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizDate: 'number',
+      createTime: 'number',
+      createUser: 'string',
+      envType: 'string',
+      finishedTime: 'number',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      name: 'string',
+      projectId: 'number',
+      startedTime: 'number',
+      status: 'string',
+      type: 'string',
+      workflowId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkflowInstancesResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  workflowInstances?: ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      workflowInstances: 'WorkflowInstances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      workflowInstances: { 'type': 'array', 'itemType': ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.workflowInstances)) {
+      $dara.Model.validateArray(this.workflowInstances);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.Model {
+  /**
+   * @example
+   * 00 00 00 * * ?
+   */
+  cron?: string;
+  /**
+   * @example
+   * 9999-01-01 00:00:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * Normal
+   */
+  recurrence?: string;
+  /**
+   * @example
+   * 1970-01-01 00:00:00
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Scheduler
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cron: 'Cron',
+      endTime: 'EndTime',
+      recurrence: 'Recurrence',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cron: 'string',
+      endTime: 'string',
+      recurrence: 'string',
+      startTime: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
+  /**
+   * @example
+   * Workflow_0bc5213917368545132902xxxxxxxx
+   */
+  clientUniqueCode?: string;
+  /**
+   * @example
+   * 1710239005403
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  createUser?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @example
+   * 1710239005403
+   */
+  modifyTime?: number;
+  /**
+   * @example
+   * 1000
+   */
+  modifyUser?: string;
+  /**
+   * @example
+   * Workflow1
+   */
+  name?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * para1=$bizdate para2=$[yyyymmdd]
+   */
+  parameters?: string;
+  /**
+   * @example
+   * 100
+   */
+  projectId?: number;
+  trigger?: ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger;
+  static names(): { [key: string]: string } {
+    return {
+      clientUniqueCode: 'ClientUniqueCode',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      description: 'Description',
+      envType: 'EnvType',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      modifyUser: 'ModifyUser',
+      name: 'Name',
+      owner: 'Owner',
+      parameters: 'Parameters',
+      projectId: 'ProjectId',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientUniqueCode: 'string',
+      createTime: 'number',
+      createUser: 'string',
+      description: 'string',
+      envType: 'string',
+      id: 'number',
+      modifyTime: 'number',
+      modifyUser: 'string',
+      name: 'string',
+      owner: 'string',
+      parameters: 'string',
+      projectId: 'number',
+      trigger: ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger,
+    };
+  }
+
+  validate() {
+    if(this.trigger && typeof (this.trigger as any).validate === 'function') {
+      (this.trigger as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkflowsResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  workflows?: ListWorkflowsResponseBodyPagingInfoWorkflows[];
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+      workflows: 'Workflows',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+      workflows: { 'type': 'array', 'itemType': ListWorkflowsResponseBodyPagingInfoWorkflows },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.workflows)) {
+      $dara.Model.validateArray(this.workflows);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartDIJobRequestRealtimeStartSettingsFailoverSettings extends $dara.Model {
   /**
+   * @remarks
+   * The failover interval. Unit: minutes.
+   * 
    * @example
    * 10
    * 
@@ -25556,6 +27607,9 @@ export class StartDIJobRequestRealtimeStartSettingsFailoverSettings extends $dar
    */
   interval?: number;
   /**
+   * @remarks
+   * The maximum number of failovers allowed.
+   * 
    * @example
    * 30
    * 
@@ -25587,10 +27641,16 @@ export class StartDIJobRequestRealtimeStartSettingsFailoverSettings extends $dar
 
 export class StartDIJobRequestRealtimeStartSettings extends $dara.Model {
   /**
+   * @remarks
+   * The failover settings.
+   * 
    * @deprecated
    */
   failoverSettings?: StartDIJobRequestRealtimeStartSettingsFailoverSettings;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 1671516776
    */
@@ -26419,6 +28479,13 @@ export class UpdateDIAlarmRuleRequestNotificationSettings extends $dara.Model {
    * @deprecated
    */
   inhibitionInterval?: number;
+  /**
+   * @remarks
+   * The duration of the alert suppression interval. Default value: 5. Unit: minutes.
+   * 
+   * @example
+   * 5
+   */
   muteInterval?: number;
   /**
    * @remarks
@@ -26471,6 +28538,10 @@ export class UpdateDIAlarmRuleRequestTriggerConditions extends $dara.Model {
    * @deprecated
    */
   ddlReportTags?: string[];
+  /**
+   * @remarks
+   * The types of DDL operations for which the alert rule takes effect.
+   */
   ddlTypes?: string[];
   /**
    * @remarks
@@ -27189,6 +29260,7 @@ export class UpdateDIJobRequestTransformationRules extends $dara.Model {
 }
 
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical extends $dara.Model {
+  expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
@@ -27223,6 +29295,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -27230,6 +29303,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -27245,6 +29319,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 }
 
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected extends $dara.Model {
+  expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
@@ -27279,6 +29354,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -27286,6 +29362,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -27301,6 +29378,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 }
 
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned extends $dara.Model {
+  expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
@@ -27335,6 +29413,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -27342,6 +29421,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -28050,17 +30130,6 @@ export class UpdateDataQualityEvaluationTaskRequestTrigger extends $dara.Model {
 
 export class UpdateDataQualityRuleRequestCheckingConfigThresholdsCritical extends $dara.Model {
   /**
-   * @remarks
-   * 阈值表达式。
-   * 
-   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
-   * 
-   * - 波动上升大于0.01： $checkValue > 0.01 
-   * - 波动下降大于0.01：$checkValue < -0.01 
-   * - 波动率绝对值：abs($checkValue) > 0.01
-   * 
-   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
-   * 
    * @example
    * $checkValue > 0.05
    */
@@ -28115,17 +30184,6 @@ export class UpdateDataQualityRuleRequestCheckingConfigThresholdsCritical extend
 
 export class UpdateDataQualityRuleRequestCheckingConfigThresholdsExpected extends $dara.Model {
   /**
-   * @remarks
-   * 阈值表达式。
-   * 
-   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
-   * 
-   * - 波动上升大于0.01： $checkValue > 0.01 
-   * - 波动下降大于0.01：$checkValue < -0.01 
-   * - 波动率绝对值：abs($checkValue) > 0.01
-   * 
-   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
-   * 
    * @example
    * $checkValue <= 0.01
    */
@@ -28180,17 +30238,6 @@ export class UpdateDataQualityRuleRequestCheckingConfigThresholdsExpected extend
 
 export class UpdateDataQualityRuleRequestCheckingConfigThresholdsWarned extends $dara.Model {
   /**
-   * @remarks
-   * 阈值表达式。
-   * 
-   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
-   * 
-   * - 波动上升大于0.01： $checkValue > 0.01 
-   * - 波动下降大于0.01：$checkValue < -0.01 
-   * - 波动率绝对值：abs($checkValue) > 0.01
-   * 
-   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
-   * 
    * @example
    * $checkValue > 0.01
    */
@@ -28469,76 +30516,6 @@ export class UpdateDataQualityRuleRequestSamplingConfig extends $dara.Model {
   }
 }
 
-export class UpdateDataQualityRuleRequestTarget extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the database to which the table belongs. Valid values:
-   * 
-   * *   maxcompute
-   * *   emr
-   * *   cdh
-   * *   hologres
-   * *   analyticdb_for_postgresql
-   * *   analyticdb_for_mysql
-   * *   starrocks
-   * 
-   * @example
-   * maxcompute
-   */
-  databaseType?: string;
-  /**
-   * @remarks
-   * The configuration of the partitioned table.
-   * 
-   * @example
-   * ds=$[yyyymmdd-1]
-   */
-  partitionSpec?: string;
-  /**
-   * @remarks
-   * The ID of the table that is limited by the rule in Data Map.
-   * 
-   * @example
-   * odps.unit_test.tb_unit_test
-   */
-  tableGuid?: string;
-  /**
-   * @remarks
-   * The type of the monitored object. Valid values:
-   * 
-   * *   Table
-   * 
-   * @example
-   * Table
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      databaseType: 'DatabaseType',
-      partitionSpec: 'PartitionSpec',
-      tableGuid: 'TableGuid',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      databaseType: 'string',
-      partitionSpec: 'string',
-      tableGuid: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateDataQualityRuleTemplateRequestCheckingConfig extends $dara.Model {
   /**
    * @remarks
@@ -28648,6 +30625,423 @@ export class UpdateDataQualityRuleTemplateRequestSamplingConfig extends $dara.Mo
   }
 }
 
+export class UpdateTaskRequestDataSource extends $dara.Model {
+  /**
+   * @example
+   * odps_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskRequestDependencies extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Normal
+   */
+  type?: string;
+  /**
+   * @example
+   * pre.odps_sql_demo_0
+   */
+  upstreamOutput?: string;
+  /**
+   * @example
+   * 1234
+   */
+  upstreamTaskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      upstreamOutput: 'UpstreamOutput',
+      upstreamTaskId: 'UpstreamTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      upstreamOutput: 'string',
+      upstreamTaskId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskRequestInputsVariables extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Constant
+   */
+  type?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskRequestInputs extends $dara.Model {
+  variables?: UpdateTaskRequestInputsVariables[];
+  static names(): { [key: string]: string } {
+    return {
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      variables: { 'type': 'array', 'itemType': UpdateTaskRequestInputsVariables },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.variables)) {
+      $dara.Model.validateArray(this.variables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskRequestOutputsTaskOutputs extends $dara.Model {
+  /**
+   * @example
+   * pre.odps_sql_demo_0
+   */
+  output?: string;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskRequestOutputsVariables extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Constant
+   */
+  type?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskRequestOutputs extends $dara.Model {
+  taskOutputs?: UpdateTaskRequestOutputsTaskOutputs[];
+  variables?: UpdateTaskRequestOutputsVariables[];
+  static names(): { [key: string]: string } {
+    return {
+      taskOutputs: 'TaskOutputs',
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskOutputs: { 'type': 'array', 'itemType': UpdateTaskRequestOutputsTaskOutputs },
+      variables: { 'type': 'array', 'itemType': UpdateTaskRequestOutputsVariables },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.taskOutputs)) {
+      $dara.Model.validateArray(this.taskOutputs);
+    }
+    if(Array.isArray(this.variables)) {
+      $dara.Model.validateArray(this.variables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskRequestRuntimeResource extends $dara.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskRequestScript extends $dara.Model {
+  /**
+   * @example
+   * echo "helloWorld"
+   */
+  content?: string;
+  /**
+   * @example
+   * para1=$bizdate
+   */
+  parameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      parameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskRequestTrigger extends $dara.Model {
+  /**
+   * @example
+   * 00 00 00 * * ?
+   */
+  cron?: string;
+  /**
+   * @example
+   * 9999-01-01 00:00:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * Normal
+   */
+  recurrence?: string;
+  /**
+   * @example
+   * 1970-01-01 00:00:00
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Scheduler
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cron: 'Cron',
+      endTime: 'EndTime',
+      recurrence: 'Recurrence',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cron: 'string',
+      endTime: 'string',
+      recurrence: 'string',
+      startTime: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTaskInstancesRequestTaskInstancesDataSource extends $dara.Model {
   /**
    * @remarks
@@ -28734,6 +31128,759 @@ export class UpdateTaskInstancesRequestTaskInstances extends $dara.Model {
     if(this.dataSource && typeof (this.dataSource as any).validate === 'function') {
       (this.dataSource as any).validate();
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestDependencies extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Normal
+   */
+  type?: string;
+  /**
+   * @example
+   * pre.odps_sql_demo_0
+   */
+  upstreamOutput?: string;
+  /**
+   * @example
+   * 1234
+   */
+  upstreamTaskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      upstreamOutput: 'UpstreamOutput',
+      upstreamTaskId: 'UpstreamTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      upstreamOutput: 'string',
+      upstreamTaskId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestOutputsTaskOutputs extends $dara.Model {
+  /**
+   * @example
+   * pre.odps_sql_demo_0
+   */
+  output?: string;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestOutputs extends $dara.Model {
+  taskOutputs?: UpdateWorkflowRequestOutputsTaskOutputs[];
+  static names(): { [key: string]: string } {
+    return {
+      taskOutputs: 'TaskOutputs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskOutputs: { 'type': 'array', 'itemType': UpdateWorkflowRequestOutputsTaskOutputs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.taskOutputs)) {
+      $dara.Model.validateArray(this.taskOutputs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTasksDataSource extends $dara.Model {
+  /**
+   * @example
+   * odps_test
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTasksDependencies extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Normal
+   */
+  type?: string;
+  /**
+   * @example
+   * pre.odps_sql_demo_0
+   */
+  upstreamOutput?: string;
+  /**
+   * @example
+   * 1234
+   */
+  upstreamTaskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      upstreamOutput: 'UpstreamOutput',
+      upstreamTaskId: 'UpstreamTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      upstreamOutput: 'string',
+      upstreamTaskId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTasksInputsVariables extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Constant
+   */
+  type?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTasksInputs extends $dara.Model {
+  variables?: UpdateWorkflowRequestTasksInputsVariables[];
+  static names(): { [key: string]: string } {
+    return {
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      variables: { 'type': 'array', 'itemType': UpdateWorkflowRequestTasksInputsVariables },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.variables)) {
+      $dara.Model.validateArray(this.variables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTasksOutputsTaskOutputs extends $dara.Model {
+  /**
+   * @example
+   * pre.odps_sql_demo_0
+   */
+  output?: string;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTasksOutputsVariables extends $dara.Model {
+  /**
+   * @example
+   * key1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Constant
+   */
+  type?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTasksOutputs extends $dara.Model {
+  taskOutputs?: UpdateWorkflowRequestTasksOutputsTaskOutputs[];
+  variables?: UpdateWorkflowRequestTasksOutputsVariables[];
+  static names(): { [key: string]: string } {
+    return {
+      taskOutputs: 'TaskOutputs',
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskOutputs: { 'type': 'array', 'itemType': UpdateWorkflowRequestTasksOutputsTaskOutputs },
+      variables: { 'type': 'array', 'itemType': UpdateWorkflowRequestTasksOutputsVariables },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.taskOutputs)) {
+      $dara.Model.validateArray(this.taskOutputs);
+    }
+    if(Array.isArray(this.variables)) {
+      $dara.Model.validateArray(this.variables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTasksRuntimeResource extends $dara.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: string;
+  /**
+   * @example
+   * i-xxxxxx
+   */
+  image?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      image: 'Image',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'string',
+      image: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTasksScript extends $dara.Model {
+  /**
+   * @example
+   * echo "helloWorld"
+   */
+  content?: string;
+  /**
+   * @example
+   * para1=$bizdate
+   */
+  parameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      parameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTasksTags extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTasksTrigger extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Normal
+   */
+  recurrence?: string;
+  /**
+   * @example
+   * Scheduler
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      recurrence: 'Recurrence',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recurrence: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTasks extends $dara.Model {
+  /**
+   * @example
+   * 1234
+   */
+  baseLineId?: number;
+  /**
+   * @example
+   * Task_0bc5213917368545132902xxxxxxxx
+   */
+  clientUniqueCode?: string;
+  dataSource?: UpdateWorkflowRequestTasksDataSource;
+  dependencies?: UpdateWorkflowRequestTasksDependencies[];
+  /**
+   * @example
+   * Test
+   */
+  description?: string;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  inputs?: UpdateWorkflowRequestTasksInputs;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  outputs?: UpdateWorkflowRequestTasksOutputs;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 60
+   */
+  rerunInterval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AllAllowed
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 3
+   */
+  rerunTimes?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  runtimeResource?: UpdateWorkflowRequestTasksRuntimeResource;
+  script?: UpdateWorkflowRequestTasksScript;
+  tags?: UpdateWorkflowRequestTasksTags[];
+  /**
+   * @example
+   * 3600
+   */
+  timeout?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  trigger?: UpdateWorkflowRequestTasksTrigger;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ODPS_SQL
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseLineId: 'BaseLineId',
+      clientUniqueCode: 'ClientUniqueCode',
+      dataSource: 'DataSource',
+      dependencies: 'Dependencies',
+      description: 'Description',
+      envType: 'EnvType',
+      id: 'Id',
+      inputs: 'Inputs',
+      name: 'Name',
+      outputs: 'Outputs',
+      owner: 'Owner',
+      rerunInterval: 'RerunInterval',
+      rerunMode: 'RerunMode',
+      rerunTimes: 'RerunTimes',
+      runtimeResource: 'RuntimeResource',
+      script: 'Script',
+      tags: 'Tags',
+      timeout: 'Timeout',
+      trigger: 'Trigger',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseLineId: 'number',
+      clientUniqueCode: 'string',
+      dataSource: UpdateWorkflowRequestTasksDataSource,
+      dependencies: { 'type': 'array', 'itemType': UpdateWorkflowRequestTasksDependencies },
+      description: 'string',
+      envType: 'string',
+      id: 'number',
+      inputs: UpdateWorkflowRequestTasksInputs,
+      name: 'string',
+      outputs: UpdateWorkflowRequestTasksOutputs,
+      owner: 'string',
+      rerunInterval: 'number',
+      rerunMode: 'string',
+      rerunTimes: 'number',
+      runtimeResource: UpdateWorkflowRequestTasksRuntimeResource,
+      script: UpdateWorkflowRequestTasksScript,
+      tags: { 'type': 'array', 'itemType': UpdateWorkflowRequestTasksTags },
+      timeout: 'number',
+      trigger: UpdateWorkflowRequestTasksTrigger,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dataSource && typeof (this.dataSource as any).validate === 'function') {
+      (this.dataSource as any).validate();
+    }
+    if(Array.isArray(this.dependencies)) {
+      $dara.Model.validateArray(this.dependencies);
+    }
+    if(this.inputs && typeof (this.inputs as any).validate === 'function') {
+      (this.inputs as any).validate();
+    }
+    if(this.outputs && typeof (this.outputs as any).validate === 'function') {
+      (this.outputs as any).validate();
+    }
+    if(this.runtimeResource && typeof (this.runtimeResource as any).validate === 'function') {
+      (this.runtimeResource as any).validate();
+    }
+    if(this.script && typeof (this.script as any).validate === 'function') {
+      (this.script as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(this.trigger && typeof (this.trigger as any).validate === 'function') {
+      (this.trigger as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequestTrigger extends $dara.Model {
+  /**
+   * @example
+   * 00 00 00 * * ?
+   */
+  cron?: string;
+  /**
+   * @example
+   * 9999-01-01 00:00:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 1970-01-01 00:00:00
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Scheduler
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cron: 'Cron',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cron: 'string',
+      endTime: 'string',
+      startTime: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -29549,6 +32696,137 @@ export class AttachDataQualityRulesToEvaluationTaskResponse extends $dara.Model 
   }
 }
 
+export class BatchUpdateTasksRequest extends $dara.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  tasks?: BatchUpdateTasksRequestTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      tasks: { 'type': 'array', 'itemType': BatchUpdateTasksRequestTasks },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tasks)) {
+      $dara.Model.validateArray(this.tasks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateTasksShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  tasksShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      tasksShrink: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      tasksShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateTasksResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  successInfo?: { [key: string]: SuccessInfoValue };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      successInfo: 'SuccessInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      successInfo: { 'type': 'map', 'keyType': 'string', 'valueType': SuccessInfoValue },
+    };
+  }
+
+  validate() {
+    if(this.successInfo) {
+      $dara.Model.validateMap(this.successInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateTasksResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchUpdateTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchUpdateTasksResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CloneDataSourceRequest extends $dara.Model {
   /**
    * @remarks
@@ -29912,6 +33190,9 @@ export class CreateDIAlarmRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the alert rule.
+   * 
+   * @example
+   * The description of the alert rule.
    */
   description?: string;
   /**
@@ -30025,6 +33306,9 @@ export class CreateDIAlarmRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the alert rule.
+   * 
+   * @example
+   * The description of the alert rule.
    */
   description?: string;
   /**
@@ -30131,7 +33415,7 @@ export class CreateDIAlarmRuleResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
    * C636A747-7E4E-594D-94CD-2B4F8A9A9A63
@@ -30200,6 +33484,9 @@ export class CreateDIAlarmRuleResponse extends $dara.Model {
 export class CreateDIJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The description of the synchronization task.
+   * 
+   * @example
    * The description of the synchronization task.
    */
   description?: string;
@@ -30371,6 +33658,9 @@ export class CreateDIJobRequest extends $dara.Model {
 export class CreateDIJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The description of the synchronization task.
+   * 
+   * @example
    * The description of the synchronization task.
    */
   description?: string;
@@ -31285,7 +34575,7 @@ export class CreateDataQualityRuleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule.
+   * Specifies whether to enable the monitoring rule.
    * 
    * @example
    * true
@@ -31320,7 +34610,7 @@ export class CreateDataQualityRuleRequest extends $dara.Model {
   samplingConfig?: CreateDataQualityRuleRequestSamplingConfig;
   /**
    * @remarks
-   * The strength of the rule. Valid values:
+   * The strength of the rule.
    * 
    * *   Normal
    * *   High
@@ -31409,7 +34699,7 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule.
+   * Specifies whether to enable the monitoring rule.
    * 
    * @example
    * true
@@ -31444,7 +34734,7 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   samplingConfigShrink?: string;
   /**
    * @remarks
-   * The strength of the rule. Valid values:
+   * The strength of the rule.
    * 
    * *   Normal
    * *   High
@@ -31506,6 +34796,10 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
 }
 
 export class CreateDataQualityRuleResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 19715
+   */
   id?: number;
   /**
    * @remarks
@@ -31730,6 +35024,10 @@ export class CreateDataQualityRuleTemplateShrinkRequest extends $dara.Model {
 }
 
 export class CreateDataQualityRuleTemplateResponseBody extends $dara.Model {
+  /**
+   * @example
+   * UserDefined:3001
+   */
   code?: string;
   /**
    * @remarks
@@ -33859,6 +37157,295 @@ export class CreateWorkflowDefinitionResponse extends $dara.Model {
   }
 }
 
+export class CreateWorkflowInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  autoStartEnabled?: boolean;
+  /**
+   * @example
+   * create for test
+   */
+  comment?: string;
+  defaultRunProperties?: CreateWorkflowInstancesRequestDefaultRunProperties;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * WorkflowInstance1
+   */
+  name?: string;
+  periods?: CreateWorkflowInstancesRequestPeriods;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * {
+   *   "1001": "key1=val2 key2=val2", 
+   *   "1002": "key1=val2 key2=val2"
+   * }
+   */
+  taskParameters?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SupplementData
+   */
+  type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  workflowId?: number;
+  /**
+   * @example
+   * { 
+   *   "key1": "value1", 
+   *   "key2": "value2" 
+   * }
+   */
+  workflowParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoStartEnabled: 'AutoStartEnabled',
+      comment: 'Comment',
+      defaultRunProperties: 'DefaultRunProperties',
+      envType: 'EnvType',
+      name: 'Name',
+      periods: 'Periods',
+      projectId: 'ProjectId',
+      taskParameters: 'TaskParameters',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+      workflowParameters: 'WorkflowParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoStartEnabled: 'boolean',
+      comment: 'string',
+      defaultRunProperties: CreateWorkflowInstancesRequestDefaultRunProperties,
+      envType: 'string',
+      name: 'string',
+      periods: CreateWorkflowInstancesRequestPeriods,
+      projectId: 'number',
+      taskParameters: 'string',
+      type: 'string',
+      workflowId: 'number',
+      workflowParameters: 'string',
+    };
+  }
+
+  validate() {
+    if(this.defaultRunProperties && typeof (this.defaultRunProperties as any).validate === 'function') {
+      (this.defaultRunProperties as any).validate();
+    }
+    if(this.periods && typeof (this.periods as any).validate === 'function') {
+      (this.periods as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  autoStartEnabled?: boolean;
+  /**
+   * @example
+   * create for test
+   */
+  comment?: string;
+  defaultRunPropertiesShrink?: string;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * WorkflowInstance1
+   */
+  name?: string;
+  periodsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * {
+   *   "1001": "key1=val2 key2=val2", 
+   *   "1002": "key1=val2 key2=val2"
+   * }
+   */
+  taskParameters?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SupplementData
+   */
+  type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  workflowId?: number;
+  /**
+   * @example
+   * { 
+   *   "key1": "value1", 
+   *   "key2": "value2" 
+   * }
+   */
+  workflowParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoStartEnabled: 'AutoStartEnabled',
+      comment: 'Comment',
+      defaultRunPropertiesShrink: 'DefaultRunProperties',
+      envType: 'EnvType',
+      name: 'Name',
+      periodsShrink: 'Periods',
+      projectId: 'ProjectId',
+      taskParameters: 'TaskParameters',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+      workflowParameters: 'WorkflowParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoStartEnabled: 'boolean',
+      comment: 'string',
+      defaultRunPropertiesShrink: 'string',
+      envType: 'string',
+      name: 'string',
+      periodsShrink: 'string',
+      projectId: 'number',
+      taskParameters: 'string',
+      type: 'string',
+      workflowId: 'number',
+      workflowParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkflowInstancesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * e15ad21c-b0e9-4792-8f55-b037xxxxxxxx
+   */
+  operationId?: string;
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationId: 'OperationId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkflowInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateWorkflowInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateWorkflowInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAlertRuleRequest extends $dara.Model {
   /**
    * @remarks
@@ -33984,6 +37571,9 @@ export class DeleteDIAlarmRuleRequest extends $dara.Model {
    */
   DIJobId?: number;
   /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
    * @example
    * 2
    */
@@ -34016,7 +37606,7 @@ export class DeleteDIAlarmRuleRequest extends $dara.Model {
 export class DeleteDIAlarmRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
    * C99E2BE6-9DEA-5C2E-8F51-1DDCFEADE490
@@ -34145,11 +37735,17 @@ export class DeleteDIJobRequest extends $dara.Model {
 
 export class DeleteDIJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID. You can troubleshoot issues based on the ID.
+   * 
    * @example
    * D33D4A51-5845-579A-B4BA-FAADD0F83D53
    */
   requestId?: string;
   /**
+   * @remarks
+   * true
+   * 
    * @example
    * true
    */
@@ -34396,6 +37992,10 @@ export class DeleteDataQualityEvaluationTaskResponseBody extends $dara.Model {
    * 0bc1ec92159376****
    */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -35903,6 +39503,119 @@ export class DeleteTaskResponse extends $dara.Model {
   }
 }
 
+export class DeleteWorkflowRequest extends $dara.Model {
+  /**
+   * @example
+   * Workflow_0bc5213917368545132902xxxxxxxx
+   */
+  clientUniqueCode?: string;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientUniqueCode: 'ClientUniqueCode',
+      envType: 'EnvType',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientUniqueCode: 'string',
+      envType: 'string',
+      id: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWorkflowResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWorkflowResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteWorkflowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteWorkflowResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteWorkflowDefinitionRequest extends $dara.Model {
   /**
    * @remarks
@@ -36454,6 +40167,220 @@ export class ExecDeploymentStageResponse extends $dara.Model {
   }
 }
 
+export class ExecuteAdhocWorkflowInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  bizDate?: number;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * WorkflowInstance1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tasks?: ExecuteAdhocWorkflowInstanceRequestTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      bizDate: 'BizDate',
+      envType: 'EnvType',
+      name: 'Name',
+      owner: 'Owner',
+      projectId: 'ProjectId',
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizDate: 'number',
+      envType: 'string',
+      name: 'string',
+      owner: 'string',
+      projectId: 'number',
+      tasks: { 'type': 'array', 'itemType': ExecuteAdhocWorkflowInstanceRequestTasks },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tasks)) {
+      $dara.Model.validateArray(this.tasks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdhocWorkflowInstanceShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  bizDate?: number;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * WorkflowInstance1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tasksShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizDate: 'BizDate',
+      envType: 'EnvType',
+      name: 'Name',
+      owner: 'Owner',
+      projectId: 'ProjectId',
+      tasksShrink: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizDate: 'number',
+      envType: 'string',
+      name: 'string',
+      owner: 'string',
+      projectId: 'number',
+      tasksShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdhocWorkflowInstanceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowInstanceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      workflowInstanceId: 'WorkflowInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      workflowInstanceId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteAdhocWorkflowInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteAdhocWorkflowInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteAdhocWorkflowInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAlertRuleRequest extends $dara.Model {
   /**
    * @remarks
@@ -36559,6 +40486,104 @@ export class GetAlertRuleResponse extends $dara.Model {
   }
 }
 
+export class GetCreateWorkflowInstancesResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e15ad21c-b0e9-4792-8f55-b037xxxxxxxx
+   */
+  operationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationId: 'OperationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCreateWorkflowInstancesResultResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  result?: GetCreateWorkflowInstancesResultResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetCreateWorkflowInstancesResultResponseBodyResult,
+    };
+  }
+
+  validate() {
+    if(this.result && typeof (this.result as any).validate === 'function') {
+      (this.result as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCreateWorkflowInstancesResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCreateWorkflowInstancesResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCreateWorkflowInstancesResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDIJobRequest extends $dara.Model {
   /**
    * @remarks
@@ -36579,6 +40604,11 @@ export class GetDIJobRequest extends $dara.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * @example
    * 10000
    */
@@ -38969,6 +42999,111 @@ export class GetTaskInstanceLogResponse extends $dara.Model {
   }
 }
 
+export class GetWorkflowRequest extends $dara.Model {
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      envType: 'EnvType',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      envType: 'string',
+      id: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  workflow?: GetWorkflowResponseBodyWorkflow;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      workflow: 'Workflow',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      workflow: GetWorkflowResponseBodyWorkflow,
+    };
+  }
+
+  validate() {
+    if(this.workflow && typeof (this.workflow as any).validate === 'function') {
+      (this.workflow as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWorkflowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWorkflowResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkflowDefinitionRequest extends $dara.Model {
   /**
    * @remarks
@@ -39070,6 +43205,113 @@ export class GetWorkflowDefinitionResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetWorkflowDefinitionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the workflow instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the workflow instance.
+   */
+  workflowInstance?: GetWorkflowInstanceResponseBodyWorkflowInstance;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      workflowInstance: 'WorkflowInstance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      workflowInstance: GetWorkflowInstanceResponseBodyWorkflowInstance,
+    };
+  }
+
+  validate() {
+    if(this.workflowInstance && typeof (this.workflowInstance as any).validate === 'function') {
+      (this.workflowInstance as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkflowInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWorkflowInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWorkflowInstanceResponseBody,
     };
   }
 
@@ -39870,7 +44112,7 @@ export class ListDIJobEventsResponseBody extends $dara.Model {
   pagingInfo?: ListDIJobEventsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
    * 645F6D68-9C29-5961-80B1-BDD4B794C22D
@@ -43949,19 +48191,27 @@ export class ListResourceGroupsRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
    * @remarks
-   * *
-   * *
+   * The billing method of resource groups. Valid values:
+   * 
+   * *   PrePaid
+   * *   PostPaid
    * 
    * @example
    * PrePaid
@@ -43975,12 +48225,34 @@ export class ListResourceGroupsRequest extends $dara.Model {
    * 1000
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The types of resource groups to query. If you do not configure this parameter, only serverless resource groups are returned by default.
+   */
   resourceGroupTypes?: string[];
   /**
+   * @remarks
+   * The fields used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * 
+   * *   Id (Desc/Asc): the resource group ID
+   * *   Name (Desc/Asc): the name of the resource group
+   * *   Remark (Desc/Asc): the remarks of the resource group
+   * *   Type (Desc/Asc): the type of the resource group
+   * *   Status (Desc/Asc): the status of the resource group
+   * *   Spec (Desc/Asc): the specifications of the resource group
+   * *   CreateUser (Desc/Asc): the creator of the resource group
+   * *   CreateTime (Desc/Asc): the time when the route is created
+   * 
+   * Default value: CreateTime Asc
+   * 
    * @example
    * CreateTime Asc
    */
   sortBy?: string;
+  /**
+   * @remarks
+   * The statuses of resource groups.
+   */
   statuses?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -44046,19 +48318,27 @@ export class ListResourceGroupsShrinkRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
    * @remarks
-   * *
-   * *
+   * The billing method of resource groups. Valid values:
+   * 
+   * *   PrePaid
+   * *   PostPaid
    * 
    * @example
    * PrePaid
@@ -44072,12 +48352,34 @@ export class ListResourceGroupsShrinkRequest extends $dara.Model {
    * 1000
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The types of resource groups to query. If you do not configure this parameter, only serverless resource groups are returned by default.
+   */
   resourceGroupTypesShrink?: string;
   /**
+   * @remarks
+   * The fields used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * 
+   * *   Id (Desc/Asc): the resource group ID
+   * *   Name (Desc/Asc): the name of the resource group
+   * *   Remark (Desc/Asc): the remarks of the resource group
+   * *   Type (Desc/Asc): the type of the resource group
+   * *   Status (Desc/Asc): the status of the resource group
+   * *   Spec (Desc/Asc): the specifications of the resource group
+   * *   CreateUser (Desc/Asc): the creator of the resource group
+   * *   CreateTime (Desc/Asc): the time when the route is created
+   * 
+   * Default value: CreateTime Asc
+   * 
    * @example
    * CreateTime Asc
    */
   sortBy?: string;
+  /**
+   * @remarks
+   * The statuses of resource groups.
+   */
   statusesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44119,10 +48421,14 @@ export class ListResourceGroupsShrinkRequest extends $dara.Model {
 }
 
 export class ListResourceGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListResourceGroupsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -44671,9 +48977,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The environment of the workspace.
-   * 
-   * Valid values:
+   * The environment of the workspace. Valid values:
    * 
    * *   Prod: production environment
    * *   Dev: development environment
@@ -44748,9 +49052,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
-   * 
-   * Valid values:
+   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
    * 
    * *   Pause
    * *   Skip
@@ -44762,9 +49064,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   triggerRecurrence?: string;
   /**
    * @remarks
-   * The trigger type.
-   * 
-   * Valid values:
+   * The trigger type. Valid values:
    * 
    * *   Scheduler: scheduling cycle-based trigger
    * *   Manual: manual trigger
@@ -44791,9 +49091,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   workflowInstanceId?: number;
   /**
    * @remarks
-   * The type of the workflow instance.
-   * 
-   * Valid values:
+   * The type of the workflow instance. Valid values:
    * 
    * *   SmokeTest
    * *   Manual
@@ -44918,9 +49216,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The environment of the workspace.
-   * 
-   * Valid values:
+   * The environment of the workspace. Valid values:
    * 
    * *   Prod: production environment
    * *   Dev: development environment
@@ -44995,9 +49291,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
-   * 
-   * Valid values:
+   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
    * 
    * *   Pause
    * *   Skip
@@ -45009,9 +49303,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
   triggerRecurrence?: string;
   /**
    * @remarks
-   * The trigger type.
-   * 
-   * Valid values:
+   * The trigger type. Valid values:
    * 
    * *   Scheduler: scheduling cycle-based trigger
    * *   Manual: manual trigger
@@ -45038,9 +49330,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
   workflowInstanceId?: number;
   /**
    * @remarks
-   * The type of the workflow instance.
-   * 
-   * Valid values:
+   * The type of the workflow instance. Valid values:
    * 
    * *   SmokeTest
    * *   Manual
@@ -45337,6 +49627,7 @@ export class ListTaskOperationLogsResponse extends $dara.Model {
 }
 
 export class ListTasksRequest extends $dara.Model {
+  ids?: number[];
   /**
    * @remarks
    * The name of the task. Fuzzy match is supported.
@@ -45458,6 +49749,7 @@ export class ListTasksRequest extends $dara.Model {
   workflowId?: number;
   static names(): { [key: string]: string } {
     return {
+      ids: 'Ids',
       name: 'Name',
       owner: 'Owner',
       pageNumber: 'PageNumber',
@@ -45475,6 +49767,176 @@ export class ListTasksRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ids: { 'type': 'array', 'itemType': 'number' },
+      name: 'string',
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectEnv: 'string',
+      projectId: 'number',
+      runtimeResource: 'string',
+      sortBy: 'string',
+      taskType: 'string',
+      triggerRecurrence: 'string',
+      triggerType: 'string',
+      workflowId: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ids)) {
+      $dara.Model.validateArray(this.ids);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksShrinkRequest extends $dara.Model {
+  idsShrink?: string;
+  /**
+   * @remarks
+   * The name of the task. Fuzzy match is supported.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
+   * @example
+   * Prod
+   */
+  projectEnv?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The information about the resource group. Set this parameter to the ID of a resource group for scheduling.
+   * 
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
+  runtimeResource?: string;
+  /**
+   * @remarks
+   * The field that is used to sort tasks. This parameter is configured in the format of "Sorting field Sorting order". You can set the sorting order to Desc or Asc. If you do not specify the sorting order, Asc is used by default. Valid values:
+   * 
+   * *   `ModifyTime (Desc/Asc)`
+   * 
+   * *   `CreateTime (Desc/Asc)`
+   * 
+   * *   `Id (Desc/Asc)`
+   * 
+   *     Default value: `Id Desc`.
+   * 
+   * @example
+   * Id Desc
+   */
+  sortBy?: string;
+  /**
+   * @remarks
+   * The type of the task.
+   * 
+   * @example
+   * ODPS_SQL
+   */
+  taskType?: string;
+  /**
+   * @remarks
+   * The running mode of the task after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
+   * 
+   * Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
+   * @example
+   * Normal
+   */
+  triggerRecurrence?: string;
+  /**
+   * @remarks
+   * The trigger type.
+   * 
+   * Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
+   * @example
+   * Scheduler
+   */
+  triggerType?: string;
+  /**
+   * @remarks
+   * The ID of the workflow to which the task belongs.
+   * 
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      idsShrink: 'Ids',
+      name: 'Name',
+      owner: 'Owner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectEnv: 'ProjectEnv',
+      projectId: 'ProjectId',
+      runtimeResource: 'RuntimeResource',
+      sortBy: 'SortBy',
+      taskType: 'TaskType',
+      triggerRecurrence: 'TriggerRecurrence',
+      triggerType: 'TriggerType',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      idsShrink: 'string',
       name: 'string',
       owner: 'string',
       pageNumber: 'number',
@@ -45979,6 +50441,482 @@ export class ListWorkflowDefinitionsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListWorkflowDefinitionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkflowInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  bizDate?: number;
+  ids?: number[];
+  /**
+   * @example
+   * WorkflowInstance1
+   */
+  name?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * Id Desc
+   */
+  sortBy?: string;
+  type?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizDate: 'BizDate',
+      ids: 'Ids',
+      name: 'Name',
+      owner: 'Owner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      sortBy: 'SortBy',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizDate: 'number',
+      ids: { 'type': 'array', 'itemType': 'number' },
+      name: 'string',
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      sortBy: 'string',
+      type: 'string',
+      workflowId: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ids)) {
+      $dara.Model.validateArray(this.ids);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  bizDate?: number;
+  idsShrink?: string;
+  /**
+   * @example
+   * WorkflowInstance1
+   */
+  name?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * Id Desc
+   */
+  sortBy?: string;
+  type?: string;
+  /**
+   * @example
+   * 1234
+   */
+  workflowId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizDate: 'BizDate',
+      idsShrink: 'Ids',
+      name: 'Name',
+      owner: 'Owner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      sortBy: 'SortBy',
+      type: 'Type',
+      workflowId: 'WorkflowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizDate: 'number',
+      idsShrink: 'string',
+      name: 'string',
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      sortBy: 'string',
+      type: 'string',
+      workflowId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkflowInstancesResponseBody extends $dara.Model {
+  pagingInfo?: ListWorkflowInstancesResponseBodyPagingInfo;
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListWorkflowInstancesResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.pagingInfo && typeof (this.pagingInfo as any).validate === 'function') {
+      (this.pagingInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkflowInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWorkflowInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWorkflowInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkflowsRequest extends $dara.Model {
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  ids?: number[];
+  /**
+   * @example
+   * Workflow1
+   */
+  name?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * Id Desc
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * Scheduler
+   */
+  triggerType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      envType: 'EnvType',
+      ids: 'Ids',
+      name: 'Name',
+      owner: 'Owner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      sortBy: 'SortBy',
+      triggerType: 'TriggerType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      envType: 'string',
+      ids: { 'type': 'array', 'itemType': 'number' },
+      name: 'string',
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      sortBy: 'string',
+      triggerType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ids)) {
+      $dara.Model.validateArray(this.ids);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkflowsShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  idsShrink?: string;
+  /**
+   * @example
+   * Workflow1
+   */
+  name?: string;
+  /**
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  projectId?: number;
+  /**
+   * @example
+   * Id Desc
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * Scheduler
+   */
+  triggerType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      envType: 'EnvType',
+      idsShrink: 'Ids',
+      name: 'Name',
+      owner: 'Owner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      sortBy: 'SortBy',
+      triggerType: 'TriggerType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      envType: 'string',
+      idsShrink: 'string',
+      name: 'string',
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      sortBy: 'string',
+      triggerType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkflowsResponseBody extends $dara.Model {
+  pagingInfo?: ListWorkflowsResponseBodyPagingInfo;
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListWorkflowsResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.pagingInfo && typeof (this.pagingInfo as any).validate === 'function') {
+      (this.pagingInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkflowsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListWorkflowsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListWorkflowsResponseBody,
     };
   }
 
@@ -47844,6 +52782,9 @@ export class StartDIJobRequest extends $dara.Model {
    */
   DIJobId?: number;
   /**
+   * @remarks
+   * Deprecated
+   * 
    * @example
    * false
    */
@@ -47856,6 +52797,10 @@ export class StartDIJobRequest extends $dara.Model {
    * 10000
    */
   id?: number;
+  /**
+   * @remarks
+   * The settings for starting real-time synchronization.
+   */
   realtimeStartSettings?: StartDIJobRequestRealtimeStartSettings;
   static names(): { [key: string]: string } {
     return {
@@ -47899,6 +52844,9 @@ export class StartDIJobShrinkRequest extends $dara.Model {
    */
   DIJobId?: number;
   /**
+   * @remarks
+   * Deprecated
+   * 
    * @example
    * false
    */
@@ -47911,6 +52859,10 @@ export class StartDIJobShrinkRequest extends $dara.Model {
    * 10000
    */
   id?: number;
+  /**
+   * @remarks
+   * The settings for starting real-time synchronization.
+   */
   realtimeStartSettingsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47941,11 +52893,20 @@ export class StartDIJobShrinkRequest extends $dara.Model {
 
 export class StartDIJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 999431B2-6013-577F-B684-36F7433C753B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -47990,6 +52951,162 @@ export class StartDIJobResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartDIJobResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWorkflowInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * The IDs of workflow instances.
+   * 
+   * This parameter is required.
+   */
+  ids?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      ids: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      ids: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ids)) {
+      $dara.Model.validateArray(this.ids);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWorkflowInstancesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * The IDs of workflow instances.
+   * 
+   * This parameter is required.
+   */
+  idsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      idsShrink: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      idsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWorkflowInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The result of the batch operation, which is in the MAP structure. The workflow instance ID serves as a key, and the result serves as a value.
+   */
+  successInfo?: { [key: string]: SuccessInfoValue };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      successInfo: 'SuccessInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      successInfo: { 'type': 'map', 'keyType': 'string', 'valueType': SuccessInfoValue },
+    };
+  }
+
+  validate() {
+    if(this.successInfo) {
+      $dara.Model.validateMap(this.successInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartWorkflowInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartWorkflowInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartWorkflowInstancesResponseBody,
     };
   }
 
@@ -48255,6 +53372,145 @@ export class StopTaskInstancesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopTaskInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopWorkflowInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  ids?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      ids: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      ids: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ids)) {
+      $dara.Model.validateArray(this.ids);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopWorkflowInstancesShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * this is a comment
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  idsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      idsShrink: 'Ids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      idsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopWorkflowInstancesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17****
+   */
+  requestId?: string;
+  successInfo?: { [key: string]: SuccessInfoValue };
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      successInfo: 'SuccessInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      successInfo: { 'type': 'map', 'keyType': 'string', 'valueType': SuccessInfoValue },
+    };
+  }
+
+  validate() {
+    if(this.successInfo) {
+      $dara.Model.validateMap(this.successInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopWorkflowInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopWorkflowInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopWorkflowInstancesResponseBody,
     };
   }
 
@@ -48617,6 +53873,16 @@ export class TagDataAssetsResponse extends $dara.Model {
 }
 
 export class TriggerSchedulerTaskInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
+   * @example
+   * Prod
+   */
   envType?: string;
   /**
    * @remarks
@@ -49183,6 +54449,9 @@ export class UpdateDIAlarmRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the alert rule.
+   * 
+   * @example
+   * The description of the alert rule.
    */
   description?: string;
   /**
@@ -49194,6 +54463,9 @@ export class UpdateDIAlarmRuleRequest extends $dara.Model {
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The alert rule Id
+   * 
    * @example
    * 34982
    */
@@ -49295,6 +54567,9 @@ export class UpdateDIAlarmRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the alert rule.
+   * 
+   * @example
+   * The description of the alert rule.
    */
   description?: string;
   /**
@@ -49306,6 +54581,9 @@ export class UpdateDIAlarmRuleShrinkRequest extends $dara.Model {
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The alert rule Id
+   * 
    * @example
    * 34982
    */
@@ -49471,6 +54749,9 @@ export class UpdateDIJobRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the synchronization task.
+   * 
+   * @example
+   * The description of the synchronization task.
    */
   description?: string;
   /**
@@ -49487,6 +54768,11 @@ export class UpdateDIJobRequest extends $dara.Model {
    */
   jobSettings?: UpdateDIJobRequestJobSettings;
   /**
+   * @remarks
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the operation is applied.
+   * 
    * @example
    * 10000
    */
@@ -49567,6 +54853,9 @@ export class UpdateDIJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the synchronization task.
+   * 
+   * @example
+   * The description of the synchronization task.
    */
   description?: string;
   /**
@@ -49583,6 +54872,11 @@ export class UpdateDIJobShrinkRequest extends $dara.Model {
    */
   jobSettingsShrink?: string;
   /**
+   * @remarks
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the operation is applied.
+   * 
    * @example
    * 10000
    */
@@ -49640,7 +54934,7 @@ export class UpdateDIJobShrinkRequest extends $dara.Model {
 export class UpdateDIJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
    * AAC30B35-820D-5F3E-A42C-E96BB6379325
@@ -50255,7 +55549,7 @@ export class UpdateDataQualityRuleRequest extends $dara.Model {
   samplingConfig?: UpdateDataQualityRuleRequestSamplingConfig;
   /**
    * @remarks
-   * The strength of the rule. Valid values:
+   * The strength of the rule.
    * 
    * *   Normal
    * *   High
@@ -50264,11 +55558,6 @@ export class UpdateDataQualityRuleRequest extends $dara.Model {
    * High
    */
   severity?: string;
-  /**
-   * @remarks
-   * The monitored object of the rule.
-   */
-  target?: UpdateDataQualityRuleRequestTarget;
   /**
    * @remarks
    * The ID of the template used by the rule.
@@ -50288,7 +55577,6 @@ export class UpdateDataQualityRuleRequest extends $dara.Model {
       projectId: 'ProjectId',
       samplingConfig: 'SamplingConfig',
       severity: 'Severity',
-      target: 'Target',
       templateCode: 'TemplateCode',
     };
   }
@@ -50304,7 +55592,6 @@ export class UpdateDataQualityRuleRequest extends $dara.Model {
       projectId: 'number',
       samplingConfig: UpdateDataQualityRuleRequestSamplingConfig,
       severity: 'string',
-      target: UpdateDataQualityRuleRequestTarget,
       templateCode: 'string',
     };
   }
@@ -50318,9 +55605,6 @@ export class UpdateDataQualityRuleRequest extends $dara.Model {
     }
     if(this.samplingConfig && typeof (this.samplingConfig as any).validate === 'function') {
       (this.samplingConfig as any).validate();
-    }
-    if(this.target && typeof (this.target as any).validate === 'function') {
-      (this.target as any).validate();
     }
     super.validate();
   }
@@ -50384,7 +55668,7 @@ export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
   samplingConfigShrink?: string;
   /**
    * @remarks
-   * The strength of the rule. Valid values:
+   * The strength of the rule.
    * 
    * *   Normal
    * *   High
@@ -50393,11 +55677,6 @@ export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
    * High
    */
   severity?: string;
-  /**
-   * @remarks
-   * The monitored object of the rule.
-   */
-  targetShrink?: string;
   /**
    * @remarks
    * The ID of the template used by the rule.
@@ -50417,7 +55696,6 @@ export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
       projectId: 'ProjectId',
       samplingConfigShrink: 'SamplingConfig',
       severity: 'Severity',
-      targetShrink: 'Target',
       templateCode: 'TemplateCode',
     };
   }
@@ -50433,7 +55711,6 @@ export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
       projectId: 'number',
       samplingConfigShrink: 'string',
       severity: 'string',
-      targetShrink: 'string',
       templateCode: 'string',
     };
   }
@@ -51707,6 +56984,375 @@ export class UpdateRouteResponse extends $dara.Model {
   }
 }
 
+export class UpdateTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * Task_0bc5213917368545132902xxxxxxxx
+   */
+  clientUniqueCode?: string;
+  dataSource?: UpdateTaskRequestDataSource;
+  dependencies?: UpdateTaskRequestDependencies[];
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  inputs?: UpdateTaskRequestInputs;
+  /**
+   * @example
+   * T+1
+   */
+  instanceMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  outputs?: UpdateTaskRequestOutputs;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 60
+   */
+  rerunInterval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AllAllowed
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 3
+   */
+  rerunTimes?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  runtimeResource?: UpdateTaskRequestRuntimeResource;
+  script?: UpdateTaskRequestScript;
+  tags?: UpdateTaskRequestTags[];
+  /**
+   * @example
+   * 3600
+   */
+  timeout?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  trigger?: UpdateTaskRequestTrigger;
+  static names(): { [key: string]: string } {
+    return {
+      clientUniqueCode: 'ClientUniqueCode',
+      dataSource: 'DataSource',
+      dependencies: 'Dependencies',
+      description: 'Description',
+      envType: 'EnvType',
+      id: 'Id',
+      inputs: 'Inputs',
+      instanceMode: 'InstanceMode',
+      name: 'Name',
+      outputs: 'Outputs',
+      owner: 'Owner',
+      rerunInterval: 'RerunInterval',
+      rerunMode: 'RerunMode',
+      rerunTimes: 'RerunTimes',
+      runtimeResource: 'RuntimeResource',
+      script: 'Script',
+      tags: 'Tags',
+      timeout: 'Timeout',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientUniqueCode: 'string',
+      dataSource: UpdateTaskRequestDataSource,
+      dependencies: { 'type': 'array', 'itemType': UpdateTaskRequestDependencies },
+      description: 'string',
+      envType: 'string',
+      id: 'number',
+      inputs: UpdateTaskRequestInputs,
+      instanceMode: 'string',
+      name: 'string',
+      outputs: UpdateTaskRequestOutputs,
+      owner: 'string',
+      rerunInterval: 'number',
+      rerunMode: 'string',
+      rerunTimes: 'number',
+      runtimeResource: UpdateTaskRequestRuntimeResource,
+      script: UpdateTaskRequestScript,
+      tags: { 'type': 'array', 'itemType': UpdateTaskRequestTags },
+      timeout: 'number',
+      trigger: UpdateTaskRequestTrigger,
+    };
+  }
+
+  validate() {
+    if(this.dataSource && typeof (this.dataSource as any).validate === 'function') {
+      (this.dataSource as any).validate();
+    }
+    if(Array.isArray(this.dependencies)) {
+      $dara.Model.validateArray(this.dependencies);
+    }
+    if(this.inputs && typeof (this.inputs as any).validate === 'function') {
+      (this.inputs as any).validate();
+    }
+    if(this.outputs && typeof (this.outputs as any).validate === 'function') {
+      (this.outputs as any).validate();
+    }
+    if(this.runtimeResource && typeof (this.runtimeResource as any).validate === 'function') {
+      (this.runtimeResource as any).validate();
+    }
+    if(this.script && typeof (this.script as any).validate === 'function') {
+      (this.script as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(this.trigger && typeof (this.trigger as any).validate === 'function') {
+      (this.trigger as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * Task_0bc5213917368545132902xxxxxxxx
+   */
+  clientUniqueCode?: string;
+  dataSourceShrink?: string;
+  dependenciesShrink?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  inputsShrink?: string;
+  /**
+   * @example
+   * T+1
+   */
+  instanceMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  outputsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * 60
+   */
+  rerunInterval?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * AllAllowed
+   */
+  rerunMode?: string;
+  /**
+   * @example
+   * 3
+   */
+  rerunTimes?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  runtimeResourceShrink?: string;
+  scriptShrink?: string;
+  tagsShrink?: string;
+  /**
+   * @example
+   * 3600
+   */
+  timeout?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  triggerShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientUniqueCode: 'ClientUniqueCode',
+      dataSourceShrink: 'DataSource',
+      dependenciesShrink: 'Dependencies',
+      description: 'Description',
+      envType: 'EnvType',
+      id: 'Id',
+      inputsShrink: 'Inputs',
+      instanceMode: 'InstanceMode',
+      name: 'Name',
+      outputsShrink: 'Outputs',
+      owner: 'Owner',
+      rerunInterval: 'RerunInterval',
+      rerunMode: 'RerunMode',
+      rerunTimes: 'RerunTimes',
+      runtimeResourceShrink: 'RuntimeResource',
+      scriptShrink: 'Script',
+      tagsShrink: 'Tags',
+      timeout: 'Timeout',
+      triggerShrink: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientUniqueCode: 'string',
+      dataSourceShrink: 'string',
+      dependenciesShrink: 'string',
+      description: 'string',
+      envType: 'string',
+      id: 'number',
+      inputsShrink: 'string',
+      instanceMode: 'string',
+      name: 'string',
+      outputsShrink: 'string',
+      owner: 'string',
+      rerunInterval: 'number',
+      rerunMode: 'string',
+      rerunTimes: 'number',
+      runtimeResourceShrink: 'string',
+      scriptShrink: 'string',
+      tagsShrink: 'string',
+      timeout: 'number',
+      triggerShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTaskInstancesRequest extends $dara.Model {
   /**
    * @remarks
@@ -51841,6 +57487,278 @@ export class UpdateTaskInstancesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateTaskInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowRequest extends $dara.Model {
+  /**
+   * @example
+   * Workflow_0bc5213917368545132902xxxxxxxx
+   */
+  clientUniqueCode?: string;
+  dependencies?: UpdateWorkflowRequestDependencies[];
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  outputs?: UpdateWorkflowRequestOutputs;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * para1=$bizdate para2=$[yyyymmdd]
+   */
+  parameters?: string;
+  tags?: UpdateWorkflowRequestTags[];
+  tasks?: UpdateWorkflowRequestTasks[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  trigger?: UpdateWorkflowRequestTrigger;
+  static names(): { [key: string]: string } {
+    return {
+      clientUniqueCode: 'ClientUniqueCode',
+      dependencies: 'Dependencies',
+      description: 'Description',
+      envType: 'EnvType',
+      id: 'Id',
+      name: 'Name',
+      outputs: 'Outputs',
+      owner: 'Owner',
+      parameters: 'Parameters',
+      tags: 'Tags',
+      tasks: 'Tasks',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientUniqueCode: 'string',
+      dependencies: { 'type': 'array', 'itemType': UpdateWorkflowRequestDependencies },
+      description: 'string',
+      envType: 'string',
+      id: 'number',
+      name: 'string',
+      outputs: UpdateWorkflowRequestOutputs,
+      owner: 'string',
+      parameters: 'string',
+      tags: { 'type': 'array', 'itemType': UpdateWorkflowRequestTags },
+      tasks: { 'type': 'array', 'itemType': UpdateWorkflowRequestTasks },
+      trigger: UpdateWorkflowRequestTrigger,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dependencies)) {
+      $dara.Model.validateArray(this.dependencies);
+    }
+    if(this.outputs && typeof (this.outputs as any).validate === 'function') {
+      (this.outputs as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.tasks)) {
+      $dara.Model.validateArray(this.tasks);
+    }
+    if(this.trigger && typeof (this.trigger as any).validate === 'function') {
+      (this.trigger as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * Workflow_0bc5213917368545132902xxxxxxxx
+   */
+  clientUniqueCode?: string;
+  dependenciesShrink?: string;
+  /**
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  outputsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1000
+   */
+  owner?: string;
+  /**
+   * @example
+   * para1=$bizdate para2=$[yyyymmdd]
+   */
+  parameters?: string;
+  tagsShrink?: string;
+  tasksShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  triggerShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientUniqueCode: 'ClientUniqueCode',
+      dependenciesShrink: 'Dependencies',
+      description: 'Description',
+      envType: 'EnvType',
+      id: 'Id',
+      name: 'Name',
+      outputsShrink: 'Outputs',
+      owner: 'Owner',
+      parameters: 'Parameters',
+      tagsShrink: 'Tags',
+      tasksShrink: 'Tasks',
+      triggerShrink: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientUniqueCode: 'string',
+      dependenciesShrink: 'string',
+      description: 'string',
+      envType: 'string',
+      id: 'number',
+      name: 'string',
+      outputsShrink: 'string',
+      owner: 'string',
+      parameters: 'string',
+      tagsShrink: 'string',
+      tasksShrink: 'string',
+      triggerShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateWorkflowResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateWorkflowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateWorkflowResponseBody,
     };
   }
 
@@ -52071,7 +57989,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AbolishDeploymentResponse>(await this.callApi(params, req, runtime), new AbolishDeploymentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AbolishDeploymentResponse>(await this.callApi(params, req, runtime), new AbolishDeploymentResponse({}));
+    } else {
+      return $dara.cast<AbolishDeploymentResponse>(await this.execute(params, req, runtime), new AbolishDeploymentResponse({}));
+    }
+
   }
 
   /**
@@ -52122,7 +58045,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AssociateProjectToResourceGroupResponse>(await this.callApi(params, req, runtime), new AssociateProjectToResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AssociateProjectToResourceGroupResponse>(await this.callApi(params, req, runtime), new AssociateProjectToResourceGroupResponse({}));
+    } else {
+      return $dara.cast<AssociateProjectToResourceGroupResponse>(await this.execute(params, req, runtime), new AssociateProjectToResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -52183,7 +58111,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AttachDataQualityRulesToEvaluationTaskResponse>(await this.callApi(params, req, runtime), new AttachDataQualityRulesToEvaluationTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AttachDataQualityRulesToEvaluationTaskResponse>(await this.callApi(params, req, runtime), new AttachDataQualityRulesToEvaluationTaskResponse({}));
+    } else {
+      return $dara.cast<AttachDataQualityRulesToEvaluationTaskResponse>(await this.execute(params, req, runtime), new AttachDataQualityRulesToEvaluationTaskResponse({}));
+    }
+
   }
 
   /**
@@ -52195,6 +58128,59 @@ export default class Client extends OpenApi {
   async attachDataQualityRulesToEvaluationTask(request: AttachDataQualityRulesToEvaluationTaskRequest): Promise<AttachDataQualityRulesToEvaluationTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.attachDataQualityRulesToEvaluationTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - BatchUpdateTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchUpdateTasksResponse
+   */
+  async batchUpdateTasksWithOptions(tmpReq: BatchUpdateTasksRequest, runtime: $dara.RuntimeOptions): Promise<BatchUpdateTasksResponse> {
+    tmpReq.validate();
+    let request = new BatchUpdateTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tasks)) {
+      request.tasksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tasks, "Tasks", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.tasksShrink)) {
+      body["Tasks"] = request.tasksShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchUpdateTasks",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BatchUpdateTasksResponse>(await this.callApi(params, req, runtime), new BatchUpdateTasksResponse({}));
+    } else {
+      return $dara.cast<BatchUpdateTasksResponse>(await this.execute(params, req, runtime), new BatchUpdateTasksResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - BatchUpdateTasksRequest
+   * @returns BatchUpdateTasksResponse
+   */
+  async batchUpdateTasks(request: BatchUpdateTasksRequest): Promise<BatchUpdateTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchUpdateTasksWithOptions(request, runtime);
   }
 
   /**
@@ -52234,7 +58220,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CloneDataSourceResponse>(await this.callApi(params, req, runtime), new CloneDataSourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CloneDataSourceResponse>(await this.callApi(params, req, runtime), new CloneDataSourceResponse({}));
+    } else {
+      return $dara.cast<CloneDataSourceResponse>(await this.execute(params, req, runtime), new CloneDataSourceResponse({}));
+    }
+
   }
 
   /**
@@ -52307,7 +58298,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateAlertRuleResponse>(await this.callApi(params, req, runtime), new CreateAlertRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAlertRuleResponse>(await this.callApi(params, req, runtime), new CreateAlertRuleResponse({}));
+    } else {
+      return $dara.cast<CreateAlertRuleResponse>(await this.execute(params, req, runtime), new CreateAlertRuleResponse({}));
+    }
+
   }
 
   /**
@@ -52355,7 +58351,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new CreateDIAlarmRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new CreateDIAlarmRuleResponse({}));
+    } else {
+      return $dara.cast<CreateDIAlarmRuleResponse>(await this.execute(params, req, runtime), new CreateDIAlarmRuleResponse({}));
+    }
+
   }
 
   /**
@@ -52422,7 +58423,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateDIJobResponse>(await this.callApi(params, req, runtime), new CreateDIJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDIJobResponse>(await this.callApi(params, req, runtime), new CreateDIJobResponse({}));
+    } else {
+      return $dara.cast<CreateDIJobResponse>(await this.execute(params, req, runtime), new CreateDIJobResponse({}));
+    }
+
   }
 
   /**
@@ -52493,7 +58499,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateDataAssetTagResponse>(await this.callApi(params, req, runtime), new CreateDataAssetTagResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDataAssetTagResponse>(await this.callApi(params, req, runtime), new CreateDataAssetTagResponse({}));
+    } else {
+      return $dara.cast<CreateDataAssetTagResponse>(await this.execute(params, req, runtime), new CreateDataAssetTagResponse({}));
+    }
+
   }
 
   /**
@@ -52596,7 +58607,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateDataQualityEvaluationTaskResponse>(await this.callApi(params, req, runtime), new CreateDataQualityEvaluationTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDataQualityEvaluationTaskResponse>(await this.callApi(params, req, runtime), new CreateDataQualityEvaluationTaskResponse({}));
+    } else {
+      return $dara.cast<CreateDataQualityEvaluationTaskResponse>(await this.execute(params, req, runtime), new CreateDataQualityEvaluationTaskResponse({}));
+    }
+
   }
 
   /**
@@ -52659,7 +58675,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateDataQualityEvaluationTaskInstanceResponse>(await this.callApi(params, req, runtime), new CreateDataQualityEvaluationTaskInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDataQualityEvaluationTaskInstanceResponse>(await this.callApi(params, req, runtime), new CreateDataQualityEvaluationTaskInstanceResponse({}));
+    } else {
+      return $dara.cast<CreateDataQualityEvaluationTaskInstanceResponse>(await this.execute(params, req, runtime), new CreateDataQualityEvaluationTaskInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -52755,7 +58776,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateDataQualityRuleResponse>(await this.callApi(params, req, runtime), new CreateDataQualityRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDataQualityRuleResponse>(await this.callApi(params, req, runtime), new CreateDataQualityRuleResponse({}));
+    } else {
+      return $dara.cast<CreateDataQualityRuleResponse>(await this.execute(params, req, runtime), new CreateDataQualityRuleResponse({}));
+    }
+
   }
 
   /**
@@ -52827,7 +58853,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateDataQualityRuleTemplateResponse>(await this.callApi(params, req, runtime), new CreateDataQualityRuleTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDataQualityRuleTemplateResponse>(await this.callApi(params, req, runtime), new CreateDataQualityRuleTemplateResponse({}));
+    } else {
+      return $dara.cast<CreateDataQualityRuleTemplateResponse>(await this.execute(params, req, runtime), new CreateDataQualityRuleTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -52894,7 +58925,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateDataSourceResponse>(await this.callApi(params, req, runtime), new CreateDataSourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDataSourceResponse>(await this.callApi(params, req, runtime), new CreateDataSourceResponse({}));
+    } else {
+      return $dara.cast<CreateDataSourceResponse>(await this.execute(params, req, runtime), new CreateDataSourceResponse({}));
+    }
+
   }
 
   /**
@@ -52958,7 +58994,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateDataSourceSharedRuleResponse>(await this.callApi(params, req, runtime), new CreateDataSourceSharedRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDataSourceSharedRuleResponse>(await this.callApi(params, req, runtime), new CreateDataSourceSharedRuleResponse({}));
+    } else {
+      return $dara.cast<CreateDataSourceSharedRuleResponse>(await this.execute(params, req, runtime), new CreateDataSourceSharedRuleResponse({}));
+    }
+
   }
 
   /**
@@ -53026,7 +59067,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateDeploymentResponse>(await this.callApi(params, req, runtime), new CreateDeploymentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDeploymentResponse>(await this.callApi(params, req, runtime), new CreateDeploymentResponse({}));
+    } else {
+      return $dara.cast<CreateDeploymentResponse>(await this.execute(params, req, runtime), new CreateDeploymentResponse({}));
+    }
+
   }
 
   /**
@@ -53078,7 +59124,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateFunctionResponse>(await this.callApi(params, req, runtime), new CreateFunctionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateFunctionResponse>(await this.callApi(params, req, runtime), new CreateFunctionResponse({}));
+    } else {
+      return $dara.cast<CreateFunctionResponse>(await this.execute(params, req, runtime), new CreateFunctionResponse({}));
+    }
+
   }
 
   /**
@@ -53138,7 +59189,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateNetworkResponse>(await this.callApi(params, req, runtime), new CreateNetworkResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateNetworkResponse>(await this.callApi(params, req, runtime), new CreateNetworkResponse({}));
+    } else {
+      return $dara.cast<CreateNetworkResponse>(await this.execute(params, req, runtime), new CreateNetworkResponse({}));
+    }
+
   }
 
   /**
@@ -53198,7 +59254,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateNodeResponse>(await this.callApi(params, req, runtime), new CreateNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateNodeResponse>(await this.callApi(params, req, runtime), new CreateNodeResponse({}));
+    } else {
+      return $dara.cast<CreateNodeResponse>(await this.execute(params, req, runtime), new CreateNodeResponse({}));
+    }
+
   }
 
   /**
@@ -53277,7 +59338,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
+    } else {
+      return $dara.cast<CreateProjectResponse>(await this.execute(params, req, runtime), new CreateProjectResponse({}));
+    }
+
   }
 
   /**
@@ -53336,7 +59402,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateProjectMemberResponse>(await this.callApi(params, req, runtime), new CreateProjectMemberResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateProjectMemberResponse>(await this.callApi(params, req, runtime), new CreateProjectMemberResponse({}));
+    } else {
+      return $dara.cast<CreateProjectMemberResponse>(await this.execute(params, req, runtime), new CreateProjectMemberResponse({}));
+    }
+
   }
 
   /**
@@ -53388,7 +59459,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateResourceResponse>(await this.callApi(params, req, runtime), new CreateResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateResourceResponse>(await this.callApi(params, req, runtime), new CreateResourceResponse({}));
+    } else {
+      return $dara.cast<CreateResourceResponse>(await this.execute(params, req, runtime), new CreateResourceResponse({}));
+    }
+
   }
 
   /**
@@ -53487,7 +59563,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateResourceGroupResponse>(await this.callApi(params, req, runtime), new CreateResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateResourceGroupResponse>(await this.callApi(params, req, runtime), new CreateResourceGroupResponse({}));
+    } else {
+      return $dara.cast<CreateResourceGroupResponse>(await this.execute(params, req, runtime), new CreateResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -53540,7 +59621,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateRouteResponse>(await this.callApi(params, req, runtime), new CreateRouteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateRouteResponse>(await this.callApi(params, req, runtime), new CreateRouteResponse({}));
+    } else {
+      return $dara.cast<CreateRouteResponse>(await this.execute(params, req, runtime), new CreateRouteResponse({}));
+    }
+
   }
 
   /**
@@ -53592,7 +59678,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new CreateWorkflowDefinitionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new CreateWorkflowDefinitionResponse({}));
+    } else {
+      return $dara.cast<CreateWorkflowDefinitionResponse>(await this.execute(params, req, runtime), new CreateWorkflowDefinitionResponse({}));
+    }
+
   }
 
   /**
@@ -53607,6 +59698,99 @@ export default class Client extends OpenApi {
   async createWorkflowDefinition(request: CreateWorkflowDefinitionRequest): Promise<CreateWorkflowDefinitionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - CreateWorkflowInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkflowInstancesResponse
+   */
+  async createWorkflowInstancesWithOptions(tmpReq: CreateWorkflowInstancesRequest, runtime: $dara.RuntimeOptions): Promise<CreateWorkflowInstancesResponse> {
+    tmpReq.validate();
+    let request = new CreateWorkflowInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.defaultRunProperties)) {
+      request.defaultRunPropertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.defaultRunProperties, "DefaultRunProperties", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.periods)) {
+      request.periodsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.periods, "Periods", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoStartEnabled)) {
+      body["AutoStartEnabled"] = request.autoStartEnabled;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.defaultRunPropertiesShrink)) {
+      body["DefaultRunProperties"] = request.defaultRunPropertiesShrink;
+    }
+
+    if (!$dara.isNull(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.periodsShrink)) {
+      body["Periods"] = request.periodsShrink;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.taskParameters)) {
+      body["TaskParameters"] = request.taskParameters;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      body["WorkflowId"] = request.workflowId;
+    }
+
+    if (!$dara.isNull(request.workflowParameters)) {
+      body["WorkflowParameters"] = request.workflowParameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWorkflowInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateWorkflowInstancesResponse>(await this.callApi(params, req, runtime), new CreateWorkflowInstancesResponse({}));
+    } else {
+      return $dara.cast<CreateWorkflowInstancesResponse>(await this.execute(params, req, runtime), new CreateWorkflowInstancesResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - CreateWorkflowInstancesRequest
+   * @returns CreateWorkflowInstancesResponse
+   */
+  async createWorkflowInstances(request: CreateWorkflowInstancesRequest): Promise<CreateWorkflowInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWorkflowInstancesWithOptions(request, runtime);
   }
 
   /**
@@ -53637,7 +59821,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteAlertRuleResponse>(await this.callApi(params, req, runtime), new DeleteAlertRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAlertRuleResponse>(await this.callApi(params, req, runtime), new DeleteAlertRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteAlertRuleResponse>(await this.execute(params, req, runtime), new DeleteAlertRuleResponse({}));
+    }
+
   }
 
   /**
@@ -53675,7 +59864,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new DeleteDIAlarmRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new DeleteDIAlarmRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteDIAlarmRuleResponse>(await this.execute(params, req, runtime), new DeleteDIAlarmRuleResponse({}));
+    }
+
   }
 
   /**
@@ -53716,7 +59910,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteDIJobResponse>(await this.callApi(params, req, runtime), new DeleteDIJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDIJobResponse>(await this.callApi(params, req, runtime), new DeleteDIJobResponse({}));
+    } else {
+      return $dara.cast<DeleteDIJobResponse>(await this.execute(params, req, runtime), new DeleteDIJobResponse({}));
+    }
+
   }
 
   /**
@@ -53771,7 +59970,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteDataAssetTagResponse>(await this.callApi(params, req, runtime), new DeleteDataAssetTagResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDataAssetTagResponse>(await this.callApi(params, req, runtime), new DeleteDataAssetTagResponse({}));
+    } else {
+      return $dara.cast<DeleteDataAssetTagResponse>(await this.execute(params, req, runtime), new DeleteDataAssetTagResponse({}));
+    }
+
   }
 
   /**
@@ -53817,7 +60021,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteDataQualityEvaluationTaskResponse>(await this.callApi(params, req, runtime), new DeleteDataQualityEvaluationTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDataQualityEvaluationTaskResponse>(await this.callApi(params, req, runtime), new DeleteDataQualityEvaluationTaskResponse({}));
+    } else {
+      return $dara.cast<DeleteDataQualityEvaluationTaskResponse>(await this.execute(params, req, runtime), new DeleteDataQualityEvaluationTaskResponse({}));
+    }
+
   }
 
   /**
@@ -53863,7 +60072,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteDataQualityRuleResponse>(await this.callApi(params, req, runtime), new DeleteDataQualityRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDataQualityRuleResponse>(await this.callApi(params, req, runtime), new DeleteDataQualityRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteDataQualityRuleResponse>(await this.execute(params, req, runtime), new DeleteDataQualityRuleResponse({}));
+    }
+
   }
 
   /**
@@ -53909,7 +60123,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteDataQualityRuleTemplateResponse>(await this.callApi(params, req, runtime), new DeleteDataQualityRuleTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDataQualityRuleTemplateResponse>(await this.callApi(params, req, runtime), new DeleteDataQualityRuleTemplateResponse({}));
+    } else {
+      return $dara.cast<DeleteDataQualityRuleTemplateResponse>(await this.execute(params, req, runtime), new DeleteDataQualityRuleTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -53952,7 +60171,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteDataSourceResponse>(await this.callApi(params, req, runtime), new DeleteDataSourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDataSourceResponse>(await this.callApi(params, req, runtime), new DeleteDataSourceResponse({}));
+    } else {
+      return $dara.cast<DeleteDataSourceResponse>(await this.execute(params, req, runtime), new DeleteDataSourceResponse({}));
+    }
+
   }
 
   /**
@@ -54004,7 +60228,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteDataSourceSharedRuleResponse>(await this.callApi(params, req, runtime), new DeleteDataSourceSharedRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDataSourceSharedRuleResponse>(await this.callApi(params, req, runtime), new DeleteDataSourceSharedRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteDataSourceSharedRuleResponse>(await this.execute(params, req, runtime), new DeleteDataSourceSharedRuleResponse({}));
+    }
+
   }
 
   /**
@@ -54058,7 +60287,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteFunctionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteFunctionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionResponse({}));
+    } else {
+      return $dara.cast<DeleteFunctionResponse>(await this.execute(params, req, runtime), new DeleteFunctionResponse({}));
+    }
+
   }
 
   /**
@@ -54106,7 +60340,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteNetworkResponse>(await this.callApi(params, req, runtime), new DeleteNetworkResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteNetworkResponse>(await this.callApi(params, req, runtime), new DeleteNetworkResponse({}));
+    } else {
+      return $dara.cast<DeleteNetworkResponse>(await this.execute(params, req, runtime), new DeleteNetworkResponse({}));
+    }
+
   }
 
   /**
@@ -54158,7 +60397,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteNodeResponse>(await this.callApi(params, req, runtime), new DeleteNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteNodeResponse>(await this.callApi(params, req, runtime), new DeleteNodeResponse({}));
+    } else {
+      return $dara.cast<DeleteNodeResponse>(await this.execute(params, req, runtime), new DeleteNodeResponse({}));
+    }
+
   }
 
   /**
@@ -54206,7 +60450,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
+    } else {
+      return $dara.cast<DeleteProjectResponse>(await this.execute(params, req, runtime), new DeleteProjectResponse({}));
+    }
+
   }
 
   /**
@@ -54258,7 +60507,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteProjectMemberResponse>(await this.callApi(params, req, runtime), new DeleteProjectMemberResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteProjectMemberResponse>(await this.callApi(params, req, runtime), new DeleteProjectMemberResponse({}));
+    } else {
+      return $dara.cast<DeleteProjectMemberResponse>(await this.execute(params, req, runtime), new DeleteProjectMemberResponse({}));
+    }
+
   }
 
   /**
@@ -54310,7 +60564,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteResourceResponse>(await this.callApi(params, req, runtime), new DeleteResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteResourceResponse>(await this.callApi(params, req, runtime), new DeleteResourceResponse({}));
+    } else {
+      return $dara.cast<DeleteResourceResponse>(await this.execute(params, req, runtime), new DeleteResourceResponse({}));
+    }
+
   }
 
   /**
@@ -54359,7 +60618,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteResourceGroupResponse>(await this.callApi(params, req, runtime), new DeleteResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteResourceGroupResponse>(await this.callApi(params, req, runtime), new DeleteResourceGroupResponse({}));
+    } else {
+      return $dara.cast<DeleteResourceGroupResponse>(await this.execute(params, req, runtime), new DeleteResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -54408,7 +60672,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteRouteResponse>(await this.callApi(params, req, runtime), new DeleteRouteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteRouteResponse>(await this.callApi(params, req, runtime), new DeleteRouteResponse({}));
+    } else {
+      return $dara.cast<DeleteRouteResponse>(await this.execute(params, req, runtime), new DeleteRouteResponse({}));
+    }
+
   }
 
   /**
@@ -54460,7 +60729,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteTaskResponse>(await this.callApi(params, req, runtime), new DeleteTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteTaskResponse>(await this.callApi(params, req, runtime), new DeleteTaskResponse({}));
+    } else {
+      return $dara.cast<DeleteTaskResponse>(await this.execute(params, req, runtime), new DeleteTaskResponse({}));
+    }
+
   }
 
   /**
@@ -54475,6 +60749,59 @@ export default class Client extends OpenApi {
   async deleteTask(request: DeleteTaskRequest): Promise<DeleteTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DeleteWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkflowResponse
+   */
+  async deleteWorkflowWithOptions(request: DeleteWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<DeleteWorkflowResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientUniqueCode)) {
+      body["ClientUniqueCode"] = request.clientUniqueCode;
+    }
+
+    if (!$dara.isNull(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWorkflow",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteWorkflowResponse>(await this.callApi(params, req, runtime), new DeleteWorkflowResponse({}));
+    } else {
+      return $dara.cast<DeleteWorkflowResponse>(await this.execute(params, req, runtime), new DeleteWorkflowResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - DeleteWorkflowRequest
+   * @returns DeleteWorkflowResponse
+   */
+  async deleteWorkflow(request: DeleteWorkflowRequest): Promise<DeleteWorkflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWorkflowWithOptions(request, runtime);
   }
 
   /**
@@ -54512,7 +60839,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new DeleteWorkflowDefinitionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new DeleteWorkflowDefinitionResponse({}));
+    } else {
+      return $dara.cast<DeleteWorkflowDefinitionResponse>(await this.execute(params, req, runtime), new DeleteWorkflowDefinitionResponse({}));
+    }
+
   }
 
   /**
@@ -54571,7 +60903,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DetachDataQualityRulesFromEvaluationTaskResponse>(await this.callApi(params, req, runtime), new DetachDataQualityRulesFromEvaluationTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DetachDataQualityRulesFromEvaluationTaskResponse>(await this.callApi(params, req, runtime), new DetachDataQualityRulesFromEvaluationTaskResponse({}));
+    } else {
+      return $dara.cast<DetachDataQualityRulesFromEvaluationTaskResponse>(await this.execute(params, req, runtime), new DetachDataQualityRulesFromEvaluationTaskResponse({}));
+    }
+
   }
 
   /**
@@ -54622,7 +60959,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DissociateProjectFromResourceGroupResponse>(await this.callApi(params, req, runtime), new DissociateProjectFromResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DissociateProjectFromResourceGroupResponse>(await this.callApi(params, req, runtime), new DissociateProjectFromResourceGroupResponse({}));
+    } else {
+      return $dara.cast<DissociateProjectFromResourceGroupResponse>(await this.execute(params, req, runtime), new DissociateProjectFromResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -54683,7 +61025,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ExecDeploymentStageResponse>(await this.callApi(params, req, runtime), new ExecDeploymentStageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ExecDeploymentStageResponse>(await this.callApi(params, req, runtime), new ExecDeploymentStageResponse({}));
+    } else {
+      return $dara.cast<ExecDeploymentStageResponse>(await this.execute(params, req, runtime), new ExecDeploymentStageResponse({}));
+    }
+
   }
 
   /**
@@ -54699,6 +61046,75 @@ export default class Client extends OpenApi {
   async execDeploymentStage(request: ExecDeploymentStageRequest): Promise<ExecDeploymentStageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.execDeploymentStageWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - ExecuteAdhocWorkflowInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAdhocWorkflowInstanceResponse
+   */
+  async executeAdhocWorkflowInstanceWithOptions(tmpReq: ExecuteAdhocWorkflowInstanceRequest, runtime: $dara.RuntimeOptions): Promise<ExecuteAdhocWorkflowInstanceResponse> {
+    tmpReq.validate();
+    let request = new ExecuteAdhocWorkflowInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tasks)) {
+      request.tasksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tasks, "Tasks", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizDate)) {
+      body["BizDate"] = request.bizDate;
+    }
+
+    if (!$dara.isNull(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.tasksShrink)) {
+      body["Tasks"] = request.tasksShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteAdhocWorkflowInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ExecuteAdhocWorkflowInstanceResponse>(await this.callApi(params, req, runtime), new ExecuteAdhocWorkflowInstanceResponse({}));
+    } else {
+      return $dara.cast<ExecuteAdhocWorkflowInstanceResponse>(await this.execute(params, req, runtime), new ExecuteAdhocWorkflowInstanceResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - ExecuteAdhocWorkflowInstanceRequest
+   * @returns ExecuteAdhocWorkflowInstanceResponse
+   */
+  async executeAdhocWorkflowInstance(request: ExecuteAdhocWorkflowInstanceRequest): Promise<ExecuteAdhocWorkflowInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.executeAdhocWorkflowInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -54725,7 +61141,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetAlertRuleResponse>(await this.callApi(params, req, runtime), new GetAlertRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAlertRuleResponse>(await this.callApi(params, req, runtime), new GetAlertRuleResponse({}));
+    } else {
+      return $dara.cast<GetAlertRuleResponse>(await this.execute(params, req, runtime), new GetAlertRuleResponse({}));
+    }
+
   }
 
   /**
@@ -54737,6 +61158,49 @@ export default class Client extends OpenApi {
   async getAlertRule(request: GetAlertRuleRequest): Promise<GetAlertRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAlertRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询异步创建工作流实例的结果
+   * 
+   * @param request - GetCreateWorkflowInstancesResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCreateWorkflowInstancesResultResponse
+   */
+  async getCreateWorkflowInstancesResultWithOptions(request: GetCreateWorkflowInstancesResultRequest, runtime: $dara.RuntimeOptions): Promise<GetCreateWorkflowInstancesResultResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCreateWorkflowInstancesResult",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetCreateWorkflowInstancesResultResponse>(await this.callApi(params, req, runtime), new GetCreateWorkflowInstancesResultResponse({}));
+    } else {
+      return $dara.cast<GetCreateWorkflowInstancesResultResponse>(await this.execute(params, req, runtime), new GetCreateWorkflowInstancesResultResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询异步创建工作流实例的结果
+   * 
+   * @param request - GetCreateWorkflowInstancesResultRequest
+   * @returns GetCreateWorkflowInstancesResultResponse
+   */
+  async getCreateWorkflowInstancesResult(request: GetCreateWorkflowInstancesResultRequest): Promise<GetCreateWorkflowInstancesResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCreateWorkflowInstancesResultWithOptions(request, runtime);
   }
 
   /**
@@ -54766,7 +61230,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetDIJobResponse>(await this.callApi(params, req, runtime), new GetDIJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDIJobResponse>(await this.callApi(params, req, runtime), new GetDIJobResponse({}));
+    } else {
+      return $dara.cast<GetDIJobResponse>(await this.execute(params, req, runtime), new GetDIJobResponse({}));
+    }
+
   }
 
   /**
@@ -54810,7 +61279,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetDIJobLogResponse>(await this.callApi(params, req, runtime), new GetDIJobLogResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDIJobLogResponse>(await this.callApi(params, req, runtime), new GetDIJobLogResponse({}));
+    } else {
+      return $dara.cast<GetDIJobLogResponse>(await this.execute(params, req, runtime), new GetDIJobLogResponse({}));
+    }
+
   }
 
   /**
@@ -54851,7 +61325,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetDataQualityEvaluationTaskResponse>(await this.callApi(params, req, runtime), new GetDataQualityEvaluationTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDataQualityEvaluationTaskResponse>(await this.callApi(params, req, runtime), new GetDataQualityEvaluationTaskResponse({}));
+    } else {
+      return $dara.cast<GetDataQualityEvaluationTaskResponse>(await this.execute(params, req, runtime), new GetDataQualityEvaluationTaskResponse({}));
+    }
+
   }
 
   /**
@@ -54889,7 +61368,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetDataQualityEvaluationTaskInstanceResponse>(await this.callApi(params, req, runtime), new GetDataQualityEvaluationTaskInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDataQualityEvaluationTaskInstanceResponse>(await this.callApi(params, req, runtime), new GetDataQualityEvaluationTaskInstanceResponse({}));
+    } else {
+      return $dara.cast<GetDataQualityEvaluationTaskInstanceResponse>(await this.execute(params, req, runtime), new GetDataQualityEvaluationTaskInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -54930,7 +61414,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetDataQualityRuleResponse>(await this.callApi(params, req, runtime), new GetDataQualityRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDataQualityRuleResponse>(await this.callApi(params, req, runtime), new GetDataQualityRuleResponse({}));
+    } else {
+      return $dara.cast<GetDataQualityRuleResponse>(await this.execute(params, req, runtime), new GetDataQualityRuleResponse({}));
+    }
+
   }
 
   /**
@@ -54974,7 +61463,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetDataQualityRuleTemplateResponse>(await this.callApi(params, req, runtime), new GetDataQualityRuleTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDataQualityRuleTemplateResponse>(await this.callApi(params, req, runtime), new GetDataQualityRuleTemplateResponse({}));
+    } else {
+      return $dara.cast<GetDataQualityRuleTemplateResponse>(await this.execute(params, req, runtime), new GetDataQualityRuleTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -55020,7 +61514,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetDataSourceResponse>(await this.callApi(params, req, runtime), new GetDataSourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDataSourceResponse>(await this.callApi(params, req, runtime), new GetDataSourceResponse({}));
+    } else {
+      return $dara.cast<GetDataSourceResponse>(await this.execute(params, req, runtime), new GetDataSourceResponse({}));
+    }
+
   }
 
   /**
@@ -55063,7 +61562,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetDeploymentResponse>(await this.callApi(params, req, runtime), new GetDeploymentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDeploymentResponse>(await this.callApi(params, req, runtime), new GetDeploymentResponse({}));
+    } else {
+      return $dara.cast<GetDeploymentResponse>(await this.execute(params, req, runtime), new GetDeploymentResponse({}));
+    }
+
   }
 
   /**
@@ -55101,7 +61605,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetFunctionResponse>(await this.callApi(params, req, runtime), new GetFunctionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetFunctionResponse>(await this.callApi(params, req, runtime), new GetFunctionResponse({}));
+    } else {
+      return $dara.cast<GetFunctionResponse>(await this.execute(params, req, runtime), new GetFunctionResponse({}));
+    }
+
   }
 
   /**
@@ -55139,7 +61648,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetJobStatusResponse>(await this.callApi(params, req, runtime), new GetJobStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetJobStatusResponse>(await this.callApi(params, req, runtime), new GetJobStatusResponse({}));
+    } else {
+      return $dara.cast<GetJobStatusResponse>(await this.execute(params, req, runtime), new GetJobStatusResponse({}));
+    }
+
   }
 
   /**
@@ -55180,7 +61694,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetNetworkResponse>(await this.callApi(params, req, runtime), new GetNetworkResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetNetworkResponse>(await this.callApi(params, req, runtime), new GetNetworkResponse({}));
+    } else {
+      return $dara.cast<GetNetworkResponse>(await this.execute(params, req, runtime), new GetNetworkResponse({}));
+    }
+
   }
 
   /**
@@ -55221,7 +61740,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetNodeResponse>(await this.callApi(params, req, runtime), new GetNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetNodeResponse>(await this.callApi(params, req, runtime), new GetNodeResponse({}));
+    } else {
+      return $dara.cast<GetNodeResponse>(await this.execute(params, req, runtime), new GetNodeResponse({}));
+    }
+
   }
 
   /**
@@ -55262,7 +61786,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetProjectResponse>(await this.callApi(params, req, runtime), new GetProjectResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetProjectResponse>(await this.callApi(params, req, runtime), new GetProjectResponse({}));
+    } else {
+      return $dara.cast<GetProjectResponse>(await this.execute(params, req, runtime), new GetProjectResponse({}));
+    }
+
   }
 
   /**
@@ -55314,7 +61843,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetProjectMemberResponse>(await this.callApi(params, req, runtime), new GetProjectMemberResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetProjectMemberResponse>(await this.callApi(params, req, runtime), new GetProjectMemberResponse({}));
+    } else {
+      return $dara.cast<GetProjectMemberResponse>(await this.execute(params, req, runtime), new GetProjectMemberResponse({}));
+    }
+
   }
 
   /**
@@ -55366,7 +61900,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetProjectRoleResponse>(await this.callApi(params, req, runtime), new GetProjectRoleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetProjectRoleResponse>(await this.callApi(params, req, runtime), new GetProjectRoleResponse({}));
+    } else {
+      return $dara.cast<GetProjectRoleResponse>(await this.execute(params, req, runtime), new GetProjectRoleResponse({}));
+    }
+
   }
 
   /**
@@ -55407,7 +61946,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetResourceResponse>(await this.callApi(params, req, runtime), new GetResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetResourceResponse>(await this.callApi(params, req, runtime), new GetResourceResponse({}));
+    } else {
+      return $dara.cast<GetResourceResponse>(await this.execute(params, req, runtime), new GetResourceResponse({}));
+    }
+
   }
 
   /**
@@ -55448,7 +61992,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetResourceGroupResponse>(await this.callApi(params, req, runtime), new GetResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetResourceGroupResponse>(await this.callApi(params, req, runtime), new GetResourceGroupResponse({}));
+    } else {
+      return $dara.cast<GetResourceGroupResponse>(await this.execute(params, req, runtime), new GetResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -55492,7 +62041,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetRouteResponse>(await this.callApi(params, req, runtime), new GetRouteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetRouteResponse>(await this.callApi(params, req, runtime), new GetRouteResponse({}));
+    } else {
+      return $dara.cast<GetRouteResponse>(await this.execute(params, req, runtime), new GetRouteResponse({}));
+    }
+
   }
 
   /**
@@ -55533,7 +62087,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetTaskResponse>(await this.callApi(params, req, runtime), new GetTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTaskResponse>(await this.callApi(params, req, runtime), new GetTaskResponse({}));
+    } else {
+      return $dara.cast<GetTaskResponse>(await this.execute(params, req, runtime), new GetTaskResponse({}));
+    }
+
   }
 
   /**
@@ -55574,7 +62133,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetTaskInstanceResponse>(await this.callApi(params, req, runtime), new GetTaskInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTaskInstanceResponse>(await this.callApi(params, req, runtime), new GetTaskInstanceResponse({}));
+    } else {
+      return $dara.cast<GetTaskInstanceResponse>(await this.execute(params, req, runtime), new GetTaskInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -55618,7 +62182,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetTaskInstanceLogResponse>(await this.callApi(params, req, runtime), new GetTaskInstanceLogResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTaskInstanceLogResponse>(await this.callApi(params, req, runtime), new GetTaskInstanceLogResponse({}));
+    } else {
+      return $dara.cast<GetTaskInstanceLogResponse>(await this.execute(params, req, runtime), new GetTaskInstanceLogResponse({}));
+    }
+
   }
 
   /**
@@ -55633,6 +62202,45 @@ export default class Client extends OpenApi {
   async getTaskInstanceLog(request: GetTaskInstanceLogRequest): Promise<GetTaskInstanceLogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getTaskInstanceLogWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - GetWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkflowResponse
+   */
+  async getWorkflowWithOptions(request: GetWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<GetWorkflowResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkflow",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetWorkflowResponse>(await this.callApi(params, req, runtime), new GetWorkflowResponse({}));
+    } else {
+      return $dara.cast<GetWorkflowResponse>(await this.execute(params, req, runtime), new GetWorkflowResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - GetWorkflowRequest
+   * @returns GetWorkflowResponse
+   */
+  async getWorkflow(request: GetWorkflowRequest): Promise<GetWorkflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWorkflowWithOptions(request, runtime);
   }
 
   /**
@@ -55659,7 +62267,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new GetWorkflowDefinitionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new GetWorkflowDefinitionResponse({}));
+    } else {
+      return $dara.cast<GetWorkflowDefinitionResponse>(await this.execute(params, req, runtime), new GetWorkflowDefinitionResponse({}));
+    }
+
   }
 
   /**
@@ -55671,6 +62284,55 @@ export default class Client extends OpenApi {
   async getWorkflowDefinition(request: GetWorkflowDefinitionRequest): Promise<GetWorkflowDefinitionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information about a workflow instance.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
+   * @param request - GetWorkflowInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkflowInstanceResponse
+   */
+  async getWorkflowInstanceWithOptions(request: GetWorkflowInstanceRequest, runtime: $dara.RuntimeOptions): Promise<GetWorkflowInstanceResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkflowInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetWorkflowInstanceResponse>(await this.callApi(params, req, runtime), new GetWorkflowInstanceResponse({}));
+    } else {
+      return $dara.cast<GetWorkflowInstanceResponse>(await this.execute(params, req, runtime), new GetWorkflowInstanceResponse({}));
+    }
+
+  }
+
+  /**
+   * Queries the information about a workflow instance.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
+   * @param request - GetWorkflowInstanceRequest
+   * @returns GetWorkflowInstanceResponse
+   */
+  async getWorkflowInstance(request: GetWorkflowInstanceRequest): Promise<GetWorkflowInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWorkflowInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -55718,7 +62380,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GrantMemberProjectRolesResponse>(await this.callApi(params, req, runtime), new GrantMemberProjectRolesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GrantMemberProjectRolesResponse>(await this.callApi(params, req, runtime), new GrantMemberProjectRolesResponse({}));
+    } else {
+      return $dara.cast<GrantMemberProjectRolesResponse>(await this.execute(params, req, runtime), new GrantMemberProjectRolesResponse({}));
+    }
+
   }
 
   /**
@@ -55771,7 +62438,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ImportWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new ImportWorkflowDefinitionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ImportWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new ImportWorkflowDefinitionResponse({}));
+    } else {
+      return $dara.cast<ImportWorkflowDefinitionResponse>(await this.execute(params, req, runtime), new ImportWorkflowDefinitionResponse({}));
+    }
+
   }
 
   /**
@@ -55851,7 +62523,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListAlertRulesResponse>(await this.callApi(params, req, runtime), new ListAlertRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAlertRulesResponse>(await this.callApi(params, req, runtime), new ListAlertRulesResponse({}));
+    } else {
+      return $dara.cast<ListAlertRulesResponse>(await this.execute(params, req, runtime), new ListAlertRulesResponse({}));
+    }
+
   }
 
   /**
@@ -55889,7 +62566,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDIAlarmRulesResponse>(await this.callApi(params, req, runtime), new ListDIAlarmRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDIAlarmRulesResponse>(await this.callApi(params, req, runtime), new ListDIAlarmRulesResponse({}));
+    } else {
+      return $dara.cast<ListDIAlarmRulesResponse>(await this.execute(params, req, runtime), new ListDIAlarmRulesResponse({}));
+    }
+
   }
 
   /**
@@ -55930,7 +62612,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDIJobEventsResponse>(await this.callApi(params, req, runtime), new ListDIJobEventsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDIJobEventsResponse>(await this.callApi(params, req, runtime), new ListDIJobEventsResponse({}));
+    } else {
+      return $dara.cast<ListDIJobEventsResponse>(await this.execute(params, req, runtime), new ListDIJobEventsResponse({}));
+    }
+
   }
 
   /**
@@ -55980,7 +62667,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDIJobMetricsResponse>(await this.callApi(params, req, runtime), new ListDIJobMetricsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDIJobMetricsResponse>(await this.callApi(params, req, runtime), new ListDIJobMetricsResponse({}));
+    } else {
+      return $dara.cast<ListDIJobMetricsResponse>(await this.execute(params, req, runtime), new ListDIJobMetricsResponse({}));
+    }
+
   }
 
   /**
@@ -56024,7 +62716,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDIJobRunDetailsResponse>(await this.callApi(params, req, runtime), new ListDIJobRunDetailsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDIJobRunDetailsResponse>(await this.callApi(params, req, runtime), new ListDIJobRunDetailsResponse({}));
+    } else {
+      return $dara.cast<ListDIJobRunDetailsResponse>(await this.execute(params, req, runtime), new ListDIJobRunDetailsResponse({}));
+    }
+
   }
 
   /**
@@ -56068,7 +62765,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDIJobsResponse>(await this.callApi(params, req, runtime), new ListDIJobsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDIJobsResponse>(await this.callApi(params, req, runtime), new ListDIJobsResponse({}));
+    } else {
+      return $dara.cast<ListDIJobsResponse>(await this.execute(params, req, runtime), new ListDIJobsResponse({}));
+    }
+
   }
 
   /**
@@ -56109,7 +62811,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDataAssetTagsResponse>(await this.callApi(params, req, runtime), new ListDataAssetTagsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDataAssetTagsResponse>(await this.callApi(params, req, runtime), new ListDataAssetTagsResponse({}));
+    } else {
+      return $dara.cast<ListDataAssetTagsResponse>(await this.execute(params, req, runtime), new ListDataAssetTagsResponse({}));
+    }
+
   }
 
   /**
@@ -56157,7 +62864,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDataAssetsResponse>(await this.callApi(params, req, runtime), new ListDataAssetsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDataAssetsResponse>(await this.callApi(params, req, runtime), new ListDataAssetsResponse({}));
+    } else {
+      return $dara.cast<ListDataAssetsResponse>(await this.execute(params, req, runtime), new ListDataAssetsResponse({}));
+    }
+
   }
 
   /**
@@ -56198,7 +62910,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDataQualityEvaluationTaskInstancesResponse>(await this.callApi(params, req, runtime), new ListDataQualityEvaluationTaskInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDataQualityEvaluationTaskInstancesResponse>(await this.callApi(params, req, runtime), new ListDataQualityEvaluationTaskInstancesResponse({}));
+    } else {
+      return $dara.cast<ListDataQualityEvaluationTaskInstancesResponse>(await this.execute(params, req, runtime), new ListDataQualityEvaluationTaskInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -56242,7 +62959,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDataQualityEvaluationTasksResponse>(await this.callApi(params, req, runtime), new ListDataQualityEvaluationTasksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDataQualityEvaluationTasksResponse>(await this.callApi(params, req, runtime), new ListDataQualityEvaluationTasksResponse({}));
+    } else {
+      return $dara.cast<ListDataQualityEvaluationTasksResponse>(await this.execute(params, req, runtime), new ListDataQualityEvaluationTasksResponse({}));
+    }
+
   }
 
   /**
@@ -56284,7 +63006,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDataQualityResultsResponse>(await this.callApi(params, req, runtime), new ListDataQualityResultsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDataQualityResultsResponse>(await this.callApi(params, req, runtime), new ListDataQualityResultsResponse({}));
+    } else {
+      return $dara.cast<ListDataQualityResultsResponse>(await this.execute(params, req, runtime), new ListDataQualityResultsResponse({}));
+    }
+
   }
 
   /**
@@ -56323,7 +63050,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDataQualityRuleTemplatesResponse>(await this.callApi(params, req, runtime), new ListDataQualityRuleTemplatesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDataQualityRuleTemplatesResponse>(await this.callApi(params, req, runtime), new ListDataQualityRuleTemplatesResponse({}));
+    } else {
+      return $dara.cast<ListDataQualityRuleTemplatesResponse>(await this.execute(params, req, runtime), new ListDataQualityRuleTemplatesResponse({}));
+    }
+
   }
 
   /**
@@ -56364,7 +63096,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDataQualityRulesResponse>(await this.callApi(params, req, runtime), new ListDataQualityRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDataQualityRulesResponse>(await this.callApi(params, req, runtime), new ListDataQualityRulesResponse({}));
+    } else {
+      return $dara.cast<ListDataQualityRulesResponse>(await this.execute(params, req, runtime), new ListDataQualityRulesResponse({}));
+    }
+
   }
 
   /**
@@ -56410,7 +63147,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDataSourceSharedRulesResponse>(await this.callApi(params, req, runtime), new ListDataSourceSharedRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDataSourceSharedRulesResponse>(await this.callApi(params, req, runtime), new ListDataSourceSharedRulesResponse({}));
+    } else {
+      return $dara.cast<ListDataSourceSharedRulesResponse>(await this.execute(params, req, runtime), new ListDataSourceSharedRulesResponse({}));
+    }
+
   }
 
   /**
@@ -56464,7 +63206,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDataSourcesResponse>(await this.callApi(params, req, runtime), new ListDataSourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDataSourcesResponse>(await this.callApi(params, req, runtime), new ListDataSourcesResponse({}));
+    } else {
+      return $dara.cast<ListDataSourcesResponse>(await this.execute(params, req, runtime), new ListDataSourcesResponse({}));
+    }
+
   }
 
   /**
@@ -56507,7 +63254,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDeploymentsResponse>(await this.callApi(params, req, runtime), new ListDeploymentsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDeploymentsResponse>(await this.callApi(params, req, runtime), new ListDeploymentsResponse({}));
+    } else {
+      return $dara.cast<ListDeploymentsResponse>(await this.execute(params, req, runtime), new ListDeploymentsResponse({}));
+    }
+
   }
 
   /**
@@ -56548,7 +63300,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDownstreamTaskInstancesResponse>(await this.callApi(params, req, runtime), new ListDownstreamTaskInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDownstreamTaskInstancesResponse>(await this.callApi(params, req, runtime), new ListDownstreamTaskInstancesResponse({}));
+    } else {
+      return $dara.cast<ListDownstreamTaskInstancesResponse>(await this.execute(params, req, runtime), new ListDownstreamTaskInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -56589,7 +63346,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListDownstreamTasksResponse>(await this.callApi(params, req, runtime), new ListDownstreamTasksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDownstreamTasksResponse>(await this.callApi(params, req, runtime), new ListDownstreamTasksResponse({}));
+    } else {
+      return $dara.cast<ListDownstreamTasksResponse>(await this.execute(params, req, runtime), new ListDownstreamTasksResponse({}));
+    }
+
   }
 
   /**
@@ -56627,7 +63389,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
+    } else {
+      return $dara.cast<ListFunctionsResponse>(await this.execute(params, req, runtime), new ListFunctionsResponse({}));
+    }
+
   }
 
   /**
@@ -56668,7 +63435,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListNetworksResponse>(await this.callApi(params, req, runtime), new ListNetworksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNetworksResponse>(await this.callApi(params, req, runtime), new ListNetworksResponse({}));
+    } else {
+      return $dara.cast<ListNetworksResponse>(await this.execute(params, req, runtime), new ListNetworksResponse({}));
+    }
+
   }
 
   /**
@@ -56709,7 +63481,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListNodeDependenciesResponse>(await this.callApi(params, req, runtime), new ListNodeDependenciesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNodeDependenciesResponse>(await this.callApi(params, req, runtime), new ListNodeDependenciesResponse({}));
+    } else {
+      return $dara.cast<ListNodeDependenciesResponse>(await this.execute(params, req, runtime), new ListNodeDependenciesResponse({}));
+    }
+
   }
 
   /**
@@ -56747,7 +63524,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
+    } else {
+      return $dara.cast<ListNodesResponse>(await this.execute(params, req, runtime), new ListNodesResponse({}));
+    }
+
   }
 
   /**
@@ -56818,7 +63600,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListProjectMembersResponse>(await this.callApi(params, req, runtime), new ListProjectMembersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListProjectMembersResponse>(await this.callApi(params, req, runtime), new ListProjectMembersResponse({}));
+    } else {
+      return $dara.cast<ListProjectMembersResponse>(await this.execute(params, req, runtime), new ListProjectMembersResponse({}));
+    }
+
   }
 
   /**
@@ -56896,7 +63683,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListProjectRolesResponse>(await this.callApi(params, req, runtime), new ListProjectRolesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListProjectRolesResponse>(await this.callApi(params, req, runtime), new ListProjectRolesResponse({}));
+    } else {
+      return $dara.cast<ListProjectRolesResponse>(await this.execute(params, req, runtime), new ListProjectRolesResponse({}));
+    }
+
   }
 
   /**
@@ -56991,7 +63783,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
+    } else {
+      return $dara.cast<ListProjectsResponse>(await this.execute(params, req, runtime), new ListProjectsResponse({}));
+    }
+
   }
 
   /**
@@ -57043,7 +63840,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListResourceGroupsResponse>(await this.callApi(params, req, runtime), new ListResourceGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListResourceGroupsResponse>(await this.callApi(params, req, runtime), new ListResourceGroupsResponse({}));
+    } else {
+      return $dara.cast<ListResourceGroupsResponse>(await this.execute(params, req, runtime), new ListResourceGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -57081,7 +63883,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListResourcesResponse>(await this.callApi(params, req, runtime), new ListResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListResourcesResponse>(await this.callApi(params, req, runtime), new ListResourcesResponse({}));
+    } else {
+      return $dara.cast<ListResourcesResponse>(await this.execute(params, req, runtime), new ListResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -57122,7 +63929,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListRoutesResponse>(await this.callApi(params, req, runtime), new ListRoutesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListRoutesResponse>(await this.callApi(params, req, runtime), new ListRoutesResponse({}));
+    } else {
+      return $dara.cast<ListRoutesResponse>(await this.execute(params, req, runtime), new ListRoutesResponse({}));
+    }
+
   }
 
   /**
@@ -57167,7 +63979,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTaskInstanceOperationLogsResponse>(await this.callApi(params, req, runtime), new ListTaskInstanceOperationLogsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTaskInstanceOperationLogsResponse>(await this.callApi(params, req, runtime), new ListTaskInstanceOperationLogsResponse({}));
+    } else {
+      return $dara.cast<ListTaskInstanceOperationLogsResponse>(await this.execute(params, req, runtime), new ListTaskInstanceOperationLogsResponse({}));
+    }
+
   }
 
   /**
@@ -57298,7 +64115,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTaskInstancesResponse>(await this.callApi(params, req, runtime), new ListTaskInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTaskInstancesResponse>(await this.callApi(params, req, runtime), new ListTaskInstancesResponse({}));
+    } else {
+      return $dara.cast<ListTaskInstancesResponse>(await this.execute(params, req, runtime), new ListTaskInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -57343,7 +64165,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTaskOperationLogsResponse>(await this.callApi(params, req, runtime), new ListTaskOperationLogsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTaskOperationLogsResponse>(await this.callApi(params, req, runtime), new ListTaskOperationLogsResponse({}));
+    } else {
+      return $dara.cast<ListTaskOperationLogsResponse>(await this.execute(params, req, runtime), new ListTaskOperationLogsResponse({}));
+    }
+
   }
 
   /**
@@ -57364,13 +64191,23 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of tasks by page. You can also specify filter conditions to query tasks.
    * 
-   * @param request - ListTasksRequest
+   * @param tmpReq - ListTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTasksResponse
    */
-  async listTasksWithOptions(request: ListTasksRequest, runtime: $dara.RuntimeOptions): Promise<ListTasksResponse> {
-    request.validate();
+  async listTasksWithOptions(tmpReq: ListTasksRequest, runtime: $dara.RuntimeOptions): Promise<ListTasksResponse> {
+    tmpReq.validate();
+    let request = new ListTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
     if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
@@ -57433,7 +64270,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTasksResponse>(await this.callApi(params, req, runtime), new ListTasksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTasksResponse>(await this.callApi(params, req, runtime), new ListTasksResponse({}));
+    } else {
+      return $dara.cast<ListTasksResponse>(await this.execute(params, req, runtime), new ListTasksResponse({}));
+    }
+
   }
 
   /**
@@ -57471,7 +64313,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListUpstreamTaskInstancesResponse>(await this.callApi(params, req, runtime), new ListUpstreamTaskInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListUpstreamTaskInstancesResponse>(await this.callApi(params, req, runtime), new ListUpstreamTaskInstancesResponse({}));
+    } else {
+      return $dara.cast<ListUpstreamTaskInstancesResponse>(await this.execute(params, req, runtime), new ListUpstreamTaskInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -57512,7 +64359,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListUpstreamTasksResponse>(await this.callApi(params, req, runtime), new ListUpstreamTasksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListUpstreamTasksResponse>(await this.callApi(params, req, runtime), new ListUpstreamTasksResponse({}));
+    } else {
+      return $dara.cast<ListUpstreamTasksResponse>(await this.execute(params, req, runtime), new ListUpstreamTasksResponse({}));
+    }
+
   }
 
   /**
@@ -57553,7 +64405,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListWorkflowDefinitionsResponse>(await this.callApi(params, req, runtime), new ListWorkflowDefinitionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListWorkflowDefinitionsResponse>(await this.callApi(params, req, runtime), new ListWorkflowDefinitionsResponse({}));
+    } else {
+      return $dara.cast<ListWorkflowDefinitionsResponse>(await this.execute(params, req, runtime), new ListWorkflowDefinitionsResponse({}));
+    }
+
   }
 
   /**
@@ -57565,6 +64422,172 @@ export default class Client extends OpenApi {
   async listWorkflowDefinitions(request: ListWorkflowDefinitionsRequest): Promise<ListWorkflowDefinitionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listWorkflowDefinitionsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - ListWorkflowInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkflowInstancesResponse
+   */
+  async listWorkflowInstancesWithOptions(tmpReq: ListWorkflowInstancesRequest, runtime: $dara.RuntimeOptions): Promise<ListWorkflowInstancesResponse> {
+    tmpReq.validate();
+    let request = new ListWorkflowInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizDate)) {
+      body["BizDate"] = request.bizDate;
+    }
+
+    if (!$dara.isNull(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      body["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      body["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkflowInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListWorkflowInstancesResponse>(await this.callApi(params, req, runtime), new ListWorkflowInstancesResponse({}));
+    } else {
+      return $dara.cast<ListWorkflowInstancesResponse>(await this.execute(params, req, runtime), new ListWorkflowInstancesResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - ListWorkflowInstancesRequest
+   * @returns ListWorkflowInstancesResponse
+   */
+  async listWorkflowInstances(request: ListWorkflowInstancesRequest): Promise<ListWorkflowInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWorkflowInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - ListWorkflowsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkflowsResponse
+   */
+  async listWorkflowsWithOptions(tmpReq: ListWorkflowsRequest, runtime: $dara.RuntimeOptions): Promise<ListWorkflowsResponse> {
+    tmpReq.validate();
+    let request = new ListWorkflowsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!$dara.isNull(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      body["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.triggerType)) {
+      body["TriggerType"] = request.triggerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkflows",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListWorkflowsResponse>(await this.callApi(params, req, runtime), new ListWorkflowsResponse({}));
+    } else {
+      return $dara.cast<ListWorkflowsResponse>(await this.execute(params, req, runtime), new ListWorkflowsResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - ListWorkflowsRequest
+   * @returns ListWorkflowsResponse
+   */
+  async listWorkflows(request: ListWorkflowsRequest): Promise<ListWorkflowsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWorkflowsWithOptions(request, runtime);
   }
 
   /**
@@ -57603,7 +64626,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<MoveFunctionResponse>(await this.callApi(params, req, runtime), new MoveFunctionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<MoveFunctionResponse>(await this.callApi(params, req, runtime), new MoveFunctionResponse({}));
+    } else {
+      return $dara.cast<MoveFunctionResponse>(await this.execute(params, req, runtime), new MoveFunctionResponse({}));
+    }
+
   }
 
   /**
@@ -57653,7 +64681,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<MoveNodeResponse>(await this.callApi(params, req, runtime), new MoveNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<MoveNodeResponse>(await this.callApi(params, req, runtime), new MoveNodeResponse({}));
+    } else {
+      return $dara.cast<MoveNodeResponse>(await this.execute(params, req, runtime), new MoveNodeResponse({}));
+    }
+
   }
 
   /**
@@ -57703,7 +64736,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<MoveResourceResponse>(await this.callApi(params, req, runtime), new MoveResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<MoveResourceResponse>(await this.callApi(params, req, runtime), new MoveResourceResponse({}));
+    } else {
+      return $dara.cast<MoveResourceResponse>(await this.execute(params, req, runtime), new MoveResourceResponse({}));
+    }
+
   }
 
   /**
@@ -57753,7 +64791,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<MoveWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new MoveWorkflowDefinitionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<MoveWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new MoveWorkflowDefinitionResponse({}));
+    } else {
+      return $dara.cast<MoveWorkflowDefinitionResponse>(await this.execute(params, req, runtime), new MoveWorkflowDefinitionResponse({}));
+    }
+
   }
 
   /**
@@ -57814,7 +64857,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RemoveTaskInstanceDependenciesResponse>(await this.callApi(params, req, runtime), new RemoveTaskInstanceDependenciesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RemoveTaskInstanceDependenciesResponse>(await this.callApi(params, req, runtime), new RemoveTaskInstanceDependenciesResponse({}));
+    } else {
+      return $dara.cast<RemoveTaskInstanceDependenciesResponse>(await this.execute(params, req, runtime), new RemoveTaskInstanceDependenciesResponse({}));
+    }
+
   }
 
   /**
@@ -57867,7 +64915,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RenameFunctionResponse>(await this.callApi(params, req, runtime), new RenameFunctionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RenameFunctionResponse>(await this.callApi(params, req, runtime), new RenameFunctionResponse({}));
+    } else {
+      return $dara.cast<RenameFunctionResponse>(await this.execute(params, req, runtime), new RenameFunctionResponse({}));
+    }
+
   }
 
   /**
@@ -57917,7 +64970,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RenameNodeResponse>(await this.callApi(params, req, runtime), new RenameNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RenameNodeResponse>(await this.callApi(params, req, runtime), new RenameNodeResponse({}));
+    } else {
+      return $dara.cast<RenameNodeResponse>(await this.execute(params, req, runtime), new RenameNodeResponse({}));
+    }
+
   }
 
   /**
@@ -57967,7 +65025,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RenameResourceResponse>(await this.callApi(params, req, runtime), new RenameResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RenameResourceResponse>(await this.callApi(params, req, runtime), new RenameResourceResponse({}));
+    } else {
+      return $dara.cast<RenameResourceResponse>(await this.execute(params, req, runtime), new RenameResourceResponse({}));
+    }
+
   }
 
   /**
@@ -58017,7 +65080,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RenameWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new RenameWorkflowDefinitionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RenameWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new RenameWorkflowDefinitionResponse({}));
+    } else {
+      return $dara.cast<RenameWorkflowDefinitionResponse>(await this.execute(params, req, runtime), new RenameWorkflowDefinitionResponse({}));
+    }
+
   }
 
   /**
@@ -58070,7 +65138,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RerunTaskInstancesResponse>(await this.callApi(params, req, runtime), new RerunTaskInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RerunTaskInstancesResponse>(await this.callApi(params, req, runtime), new RerunTaskInstancesResponse({}));
+    } else {
+      return $dara.cast<RerunTaskInstancesResponse>(await this.execute(params, req, runtime), new RerunTaskInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -58124,7 +65197,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ResumeTaskInstancesResponse>(await this.callApi(params, req, runtime), new ResumeTaskInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ResumeTaskInstancesResponse>(await this.callApi(params, req, runtime), new ResumeTaskInstancesResponse({}));
+    } else {
+      return $dara.cast<ResumeTaskInstancesResponse>(await this.execute(params, req, runtime), new ResumeTaskInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -58184,7 +65262,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RevokeMemberProjectRolesResponse>(await this.callApi(params, req, runtime), new RevokeMemberProjectRolesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RevokeMemberProjectRolesResponse>(await this.callApi(params, req, runtime), new RevokeMemberProjectRolesResponse({}));
+    } else {
+      return $dara.cast<RevokeMemberProjectRolesResponse>(await this.execute(params, req, runtime), new RevokeMemberProjectRolesResponse({}));
+    }
+
   }
 
   /**
@@ -58240,7 +65323,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetSuccessTaskInstancesResponse>(await this.callApi(params, req, runtime), new SetSuccessTaskInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetSuccessTaskInstancesResponse>(await this.callApi(params, req, runtime), new SetSuccessTaskInstancesResponse({}));
+    } else {
+      return $dara.cast<SetSuccessTaskInstancesResponse>(await this.execute(params, req, runtime), new SetSuccessTaskInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -58288,7 +65376,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StartDIJobResponse>(await this.callApi(params, req, runtime), new StartDIJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartDIJobResponse>(await this.callApi(params, req, runtime), new StartDIJobResponse({}));
+    } else {
+      return $dara.cast<StartDIJobResponse>(await this.execute(params, req, runtime), new StartDIJobResponse({}));
+    }
+
   }
 
   /**
@@ -58303,6 +65396,69 @@ export default class Client extends OpenApi {
   async startDIJob(request: StartDIJobRequest): Promise<StartDIJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startDIJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Starts multiple workflow instances at a time.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
+   * @param tmpReq - StartWorkflowInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartWorkflowInstancesResponse
+   */
+  async startWorkflowInstancesWithOptions(tmpReq: StartWorkflowInstancesRequest, runtime: $dara.RuntimeOptions): Promise<StartWorkflowInstancesResponse> {
+    tmpReq.validate();
+    let request = new StartWorkflowInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartWorkflowInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartWorkflowInstancesResponse>(await this.callApi(params, req, runtime), new StartWorkflowInstancesResponse({}));
+    } else {
+      return $dara.cast<StartWorkflowInstancesResponse>(await this.execute(params, req, runtime), new StartWorkflowInstancesResponse({}));
+    }
+
+  }
+
+  /**
+   * Starts multiple workflow instances at a time.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
+   * @param request - StartWorkflowInstancesRequest
+   * @returns StartWorkflowInstancesResponse
+   */
+  async startWorkflowInstances(request: StartWorkflowInstancesRequest): Promise<StartWorkflowInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startWorkflowInstancesWithOptions(request, runtime);
   }
 
   /**
@@ -58332,7 +65488,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StopDIJobResponse>(await this.callApi(params, req, runtime), new StopDIJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopDIJobResponse>(await this.callApi(params, req, runtime), new StopDIJobResponse({}));
+    } else {
+      return $dara.cast<StopDIJobResponse>(await this.execute(params, req, runtime), new StopDIJobResponse({}));
+    }
+
   }
 
   /**
@@ -58388,7 +65549,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StopTaskInstancesResponse>(await this.callApi(params, req, runtime), new StopTaskInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopTaskInstancesResponse>(await this.callApi(params, req, runtime), new StopTaskInstancesResponse({}));
+    } else {
+      return $dara.cast<StopTaskInstancesResponse>(await this.execute(params, req, runtime), new StopTaskInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -58401,6 +65567,59 @@ export default class Client extends OpenApi {
   async stopTaskInstances(request: StopTaskInstancesRequest): Promise<StopTaskInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopTaskInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - StopWorkflowInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopWorkflowInstancesResponse
+   */
+  async stopWorkflowInstancesWithOptions(tmpReq: StopWorkflowInstancesRequest, runtime: $dara.RuntimeOptions): Promise<StopWorkflowInstancesResponse> {
+    tmpReq.validate();
+    let request = new StopWorkflowInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopWorkflowInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopWorkflowInstancesResponse>(await this.callApi(params, req, runtime), new StopWorkflowInstancesResponse({}));
+    } else {
+      return $dara.cast<StopWorkflowInstancesResponse>(await this.execute(params, req, runtime), new StopWorkflowInstancesResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - StopWorkflowInstancesRequest
+   * @returns StopWorkflowInstancesResponse
+   */
+  async stopWorkflowInstances(request: StopWorkflowInstancesRequest): Promise<StopWorkflowInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopWorkflowInstancesWithOptions(request, runtime);
   }
 
   /**
@@ -58442,7 +65661,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SuspendTaskInstancesResponse>(await this.callApi(params, req, runtime), new SuspendTaskInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SuspendTaskInstancesResponse>(await this.callApi(params, req, runtime), new SuspendTaskInstancesResponse({}));
+    } else {
+      return $dara.cast<SuspendTaskInstancesResponse>(await this.execute(params, req, runtime), new SuspendTaskInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -58515,7 +65739,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<TagDataAssetsResponse>(await this.callApi(params, req, runtime), new TagDataAssetsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagDataAssetsResponse>(await this.callApi(params, req, runtime), new TagDataAssetsResponse({}));
+    } else {
+      return $dara.cast<TagDataAssetsResponse>(await this.execute(params, req, runtime), new TagDataAssetsResponse({}));
+    }
+
   }
 
   /**
@@ -58570,7 +65799,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<TriggerSchedulerTaskInstanceResponse>(await this.callApi(params, req, runtime), new TriggerSchedulerTaskInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TriggerSchedulerTaskInstanceResponse>(await this.callApi(params, req, runtime), new TriggerSchedulerTaskInstanceResponse({}));
+    } else {
+      return $dara.cast<TriggerSchedulerTaskInstanceResponse>(await this.execute(params, req, runtime), new TriggerSchedulerTaskInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -58641,7 +65875,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UnTagDataAssetsResponse>(await this.callApi(params, req, runtime), new UnTagDataAssetsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnTagDataAssetsResponse>(await this.callApi(params, req, runtime), new UnTagDataAssetsResponse({}));
+    } else {
+      return $dara.cast<UnTagDataAssetsResponse>(await this.execute(params, req, runtime), new UnTagDataAssetsResponse({}));
+    }
+
   }
 
   /**
@@ -58713,7 +65952,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateAlertRuleResponse>(await this.callApi(params, req, runtime), new UpdateAlertRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateAlertRuleResponse>(await this.callApi(params, req, runtime), new UpdateAlertRuleResponse({}));
+    } else {
+      return $dara.cast<UpdateAlertRuleResponse>(await this.execute(params, req, runtime), new UpdateAlertRuleResponse({}));
+    }
+
   }
 
   /**
@@ -58761,7 +66005,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new UpdateDIAlarmRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDIAlarmRuleResponse>(await this.callApi(params, req, runtime), new UpdateDIAlarmRuleResponse({}));
+    } else {
+      return $dara.cast<UpdateDIAlarmRuleResponse>(await this.execute(params, req, runtime), new UpdateDIAlarmRuleResponse({}));
+    }
+
   }
 
   /**
@@ -58820,7 +66069,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateDIJobResponse>(await this.callApi(params, req, runtime), new UpdateDIJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDIJobResponse>(await this.callApi(params, req, runtime), new UpdateDIJobResponse({}));
+    } else {
+      return $dara.cast<UpdateDIJobResponse>(await this.execute(params, req, runtime), new UpdateDIJobResponse({}));
+    }
+
   }
 
   /**
@@ -58887,7 +66141,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateDataAssetTagResponse>(await this.callApi(params, req, runtime), new UpdateDataAssetTagResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDataAssetTagResponse>(await this.callApi(params, req, runtime), new UpdateDataAssetTagResponse({}));
+    } else {
+      return $dara.cast<UpdateDataAssetTagResponse>(await this.execute(params, req, runtime), new UpdateDataAssetTagResponse({}));
+    }
+
   }
 
   /**
@@ -58994,7 +66253,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateDataQualityEvaluationTaskResponse>(await this.callApi(params, req, runtime), new UpdateDataQualityEvaluationTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDataQualityEvaluationTaskResponse>(await this.callApi(params, req, runtime), new UpdateDataQualityEvaluationTaskResponse({}));
+    } else {
+      return $dara.cast<UpdateDataQualityEvaluationTaskResponse>(await this.execute(params, req, runtime), new UpdateDataQualityEvaluationTaskResponse({}));
+    }
+
   }
 
   /**
@@ -59032,10 +66296,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(tmpReq.samplingConfig)) {
       request.samplingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.samplingConfig, "SamplingConfig", "json");
-    }
-
-    if (!$dara.isNull(tmpReq.target)) {
-      request.targetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.target, "Target", "json");
     }
 
     let query = { };
@@ -59076,10 +66336,6 @@ export default class Client extends OpenApi {
       body["Severity"] = request.severity;
     }
 
-    if (!$dara.isNull(request.targetShrink)) {
-      body["Target"] = request.targetShrink;
-    }
-
     if (!$dara.isNull(request.templateCode)) {
       body["TemplateCode"] = request.templateCode;
     }
@@ -59099,7 +66355,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateDataQualityRuleResponse>(await this.callApi(params, req, runtime), new UpdateDataQualityRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDataQualityRuleResponse>(await this.callApi(params, req, runtime), new UpdateDataQualityRuleResponse({}));
+    } else {
+      return $dara.cast<UpdateDataQualityRuleResponse>(await this.execute(params, req, runtime), new UpdateDataQualityRuleResponse({}));
+    }
+
   }
 
   /**
@@ -59173,7 +66434,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateDataQualityRuleTemplateResponse>(await this.callApi(params, req, runtime), new UpdateDataQualityRuleTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDataQualityRuleTemplateResponse>(await this.callApi(params, req, runtime), new UpdateDataQualityRuleTemplateResponse({}));
+    } else {
+      return $dara.cast<UpdateDataQualityRuleTemplateResponse>(await this.execute(params, req, runtime), new UpdateDataQualityRuleTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -59236,7 +66502,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateDataSourceResponse>(await this.callApi(params, req, runtime), new UpdateDataSourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDataSourceResponse>(await this.callApi(params, req, runtime), new UpdateDataSourceResponse({}));
+    } else {
+      return $dara.cast<UpdateDataSourceResponse>(await this.execute(params, req, runtime), new UpdateDataSourceResponse({}));
+    }
+
   }
 
   /**
@@ -59291,7 +66562,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateFunctionResponse>(await this.callApi(params, req, runtime), new UpdateFunctionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateFunctionResponse>(await this.callApi(params, req, runtime), new UpdateFunctionResponse({}));
+    } else {
+      return $dara.cast<UpdateFunctionResponse>(await this.execute(params, req, runtime), new UpdateFunctionResponse({}));
+    }
+
   }
 
   /**
@@ -59341,7 +66617,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateNodeResponse>(await this.callApi(params, req, runtime), new UpdateNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateNodeResponse>(await this.callApi(params, req, runtime), new UpdateNodeResponse({}));
+    } else {
+      return $dara.cast<UpdateNodeResponse>(await this.execute(params, req, runtime), new UpdateNodeResponse({}));
+    }
+
   }
 
   /**
@@ -59407,7 +66688,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateProjectResponse>(await this.callApi(params, req, runtime), new UpdateProjectResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateProjectResponse>(await this.callApi(params, req, runtime), new UpdateProjectResponse({}));
+    } else {
+      return $dara.cast<UpdateProjectResponse>(await this.execute(params, req, runtime), new UpdateProjectResponse({}));
+    }
+
   }
 
   /**
@@ -59457,7 +66743,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateResourceResponse>(await this.callApi(params, req, runtime), new UpdateResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateResourceResponse>(await this.callApi(params, req, runtime), new UpdateResourceResponse({}));
+    } else {
+      return $dara.cast<UpdateResourceResponse>(await this.execute(params, req, runtime), new UpdateResourceResponse({}));
+    }
+
   }
 
   /**
@@ -59514,7 +66805,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateResourceGroupResponse>(await this.callApi(params, req, runtime), new UpdateResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateResourceGroupResponse>(await this.callApi(params, req, runtime), new UpdateResourceGroupResponse({}));
+    } else {
+      return $dara.cast<UpdateResourceGroupResponse>(await this.execute(params, req, runtime), new UpdateResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -59566,7 +66862,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateRouteResponse>(await this.callApi(params, req, runtime), new UpdateRouteResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateRouteResponse>(await this.callApi(params, req, runtime), new UpdateRouteResponse({}));
+    } else {
+      return $dara.cast<UpdateRouteResponse>(await this.execute(params, req, runtime), new UpdateRouteResponse({}));
+    }
+
   }
 
   /**
@@ -59581,6 +66882,155 @@ export default class Client extends OpenApi {
   async updateRoute(request: UpdateRouteRequest): Promise<UpdateRouteResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - UpdateTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTaskResponse
+   */
+  async updateTaskWithOptions(tmpReq: UpdateTaskRequest, runtime: $dara.RuntimeOptions): Promise<UpdateTaskResponse> {
+    tmpReq.validate();
+    let request = new UpdateTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dataSource)) {
+      request.dataSourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataSource, "DataSource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.dependencies)) {
+      request.dependenciesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dependencies, "Dependencies", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.inputs)) {
+      request.inputsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inputs, "Inputs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.outputs)) {
+      request.outputsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outputs, "Outputs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.runtimeResource)) {
+      request.runtimeResourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runtimeResource, "RuntimeResource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.script)) {
+      request.scriptShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.script, "Script", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.trigger)) {
+      request.triggerShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.trigger, "Trigger", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientUniqueCode)) {
+      body["ClientUniqueCode"] = request.clientUniqueCode;
+    }
+
+    if (!$dara.isNull(request.dataSourceShrink)) {
+      body["DataSource"] = request.dataSourceShrink;
+    }
+
+    if (!$dara.isNull(request.dependenciesShrink)) {
+      body["Dependencies"] = request.dependenciesShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.inputsShrink)) {
+      body["Inputs"] = request.inputsShrink;
+    }
+
+    if (!$dara.isNull(request.instanceMode)) {
+      body["InstanceMode"] = request.instanceMode;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.outputsShrink)) {
+      body["Outputs"] = request.outputsShrink;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.rerunInterval)) {
+      body["RerunInterval"] = request.rerunInterval;
+    }
+
+    if (!$dara.isNull(request.rerunMode)) {
+      body["RerunMode"] = request.rerunMode;
+    }
+
+    if (!$dara.isNull(request.rerunTimes)) {
+      body["RerunTimes"] = request.rerunTimes;
+    }
+
+    if (!$dara.isNull(request.runtimeResourceShrink)) {
+      body["RuntimeResource"] = request.runtimeResourceShrink;
+    }
+
+    if (!$dara.isNull(request.scriptShrink)) {
+      body["Script"] = request.scriptShrink;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      body["Timeout"] = request.timeout;
+    }
+
+    if (!$dara.isNull(request.triggerShrink)) {
+      body["Trigger"] = request.triggerShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTask",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateTaskResponse>(await this.callApi(params, req, runtime), new UpdateTaskResponse({}));
+    } else {
+      return $dara.cast<UpdateTaskResponse>(await this.execute(params, req, runtime), new UpdateTaskResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - UpdateTaskRequest
+   * @returns UpdateTaskResponse
+   */
+  async updateTask(request: UpdateTaskRequest): Promise<UpdateTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateTaskWithOptions(request, runtime);
   }
 
   /**
@@ -59624,7 +67074,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateTaskInstancesResponse>(await this.callApi(params, req, runtime), new UpdateTaskInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateTaskInstancesResponse>(await this.callApi(params, req, runtime), new UpdateTaskInstancesResponse({}));
+    } else {
+      return $dara.cast<UpdateTaskInstancesResponse>(await this.execute(params, req, runtime), new UpdateTaskInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -59639,6 +67094,115 @@ export default class Client extends OpenApi {
   async updateTaskInstances(request: UpdateTaskInstancesRequest): Promise<UpdateTaskInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTaskInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param tmpReq - UpdateWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkflowResponse
+   */
+  async updateWorkflowWithOptions(tmpReq: UpdateWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<UpdateWorkflowResponse> {
+    tmpReq.validate();
+    let request = new UpdateWorkflowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dependencies)) {
+      request.dependenciesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dependencies, "Dependencies", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.outputs)) {
+      request.outputsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outputs, "Outputs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tasks)) {
+      request.tasksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tasks, "Tasks", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.trigger)) {
+      request.triggerShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.trigger, "Trigger", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientUniqueCode)) {
+      body["ClientUniqueCode"] = request.clientUniqueCode;
+    }
+
+    if (!$dara.isNull(request.dependenciesShrink)) {
+      body["Dependencies"] = request.dependenciesShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.outputsShrink)) {
+      body["Outputs"] = request.outputsShrink;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      body["Parameters"] = request.parameters;
+    }
+
+    if (!$dara.isNull(request.tagsShrink)) {
+      body["Tags"] = request.tagsShrink;
+    }
+
+    if (!$dara.isNull(request.tasksShrink)) {
+      body["Tasks"] = request.tasksShrink;
+    }
+
+    if (!$dara.isNull(request.triggerShrink)) {
+      body["Trigger"] = request.triggerShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkflow",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateWorkflowResponse>(await this.callApi(params, req, runtime), new UpdateWorkflowResponse({}));
+    } else {
+      return $dara.cast<UpdateWorkflowResponse>(await this.execute(params, req, runtime), new UpdateWorkflowResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - UpdateWorkflowRequest
+   * @returns UpdateWorkflowResponse
+   */
+  async updateWorkflow(request: UpdateWorkflowRequest): Promise<UpdateWorkflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWorkflowWithOptions(request, runtime);
   }
 
   /**
@@ -59677,7 +67241,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new UpdateWorkflowDefinitionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateWorkflowDefinitionResponse>(await this.callApi(params, req, runtime), new UpdateWorkflowDefinitionResponse({}));
+    } else {
+      return $dara.cast<UpdateWorkflowDefinitionResponse>(await this.execute(params, req, runtime), new UpdateWorkflowDefinitionResponse({}));
+    }
+
   }
 
   /**
