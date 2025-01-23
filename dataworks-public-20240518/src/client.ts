@@ -48663,9 +48663,6 @@ export class ListResourcesResponse extends $dara.Model {
 
 export class ListRoutesRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 1000
    */
@@ -48681,6 +48678,14 @@ export class ListRoutesRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Serverless_res_group_524257424564736_6831777003XXXXX
+   */
+  resourceGroupId?: string;
+  /**
    * @example
    * CreateTime Asc
    */
@@ -48690,6 +48695,7 @@ export class ListRoutesRequest extends $dara.Model {
       networkId: 'NetworkId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
       sortBy: 'SortBy',
     };
   }
@@ -48699,6 +48705,7 @@ export class ListRoutesRequest extends $dara.Model {
       networkId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
       sortBy: 'string',
     };
   }
