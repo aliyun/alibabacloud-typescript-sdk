@@ -924,6 +924,7 @@ export class GetChatQuestionRespResponseBodyDataQuestionList extends $dara.Model
    * 2024-11-17 10:05:00
    */
   gmtCreate?: string;
+  oriContent?: string;
   reply?: string;
   /**
    * @example
@@ -945,6 +946,7 @@ export class GetChatQuestionRespResponseBodyDataQuestionList extends $dara.Model
     return {
       content: 'content',
       gmtCreate: 'gmtCreate',
+      oriContent: 'oriContent',
       reply: 'reply',
       sessionId: 'sessionId',
       type: 'type',
@@ -957,6 +959,7 @@ export class GetChatQuestionRespResponseBodyDataQuestionList extends $dara.Model
     return {
       content: 'string',
       gmtCreate: 'string',
+      oriContent: 'string',
       reply: 'string',
       sessionId: 'string',
       type: 'string',
