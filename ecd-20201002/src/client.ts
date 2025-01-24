@@ -860,6 +860,691 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   }
 }
 
+export class DescribeUserResourcesResponseBodyResourcesClients extends $dara.Model {
+  /**
+   * @example
+   * windows
+   */
+  clientType?: string;
+  /**
+   * @example
+   * ON
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientType: 'ClientType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientType: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserResourcesResponseBodyResourcesDesktopDurationList extends $dara.Model {
+  /**
+   * @example
+   * mdp-0bxls4qpi6bl6****
+   */
+  orderInstanceId?: string;
+  /**
+   * @example
+   * 2025-01-17T07:01Z
+   */
+  packageCreationTime?: string;
+  /**
+   * @example
+   * 2025-02-17T15:59Z
+   */
+  packageExpiredTime?: string;
+  /**
+   * @example
+   * mdp-0bxls4qpi6bl6****
+   */
+  packageId?: string;
+  /**
+   * @example
+   * Available
+   */
+  packageStatus?: string;
+  /**
+   * @example
+   * NORMAL_PACKAGE
+   */
+  packageType?: string;
+  /**
+   * @example
+   * Postpaid
+   */
+  packageUsedUpStrategy?: string;
+  /**
+   * @example
+   * 2025-02-17T15:59Z
+   */
+  periodEndTime?: string;
+  /**
+   * @example
+   * 2025-01-17T07:01Z
+   */
+  periodStartTime?: string;
+  /**
+   * @example
+   * 199
+   */
+  postPaidLimitFee?: number;
+  /**
+   * @example
+   * 432000
+   */
+  totalDuration?: number;
+  /**
+   * @example
+   * 16850
+   */
+  usedDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderInstanceId: 'OrderInstanceId',
+      packageCreationTime: 'PackageCreationTime',
+      packageExpiredTime: 'PackageExpiredTime',
+      packageId: 'PackageId',
+      packageStatus: 'PackageStatus',
+      packageType: 'PackageType',
+      packageUsedUpStrategy: 'PackageUsedUpStrategy',
+      periodEndTime: 'PeriodEndTime',
+      periodStartTime: 'PeriodStartTime',
+      postPaidLimitFee: 'PostPaidLimitFee',
+      totalDuration: 'TotalDuration',
+      usedDuration: 'UsedDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderInstanceId: 'string',
+      packageCreationTime: 'string',
+      packageExpiredTime: 'string',
+      packageId: 'string',
+      packageStatus: 'string',
+      packageType: 'string',
+      packageUsedUpStrategy: 'string',
+      periodEndTime: 'string',
+      periodStartTime: 'string',
+      postPaidLimitFee: 'number',
+      totalDuration: 'number',
+      usedDuration: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserResourcesResponseBodyResourcesDesktopTimers extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  allowClientSetting?: string;
+  /**
+   * @example
+   * 0 30 13 ? * 1-7
+   */
+  cronExpression?: string;
+  /**
+   * @example
+   * false
+   */
+  enforce?: boolean;
+  /**
+   * @example
+   * 2025-01-21T11:37Z
+   */
+  executionTime?: string;
+  /**
+   * @example
+   * 15
+   */
+  interval?: number;
+  /**
+   * @example
+   * Hibernate
+   */
+  operationType?: string;
+  /**
+   * @example
+   * RESET_TYPE_SYSTEM
+   */
+  resetType?: string;
+  /**
+   * @example
+   * TimerBoot
+   */
+  timerType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowClientSetting: 'AllowClientSetting',
+      cronExpression: 'CronExpression',
+      enforce: 'Enforce',
+      executionTime: 'ExecutionTime',
+      interval: 'Interval',
+      operationType: 'OperationType',
+      resetType: 'ResetType',
+      timerType: 'TimerType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowClientSetting: 'string',
+      cronExpression: 'string',
+      enforce: 'boolean',
+      executionTime: 'string',
+      interval: 'number',
+      operationType: 'string',
+      resetType: 'string',
+      timerType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserResourcesResponseBodyResourcesFotaUpdate extends $dara.Model {
+  /**
+   * @example
+   * aliyun
+   */
+  channel?: string;
+  /**
+   * @example
+   * 2.7.0-R-20250122.154826
+   */
+  currentAppVersion?: string;
+  /**
+   * @example
+   * false
+   */
+  force?: boolean;
+  /**
+   * @example
+   * 2.7.0-R-20250125.154826
+   */
+  newAppVersion?: string;
+  /**
+   * @example
+   * 2.6.9-R-20250123.153415
+   */
+  newDcdVersion?: string;
+  /**
+   * @example
+   * wuying-asp_single_session_desktop_win_x64
+   */
+  project?: string;
+  /**
+   * @example
+   * up
+   */
+  releaseNote?: string;
+  /**
+   * @example
+   * up
+   */
+  releaseNoteEn?: string;
+  /**
+   * @example
+   * up
+   */
+  releaseNoteJp?: string;
+  /**
+   * @example
+   * 474981930
+   */
+  size?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'Channel',
+      currentAppVersion: 'CurrentAppVersion',
+      force: 'Force',
+      newAppVersion: 'NewAppVersion',
+      newDcdVersion: 'NewDcdVersion',
+      project: 'Project',
+      releaseNote: 'ReleaseNote',
+      releaseNoteEn: 'ReleaseNoteEn',
+      releaseNoteJp: 'ReleaseNoteJp',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: 'string',
+      currentAppVersion: 'string',
+      force: 'boolean',
+      newAppVersion: 'string',
+      newDcdVersion: 'string',
+      project: 'string',
+      releaseNote: 'string',
+      releaseNoteEn: 'string',
+      releaseNoteJp: 'string',
+      size: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserResourcesResponseBodyResourcesSessions extends $dara.Model {
+  /**
+   * @example
+   * 2025-01-22T11:03:36Z
+   */
+  resourceSessionStartTime?: string;
+  /**
+   * @example
+   * user001
+   */
+  userId?: string;
+  /**
+   * @example
+   * benchmark_test@test.shenzhen
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceSessionStartTime: 'ResourceSessionStartTime',
+      userId: 'UserId',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceSessionStartTime: 'string',
+      userId: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserResourcesResponseBodyResources extends $dara.Model {
+  /**
+   * @example
+   * INTERNET
+   */
+  accessType?: string;
+  /**
+   * @example
+   * 194101959****
+   */
+  aliUid?: number;
+  /**
+   * @example
+   * app-0001
+   */
+  appId?: string;
+  /**
+   * @example
+   * App
+   */
+  authMode?: string;
+  /**
+   * @example
+   * 0
+   */
+  categoryId?: number;
+  /**
+   * @example
+   * 1
+   */
+  categoryType?: number;
+  /**
+   * @example
+   * cn-shanghai+cds-695277****
+   */
+  cdsName?: string;
+  /**
+   * @example
+   * ecds-0****
+   */
+  centerResourceId?: string;
+  /**
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  clients?: DescribeUserResourcesResponseBodyResourcesClients[];
+  /**
+   * @example
+   * {"authMode":"App"}
+   */
+  connectionProperties?: string;
+  /**
+   * @example
+   * 2024-12-11T07:12:12Z
+   */
+  createTime?: string;
+  desktopDurationList?: DescribeUserResourcesResponseBodyResourcesDesktopDurationList[];
+  desktopTimers?: DescribeUserResourcesResponseBodyResourcesDesktopTimers[];
+  /**
+   * @example
+   * 2025-02-22T16:00:00Z
+   */
+  expiredTime?: string;
+  /**
+   * @example
+   * stg114510
+   */
+  externalDomainId?: string;
+  /**
+   * @example
+   * test001
+   */
+  externalUserId?: string;
+  fotaUpdate?: DescribeUserResourcesResponseBodyResourcesFotaUpdate;
+  /**
+   * @example
+   * true
+   */
+  globalStatus?: boolean;
+  /**
+   * @example
+   * false
+   */
+  hibernationBeta?: boolean;
+  /**
+   * @example
+   * http://example.com/icon.png
+   */
+  icon?: string;
+  /**
+   * @example
+   * 2025-01-24T03:12:04Z
+   */
+  lastStartTime?: string;
+  localName?: string;
+  managementStatuses?: string[];
+  /**
+   * @example
+   * cn-shanghai+dir-3367****
+   */
+  officeSiteId?: string;
+  /**
+   * @example
+   * Normal
+   */
+  orderStatus?: string;
+  /**
+   * @example
+   * Windows Server 2022
+   */
+  os?: string;
+  osDescription?: string;
+  /**
+   * @example
+   * Windows
+   */
+  osType?: string;
+  /**
+   * @example
+   * AndroidCloud
+   */
+  productType?: string;
+  /**
+   * @example
+   * ASP
+   */
+  protocolType?: string;
+  /**
+   * @example
+   * ecd-0001
+   */
+  realDesktopId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * Mainland
+   */
+  regionLocation?: string;
+  /**
+   * @example
+   * dg-0****
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * ecd-d19tya8zi4****
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * Center
+   */
+  resourceLevel?: string;
+  /**
+   * @example
+   * testName01
+   */
+  resourceName?: string;
+  /**
+   * @example
+   * Connected
+   */
+  resourceSessionStatus?: string;
+  /**
+   * @example
+   * Running
+   */
+  resourceStatus?: string;
+  /**
+   * @example
+   * Desktop
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * SINGLE_SESSION
+   */
+  sessionType?: string;
+  sessions?: DescribeUserResourcesResponseBodyResourcesSessions[];
+  /**
+   * @example
+   * PrePaid
+   */
+  subPayType?: string;
+  /**
+   * @example
+   * true
+   */
+  supportHibernation?: boolean;
+  supportedActions?: string[];
+  /**
+   * @example
+   * #FFFFFF
+   */
+  themeColor?: string;
+  userCustomName?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessType: 'AccessType',
+      aliUid: 'AliUid',
+      appId: 'AppId',
+      authMode: 'AuthMode',
+      categoryId: 'CategoryId',
+      categoryType: 'CategoryType',
+      cdsName: 'CdsName',
+      centerResourceId: 'CenterResourceId',
+      chargeType: 'ChargeType',
+      clients: 'Clients',
+      connectionProperties: 'ConnectionProperties',
+      createTime: 'CreateTime',
+      desktopDurationList: 'DesktopDurationList',
+      desktopTimers: 'DesktopTimers',
+      expiredTime: 'ExpiredTime',
+      externalDomainId: 'ExternalDomainId',
+      externalUserId: 'ExternalUserId',
+      fotaUpdate: 'FotaUpdate',
+      globalStatus: 'GlobalStatus',
+      hibernationBeta: 'HibernationBeta',
+      icon: 'Icon',
+      lastStartTime: 'LastStartTime',
+      localName: 'LocalName',
+      managementStatuses: 'ManagementStatuses',
+      officeSiteId: 'OfficeSiteId',
+      orderStatus: 'OrderStatus',
+      os: 'Os',
+      osDescription: 'OsDescription',
+      osType: 'OsType',
+      productType: 'ProductType',
+      protocolType: 'ProtocolType',
+      realDesktopId: 'RealDesktopId',
+      regionId: 'RegionId',
+      regionLocation: 'RegionLocation',
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceLevel: 'ResourceLevel',
+      resourceName: 'ResourceName',
+      resourceSessionStatus: 'ResourceSessionStatus',
+      resourceStatus: 'ResourceStatus',
+      resourceType: 'ResourceType',
+      sessionType: 'SessionType',
+      sessions: 'Sessions',
+      subPayType: 'SubPayType',
+      supportHibernation: 'SupportHibernation',
+      supportedActions: 'SupportedActions',
+      themeColor: 'ThemeColor',
+      userCustomName: 'UserCustomName',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessType: 'string',
+      aliUid: 'number',
+      appId: 'string',
+      authMode: 'string',
+      categoryId: 'number',
+      categoryType: 'number',
+      cdsName: 'string',
+      centerResourceId: 'string',
+      chargeType: 'string',
+      clients: { 'type': 'array', 'itemType': DescribeUserResourcesResponseBodyResourcesClients },
+      connectionProperties: 'string',
+      createTime: 'string',
+      desktopDurationList: { 'type': 'array', 'itemType': DescribeUserResourcesResponseBodyResourcesDesktopDurationList },
+      desktopTimers: { 'type': 'array', 'itemType': DescribeUserResourcesResponseBodyResourcesDesktopTimers },
+      expiredTime: 'string',
+      externalDomainId: 'string',
+      externalUserId: 'string',
+      fotaUpdate: DescribeUserResourcesResponseBodyResourcesFotaUpdate,
+      globalStatus: 'boolean',
+      hibernationBeta: 'boolean',
+      icon: 'string',
+      lastStartTime: 'string',
+      localName: 'string',
+      managementStatuses: { 'type': 'array', 'itemType': 'string' },
+      officeSiteId: 'string',
+      orderStatus: 'string',
+      os: 'string',
+      osDescription: 'string',
+      osType: 'string',
+      productType: 'string',
+      protocolType: 'string',
+      realDesktopId: 'string',
+      regionId: 'string',
+      regionLocation: 'string',
+      resourceGroupId: 'string',
+      resourceId: 'string',
+      resourceLevel: 'string',
+      resourceName: 'string',
+      resourceSessionStatus: 'string',
+      resourceStatus: 'string',
+      resourceType: 'string',
+      sessionType: 'string',
+      sessions: { 'type': 'array', 'itemType': DescribeUserResourcesResponseBodyResourcesSessions },
+      subPayType: 'string',
+      supportHibernation: 'boolean',
+      supportedActions: { 'type': 'array', 'itemType': 'string' },
+      themeColor: 'string',
+      userCustomName: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.clients)) {
+      $dara.Model.validateArray(this.clients);
+    }
+    if(Array.isArray(this.desktopDurationList)) {
+      $dara.Model.validateArray(this.desktopDurationList);
+    }
+    if(Array.isArray(this.desktopTimers)) {
+      $dara.Model.validateArray(this.desktopTimers);
+    }
+    if(this.fotaUpdate && typeof (this.fotaUpdate as any).validate === 'function') {
+      (this.fotaUpdate as any).validate();
+    }
+    if(Array.isArray(this.managementStatuses)) {
+      $dara.Model.validateArray(this.managementStatuses);
+    }
+    if(Array.isArray(this.sessions)) {
+      $dara.Model.validateArray(this.sessions);
+    }
+    if(Array.isArray(this.supportedActions)) {
+      $dara.Model.validateArray(this.supportedActions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCloudDriveServiceMountTokenResponseBodyToken extends $dara.Model {
   /**
    * @example
@@ -2395,6 +3080,298 @@ export class DescribeSnapshotsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeSnapshotsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserResourcesRequest extends $dara.Model {
+  /**
+   * @example
+   * INTERNET
+   */
+  accessType?: string;
+  /**
+   * @example
+   * false
+   */
+  autoRefresh?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  categoryId?: number;
+  /**
+   * @example
+   * 1
+   */
+  categoryType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 54c17e1d-2d72-4b87-aa33-25f3b3f2****
+   */
+  clientId?: string;
+  /**
+   * @example
+   * windows
+   */
+  clientType?: string;
+  /**
+   * @example
+   * 7.6.0-R-20241112.222305
+   */
+  clientVersion?: string;
+  /**
+   * @example
+   * false
+   */
+  dualCenterForward?: boolean;
+  /**
+   * @example
+   * zh-CN
+   */
+  language?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  loginRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * v18101ac6a9e69c66b04a163031680463660b4b216cd758f34b60b9ad6a7c7f7334b83dd8f75eef4209c68f9f1080b****
+   */
+  loginToken?: string;
+  /**
+   * @example
+   * 500
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a4883
+   */
+  nextToken?: string;
+  officeSiteIds?: string[];
+  /**
+   * @example
+   * AssignTime
+   */
+  orderBy?: string;
+  productTypes?: string[];
+  /**
+   * @example
+   * ASP
+   */
+  protocolType?: string;
+  /**
+   * @example
+   * false
+   */
+  queryFotaUpdate?: boolean;
+  /**
+   * @example
+   * false
+   */
+  refreshFotaUpdate?: boolean;
+  resourceIds?: string[];
+  /**
+   * @example
+   * testName
+   */
+  resourceName?: string;
+  resourceTypes?: string[];
+  /**
+   * @example
+   * desktop
+   */
+  scene?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  searchRegionId?: string;
+  /**
+   * @example
+   * cd45e873-650d-4d70-acb9-f996187a****
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * ASC
+   */
+  sortType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessType: 'AccessType',
+      autoRefresh: 'AutoRefresh',
+      categoryId: 'CategoryId',
+      categoryType: 'CategoryType',
+      clientId: 'ClientId',
+      clientType: 'ClientType',
+      clientVersion: 'ClientVersion',
+      dualCenterForward: 'DualCenterForward',
+      language: 'Language',
+      loginRegionId: 'LoginRegionId',
+      loginToken: 'LoginToken',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      officeSiteIds: 'OfficeSiteIds',
+      orderBy: 'OrderBy',
+      productTypes: 'ProductTypes',
+      protocolType: 'ProtocolType',
+      queryFotaUpdate: 'QueryFotaUpdate',
+      refreshFotaUpdate: 'RefreshFotaUpdate',
+      resourceIds: 'ResourceIds',
+      resourceName: 'ResourceName',
+      resourceTypes: 'ResourceTypes',
+      scene: 'Scene',
+      searchRegionId: 'SearchRegionId',
+      sessionId: 'SessionId',
+      sortType: 'SortType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessType: 'string',
+      autoRefresh: 'boolean',
+      categoryId: 'number',
+      categoryType: 'number',
+      clientId: 'string',
+      clientType: 'string',
+      clientVersion: 'string',
+      dualCenterForward: 'boolean',
+      language: 'string',
+      loginRegionId: 'string',
+      loginToken: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      officeSiteIds: { 'type': 'array', 'itemType': 'string' },
+      orderBy: 'string',
+      productTypes: { 'type': 'array', 'itemType': 'string' },
+      protocolType: 'string',
+      queryFotaUpdate: 'boolean',
+      refreshFotaUpdate: 'boolean',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceName: 'string',
+      resourceTypes: { 'type': 'array', 'itemType': 'string' },
+      scene: 'string',
+      searchRegionId: 'string',
+      sessionId: 'string',
+      sortType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.officeSiteIds)) {
+      $dara.Model.validateArray(this.officeSiteIds);
+    }
+    if(Array.isArray(this.productTypes)) {
+      $dara.Model.validateArray(this.productTypes);
+    }
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
+    }
+    if(Array.isArray(this.resourceTypes)) {
+      $dara.Model.validateArray(this.resourceTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserResourcesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
+   */
+  nextToken?: string;
+  queryFailedResourceTypes?: string[];
+  /**
+   * @example
+   * 1732869815062
+   */
+  rankVersion?: number;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  resources?: DescribeUserResourcesResponseBodyResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      queryFailedResourceTypes: 'QueryFailedResourceTypes',
+      rankVersion: 'RankVersion',
+      requestId: 'RequestId',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      queryFailedResourceTypes: { 'type': 'array', 'itemType': 'string' },
+      rankVersion: 'number',
+      requestId: 'string',
+      resources: { 'type': 'array', 'itemType': DescribeUserResourcesResponseBodyResources },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.queryFailedResourceTypes)) {
+      $dara.Model.validateArray(this.queryFailedResourceTypes);
+    }
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserResourcesResponseBody,
     };
   }
 
@@ -5895,7 +6872,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ApproveFotaUpdateResponse>(await this.callApi(params, req, runtime), new ApproveFotaUpdateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ApproveFotaUpdateResponse>(await this.callApi(params, req, runtime), new ApproveFotaUpdateResponse({}));
+    } else {
+      return $dara.cast<ApproveFotaUpdateResponse>(await this.execute(params, req, runtime), new ApproveFotaUpdateResponse({}));
+    }
+
   }
 
   /**
@@ -5963,7 +6945,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ChangePasswordResponse>(await this.callApi(params, req, runtime), new ChangePasswordResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ChangePasswordResponse>(await this.callApi(params, req, runtime), new ChangePasswordResponse({}));
+    } else {
+      return $dara.cast<ChangePasswordResponse>(await this.execute(params, req, runtime), new ChangePasswordResponse({}));
+    }
+
   }
 
   /**
@@ -6021,7 +7008,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteFingerPrintTemplateResponse>(await this.callApi(params, req, runtime), new DeleteFingerPrintTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteFingerPrintTemplateResponse>(await this.callApi(params, req, runtime), new DeleteFingerPrintTemplateResponse({}));
+    } else {
+      return $dara.cast<DeleteFingerPrintTemplateResponse>(await this.execute(params, req, runtime), new DeleteFingerPrintTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -6067,7 +7059,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeDirectoriesResponse>(await this.callApi(params, req, runtime), new DescribeDirectoriesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDirectoriesResponse>(await this.callApi(params, req, runtime), new DescribeDirectoriesResponse({}));
+    } else {
+      return $dara.cast<DescribeDirectoriesResponse>(await this.execute(params, req, runtime), new DescribeDirectoriesResponse({}));
+    }
+
   }
 
   /**
@@ -6117,7 +7114,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeFingerPrintTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeFingerPrintTemplatesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeFingerPrintTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeFingerPrintTemplatesResponse({}));
+    } else {
+      return $dara.cast<DescribeFingerPrintTemplatesResponse>(await this.execute(params, req, runtime), new DescribeFingerPrintTemplatesResponse({}));
+    }
+
   }
 
   /**
@@ -6231,7 +7233,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeGlobalDesktopsResponse>(await this.callApi(params, req, runtime), new DescribeGlobalDesktopsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeGlobalDesktopsResponse>(await this.callApi(params, req, runtime), new DescribeGlobalDesktopsResponse({}));
+    } else {
+      return $dara.cast<DescribeGlobalDesktopsResponse>(await this.execute(params, req, runtime), new DescribeGlobalDesktopsResponse({}));
+    }
+
   }
 
   /**
@@ -6277,7 +7284,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeOfficeSitesResponse>(await this.callApi(params, req, runtime), new DescribeOfficeSitesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeOfficeSitesResponse>(await this.callApi(params, req, runtime), new DescribeOfficeSitesResponse({}));
+    } else {
+      return $dara.cast<DescribeOfficeSitesResponse>(await this.execute(params, req, runtime), new DescribeOfficeSitesResponse({}));
+    }
+
   }
 
   /**
@@ -6319,7 +7331,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    } else {
+      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
+    }
+
   }
 
   /**
@@ -6387,7 +7404,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeSnapshotsResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSnapshotsResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotsResponse({}));
+    } else {
+      return $dara.cast<DescribeSnapshotsResponse>(await this.execute(params, req, runtime), new DescribeSnapshotsResponse({}));
+    }
+
   }
 
   /**
@@ -6399,6 +7421,153 @@ export default class Client extends OpenApi {
   async describeSnapshots(request: DescribeSnapshotsRequest): Promise<DescribeSnapshotsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSnapshotsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户资源列表
+   * 
+   * @param request - DescribeUserResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserResourcesResponse
+   */
+  async describeUserResourcesWithOptions(request: DescribeUserResourcesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeUserResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessType)) {
+      query["AccessType"] = request.accessType;
+    }
+
+    if (!$dara.isNull(request.autoRefresh)) {
+      query["AutoRefresh"] = request.autoRefresh;
+    }
+
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!$dara.isNull(request.categoryType)) {
+      query["CategoryType"] = request.categoryType;
+    }
+
+    if (!$dara.isNull(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.clientType)) {
+      query["ClientType"] = request.clientType;
+    }
+
+    if (!$dara.isNull(request.clientVersion)) {
+      query["ClientVersion"] = request.clientVersion;
+    }
+
+    if (!$dara.isNull(request.dualCenterForward)) {
+      query["DualCenterForward"] = request.dualCenterForward;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.loginRegionId)) {
+      query["LoginRegionId"] = request.loginRegionId;
+    }
+
+    if (!$dara.isNull(request.loginToken)) {
+      query["LoginToken"] = request.loginToken;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.officeSiteIds)) {
+      query["OfficeSiteIds"] = request.officeSiteIds;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.productTypes)) {
+      query["ProductTypes"] = request.productTypes;
+    }
+
+    if (!$dara.isNull(request.protocolType)) {
+      query["ProtocolType"] = request.protocolType;
+    }
+
+    if (!$dara.isNull(request.queryFotaUpdate)) {
+      query["QueryFotaUpdate"] = request.queryFotaUpdate;
+    }
+
+    if (!$dara.isNull(request.refreshFotaUpdate)) {
+      query["RefreshFotaUpdate"] = request.refreshFotaUpdate;
+    }
+
+    if (!$dara.isNull(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!$dara.isNull(request.resourceName)) {
+      query["ResourceName"] = request.resourceName;
+    }
+
+    if (!$dara.isNull(request.resourceTypes)) {
+      query["ResourceTypes"] = request.resourceTypes;
+    }
+
+    if (!$dara.isNull(request.scene)) {
+      query["Scene"] = request.scene;
+    }
+
+    if (!$dara.isNull(request.searchRegionId)) {
+      query["SearchRegionId"] = request.searchRegionId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUserResources",
+      version: "2020-10-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeUserResourcesResponse>(await this.callApi(params, req, runtime), new DescribeUserResourcesResponse({}));
+    } else {
+      return $dara.cast<DescribeUserResourcesResponse>(await this.execute(params, req, runtime), new DescribeUserResourcesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询用户资源列表
+   * 
+   * @param request - DescribeUserResourcesRequest
+   * @returns DescribeUserResourcesResponse
+   */
+  async describeUserResources(request: DescribeUserResourcesRequest): Promise<DescribeUserResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUserResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -6451,7 +7620,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<EncryptPasswordResponse>(await this.callApi(params, req, runtime), new EncryptPasswordResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EncryptPasswordResponse>(await this.callApi(params, req, runtime), new EncryptPasswordResponse({}));
+    } else {
+      return $dara.cast<EncryptPasswordResponse>(await this.execute(params, req, runtime), new EncryptPasswordResponse({}));
+    }
+
   }
 
   /**
@@ -6507,7 +7681,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetCloudDriveServiceMountTokenResponse>(await this.callApi(params, req, runtime), new GetCloudDriveServiceMountTokenResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetCloudDriveServiceMountTokenResponse>(await this.callApi(params, req, runtime), new GetCloudDriveServiceMountTokenResponse({}));
+    } else {
+      return $dara.cast<GetCloudDriveServiceMountTokenResponse>(await this.execute(params, req, runtime), new GetCloudDriveServiceMountTokenResponse({}));
+    }
+
   }
 
   /**
@@ -6603,7 +7782,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
+    } else {
+      return $dara.cast<GetConnectionTicketResponse>(await this.execute(params, req, runtime), new GetConnectionTicketResponse({}));
+    }
+
   }
 
   /**
@@ -6711,7 +7895,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetLoginTokenResponse>(await this.callApi(params, req, runtime), new GetLoginTokenResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetLoginTokenResponse>(await this.callApi(params, req, runtime), new GetLoginTokenResponse({}));
+    } else {
+      return $dara.cast<GetLoginTokenResponse>(await this.execute(params, req, runtime), new GetLoginTokenResponse({}));
+    }
+
   }
 
   /**
@@ -6761,7 +7950,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<IsKeepAliveResponse>(await this.callApi(params, req, runtime), new IsKeepAliveResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<IsKeepAliveResponse>(await this.callApi(params, req, runtime), new IsKeepAliveResponse({}));
+    } else {
+      return $dara.cast<IsKeepAliveResponse>(await this.execute(params, req, runtime), new IsKeepAliveResponse({}));
+    }
+
   }
 
   /**
@@ -6811,7 +8005,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<QueryEdsAgentReportConfigResponse>(await this.callApi(params, req, runtime), new QueryEdsAgentReportConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryEdsAgentReportConfigResponse>(await this.callApi(params, req, runtime), new QueryEdsAgentReportConfigResponse({}));
+    } else {
+      return $dara.cast<QueryEdsAgentReportConfigResponse>(await this.execute(params, req, runtime), new QueryEdsAgentReportConfigResponse({}));
+    }
+
   }
 
   /**
@@ -6889,7 +8088,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RebootDesktopsResponse>(await this.callApi(params, req, runtime), new RebootDesktopsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RebootDesktopsResponse>(await this.callApi(params, req, runtime), new RebootDesktopsResponse({}));
+    } else {
+      return $dara.cast<RebootDesktopsResponse>(await this.execute(params, req, runtime), new RebootDesktopsResponse({}));
+    }
+
   }
 
   /**
@@ -6953,7 +8157,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RefreshLoginTokenResponse>(await this.callApi(params, req, runtime), new RefreshLoginTokenResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RefreshLoginTokenResponse>(await this.callApi(params, req, runtime), new RefreshLoginTokenResponse({}));
+    } else {
+      return $dara.cast<RefreshLoginTokenResponse>(await this.execute(params, req, runtime), new RefreshLoginTokenResponse({}));
+    }
+
   }
 
   /**
@@ -7005,7 +8214,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ReportEdsAgentInfoResponse>(await this.callApi(params, req, runtime), new ReportEdsAgentInfoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ReportEdsAgentInfoResponse>(await this.callApi(params, req, runtime), new ReportEdsAgentInfoResponse({}));
+    } else {
+      return $dara.cast<ReportEdsAgentInfoResponse>(await this.execute(params, req, runtime), new ReportEdsAgentInfoResponse({}));
+    }
+
   }
 
   /**
@@ -7065,7 +8279,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ReportSessionStatusResponse>(await this.callApi(params, req, runtime), new ReportSessionStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ReportSessionStatusResponse>(await this.callApi(params, req, runtime), new ReportSessionStatusResponse({}));
+    } else {
+      return $dara.cast<ReportSessionStatusResponse>(await this.execute(params, req, runtime), new ReportSessionStatusResponse({}));
+    }
+
   }
 
   /**
@@ -7127,7 +8346,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ResetPasswordResponse>(await this.callApi(params, req, runtime), new ResetPasswordResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ResetPasswordResponse>(await this.callApi(params, req, runtime), new ResetPasswordResponse({}));
+    } else {
+      return $dara.cast<ResetPasswordResponse>(await this.execute(params, req, runtime), new ResetPasswordResponse({}));
+    }
+
   }
 
   /**
@@ -7191,7 +8415,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ResetSnapshotResponse>(await this.callApi(params, req, runtime), new ResetSnapshotResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ResetSnapshotResponse>(await this.callApi(params, req, runtime), new ResetSnapshotResponse({}));
+    } else {
+      return $dara.cast<ResetSnapshotResponse>(await this.execute(params, req, runtime), new ResetSnapshotResponse({}));
+    }
+
   }
 
   /**
@@ -7259,7 +8488,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SendTokenCodeResponse>(await this.callApi(params, req, runtime), new SendTokenCodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SendTokenCodeResponse>(await this.callApi(params, req, runtime), new SendTokenCodeResponse({}));
+    } else {
+      return $dara.cast<SendTokenCodeResponse>(await this.execute(params, req, runtime), new SendTokenCodeResponse({}));
+    }
+
   }
 
   /**
@@ -7333,7 +8567,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetFingerPrintTemplateResponse>(await this.callApi(params, req, runtime), new SetFingerPrintTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetFingerPrintTemplateResponse>(await this.callApi(params, req, runtime), new SetFingerPrintTemplateResponse({}));
+    } else {
+      return $dara.cast<SetFingerPrintTemplateResponse>(await this.execute(params, req, runtime), new SetFingerPrintTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -7395,7 +8634,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetFingerPrintTemplateDescriptionResponse>(await this.callApi(params, req, runtime), new SetFingerPrintTemplateDescriptionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetFingerPrintTemplateDescriptionResponse>(await this.callApi(params, req, runtime), new SetFingerPrintTemplateDescriptionResponse({}));
+    } else {
+      return $dara.cast<SetFingerPrintTemplateDescriptionResponse>(await this.execute(params, req, runtime), new SetFingerPrintTemplateDescriptionResponse({}));
+    }
+
   }
 
   /**
@@ -7470,7 +8714,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StartDesktopsResponse>(await this.callApi(params, req, runtime), new StartDesktopsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartDesktopsResponse>(await this.callApi(params, req, runtime), new StartDesktopsResponse({}));
+    } else {
+      return $dara.cast<StartDesktopsResponse>(await this.execute(params, req, runtime), new StartDesktopsResponse({}));
+    }
+
   }
 
   /**
@@ -7541,7 +8790,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StartRecordContentResponse>(await this.callApi(params, req, runtime), new StartRecordContentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartRecordContentResponse>(await this.callApi(params, req, runtime), new StartRecordContentResponse({}));
+    } else {
+      return $dara.cast<StartRecordContentResponse>(await this.execute(params, req, runtime), new StartRecordContentResponse({}));
+    }
+
   }
 
   /**
@@ -7616,7 +8870,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StopDesktopsResponse>(await this.callApi(params, req, runtime), new StopDesktopsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopDesktopsResponse>(await this.callApi(params, req, runtime), new StopDesktopsResponse({}));
+    } else {
+      return $dara.cast<StopDesktopsResponse>(await this.execute(params, req, runtime), new StopDesktopsResponse({}));
+    }
+
   }
 
   /**
@@ -7683,7 +8942,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StopRecordContentResponse>(await this.callApi(params, req, runtime), new StopRecordContentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopRecordContentResponse>(await this.callApi(params, req, runtime), new StopRecordContentResponse({}));
+    } else {
+      return $dara.cast<StopRecordContentResponse>(await this.execute(params, req, runtime), new StopRecordContentResponse({}));
+    }
+
   }
 
   /**
@@ -7747,7 +9011,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UnbindUserDesktopResponse>(await this.callApi(params, req, runtime), new UnbindUserDesktopResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnbindUserDesktopResponse>(await this.callApi(params, req, runtime), new UnbindUserDesktopResponse({}));
+    } else {
+      return $dara.cast<UnbindUserDesktopResponse>(await this.execute(params, req, runtime), new UnbindUserDesktopResponse({}));
+    }
+
   }
 
   /**
@@ -7815,7 +9084,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<VerifyCredentialResponse>(await this.callApi(params, req, runtime), new VerifyCredentialResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<VerifyCredentialResponse>(await this.callApi(params, req, runtime), new VerifyCredentialResponse({}));
+    } else {
+      return $dara.cast<VerifyCredentialResponse>(await this.execute(params, req, runtime), new VerifyCredentialResponse({}));
+    }
+
   }
 
   /**
