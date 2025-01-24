@@ -718,6 +718,78 @@ export class DescribeAvailableResourcesResponseBodyResources extends $dara.Model
   }
 }
 
+export class DescribeCreateIndexJobResponseBodyJob extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  completed?: boolean;
+  /**
+   * @example
+   * 2024-01-08 16:52:04.864664
+   */
+  createTime?: string;
+  /**
+   * @example
+   * Failed to connect database.
+   */
+  error?: string;
+  /**
+   * @remarks
+   * Job ID。
+   * 
+   * @example
+   * 231460f8-75dc-405e-a669-0c5204887e91
+   */
+  id?: string;
+  /**
+   * @example
+   * 20
+   */
+  progress?: number;
+  /**
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @example
+   * 2024-01-08 16:53:04.864664
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      completed: 'Completed',
+      createTime: 'CreateTime',
+      error: 'Error',
+      id: 'Id',
+      progress: 'Progress',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completed: 'boolean',
+      createTime: 'string',
+      error: 'string',
+      id: 'string',
+      progress: 'number',
+      status: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClusterNodeResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
@@ -8034,6 +8106,80 @@ export class ListExternalDataSourcesResponseBodyItems extends $dara.Model {
   }
 }
 
+export class ListIndicesResponseBodyIndicesIndices extends $dara.Model {
+  /**
+   * @example
+   * testcollection
+   */
+  collection?: string;
+  /**
+   * @example
+   * CREATE INDEX testindex ON mynamespace. testcollection
+   */
+  indexDef?: string;
+  /**
+   * @example
+   * testindex
+   */
+  indexName?: string;
+  /**
+   * @example
+   * mynamespace
+   */
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      indexDef: 'IndexDef',
+      indexName: 'IndexName',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      indexDef: 'string',
+      indexName: 'string',
+      namespace: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndicesResponseBodyIndices extends $dara.Model {
+  indices?: ListIndicesResponseBodyIndicesIndices[];
+  static names(): { [key: string]: string } {
+    return {
+      indices: 'Indices',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indices: { 'type': 'array', 'itemType': ListIndicesResponseBodyIndicesIndices },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.indices)) {
+      $dara.Model.validateArray(this.indices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceExtensionsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
@@ -10645,6 +10791,169 @@ export class BindDBResourceGroupWithRoleResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BindDBResourceGroupWithRoleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelCreateIndexJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testcollection
+   */
+  collection?: string;
+  /**
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 231460f8-75dc-405e-a669-0c5204887e91
+   */
+  jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mynamespace
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testpassword
+   */
+  namespacePassword?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      jobId: 'JobId',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      jobId: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelCreateIndexJobResponseBody extends $dara.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelCreateIndexJobResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelCreateIndexJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelCreateIndexJobResponseBody,
     };
   }
 
@@ -14315,6 +14624,183 @@ export class CreateHadoopDataSourceResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateHadoopDataSourceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndexRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testcollection
+   */
+  collection?: string;
+  /**
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  indexConfig?: string;
+  /**
+   * @example
+   * title
+   */
+  indexField?: string;
+  /**
+   * @example
+   * testindex
+   */
+  indexName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mynamespace
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testpassword
+   */
+  namespacePassword?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      indexConfig: 'IndexConfig',
+      indexField: 'IndexField',
+      indexName: 'IndexName',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      indexConfig: 'string',
+      indexField: 'string',
+      indexName: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndexResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 231460f8-75dc-405e-a669-0c5204887e91
+   */
+  jobId?: string;
+  /**
+   * @example
+   * Successfully create job
+   */
+  message?: string;
+  /**
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndexResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateIndexResponseBody,
     };
   }
 
@@ -18507,6 +18993,169 @@ export class DeleteHadoopDataSourceResponse extends $dara.Model {
   }
 }
 
+export class DeleteIndexRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testcollection
+   */
+  collection?: string;
+  /**
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testindex
+   */
+  indexName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mynamespace
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testpassword
+   */
+  namespacePassword?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      indexName: 'IndexName',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      indexName: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndexResponseBody extends $dara.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndexResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIndexResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteJDBCDataSourceRequest extends $dara.Model {
   /**
    * @remarks
@@ -20702,6 +21351,175 @@ export class DescribeCollectionResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCollectionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCreateIndexJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testcollection
+   */
+  collection?: string;
+  /**
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 231460f8-75dc-405e-a669-0c5204887e91
+   */
+  jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mynamespace
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testpassword
+   */
+  namespacePassword?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      jobId: 'JobId',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      jobId: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCreateIndexJobResponseBody extends $dara.Model {
+  job?: DescribeCreateIndexJobResponseBodyJob;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      job: 'Job',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      job: DescribeCreateIndexJobResponseBodyJob,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.job && typeof (this.job as any).validate === 'function') {
+      (this.job as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCreateIndexJobResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCreateIndexJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCreateIndexJobResponseBody,
     };
   }
 
@@ -27054,6 +27872,197 @@ export class DescribeIMVInfosResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeIMVInfosResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIndexRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testcollection
+   */
+  collection?: string;
+  /**
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testindex
+   */
+  indexName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mynamespace
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testpassword
+   */
+  namespacePassword?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      indexName: 'IndexName',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      indexName: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIndexResponseBody extends $dara.Model {
+  /**
+   * @example
+   * testcollection
+   */
+  collection?: string;
+  /**
+   * @example
+   * CREATE INDEX testindex ON mynamespace. testcollection
+   */
+  indexDef?: string;
+  /**
+   * @example
+   * testindex
+   */
+  indexName?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * mynamespace
+   */
+  namespace?: string;
+  /**
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      indexDef: 'IndexDef',
+      indexName: 'IndexName',
+      message: 'Message',
+      namespace: 'Namespace',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      indexDef: 'string',
+      indexName: 'string',
+      message: 'string',
+      namespace: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIndexResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeIndexResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeIndexResponseBody,
     };
   }
 
@@ -35178,6 +36187,168 @@ export class ListExternalDataSourcesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListExternalDataSourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndicesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testcollection
+   */
+  collection?: string;
+  /**
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mynamespace
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testpassword
+   */
+  namespacePassword?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * gp-ws-*****
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      DBInstanceId: 'DBInstanceId',
+      namespace: 'Namespace',
+      namespacePassword: 'NamespacePassword',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      DBInstanceId: 'string',
+      namespace: 'string',
+      namespacePassword: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndicesResponseBody extends $dara.Model {
+  indices?: ListIndicesResponseBodyIndices;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      indices: 'Indices',
+      message: 'Message',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      indices: ListIndicesResponseBodyIndices,
+      message: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(this.indices && typeof (this.indices as any).validate === 'function') {
+      (this.indices as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIndicesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIndicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIndicesResponseBody,
     };
   }
 
@@ -48562,6 +49733,81 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消创建索引任务
+   * 
+   * @param request - CancelCreateIndexJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelCreateIndexJobResponse
+   */
+  async cancelCreateIndexJobWithOptions(request: CancelCreateIndexJobRequest, runtime: $dara.RuntimeOptions): Promise<CancelCreateIndexJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelCreateIndexJob",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CancelCreateIndexJobResponse>(await this.callApi(params, req, runtime), new CancelCreateIndexJobResponse({}));
+    } else {
+      return $dara.cast<CancelCreateIndexJobResponse>(await this.execute(params, req, runtime), new CancelCreateIndexJobResponse({}));
+    }
+
+  }
+
+  /**
+   * 取消创建索引任务
+   * 
+   * @param request - CancelCreateIndexJobRequest
+   * @returns CancelCreateIndexJobResponse
+   */
+  async cancelCreateIndexJob(request: CancelCreateIndexJobRequest): Promise<CancelCreateIndexJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelCreateIndexJobWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels an asynchronous document upload job based on the job ID.
    * 
    * @remarks
@@ -49946,6 +51192,89 @@ export default class Client extends OpenApi {
   async createHadoopDataSource(request: CreateHadoopDataSourceRequest): Promise<CreateHadoopDataSourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createHadoopDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建索引
+   * 
+   * @param request - CreateIndexRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIndexResponse
+   */
+  async createIndexWithOptions(request: CreateIndexRequest, runtime: $dara.RuntimeOptions): Promise<CreateIndexResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.indexConfig)) {
+      query["IndexConfig"] = request.indexConfig;
+    }
+
+    if (!$dara.isNull(request.indexField)) {
+      query["IndexField"] = request.indexField;
+    }
+
+    if (!$dara.isNull(request.indexName)) {
+      query["IndexName"] = request.indexName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateIndex",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateIndexResponse>(await this.callApi(params, req, runtime), new CreateIndexResponse({}));
+    } else {
+      return $dara.cast<CreateIndexResponse>(await this.execute(params, req, runtime), new CreateIndexResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建索引
+   * 
+   * @param request - CreateIndexRequest
+   * @returns CreateIndexResponse
+   */
+  async createIndex(request: CreateIndexRequest): Promise<CreateIndexResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createIndexWithOptions(request, runtime);
   }
 
   /**
@@ -51495,6 +52824,81 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除索引
+   * 
+   * @param request - DeleteIndexRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIndexResponse
+   */
+  async deleteIndexWithOptions(request: DeleteIndexRequest, runtime: $dara.RuntimeOptions): Promise<DeleteIndexResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.indexName)) {
+      query["IndexName"] = request.indexName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteIndex",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteIndexResponse>(await this.callApi(params, req, runtime), new DeleteIndexResponse({}));
+    } else {
+      return $dara.cast<DeleteIndexResponse>(await this.execute(params, req, runtime), new DeleteIndexResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除索引
+   * 
+   * @param request - DeleteIndexRequest
+   * @returns DeleteIndexResponse
+   */
+  async deleteIndex(request: DeleteIndexRequest): Promise<DeleteIndexResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteIndexWithOptions(request, runtime);
+  }
+
+  /**
    * Delete JDBC data source
    * 
    * @param request - DeleteJDBCDataSourceRequest
@@ -52356,6 +53760,81 @@ export default class Client extends OpenApi {
   async describeCollection(request: DescribeCollectionRequest): Promise<DescribeCollectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCollectionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取创建索引任务
+   * 
+   * @param request - DescribeCreateIndexJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCreateIndexJobResponse
+   */
+  async describeCreateIndexJobWithOptions(request: DescribeCreateIndexJobRequest, runtime: $dara.RuntimeOptions): Promise<DescribeCreateIndexJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCreateIndexJob",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeCreateIndexJobResponse>(await this.callApi(params, req, runtime), new DescribeCreateIndexJobResponse({}));
+    } else {
+      return $dara.cast<DescribeCreateIndexJobResponse>(await this.execute(params, req, runtime), new DescribeCreateIndexJobResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取创建索引任务
+   * 
+   * @param request - DescribeCreateIndexJobRequest
+   * @returns DescribeCreateIndexJobResponse
+   */
+  async describeCreateIndexJob(request: DescribeCreateIndexJobRequest): Promise<DescribeCreateIndexJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCreateIndexJobWithOptions(request, runtime);
   }
 
   /**
@@ -54685,6 +56164,81 @@ export default class Client extends OpenApi {
   async describeIMVInfos(request: DescribeIMVInfosRequest): Promise<DescribeIMVInfosResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeIMVInfosWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取索引详情
+   * 
+   * @param request - DescribeIndexRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIndexResponse
+   */
+  async describeIndexWithOptions(request: DescribeIndexRequest, runtime: $dara.RuntimeOptions): Promise<DescribeIndexResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.indexName)) {
+      query["IndexName"] = request.indexName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeIndex",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeIndexResponse>(await this.callApi(params, req, runtime), new DescribeIndexResponse({}));
+    } else {
+      return $dara.cast<DescribeIndexResponse>(await this.execute(params, req, runtime), new DescribeIndexResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取索引详情
+   * 
+   * @param request - DescribeIndexRequest
+   * @returns DescribeIndexResponse
+   */
+  async describeIndex(request: DescribeIndexRequest): Promise<DescribeIndexResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeIndexWithOptions(request, runtime);
   }
 
   /**
@@ -57562,6 +59116,77 @@ export default class Client extends OpenApi {
   async listExternalDataSources(request: ListExternalDataSourcesRequest): Promise<ListExternalDataSourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listExternalDataSourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取索引列表
+   * 
+   * @param request - ListIndicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIndicesResponse
+   */
+  async listIndicesWithOptions(request: ListIndicesRequest, runtime: $dara.RuntimeOptions): Promise<ListIndicesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIndices",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListIndicesResponse>(await this.callApi(params, req, runtime), new ListIndicesResponse({}));
+    } else {
+      return $dara.cast<ListIndicesResponse>(await this.execute(params, req, runtime), new ListIndicesResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取索引列表
+   * 
+   * @param request - ListIndicesRequest
+   * @returns ListIndicesResponse
+   */
+  async listIndices(request: ListIndicesRequest): Promise<ListIndicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listIndicesWithOptions(request, runtime);
   }
 
   /**
