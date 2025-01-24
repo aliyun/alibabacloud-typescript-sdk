@@ -11791,6 +11791,7 @@ export class CreateBackupPlanRequest extends $dara.Model {
    * {"dataSourceId": "ds-123456789", "path": "/changelist"}
    */
   changeListPath?: string;
+  clusterId?: string;
   /**
    * @remarks
    * This parameter is required when **SourceType** is set to **NAS**. It represents the creation time of the file system, in UNIX timestamp, in seconds.
@@ -11825,6 +11826,7 @@ export class CreateBackupPlanRequest extends $dara.Model {
    * 15897534xxxx4625
    */
   crossAccountUserId?: number;
+  dataSourceId?: string;
   /**
    * @remarks
    * Destination data source details. (Required only for synchronization)
@@ -12035,10 +12037,12 @@ export class CreateBackupPlanRequest extends $dara.Model {
       backupType: 'BackupType',
       bucket: 'Bucket',
       changeListPath: 'ChangeListPath',
+      clusterId: 'ClusterId',
       createTime: 'CreateTime',
       crossAccountRoleName: 'CrossAccountRoleName',
       crossAccountType: 'CrossAccountType',
       crossAccountUserId: 'CrossAccountUserId',
+      dataSourceId: 'DataSourceId',
       destDataSourceDetail: 'DestDataSourceDetail',
       destDataSourceId: 'DestDataSourceId',
       destSourceType: 'DestSourceType',
@@ -12070,10 +12074,12 @@ export class CreateBackupPlanRequest extends $dara.Model {
       backupType: 'string',
       bucket: 'string',
       changeListPath: 'string',
+      clusterId: 'string',
       createTime: 'number',
       crossAccountRoleName: 'string',
       crossAccountType: 'string',
       crossAccountUserId: 'number',
+      dataSourceId: 'string',
       destDataSourceDetail: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       destDataSourceId: 'string',
       destSourceType: 'string',
@@ -12151,6 +12157,7 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
    * {"dataSourceId": "ds-123456789", "path": "/changelist"}
    */
   changeListPath?: string;
+  clusterId?: string;
   /**
    * @remarks
    * This parameter is required when **SourceType** is set to **NAS**. It represents the creation time of the file system, in UNIX timestamp, in seconds.
@@ -12185,6 +12192,7 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
    * 15897534xxxx4625
    */
   crossAccountUserId?: number;
+  dataSourceId?: string;
   /**
    * @remarks
    * Destination data source details. (Required only for synchronization)
@@ -12395,10 +12403,12 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
       backupType: 'BackupType',
       bucket: 'Bucket',
       changeListPath: 'ChangeListPath',
+      clusterId: 'ClusterId',
       createTime: 'CreateTime',
       crossAccountRoleName: 'CrossAccountRoleName',
       crossAccountType: 'CrossAccountType',
       crossAccountUserId: 'CrossAccountUserId',
+      dataSourceId: 'DataSourceId',
       destDataSourceDetailShrink: 'DestDataSourceDetail',
       destDataSourceId: 'DestDataSourceId',
       destSourceType: 'DestSourceType',
@@ -12430,10 +12440,12 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
       backupType: 'string',
       bucket: 'string',
       changeListPath: 'string',
+      clusterId: 'string',
       createTime: 'number',
       crossAccountRoleName: 'string',
       crossAccountType: 'string',
       crossAccountUserId: 'number',
+      dataSourceId: 'string',
       destDataSourceDetailShrink: 'string',
       destDataSourceId: 'string',
       destSourceType: 'string',
@@ -29261,6 +29273,10 @@ export default class Client extends OpenApi {
       query["ChangeListPath"] = request.changeListPath;
     }
 
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
     if (!$dara.isNull(request.createTime)) {
       query["CreateTime"] = request.createTime;
     }
@@ -29334,6 +29350,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataSourceId)) {
+      body["DataSourceId"] = request.dataSourceId;
+    }
+
     if (!$dara.isNull(request.exclude)) {
       body["Exclude"] = request.exclude;
     }
