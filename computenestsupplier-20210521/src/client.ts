@@ -5153,6 +5153,144 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   }
 }
 
+export class ListServiceRegistrationsRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * Name of the filter field. Allowed values:
+   * 
+   * - ServiceId: Service ID.
+   * 
+   * - RegistrationId: Registration ID.
+   * 
+   * - Status: Registration status. Allowed values: Submitted, Approved, Rejected, Canceled, and Executed.
+   * 
+   * @example
+   * Canceled
+   */
+  name?: string;
+  /**
+   * @remarks
+   * List of filter values.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceRegistrationsResponseBodyServiceRegistrations extends $dara.Model {
+  /**
+   * @remarks
+   * Comment.
+   * 
+   * @example
+   * some info is missing
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * Finish time.
+   * 
+   * @example
+   * 2021-05-23T00:00:00Z
+   */
+  finishTime?: string;
+  /**
+   * @remarks
+   * Registration ID.
+   * 
+   * @example
+   * sr-001
+   */
+  registrationId?: string;
+  /**
+   * @remarks
+   * Service ID.
+   * 
+   * @example
+   * service-f4c0026a254bxxxxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * Registration status. Allowed values:
+   * 
+   * - Submitted
+   * 
+   * - Approved
+   * 
+   * - Rejected
+   * 
+   * - Canceled
+   * 
+   * - Executed
+   * 
+   * - Executed: Executed.
+   * 
+   * @example
+   * Rejected
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Submit time.
+   * 
+   * @example
+   * 2021-05-22T00:00:00Z
+   */
+  submitTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      finishTime: 'FinishTime',
+      registrationId: 'RegistrationId',
+      serviceId: 'ServiceId',
+      status: 'Status',
+      submitTime: 'SubmitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      finishTime: 'string',
+      registrationId: 'string',
+      serviceId: 'string',
+      status: 'string',
+      submitTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceSharedAccountsRequestFilter extends $dara.Model {
   /**
    * @remarks
@@ -7674,6 +7812,125 @@ export class ApproveServiceUsageResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ApproveServiceUsageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelServiceRegistrationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Client token, used to ensure the idempotence of requests. Generate a unique value for this parameter from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters.
+   * 
+   * @example
+   * AAAAAWns8w4MmhzeptXVRG0PUEU=
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Service registration ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sr-540930183f93xxxxxx
+   */
+  registrationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      registrationId: 'RegistrationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      registrationId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelServiceRegistrationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * C4A145D8-6F6C-532A-9001-9730CDA27578
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelServiceRegistrationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelServiceRegistrationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelServiceRegistrationResponseBody,
     };
   }
 
@@ -14378,6 +14635,173 @@ export class ListServiceInstancesResponse extends $dara.Model {
   }
 }
 
+export class ListServiceRegistrationsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter.
+   */
+  filter?: ListServiceRegistrationsRequestFilter[];
+  /**
+   * @remarks
+   * The number of items to return per page during a paginated query. The maximum is 100, and the default is 20.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * BBBAAfu+XtuBE55iRLHEYYuojI4=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: { 'type': 'array', 'itemType': ListServiceRegistrationsRequestFilter },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.filter)) {
+      $dara.Model.validateArray(this.filter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceRegistrationsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Number of items per page in a paginated query. The maximum is 100, and the default is 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * AAAAAfu+XtuBE55iRLHEYYuojI4=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 51945B04-6AA6-410D-93BA-236E0248B104
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Service registration information.
+   */
+  serviceRegistrations?: ListServiceRegistrationsResponseBodyServiceRegistrations[];
+  /**
+   * @remarks
+   * Total number of records that meet the criteria.
+   * 
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      serviceRegistrations: 'ServiceRegistrations',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      serviceRegistrations: { 'type': 'array', 'itemType': ListServiceRegistrationsResponseBodyServiceRegistrations },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.serviceRegistrations)) {
+      $dara.Model.validateArray(this.serviceRegistrations);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceRegistrationsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceRegistrationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceRegistrationsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceSharedAccountsRequest extends $dara.Model {
   /**
    * @remarks
@@ -18595,6 +19019,169 @@ export class UpdateServiceInstanceSpecResponse extends $dara.Model {
   }
 }
 
+export class UpdateSharedAccountPermissionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Client token, used to ensure the idempotence of requests. Generate a unique value for this parameter from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters.
+   * 
+   * @example
+   * 10CM943JP0EN9D51H
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Permission type. Possible values:
+   * - Deployable: Can be deployed.
+   * - Accessible: Can be accessed.
+   * - AccessibleIncludeBeta: Can access all versions, including Beta versions.
+   * - DeployableIncludeBeta: Can deploy all versions, including Beta versions.
+   * - Authorized: Authorized (for reselling scenarios)
+   * - Unauthorized: Unauthorized (for reselling scenarios)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Deployable
+   */
+  permission?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Service ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * service-0d6e1d846e4c4axxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * Service sharing type, with a default value of SharedAccount. Available options:
+   * 
+   * - SharedAccount: Regular sharing type.
+   * 
+   * - Reseller: Reselling sharing type.
+   * 
+   * @example
+   * SharedAccount
+   */
+  type?: string;
+  /**
+   * @remarks
+   * Whitelist account for service sharing.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1563457855xxxxxx
+   */
+  userAliUid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      permission: 'Permission',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      type: 'Type',
+      userAliUid: 'UserAliUid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      permission: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+      type: 'string',
+      userAliUid: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSharedAccountPermissionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * RequestId
+   * 
+   * @example
+   * C68B41B4-A646-5680-8A33-67884E3823A8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSharedAccountPermissionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSharedAccountPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSharedAccountPermissionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeServiceInstanceRequest extends $dara.Model {
   /**
    * @remarks
@@ -18872,6 +19459,137 @@ export class UpgradeServiceInstanceResponse extends $dara.Model {
   }
 }
 
+export class WithdrawServiceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Client token, used to ensure the idempotence of requests. Generate a unique value for this parameter from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters.
+   * 
+   * @example
+   * 788E7CP0EN9D51P
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Service ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * service-0e6fca6a51a544xxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * Service version.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1.0
+   */
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WithdrawServiceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WithdrawServiceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: WithdrawServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: WithdrawServiceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -19023,6 +19741,67 @@ export default class Client extends OpenApi {
   async approveServiceUsage(request: ApproveServiceUsageRequest): Promise<ApproveServiceUsageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.approveServiceUsageWithOptions(request, runtime);
+  }
+
+  /**
+   * Cancel service registration.
+   * 
+   * @remarks
+   * Only service registration in the Submitted status can be canceled.
+   * 
+   * @param request - CancelServiceRegistrationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelServiceRegistrationResponse
+   */
+  async cancelServiceRegistrationWithOptions(request: CancelServiceRegistrationRequest, runtime: $dara.RuntimeOptions): Promise<CancelServiceRegistrationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.registrationId)) {
+      query["RegistrationId"] = request.registrationId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelServiceRegistration",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CancelServiceRegistrationResponse>(await this.callApi(params, req, runtime), new CancelServiceRegistrationResponse({}));
+    } else {
+      return $dara.cast<CancelServiceRegistrationResponse>(await this.execute(params, req, runtime), new CancelServiceRegistrationResponse({}));
+    }
+
+  }
+
+  /**
+   * Cancel service registration.
+   * 
+   * @remarks
+   * Only service registration in the Submitted status can be canceled.
+   * 
+   * @param request - CancelServiceRegistrationRequest
+   * @returns CancelServiceRegistrationResponse
+   */
+  async cancelServiceRegistration(request: CancelServiceRegistrationRequest): Promise<CancelServiceRegistrationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelServiceRegistrationWithOptions(request, runtime);
   }
 
   /**
@@ -20781,6 +21560,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query service registrations.
+   * 
+   * @param request - ListServiceRegistrationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceRegistrationsResponse
+   */
+  async listServiceRegistrationsWithOptions(request: ListServiceRegistrationsRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceRegistrationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceRegistrations",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceRegistrationsResponse>(await this.callApi(params, req, runtime), new ListServiceRegistrationsResponse({}));
+    } else {
+      return $dara.cast<ListServiceRegistrationsResponse>(await this.execute(params, req, runtime), new ListServiceRegistrationsResponse({}));
+    }
+
+  }
+
+  /**
+   * Query service registrations.
+   * 
+   * @param request - ListServiceRegistrationsRequest
+   * @returns ListServiceRegistrationsResponse
+   */
+  async listServiceRegistrations(request: ListServiceRegistrationsRequest): Promise<ListServiceRegistrationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServiceRegistrationsWithOptions(request, runtime);
+  }
+
+  /**
    * 调用ListServiceSharedAccounts查看服务共享账号列表。
    * 
    * @param request - ListServiceSharedAccountsRequest
@@ -22215,6 +23053,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Update Service Sharing Permissions
+   * 
+   * @param request - UpdateSharedAccountPermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSharedAccountPermissionResponse
+   */
+  async updateSharedAccountPermissionWithOptions(request: UpdateSharedAccountPermissionRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSharedAccountPermissionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.permission)) {
+      query["Permission"] = request.permission;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.userAliUid)) {
+      query["UserAliUid"] = request.userAliUid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSharedAccountPermission",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateSharedAccountPermissionResponse>(await this.callApi(params, req, runtime), new UpdateSharedAccountPermissionResponse({}));
+    } else {
+      return $dara.cast<UpdateSharedAccountPermissionResponse>(await this.execute(params, req, runtime), new UpdateSharedAccountPermissionResponse({}));
+    }
+
+  }
+
+  /**
+   * Update Service Sharing Permissions
+   * 
+   * @param request - UpdateSharedAccountPermissionRequest
+   * @returns UpdateSharedAccountPermissionResponse
+   */
+  async updateSharedAccountPermission(request: UpdateSharedAccountPermissionRequest): Promise<UpdateSharedAccountPermissionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSharedAccountPermissionWithOptions(request, runtime);
+  }
+
+  /**
    * Upgrades a service instance.
    * 
    * @param tmpReq - UpgradeServiceInstanceRequest
@@ -22285,6 +23190,65 @@ export default class Client extends OpenApi {
   async upgradeServiceInstance(request: UpgradeServiceInstanceRequest): Promise<UpgradeServiceInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.upgradeServiceInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Withdraw service version.
+   * 
+   * @param request - WithdrawServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WithdrawServiceResponse
+   */
+  async withdrawServiceWithOptions(request: WithdrawServiceRequest, runtime: $dara.RuntimeOptions): Promise<WithdrawServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "WithdrawService",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<WithdrawServiceResponse>(await this.callApi(params, req, runtime), new WithdrawServiceResponse({}));
+    } else {
+      return $dara.cast<WithdrawServiceResponse>(await this.execute(params, req, runtime), new WithdrawServiceResponse({}));
+    }
+
+  }
+
+  /**
+   * Withdraw service version.
+   * 
+   * @param request - WithdrawServiceRequest
+   * @returns WithdrawServiceResponse
+   */
+  async withdrawService(request: WithdrawServiceRequest): Promise<WithdrawServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.withdrawServiceWithOptions(request, runtime);
   }
 
 }
