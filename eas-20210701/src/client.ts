@@ -1,13 +1,2891 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class ContainerInfo extends $tea.Model {
+export class ResourceInstanceLabels extends $dara.Model {
+  labelKey?: string;
+  labelValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labelKey: 'LabelKey',
+      labelValue: 'LabelValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelKey: 'string',
+      labelValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ServiceLabels extends $dara.Model {
+  labelKey?: string;
+  labelValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      labelKey: 'LabelKey',
+      labelValue: 'LabelValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      labelKey: 'string',
+      labelValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachGatewayDomainRequestCustomDomain extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the SSL certificate bound to the domain name. Obtain the certificate ID after you upload or purchase a certificate in the [Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc\\&p=cas) console.
+   * 
+   * @example
+   * 1473**25
+   */
+  certificateId?: string;
+  /**
+   * @remarks
+   * The custom domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The domain name type.
+   * 
+   * Valid value:
+   * 
+   * *   intranet: internal network.
+   * *   internet: public network.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * intranet
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificateId: 'CertificateId',
+      domain: 'Domain',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificateId: 'string',
+      domain: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAclPolicyRequestAclPolicyList extends $dara.Model {
+  /**
+   * @remarks
+   * The comment on the IP CIDR block in the VPC that can access the private gateway.
+   * 
+   * @example
+   * default
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * The IP CIDR block in the VPC that can access the private gateway.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10.23.XX.XX/32
+   */
+  entry?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      entry: 'Entry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      entry: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGatewayIntranetLinkedVpcPeerRequestPeerVpcs extends $dara.Model {
+  /**
+   * @remarks
+   * The region where the VPC peer resides.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The ID of the VPC peer. To obtain the VPC ID, see [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html).
+   * 
+   * @example
+   * vpc-uf66uio7md****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceRequestSelfManagedResourceOptionsNodeTolerations extends $dara.Model {
+  /**
+   * @remarks
+   * The result.
+   * 
+   * Valid values:
+   * 
+   * *   PreferNoSchedule
+   * *   NoSchedule
+   * *   NoExecute
+   * 
+   * @example
+   * NoSchedule
+   */
+  effect?: string;
+  /**
+   * @remarks
+   * The key name.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The relationship between key names and key values.
+   * 
+   * Valid values:
+   * 
+   * *   Equal
+   * *   Exists
+   * 
+   * @example
+   * Equal
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * The key value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'effect',
+      key: 'key',
+      operator: 'operator',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      key: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateResourceRequestSelfManagedResourceOptions extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the self-managed cluster.
+   * 
+   * @example
+   * cf0386f250f2545689ca7fdd1cd******
+   */
+  externalClusterId?: string;
+  /**
+   * @remarks
+   * The tag key-value pairs for nodes.
+   */
+  nodeMatchLabels?: { [key: string]: string };
+  /**
+   * @remarks
+   * Tolerations for nodes.
+   */
+  nodeTolerations?: CreateResourceRequestSelfManagedResourceOptionsNodeTolerations[];
+  /**
+   * @remarks
+   * The name of the RAM user to which the permissions on Elastic Algorithm Service of Platform for AI (PAI-EAS) are granted.
+   * 
+   * @example
+   * clusterrole
+   */
+  roleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      externalClusterId: 'ExternalClusterId',
+      nodeMatchLabels: 'NodeMatchLabels',
+      nodeTolerations: 'NodeTolerations',
+      roleName: 'RoleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      externalClusterId: 'string',
+      nodeMatchLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      nodeTolerations: { 'type': 'array', 'itemType': CreateResourceRequestSelfManagedResourceOptionsNodeTolerations },
+      roleName: 'string',
+    };
+  }
+
+  validate() {
+    if(this.nodeMatchLabels) {
+      $dara.Model.validateMap(this.nodeMatchLabels);
+    }
+    if(Array.isArray(this.nodeTolerations)) {
+      $dara.Model.validateArray(this.nodeTolerations);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceAutoScalerRequestBehaviorOnZero extends $dara.Model {
+  /**
+   * @remarks
+   * The time window that is required before the number of instances is reduced to 0. The number of instances can be reduced to 0 only if no request is available or no traffic exists in the specified time window. Default value: 600.
+   * 
+   * @example
+   * 600
+   */
+  scaleDownGracePeriodSeconds?: number;
+  /**
+   * @remarks
+   * The number of instances that you want to create at a time if the number of instances is 0. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  scaleUpActivationReplicas?: number;
+  static names(): { [key: string]: string } {
+    return {
+      scaleDownGracePeriodSeconds: 'scaleDownGracePeriodSeconds',
+      scaleUpActivationReplicas: 'scaleUpActivationReplicas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scaleDownGracePeriodSeconds: 'number',
+      scaleUpActivationReplicas: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceAutoScalerRequestBehaviorScaleDown extends $dara.Model {
+  /**
+   * @remarks
+   * The time window that is required before the scale-in operation is performed. The scale-in operation can be performed only if the specified metric drops below the specified threshold in the specified time window. Default value: 300.
+   * 
+   * @example
+   * 300
+   */
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      stabilizationWindowSeconds: 'stabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceAutoScalerRequestBehaviorScaleUp extends $dara.Model {
+  /**
+   * @remarks
+   * The time window that is required before the scale-out operation is performed. The scale-out operation can be performed only if the specified metric exceeds the specified threshold in the specified time window. Default value: 0.
+   * 
+   * @example
+   * 0
+   */
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      stabilizationWindowSeconds: 'stabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceAutoScalerRequestBehavior extends $dara.Model {
+  /**
+   * @remarks
+   * The operation that reduces the number of instances to 0.
+   */
+  onZero?: CreateServiceAutoScalerRequestBehaviorOnZero;
+  /**
+   * @remarks
+   * The scale-in operation.
+   */
+  scaleDown?: CreateServiceAutoScalerRequestBehaviorScaleDown;
+  /**
+   * @remarks
+   * The scale-out operation.
+   */
+  scaleUp?: CreateServiceAutoScalerRequestBehaviorScaleUp;
+  static names(): { [key: string]: string } {
+    return {
+      onZero: 'onZero',
+      scaleDown: 'scaleDown',
+      scaleUp: 'scaleUp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      onZero: CreateServiceAutoScalerRequestBehaviorOnZero,
+      scaleDown: CreateServiceAutoScalerRequestBehaviorScaleDown,
+      scaleUp: CreateServiceAutoScalerRequestBehaviorScaleUp,
+    };
+  }
+
+  validate() {
+    if(this.onZero && typeof (this.onZero as any).validate === 'function') {
+      (this.onZero as any).validate();
+    }
+    if(this.scaleDown && typeof (this.scaleDown as any).validate === 'function') {
+      (this.scaleDown as any).validate();
+    }
+    if(this.scaleUp && typeof (this.scaleUp as any).validate === 'function') {
+      (this.scaleUp as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceAutoScalerRequestScaleStrategies extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the metric for triggering auto scaling. Valid values:
+   * 
+   * *   qps: the queries per second (qps) for an individual instance.
+   * *   cpu: the cpu utilization.
+   * * gpu[util]: gpu utilization.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * qps
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * The service for which the metric is specified. If you do not set this parameter, the current service is specified by default.
+   * 
+   * @example
+   * demo_svc
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The threshold of the metric that triggers auto scaling.
+   * 
+   * *   If you set metricName to qps, scale-out is triggered when the average qps for a single instance is greater than this threshold.
+   * *   If you set metricName to cpu, scale-out is triggered when the average cpu utilization for a single instance is greater than this threshold.
+   * *   If you set metricName to gpu, scale-out is triggered when the average cpu utilization for a single instance is greater than this threshold.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      metricName: 'metricName',
+      service: 'service',
+      threshold: 'threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricName: 'string',
+      service: 'string',
+      threshold: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceCronScalerRequestScaleJobs extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the CronHPA job.
+   * 
+   * @example
+   * scale-job-1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The cron expression that is used to configure the execution time of the CronHPA job. For more information about how to configure cron expressions, see **Description of special characters** in this topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0 18 * * * *
+   */
+  schedule?: string;
+  /**
+   * @remarks
+   * The number of instances that you want to configure for the CronHPA job.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  targetSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      schedule: 'Schedule',
+      targetSize: 'TargetSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      schedule: 'string',
+      targetSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVirtualResourceRequestResources extends $dara.Model {
+  /**
+   * @remarks
+   * The instance type of the public resource group.
+   * 
+   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * 
+   * @example
+   * ecs.s6-c1m2.xlarge
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The priority of resource scheduling. A greater number specifies a higher priority.
+   * 
+   * @example
+   * 6
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * Lingjun Resource Quota ID.
+   * 
+   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * 
+   * @example
+   * quota185lqxxxxxx
+   */
+  quotaId?: string;
+  /**
+   * @remarks
+   * The region where the resource resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The ID of the dedicated resource group. For information about how to query the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
+   * 
+   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * 
+   * @example
+   * eas-r-g55ieatgg3buxxxxxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The maximum price of preemptible instances in a public resource group.
+   * 
+   * >  If you do not set this value, preemptible instances are not used.
+   * 
+   * @example
+   * 10.05
+   */
+  spotPriceLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      priority: 'Priority',
+      quotaId: 'QuotaId',
+      region: 'Region',
+      resourceId: 'ResourceId',
+      spotPriceLimit: 'SpotPriceLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      priority: 'number',
+      quotaId: 'string',
+      region: 'string',
+      resourceId: 'string',
+      spotPriceLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAclPolicyRequestAclPolicyList extends $dara.Model {
+  /**
+   * @remarks
+   * The comment on the IP CIDR block in the VPC that can access the private gateway.
+   * 
+   * @example
+   * default
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * The IP CIDR block in the VPC that can access the private gateway.
+   * 
+   * @example
+   * 10.23.XX.XX/32
+   */
+  entry?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      entry: 'Entry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      entry: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGatewayIntranetLinkedVpcPeerRequestPeerVpcs extends $dara.Model {
+  /**
+   * @remarks
+   * The region where the VPC peer resides.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The ID of the VPC peer.
+   * 
+   * @example
+   * vpc-uf66uio7md****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupEndpointsResponseBodyEndpoints extends $dara.Model {
+  /**
+   * @remarks
+   * The backend access ID, which varies based on the value of the EndpointType parameter.
+   * 
+   * *   If you set EndpointType to DefaultGateway, the value of this parameter is default.
+   * *   If you set EndpointType to PrivateGateway, the value of this parameter is the ID of the dedicated gateway.
+   * *   If you set EndpointType to Nlb, the value of this parameter is the ID of the NLB instance.
+   * *   If you set EndpointType to Nacos, the value of this parameter is the ID of the Nacos instance.
+   * 
+   * @example
+   * gw-26340kjxjx8l3r****
+   */
+  backendId?: string;
+  /**
+   * @remarks
+   * The service endpoint type. Valid values:
+   * 
+   * *   DefaultGateway: the shared gateway.
+   * *   PrivateGateway: the dedicated gateway.
+   * *   Nlb: Associate the service with the Network Load Balancer (NLB) instance.
+   * *   Nacos: Associate the service with the Nacos instance.
+   * 
+   * @example
+   * PrivateGateway
+   */
+  endpointType?: string;
+  /**
+   * @remarks
+   * The public endpoints.
+   */
+  internetEndpoints?: string[];
+  /**
+   * @remarks
+   * The internal endpoints.
+   */
+  intranetEndpoints?: string[];
+  /**
+   * @remarks
+   * The path type. Valid values:
+   * 
+   * *   Group: the path of the service group.
+   * *   Service: the path of the service.
+   * 
+   * @example
+   * Group
+   */
+  pathType?: string;
+  /**
+   * @remarks
+   * The port number. This parameter takes effect only when you associate the service with an NLB or Nacos instance.
+   * 
+   * @example
+   * 9090
+   */
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      endpointType: 'EndpointType',
+      internetEndpoints: 'InternetEndpoints',
+      intranetEndpoints: 'IntranetEndpoints',
+      pathType: 'PathType',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      endpointType: 'string',
+      internetEndpoints: { 'type': 'array', 'itemType': 'string' },
+      intranetEndpoints: { 'type': 'array', 'itemType': 'string' },
+      pathType: 'string',
+      port: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.internetEndpoints)) {
+      $dara.Model.validateArray(this.internetEndpoints);
+    }
+    if(Array.isArray(this.intranetEndpoints)) {
+      $dara.Model.validateArray(this.intranetEndpoints);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceAutoScalerResponseBodyCurrentMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The metric name. Valid values:
+   * 
+   * *   QPS
+   * *   CPU
+   * 
+   * @example
+   * qps
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * The service for which the metric is specified.
+   * 
+   * @example
+   * demo_svc
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The metric value.
+   * 
+   * @example
+   * 10
+   */
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      metricName: 'metricName',
+      service: 'service',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricName: 'string',
+      service: 'string',
+      value: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceAutoScalerResponseBodyScaleStrategies extends $dara.Model {
+  /**
+   * @remarks
+   * The metric name. Valid values:
+   * 
+   * *   QPS: the queries per second (QPS) for an individual instance.
+   * *   CPU: the CPU utilization.
+   * 
+   * @example
+   * QPS
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * The service for which the metric is specified. If you do not set this parameter, the current service is specified by default.
+   * 
+   * @example
+   * demo_svc
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The threshold of the metric that triggers auto scaling.
+   * 
+   * *   If you set metricName to QPS, scale-out is triggered when the average QPS for a single instance is greater than this threshold.
+   * *   If you set metricName to CPU, scale-out is triggered when the average CPU utilization for a single instance is greater than this threshold.
+   * 
+   * @example
+   * 10
+   */
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      metricName: 'metricName',
+      service: 'service',
+      threshold: 'threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricName: 'string',
+      service: 'string',
+      threshold: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceCronScalerResponseBodyScaleJobs extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the most recent CronHPA job was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2020-06-24T02:11:30Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The time when the most recent CronHPA job ran. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-02-24T06:31:00Z
+   */
+  lastProbeTime?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * "cron hpa job scale-jobs-0 executed successfully. current replicas:3, desired replicas:2."
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The name of the CronHPA job.
+   * 
+   * @example
+   * scale-job-1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The cron expression that is used to configure the execution time of the CronHPA job.
+   * 
+   * @example
+   * 0 18 * * * *
+   */
+  schedule?: string;
+  /**
+   * @remarks
+   * The status of the most recent CronHPA job.
+   * 
+   * @example
+   * Succeed
+   */
+  state?: string;
+  /**
+   * @remarks
+   * The number of instances that you expect to configure for the CronHPA job.
+   * 
+   * @example
+   * 1
+   */
+  targetSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      lastProbeTime: 'LastProbeTime',
+      message: 'Message',
+      name: 'Name',
+      schedule: 'Schedule',
+      state: 'State',
+      targetSize: 'TargetSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      lastProbeTime: 'string',
+      message: 'string',
+      name: 'string',
+      schedule: 'string',
+      state: 'string',
+      targetSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceDiagnosisResponseBodyDiagnosisList extends $dara.Model {
+  /**
+   * @remarks
+   * The suggestions about how to handle the errors.
+   */
+  advices?: string[];
+  /**
+   * @remarks
+   * The causes of the errors.
+   */
+  causes?: string[];
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Container worker0 failed to pull image.
+   */
+  error?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advices: 'Advices',
+      causes: 'Causes',
+      error: 'Error',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advices: { 'type': 'array', 'itemType': 'string' },
+      causes: { 'type': 'array', 'itemType': 'string' },
+      error: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.advices)) {
+      $dara.Model.validateArray(this.advices);
+    }
+    if(Array.isArray(this.causes)) {
+      $dara.Model.validateArray(this.causes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceEndpointsResponseBodyEndpoints extends $dara.Model {
+  /**
+   * @remarks
+   * The backend access ID, which varies based on the value of the EndpointType parameter.
+   * 
+   * *   If you set EndpointType to DefaultGateway, the value of this parameter is default.
+   * *   If you set EndpointType to PrivateGateway, the value of this parameter is the ID of the dedicated gateway.
+   * *   If you set EndpointType to Nlb, the value of this parameter is the ID of the NLB instance.
+   * *   If you set EndpointType to Nacos, the value of this parameter is the ID of the Nacos instance.
+   * 
+   * @example
+   * nlb-5q4sp7u6oorkha****
+   */
+  backendId?: string;
+  /**
+   * @remarks
+   * The service endpoint type. Valid values:
+   * 
+   * *   DefaultGateway: the shared gateway.
+   * *   PrivateGateway: the dedicated gateway.
+   * *   Nlb: Associate the service with the Network Load Balancer (NLB) instance.
+   * *   Nacos: Associate the service with the Nacos instance.
+   * 
+   * @example
+   * Nlb
+   */
+  endpointType?: string;
+  /**
+   * @remarks
+   * The public endpoints.
+   */
+  internetEndpoints?: string[];
+  /**
+   * @remarks
+   * The internal endpoints.
+   */
+  intranetEndpoints?: string[];
+  /**
+   * @remarks
+   * The path type. Valid values:
+   * 
+   * *   Group: the path of the service group.
+   * *   Service: the path of the service.
+   * 
+   * @example
+   * Service
+   */
+  pathType?: string;
+  /**
+   * @remarks
+   * The port number. This parameter takes effect only when you associate the service with an NLB or Nacos instance.
+   * 
+   * @example
+   * 9090
+   */
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      endpointType: 'EndpointType',
+      internetEndpoints: 'InternetEndpoints',
+      intranetEndpoints: 'IntranetEndpoints',
+      pathType: 'PathType',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      endpointType: 'string',
+      internetEndpoints: { 'type': 'array', 'itemType': 'string' },
+      intranetEndpoints: { 'type': 'array', 'itemType': 'string' },
+      pathType: 'string',
+      port: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.internetEndpoints)) {
+      $dara.Model.validateArray(this.internetEndpoints);
+    }
+    if(Array.isArray(this.intranetEndpoints)) {
+      $dara.Model.validateArray(this.intranetEndpoints);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceEventResponseBodyEvents extends $dara.Model {
+  /**
+   * @remarks
+   * The returned message. The message is formatted and returned in the JSON format.
+   * 
+   * @example
+   * {\\"versionId\\":1,\\"message\\":\\"Stage scale complete\\",\\"availableInstance\\":1,\\"unavailableInstance\\":0}
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The cause of the event. The information about the change in the service status is returned.
+   * 
+   * @example
+   * Updating
+   */
+  reason?: string;
+  /**
+   * @remarks
+   * The time when the event occurred. The time must be in UTC.
+   * 
+   * @example
+   * 2022-04-09 06:30:00
+   */
+  time?: string;
+  /**
+   * @remarks
+   * The event type. Valid values:
+   * 
+   * *   Normal
+   * *   Warning
+   * 
+   * @example
+   * Normal
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      reason: 'Reason',
+      time: 'Time',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      reason: 'string',
+      time: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceInstanceDiagnosisResponseBodyDiagnosis extends $dara.Model {
+  /**
+   * @remarks
+   * The solutions to the errors.
+   */
+  advices?: string[];
+  /**
+   * @remarks
+   * The causes of the errors.
+   */
+  causes?: string[];
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Container worker0 failed to pull image.
+   */
+  error?: string;
+  static names(): { [key: string]: string } {
+    return {
+      advices: 'Advices',
+      causes: 'Causes',
+      error: 'Error',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advices: { 'type': 'array', 'itemType': 'string' },
+      causes: { 'type': 'array', 'itemType': 'string' },
+      error: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.advices)) {
+      $dara.Model.validateArray(this.advices);
+    }
+    if(Array.isArray(this.causes)) {
+      $dara.Model.validateArray(this.causes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSpotDiscountHistoryResponseBodySpotDiscounts extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the ECS instance.
+   * 
+   * @example
+   * ecs.c7.large
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The discount for the preemptible instance. For example, 0.1 represents a 90% discount.
+   * 
+   * @example
+   * 0.1
+   */
+  spotDiscount?: string;
+  /**
+   * @remarks
+   * The time when the discount is available. The time must be in UTC.
+   * 
+   * @example
+   * 2024-04-10T10:00:00Z
+   */
+  timestamp?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      spotDiscount: 'SpotDiscount',
+      timestamp: 'Timestamp',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      spotDiscount: 'string',
+      timestamp: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVirtualResourceResponseBodyResources extends $dara.Model {
+  /**
+   * @remarks
+   * The instance type of the public resource group.
+   * 
+   * @example
+   * ecs.s6-c1m2.xlarge
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The priority of resource scheduling. A greater number specifies a higher priority.
+   * 
+   * @example
+   * 3
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The instance type of the public resource group.
+   * 
+   * @example
+   * quota185lqxxxxxx
+   */
+  quotaId?: string;
+  /**
+   * @remarks
+   * The region where the resource resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The ID of the dedicated resource group.
+   * 
+   * @example
+   * eas-r-g55ieatgg3buxxxxxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The maximum price of preemptible instances in a public resource group.
+   * 
+   * @example
+   * 10.05
+   */
+  spotPriceLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      priority: 'Priority',
+      quotaId: 'QuotaId',
+      region: 'Region',
+      resourceId: 'ResourceId',
+      spotPriceLimit: 'SpotPriceLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      priority: 'number',
+      quotaId: 'string',
+      region: 'string',
+      resourceId: 'string',
+      spotPriceLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachGatewayDomainRequestCustomDomain extends $dara.Model {
+  /**
+   * @remarks
+   * The custom domain name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The domain name type.
+   * 
+   * Valid value:
+   * 
+   * *   intranet: internal network.
+   * *   internet: public network.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * intranet
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList extends $dara.Model {
+  /**
+   * @remarks
+   * The comment on the IP CIDR block in the VPC that can access the private gateway over the Internet.
+   * 
+   * @example
+   * default
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * The IP CIDR block in the VPC that can access the private gateway over the Internet.
+   * 
+   * @example
+   * 10.23.XX.XX/32
+   */
+  entry?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      entry: 'Entry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      entry: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAclPolicyResponseBodyInternetAclPolicyList extends $dara.Model {
+  /**
+   * @remarks
+   * The whitelisted IP CIDR blocks in the VPC that can access the private gateway over the Internet.
+   */
+  aclPolicyList?: ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList[];
+  static names(): { [key: string]: string } {
+    return {
+      aclPolicyList: 'AclPolicyList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclPolicyList: { 'type': 'array', 'itemType': ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.aclPolicyList)) {
+      $dara.Model.validateArray(this.aclPolicyList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList extends $dara.Model {
+  /**
+   * @remarks
+   * The comment on the IP CIDR block in the VPC that can access the private gateway over the internal network.
+   * 
+   * @example
+   * Test Entry
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * The IP CIDR block in the VPC that can access the private gateway over the internal network.
+   * 
+   * @example
+   * 192.168.XX.XX/24
+   */
+  entry?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      entry: 'Entry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      entry: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAclPolicyResponseBodyIntranetVpcAclPolicyList extends $dara.Model {
+  /**
+   * @remarks
+   * The whitelisted IP CIDR blocks in the VPC that can access the private gateway over the internal network.
+   */
+  aclPolicyList?: ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList[];
+  /**
+   * @remarks
+   * The VPC ID. For more information about how to obtain the VPC ID, see DescribeVpcs.
+   * 
+   * @example
+   * vpc-uf66uio7md****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclPolicyList: 'AclPolicyList',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclPolicyList: { 'type': 'array', 'itemType': ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList },
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.aclPolicyList)) {
+      $dara.Model.validateArray(this.aclPolicyList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBenchmarkTaskResponseBodyTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The number of instances that are available for stress testing.
+   * 
+   * @example
+   * 2
+   */
+  availableAgent?: number;
+  /**
+   * @remarks
+   * The time when the stress testing task was created.
+   * 
+   * @example
+   * 2020-12-04T02:43:15Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Benchmark task [benchmark-larec-test-1076] is Running
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The region ID of the stress testing task.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The name of the service on which you want to perform a stress testing.
+   * 
+   * @example
+   * test_quota
+   */
+  serviceName?: string;
+  /**
+   * @remarks
+   * The state of the stress testing task.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Starting
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   DeleteFailed
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Running
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Stopping
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Error
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Updating
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Deleting
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   CreateFailed
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the stress testing task.
+   * 
+   * @example
+   * eas-b-gv4y86uvgt****i
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * The name of the stress testing task.
+   * 
+   * @example
+   * benchmark-larec-test-1076
+   */
+  taskName?: string;
+  /**
+   * @remarks
+   * The time when the stress testing task was updated.
+   * 
+   * @example
+   * 2020-06-24T03:11:30Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableAgent: 'AvailableAgent',
+      createTime: 'CreateTime',
+      message: 'Message',
+      region: 'Region',
+      serviceName: 'ServiceName',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableAgent: 'number',
+      createTime: 'string',
+      message: 'string',
+      region: 'string',
+      serviceName: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskName: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayResponseBodyGateways extends $dara.Model {
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   PrePaid: subscription.
+   * *   PostPaid: pay-as-you-go.
+   * 
+   * @example
+   * PostPaid
+   */
+  chargeType?: string;
+  /**
+   * @remarks
+   * The time when the private gateway was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2020-05-19T14:19:42Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The private gateway ID.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******
+   */
+  gatewayId?: string;
+  /**
+   * @remarks
+   * The private gateway alias.
+   * 
+   * @example
+   * mygateway1
+   */
+  gatewayName?: string;
+  /**
+   * @remarks
+   * The type of instances used for the private gateway.
+   * 
+   * @example
+   * 2c4g
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The public endpoint.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******-1801786532******.cn-wulanchabu.pai-eas.aliyuncs.com
+   */
+  internetDomain?: string;
+  /**
+   * @remarks
+   * Indicates whether Internet access is enabled.
+   * 
+   * @example
+   * true
+   */
+  internetEnabled?: boolean;
+  /**
+   * @remarks
+   * The internal endpoint.
+   * 
+   * @example
+   * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-wulanchabu.pai-eas.aliyuncs.com
+   */
+  intranetDomain?: string;
+  /**
+   * @remarks
+   * Indicates whether it is the default private gateway.
+   * 
+   * @example
+   * true
+   */
+  isDefault?: boolean;
+  /**
+   * @remarks
+   * The number of nodes in the private gateway.
+   * 
+   * @example
+   * 2
+   */
+  replicas?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable HTTP to HTTPS redirection.
+   * 
+   * @example
+   * true
+   */
+  SSLRedirectionEnabled?: boolean;
+  /**
+   * @remarks
+   * The state of the private gateway.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * *   Stopped
+   * *   Failed
+   * *   Running
+   * *   Deleted
+   * *   Deleting
+   * *   Waiting
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The time when the private gateway was updated. The time is displayed in UTC.
+   * 
+   * @example
+   * 2021-02-24T11:52:17Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      createTime: 'CreateTime',
+      gatewayId: 'GatewayId',
+      gatewayName: 'GatewayName',
+      instanceType: 'InstanceType',
+      internetDomain: 'InternetDomain',
+      internetEnabled: 'InternetEnabled',
+      intranetDomain: 'IntranetDomain',
+      isDefault: 'IsDefault',
+      replicas: 'Replicas',
+      SSLRedirectionEnabled: 'SSLRedirectionEnabled',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      createTime: 'string',
+      gatewayId: 'string',
+      gatewayName: 'string',
+      instanceType: 'string',
+      internetDomain: 'string',
+      internetEnabled: 'boolean',
+      intranetDomain: 'string',
+      isDefault: 'boolean',
+      replicas: 'number',
+      SSLRedirectionEnabled: 'boolean',
+      status: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayDomainsResponseBodyCustomDomains extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the SSL certificate bound to the domain name. Obtain the certificate ID after you upload or purchase a certificate in the [Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc\\&p=cas) console.
+   * 
+   * @example
+   * 1473**25
+   */
+  certificateId?: string;
+  /**
+   * @remarks
+   * The custom domain name.
+   * 
+   * @example
+   * test.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The domain name type.
+   * 
+   * Valid value:
+   * 
+   * *   intranet: internal network.
+   * *   internet: public network.
+   * 
+   * @example
+   * intranet
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificateId: 'CertificateId',
+      domain: 'Domain',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificateId: 'string',
+      domain: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 192.168.10.11
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-2ze4pgstgszvgq******
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The state of the private gateway.
+   * 
+   * Valid values:
+   * 
+   * *   Creating
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     The private gateway is being created.
+   * 
+   *     <!-- -->
+   * 
+   * *   Running
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     The private gateway is running.
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-8vb2qjoiio6m9pg******
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * @example
+   * vpc-2zetuli9ws0qgjd******
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      securityGroupId: 'SecurityGroupId',
+      status: 'Status',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      securityGroupId: 'string',
+      status: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs extends $dara.Model {
+  /**
+   * @remarks
+   * The region where the VPC peer resides.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The ID of the VPC peer.
+   * 
+   * @example
+   * vpc-uf66uio7md****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcList extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the VPC peers.
+   */
+  peerVpcs?: ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs[];
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-2zetuli9ws0qgjd******
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      peerVpcs: 'PeerVpcs',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      peerVpcs: { 'type': 'array', 'itemType': ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs },
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.peerVpcs)) {
+      $dara.Model.validateArray(this.peerVpcs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceVersionsResponseBodyVersions extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the service version was created. The time is displayed in UTC.
+   * 
+   * @example
+   * 2022-08-29T22:02:14Z
+   */
+  buildTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the image is available. Valid values:
+   * 
+   * *   true: The image is available.
+   * *   false: The image is unavailable.
+   * *   unknown: The availability of the image is unknown.
+   * 
+   * @example
+   * true
+   */
+  imageAvailable?: string;
+  /**
+   * @remarks
+   * The image ID.
+   * 
+   * @example
+   * 4
+   */
+  imageId?: number;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Service is Running
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The service deployment configurations. This parameter is returned only if the service is deployed by using a custom image.
+   * 
+   * @example
+   * {
+   *     "metadata": {
+   *         "cpu": 1,
+   *         "instance": 1,
+   *         "memory": 1024
+   *     },
+   *     "name": "echo"
+   * }
+   */
+  serviceConfig?: string;
+  /**
+   * @remarks
+   * Indicates whether Elastic Algorithm service (EAS) is activated. Valid values:
+   * 
+   * *   true: EAS is activated.
+   * *   false: EAS is not activated.
+   * *   unknown: The activation of EAS is unknown.
+   * 
+   * @example
+   * true
+   */
+  serviceRunnable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buildTime: 'BuildTime',
+      imageAvailable: 'ImageAvailable',
+      imageId: 'ImageId',
+      message: 'Message',
+      serviceConfig: 'ServiceConfig',
+      serviceRunnable: 'ServiceRunnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildTime: 'string',
+      imageAvailable: 'string',
+      imageId: 'number',
+      message: 'string',
+      serviceConfig: 'string',
+      serviceRunnable: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTenantAddonsResponseBodyAddons extends $dara.Model {
+  /**
+   * @remarks
+   * The attributes of the plug-in.
+   */
+  attributes?: { [key: string]: string };
+  /**
+   * @remarks
+   * The name of the plug-in.
+   * 
+   * @example
+   * prometheus_discovery
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(this.attributes) {
+      $dara.Model.validateMap(this.attributes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVirtualResourceResponseBodyVirtualResources extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the virtual resource group was created.
+   * 
+   * @example
+   * 2024-10-16T17:52:49Z
+   */
+  createTime?: string;
+  serviceCount?: number;
+  /**
+   * @remarks
+   * The time when the virtual resource group was last updated.
+   * 
+   * @example
+   * 2024-10-16T19:52:49Z
+   */
+  updateTime?: string;
+  /**
+   * @remarks
+   * The ID of the virtual resource group.
+   * 
+   * @example
+   * eas-vr-npovr28onap1xxxxxx
+   */
+  virtualResourceId?: string;
+  /**
+   * @remarks
+   * The name of the virtual resource group.
+   * 
+   * @example
+   * MyVirtualResource
+   */
+  virtualResourceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      serviceCount: 'ServiceCount',
+      updateTime: 'UpdateTime',
+      virtualResourceId: 'VirtualResourceId',
+      virtualResourceName: 'VirtualResourceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      serviceCount: 'number',
+      updateTime: 'string',
+      virtualResourceId: 'string',
+      virtualResourceName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations extends $dara.Model {
+  /**
+   * @remarks
+   * The effect.
+   * Valid values:
+   * - PreferNoSchedule
+   * - NoSchedule
+   * - NoExecute
+   * 
+   * @example
+   * NoSchedule
+   */
+  effect?: string;
+  /**
+   * @remarks
+   * The key name.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * Relationship between key names and key values.
+   * Valid values:
+   * - Equal
+   * - Exists
+   * 
+   * @example
+   * Equal
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * The key value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      effect: 'effect',
+      key: 'key',
+      operator: 'operator',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effect: 'string',
+      key: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceRequestSelfManagedResourceOptions extends $dara.Model {
+  /**
+   * @remarks
+   * Tag tag key-value pairs for nodes.
+   */
+  nodeMatchLabels?: { [key: string]: string };
+  /**
+   * @remarks
+   * Tolerations for nodes.
+   */
+  nodeTolerations?: UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations[];
+  static names(): { [key: string]: string } {
+    return {
+      nodeMatchLabels: 'NodeMatchLabels',
+      nodeTolerations: 'NodeTolerations',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeMatchLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      nodeTolerations: { 'type': 'array', 'itemType': UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations },
+    };
+  }
+
+  validate() {
+    if(this.nodeMatchLabels) {
+      $dara.Model.validateMap(this.nodeMatchLabels);
+    }
+    if(Array.isArray(this.nodeTolerations)) {
+      $dara.Model.validateArray(this.nodeTolerations);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceAutoScalerRequestBehaviorOnZero extends $dara.Model {
+  /**
+   * @remarks
+   * The time window that is required before the number of instances is reduced to 0. Default value: 600. The number of instances can be reduced to 0 only if no request is available or no traffic exists in the specified time window.
+   * 
+   * @example
+   * 600
+   */
+  scaleDownGracePeriodSeconds?: number;
+  /**
+   * @remarks
+   * The number of instances that you want to create at a time if the number of instances is scaled out from 0. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  scaleUpActivationReplicas?: number;
+  static names(): { [key: string]: string } {
+    return {
+      scaleDownGracePeriodSeconds: 'scaleDownGracePeriodSeconds',
+      scaleUpActivationReplicas: 'scaleUpActivationReplicas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scaleDownGracePeriodSeconds: 'number',
+      scaleUpActivationReplicas: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceAutoScalerRequestBehaviorScaleDown extends $dara.Model {
+  /**
+   * @remarks
+   * The time window that is required before the scale-in operation is performed. Default value: 300. The scale-in operation can be performed only if the specified metric drops below the threshold in the specified time window.
+   * 
+   * @example
+   * 300
+   */
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      stabilizationWindowSeconds: 'stabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceAutoScalerRequestBehaviorScaleUp extends $dara.Model {
+  /**
+   * @remarks
+   * The time window that is required before the scale-out operation is performed. Default value: 0. The scale-out operation can be performed only if the specified metric exceeds the specified threshold in the specified time window.
+   * 
+   * @example
+   * 0
+   */
+  stabilizationWindowSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      stabilizationWindowSeconds: 'stabilizationWindowSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stabilizationWindowSeconds: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceAutoScalerRequestBehavior extends $dara.Model {
+  /**
+   * @remarks
+   * The operation that reduces the number of instances to 0.
+   */
+  onZero?: UpdateServiceAutoScalerRequestBehaviorOnZero;
+  /**
+   * @remarks
+   * The scale-in operation.
+   */
+  scaleDown?: UpdateServiceAutoScalerRequestBehaviorScaleDown;
+  /**
+   * @remarks
+   * The scale-out operation.
+   */
+  scaleUp?: UpdateServiceAutoScalerRequestBehaviorScaleUp;
+  static names(): { [key: string]: string } {
+    return {
+      onZero: 'onZero',
+      scaleDown: 'scaleDown',
+      scaleUp: 'scaleUp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      onZero: UpdateServiceAutoScalerRequestBehaviorOnZero,
+      scaleDown: UpdateServiceAutoScalerRequestBehaviorScaleDown,
+      scaleUp: UpdateServiceAutoScalerRequestBehaviorScaleUp,
+    };
+  }
+
+  validate() {
+    if(this.onZero && typeof (this.onZero as any).validate === 'function') {
+      (this.onZero as any).validate();
+    }
+    if(this.scaleDown && typeof (this.scaleDown as any).validate === 'function') {
+      (this.scaleDown as any).validate();
+    }
+    if(this.scaleUp && typeof (this.scaleUp as any).validate === 'function') {
+      (this.scaleUp as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceAutoScalerRequestScaleStrategies extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the metric for triggering auto scaling. Valid values:
+   * 
+   * *   qps: the queries per second (QPS) for an individual instance.
+   * *   cpu: the CPU utilization.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * qps
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * The service for which the metric is specified. If you do not set this parameter, the current service is specified by default.
+   * 
+   * @example
+   * demo_svc
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The threshold of the metric that triggers auto scaling.
+   * 
+   * *   If you set metricName to QPS, scale-out is triggered when the average QPS for a single instance is greater than this threshold.
+   * *   If you set metricName to CPU, scale-out is triggered when the average CPU utilization for a single instance is greater than this threshold.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      metricName: 'metricName',
+      service: 'service',
+      threshold: 'threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricName: 'string',
+      service: 'string',
+      threshold: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceCronScalerRequestScaleJobs extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the CronHPA job.
+   * 
+   * @example
+   * scale-job-1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The cron expression that is used to configure the execution time of the CronHPA job. For more information about how to configure cron expressions, see **Description of special characters** in this topic.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0 18 * * * *
+   */
+  schedule?: string;
+  /**
+   * @remarks
+   * The number of instances that you want to configure for the CronHPA job.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  targetSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      schedule: 'Schedule',
+      targetSize: 'TargetSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      schedule: 'string',
+      targetSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVirtualResourceRequestResources extends $dara.Model {
+  /**
+   * @remarks
+   * The instance type of the public resource group.
+   * 
+   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * 
+   * @example
+   * ecs.s6-c1m2.xlarge
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The priority of resource scheduling. A greater number specifies a higher priority.
+   * 
+   * @example
+   * 6
+   */
+  priority?: number;
+  /**
+   * @remarks
+   * The Lingjun resource quota ID.
+   * 
+   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * 
+   * @example
+   * quota185lqf994k6
+   */
+  quotaId?: string;
+  /**
+   * @remarks
+   * The region where the resource resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The ID of the dedicated resource group. For information about how to query the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
+   * 
+   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * 
+   * @example
+   * eas-r-g55ieatgg3butwrn7a
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The maximum price of preemptible instances in a public resource group.
+   * 
+   * >  If you do not specify this parameter, preemptible instances are not used.
+   * 
+   * @example
+   * 10.05
+   */
+  spotPriceLimit?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceType: 'InstanceType',
+      priority: 'Priority',
+      quotaId: 'QuotaId',
+      region: 'Region',
+      resourceId: 'ResourceId',
+      spotPriceLimit: 'SpotPriceLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceType: 'string',
+      priority: 'number',
+      quotaId: 'string',
+      region: 'string',
+      resourceId: 'string',
+      spotPriceLimit: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContainerInfo extends $dara.Model {
   currentReaon?: string;
   currentStatus?: string;
   currentTimestamp?: string;
@@ -51,12 +2929,16 @@ export class ContainerInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Group extends $tea.Model {
+export class Group extends $dara.Model {
   accessToken?: string;
   clusterId?: string;
   createTime?: string;
@@ -64,6 +2946,7 @@ export class Group extends $tea.Model {
   intranetEndpoint?: string;
   name?: string;
   queueService?: string;
+  trafficMode?: string;
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -74,6 +2957,7 @@ export class Group extends $tea.Model {
       intranetEndpoint: 'IntranetEndpoint',
       name: 'Name',
       queueService: 'QueueService',
+      trafficMode: 'TrafficMode',
       updateTime: 'UpdateTime',
     };
   }
@@ -87,8 +2971,13 @@ export class Group extends $tea.Model {
       intranetEndpoint: 'string',
       name: 'string',
       queueService: 'string',
+      trafficMode: 'string',
       updateTime: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -96,7 +2985,7 @@ export class Group extends $tea.Model {
   }
 }
 
-export class Instance extends $tea.Model {
+export class Instance extends $dara.Model {
   /**
    * @example
    * 0.444
@@ -236,12 +3125,19 @@ export class Instance extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.lastState)) {
+      $dara.Model.validateArray(this.lastState);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Resource extends $tea.Model {
+export class Resource extends $dara.Model {
   clusterId?: string;
   cpuCount?: number;
   createTime?: string;
@@ -297,12 +3193,19 @@ export class Resource extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.extraData) {
+      $dara.Model.validateMap(this.extraData);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResourceInstance extends $tea.Model {
+export class ResourceInstance extends $dara.Model {
   arch?: string;
   autoRenewal?: boolean;
   chargeType?: string;
@@ -323,6 +3226,7 @@ export class ResourceInstance extends $tea.Model {
   instanceUsedGpu?: number;
   instanceUsedGpuMemory?: string;
   instanceUsedMemory?: string;
+  labels?: ResourceInstanceLabels[];
   region?: string;
   resourceId?: string;
   zone?: string;
@@ -348,6 +3252,7 @@ export class ResourceInstance extends $tea.Model {
       instanceUsedGpu: 'InstanceUsedGpu',
       instanceUsedGpuMemory: 'InstanceUsedGpuMemory',
       instanceUsedMemory: 'InstanceUsedMemory',
+      labels: 'Labels',
       region: 'Region',
       resourceId: 'ResourceId',
       zone: 'Zone',
@@ -376,10 +3281,18 @@ export class ResourceInstance extends $tea.Model {
       instanceUsedGpu: 'number',
       instanceUsedGpuMemory: 'string',
       instanceUsedMemory: 'string',
+      labels: { 'type': 'array', 'itemType': ResourceInstanceLabels },
       region: 'string',
       resourceId: 'string',
       zone: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -387,7 +3300,7 @@ export class ResourceInstance extends $tea.Model {
   }
 }
 
-export class ResourceInstanceWorker extends $tea.Model {
+export class ResourceInstanceWorker extends $dara.Model {
   cpuLimit?: number;
   cpuRequest?: number;
   gpuLimit?: number;
@@ -434,12 +3347,16 @@ export class ResourceInstanceWorker extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Service extends $tea.Model {
+export class Service extends $dara.Model {
   accessToken?: string;
   appConfig?: string;
   appSpecName?: string;
@@ -480,6 +3397,7 @@ export class Service extends $tea.Model {
   source?: string;
   status?: string;
   totalInstance?: number;
+  trafficState?: string;
   updateTime?: string;
   weight?: number;
   workspaceId?: string;
@@ -525,6 +3443,7 @@ export class Service extends $tea.Model {
       source: 'Source',
       status: 'Status',
       totalInstance: 'TotalInstance',
+      trafficState: 'TrafficState',
       updateTime: 'UpdateTime',
       weight: 'Weight',
       workspaceId: 'WorkspaceId',
@@ -573,10 +3492,18 @@ export class Service extends $tea.Model {
       source: 'string',
       status: 'string',
       totalInstance: 'number',
+      trafficState: 'string',
       updateTime: 'string',
       weight: 'number',
       workspaceId: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.labels)) {
+      $dara.Model.validateArray(this.labels);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -584,7 +3511,7 @@ export class Service extends $tea.Model {
   }
 }
 
-export class AttachGatewayDomainRequest extends $tea.Model {
+export class AttachGatewayDomainRequest extends $dara.Model {
   /**
    * @remarks
    * The custom domain name information.
@@ -604,12 +3531,19 @@ export class AttachGatewayDomainRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.customDomain && typeof (this.customDomain as any).validate === 'function') {
+      (this.customDomain as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachGatewayDomainShrinkRequest extends $tea.Model {
+export class AttachGatewayDomainShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The custom domain name information.
@@ -629,12 +3563,16 @@ export class AttachGatewayDomainShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachGatewayDomainResponseBody extends $tea.Model {
+export class AttachGatewayDomainResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the private gateway. To obtain the private gateway ID, see the GatewayId parameter in the response parameters of the [ListGateway](https://apiworkbench.aliyun-inc.com/document/eas/2021-07-01/ListGateway?spm=openapi-amp.newDocPublishment.0.0.765e281fL2IcjJ\\&ampEnv=online) operation.
@@ -675,12 +3613,16 @@ export class AttachGatewayDomainResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachGatewayDomainResponse extends $tea.Model {
+export class AttachGatewayDomainResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AttachGatewayDomainResponseBody;
@@ -700,12 +3642,22 @@ export class AttachGatewayDomainResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CloneServiceRequest extends $tea.Model {
+export class CloneServiceRequest extends $dara.Model {
   /**
    * @remarks
    * The label of the service to be cloned.
@@ -733,12 +3685,19 @@ export class CloneServiceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CloneServiceShrinkRequest extends $tea.Model {
+export class CloneServiceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The label of the service to be cloned.
@@ -766,12 +3725,16 @@ export class CloneServiceShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CloneServiceResponseBody extends $tea.Model {
+export class CloneServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The public endpoint of the service.
@@ -842,12 +3805,16 @@ export class CloneServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CloneServiceResponse extends $tea.Model {
+export class CloneServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CloneServiceResponseBody;
@@ -867,12 +3834,22 @@ export class CloneServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CommitServiceResponseBody extends $tea.Model {
+export class CommitServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -903,12 +3880,16 @@ export class CommitServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CommitServiceResponse extends $tea.Model {
+export class CommitServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CommitServiceResponseBody;
@@ -928,12 +3909,22 @@ export class CommitServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAclPolicyRequest extends $tea.Model {
+export class CreateAclPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
@@ -963,12 +3954,19 @@ export class CreateAclPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.aclPolicyList)) {
+      $dara.Model.validateArray(this.aclPolicyList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAclPolicyShrinkRequest extends $tea.Model {
+export class CreateAclPolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
@@ -998,12 +3996,16 @@ export class CreateAclPolicyShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAclPolicyResponseBody extends $tea.Model {
+export class CreateAclPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The private gateway ID.
@@ -1044,12 +4046,16 @@ export class CreateAclPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAclPolicyResponse extends $tea.Model {
+export class CreateAclPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateAclPolicyResponseBody;
@@ -1069,12 +4075,22 @@ export class CreateAclPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppServiceRequest extends $tea.Model {
+export class CreateAppServiceRequest extends $dara.Model {
   /**
    * @remarks
    * The quota ID.
@@ -1191,12 +4207,19 @@ export class CreateAppServiceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.config) {
+      $dara.Model.validateMap(this.config);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppServiceResponseBody extends $tea.Model {
+export class CreateAppServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The public endpoint of the service.
@@ -1277,12 +4300,16 @@ export class CreateAppServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAppServiceResponse extends $tea.Model {
+export class CreateAppServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateAppServiceResponseBody;
@@ -1302,12 +4329,22 @@ export class CreateAppServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateBenchmarkTaskRequest extends $tea.Model {
+export class CreateBenchmarkTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The request body. The body includes the parameters that are set to create a stress testing task.
@@ -1343,12 +4380,16 @@ export class CreateBenchmarkTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateBenchmarkTaskResponseBody extends $tea.Model {
+export class CreateBenchmarkTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -1399,12 +4440,16 @@ export class CreateBenchmarkTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateBenchmarkTaskResponse extends $tea.Model {
+export class CreateBenchmarkTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateBenchmarkTaskResponseBody;
@@ -1424,12 +4469,22 @@ export class CreateBenchmarkTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGatewayRequest extends $tea.Model {
+export class CreateGatewayRequest extends $dara.Model {
   /**
    * @remarks
    * The resource group ID. To obtain a resource group ID, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
@@ -1540,12 +4595,16 @@ export class CreateGatewayRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGatewayResponseBody extends $tea.Model {
+export class CreateGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
    * The region ID of the private gateway.
@@ -1596,12 +4655,16 @@ export class CreateGatewayResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGatewayResponse extends $tea.Model {
+export class CreateGatewayResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateGatewayResponseBody;
@@ -1621,12 +4684,22 @@ export class CreateGatewayResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGatewayIntranetLinkedVpcRequest extends $tea.Model {
+export class CreateGatewayIntranetLinkedVpcRequest extends $dara.Model {
   /**
    * @remarks
    * The vSwitch ID.
@@ -1657,12 +4730,16 @@ export class CreateGatewayIntranetLinkedVpcRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
+export class CreateGatewayIntranetLinkedVpcResponseBody extends $dara.Model {
   /**
    * @remarks
    * The private gateway ID.
@@ -1703,12 +4780,16 @@ export class CreateGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGatewayIntranetLinkedVpcResponse extends $tea.Model {
+export class CreateGatewayIntranetLinkedVpcResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateGatewayIntranetLinkedVpcResponseBody;
@@ -1728,12 +4809,22 @@ export class CreateGatewayIntranetLinkedVpcResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
+export class CreateGatewayIntranetLinkedVpcPeerRequest extends $dara.Model {
   /**
    * @remarks
    * The list of VPC peers.
@@ -1761,12 +4852,19 @@ export class CreateGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.peerVpcs)) {
+      $dara.Model.validateArray(this.peerVpcs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGatewayIntranetLinkedVpcPeerShrinkRequest extends $tea.Model {
+export class CreateGatewayIntranetLinkedVpcPeerShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The list of VPC peers.
@@ -1794,12 +4892,16 @@ export class CreateGatewayIntranetLinkedVpcPeerShrinkRequest extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGatewayIntranetLinkedVpcPeerResponseBody extends $tea.Model {
+export class CreateGatewayIntranetLinkedVpcPeerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the private gateway.
@@ -1840,12 +4942,16 @@ export class CreateGatewayIntranetLinkedVpcPeerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateGatewayIntranetLinkedVpcPeerResponse extends $tea.Model {
+export class CreateGatewayIntranetLinkedVpcPeerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateGatewayIntranetLinkedVpcPeerResponseBody;
@@ -1865,12 +4971,22 @@ export class CreateGatewayIntranetLinkedVpcPeerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateResourceRequest extends $tea.Model {
+export class CreateResourceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
@@ -1915,6 +5031,7 @@ export class CreateResourceRequest extends $tea.Model {
    * ecs.c6.8xlarge
    */
   ecsInstanceType?: string;
+  labels?: { [key: string]: string };
   /**
    * @remarks
    * The type of the resource group. Valid values:
@@ -1955,6 +5072,7 @@ export class CreateResourceRequest extends $tea.Model {
       chargeType: 'ChargeType',
       ecsInstanceCount: 'EcsInstanceCount',
       ecsInstanceType: 'EcsInstanceType',
+      labels: 'Labels',
       resourceType: 'ResourceType',
       selfManagedResourceOptions: 'SelfManagedResourceOptions',
       systemDiskSize: 'SystemDiskSize',
@@ -1968,6 +5086,7 @@ export class CreateResourceRequest extends $tea.Model {
       chargeType: 'string',
       ecsInstanceCount: 'number',
       ecsInstanceType: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       resourceType: 'string',
       selfManagedResourceOptions: CreateResourceRequestSelfManagedResourceOptions,
       systemDiskSize: 'number',
@@ -1975,12 +5094,22 @@ export class CreateResourceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
+    }
+    if(this.selfManagedResourceOptions && typeof (this.selfManagedResourceOptions as any).validate === 'function') {
+      (this.selfManagedResourceOptions as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateResourceResponseBody extends $tea.Model {
+export class CreateResourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the cluster to which the resource group belongs.
@@ -2048,12 +5177,19 @@ export class CreateResourceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateResourceResponse extends $tea.Model {
+export class CreateResourceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateResourceResponseBody;
@@ -2073,12 +5209,22 @@ export class CreateResourceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateResourceInstancesRequest extends $tea.Model {
+export class CreateResourceInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
@@ -2123,6 +5269,7 @@ export class CreateResourceInstancesRequest extends $tea.Model {
    * ecs.s6-c1m2.xlarge
    */
   ecsInstanceType?: string;
+  labels?: { [key: string]: string };
   /**
    * @remarks
    * The size of the system disk. Unit: GiB. Valid values: 200 to 2000. Default value: 200.
@@ -2153,6 +5300,7 @@ export class CreateResourceInstancesRequest extends $tea.Model {
       chargeType: 'ChargeType',
       ecsInstanceCount: 'EcsInstanceCount',
       ecsInstanceType: 'EcsInstanceType',
+      labels: 'Labels',
       systemDiskSize: 'SystemDiskSize',
       userData: 'UserData',
       zone: 'Zone',
@@ -2165,10 +5313,18 @@ export class CreateResourceInstancesRequest extends $tea.Model {
       chargeType: 'string',
       ecsInstanceCount: 'number',
       ecsInstanceType: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       systemDiskSize: 'number',
       userData: 'string',
       zone: 'string',
     };
+  }
+
+  validate() {
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -2176,7 +5332,7 @@ export class CreateResourceInstancesRequest extends $tea.Model {
   }
 }
 
-export class CreateResourceInstancesResponseBody extends $tea.Model {
+export class CreateResourceInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The instance IDs.
@@ -2214,12 +5370,19 @@ export class CreateResourceInstancesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateResourceInstancesResponse extends $tea.Model {
+export class CreateResourceInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateResourceInstancesResponseBody;
@@ -2239,12 +5402,22 @@ export class CreateResourceInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateResourceLogRequest extends $tea.Model {
+export class CreateResourceLogRequest extends $dara.Model {
   /**
    * @remarks
    * The Logstore of Log Service. For more information about how to query a Logstore, see [ListLogStores](https://help.aliyun.com/document_detail/426970.html).
@@ -2279,12 +5452,16 @@ export class CreateResourceLogRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateResourceLogResponseBody extends $tea.Model {
+export class CreateResourceLogResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -2315,12 +5492,16 @@ export class CreateResourceLogResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateResourceLogResponse extends $tea.Model {
+export class CreateResourceLogResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateResourceLogResponseBody;
@@ -2340,12 +5521,22 @@ export class CreateResourceLogResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceRequest extends $tea.Model {
+export class CreateServiceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enter development mode.
@@ -2481,12 +5672,19 @@ export class CreateServiceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceShrinkRequest extends $tea.Model {
+export class CreateServiceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enter development mode.
@@ -2622,12 +5820,16 @@ export class CreateServiceShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceResponseBody extends $tea.Model {
+export class CreateServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The public endpoint of the created service.
@@ -2708,12 +5910,16 @@ export class CreateServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceResponse extends $tea.Model {
+export class CreateServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateServiceResponseBody;
@@ -2733,12 +5939,22 @@ export class CreateServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceAutoScalerRequest extends $tea.Model {
+export class CreateServiceAutoScalerRequest extends $dara.Model {
   /**
    * @remarks
    * The Autoscaler operation.
@@ -2789,12 +6005,22 @@ export class CreateServiceAutoScalerRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.behavior && typeof (this.behavior as any).validate === 'function') {
+      (this.behavior as any).validate();
+    }
+    if(Array.isArray(this.scaleStrategies)) {
+      $dara.Model.validateArray(this.scaleStrategies);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceAutoScalerResponseBody extends $tea.Model {
+export class CreateServiceAutoScalerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -2825,12 +6051,16 @@ export class CreateServiceAutoScalerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceAutoScalerResponse extends $tea.Model {
+export class CreateServiceAutoScalerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateServiceAutoScalerResponseBody;
@@ -2850,12 +6080,22 @@ export class CreateServiceAutoScalerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceCronScalerRequest extends $tea.Model {
+export class CreateServiceCronScalerRequest extends $dara.Model {
   /**
    * @remarks
    * The points in time that are excluded when you schedule a CronHPA job. The points in time must be specified by using a cron expression.
@@ -2882,12 +6122,22 @@ export class CreateServiceCronScalerRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.excludeDates)) {
+      $dara.Model.validateArray(this.excludeDates);
+    }
+    if(Array.isArray(this.scaleJobs)) {
+      $dara.Model.validateArray(this.scaleJobs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceCronScalerResponseBody extends $tea.Model {
+export class CreateServiceCronScalerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -2918,12 +6168,16 @@ export class CreateServiceCronScalerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceCronScalerResponse extends $tea.Model {
+export class CreateServiceCronScalerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateServiceCronScalerResponseBody;
@@ -2943,12 +6197,22 @@ export class CreateServiceCronScalerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceMirrorRequest extends $tea.Model {
+export class CreateServiceMirrorRequest extends $dara.Model {
   /**
    * @remarks
    * The percentage of the traffic that is mirrored to the destination service. Valid values: 0 to 100.
@@ -2976,12 +6240,19 @@ export class CreateServiceMirrorRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.target)) {
+      $dara.Model.validateArray(this.target);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceMirrorResponseBody extends $tea.Model {
+export class CreateServiceMirrorResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -3012,12 +6283,16 @@ export class CreateServiceMirrorResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateServiceMirrorResponse extends $tea.Model {
+export class CreateServiceMirrorResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateServiceMirrorResponseBody;
@@ -3037,12 +6312,23 @@ export class CreateServiceMirrorResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVirtualResourceRequest extends $tea.Model {
+export class CreateVirtualResourceRequest extends $dara.Model {
+  disableSpotProtectionPeriod?: boolean;
   /**
    * @remarks
    * The list of resources in the virtual resource group.
@@ -3058,6 +6344,7 @@ export class CreateVirtualResourceRequest extends $tea.Model {
   virtualResourceName?: string;
   static names(): { [key: string]: string } {
     return {
+      disableSpotProtectionPeriod: 'DisableSpotProtectionPeriod',
       resources: 'Resources',
       virtualResourceName: 'VirtualResourceName',
     };
@@ -3065,9 +6352,17 @@ export class CreateVirtualResourceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      disableSpotProtectionPeriod: 'boolean',
       resources: { 'type': 'array', 'itemType': CreateVirtualResourceRequestResources },
       virtualResourceName: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -3075,7 +6370,7 @@ export class CreateVirtualResourceRequest extends $tea.Model {
   }
 }
 
-export class CreateVirtualResourceResponseBody extends $tea.Model {
+export class CreateVirtualResourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -3116,12 +6411,16 @@ export class CreateVirtualResourceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVirtualResourceResponse extends $tea.Model {
+export class CreateVirtualResourceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateVirtualResourceResponseBody;
@@ -3141,12 +6440,22 @@ export class CreateVirtualResourceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAclPolicyRequest extends $tea.Model {
+export class DeleteAclPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
@@ -3174,12 +6483,19 @@ export class DeleteAclPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.aclPolicyList)) {
+      $dara.Model.validateArray(this.aclPolicyList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAclPolicyShrinkRequest extends $tea.Model {
+export class DeleteAclPolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
@@ -3207,12 +6523,16 @@ export class DeleteAclPolicyShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAclPolicyResponseBody extends $tea.Model {
+export class DeleteAclPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The private gateway ID.
@@ -3253,12 +6573,16 @@ export class DeleteAclPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAclPolicyResponse extends $tea.Model {
+export class DeleteAclPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteAclPolicyResponseBody;
@@ -3278,12 +6602,22 @@ export class DeleteAclPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteBenchmarkTaskResponseBody extends $tea.Model {
+export class DeleteBenchmarkTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -3314,12 +6648,16 @@ export class DeleteBenchmarkTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteBenchmarkTaskResponse extends $tea.Model {
+export class DeleteBenchmarkTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteBenchmarkTaskResponseBody;
@@ -3339,12 +6677,22 @@ export class DeleteBenchmarkTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteGatewayResponseBody extends $tea.Model {
+export class DeleteGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
    * The private gateway ID.
@@ -3385,12 +6733,16 @@ export class DeleteGatewayResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteGatewayResponse extends $tea.Model {
+export class DeleteGatewayResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteGatewayResponseBody;
@@ -3410,12 +6762,22 @@ export class DeleteGatewayResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteGatewayIntranetLinkedVpcRequest extends $tea.Model {
+export class DeleteGatewayIntranetLinkedVpcRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the vSwitch.
@@ -3446,12 +6808,16 @@ export class DeleteGatewayIntranetLinkedVpcRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
+export class DeleteGatewayIntranetLinkedVpcResponseBody extends $dara.Model {
   /**
    * @remarks
    * The private gateway ID.
@@ -3492,12 +6858,16 @@ export class DeleteGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteGatewayIntranetLinkedVpcResponse extends $tea.Model {
+export class DeleteGatewayIntranetLinkedVpcResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteGatewayIntranetLinkedVpcResponseBody;
@@ -3517,12 +6887,22 @@ export class DeleteGatewayIntranetLinkedVpcResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
+export class DeleteGatewayIntranetLinkedVpcPeerRequest extends $dara.Model {
   /**
    * @remarks
    * The VPC peer.
@@ -3550,12 +6930,19 @@ export class DeleteGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.peerVpcs)) {
+      $dara.Model.validateArray(this.peerVpcs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteGatewayIntranetLinkedVpcPeerShrinkRequest extends $tea.Model {
+export class DeleteGatewayIntranetLinkedVpcPeerShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The VPC peer.
@@ -3583,12 +6970,16 @@ export class DeleteGatewayIntranetLinkedVpcPeerShrinkRequest extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteGatewayIntranetLinkedVpcPeerResponseBody extends $tea.Model {
+export class DeleteGatewayIntranetLinkedVpcPeerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the private gateway.
@@ -3629,12 +7020,16 @@ export class DeleteGatewayIntranetLinkedVpcPeerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteGatewayIntranetLinkedVpcPeerResponse extends $tea.Model {
+export class DeleteGatewayIntranetLinkedVpcPeerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteGatewayIntranetLinkedVpcPeerResponseBody;
@@ -3654,12 +7049,22 @@ export class DeleteGatewayIntranetLinkedVpcPeerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteResourceResponseBody extends $tea.Model {
+export class DeleteResourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -3690,12 +7095,16 @@ export class DeleteResourceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteResourceResponse extends $tea.Model {
+export class DeleteResourceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteResourceResponseBody;
@@ -3715,12 +7124,22 @@ export class DeleteResourceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteResourceDLinkResponseBody extends $tea.Model {
+export class DeleteResourceDLinkResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -3751,12 +7170,16 @@ export class DeleteResourceDLinkResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteResourceDLinkResponse extends $tea.Model {
+export class DeleteResourceDLinkResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteResourceDLinkResponseBody;
@@ -3776,12 +7199,155 @@ export class DeleteResourceDLinkResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteResourceInstancesRequest extends $tea.Model {
+export class DeleteResourceInstanceLabelRequest extends $dara.Model {
+  allInstances?: boolean;
+  instanceIds?: string[];
+  keys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allInstances: 'AllInstances',
+      instanceIds: 'InstanceIds',
+      keys: 'Keys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allInstances: 'boolean',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      keys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    if(Array.isArray(this.keys)) {
+      $dara.Model.validateArray(this.keys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceInstanceLabelShrinkRequest extends $dara.Model {
+  allInstances?: boolean;
+  instanceIdsShrink?: string;
+  keysShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allInstances: 'AllInstances',
+      instanceIdsShrink: 'InstanceIds',
+      keysShrink: 'Keys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allInstances: 'boolean',
+      instanceIdsShrink: 'string',
+      keysShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceInstanceLabelResponseBody extends $dara.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 40325405-579C-4D82********
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceInstanceLabelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteResourceInstanceLabelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteResourceInstanceLabelResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteResourceInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to delete all the instances that fail to be created. Valid values:
@@ -3815,12 +7381,16 @@ export class DeleteResourceInstancesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteResourceInstancesResponseBody extends $tea.Model {
+export class DeleteResourceInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -3851,12 +7421,16 @@ export class DeleteResourceInstancesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteResourceInstancesResponse extends $tea.Model {
+export class DeleteResourceInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteResourceInstancesResponseBody;
@@ -3876,12 +7450,22 @@ export class DeleteResourceInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteResourceLogResponseBody extends $tea.Model {
+export class DeleteResourceLogResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -3912,12 +7496,16 @@ export class DeleteResourceLogResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteResourceLogResponse extends $tea.Model {
+export class DeleteResourceLogResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteResourceLogResponseBody;
@@ -3937,12 +7525,22 @@ export class DeleteResourceLogResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceResponseBody extends $tea.Model {
+export class DeleteServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -3973,12 +7571,16 @@ export class DeleteServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceResponse extends $tea.Model {
+export class DeleteServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteServiceResponseBody;
@@ -3998,12 +7600,22 @@ export class DeleteServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceAutoScalerResponseBody extends $tea.Model {
+export class DeleteServiceAutoScalerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -4034,12 +7646,16 @@ export class DeleteServiceAutoScalerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceAutoScalerResponse extends $tea.Model {
+export class DeleteServiceAutoScalerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteServiceAutoScalerResponseBody;
@@ -4059,12 +7675,22 @@ export class DeleteServiceAutoScalerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceCronScalerResponseBody extends $tea.Model {
+export class DeleteServiceCronScalerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -4095,12 +7721,16 @@ export class DeleteServiceCronScalerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceCronScalerResponse extends $tea.Model {
+export class DeleteServiceCronScalerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteServiceCronScalerResponseBody;
@@ -4120,12 +7750,22 @@ export class DeleteServiceCronScalerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceInstancesRequest extends $tea.Model {
+export class DeleteServiceInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the container whose process needs to be restarted. This parameter takes effect only if the SoftRestart parameter is set to true.
@@ -4168,12 +7808,16 @@ export class DeleteServiceInstancesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceInstancesResponseBody extends $tea.Model {
+export class DeleteServiceInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -4204,12 +7848,16 @@ export class DeleteServiceInstancesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceInstancesResponse extends $tea.Model {
+export class DeleteServiceInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteServiceInstancesResponseBody;
@@ -4229,12 +7877,22 @@ export class DeleteServiceInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceLabelRequest extends $tea.Model {
+export class DeleteServiceLabelRequest extends $dara.Model {
   /**
    * @remarks
    * The service tags that you want to delete.
@@ -4254,12 +7912,19 @@ export class DeleteServiceLabelRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.keys)) {
+      $dara.Model.validateArray(this.keys);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceLabelShrinkRequest extends $tea.Model {
+export class DeleteServiceLabelShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The service tags that you want to delete.
@@ -4279,12 +7944,16 @@ export class DeleteServiceLabelShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceLabelResponseBody extends $tea.Model {
+export class DeleteServiceLabelResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -4315,12 +7984,16 @@ export class DeleteServiceLabelResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceLabelResponse extends $tea.Model {
+export class DeleteServiceLabelResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteServiceLabelResponseBody;
@@ -4340,12 +8013,22 @@ export class DeleteServiceLabelResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceMirrorResponseBody extends $tea.Model {
+export class DeleteServiceMirrorResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -4376,12 +8059,16 @@ export class DeleteServiceMirrorResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteServiceMirrorResponse extends $tea.Model {
+export class DeleteServiceMirrorResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteServiceMirrorResponseBody;
@@ -4401,12 +8088,22 @@ export class DeleteServiceMirrorResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteVirtualResourceResponseBody extends $tea.Model {
+export class DeleteVirtualResourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the operation result.
@@ -4437,12 +8134,16 @@ export class DeleteVirtualResourceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteVirtualResourceResponse extends $tea.Model {
+export class DeleteVirtualResourceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteVirtualResourceResponseBody;
@@ -4462,12 +8163,22 @@ export class DeleteVirtualResourceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeBenchmarkTaskResponseBody extends $tea.Model {
+export class DescribeBenchmarkTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The number of instances that you can test.
@@ -4682,12 +8393,16 @@ export class DescribeBenchmarkTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeBenchmarkTaskResponse extends $tea.Model {
+export class DescribeBenchmarkTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeBenchmarkTaskResponseBody;
@@ -4707,12 +8422,22 @@ export class DescribeBenchmarkTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeBenchmarkTaskReportRequest extends $tea.Model {
+export class DescribeBenchmarkTaskReportRequest extends $dara.Model {
   /**
    * @remarks
    * The report type of the stress testing task. Valid values: RAW and Report.
@@ -4733,12 +8458,16 @@ export class DescribeBenchmarkTaskReportRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeBenchmarkTaskReportResponseBody extends $tea.Model {
+export class DescribeBenchmarkTaskReportResponseBody extends $dara.Model {
   /**
    * @remarks
    * If the value of ReportType is set to RAW, the details about the stress testing report are returned.
@@ -4824,12 +8553,16 @@ export class DescribeBenchmarkTaskReportResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeBenchmarkTaskReportResponse extends $tea.Model {
+export class DescribeBenchmarkTaskReportResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeBenchmarkTaskReportResponseBody;
@@ -4849,12 +8582,22 @@ export class DescribeBenchmarkTaskReportResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeGatewayResponseBody extends $tea.Model {
+export class DescribeGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
    * The time when the private gateway was created. The time is displayed in UTC.
@@ -5033,12 +8776,16 @@ export class DescribeGatewayResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeGatewayResponse extends $tea.Model {
+export class DescribeGatewayResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeGatewayResponseBody;
@@ -5058,12 +8805,22 @@ export class DescribeGatewayResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeGroupResponse extends $tea.Model {
+export class DescribeGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Group;
@@ -5083,20 +8840,44 @@ export class DescribeGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeGroupEndpointsResponseBody extends $tea.Model {
+export class DescribeGroupEndpointsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The service token.
+   * 
    * @example
    * Nzc5N2FhNTM4OTQ0YzBmYTIy****ZTUxN2NkYjg4MTJmMWQxZmY1****
    */
   accessToken?: string;
+  /**
+   * @remarks
+   * The endpoints of service groups.
+   */
   endpoints?: DescribeGroupEndpointsResponseBodyEndpoints;
+  /**
+   * @remarks
+   * The response message.
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 890772EF-3AD6-129A-8E15-8F349C944783
    */
@@ -5119,12 +8900,19 @@ export class DescribeGroupEndpointsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.endpoints && typeof (this.endpoints as any).validate === 'function') {
+      (this.endpoints as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeGroupEndpointsResponse extends $tea.Model {
+export class DescribeGroupEndpointsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeGroupEndpointsResponseBody;
@@ -5144,12 +8932,22 @@ export class DescribeGroupEndpointsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeResourceResponseBody extends $tea.Model {
+export class DescribeResourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the cluster to which the resource group belongs.
@@ -5335,12 +9133,16 @@ export class DescribeResourceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeResourceResponse extends $tea.Model {
+export class DescribeResourceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeResourceResponseBody;
@@ -5360,12 +9162,22 @@ export class DescribeResourceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeResourceDLinkResponseBody extends $tea.Model {
+export class DescribeResourceDLinkResponseBody extends $dara.Model {
   /**
    * @remarks
    * The IDs of the secondary vSwitches that are directly connected.
@@ -5433,12 +9245,19 @@ export class DescribeResourceDLinkResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.auxVSwitchList)) {
+      $dara.Model.validateArray(this.auxVSwitchList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeResourceDLinkResponse extends $tea.Model {
+export class DescribeResourceDLinkResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeResourceDLinkResponseBody;
@@ -5458,12 +9277,22 @@ export class DescribeResourceDLinkResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeResourceLogResponseBody extends $tea.Model {
+export class DescribeResourceLogResponseBody extends $dara.Model {
   /**
    * @remarks
    * The Logstore of Log Service.
@@ -5524,12 +9353,16 @@ export class DescribeResourceLogResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeResourceLogResponse extends $tea.Model {
+export class DescribeResourceLogResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeResourceLogResponseBody;
@@ -5549,12 +9382,22 @@ export class DescribeResourceLogResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceResponse extends $tea.Model {
+export class DescribeServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Service;
@@ -5574,12 +9417,22 @@ export class DescribeServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceAutoScalerResponseBody extends $tea.Model {
+export class DescribeServiceAutoScalerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The additional information about the Autoscaler policy, such as the interval of triggering Autoscaler.
@@ -5660,12 +9513,25 @@ export class DescribeServiceAutoScalerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.behavior) {
+      $dara.Model.validateMap(this.behavior);
+    }
+    if(Array.isArray(this.currentMetrics)) {
+      $dara.Model.validateArray(this.currentMetrics);
+    }
+    if(Array.isArray(this.scaleStrategies)) {
+      $dara.Model.validateArray(this.scaleStrategies);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceAutoScalerResponse extends $tea.Model {
+export class DescribeServiceAutoScalerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeServiceAutoScalerResponseBody;
@@ -5685,12 +9551,22 @@ export class DescribeServiceAutoScalerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceCronScalerResponseBody extends $tea.Model {
+export class DescribeServiceCronScalerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The points in time that are excluded when you schedule a CronHPA job. The points in time must be specified by using a cron expression.
@@ -5735,12 +9611,22 @@ export class DescribeServiceCronScalerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.excludeDates)) {
+      $dara.Model.validateArray(this.excludeDates);
+    }
+    if(Array.isArray(this.scaleJobs)) {
+      $dara.Model.validateArray(this.scaleJobs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceCronScalerResponse extends $tea.Model {
+export class DescribeServiceCronScalerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeServiceCronScalerResponseBody;
@@ -5760,12 +9646,22 @@ export class DescribeServiceCronScalerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceDiagnosisResponseBody extends $tea.Model {
+export class DescribeServiceDiagnosisResponseBody extends $dara.Model {
   /**
    * @remarks
    * The diagnostics list.
@@ -5793,12 +9689,19 @@ export class DescribeServiceDiagnosisResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.diagnosisList)) {
+      $dara.Model.validateArray(this.diagnosisList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceDiagnosisResponse extends $tea.Model {
+export class DescribeServiceDiagnosisResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeServiceDiagnosisResponseBody;
@@ -5818,20 +9721,44 @@ export class DescribeServiceDiagnosisResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceEndpointsResponseBody extends $tea.Model {
+export class DescribeServiceEndpointsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The service token.
+   * 
    * @example
    * Nzc5N2FhN****TQ0YzBmYTIyN2MxZTUxN2NkYjg4MTJmMWQxZmY1****
    */
   accessToken?: string;
+  /**
+   * @remarks
+   * The service endpoints.
+   */
   endpoints?: DescribeServiceEndpointsResponseBodyEndpoints;
+  /**
+   * @remarks
+   * The returned message.
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 739998B5-FB39-12A3-8323-0FA340317298
    */
@@ -5854,12 +9781,19 @@ export class DescribeServiceEndpointsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.endpoints && typeof (this.endpoints as any).validate === 'function') {
+      (this.endpoints as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceEndpointsResponse extends $tea.Model {
+export class DescribeServiceEndpointsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeServiceEndpointsResponseBody;
@@ -5879,12 +9813,22 @@ export class DescribeServiceEndpointsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceEventRequest extends $tea.Model {
+export class DescribeServiceEventRequest extends $dara.Model {
   /**
    * @remarks
    * The end of the time range to query. By default, the current point in time is the end of the time range to query.
@@ -5958,12 +9902,16 @@ export class DescribeServiceEventRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceEventResponseBody extends $tea.Model {
+export class DescribeServiceEventResponseBody extends $dara.Model {
   /**
    * @remarks
    * The events.
@@ -6021,12 +9969,19 @@ export class DescribeServiceEventResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceEventResponse extends $tea.Model {
+export class DescribeServiceEventResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeServiceEventResponseBody;
@@ -6046,12 +10001,22 @@ export class DescribeServiceEventResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceInstanceDiagnosisResponseBody extends $tea.Model {
+export class DescribeServiceInstanceDiagnosisResponseBody extends $dara.Model {
   /**
    * @remarks
    * The diagnostics information.
@@ -6079,12 +10044,19 @@ export class DescribeServiceInstanceDiagnosisResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.diagnosis && typeof (this.diagnosis as any).validate === 'function') {
+      (this.diagnosis as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceInstanceDiagnosisResponse extends $tea.Model {
+export class DescribeServiceInstanceDiagnosisResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeServiceInstanceDiagnosisResponseBody;
@@ -6104,12 +10076,22 @@ export class DescribeServiceInstanceDiagnosisResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceLogRequest extends $tea.Model {
+export class DescribeServiceLogRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the container that runs the service.
@@ -6228,12 +10210,16 @@ export class DescribeServiceLogRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceLogResponseBody extends $tea.Model {
+export class DescribeServiceLogResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned logs.
@@ -6291,12 +10277,19 @@ export class DescribeServiceLogResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.logs)) {
+      $dara.Model.validateArray(this.logs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceLogResponse extends $tea.Model {
+export class DescribeServiceLogResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeServiceLogResponseBody;
@@ -6316,12 +10309,22 @@ export class DescribeServiceLogResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceMirrorResponseBody extends $tea.Model {
+export class DescribeServiceMirrorResponseBody extends $dara.Model {
   /**
    * @remarks
    * The percentage of traffic that you want to mirror. Valid values: 0 to 100.
@@ -6372,12 +10375,16 @@ export class DescribeServiceMirrorResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceMirrorResponse extends $tea.Model {
+export class DescribeServiceMirrorResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeServiceMirrorResponseBody;
@@ -6397,23 +10404,47 @@ export class DescribeServiceMirrorResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceSignedUrlRequest extends $tea.Model {
+export class DescribeServiceSignedUrlRequest extends $dara.Model {
   /**
+   * @remarks
+   * The period of time for which the URL expires.
+   * 
    * @example
    * 43200
    */
   expire?: number;
   /**
+   * @remarks
+   * Specifies whether to use the VPC connection.
+   * 
    * @example
    * false
    */
   internal?: boolean;
   /**
+   * @remarks
+   * The page type.
+   * 
+   * Valid values:
+   * 
+   * *   webview
+   * *   monitor
+   * 
    * @example
    * webview
    */
@@ -6434,12 +10465,16 @@ export class DescribeServiceSignedUrlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceSignedUrlResponseBody extends $tea.Model {
+export class DescribeServiceSignedUrlResponseBody extends $dara.Model {
   /**
    * @remarks
    * Id of the request
@@ -6449,6 +10484,9 @@ export class DescribeServiceSignedUrlResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The service URL.
+   * 
    * @example
    * https://foo-115**.console.cn-hangzhou.eas.pai-ml.com?expire=1735202661&signature=ey*******
    */
@@ -6467,12 +10505,16 @@ export class DescribeServiceSignedUrlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeServiceSignedUrlResponse extends $tea.Model {
+export class DescribeServiceSignedUrlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeServiceSignedUrlResponseBody;
@@ -6492,12 +10534,22 @@ export class DescribeServiceSignedUrlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeSpotDiscountHistoryRequest extends $tea.Model {
+export class DescribeSpotDiscountHistoryRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the Elastic Algorithm Service (EAS) instance.
@@ -6530,12 +10582,16 @@ export class DescribeSpotDiscountHistoryRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeSpotDiscountHistoryResponseBody extends $tea.Model {
+export class DescribeSpotDiscountHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -6563,12 +10619,19 @@ export class DescribeSpotDiscountHistoryResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.spotDiscounts)) {
+      $dara.Model.validateArray(this.spotDiscounts);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeSpotDiscountHistoryResponse extends $tea.Model {
+export class DescribeSpotDiscountHistoryResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeSpotDiscountHistoryResponseBody;
@@ -6588,12 +10651,22 @@ export class DescribeSpotDiscountHistoryResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeVirtualResourceResponseBody extends $tea.Model {
+export class DescribeVirtualResourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The time when the virtual resource group was created.
@@ -6602,6 +10675,7 @@ export class DescribeVirtualResourceResponseBody extends $tea.Model {
    * 2024-10-16T17:52:49Z
    */
   createTime?: string;
+  disableSpotProtectionPeriod?: boolean;
   /**
    * @remarks
    * The ID of the request.
@@ -6615,6 +10689,7 @@ export class DescribeVirtualResourceResponseBody extends $tea.Model {
    * The list of resources in the virtual resource group.
    */
   resources?: DescribeVirtualResourceResponseBodyResources[];
+  serviceCount?: number;
   /**
    * @remarks
    * The time when the virtual resource group was last updated.
@@ -6642,8 +10717,10 @@ export class DescribeVirtualResourceResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      disableSpotProtectionPeriod: 'DisableSpotProtectionPeriod',
       requestId: 'RequestId',
       resources: 'Resources',
+      serviceCount: 'ServiceCount',
       updateTime: 'UpdateTime',
       virtualResourceId: 'VirtualResourceId',
       virtualResourceName: 'VirtualResourceName',
@@ -6653,12 +10730,21 @@ export class DescribeVirtualResourceResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      disableSpotProtectionPeriod: 'boolean',
       requestId: 'string',
       resources: { 'type': 'array', 'itemType': DescribeVirtualResourceResponseBodyResources },
+      serviceCount: 'number',
       updateTime: 'string',
       virtualResourceId: 'string',
       virtualResourceName: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -6666,7 +10752,7 @@ export class DescribeVirtualResourceResponseBody extends $tea.Model {
   }
 }
 
-export class DescribeVirtualResourceResponse extends $tea.Model {
+export class DescribeVirtualResourceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeVirtualResourceResponseBody;
@@ -6686,12 +10772,22 @@ export class DescribeVirtualResourceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachGatewayDomainRequest extends $tea.Model {
+export class DetachGatewayDomainRequest extends $dara.Model {
   /**
    * @remarks
    * The custom domain name information.
@@ -6711,12 +10807,19 @@ export class DetachGatewayDomainRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.customDomain && typeof (this.customDomain as any).validate === 'function') {
+      (this.customDomain as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachGatewayDomainShrinkRequest extends $tea.Model {
+export class DetachGatewayDomainShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The custom domain name information.
@@ -6736,12 +10839,16 @@ export class DetachGatewayDomainShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachGatewayDomainResponseBody extends $tea.Model {
+export class DetachGatewayDomainResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the private gateway. To obtain the private gateway ID, see the GatewayId parameter in the response parameters of the [ListGateway](https://apiworkbench.aliyun-inc.com/document/eas/2021-07-01/ListGateway?spm=openapi-amp.newDocPublishment.0.0.765e281fL2IcjJ\\&ampEnv=online) operation.
@@ -6782,12 +10889,16 @@ export class DetachGatewayDomainResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachGatewayDomainResponse extends $tea.Model {
+export class DetachGatewayDomainResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DetachGatewayDomainResponseBody;
@@ -6807,12 +10918,22 @@ export class DetachGatewayDomainResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DevelopServiceRequest extends $tea.Model {
+export class DevelopServiceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to exit development mode. Valid values:
@@ -6836,12 +10957,16 @@ export class DevelopServiceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DevelopServiceResponseBody extends $tea.Model {
+export class DevelopServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -6872,12 +10997,16 @@ export class DevelopServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DevelopServiceResponse extends $tea.Model {
+export class DevelopServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DevelopServiceResponseBody;
@@ -6897,12 +11026,22 @@ export class DevelopServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAclPolicyRequest extends $tea.Model {
+export class ListAclPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the virtual private cloud (VPC). For more information about how to obtain the VPC ID, see DescribeVpcs.
@@ -6923,12 +11062,16 @@ export class ListAclPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAclPolicyResponseBody extends $tea.Model {
+export class ListAclPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The private gateway ID.
@@ -6973,12 +11116,22 @@ export class ListAclPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.internetAclPolicyList)) {
+      $dara.Model.validateArray(this.internetAclPolicyList);
+    }
+    if(Array.isArray(this.intranetVpcAclPolicyList)) {
+      $dara.Model.validateArray(this.intranetVpcAclPolicyList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAclPolicyResponse extends $tea.Model {
+export class ListAclPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAclPolicyResponseBody;
@@ -6998,12 +11151,22 @@ export class ListAclPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListBenchmarkTaskRequest extends $tea.Model {
+export class ListBenchmarkTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The keyword used to query required stress testing tasks. If this parameter is specified, the system returns stress testing tasks based on the names of the stress testing tasks in the matched Elastic Algorithm Service (EAS).
@@ -7054,12 +11217,16 @@ export class ListBenchmarkTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListBenchmarkTaskResponseBody extends $tea.Model {
+export class ListBenchmarkTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.
@@ -7117,12 +11284,19 @@ export class ListBenchmarkTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tasks)) {
+      $dara.Model.validateArray(this.tasks);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListBenchmarkTaskResponse extends $tea.Model {
+export class ListBenchmarkTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListBenchmarkTaskResponseBody;
@@ -7142,12 +11316,22 @@ export class ListBenchmarkTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGatewayRequest extends $tea.Model {
+export class ListGatewayRequest extends $dara.Model {
   /**
    * @remarks
    * The private gateway ID. To obtain the private gateway ID, see the private_gateway_id parameter in the response parameters of the ListResources operation.
@@ -7208,12 +11392,16 @@ export class ListGatewayRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGatewayResponseBody extends $tea.Model {
+export class ListGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
    * The private gateways.
@@ -7271,12 +11459,19 @@ export class ListGatewayResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.gateways)) {
+      $dara.Model.validateArray(this.gateways);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGatewayResponse extends $tea.Model {
+export class ListGatewayResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListGatewayResponseBody;
@@ -7296,12 +11491,22 @@ export class ListGatewayResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGatewayDomainsResponseBody extends $tea.Model {
+export class ListGatewayDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The list of custom domain names.
@@ -7339,12 +11544,19 @@ export class ListGatewayDomainsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.customDomains)) {
+      $dara.Model.validateArray(this.customDomains);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGatewayDomainsResponse extends $tea.Model {
+export class ListGatewayDomainsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListGatewayDomainsResponseBody;
@@ -7364,12 +11576,22 @@ export class ListGatewayDomainsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
+export class ListGatewayIntranetLinkedVpcResponseBody extends $dara.Model {
   /**
    * @remarks
    * The private gateway ID.
@@ -7407,12 +11629,19 @@ export class ListGatewayIntranetLinkedVpcResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.intranetLinkedVpcList)) {
+      $dara.Model.validateArray(this.intranetLinkedVpcList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGatewayIntranetLinkedVpcResponse extends $tea.Model {
+export class ListGatewayIntranetLinkedVpcResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListGatewayIntranetLinkedVpcResponseBody;
@@ -7432,12 +11661,22 @@ export class ListGatewayIntranetLinkedVpcResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
+export class ListGatewayIntranetLinkedVpcPeerRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the associated VPC. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
@@ -7461,12 +11700,16 @@ export class ListGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGatewayIntranetLinkedVpcPeerResponseBody extends $tea.Model {
+export class ListGatewayIntranetLinkedVpcPeerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the private gateway.
@@ -7504,12 +11747,19 @@ export class ListGatewayIntranetLinkedVpcPeerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.peerVpcList)) {
+      $dara.Model.validateArray(this.peerVpcList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGatewayIntranetLinkedVpcPeerResponse extends $tea.Model {
+export class ListGatewayIntranetLinkedVpcPeerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListGatewayIntranetLinkedVpcPeerResponseBody;
@@ -7529,12 +11779,22 @@ export class ListGatewayIntranetLinkedVpcPeerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGatewayIntranetSupportedZoneResponseBody extends $tea.Model {
+export class ListGatewayIntranetSupportedZoneResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -7562,12 +11822,19 @@ export class ListGatewayIntranetSupportedZoneResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.zones)) {
+      $dara.Model.validateArray(this.zones);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGatewayIntranetSupportedZoneResponse extends $tea.Model {
+export class ListGatewayIntranetSupportedZoneResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListGatewayIntranetSupportedZoneResponseBody;
@@ -7587,12 +11854,22 @@ export class ListGatewayIntranetSupportedZoneResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGroupsRequest extends $tea.Model {
+export class ListGroupsRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the filter that is used to filter out unwanted service groups. Fuzzy match is supported.
@@ -7643,12 +11920,16 @@ export class ListGroupsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGroupsResponseBody extends $tea.Model {
+export class ListGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The service groups.
@@ -7706,12 +11987,19 @@ export class ListGroupsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.groups)) {
+      $dara.Model.validateArray(this.groups);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListGroupsResponse extends $tea.Model {
+export class ListGroupsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListGroupsResponseBody;
@@ -7731,12 +12019,22 @@ export class ListGroupsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceInstanceWorkerRequest extends $tea.Model {
+export class ListResourceInstanceWorkerRequest extends $dara.Model {
   /**
    * @remarks
    * The page number. Pages start from page 1. Default value: 1.
@@ -7753,10 +12051,12 @@ export class ListResourceInstanceWorkerRequest extends $tea.Model {
    * 20
    */
   pageSize?: number;
+  workerName?: string;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      workerName: 'WorkerName',
     };
   }
 
@@ -7764,7 +12064,12 @@ export class ListResourceInstanceWorkerRequest extends $tea.Model {
     return {
       pageNumber: 'number',
       pageSize: 'number',
+      workerName: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -7772,7 +12077,7 @@ export class ListResourceInstanceWorkerRequest extends $tea.Model {
   }
 }
 
-export class ListResourceInstanceWorkerResponseBody extends $tea.Model {
+export class ListResourceInstanceWorkerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.
@@ -7830,12 +12135,19 @@ export class ListResourceInstanceWorkerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.pods)) {
+      $dara.Model.validateArray(this.pods);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceInstanceWorkerResponse extends $tea.Model {
+export class ListResourceInstanceWorkerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListResourceInstanceWorkerResponseBody;
@@ -7855,12 +12167,22 @@ export class ListResourceInstanceWorkerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceInstancesRequest extends $tea.Model {
+export class ListResourceInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method of the instance. Valid values:
@@ -8008,6 +12330,7 @@ export class ListResourceInstancesRequest extends $tea.Model {
    * Ready
    */
   instanceStatus?: string;
+  label?: { [key: string]: string };
   /**
    * @remarks
    * The sorting order.
@@ -8126,6 +12449,7 @@ export class ListResourceInstancesRequest extends $tea.Model {
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       instanceStatus: 'InstanceStatus',
+      label: 'Label',
       order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -8141,6 +12465,7 @@ export class ListResourceInstancesRequest extends $tea.Model {
       instanceId: 'string',
       instanceName: 'string',
       instanceStatus: 'string',
+      label: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -8148,12 +12473,319 @@ export class ListResourceInstancesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.label) {
+      $dara.Model.validateMap(this.label);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceInstancesResponseBody extends $tea.Model {
+export class ListResourceInstancesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   PrePaid: subscription.
+   * *   PostPaid: pay-as-you-go.
+   * 
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  /**
+   * @remarks
+   * The keyword used to query instances. Instances can be queried by instance ID or instance IP address.
+   * 
+   * @example
+   * 10.224.xx.xx
+   */
+  filter?: string;
+  /**
+   * @remarks
+   * The IP address of the instance.
+   * 
+   * @example
+   * 10.224.xx.xx
+   */
+  instanceIP?: string;
+  /**
+   * @remarks
+   * The instance ID. For more information about how to query the instance ID, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
+   * 
+   * @example
+   * i-bp1jd6x3uotsv****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * @example
+   * e-xxxx***
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The instance state.
+   * 
+   * Valid values:
+   * 
+   * *   Ready-SchedulingDisabled
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     The instance is available but unschedulable
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   Ready
+   * 
+   *     <!-- -->
+   * 
+   *     : The instance
+   * 
+   *     <!-- -->
+   * 
+   *     is running
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   NotReady
+   * 
+   *     <!-- -->
+   * 
+   *     : The instance is unready.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Stopped
+   * 
+   *     <!-- -->
+   * 
+   *     : The instance has stopped.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   NotReady-SchedulingDisabled
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     The instance is unavailable and unschedulable
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   Attaching
+   * 
+   *     <!-- -->
+   * 
+   *     : The instance
+   * 
+   *     <!-- -->
+   * 
+   *     is starting
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   Deleting
+   * 
+   *     <!-- -->
+   * 
+   *     : The instance is being deleted.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   CreateFailed: The instance failed to be created.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Ready
+   */
+  instanceStatus?: string;
+  labelShrink?: string;
+  /**
+   * @remarks
+   * The sorting order.
+   * 
+   * Valid values:
+   * 
+   * *   asc: The instances are sorted in ascending order.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   desc
+   * 
+   *     <!-- -->
+   * 
+   *     : The instances are sorted in descending order.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * desc
+   */
+  order?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The field that you use to sort the query results.
+   * 
+   * Valid values:
+   * 
+   * *   CreateTime
+   * 
+   *     <!-- -->
+   * 
+   *     : The instances are sorted based on the time when the instances were created.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   MemoryUsed
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     The instances are sorted based on the memory usage of the instances
+   * 
+   *     <!-- -->
+   * 
+   *     .
+   * 
+   * *   GpuUsed
+   * 
+   *     <!-- -->
+   * 
+   *     : The instances are sorted based on the
+   * 
+   *     <!-- -->
+   * 
+   *     GPU usage of the instances.
+   * 
+   *     <!-- -->
+   * 
+   * *   ExpireTime: The instances are sorted based on the time when the instances expired.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   CpuUsed
+   * 
+   *     <!-- -->
+   * 
+   *     :
+   * 
+   *     <!-- -->
+   * 
+   *     The instances are sorted based on the CPU utilization of the instances.
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * CreateTime
+   */
+  sort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      filter: 'Filter',
+      instanceIP: 'InstanceIP',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceStatus: 'InstanceStatus',
+      labelShrink: 'Label',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sort: 'Sort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      filter: 'string',
+      instanceIP: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceStatus: 'string',
+      labelShrink: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sort: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The instances.
@@ -8211,12 +12843,19 @@ export class ListResourceInstancesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceInstancesResponse extends $tea.Model {
+export class ListResourceInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListResourceInstancesResponseBody;
@@ -8236,12 +12875,22 @@ export class ListResourceInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceServicesRequest extends $tea.Model {
+export class ListResourceServicesRequest extends $dara.Model {
   /**
    * @remarks
    * The page number. Pages start from page 1. Default value: 1.
@@ -8272,12 +12921,16 @@ export class ListResourceServicesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceServicesResponseBody extends $tea.Model {
+export class ListResourceServicesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.
@@ -8335,12 +12988,19 @@ export class ListResourceServicesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.services)) {
+      $dara.Model.validateArray(this.services);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourceServicesResponse extends $tea.Model {
+export class ListResourceServicesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListResourceServicesResponseBody;
@@ -8360,12 +13020,23 @@ export class ListResourceServicesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourcesRequest extends $tea.Model {
+export class ListResourcesRequest extends $dara.Model {
+  order?: string;
   /**
    * @remarks
    * The page number. Pages start from page 1. Default value: 1.
@@ -8398,6 +13069,7 @@ export class ListResourcesRequest extends $tea.Model {
    * MyResource
    */
   resourceName?: string;
+  resourceStatus?: string;
   /**
    * @remarks
    * The type of the resource group. Valid values:
@@ -8409,24 +13081,35 @@ export class ListResourcesRequest extends $tea.Model {
    * Dedicated
    */
   resourceType?: string;
+  sort?: string;
   static names(): { [key: string]: string } {
     return {
+      order: 'Order',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       resourceId: 'ResourceId',
       resourceName: 'ResourceName',
+      resourceStatus: 'ResourceStatus',
       resourceType: 'ResourceType',
+      sort: 'Sort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      order: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       resourceId: 'string',
       resourceName: 'string',
+      resourceStatus: 'string',
       resourceType: 'string',
+      sort: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -8434,7 +13117,7 @@ export class ListResourcesRequest extends $tea.Model {
   }
 }
 
-export class ListResourcesResponseBody extends $tea.Model {
+export class ListResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.
@@ -8492,12 +13175,19 @@ export class ListResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourcesResponse extends $tea.Model {
+export class ListResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListResourcesResponseBody;
@@ -8517,12 +13207,22 @@ export class ListResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceContainersResponseBody extends $tea.Model {
+export class ListServiceContainersResponseBody extends $dara.Model {
   /**
    * @remarks
    * The containers of the service.
@@ -8560,12 +13260,19 @@ export class ListServiceContainersResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.containers)) {
+      $dara.Model.validateArray(this.containers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceContainersResponse extends $tea.Model {
+export class ListServiceContainersResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceContainersResponseBody;
@@ -8585,12 +13292,22 @@ export class ListServiceContainersResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstancesRequest extends $tea.Model {
+export class ListServiceInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The keyword used to query instances. Instances can be queried based on instance name, instance IP address, IP address of the server where the instance resides, and instance type.
@@ -8845,12 +13562,16 @@ export class ListServiceInstancesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstancesResponseBody extends $tea.Model {
+export class ListServiceInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The instances.
@@ -8908,12 +13629,19 @@ export class ListServiceInstancesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceInstancesResponse extends $tea.Model {
+export class ListServiceInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceInstancesResponseBody;
@@ -8933,12 +13661,22 @@ export class ListServiceInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceVersionsRequest extends $tea.Model {
+export class ListServiceVersionsRequest extends $dara.Model {
   /**
    * @remarks
    * The page number. Default value: 1.
@@ -8969,12 +13707,16 @@ export class ListServiceVersionsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceVersionsResponseBody extends $tea.Model {
+export class ListServiceVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.
@@ -9032,12 +13774,19 @@ export class ListServiceVersionsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.versions)) {
+      $dara.Model.validateArray(this.versions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServiceVersionsResponse extends $tea.Model {
+export class ListServiceVersionsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServiceVersionsResponseBody;
@@ -9057,12 +13806,22 @@ export class ListServiceVersionsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServicesRequest extends $tea.Model {
+export class ListServicesRequest extends $dara.Model {
   /**
    * @remarks
    * The field that is used for fuzzy matches. The system performs fuzzy matches only by service name.
@@ -9440,12 +14199,19 @@ export class ListServicesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.label) {
+      $dara.Model.validateMap(this.label);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServicesShrinkRequest extends $tea.Model {
+export class ListServicesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The field that is used for fuzzy matches. The system performs fuzzy matches only by service name.
@@ -9823,12 +14589,16 @@ export class ListServicesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServicesResponseBody extends $tea.Model {
+export class ListServicesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.
@@ -9886,12 +14656,19 @@ export class ListServicesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.services)) {
+      $dara.Model.validateArray(this.services);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListServicesResponse extends $tea.Model {
+export class ListServicesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListServicesResponseBody;
@@ -9911,12 +14688,22 @@ export class ListServicesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTenantAddonsResponseBody extends $tea.Model {
+export class ListTenantAddonsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the plug-in.
@@ -9944,12 +14731,19 @@ export class ListTenantAddonsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.addons)) {
+      $dara.Model.validateArray(this.addons);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTenantAddonsResponse extends $tea.Model {
+export class ListTenantAddonsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTenantAddonsResponseBody;
@@ -9969,12 +14763,22 @@ export class ListTenantAddonsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVirtualResourceRequest extends $tea.Model {
+export class ListVirtualResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The page number. Pages start from page 1. Default value: 1.
@@ -10025,12 +14829,16 @@ export class ListVirtualResourceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVirtualResourceResponseBody extends $tea.Model {
+export class ListVirtualResourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.
@@ -10088,12 +14896,19 @@ export class ListVirtualResourceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.virtualResources)) {
+      $dara.Model.validateArray(this.virtualResources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVirtualResourceResponse extends $tea.Model {
+export class ListVirtualResourceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListVirtualResourceResponseBody;
@@ -10113,12 +14928,22 @@ export class ListVirtualResourceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReinstallTenantAddonResponseBody extends $tea.Model {
+export class ReinstallTenantAddonResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -10149,12 +14974,16 @@ export class ReinstallTenantAddonResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReinstallTenantAddonResponse extends $tea.Model {
+export class ReinstallTenantAddonResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ReinstallTenantAddonResponseBody;
@@ -10174,12 +15003,22 @@ export class ReinstallTenantAddonResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReleaseServiceRequest extends $tea.Model {
+export class ReleaseServiceRequest extends $dara.Model {
   /**
    * @remarks
    * The traffic state. Valid values:
@@ -10193,7 +15032,7 @@ export class ReleaseServiceRequest extends $tea.Model {
   trafficState?: string;
   /**
    * @remarks
-   * The weight of the canary release. Valid values: 0 to 100.
+   * The weight of the service. Valid values: [-1, 1000].
    * 
    * @example
    * 100
@@ -10213,12 +15052,16 @@ export class ReleaseServiceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReleaseServiceResponseBody extends $tea.Model {
+export class ReleaseServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -10249,12 +15092,16 @@ export class ReleaseServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReleaseServiceResponse extends $tea.Model {
+export class ReleaseServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ReleaseServiceResponseBody;
@@ -10274,12 +15121,22 @@ export class ReleaseServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RestartServiceResponseBody extends $tea.Model {
+export class RestartServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -10310,12 +15167,16 @@ export class RestartServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RestartServiceResponse extends $tea.Model {
+export class RestartServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RestartServiceResponseBody;
@@ -10335,12 +15196,22 @@ export class RestartServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartBenchmarkTaskResponseBody extends $tea.Model {
+export class StartBenchmarkTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -10371,12 +15242,16 @@ export class StartBenchmarkTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartBenchmarkTaskResponse extends $tea.Model {
+export class StartBenchmarkTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartBenchmarkTaskResponseBody;
@@ -10396,12 +15271,22 @@ export class StartBenchmarkTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartServiceResponseBody extends $tea.Model {
+export class StartServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -10432,12 +15317,16 @@ export class StartServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartServiceResponse extends $tea.Model {
+export class StartServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartServiceResponseBody;
@@ -10457,12 +15346,22 @@ export class StartServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopBenchmarkTaskResponseBody extends $tea.Model {
+export class StopBenchmarkTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -10493,12 +15392,16 @@ export class StopBenchmarkTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopBenchmarkTaskResponse extends $tea.Model {
+export class StopBenchmarkTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StopBenchmarkTaskResponseBody;
@@ -10518,12 +15421,22 @@ export class StopBenchmarkTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopServiceResponseBody extends $tea.Model {
+export class StopServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -10554,12 +15467,16 @@ export class StopServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopServiceResponse extends $tea.Model {
+export class StopServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StopServiceResponseBody;
@@ -10579,12 +15496,22 @@ export class StopServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAppServiceRequest extends $tea.Model {
+export class UpdateAppServiceRequest extends $dara.Model {
   /**
    * @remarks
    * The quota ID.
@@ -10683,12 +15610,19 @@ export class UpdateAppServiceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.config) {
+      $dara.Model.validateMap(this.config);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAppServiceResponseBody extends $tea.Model {
+export class UpdateAppServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -10719,12 +15653,16 @@ export class UpdateAppServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAppServiceResponse extends $tea.Model {
+export class UpdateAppServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateAppServiceResponseBody;
@@ -10744,12 +15682,22 @@ export class UpdateAppServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateBenchmarkTaskRequest extends $tea.Model {
+export class UpdateBenchmarkTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The request body. The body includes the parameters that are set to create a stress testing task. For more information, see **Table 1. Fields in the base parameter**.
@@ -10774,12 +15722,16 @@ export class UpdateBenchmarkTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateBenchmarkTaskResponseBody extends $tea.Model {
+export class UpdateBenchmarkTaskResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -10810,12 +15762,16 @@ export class UpdateBenchmarkTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateBenchmarkTaskResponse extends $tea.Model {
+export class UpdateBenchmarkTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateBenchmarkTaskResponseBody;
@@ -10835,12 +15791,22 @@ export class UpdateBenchmarkTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateGatewayRequest extends $tea.Model {
+export class UpdateGatewayRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable Internet access. Default value: false.
@@ -10932,12 +15898,16 @@ export class UpdateGatewayRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateGatewayResponseBody extends $tea.Model {
+export class UpdateGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the gateway.
@@ -10978,12 +15948,16 @@ export class UpdateGatewayResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateGatewayResponse extends $tea.Model {
+export class UpdateGatewayResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateGatewayResponseBody;
@@ -11003,12 +15977,22 @@ export class UpdateGatewayResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateResourceRequest extends $tea.Model {
+export class UpdateResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The new name of the resource group after the update. The name can be up to 27 characters in length.
@@ -11036,12 +16020,19 @@ export class UpdateResourceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.selfManagedResourceOptions && typeof (this.selfManagedResourceOptions as any).validate === 'function') {
+      (this.selfManagedResourceOptions as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateResourceResponseBody extends $tea.Model {
+export class UpdateResourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -11082,12 +16073,16 @@ export class UpdateResourceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateResourceResponse extends $tea.Model {
+export class UpdateResourceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateResourceResponseBody;
@@ -11107,12 +16102,22 @@ export class UpdateResourceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateResourceDLinkRequest extends $tea.Model {
+export class UpdateResourceDLinkRequest extends $dara.Model {
   /**
    * @remarks
    * The CIDR blocks of the clients that you want to connect to. After this parameter is specified, the CIDR blocks are added to the back-to-origin route of the server. Either this parameter or the VSwitchIdList parameter can be used to determine CIDR blocks.
@@ -11164,12 +16169,19 @@ export class UpdateResourceDLinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.vSwitchIdList)) {
+      $dara.Model.validateArray(this.vSwitchIdList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateResourceDLinkResponseBody extends $tea.Model {
+export class UpdateResourceDLinkResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -11200,12 +16212,16 @@ export class UpdateResourceDLinkResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateResourceDLinkResponse extends $tea.Model {
+export class UpdateResourceDLinkResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateResourceDLinkResponseBody;
@@ -11225,12 +16241,22 @@ export class UpdateResourceDLinkResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateResourceInstanceRequest extends $tea.Model {
+export class UpdateResourceInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The operation that updates the scheduling state of the instance in a dedicated resource group. Valid values:
@@ -11257,12 +16283,16 @@ export class UpdateResourceInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateResourceInstanceResponseBody extends $tea.Model {
+export class UpdateResourceInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The instance ID.
@@ -11303,12 +16333,16 @@ export class UpdateResourceInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateResourceInstanceResponse extends $tea.Model {
+export class UpdateResourceInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateResourceInstanceResponseBody;
@@ -11328,12 +16362,169 @@ export class UpdateResourceInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceRequest extends $tea.Model {
+export class UpdateResourceInstanceLabelRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  allInstances?: boolean;
+  instanceIds?: string[];
+  labels?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      allInstances: 'AllInstances',
+      instanceIds: 'InstanceIds',
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allInstances: 'boolean',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceInstanceLabelShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  allInstances?: boolean;
+  instanceIdsShrink?: string;
+  labels?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      allInstances: 'AllInstances',
+      instanceIdsShrink: 'InstanceIds',
+      labels: 'Labels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allInstances: 'boolean',
+      instanceIdsShrink: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceInstanceLabelResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateResourceInstanceLabelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateResourceInstanceLabelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateResourceInstanceLabelResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the service update. Valid values: merge and replace. By default, merge is used if you do not specify this parameter.
@@ -11367,12 +16558,16 @@ export class UpdateServiceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceResponseBody extends $tea.Model {
+export class UpdateServiceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -11403,12 +16598,16 @@ export class UpdateServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceResponse extends $tea.Model {
+export class UpdateServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateServiceResponseBody;
@@ -11428,12 +16627,22 @@ export class UpdateServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceAutoScalerRequest extends $tea.Model {
+export class UpdateServiceAutoScalerRequest extends $dara.Model {
   /**
    * @remarks
    * The Autoscaler operation.
@@ -11484,12 +16693,22 @@ export class UpdateServiceAutoScalerRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.behavior && typeof (this.behavior as any).validate === 'function') {
+      (this.behavior as any).validate();
+    }
+    if(Array.isArray(this.scaleStrategies)) {
+      $dara.Model.validateArray(this.scaleStrategies);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceAutoScalerResponseBody extends $tea.Model {
+export class UpdateServiceAutoScalerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -11520,12 +16739,16 @@ export class UpdateServiceAutoScalerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceAutoScalerResponse extends $tea.Model {
+export class UpdateServiceAutoScalerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateServiceAutoScalerResponseBody;
@@ -11545,12 +16768,22 @@ export class UpdateServiceAutoScalerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceCronScalerRequest extends $tea.Model {
+export class UpdateServiceCronScalerRequest extends $dara.Model {
   /**
    * @remarks
    * The points in time that are excluded when you schedule a CronHPA job. The points in time must be specified by using a cron expression.
@@ -11577,12 +16810,22 @@ export class UpdateServiceCronScalerRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.excludeDates)) {
+      $dara.Model.validateArray(this.excludeDates);
+    }
+    if(Array.isArray(this.scaleJobs)) {
+      $dara.Model.validateArray(this.scaleJobs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceCronScalerResponseBody extends $tea.Model {
+export class UpdateServiceCronScalerResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -11613,12 +16856,16 @@ export class UpdateServiceCronScalerResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceCronScalerResponse extends $tea.Model {
+export class UpdateServiceCronScalerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateServiceCronScalerResponseBody;
@@ -11638,12 +16885,22 @@ export class UpdateServiceCronScalerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceInstanceRequest extends $tea.Model {
+export class UpdateServiceInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to isolate the service instance. Valid values:
@@ -11667,12 +16924,16 @@ export class UpdateServiceInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceInstanceResponseBody extends $tea.Model {
+export class UpdateServiceInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -11703,12 +16964,16 @@ export class UpdateServiceInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceInstanceResponse extends $tea.Model {
+export class UpdateServiceInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateServiceInstanceResponseBody;
@@ -11728,12 +16993,22 @@ export class UpdateServiceInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceLabelRequest extends $tea.Model {
+export class UpdateServiceLabelRequest extends $dara.Model {
   /**
    * @remarks
    * The custom service tags.
@@ -11753,12 +17028,19 @@ export class UpdateServiceLabelRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceLabelResponseBody extends $tea.Model {
+export class UpdateServiceLabelResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -11789,12 +17071,16 @@ export class UpdateServiceLabelResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceLabelResponse extends $tea.Model {
+export class UpdateServiceLabelResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateServiceLabelResponseBody;
@@ -11814,12 +17100,22 @@ export class UpdateServiceLabelResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceMirrorRequest extends $tea.Model {
+export class UpdateServiceMirrorRequest extends $dara.Model {
   /**
    * @remarks
    * The percentage of traffic that you want to mirror. Valid values: 0 to 100.
@@ -11847,12 +17143,19 @@ export class UpdateServiceMirrorRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.target)) {
+      $dara.Model.validateArray(this.target);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceMirrorResponseBody extends $tea.Model {
+export class UpdateServiceMirrorResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -11883,12 +17186,16 @@ export class UpdateServiceMirrorResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceMirrorResponse extends $tea.Model {
+export class UpdateServiceMirrorResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateServiceMirrorResponseBody;
@@ -11908,12 +17215,22 @@ export class UpdateServiceMirrorResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceSafetyLockRequest extends $tea.Model {
+export class UpdateServiceSafetyLockRequest extends $dara.Model {
   /**
    * @remarks
    * The lock scope. Valid values:
@@ -11940,12 +17257,16 @@ export class UpdateServiceSafetyLockRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceSafetyLockResponseBody extends $tea.Model {
+export class UpdateServiceSafetyLockResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -11976,12 +17297,16 @@ export class UpdateServiceSafetyLockResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceSafetyLockResponse extends $tea.Model {
+export class UpdateServiceSafetyLockResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateServiceSafetyLockResponseBody;
@@ -12001,12 +17326,22 @@ export class UpdateServiceSafetyLockResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceVersionRequest extends $tea.Model {
+export class UpdateServiceVersionRequest extends $dara.Model {
   /**
    * @remarks
    * The destination version of the service. The value must be of the INT type. The value must be greater than 0 and smaller than the current version of the service.
@@ -12029,12 +17364,16 @@ export class UpdateServiceVersionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceVersionResponseBody extends $tea.Model {
+export class UpdateServiceVersionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -12065,12 +17404,16 @@ export class UpdateServiceVersionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateServiceVersionResponse extends $tea.Model {
+export class UpdateServiceVersionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateServiceVersionResponseBody;
@@ -12090,12 +17433,23 @@ export class UpdateServiceVersionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateVirtualResourceRequest extends $tea.Model {
+export class UpdateVirtualResourceRequest extends $dara.Model {
+  disableSpotProtectionPeriod?: boolean;
   /**
    * @remarks
    * The list of resources in the virtual resource group.
@@ -12113,6 +17467,7 @@ export class UpdateVirtualResourceRequest extends $tea.Model {
   virtualResourceName?: string;
   static names(): { [key: string]: string } {
     return {
+      disableSpotProtectionPeriod: 'DisableSpotProtectionPeriod',
       resources: 'Resources',
       virtualResourceName: 'VirtualResourceName',
     };
@@ -12120,9 +17475,17 @@ export class UpdateVirtualResourceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      disableSpotProtectionPeriod: 'boolean',
       resources: { 'type': 'array', 'itemType': UpdateVirtualResourceRequestResources },
       virtualResourceName: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -12130,7 +17493,7 @@ export class UpdateVirtualResourceRequest extends $tea.Model {
   }
 }
 
-export class UpdateVirtualResourceResponseBody extends $tea.Model {
+export class UpdateVirtualResourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
@@ -12161,12 +17524,16 @@ export class UpdateVirtualResourceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateVirtualResourceResponse extends $tea.Model {
+export class UpdateVirtualResourceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateVirtualResourceResponseBody;
@@ -12186,2531 +17553,14 @@ export class UpdateVirtualResourceResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ServiceLabels extends $tea.Model {
-  labelKey?: string;
-  labelValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      labelKey: 'LabelKey',
-      labelValue: 'LabelValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labelKey: 'string',
-      labelValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachGatewayDomainRequestCustomDomain extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the SSL certificate bound to the domain name. Obtain the certificate ID after you upload or purchase a certificate in the [Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc\\&p=cas) console.
-   * 
-   * @example
-   * 1473**25
-   */
-  certificateId?: string;
-  /**
-   * @remarks
-   * The custom domain name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test.com
-   */
-  domain?: string;
-  /**
-   * @remarks
-   * The domain name type.
-   * 
-   * Valid value:
-   * 
-   * *   intranet: internal network.
-   * *   internet: public network.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * intranet
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateId: 'CertificateId',
-      domain: 'Domain',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateId: 'string',
-      domain: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAclPolicyRequestAclPolicyList extends $tea.Model {
-  /**
-   * @remarks
-   * The comment on the IP CIDR block in the VPC that can access the private gateway.
-   * 
-   * @example
-   * default
-   */
-  comment?: string;
-  /**
-   * @remarks
-   * The IP CIDR block in the VPC that can access the private gateway.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10.23.XX.XX/32
-   */
-  entry?: string;
-  static names(): { [key: string]: string } {
-    return {
-      comment: 'Comment',
-      entry: 'Entry',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comment: 'string',
-      entry: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGatewayIntranetLinkedVpcPeerRequestPeerVpcs extends $tea.Model {
-  /**
-   * @remarks
-   * The region where the VPC peer resides.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  region?: string;
-  /**
-   * @remarks
-   * The ID of the VPC peer. To obtain the VPC ID, see [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html).
-   * 
-   * @example
-   * vpc-uf66uio7md****
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateResourceRequestSelfManagedResourceOptionsNodeTolerations extends $tea.Model {
-  /**
-   * @remarks
-   * The result.
-   * 
-   * Valid values:
-   * 
-   * *   PreferNoSchedule
-   * *   NoSchedule
-   * *   NoExecute
-   * 
-   * @example
-   * NoSchedule
-   */
-  effect?: string;
-  /**
-   * @remarks
-   * The key name.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The relationship between key names and key values.
-   * 
-   * Valid values:
-   * 
-   * *   Equal
-   * *   Exists
-   * 
-   * @example
-   * Equal
-   */
-  operator?: string;
-  /**
-   * @remarks
-   * The key value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      effect: 'effect',
-      key: 'key',
-      operator: 'operator',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effect: 'string',
-      key: 'string',
-      operator: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateResourceRequestSelfManagedResourceOptions extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the self-managed cluster.
-   * 
-   * @example
-   * cf0386f250f2545689ca7fdd1cd******
-   */
-  externalClusterId?: string;
-  /**
-   * @remarks
-   * The tag key-value pairs for nodes.
-   */
-  nodeMatchLabels?: { [key: string]: string };
-  /**
-   * @remarks
-   * Tolerations for nodes.
-   */
-  nodeTolerations?: CreateResourceRequestSelfManagedResourceOptionsNodeTolerations[];
-  /**
-   * @remarks
-   * The name of the RAM user to which the permissions on Elastic Algorithm Service of Platform for AI (PAI-EAS) are granted.
-   * 
-   * @example
-   * clusterrole
-   */
-  roleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      externalClusterId: 'ExternalClusterId',
-      nodeMatchLabels: 'NodeMatchLabels',
-      nodeTolerations: 'NodeTolerations',
-      roleName: 'RoleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      externalClusterId: 'string',
-      nodeMatchLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      nodeTolerations: { 'type': 'array', 'itemType': CreateResourceRequestSelfManagedResourceOptionsNodeTolerations },
-      roleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceAutoScalerRequestBehaviorOnZero extends $tea.Model {
-  /**
-   * @remarks
-   * The time window that is required before the number of instances is reduced to 0. The number of instances can be reduced to 0 only if no request is available or no traffic exists in the specified time window. Default value: 600.
-   * 
-   * @example
-   * 600
-   */
-  scaleDownGracePeriodSeconds?: number;
-  /**
-   * @remarks
-   * The number of instances that you want to create at a time if the number of instances is 0. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  scaleUpActivationReplicas?: number;
-  static names(): { [key: string]: string } {
-    return {
-      scaleDownGracePeriodSeconds: 'scaleDownGracePeriodSeconds',
-      scaleUpActivationReplicas: 'scaleUpActivationReplicas',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      scaleDownGracePeriodSeconds: 'number',
-      scaleUpActivationReplicas: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceAutoScalerRequestBehaviorScaleDown extends $tea.Model {
-  /**
-   * @remarks
-   * The time window that is required before the scale-in operation is performed. The scale-in operation can be performed only if the specified metric drops below the specified threshold in the specified time window. Default value: 300.
-   * 
-   * @example
-   * 300
-   */
-  stabilizationWindowSeconds?: number;
-  static names(): { [key: string]: string } {
-    return {
-      stabilizationWindowSeconds: 'stabilizationWindowSeconds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stabilizationWindowSeconds: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceAutoScalerRequestBehaviorScaleUp extends $tea.Model {
-  /**
-   * @remarks
-   * The time window that is required before the scale-out operation is performed. The scale-out operation can be performed only if the specified metric exceeds the specified threshold in the specified time window. Default value: 0.
-   * 
-   * @example
-   * 0
-   */
-  stabilizationWindowSeconds?: number;
-  static names(): { [key: string]: string } {
-    return {
-      stabilizationWindowSeconds: 'stabilizationWindowSeconds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stabilizationWindowSeconds: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceAutoScalerRequestBehavior extends $tea.Model {
-  /**
-   * @remarks
-   * The operation that reduces the number of instances to 0.
-   */
-  onZero?: CreateServiceAutoScalerRequestBehaviorOnZero;
-  /**
-   * @remarks
-   * The scale-in operation.
-   */
-  scaleDown?: CreateServiceAutoScalerRequestBehaviorScaleDown;
-  /**
-   * @remarks
-   * The scale-out operation.
-   */
-  scaleUp?: CreateServiceAutoScalerRequestBehaviorScaleUp;
-  static names(): { [key: string]: string } {
-    return {
-      onZero: 'onZero',
-      scaleDown: 'scaleDown',
-      scaleUp: 'scaleUp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      onZero: CreateServiceAutoScalerRequestBehaviorOnZero,
-      scaleDown: CreateServiceAutoScalerRequestBehaviorScaleDown,
-      scaleUp: CreateServiceAutoScalerRequestBehaviorScaleUp,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceAutoScalerRequestScaleStrategies extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the metric for triggering auto scaling. Valid values:
-   * 
-   * *   qps: the queries per second (qps) for an individual instance.
-   * *   cpu: the cpu utilization.
-   * * gpu[util]: gpu utilization.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * qps
-   */
-  metricName?: string;
-  /**
-   * @remarks
-   * The service for which the metric is specified. If you do not set this parameter, the current service is specified by default.
-   * 
-   * @example
-   * demo_svc
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The threshold of the metric that triggers auto scaling.
-   * 
-   * *   If you set metricName to qps, scale-out is triggered when the average qps for a single instance is greater than this threshold.
-   * *   If you set metricName to cpu, scale-out is triggered when the average cpu utilization for a single instance is greater than this threshold.
-   * *   If you set metricName to gpu, scale-out is triggered when the average cpu utilization for a single instance is greater than this threshold.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  threshold?: number;
-  static names(): { [key: string]: string } {
-    return {
-      metricName: 'metricName',
-      service: 'service',
-      threshold: 'threshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      metricName: 'string',
-      service: 'string',
-      threshold: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceCronScalerRequestScaleJobs extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the CronHPA job.
-   * 
-   * @example
-   * scale-job-1
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The cron expression that is used to configure the execution time of the CronHPA job. For more information about how to configure cron expressions, see **Description of special characters** in this topic.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0 18 * * * *
-   */
-  schedule?: string;
-  /**
-   * @remarks
-   * The number of instances that you want to configure for the CronHPA job.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  targetSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      schedule: 'Schedule',
-      targetSize: 'TargetSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      schedule: 'string',
-      targetSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateVirtualResourceRequestResources extends $tea.Model {
-  /**
-   * @remarks
-   * The instance type of the public resource group.
-   * 
-   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
-   * 
-   * @example
-   * ecs.s6-c1m2.xlarge
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The priority of resource scheduling. A greater number specifies a higher priority.
-   * 
-   * @example
-   * 6
-   */
-  priority?: number;
-  /**
-   * @remarks
-   * Lingjun Resource Quota ID.
-   * 
-   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
-   * 
-   * @example
-   * quota185lqxxxxxx
-   */
-  quotaId?: string;
-  /**
-   * @remarks
-   * The region where the resource resides.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  /**
-   * @remarks
-   * The ID of the dedicated resource group. For information about how to query the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
-   * 
-   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
-   * 
-   * @example
-   * eas-r-g55ieatgg3buxxxxxx
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The maximum price of preemptible instances in a public resource group.
-   * 
-   * >  If you do not set this value, preemptible instances are not used.
-   * 
-   * @example
-   * 10.05
-   */
-  spotPriceLimit?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceType: 'InstanceType',
-      priority: 'Priority',
-      quotaId: 'QuotaId',
-      region: 'Region',
-      resourceId: 'ResourceId',
-      spotPriceLimit: 'SpotPriceLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceType: 'string',
-      priority: 'number',
-      quotaId: 'string',
-      region: 'string',
-      resourceId: 'string',
-      spotPriceLimit: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAclPolicyRequestAclPolicyList extends $tea.Model {
-  /**
-   * @remarks
-   * The comment on the IP CIDR block in the VPC that can access the private gateway.
-   * 
-   * @example
-   * default
-   */
-  comment?: string;
-  /**
-   * @remarks
-   * The IP CIDR block in the VPC that can access the private gateway.
-   * 
-   * @example
-   * 10.23.XX.XX/32
-   */
-  entry?: string;
-  static names(): { [key: string]: string } {
-    return {
-      comment: 'Comment',
-      entry: 'Entry',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comment: 'string',
-      entry: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteGatewayIntranetLinkedVpcPeerRequestPeerVpcs extends $tea.Model {
-  /**
-   * @remarks
-   * The region where the VPC peer resides.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  region?: string;
-  /**
-   * @remarks
-   * The ID of the VPC peer.
-   * 
-   * @example
-   * vpc-uf66uio7md****
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGroupEndpointsResponseBodyEndpoints extends $tea.Model {
-  /**
-   * @example
-   * gw-26340kjxjx8l3r****
-   */
-  backendId?: string;
-  /**
-   * @example
-   * PrivateGateway
-   */
-  endpointType?: string;
-  internetEndpoints?: string[];
-  intranetEndpoints?: string[];
-  /**
-   * @example
-   * Group
-   */
-  pathType?: string;
-  /**
-   * @example
-   * 9090
-   */
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      backendId: 'BackendId',
-      endpointType: 'EndpointType',
-      internetEndpoints: 'InternetEndpoints',
-      intranetEndpoints: 'IntranetEndpoints',
-      pathType: 'PathType',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backendId: 'string',
-      endpointType: 'string',
-      internetEndpoints: { 'type': 'array', 'itemType': 'string' },
-      intranetEndpoints: { 'type': 'array', 'itemType': 'string' },
-      pathType: 'string',
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceAutoScalerResponseBodyCurrentMetrics extends $tea.Model {
-  /**
-   * @remarks
-   * The metric name. Valid values:
-   * 
-   * *   QPS
-   * *   CPU
-   * 
-   * @example
-   * qps
-   */
-  metricName?: string;
-  /**
-   * @remarks
-   * The service for which the metric is specified.
-   * 
-   * @example
-   * demo_svc
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The metric value.
-   * 
-   * @example
-   * 10
-   */
-  value?: number;
-  static names(): { [key: string]: string } {
-    return {
-      metricName: 'metricName',
-      service: 'service',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      metricName: 'string',
-      service: 'string',
-      value: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceAutoScalerResponseBodyScaleStrategies extends $tea.Model {
-  /**
-   * @remarks
-   * The metric name. Valid values:
-   * 
-   * *   QPS: the queries per second (QPS) for an individual instance.
-   * *   CPU: the CPU utilization.
-   * 
-   * @example
-   * QPS
-   */
-  metricName?: string;
-  /**
-   * @remarks
-   * The service for which the metric is specified. If you do not set this parameter, the current service is specified by default.
-   * 
-   * @example
-   * demo_svc
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The threshold of the metric that triggers auto scaling.
-   * 
-   * *   If you set metricName to QPS, scale-out is triggered when the average QPS for a single instance is greater than this threshold.
-   * *   If you set metricName to CPU, scale-out is triggered when the average CPU utilization for a single instance is greater than this threshold.
-   * 
-   * @example
-   * 10
-   */
-  threshold?: number;
-  static names(): { [key: string]: string } {
-    return {
-      metricName: 'metricName',
-      service: 'service',
-      threshold: 'threshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      metricName: 'string',
-      service: 'string',
-      threshold: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceCronScalerResponseBodyScaleJobs extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the most recent CronHPA job was created. The time is displayed in UTC.
-   * 
-   * @example
-   * 2020-06-24T02:11:30Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The time when the most recent CronHPA job ran. The time is displayed in UTC.
-   * 
-   * @example
-   * 2022-02-24T06:31:00Z
-   */
-  lastProbeTime?: string;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * "cron hpa job scale-jobs-0 executed successfully. current replicas:3, desired replicas:2."
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The name of the CronHPA job.
-   * 
-   * @example
-   * scale-job-1
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The cron expression that is used to configure the execution time of the CronHPA job.
-   * 
-   * @example
-   * 0 18 * * * *
-   */
-  schedule?: string;
-  /**
-   * @remarks
-   * The status of the most recent CronHPA job.
-   * 
-   * @example
-   * Succeed
-   */
-  state?: string;
-  /**
-   * @remarks
-   * The number of instances that you expect to configure for the CronHPA job.
-   * 
-   * @example
-   * 1
-   */
-  targetSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      lastProbeTime: 'LastProbeTime',
-      message: 'Message',
-      name: 'Name',
-      schedule: 'Schedule',
-      state: 'State',
-      targetSize: 'TargetSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      lastProbeTime: 'string',
-      message: 'string',
-      name: 'string',
-      schedule: 'string',
-      state: 'string',
-      targetSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceDiagnosisResponseBodyDiagnosisList extends $tea.Model {
-  /**
-   * @remarks
-   * The suggestions about how to handle the errors.
-   */
-  advices?: string[];
-  /**
-   * @remarks
-   * The causes of the errors.
-   */
-  causes?: string[];
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Container worker0 failed to pull image.
-   */
-  error?: string;
-  static names(): { [key: string]: string } {
-    return {
-      advices: 'Advices',
-      causes: 'Causes',
-      error: 'Error',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      advices: { 'type': 'array', 'itemType': 'string' },
-      causes: { 'type': 'array', 'itemType': 'string' },
-      error: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceEndpointsResponseBodyEndpoints extends $tea.Model {
-  /**
-   * @example
-   * nlb-5q4sp7u6oorkha****
-   */
-  backendId?: string;
-  /**
-   * @example
-   * Nlb
-   */
-  endpointType?: string;
-  internetEndpoints?: string[];
-  intranetEndpoints?: string[];
-  /**
-   * @example
-   * Service
-   */
-  pathType?: string;
-  /**
-   * @example
-   * 9090
-   */
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      backendId: 'BackendId',
-      endpointType: 'EndpointType',
-      internetEndpoints: 'InternetEndpoints',
-      intranetEndpoints: 'IntranetEndpoints',
-      pathType: 'PathType',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backendId: 'string',
-      endpointType: 'string',
-      internetEndpoints: { 'type': 'array', 'itemType': 'string' },
-      intranetEndpoints: { 'type': 'array', 'itemType': 'string' },
-      pathType: 'string',
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceEventResponseBodyEvents extends $tea.Model {
-  /**
-   * @remarks
-   * The returned message. The message is formatted and returned in the JSON format.
-   * 
-   * @example
-   * {\\"versionId\\":1,\\"message\\":\\"Stage scale complete\\",\\"availableInstance\\":1,\\"unavailableInstance\\":0}
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The cause of the event. The information about the change in the service status is returned.
-   * 
-   * @example
-   * Updating
-   */
-  reason?: string;
-  /**
-   * @remarks
-   * The time when the event occurred. The time must be in UTC.
-   * 
-   * @example
-   * 2022-04-09 06:30:00
-   */
-  time?: string;
-  /**
-   * @remarks
-   * The event type. Valid values:
-   * 
-   * *   Normal
-   * *   Warning
-   * 
-   * @example
-   * Normal
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      reason: 'Reason',
-      time: 'Time',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      reason: 'string',
-      time: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServiceInstanceDiagnosisResponseBodyDiagnosis extends $tea.Model {
-  /**
-   * @remarks
-   * The solutions to the errors.
-   */
-  advices?: string[];
-  /**
-   * @remarks
-   * The causes of the errors.
-   */
-  causes?: string[];
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Container worker0 failed to pull image.
-   */
-  error?: string;
-  static names(): { [key: string]: string } {
-    return {
-      advices: 'Advices',
-      causes: 'Causes',
-      error: 'Error',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      advices: { 'type': 'array', 'itemType': 'string' },
-      causes: { 'type': 'array', 'itemType': 'string' },
-      error: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpotDiscountHistoryResponseBodySpotDiscounts extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the ECS instance.
-   * 
-   * @example
-   * ecs.c7.large
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The discount for the preemptible instance. For example, 0.1 represents a 90% discount.
-   * 
-   * @example
-   * 0.1
-   */
-  spotDiscount?: string;
-  /**
-   * @remarks
-   * The time when the discount is available. The time must be in UTC.
-   * 
-   * @example
-   * 2024-04-10T10:00:00Z
-   */
-  timestamp?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-i
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceType: 'InstanceType',
-      spotDiscount: 'SpotDiscount',
-      timestamp: 'Timestamp',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceType: 'string',
-      spotDiscount: 'string',
-      timestamp: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVirtualResourceResponseBodyResources extends $tea.Model {
-  /**
-   * @remarks
-   * The instance type of the public resource group.
-   * 
-   * @example
-   * ecs.s6-c1m2.xlarge
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The priority of resource scheduling. A greater number specifies a higher priority.
-   * 
-   * @example
-   * 3
-   */
-  priority?: number;
-  /**
-   * @remarks
-   * The instance type of the public resource group.
-   * 
-   * @example
-   * quota185lqxxxxxx
-   */
-  quotaId?: string;
-  /**
-   * @remarks
-   * The region where the resource resides.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  /**
-   * @remarks
-   * The ID of the dedicated resource group.
-   * 
-   * @example
-   * eas-r-g55ieatgg3buxxxxxx
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The maximum price of preemptible instances in a public resource group.
-   * 
-   * @example
-   * 10.05
-   */
-  spotPriceLimit?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceType: 'InstanceType',
-      priority: 'Priority',
-      quotaId: 'QuotaId',
-      region: 'Region',
-      resourceId: 'ResourceId',
-      spotPriceLimit: 'SpotPriceLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceType: 'string',
-      priority: 'number',
-      quotaId: 'string',
-      region: 'string',
-      resourceId: 'string',
-      spotPriceLimit: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachGatewayDomainRequestCustomDomain extends $tea.Model {
-  /**
-   * @remarks
-   * The custom domain name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test.com
-   */
-  domain?: string;
-  /**
-   * @remarks
-   * The domain name type.
-   * 
-   * Valid value:
-   * 
-   * *   intranet: internal network.
-   * *   internet: public network.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * intranet
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList extends $tea.Model {
-  /**
-   * @remarks
-   * The comment on the IP CIDR block in the VPC that can access the private gateway over the Internet.
-   * 
-   * @example
-   * default
-   */
-  comment?: string;
-  /**
-   * @remarks
-   * The IP CIDR block in the VPC that can access the private gateway over the Internet.
-   * 
-   * @example
-   * 10.23.XX.XX/32
-   */
-  entry?: string;
-  static names(): { [key: string]: string } {
-    return {
-      comment: 'Comment',
-      entry: 'Entry',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comment: 'string',
-      entry: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAclPolicyResponseBodyInternetAclPolicyList extends $tea.Model {
-  /**
-   * @remarks
-   * The whitelisted IP CIDR blocks in the VPC that can access the private gateway over the Internet.
-   */
-  aclPolicyList?: ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList[];
-  static names(): { [key: string]: string } {
-    return {
-      aclPolicyList: 'AclPolicyList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aclPolicyList: { 'type': 'array', 'itemType': ListAclPolicyResponseBodyInternetAclPolicyListAclPolicyList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList extends $tea.Model {
-  /**
-   * @remarks
-   * The comment on the IP CIDR block in the VPC that can access the private gateway over the internal network.
-   * 
-   * @example
-   * Test Entry
-   */
-  comment?: string;
-  /**
-   * @remarks
-   * The IP CIDR block in the VPC that can access the private gateway over the internal network.
-   * 
-   * @example
-   * 192.168.XX.XX/24
-   */
-  entry?: string;
-  static names(): { [key: string]: string } {
-    return {
-      comment: 'Comment',
-      entry: 'Entry',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      comment: 'string',
-      entry: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAclPolicyResponseBodyIntranetVpcAclPolicyList extends $tea.Model {
-  /**
-   * @remarks
-   * The whitelisted IP CIDR blocks in the VPC that can access the private gateway over the internal network.
-   */
-  aclPolicyList?: ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList[];
-  /**
-   * @remarks
-   * The VPC ID. For more information about how to obtain the VPC ID, see DescribeVpcs.
-   * 
-   * @example
-   * vpc-uf66uio7md****
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aclPolicyList: 'AclPolicyList',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aclPolicyList: { 'type': 'array', 'itemType': ListAclPolicyResponseBodyIntranetVpcAclPolicyListAclPolicyList },
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBenchmarkTaskResponseBodyTasks extends $tea.Model {
-  /**
-   * @remarks
-   * The number of instances that are available for stress testing.
-   * 
-   * @example
-   * 2
-   */
-  availableAgent?: number;
-  /**
-   * @remarks
-   * The time when the stress testing task was created.
-   * 
-   * @example
-   * 2020-12-04T02:43:15Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * Benchmark task [benchmark-larec-test-1076] is Running
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The region ID of the stress testing task.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  region?: string;
-  /**
-   * @remarks
-   * The name of the service on which you want to perform a stress testing.
-   * 
-   * @example
-   * test_quota
-   */
-  serviceName?: string;
-  /**
-   * @remarks
-   * The state of the stress testing task.
-   * 
-   * Valid values:
-   * 
-   * *   Creating
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Starting
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DeleteFailed
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Running
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Stopping
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Error
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Updating
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Deleting
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   CreateFailed
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The ID of the stress testing task.
-   * 
-   * @example
-   * eas-b-gv4y86uvgt****i
-   */
-  taskId?: string;
-  /**
-   * @remarks
-   * The name of the stress testing task.
-   * 
-   * @example
-   * benchmark-larec-test-1076
-   */
-  taskName?: string;
-  /**
-   * @remarks
-   * The time when the stress testing task was updated.
-   * 
-   * @example
-   * 2020-06-24T03:11:30Z
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      availableAgent: 'AvailableAgent',
-      createTime: 'CreateTime',
-      message: 'Message',
-      region: 'Region',
-      serviceName: 'ServiceName',
-      status: 'Status',
-      taskId: 'TaskId',
-      taskName: 'TaskName',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      availableAgent: 'number',
-      createTime: 'string',
-      message: 'string',
-      region: 'string',
-      serviceName: 'string',
-      status: 'string',
-      taskId: 'string',
-      taskName: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGatewayResponseBodyGateways extends $tea.Model {
-  /**
-   * @remarks
-   * The billing method. Valid values:
-   * 
-   * *   PrePaid: subscription.
-   * *   PostPaid: pay-as-you-go.
-   * 
-   * @example
-   * PostPaid
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The time when the private gateway was created. The time is displayed in UTC.
-   * 
-   * @example
-   * 2020-05-19T14:19:42Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The private gateway ID.
-   * 
-   * @example
-   * gw-1uhcqmsc7x22******
-   */
-  gatewayId?: string;
-  /**
-   * @remarks
-   * The private gateway alias.
-   * 
-   * @example
-   * mygateway1
-   */
-  gatewayName?: string;
-  /**
-   * @remarks
-   * The type of instances used for the private gateway.
-   * 
-   * @example
-   * 2c4g
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The public endpoint.
-   * 
-   * @example
-   * gw-1uhcqmsc7x22******-1801786532******.cn-wulanchabu.pai-eas.aliyuncs.com
-   */
-  internetDomain?: string;
-  /**
-   * @remarks
-   * Indicates whether Internet access is enabled.
-   * 
-   * @example
-   * true
-   */
-  internetEnabled?: boolean;
-  /**
-   * @remarks
-   * The internal endpoint.
-   * 
-   * @example
-   * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-wulanchabu.pai-eas.aliyuncs.com
-   */
-  intranetDomain?: string;
-  /**
-   * @remarks
-   * Indicates whether it is the default private gateway.
-   * 
-   * @example
-   * true
-   */
-  isDefault?: boolean;
-  /**
-   * @remarks
-   * The number of nodes in the private gateway.
-   * 
-   * @example
-   * 2
-   */
-  replicas?: number;
-  /**
-   * @remarks
-   * Specifies whether to enable HTTP to HTTPS redirection.
-   * 
-   * @example
-   * true
-   */
-  SSLRedirectionEnabled?: boolean;
-  /**
-   * @remarks
-   * The state of the private gateway.
-   * 
-   * Valid values:
-   * 
-   * *   Creating
-   * *   Stopped
-   * *   Failed
-   * *   Running
-   * *   Deleted
-   * *   Deleting
-   * *   Waiting
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The time when the private gateway was updated. The time is displayed in UTC.
-   * 
-   * @example
-   * 2021-02-24T11:52:17Z
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      chargeType: 'ChargeType',
-      createTime: 'CreateTime',
-      gatewayId: 'GatewayId',
-      gatewayName: 'GatewayName',
-      instanceType: 'InstanceType',
-      internetDomain: 'InternetDomain',
-      internetEnabled: 'InternetEnabled',
-      intranetDomain: 'IntranetDomain',
-      isDefault: 'IsDefault',
-      replicas: 'Replicas',
-      SSLRedirectionEnabled: 'SSLRedirectionEnabled',
-      status: 'Status',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chargeType: 'string',
-      createTime: 'string',
-      gatewayId: 'string',
-      gatewayName: 'string',
-      instanceType: 'string',
-      internetDomain: 'string',
-      internetEnabled: 'boolean',
-      intranetDomain: 'string',
-      isDefault: 'boolean',
-      replicas: 'number',
-      SSLRedirectionEnabled: 'boolean',
-      status: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGatewayDomainsResponseBodyCustomDomains extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the SSL certificate bound to the domain name. Obtain the certificate ID after you upload or purchase a certificate in the [Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc\\&p=cas) console.
-   * 
-   * @example
-   * 1473**25
-   */
-  certificateId?: string;
-  /**
-   * @remarks
-   * The custom domain name.
-   * 
-   * @example
-   * test.com
-   */
-  domain?: string;
-  /**
-   * @remarks
-   * The domain name type.
-   * 
-   * Valid value:
-   * 
-   * *   intranet: internal network.
-   * *   internet: public network.
-   * 
-   * @example
-   * intranet
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certificateId: 'CertificateId',
-      domain: 'Domain',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certificateId: 'string',
-      domain: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList extends $tea.Model {
-  /**
-   * @remarks
-   * The IP address.
-   * 
-   * @example
-   * 192.168.10.11
-   */
-  ip?: string;
-  /**
-   * @remarks
-   * The security group ID.
-   * 
-   * @example
-   * sg-2ze4pgstgszvgq******
-   */
-  securityGroupId?: string;
-  /**
-   * @remarks
-   * The state of the private gateway.
-   * 
-   * Valid values:
-   * 
-   * *   Creating
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The private gateway is being created.
-   * 
-   *     <!-- -->
-   * 
-   * *   Running
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The private gateway is running.
-   * 
-   *     <!-- -->
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-8vb2qjoiio6m9pg******
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * The virtual private cloud (VPC) ID.
-   * 
-   * @example
-   * vpc-2zetuli9ws0qgjd******
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ip: 'Ip',
-      securityGroupId: 'SecurityGroupId',
-      status: 'Status',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ip: 'string',
-      securityGroupId: 'string',
-      status: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs extends $tea.Model {
-  /**
-   * @remarks
-   * The region where the VPC peer resides.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  region?: string;
-  /**
-   * @remarks
-   * The ID of the VPC peer.
-   * 
-   * @example
-   * vpc-uf66uio7md****
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcList extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the VPC peers.
-   */
-  peerVpcs?: ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs[];
-  /**
-   * @remarks
-   * The VPC ID.
-   * 
-   * @example
-   * vpc-2zetuli9ws0qgjd******
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      peerVpcs: 'PeerVpcs',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      peerVpcs: { 'type': 'array', 'itemType': ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs },
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListServiceVersionsResponseBodyVersions extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the service version was created. The time is displayed in UTC.
-   * 
-   * @example
-   * 2022-08-29T22:02:14Z
-   */
-  buildTime?: string;
-  /**
-   * @remarks
-   * Indicates whether the image is available. Valid values:
-   * 
-   * *   true: The image is available.
-   * *   false: The image is unavailable.
-   * *   unknown: The availability of the image is unknown.
-   * 
-   * @example
-   * true
-   */
-  imageAvailable?: string;
-  /**
-   * @remarks
-   * The image ID.
-   * 
-   * @example
-   * 4
-   */
-  imageId?: number;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * Service is Running
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The service deployment configurations. This parameter is returned only if the service is deployed by using a custom image.
-   * 
-   * @example
-   * {
-   *     "metadata": {
-   *         "cpu": 1,
-   *         "instance": 1,
-   *         "memory": 1024
-   *     },
-   *     "name": "echo"
-   * }
-   */
-  serviceConfig?: string;
-  /**
-   * @remarks
-   * Indicates whether Elastic Algorithm service (EAS) is activated. Valid values:
-   * 
-   * *   true: EAS is activated.
-   * *   false: EAS is not activated.
-   * *   unknown: The activation of EAS is unknown.
-   * 
-   * @example
-   * true
-   */
-  serviceRunnable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      buildTime: 'BuildTime',
-      imageAvailable: 'ImageAvailable',
-      imageId: 'ImageId',
-      message: 'Message',
-      serviceConfig: 'ServiceConfig',
-      serviceRunnable: 'ServiceRunnable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buildTime: 'string',
-      imageAvailable: 'string',
-      imageId: 'number',
-      message: 'string',
-      serviceConfig: 'string',
-      serviceRunnable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTenantAddonsResponseBodyAddons extends $tea.Model {
-  /**
-   * @remarks
-   * The attributes of the plug-in.
-   */
-  attributes?: { [key: string]: string };
-  /**
-   * @remarks
-   * The name of the plug-in.
-   * 
-   * @example
-   * prometheus_discovery
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      attributes: 'Attributes',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListVirtualResourceResponseBodyVirtualResources extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the virtual resource group was created.
-   * 
-   * @example
-   * 2024-10-16T17:52:49Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The time when the virtual resource group was last updated.
-   * 
-   * @example
-   * 2024-10-16T19:52:49Z
-   */
-  updateTime?: string;
-  /**
-   * @remarks
-   * The ID of the virtual resource group.
-   * 
-   * @example
-   * eas-vr-npovr28onap1xxxxxx
-   */
-  virtualResourceId?: string;
-  /**
-   * @remarks
-   * The name of the virtual resource group.
-   * 
-   * @example
-   * MyVirtualResource
-   */
-  virtualResourceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      updateTime: 'UpdateTime',
-      virtualResourceId: 'VirtualResourceId',
-      virtualResourceName: 'VirtualResourceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      updateTime: 'string',
-      virtualResourceId: 'string',
-      virtualResourceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations extends $tea.Model {
-  /**
-   * @remarks
-   * The effect.
-   * Valid values:
-   * - PreferNoSchedule
-   * - NoSchedule
-   * - NoExecute
-   * 
-   * @example
-   * NoSchedule
-   */
-  effect?: string;
-  /**
-   * @remarks
-   * The key name.
-   * 
-   * @example
-   * key1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * Relationship between key names and key values.
-   * Valid values:
-   * - Equal
-   * - Exists
-   * 
-   * @example
-   * Equal
-   */
-  operator?: string;
-  /**
-   * @remarks
-   * The key value.
-   * 
-   * @example
-   * value1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      effect: 'effect',
-      key: 'key',
-      operator: 'operator',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      effect: 'string',
-      key: 'string',
-      operator: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateResourceRequestSelfManagedResourceOptions extends $tea.Model {
-  /**
-   * @remarks
-   * Tag tag key-value pairs for nodes.
-   */
-  nodeMatchLabels?: { [key: string]: string };
-  /**
-   * @remarks
-   * Tolerations for nodes.
-   */
-  nodeTolerations?: UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations[];
-  static names(): { [key: string]: string } {
-    return {
-      nodeMatchLabels: 'NodeMatchLabels',
-      nodeTolerations: 'NodeTolerations',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodeMatchLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      nodeTolerations: { 'type': 'array', 'itemType': UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceAutoScalerRequestBehaviorOnZero extends $tea.Model {
-  /**
-   * @remarks
-   * The time window that is required before the number of instances is reduced to 0. Default value: 600. The number of instances can be reduced to 0 only if no request is available or no traffic exists in the specified time window.
-   * 
-   * @example
-   * 600
-   */
-  scaleDownGracePeriodSeconds?: number;
-  /**
-   * @remarks
-   * The number of instances that you want to create at a time if the number of instances is scaled out from 0. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  scaleUpActivationReplicas?: number;
-  static names(): { [key: string]: string } {
-    return {
-      scaleDownGracePeriodSeconds: 'scaleDownGracePeriodSeconds',
-      scaleUpActivationReplicas: 'scaleUpActivationReplicas',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      scaleDownGracePeriodSeconds: 'number',
-      scaleUpActivationReplicas: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceAutoScalerRequestBehaviorScaleDown extends $tea.Model {
-  /**
-   * @remarks
-   * The time window that is required before the scale-in operation is performed. Default value: 300. The scale-in operation can be performed only if the specified metric drops below the threshold in the specified time window.
-   * 
-   * @example
-   * 300
-   */
-  stabilizationWindowSeconds?: number;
-  static names(): { [key: string]: string } {
-    return {
-      stabilizationWindowSeconds: 'stabilizationWindowSeconds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stabilizationWindowSeconds: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceAutoScalerRequestBehaviorScaleUp extends $tea.Model {
-  /**
-   * @remarks
-   * The time window that is required before the scale-out operation is performed. Default value: 0. The scale-out operation can be performed only if the specified metric exceeds the specified threshold in the specified time window.
-   * 
-   * @example
-   * 0
-   */
-  stabilizationWindowSeconds?: number;
-  static names(): { [key: string]: string } {
-    return {
-      stabilizationWindowSeconds: 'stabilizationWindowSeconds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stabilizationWindowSeconds: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceAutoScalerRequestBehavior extends $tea.Model {
-  /**
-   * @remarks
-   * The operation that reduces the number of instances to 0.
-   */
-  onZero?: UpdateServiceAutoScalerRequestBehaviorOnZero;
-  /**
-   * @remarks
-   * The scale-in operation.
-   */
-  scaleDown?: UpdateServiceAutoScalerRequestBehaviorScaleDown;
-  /**
-   * @remarks
-   * The scale-out operation.
-   */
-  scaleUp?: UpdateServiceAutoScalerRequestBehaviorScaleUp;
-  static names(): { [key: string]: string } {
-    return {
-      onZero: 'onZero',
-      scaleDown: 'scaleDown',
-      scaleUp: 'scaleUp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      onZero: UpdateServiceAutoScalerRequestBehaviorOnZero,
-      scaleDown: UpdateServiceAutoScalerRequestBehaviorScaleDown,
-      scaleUp: UpdateServiceAutoScalerRequestBehaviorScaleUp,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceAutoScalerRequestScaleStrategies extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the metric for triggering auto scaling. Valid values:
-   * 
-   * *   qps: the queries per second (QPS) for an individual instance.
-   * *   cpu: the CPU utilization.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * qps
-   */
-  metricName?: string;
-  /**
-   * @remarks
-   * The service for which the metric is specified. If you do not set this parameter, the current service is specified by default.
-   * 
-   * @example
-   * demo_svc
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The threshold of the metric that triggers auto scaling.
-   * 
-   * *   If you set metricName to QPS, scale-out is triggered when the average QPS for a single instance is greater than this threshold.
-   * *   If you set metricName to CPU, scale-out is triggered when the average CPU utilization for a single instance is greater than this threshold.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 100
-   */
-  threshold?: number;
-  static names(): { [key: string]: string } {
-    return {
-      metricName: 'metricName',
-      service: 'service',
-      threshold: 'threshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      metricName: 'string',
-      service: 'string',
-      threshold: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceCronScalerRequestScaleJobs extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the CronHPA job.
-   * 
-   * @example
-   * scale-job-1
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The cron expression that is used to configure the execution time of the CronHPA job. For more information about how to configure cron expressions, see **Description of special characters** in this topic.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0 18 * * * *
-   */
-  schedule?: string;
-  /**
-   * @remarks
-   * The number of instances that you want to configure for the CronHPA job.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2
-   */
-  targetSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      schedule: 'Schedule',
-      targetSize: 'TargetSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      schedule: 'string',
-      targetSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateVirtualResourceRequestResources extends $tea.Model {
-  /**
-   * @remarks
-   * The instance type of the public resource group.
-   * 
-   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
-   * 
-   * @example
-   * ecs.s6-c1m2.xlarge
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The priority of resource scheduling. A greater number specifies a higher priority.
-   * 
-   * @example
-   * 6
-   */
-  priority?: number;
-  /**
-   * @remarks
-   * The Lingjun resource quota ID.
-   * 
-   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
-   * 
-   * @example
-   * quota185lqf994k6
-   */
-  quotaId?: string;
-  /**
-   * @remarks
-   * The region where the resource resides.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  /**
-   * @remarks
-   * The ID of the dedicated resource group. For information about how to query the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
-   * 
-   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
-   * 
-   * @example
-   * eas-r-g55ieatgg3butwrn7a
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The maximum price of preemptible instances in a public resource group.
-   * 
-   * >  If you do not specify this parameter, preemptible instances are not used.
-   * 
-   * @example
-   * 10.05
-   */
-  spotPriceLimit?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceType: 'InstanceType',
-      priority: 'Priority',
-      quotaId: 'QuotaId',
-      region: 'Region',
-      resourceId: 'ResourceId',
-      spotPriceLimit: 'SpotPriceLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceType: 'string',
-      priority: 'number',
-      quotaId: 'string',
-      region: 'string',
-      resourceId: 'string',
-      spotPriceLimit: 'number',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -14721,7 +17571,7 @@ export class UpdateVirtualResourceRequestResources extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
@@ -14747,15 +17597,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -14766,35 +17616,40 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachGatewayDomainResponse
    */
-  async attachGatewayDomainWithOptions(ClusterId: string, GatewayId: string, tmpReq: AttachGatewayDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AttachGatewayDomainResponse> {
-    Util.validateModel(tmpReq);
+  async attachGatewayDomainWithOptions(ClusterId: string, GatewayId: string, tmpReq: AttachGatewayDomainRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<AttachGatewayDomainResponse> {
+    tmpReq.validate();
     let request = new AttachGatewayDomainShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.customDomain)) {
+    if (!$dara.isNull(tmpReq.customDomain)) {
       request.customDomainShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customDomain, "CustomDomain", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.customDomainShrink)) {
+    if (!$dara.isNull(request.customDomainShrink)) {
       query["CustomDomain"] = request.customDomainShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AttachGatewayDomain",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/domain/attach`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/domain/attach`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<AttachGatewayDomainResponse>(await this.callApi(params, req, runtime), new AttachGatewayDomainResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AttachGatewayDomainResponse>(await this.callApi(params, req, runtime), new AttachGatewayDomainResponse({}));
+    } else {
+      return $dara.cast<AttachGatewayDomainResponse>(await this.execute(params, req, runtime), new AttachGatewayDomainResponse({}));
+    }
+
   }
 
   /**
@@ -14804,7 +17659,7 @@ export default class Client extends OpenApi {
    * @returns AttachGatewayDomainResponse
    */
   async attachGatewayDomain(ClusterId: string, GatewayId: string, request: AttachGatewayDomainRequest): Promise<AttachGatewayDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.attachGatewayDomainWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
@@ -14817,36 +17672,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CloneServiceResponse
    */
-  async cloneServiceWithOptions(ClusterId: string, ServiceName: string, tmpReq: CloneServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloneServiceResponse> {
-    Util.validateModel(tmpReq);
+  async cloneServiceWithOptions(ClusterId: string, ServiceName: string, tmpReq: CloneServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CloneServiceResponse> {
+    tmpReq.validate();
     let request = new CloneServiceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.labels)) {
+    if (!$dara.isNull(tmpReq.labels)) {
       request.labelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labels, "Labels", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labelsShrink)) {
+    if (!$dara.isNull(request.labelsShrink)) {
       query["Labels"] = request.labelsShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: request.body,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CloneService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/clone`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/clone`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CloneServiceResponse>(await this.callApi(params, req, runtime), new CloneServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CloneServiceResponse>(await this.callApi(params, req, runtime), new CloneServiceResponse({}));
+    } else {
+      return $dara.cast<CloneServiceResponse>(await this.execute(params, req, runtime), new CloneServiceResponse({}));
+    }
+
   }
 
   /**
@@ -14856,7 +17716,7 @@ export default class Client extends OpenApi {
    * @returns CloneServiceResponse
    */
   async cloneService(ClusterId: string, ServiceName: string, request: CloneServiceRequest): Promise<CloneServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cloneServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -14868,22 +17728,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CommitServiceResponse
    */
-  async commitServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CommitServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async commitServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CommitServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CommitService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/commit`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/commit`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CommitServiceResponse>(await this.callApi(params, req, runtime), new CommitServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CommitServiceResponse>(await this.callApi(params, req, runtime), new CommitServiceResponse({}));
+    } else {
+      return $dara.cast<CommitServiceResponse>(await this.execute(params, req, runtime), new CommitServiceResponse({}));
+    }
+
   }
 
   /**
@@ -14891,7 +17756,7 @@ export default class Client extends OpenApi {
    * @returns CommitServiceResponse
    */
   async commitService(ClusterId: string, ServiceName: string): Promise<CommitServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.commitServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
@@ -14904,39 +17769,44 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAclPolicyResponse
    */
-  async createAclPolicyWithOptions(ClusterId: string, GatewayId: string, tmpReq: CreateAclPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAclPolicyResponse> {
-    Util.validateModel(tmpReq);
+  async createAclPolicyWithOptions(ClusterId: string, GatewayId: string, tmpReq: CreateAclPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateAclPolicyResponse> {
+    tmpReq.validate();
     let request = new CreateAclPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.aclPolicyList)) {
+    if (!$dara.isNull(tmpReq.aclPolicyList)) {
       request.aclPolicyListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aclPolicyList, "AclPolicyList", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.aclPolicyListShrink)) {
+    if (!$dara.isNull(request.aclPolicyListShrink)) {
       query["AclPolicyList"] = request.aclPolicyListShrink;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAclPolicy",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/acl_policy`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/acl_policy`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateAclPolicyResponse>(await this.callApi(params, req, runtime), new CreateAclPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAclPolicyResponse>(await this.callApi(params, req, runtime), new CreateAclPolicyResponse({}));
+    } else {
+      return $dara.cast<CreateAclPolicyResponse>(await this.execute(params, req, runtime), new CreateAclPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -14946,7 +17816,7 @@ export default class Client extends OpenApi {
    * @returns CreateAclPolicyResponse
    */
   async createAclPolicy(ClusterId: string, GatewayId: string, request: CreateAclPolicyRequest): Promise<CreateAclPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createAclPolicyWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
@@ -14959,48 +17829,48 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAppServiceResponse
    */
-  async createAppServiceWithOptions(request: CreateAppServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAppServiceResponse> {
-    Util.validateModel(request);
+  async createAppServiceWithOptions(request: CreateAppServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateAppServiceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.quotaId)) {
+    if (!$dara.isNull(request.quotaId)) {
       query["QuotaId"] = request.quotaId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appType)) {
+    if (!$dara.isNull(request.appType)) {
       body["AppType"] = request.appType;
     }
 
-    if (!Util.isUnset(request.appVersion)) {
+    if (!$dara.isNull(request.appVersion)) {
       body["AppVersion"] = request.appVersion;
     }
 
-    if (!Util.isUnset(request.config)) {
+    if (!$dara.isNull(request.config)) {
       body["Config"] = request.config;
     }
 
-    if (!Util.isUnset(request.replicas)) {
+    if (!$dara.isNull(request.replicas)) {
       body["Replicas"] = request.replicas;
     }
 
-    if (!Util.isUnset(request.serviceName)) {
+    if (!$dara.isNull(request.serviceName)) {
       body["ServiceName"] = request.serviceName;
     }
 
-    if (!Util.isUnset(request.serviceSpec)) {
+    if (!$dara.isNull(request.serviceSpec)) {
       body["ServiceSpec"] = request.serviceSpec;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAppService",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -15011,7 +17881,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateAppServiceResponse>(await this.callApi(params, req, runtime), new CreateAppServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAppServiceResponse>(await this.callApi(params, req, runtime), new CreateAppServiceResponse({}));
+    } else {
+      return $dara.cast<CreateAppServiceResponse>(await this.execute(params, req, runtime), new CreateAppServiceResponse({}));
+    }
+
   }
 
   /**
@@ -15021,7 +17896,7 @@ export default class Client extends OpenApi {
    * @returns CreateAppServiceResponse
    */
   async createAppService(request: CreateAppServiceRequest): Promise<CreateAppServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createAppServiceWithOptions(request, headers, runtime);
   }
@@ -15034,13 +17909,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateBenchmarkTaskResponse
    */
-  async createBenchmarkTaskWithOptions(request: CreateBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateBenchmarkTaskResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async createBenchmarkTaskWithOptions(request: CreateBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateBenchmarkTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: request.body,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateBenchmarkTask",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -15051,7 +17926,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new CreateBenchmarkTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new CreateBenchmarkTaskResponse({}));
+    } else {
+      return $dara.cast<CreateBenchmarkTaskResponse>(await this.execute(params, req, runtime), new CreateBenchmarkTaskResponse({}));
+    }
+
   }
 
   /**
@@ -15061,7 +17941,7 @@ export default class Client extends OpenApi {
    * @returns CreateBenchmarkTaskResponse
    */
   async createBenchmarkTask(request: CreateBenchmarkTaskRequest): Promise<CreateBenchmarkTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createBenchmarkTaskWithOptions(request, headers, runtime);
   }
@@ -15074,48 +17954,48 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateGatewayResponse
    */
-  async createGatewayWithOptions(request: CreateGatewayRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGatewayResponse> {
-    Util.validateModel(request);
+  async createGatewayWithOptions(request: CreateGatewayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateGatewayResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceName)) {
+    if (!$dara.isNull(request.resourceName)) {
       query["ResourceName"] = request.resourceName;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.autoRenewal)) {
+    if (!$dara.isNull(request.autoRenewal)) {
       body["AutoRenewal"] = request.autoRenewal;
     }
 
-    if (!Util.isUnset(request.chargeType)) {
+    if (!$dara.isNull(request.chargeType)) {
       body["ChargeType"] = request.chargeType;
     }
 
-    if (!Util.isUnset(request.enableInternet)) {
+    if (!$dara.isNull(request.enableInternet)) {
       body["EnableInternet"] = request.enableInternet;
     }
 
-    if (!Util.isUnset(request.enableIntranet)) {
+    if (!$dara.isNull(request.enableIntranet)) {
       body["EnableIntranet"] = request.enableIntranet;
     }
 
-    if (!Util.isUnset(request.instanceType)) {
+    if (!$dara.isNull(request.instanceType)) {
       body["InstanceType"] = request.instanceType;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.replicas)) {
+    if (!$dara.isNull(request.replicas)) {
       body["Replicas"] = request.replicas;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateGateway",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -15126,7 +18006,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateGatewayResponse>(await this.callApi(params, req, runtime), new CreateGatewayResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateGatewayResponse>(await this.callApi(params, req, runtime), new CreateGatewayResponse({}));
+    } else {
+      return $dara.cast<CreateGatewayResponse>(await this.execute(params, req, runtime), new CreateGatewayResponse({}));
+    }
+
   }
 
   /**
@@ -15136,7 +18021,7 @@ export default class Client extends OpenApi {
    * @returns CreateGatewayResponse
    */
   async createGateway(request: CreateGatewayRequest): Promise<CreateGatewayResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createGatewayWithOptions(request, headers, runtime);
   }
@@ -15149,33 +18034,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateGatewayIntranetLinkedVpcResponse
    */
-  async createGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, request: CreateGatewayIntranetLinkedVpcRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGatewayIntranetLinkedVpcResponse> {
-    Util.validateModel(request);
+  async createGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, request: CreateGatewayIntranetLinkedVpcRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateGatewayIntranetLinkedVpcResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.vSwitchId)) {
+    if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateGatewayIntranetLinkedVpc",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_endpoint_linked_vpc`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/intranet_endpoint_linked_vpc`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateGatewayIntranetLinkedVpcResponse>(await this.callApi(params, req, runtime), new CreateGatewayIntranetLinkedVpcResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateGatewayIntranetLinkedVpcResponse>(await this.callApi(params, req, runtime), new CreateGatewayIntranetLinkedVpcResponse({}));
+    } else {
+      return $dara.cast<CreateGatewayIntranetLinkedVpcResponse>(await this.execute(params, req, runtime), new CreateGatewayIntranetLinkedVpcResponse({}));
+    }
+
   }
 
   /**
@@ -15185,7 +18075,7 @@ export default class Client extends OpenApi {
    * @returns CreateGatewayIntranetLinkedVpcResponse
    */
   async createGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string, request: CreateGatewayIntranetLinkedVpcRequest): Promise<CreateGatewayIntranetLinkedVpcResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
@@ -15198,39 +18088,44 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateGatewayIntranetLinkedVpcPeerResponse
    */
-  async createGatewayIntranetLinkedVpcPeerWithOptions(ClusterId: string, GatewayId: string, tmpReq: CreateGatewayIntranetLinkedVpcPeerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGatewayIntranetLinkedVpcPeerResponse> {
-    Util.validateModel(tmpReq);
+  async createGatewayIntranetLinkedVpcPeerWithOptions(ClusterId: string, GatewayId: string, tmpReq: CreateGatewayIntranetLinkedVpcPeerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateGatewayIntranetLinkedVpcPeerResponse> {
+    tmpReq.validate();
     let request = new CreateGatewayIntranetLinkedVpcPeerShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.peerVpcs)) {
+    if (!$dara.isNull(tmpReq.peerVpcs)) {
       request.peerVpcsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.peerVpcs, "PeerVpcs", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.peerVpcsShrink)) {
+    if (!$dara.isNull(request.peerVpcsShrink)) {
       query["PeerVpcs"] = request.peerVpcsShrink;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateGatewayIntranetLinkedVpcPeer",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_endpoint_linked_vpc_peer`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/intranet_endpoint_linked_vpc_peer`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateGatewayIntranetLinkedVpcPeerResponse>(await this.callApi(params, req, runtime), new CreateGatewayIntranetLinkedVpcPeerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateGatewayIntranetLinkedVpcPeerResponse>(await this.callApi(params, req, runtime), new CreateGatewayIntranetLinkedVpcPeerResponse({}));
+    } else {
+      return $dara.cast<CreateGatewayIntranetLinkedVpcPeerResponse>(await this.execute(params, req, runtime), new CreateGatewayIntranetLinkedVpcPeerResponse({}));
+    }
+
   }
 
   /**
@@ -15240,7 +18135,7 @@ export default class Client extends OpenApi {
    * @returns CreateGatewayIntranetLinkedVpcPeerResponse
    */
   async createGatewayIntranetLinkedVpcPeer(ClusterId: string, GatewayId: string, request: CreateGatewayIntranetLinkedVpcPeerRequest): Promise<CreateGatewayIntranetLinkedVpcPeerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createGatewayIntranetLinkedVpcPeerWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
@@ -15256,46 +18151,50 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateResourceResponse
    */
-  async createResourceWithOptions(request: CreateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceResponse> {
-    Util.validateModel(request);
+  async createResourceWithOptions(request: CreateResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateResourceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.autoRenewal)) {
+    if (!$dara.isNull(request.autoRenewal)) {
       body["AutoRenewal"] = request.autoRenewal;
     }
 
-    if (!Util.isUnset(request.chargeType)) {
+    if (!$dara.isNull(request.chargeType)) {
       body["ChargeType"] = request.chargeType;
     }
 
-    if (!Util.isUnset(request.ecsInstanceCount)) {
+    if (!$dara.isNull(request.ecsInstanceCount)) {
       body["EcsInstanceCount"] = request.ecsInstanceCount;
     }
 
-    if (!Util.isUnset(request.ecsInstanceType)) {
+    if (!$dara.isNull(request.ecsInstanceType)) {
       body["EcsInstanceType"] = request.ecsInstanceType;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
       body["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.selfManagedResourceOptions)) {
+    if (!$dara.isNull(request.selfManagedResourceOptions)) {
       body["SelfManagedResourceOptions"] = request.selfManagedResourceOptions;
     }
 
-    if (!Util.isUnset(request.systemDiskSize)) {
+    if (!$dara.isNull(request.systemDiskSize)) {
       body["SystemDiskSize"] = request.systemDiskSize;
     }
 
-    if (!Util.isUnset(request.zone)) {
+    if (!$dara.isNull(request.zone)) {
       body["Zone"] = request.zone;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateResource",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -15306,7 +18205,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateResourceResponse>(await this.callApi(params, req, runtime), new CreateResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateResourceResponse>(await this.callApi(params, req, runtime), new CreateResourceResponse({}));
+    } else {
+      return $dara.cast<CreateResourceResponse>(await this.execute(params, req, runtime), new CreateResourceResponse({}));
+    }
+
   }
 
   /**
@@ -15319,7 +18223,7 @@ export default class Client extends OpenApi {
    * @returns CreateResourceResponse
    */
   async createResource(request: CreateResourceRequest): Promise<CreateResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createResourceWithOptions(request, headers, runtime);
   }
@@ -15332,53 +18236,62 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateResourceInstancesResponse
    */
-  async createResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: CreateResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceInstancesResponse> {
-    Util.validateModel(request);
+  async createResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: CreateResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateResourceInstancesResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.autoRenewal)) {
+    if (!$dara.isNull(request.autoRenewal)) {
       body["AutoRenewal"] = request.autoRenewal;
     }
 
-    if (!Util.isUnset(request.chargeType)) {
+    if (!$dara.isNull(request.chargeType)) {
       body["ChargeType"] = request.chargeType;
     }
 
-    if (!Util.isUnset(request.ecsInstanceCount)) {
+    if (!$dara.isNull(request.ecsInstanceCount)) {
       body["EcsInstanceCount"] = request.ecsInstanceCount;
     }
 
-    if (!Util.isUnset(request.ecsInstanceType)) {
+    if (!$dara.isNull(request.ecsInstanceType)) {
       body["EcsInstanceType"] = request.ecsInstanceType;
     }
 
-    if (!Util.isUnset(request.systemDiskSize)) {
+    if (!$dara.isNull(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    if (!$dara.isNull(request.systemDiskSize)) {
       body["SystemDiskSize"] = request.systemDiskSize;
     }
 
-    if (!Util.isUnset(request.userData)) {
+    if (!$dara.isNull(request.userData)) {
       body["UserData"] = request.userData;
     }
 
-    if (!Util.isUnset(request.zone)) {
+    if (!$dara.isNull(request.zone)) {
       body["Zone"] = request.zone;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateResourceInstances",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/instances`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/instances`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateResourceInstancesResponse>(await this.callApi(params, req, runtime), new CreateResourceInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateResourceInstancesResponse>(await this.callApi(params, req, runtime), new CreateResourceInstancesResponse({}));
+    } else {
+      return $dara.cast<CreateResourceInstancesResponse>(await this.execute(params, req, runtime), new CreateResourceInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -15388,7 +18301,7 @@ export default class Client extends OpenApi {
    * @returns CreateResourceInstancesResponse
    */
   async createResourceInstances(ClusterId: string, ResourceId: string, request: CreateResourceInstancesRequest): Promise<CreateResourceInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createResourceInstancesWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
@@ -15401,33 +18314,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateResourceLogResponse
    */
-  async createResourceLogWithOptions(ClusterId: string, ResourceId: string, request: CreateResourceLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateResourceLogResponse> {
-    Util.validateModel(request);
+  async createResourceLogWithOptions(ClusterId: string, ResourceId: string, request: CreateResourceLogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateResourceLogResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.logStore)) {
+    if (!$dara.isNull(request.logStore)) {
       body["LogStore"] = request.logStore;
     }
 
-    if (!Util.isUnset(request.projectName)) {
+    if (!$dara.isNull(request.projectName)) {
       body["ProjectName"] = request.projectName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateResourceLog",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/log`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/log`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateResourceLogResponse>(await this.callApi(params, req, runtime), new CreateResourceLogResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateResourceLogResponse>(await this.callApi(params, req, runtime), new CreateResourceLogResponse({}));
+    } else {
+      return $dara.cast<CreateResourceLogResponse>(await this.execute(params, req, runtime), new CreateResourceLogResponse({}));
+    }
+
   }
 
   /**
@@ -15437,7 +18355,7 @@ export default class Client extends OpenApi {
    * @returns CreateResourceLogResponse
    */
   async createResourceLog(ClusterId: string, ResourceId: string, request: CreateResourceLogRequest): Promise<CreateResourceLogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createResourceLogWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
@@ -15453,33 +18371,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceResponse
    */
-  async createServiceWithOptions(tmpReq: CreateServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
-    Util.validateModel(tmpReq);
+  async createServiceWithOptions(tmpReq: CreateServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateServiceResponse> {
+    tmpReq.validate();
     let request = new CreateServiceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.labels)) {
+    if (!$dara.isNull(tmpReq.labels)) {
       request.labelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labels, "Labels", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.develop)) {
+    if (!$dara.isNull(request.develop)) {
       query["Develop"] = request.develop;
     }
 
-    if (!Util.isUnset(request.labelsShrink)) {
+    if (!$dara.isNull(request.labelsShrink)) {
       query["Labels"] = request.labelsShrink;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: request.body,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateService",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -15490,7 +18408,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
+    } else {
+      return $dara.cast<CreateServiceResponse>(await this.execute(params, req, runtime), new CreateServiceResponse({}));
+    }
+
   }
 
   /**
@@ -15503,7 +18426,7 @@ export default class Client extends OpenApi {
    * @returns CreateServiceResponse
    */
   async createService(request: CreateServiceRequest): Promise<CreateServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceWithOptions(request, headers, runtime);
   }
@@ -15516,41 +18439,46 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceAutoScalerResponse
    */
-  async createServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceAutoScalerResponse> {
-    Util.validateModel(request);
+  async createServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateServiceAutoScalerResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.behavior)) {
+    if (!$dara.isNull(request.behavior)) {
       body["behavior"] = request.behavior;
     }
 
-    if (!Util.isUnset(request.max)) {
+    if (!$dara.isNull(request.max)) {
       body["max"] = request.max;
     }
 
-    if (!Util.isUnset(request.min)) {
+    if (!$dara.isNull(request.min)) {
       body["min"] = request.min;
     }
 
-    if (!Util.isUnset(request.scaleStrategies)) {
+    if (!$dara.isNull(request.scaleStrategies)) {
       body["scaleStrategies"] = request.scaleStrategies;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateServiceAutoScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/autoscaler`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/autoscaler`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateServiceAutoScalerResponse>(await this.callApi(params, req, runtime), new CreateServiceAutoScalerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateServiceAutoScalerResponse>(await this.callApi(params, req, runtime), new CreateServiceAutoScalerResponse({}));
+    } else {
+      return $dara.cast<CreateServiceAutoScalerResponse>(await this.execute(params, req, runtime), new CreateServiceAutoScalerResponse({}));
+    }
+
   }
 
   /**
@@ -15560,7 +18488,7 @@ export default class Client extends OpenApi {
    * @returns CreateServiceAutoScalerResponse
    */
   async createServiceAutoScaler(ClusterId: string, ServiceName: string, request: CreateServiceAutoScalerRequest): Promise<CreateServiceAutoScalerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceAutoScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -15573,33 +18501,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceCronScalerResponse
    */
-  async createServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceCronScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceCronScalerResponse> {
-    Util.validateModel(request);
+  async createServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceCronScalerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateServiceCronScalerResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.excludeDates)) {
+    if (!$dara.isNull(request.excludeDates)) {
       body["ExcludeDates"] = request.excludeDates;
     }
 
-    if (!Util.isUnset(request.scaleJobs)) {
+    if (!$dara.isNull(request.scaleJobs)) {
       body["ScaleJobs"] = request.scaleJobs;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateServiceCronScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/cronscaler`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/cronscaler`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateServiceCronScalerResponse>(await this.callApi(params, req, runtime), new CreateServiceCronScalerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateServiceCronScalerResponse>(await this.callApi(params, req, runtime), new CreateServiceCronScalerResponse({}));
+    } else {
+      return $dara.cast<CreateServiceCronScalerResponse>(await this.execute(params, req, runtime), new CreateServiceCronScalerResponse({}));
+    }
+
   }
 
   /**
@@ -15609,7 +18542,7 @@ export default class Client extends OpenApi {
    * @returns CreateServiceCronScalerResponse
    */
   async createServiceCronScaler(ClusterId: string, ServiceName: string, request: CreateServiceCronScalerRequest): Promise<CreateServiceCronScalerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceCronScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -15622,33 +18555,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceMirrorResponse
    */
-  async createServiceMirrorWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceMirrorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceMirrorResponse> {
-    Util.validateModel(request);
+  async createServiceMirrorWithOptions(ClusterId: string, ServiceName: string, request: CreateServiceMirrorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateServiceMirrorResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ratio)) {
+    if (!$dara.isNull(request.ratio)) {
       body["Ratio"] = request.ratio;
     }
 
-    if (!Util.isUnset(request.target)) {
+    if (!$dara.isNull(request.target)) {
       body["Target"] = request.target;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateServiceMirror",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/mirror`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/mirror`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateServiceMirrorResponse>(await this.callApi(params, req, runtime), new CreateServiceMirrorResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateServiceMirrorResponse>(await this.callApi(params, req, runtime), new CreateServiceMirrorResponse({}));
+    } else {
+      return $dara.cast<CreateServiceMirrorResponse>(await this.execute(params, req, runtime), new CreateServiceMirrorResponse({}));
+    }
+
   }
 
   /**
@@ -15658,7 +18596,7 @@ export default class Client extends OpenApi {
    * @returns CreateServiceMirrorResponse
    */
   async createServiceMirror(ClusterId: string, ServiceName: string, request: CreateServiceMirrorRequest): Promise<CreateServiceMirrorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createServiceMirrorWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -15671,22 +18609,26 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVirtualResourceResponse
    */
-  async createVirtualResourceWithOptions(request: CreateVirtualResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVirtualResourceResponse> {
-    Util.validateModel(request);
+  async createVirtualResourceWithOptions(request: CreateVirtualResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateVirtualResourceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resources)) {
+    if (!$dara.isNull(request.disableSpotProtectionPeriod)) {
+      body["DisableSpotProtectionPeriod"] = request.disableSpotProtectionPeriod;
+    }
+
+    if (!$dara.isNull(request.resources)) {
       body["Resources"] = request.resources;
     }
 
-    if (!Util.isUnset(request.virtualResourceName)) {
+    if (!$dara.isNull(request.virtualResourceName)) {
       body["VirtualResourceName"] = request.virtualResourceName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateVirtualResource",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -15697,7 +18639,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateVirtualResourceResponse>(await this.callApi(params, req, runtime), new CreateVirtualResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateVirtualResourceResponse>(await this.callApi(params, req, runtime), new CreateVirtualResourceResponse({}));
+    } else {
+      return $dara.cast<CreateVirtualResourceResponse>(await this.execute(params, req, runtime), new CreateVirtualResourceResponse({}));
+    }
+
   }
 
   /**
@@ -15707,7 +18654,7 @@ export default class Client extends OpenApi {
    * @returns CreateVirtualResourceResponse
    */
   async createVirtualResource(request: CreateVirtualResourceRequest): Promise<CreateVirtualResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createVirtualResourceWithOptions(request, headers, runtime);
   }
@@ -15720,39 +18667,44 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAclPolicyResponse
    */
-  async deleteAclPolicyWithOptions(ClusterId: string, GatewayId: string, tmpReq: DeleteAclPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAclPolicyResponse> {
-    Util.validateModel(tmpReq);
+  async deleteAclPolicyWithOptions(ClusterId: string, GatewayId: string, tmpReq: DeleteAclPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteAclPolicyResponse> {
+    tmpReq.validate();
     let request = new DeleteAclPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.aclPolicyList)) {
+    if (!$dara.isNull(tmpReq.aclPolicyList)) {
       request.aclPolicyListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.aclPolicyList, "AclPolicyList", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.aclPolicyListShrink)) {
+    if (!$dara.isNull(request.aclPolicyListShrink)) {
       query["AclPolicyList"] = request.aclPolicyListShrink;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAclPolicy",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/acl_policy`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/acl_policy`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAclPolicyResponse>(await this.callApi(params, req, runtime), new DeleteAclPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAclPolicyResponse>(await this.callApi(params, req, runtime), new DeleteAclPolicyResponse({}));
+    } else {
+      return $dara.cast<DeleteAclPolicyResponse>(await this.execute(params, req, runtime), new DeleteAclPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -15762,7 +18714,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAclPolicyResponse
    */
   async deleteAclPolicy(ClusterId: string, GatewayId: string, request: DeleteAclPolicyRequest): Promise<DeleteAclPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAclPolicyWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
@@ -15774,22 +18726,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteBenchmarkTaskResponse
    */
-  async deleteBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBenchmarkTaskResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteBenchmarkTaskResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteBenchmarkTask",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/benchmark-tasks/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TaskName)}`,
+      pathname: `/api/v2/benchmark-tasks/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(TaskName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new DeleteBenchmarkTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new DeleteBenchmarkTaskResponse({}));
+    } else {
+      return $dara.cast<DeleteBenchmarkTaskResponse>(await this.execute(params, req, runtime), new DeleteBenchmarkTaskResponse({}));
+    }
+
   }
 
   /**
@@ -15797,7 +18754,7 @@ export default class Client extends OpenApi {
    * @returns DeleteBenchmarkTaskResponse
    */
   async deleteBenchmarkTask(ClusterId: string, TaskName: string): Promise<DeleteBenchmarkTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
   }
@@ -15809,22 +18766,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGatewayResponse
    */
-  async deleteGatewayWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteGatewayWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteGatewayResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteGateway",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteGatewayResponse>(await this.callApi(params, req, runtime), new DeleteGatewayResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewayResponse>(await this.callApi(params, req, runtime), new DeleteGatewayResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewayResponse>(await this.execute(params, req, runtime), new DeleteGatewayResponse({}));
+    }
+
   }
 
   /**
@@ -15832,7 +18794,7 @@ export default class Client extends OpenApi {
    * @returns DeleteGatewayResponse
    */
   async deleteGateway(ClusterId: string, GatewayId: string): Promise<DeleteGatewayResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteGatewayWithOptions(ClusterId, GatewayId, headers, runtime);
   }
@@ -15845,33 +18807,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGatewayIntranetLinkedVpcResponse
    */
-  async deleteGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, request: DeleteGatewayIntranetLinkedVpcRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayIntranetLinkedVpcResponse> {
-    Util.validateModel(request);
+  async deleteGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, request: DeleteGatewayIntranetLinkedVpcRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteGatewayIntranetLinkedVpcResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.vSwitchId)) {
+    if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteGatewayIntranetLinkedVpc",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_endpoint_linked_vpc`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/intranet_endpoint_linked_vpc`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteGatewayIntranetLinkedVpcResponse>(await this.callApi(params, req, runtime), new DeleteGatewayIntranetLinkedVpcResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewayIntranetLinkedVpcResponse>(await this.callApi(params, req, runtime), new DeleteGatewayIntranetLinkedVpcResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewayIntranetLinkedVpcResponse>(await this.execute(params, req, runtime), new DeleteGatewayIntranetLinkedVpcResponse({}));
+    }
+
   }
 
   /**
@@ -15881,7 +18848,7 @@ export default class Client extends OpenApi {
    * @returns DeleteGatewayIntranetLinkedVpcResponse
    */
   async deleteGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string, request: DeleteGatewayIntranetLinkedVpcRequest): Promise<DeleteGatewayIntranetLinkedVpcResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
@@ -15894,39 +18861,44 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGatewayIntranetLinkedVpcPeerResponse
    */
-  async deleteGatewayIntranetLinkedVpcPeerWithOptions(ClusterId: string, GatewayId: string, tmpReq: DeleteGatewayIntranetLinkedVpcPeerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayIntranetLinkedVpcPeerResponse> {
-    Util.validateModel(tmpReq);
+  async deleteGatewayIntranetLinkedVpcPeerWithOptions(ClusterId: string, GatewayId: string, tmpReq: DeleteGatewayIntranetLinkedVpcPeerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteGatewayIntranetLinkedVpcPeerResponse> {
+    tmpReq.validate();
     let request = new DeleteGatewayIntranetLinkedVpcPeerShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.peerVpcs)) {
+    if (!$dara.isNull(tmpReq.peerVpcs)) {
       request.peerVpcsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.peerVpcs, "PeerVpcs", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.peerVpcsShrink)) {
+    if (!$dara.isNull(request.peerVpcsShrink)) {
       query["PeerVpcs"] = request.peerVpcsShrink;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteGatewayIntranetLinkedVpcPeer",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_endpoint_linked_vpc_peer`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/intranet_endpoint_linked_vpc_peer`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteGatewayIntranetLinkedVpcPeerResponse>(await this.callApi(params, req, runtime), new DeleteGatewayIntranetLinkedVpcPeerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGatewayIntranetLinkedVpcPeerResponse>(await this.callApi(params, req, runtime), new DeleteGatewayIntranetLinkedVpcPeerResponse({}));
+    } else {
+      return $dara.cast<DeleteGatewayIntranetLinkedVpcPeerResponse>(await this.execute(params, req, runtime), new DeleteGatewayIntranetLinkedVpcPeerResponse({}));
+    }
+
   }
 
   /**
@@ -15936,7 +18908,7 @@ export default class Client extends OpenApi {
    * @returns DeleteGatewayIntranetLinkedVpcPeerResponse
    */
   async deleteGatewayIntranetLinkedVpcPeer(ClusterId: string, GatewayId: string, request: DeleteGatewayIntranetLinkedVpcPeerRequest): Promise<DeleteGatewayIntranetLinkedVpcPeerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteGatewayIntranetLinkedVpcPeerWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
@@ -15948,22 +18920,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteResourceResponse
    */
-  async deleteResourceWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteResourceWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteResourceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteResource",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteResourceResponse>(await this.callApi(params, req, runtime), new DeleteResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteResourceResponse>(await this.callApi(params, req, runtime), new DeleteResourceResponse({}));
+    } else {
+      return $dara.cast<DeleteResourceResponse>(await this.execute(params, req, runtime), new DeleteResourceResponse({}));
+    }
+
   }
 
   /**
@@ -15971,7 +18948,7 @@ export default class Client extends OpenApi {
    * @returns DeleteResourceResponse
    */
   async deleteResource(ClusterId: string, ResourceId: string): Promise<DeleteResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceWithOptions(ClusterId, ResourceId, headers, runtime);
   }
@@ -15983,22 +18960,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteResourceDLinkResponse
    */
-  async deleteResourceDLinkWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceDLinkResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteResourceDLinkWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteResourceDLinkResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteResourceDLink",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/dlink`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/dlink`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteResourceDLinkResponse>(await this.callApi(params, req, runtime), new DeleteResourceDLinkResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteResourceDLinkResponse>(await this.callApi(params, req, runtime), new DeleteResourceDLinkResponse({}));
+    } else {
+      return $dara.cast<DeleteResourceDLinkResponse>(await this.execute(params, req, runtime), new DeleteResourceDLinkResponse({}));
+    }
+
   }
 
   /**
@@ -16006,9 +18988,77 @@ export default class Client extends OpenApi {
    * @returns DeleteResourceDLinkResponse
    */
   async deleteResourceDLink(ClusterId: string, ResourceId: string): Promise<DeleteResourceDLinkResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceDLinkWithOptions(ClusterId, ResourceId, headers, runtime);
+  }
+
+  /**
+   * 删除资源组实例标签
+   * 
+   * @param tmpReq - DeleteResourceInstanceLabelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResourceInstanceLabelResponse
+   */
+  async deleteResourceInstanceLabelWithOptions(ClusterId: string, ResourceId: string, tmpReq: DeleteResourceInstanceLabelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteResourceInstanceLabelResponse> {
+    tmpReq.validate();
+    let request = new DeleteResourceInstanceLabelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "simple");
+    }
+
+    if (!$dara.isNull(tmpReq.keys)) {
+      request.keysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.keys, "Keys", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allInstances)) {
+      query["AllInstances"] = request.allInstances;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.keysShrink)) {
+      query["Keys"] = request.keysShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteResourceInstanceLabel",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/label`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteResourceInstanceLabelResponse>(await this.callApi(params, req, runtime), new DeleteResourceInstanceLabelResponse({}));
+    } else {
+      return $dara.cast<DeleteResourceInstanceLabelResponse>(await this.execute(params, req, runtime), new DeleteResourceInstanceLabelResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除资源组实例标签
+   * 
+   * @param request - DeleteResourceInstanceLabelRequest
+   * @returns DeleteResourceInstanceLabelResponse
+   */
+  async deleteResourceInstanceLabel(ClusterId: string, ResourceId: string, request: DeleteResourceInstanceLabelRequest): Promise<DeleteResourceInstanceLabelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteResourceInstanceLabelWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
   /**
@@ -16019,33 +19069,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteResourceInstancesResponse
    */
-  async deleteResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: DeleteResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceInstancesResponse> {
-    Util.validateModel(request);
+  async deleteResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: DeleteResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteResourceInstancesResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.allFailed)) {
+    if (!$dara.isNull(request.allFailed)) {
       query["AllFailed"] = request.allFailed;
     }
 
-    if (!Util.isUnset(request.instanceList)) {
+    if (!$dara.isNull(request.instanceList)) {
       query["InstanceList"] = request.instanceList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteResourceInstances",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/instances`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/instances`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteResourceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteResourceInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteResourceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteResourceInstancesResponse({}));
+    } else {
+      return $dara.cast<DeleteResourceInstancesResponse>(await this.execute(params, req, runtime), new DeleteResourceInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -16055,7 +19110,7 @@ export default class Client extends OpenApi {
    * @returns DeleteResourceInstancesResponse
    */
   async deleteResourceInstances(ClusterId: string, ResourceId: string, request: DeleteResourceInstancesRequest): Promise<DeleteResourceInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceInstancesWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
@@ -16067,22 +19122,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteResourceLogResponse
    */
-  async deleteResourceLogWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteResourceLogResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteResourceLogWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteResourceLogResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteResourceLog",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/log`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/log`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteResourceLogResponse>(await this.callApi(params, req, runtime), new DeleteResourceLogResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteResourceLogResponse>(await this.callApi(params, req, runtime), new DeleteResourceLogResponse({}));
+    } else {
+      return $dara.cast<DeleteResourceLogResponse>(await this.execute(params, req, runtime), new DeleteResourceLogResponse({}));
+    }
+
   }
 
   /**
@@ -16090,7 +19150,7 @@ export default class Client extends OpenApi {
    * @returns DeleteResourceLogResponse
    */
   async deleteResourceLog(ClusterId: string, ResourceId: string): Promise<DeleteResourceLogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteResourceLogWithOptions(ClusterId, ResourceId, headers, runtime);
   }
@@ -16102,22 +19162,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceResponse
    */
-  async deleteServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
+    } else {
+      return $dara.cast<DeleteServiceResponse>(await this.execute(params, req, runtime), new DeleteServiceResponse({}));
+    }
+
   }
 
   /**
@@ -16125,7 +19190,7 @@ export default class Client extends OpenApi {
    * @returns DeleteServiceResponse
    */
   async deleteService(ClusterId: string, ServiceName: string): Promise<DeleteServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
@@ -16137,22 +19202,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceAutoScalerResponse
    */
-  async deleteServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceAutoScalerResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteServiceAutoScalerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteServiceAutoScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/autoscaler`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/autoscaler`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteServiceAutoScalerResponse>(await this.callApi(params, req, runtime), new DeleteServiceAutoScalerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteServiceAutoScalerResponse>(await this.callApi(params, req, runtime), new DeleteServiceAutoScalerResponse({}));
+    } else {
+      return $dara.cast<DeleteServiceAutoScalerResponse>(await this.execute(params, req, runtime), new DeleteServiceAutoScalerResponse({}));
+    }
+
   }
 
   /**
@@ -16160,7 +19230,7 @@ export default class Client extends OpenApi {
    * @returns DeleteServiceAutoScalerResponse
    */
   async deleteServiceAutoScaler(ClusterId: string, ServiceName: string): Promise<DeleteServiceAutoScalerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceAutoScalerWithOptions(ClusterId, ServiceName, headers, runtime);
   }
@@ -16172,22 +19242,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceCronScalerResponse
    */
-  async deleteServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceCronScalerResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteServiceCronScalerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteServiceCronScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/cronscaler`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/cronscaler`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteServiceCronScalerResponse>(await this.callApi(params, req, runtime), new DeleteServiceCronScalerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteServiceCronScalerResponse>(await this.callApi(params, req, runtime), new DeleteServiceCronScalerResponse({}));
+    } else {
+      return $dara.cast<DeleteServiceCronScalerResponse>(await this.execute(params, req, runtime), new DeleteServiceCronScalerResponse({}));
+    }
+
   }
 
   /**
@@ -16195,7 +19270,7 @@ export default class Client extends OpenApi {
    * @returns DeleteServiceCronScalerResponse
    */
   async deleteServiceCronScaler(ClusterId: string, ServiceName: string): Promise<DeleteServiceCronScalerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceCronScalerWithOptions(ClusterId, ServiceName, headers, runtime);
   }
@@ -16208,37 +19283,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceInstancesResponse
    */
-  async deleteServiceInstancesWithOptions(ClusterId: string, ServiceName: string, request: DeleteServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceInstancesResponse> {
-    Util.validateModel(request);
+  async deleteServiceInstancesWithOptions(ClusterId: string, ServiceName: string, request: DeleteServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteServiceInstancesResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.container)) {
+    if (!$dara.isNull(request.container)) {
       query["Container"] = request.container;
     }
 
-    if (!Util.isUnset(request.instanceList)) {
+    if (!$dara.isNull(request.instanceList)) {
       query["InstanceList"] = request.instanceList;
     }
 
-    if (!Util.isUnset(request.softRestart)) {
+    if (!$dara.isNull(request.softRestart)) {
       query["SoftRestart"] = request.softRestart;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteServiceInstances",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/instances`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/instances`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteServiceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteServiceInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteServiceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteServiceInstancesResponse({}));
+    } else {
+      return $dara.cast<DeleteServiceInstancesResponse>(await this.execute(params, req, runtime), new DeleteServiceInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -16248,7 +19328,7 @@ export default class Client extends OpenApi {
    * @returns DeleteServiceInstancesResponse
    */
   async deleteServiceInstances(ClusterId: string, ServiceName: string, request: DeleteServiceInstancesRequest): Promise<DeleteServiceInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceInstancesWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -16261,35 +19341,40 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceLabelResponse
    */
-  async deleteServiceLabelWithOptions(ClusterId: string, ServiceName: string, tmpReq: DeleteServiceLabelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceLabelResponse> {
-    Util.validateModel(tmpReq);
+  async deleteServiceLabelWithOptions(ClusterId: string, ServiceName: string, tmpReq: DeleteServiceLabelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteServiceLabelResponse> {
+    tmpReq.validate();
     let request = new DeleteServiceLabelShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.keys)) {
+    if (!$dara.isNull(tmpReq.keys)) {
       request.keysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.keys, "Keys", "simple");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.keysShrink)) {
+    if (!$dara.isNull(request.keysShrink)) {
       query["Keys"] = request.keysShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteServiceLabel",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/label`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/label`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteServiceLabelResponse>(await this.callApi(params, req, runtime), new DeleteServiceLabelResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteServiceLabelResponse>(await this.callApi(params, req, runtime), new DeleteServiceLabelResponse({}));
+    } else {
+      return $dara.cast<DeleteServiceLabelResponse>(await this.execute(params, req, runtime), new DeleteServiceLabelResponse({}));
+    }
+
   }
 
   /**
@@ -16299,7 +19384,7 @@ export default class Client extends OpenApi {
    * @returns DeleteServiceLabelResponse
    */
   async deleteServiceLabel(ClusterId: string, ServiceName: string, request: DeleteServiceLabelRequest): Promise<DeleteServiceLabelResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceLabelWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -16311,22 +19396,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceMirrorResponse
    */
-  async deleteServiceMirrorWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceMirrorResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteServiceMirrorWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteServiceMirrorResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteServiceMirror",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/mirror`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/mirror`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteServiceMirrorResponse>(await this.callApi(params, req, runtime), new DeleteServiceMirrorResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteServiceMirrorResponse>(await this.callApi(params, req, runtime), new DeleteServiceMirrorResponse({}));
+    } else {
+      return $dara.cast<DeleteServiceMirrorResponse>(await this.execute(params, req, runtime), new DeleteServiceMirrorResponse({}));
+    }
+
   }
 
   /**
@@ -16334,7 +19424,7 @@ export default class Client extends OpenApi {
    * @returns DeleteServiceMirrorResponse
    */
   async deleteServiceMirror(ClusterId: string, ServiceName: string): Promise<DeleteServiceMirrorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
   }
@@ -16346,22 +19436,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVirtualResourceResponse
    */
-  async deleteVirtualResourceWithOptions(ClusterId: string, VirtualResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualResourceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteVirtualResourceWithOptions(ClusterId: string, VirtualResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteVirtualResourceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteVirtualResource",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/virtualresources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(VirtualResourceId)}`,
+      pathname: `/api/v2/virtualresources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(VirtualResourceId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteVirtualResourceResponse>(await this.callApi(params, req, runtime), new DeleteVirtualResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteVirtualResourceResponse>(await this.callApi(params, req, runtime), new DeleteVirtualResourceResponse({}));
+    } else {
+      return $dara.cast<DeleteVirtualResourceResponse>(await this.execute(params, req, runtime), new DeleteVirtualResourceResponse({}));
+    }
+
   }
 
   /**
@@ -16369,7 +19464,7 @@ export default class Client extends OpenApi {
    * @returns DeleteVirtualResourceResponse
    */
   async deleteVirtualResource(ClusterId: string, VirtualResourceId: string): Promise<DeleteVirtualResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteVirtualResourceWithOptions(ClusterId, VirtualResourceId, headers, runtime);
   }
@@ -16381,22 +19476,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBenchmarkTaskResponse
    */
-  async describeBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeBenchmarkTaskResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeBenchmarkTaskResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeBenchmarkTask",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/benchmark-tasks/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TaskName)}`,
+      pathname: `/api/v2/benchmark-tasks/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(TaskName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new DescribeBenchmarkTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new DescribeBenchmarkTaskResponse({}));
+    } else {
+      return $dara.cast<DescribeBenchmarkTaskResponse>(await this.execute(params, req, runtime), new DescribeBenchmarkTaskResponse({}));
+    }
+
   }
 
   /**
@@ -16404,7 +19504,7 @@ export default class Client extends OpenApi {
    * @returns DescribeBenchmarkTaskResponse
    */
   async describeBenchmarkTask(ClusterId: string, TaskName: string): Promise<DescribeBenchmarkTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
   }
@@ -16417,29 +19517,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBenchmarkTaskReportResponse
    */
-  async describeBenchmarkTaskReportWithOptions(ClusterId: string, TaskName: string, request: DescribeBenchmarkTaskReportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeBenchmarkTaskReportResponse> {
-    Util.validateModel(request);
+  async describeBenchmarkTaskReportWithOptions(ClusterId: string, TaskName: string, request: DescribeBenchmarkTaskReportRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeBenchmarkTaskReportResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.reportType)) {
+    if (!$dara.isNull(request.reportType)) {
       query["ReportType"] = request.reportType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeBenchmarkTaskReport",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/benchmark-tasks/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TaskName)}/report`,
+      pathname: `/api/v2/benchmark-tasks/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(TaskName)}/report`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeBenchmarkTaskReportResponse>(await this.callApi(params, req, runtime), new DescribeBenchmarkTaskReportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeBenchmarkTaskReportResponse>(await this.callApi(params, req, runtime), new DescribeBenchmarkTaskReportResponse({}));
+    } else {
+      return $dara.cast<DescribeBenchmarkTaskReportResponse>(await this.execute(params, req, runtime), new DescribeBenchmarkTaskReportResponse({}));
+    }
+
   }
 
   /**
@@ -16449,7 +19554,7 @@ export default class Client extends OpenApi {
    * @returns DescribeBenchmarkTaskReportResponse
    */
   async describeBenchmarkTaskReport(ClusterId: string, TaskName: string, request: DescribeBenchmarkTaskReportRequest): Promise<DescribeBenchmarkTaskReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeBenchmarkTaskReportWithOptions(ClusterId, TaskName, request, headers, runtime);
   }
@@ -16461,22 +19566,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeGatewayResponse
    */
-  async describeGatewayWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeGatewayResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeGatewayWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeGatewayResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeGateway",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGatewayResponse>(await this.callApi(params, req, runtime), new DescribeGatewayResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeGatewayResponse>(await this.callApi(params, req, runtime), new DescribeGatewayResponse({}));
+    } else {
+      return $dara.cast<DescribeGatewayResponse>(await this.execute(params, req, runtime), new DescribeGatewayResponse({}));
+    }
+
   }
 
   /**
@@ -16484,7 +19594,7 @@ export default class Client extends OpenApi {
    * @returns DescribeGatewayResponse
    */
   async describeGateway(ClusterId: string, GatewayId: string): Promise<DescribeGatewayResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeGatewayWithOptions(ClusterId, GatewayId, headers, runtime);
   }
@@ -16496,22 +19606,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeGroupResponse
    */
-  async describeGroupWithOptions(ClusterId: string, GroupName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeGroupResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeGroupWithOptions(ClusterId: string, GroupName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeGroupResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeGroup",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/groups/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GroupName)}`,
+      pathname: `/api/v2/groups/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GroupName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGroupResponse>(await this.callApi(params, req, runtime), new DescribeGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeGroupResponse>(await this.callApi(params, req, runtime), new DescribeGroupResponse({}));
+    } else {
+      return $dara.cast<DescribeGroupResponse>(await this.execute(params, req, runtime), new DescribeGroupResponse({}));
+    }
+
   }
 
   /**
@@ -16519,42 +19634,47 @@ export default class Client extends OpenApi {
    * @returns DescribeGroupResponse
    */
   async describeGroup(ClusterId: string, GroupName: string): Promise<DescribeGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeGroupWithOptions(ClusterId, GroupName, headers, runtime);
   }
 
   /**
-   * 获取群组端点列表
+   * Obtains a list of endpoints of service groups.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeGroupEndpointsResponse
    */
-  async describeGroupEndpointsWithOptions(ClusterId: string, GroupName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeGroupEndpointsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeGroupEndpointsWithOptions(ClusterId: string, GroupName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeGroupEndpointsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeGroupEndpoints",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/groups/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GroupName)}/endpoints`,
+      pathname: `/api/v2/groups/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GroupName)}/endpoints`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGroupEndpointsResponse>(await this.callApi(params, req, runtime), new DescribeGroupEndpointsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeGroupEndpointsResponse>(await this.callApi(params, req, runtime), new DescribeGroupEndpointsResponse({}));
+    } else {
+      return $dara.cast<DescribeGroupEndpointsResponse>(await this.execute(params, req, runtime), new DescribeGroupEndpointsResponse({}));
+    }
+
   }
 
   /**
-   * 获取群组端点列表
+   * Obtains a list of endpoints of service groups.
    * @returns DescribeGroupEndpointsResponse
    */
   async describeGroupEndpoints(ClusterId: string, GroupName: string): Promise<DescribeGroupEndpointsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeGroupEndpointsWithOptions(ClusterId, GroupName, headers, runtime);
   }
@@ -16566,22 +19686,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeResourceResponse
    */
-  async describeResourceWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeResourceWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeResourceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeResource",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeResourceResponse>(await this.callApi(params, req, runtime), new DescribeResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeResourceResponse>(await this.callApi(params, req, runtime), new DescribeResourceResponse({}));
+    } else {
+      return $dara.cast<DescribeResourceResponse>(await this.execute(params, req, runtime), new DescribeResourceResponse({}));
+    }
+
   }
 
   /**
@@ -16589,7 +19714,7 @@ export default class Client extends OpenApi {
    * @returns DescribeResourceResponse
    */
   async describeResource(ClusterId: string, ResourceId: string): Promise<DescribeResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeResourceWithOptions(ClusterId, ResourceId, headers, runtime);
   }
@@ -16601,22 +19726,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeResourceDLinkResponse
    */
-  async describeResourceDLinkWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourceDLinkResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeResourceDLinkWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeResourceDLinkResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeResourceDLink",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/dlink`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/dlink`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeResourceDLinkResponse>(await this.callApi(params, req, runtime), new DescribeResourceDLinkResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeResourceDLinkResponse>(await this.callApi(params, req, runtime), new DescribeResourceDLinkResponse({}));
+    } else {
+      return $dara.cast<DescribeResourceDLinkResponse>(await this.execute(params, req, runtime), new DescribeResourceDLinkResponse({}));
+    }
+
   }
 
   /**
@@ -16624,7 +19754,7 @@ export default class Client extends OpenApi {
    * @returns DescribeResourceDLinkResponse
    */
   async describeResourceDLink(ClusterId: string, ResourceId: string): Promise<DescribeResourceDLinkResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeResourceDLinkWithOptions(ClusterId, ResourceId, headers, runtime);
   }
@@ -16636,22 +19766,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeResourceLogResponse
    */
-  async describeResourceLogWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourceLogResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeResourceLogWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeResourceLogResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeResourceLog",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/log`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/log`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeResourceLogResponse>(await this.callApi(params, req, runtime), new DescribeResourceLogResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeResourceLogResponse>(await this.callApi(params, req, runtime), new DescribeResourceLogResponse({}));
+    } else {
+      return $dara.cast<DescribeResourceLogResponse>(await this.execute(params, req, runtime), new DescribeResourceLogResponse({}));
+    }
+
   }
 
   /**
@@ -16659,7 +19794,7 @@ export default class Client extends OpenApi {
    * @returns DescribeResourceLogResponse
    */
   async describeResourceLog(ClusterId: string, ResourceId: string): Promise<DescribeResourceLogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeResourceLogWithOptions(ClusterId, ResourceId, headers, runtime);
   }
@@ -16671,22 +19806,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceResponse
    */
-  async describeServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeServiceResponse>(await this.callApi(params, req, runtime), new DescribeServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeServiceResponse>(await this.callApi(params, req, runtime), new DescribeServiceResponse({}));
+    } else {
+      return $dara.cast<DescribeServiceResponse>(await this.execute(params, req, runtime), new DescribeServiceResponse({}));
+    }
+
   }
 
   /**
@@ -16694,7 +19834,7 @@ export default class Client extends OpenApi {
    * @returns DescribeServiceResponse
    */
   async describeService(ClusterId: string, ServiceName: string): Promise<DescribeServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
@@ -16706,22 +19846,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceAutoScalerResponse
    */
-  async describeServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceAutoScalerResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeServiceAutoScalerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeServiceAutoScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/autoscaler`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/autoscaler`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeServiceAutoScalerResponse>(await this.callApi(params, req, runtime), new DescribeServiceAutoScalerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeServiceAutoScalerResponse>(await this.callApi(params, req, runtime), new DescribeServiceAutoScalerResponse({}));
+    } else {
+      return $dara.cast<DescribeServiceAutoScalerResponse>(await this.execute(params, req, runtime), new DescribeServiceAutoScalerResponse({}));
+    }
+
   }
 
   /**
@@ -16729,7 +19874,7 @@ export default class Client extends OpenApi {
    * @returns DescribeServiceAutoScalerResponse
    */
   async describeServiceAutoScaler(ClusterId: string, ServiceName: string): Promise<DescribeServiceAutoScalerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceAutoScalerWithOptions(ClusterId, ServiceName, headers, runtime);
   }
@@ -16741,22 +19886,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceCronScalerResponse
    */
-  async describeServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceCronScalerResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeServiceCronScalerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeServiceCronScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/cronscaler`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/cronscaler`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeServiceCronScalerResponse>(await this.callApi(params, req, runtime), new DescribeServiceCronScalerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeServiceCronScalerResponse>(await this.callApi(params, req, runtime), new DescribeServiceCronScalerResponse({}));
+    } else {
+      return $dara.cast<DescribeServiceCronScalerResponse>(await this.execute(params, req, runtime), new DescribeServiceCronScalerResponse({}));
+    }
+
   }
 
   /**
@@ -16764,7 +19914,7 @@ export default class Client extends OpenApi {
    * @returns DescribeServiceCronScalerResponse
    */
   async describeServiceCronScaler(ClusterId: string, ServiceName: string): Promise<DescribeServiceCronScalerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceCronScalerWithOptions(ClusterId, ServiceName, headers, runtime);
   }
@@ -16776,22 +19926,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceDiagnosisResponse
    */
-  async describeServiceDiagnosisWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceDiagnosisResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeServiceDiagnosisWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeServiceDiagnosisResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeServiceDiagnosis",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/diagnosis`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/diagnosis`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeServiceDiagnosisResponse>(await this.callApi(params, req, runtime), new DescribeServiceDiagnosisResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeServiceDiagnosisResponse>(await this.callApi(params, req, runtime), new DescribeServiceDiagnosisResponse({}));
+    } else {
+      return $dara.cast<DescribeServiceDiagnosisResponse>(await this.execute(params, req, runtime), new DescribeServiceDiagnosisResponse({}));
+    }
+
   }
 
   /**
@@ -16799,42 +19954,47 @@ export default class Client extends OpenApi {
    * @returns DescribeServiceDiagnosisResponse
    */
   async describeServiceDiagnosis(ClusterId: string, ServiceName: string): Promise<DescribeServiceDiagnosisResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceDiagnosisWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
   /**
-   * 获取服务端点列表
+   * Obtains a list of service endpoints.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceEndpointsResponse
    */
-  async describeServiceEndpointsWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceEndpointsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeServiceEndpointsWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeServiceEndpointsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeServiceEndpoints",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/endpoints`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/endpoints`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeServiceEndpointsResponse>(await this.callApi(params, req, runtime), new DescribeServiceEndpointsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeServiceEndpointsResponse>(await this.callApi(params, req, runtime), new DescribeServiceEndpointsResponse({}));
+    } else {
+      return $dara.cast<DescribeServiceEndpointsResponse>(await this.execute(params, req, runtime), new DescribeServiceEndpointsResponse({}));
+    }
+
   }
 
   /**
-   * 获取服务端点列表
+   * Obtains a list of service endpoints.
    * @returns DescribeServiceEndpointsResponse
    */
   async describeServiceEndpoints(ClusterId: string, ServiceName: string): Promise<DescribeServiceEndpointsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceEndpointsWithOptions(ClusterId, ServiceName, headers, runtime);
   }
@@ -16847,49 +20007,54 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceEventResponse
    */
-  async describeServiceEventWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceEventRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceEventResponse> {
-    Util.validateModel(request);
+  async describeServiceEventWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceEventRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeServiceEventResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.eventType)) {
+    if (!$dara.isNull(request.eventType)) {
       query["EventType"] = request.eventType;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeServiceEvent",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/events`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/events`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeServiceEventResponse>(await this.callApi(params, req, runtime), new DescribeServiceEventResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeServiceEventResponse>(await this.callApi(params, req, runtime), new DescribeServiceEventResponse({}));
+    } else {
+      return $dara.cast<DescribeServiceEventResponse>(await this.execute(params, req, runtime), new DescribeServiceEventResponse({}));
+    }
+
   }
 
   /**
@@ -16899,7 +20064,7 @@ export default class Client extends OpenApi {
    * @returns DescribeServiceEventResponse
    */
   async describeServiceEvent(ClusterId: string, ServiceName: string, request: DescribeServiceEventRequest): Promise<DescribeServiceEventResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceEventWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -16911,22 +20076,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceInstanceDiagnosisResponse
    */
-  async describeServiceInstanceDiagnosisWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceInstanceDiagnosisResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeServiceInstanceDiagnosisWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeServiceInstanceDiagnosisResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeServiceInstanceDiagnosis",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/instances/${OpenApiUtil.getEncodeParam(InstanceName)}/diagnosis`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/instances/${$dara.URL.percentEncode(InstanceName)}/diagnosis`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeServiceInstanceDiagnosisResponse>(await this.callApi(params, req, runtime), new DescribeServiceInstanceDiagnosisResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeServiceInstanceDiagnosisResponse>(await this.callApi(params, req, runtime), new DescribeServiceInstanceDiagnosisResponse({}));
+    } else {
+      return $dara.cast<DescribeServiceInstanceDiagnosisResponse>(await this.execute(params, req, runtime), new DescribeServiceInstanceDiagnosisResponse({}));
+    }
+
   }
 
   /**
@@ -16934,7 +20104,7 @@ export default class Client extends OpenApi {
    * @returns DescribeServiceInstanceDiagnosisResponse
    */
   async describeServiceInstanceDiagnosis(ClusterId: string, ServiceName: string, InstanceName: string): Promise<DescribeServiceInstanceDiagnosisResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceInstanceDiagnosisWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
   }
@@ -16947,61 +20117,66 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceLogResponse
    */
-  async describeServiceLogWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceLogResponse> {
-    Util.validateModel(request);
+  async describeServiceLogWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceLogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeServiceLogResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.containerName)) {
+    if (!$dara.isNull(request.containerName)) {
       query["ContainerName"] = request.containerName;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.ip)) {
+    if (!$dara.isNull(request.ip)) {
       query["Ip"] = request.ip;
     }
 
-    if (!Util.isUnset(request.keyword)) {
+    if (!$dara.isNull(request.keyword)) {
       query["Keyword"] = request.keyword;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.previous)) {
+    if (!$dara.isNull(request.previous)) {
       query["Previous"] = request.previous;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeServiceLog",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/logs`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/logs`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeServiceLogResponse>(await this.callApi(params, req, runtime), new DescribeServiceLogResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeServiceLogResponse>(await this.callApi(params, req, runtime), new DescribeServiceLogResponse({}));
+    } else {
+      return $dara.cast<DescribeServiceLogResponse>(await this.execute(params, req, runtime), new DescribeServiceLogResponse({}));
+    }
+
   }
 
   /**
@@ -17011,7 +20186,7 @@ export default class Client extends OpenApi {
    * @returns DescribeServiceLogResponse
    */
   async describeServiceLog(ClusterId: string, ServiceName: string, request: DescribeServiceLogRequest): Promise<DescribeServiceLogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceLogWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -17023,22 +20198,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceMirrorResponse
    */
-  async describeServiceMirrorWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceMirrorResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeServiceMirrorWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeServiceMirrorResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeServiceMirror",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/mirror`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/mirror`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeServiceMirrorResponse>(await this.callApi(params, req, runtime), new DescribeServiceMirrorResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeServiceMirrorResponse>(await this.callApi(params, req, runtime), new DescribeServiceMirrorResponse({}));
+    } else {
+      return $dara.cast<DescribeServiceMirrorResponse>(await this.execute(params, req, runtime), new DescribeServiceMirrorResponse({}));
+    }
+
   }
 
   /**
@@ -17046,60 +20226,65 @@ export default class Client extends OpenApi {
    * @returns DescribeServiceMirrorResponse
    */
   async describeServiceMirror(ClusterId: string, ServiceName: string): Promise<DescribeServiceMirrorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
   /**
-   * 获取服务监控签名地址
+   * Obtains the logon-free URL of the service.
    * 
    * @param request - DescribeServiceSignedUrlRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceSignedUrlResponse
    */
-  async describeServiceSignedUrlWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceSignedUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceSignedUrlResponse> {
-    Util.validateModel(request);
+  async describeServiceSignedUrlWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceSignedUrlRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeServiceSignedUrlResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.expire)) {
+    if (!$dara.isNull(request.expire)) {
       query["Expire"] = request.expire;
     }
 
-    if (!Util.isUnset(request.internal)) {
+    if (!$dara.isNull(request.internal)) {
       query["Internal"] = request.internal;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeServiceSignedUrl",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/signed_url`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/signed_url`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeServiceSignedUrlResponse>(await this.callApi(params, req, runtime), new DescribeServiceSignedUrlResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeServiceSignedUrlResponse>(await this.callApi(params, req, runtime), new DescribeServiceSignedUrlResponse({}));
+    } else {
+      return $dara.cast<DescribeServiceSignedUrlResponse>(await this.execute(params, req, runtime), new DescribeServiceSignedUrlResponse({}));
+    }
+
   }
 
   /**
-   * 获取服务监控签名地址
+   * Obtains the logon-free URL of the service.
    * 
    * @param request - DescribeServiceSignedUrlRequest
    * @returns DescribeServiceSignedUrlResponse
    */
   async describeServiceSignedUrl(ClusterId: string, ServiceName: string, request: DescribeServiceSignedUrlRequest): Promise<DescribeServiceSignedUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceSignedUrlWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -17112,22 +20297,22 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSpotDiscountHistoryResponse
    */
-  async describeSpotDiscountHistoryWithOptions(request: DescribeSpotDiscountHistoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeSpotDiscountHistoryResponse> {
-    Util.validateModel(request);
+  async describeSpotDiscountHistoryWithOptions(request: DescribeSpotDiscountHistoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeSpotDiscountHistoryResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceType)) {
+    if (!$dara.isNull(request.instanceType)) {
       query["InstanceType"] = request.instanceType;
     }
 
-    if (!Util.isUnset(request.isProtect)) {
+    if (!$dara.isNull(request.isProtect)) {
       query["IsProtect"] = request.isProtect;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeSpotDiscountHistory",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -17138,7 +20323,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSpotDiscountHistoryResponse>(await this.callApi(params, req, runtime), new DescribeSpotDiscountHistoryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSpotDiscountHistoryResponse>(await this.callApi(params, req, runtime), new DescribeSpotDiscountHistoryResponse({}));
+    } else {
+      return $dara.cast<DescribeSpotDiscountHistoryResponse>(await this.execute(params, req, runtime), new DescribeSpotDiscountHistoryResponse({}));
+    }
+
   }
 
   /**
@@ -17148,7 +20338,7 @@ export default class Client extends OpenApi {
    * @returns DescribeSpotDiscountHistoryResponse
    */
   async describeSpotDiscountHistory(request: DescribeSpotDiscountHistoryRequest): Promise<DescribeSpotDiscountHistoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeSpotDiscountHistoryWithOptions(request, headers, runtime);
   }
@@ -17160,22 +20350,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVirtualResourceResponse
    */
-  async describeVirtualResourceWithOptions(ClusterId: string, VirtualResourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeVirtualResourceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async describeVirtualResourceWithOptions(ClusterId: string, VirtualResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeVirtualResourceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeVirtualResource",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/virtualresources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(VirtualResourceId)}`,
+      pathname: `/api/v2/virtualresources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(VirtualResourceId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeVirtualResourceResponse>(await this.callApi(params, req, runtime), new DescribeVirtualResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeVirtualResourceResponse>(await this.callApi(params, req, runtime), new DescribeVirtualResourceResponse({}));
+    } else {
+      return $dara.cast<DescribeVirtualResourceResponse>(await this.execute(params, req, runtime), new DescribeVirtualResourceResponse({}));
+    }
+
   }
 
   /**
@@ -17183,7 +20378,7 @@ export default class Client extends OpenApi {
    * @returns DescribeVirtualResourceResponse
    */
   async describeVirtualResource(ClusterId: string, VirtualResourceId: string): Promise<DescribeVirtualResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeVirtualResourceWithOptions(ClusterId, VirtualResourceId, headers, runtime);
   }
@@ -17196,35 +20391,40 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachGatewayDomainResponse
    */
-  async detachGatewayDomainWithOptions(ClusterId: string, GatewayId: string, tmpReq: DetachGatewayDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DetachGatewayDomainResponse> {
-    Util.validateModel(tmpReq);
+  async detachGatewayDomainWithOptions(ClusterId: string, GatewayId: string, tmpReq: DetachGatewayDomainRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DetachGatewayDomainResponse> {
+    tmpReq.validate();
     let request = new DetachGatewayDomainShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.customDomain)) {
+    if (!$dara.isNull(tmpReq.customDomain)) {
       request.customDomainShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customDomain, "CustomDomain", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.customDomainShrink)) {
+    if (!$dara.isNull(request.customDomainShrink)) {
       query["CustomDomain"] = request.customDomainShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetachGatewayDomain",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/domain/detach`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/domain/detach`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DetachGatewayDomainResponse>(await this.callApi(params, req, runtime), new DetachGatewayDomainResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DetachGatewayDomainResponse>(await this.callApi(params, req, runtime), new DetachGatewayDomainResponse({}));
+    } else {
+      return $dara.cast<DetachGatewayDomainResponse>(await this.execute(params, req, runtime), new DetachGatewayDomainResponse({}));
+    }
+
   }
 
   /**
@@ -17234,7 +20434,7 @@ export default class Client extends OpenApi {
    * @returns DetachGatewayDomainResponse
    */
   async detachGatewayDomain(ClusterId: string, GatewayId: string, request: DetachGatewayDomainRequest): Promise<DetachGatewayDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.detachGatewayDomainWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
@@ -17247,29 +20447,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DevelopServiceResponse
    */
-  async developServiceWithOptions(ClusterId: string, ServiceName: string, request: DevelopServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DevelopServiceResponse> {
-    Util.validateModel(request);
+  async developServiceWithOptions(ClusterId: string, ServiceName: string, request: DevelopServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DevelopServiceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.exit)) {
+    if (!$dara.isNull(request.exit)) {
       query["Exit"] = request.exit;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DevelopService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/develop`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/develop`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DevelopServiceResponse>(await this.callApi(params, req, runtime), new DevelopServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DevelopServiceResponse>(await this.callApi(params, req, runtime), new DevelopServiceResponse({}));
+    } else {
+      return $dara.cast<DevelopServiceResponse>(await this.execute(params, req, runtime), new DevelopServiceResponse({}));
+    }
+
   }
 
   /**
@@ -17279,7 +20484,7 @@ export default class Client extends OpenApi {
    * @returns DevelopServiceResponse
    */
   async developService(ClusterId: string, ServiceName: string, request: DevelopServiceRequest): Promise<DevelopServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.developServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -17292,29 +20497,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAclPolicyResponse
    */
-  async listAclPolicyWithOptions(ClusterId: string, GatewayId: string, request: ListAclPolicyRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAclPolicyResponse> {
-    Util.validateModel(request);
+  async listAclPolicyWithOptions(ClusterId: string, GatewayId: string, request: ListAclPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListAclPolicyResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAclPolicy",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/acl_policy`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/acl_policy`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListAclPolicyResponse>(await this.callApi(params, req, runtime), new ListAclPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAclPolicyResponse>(await this.callApi(params, req, runtime), new ListAclPolicyResponse({}));
+    } else {
+      return $dara.cast<ListAclPolicyResponse>(await this.execute(params, req, runtime), new ListAclPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -17324,7 +20534,7 @@ export default class Client extends OpenApi {
    * @returns ListAclPolicyResponse
    */
   async listAclPolicy(ClusterId: string, GatewayId: string, request: ListAclPolicyRequest): Promise<ListAclPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAclPolicyWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
@@ -17337,30 +20547,30 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListBenchmarkTaskResponse
    */
-  async listBenchmarkTaskWithOptions(request: ListBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListBenchmarkTaskResponse> {
-    Util.validateModel(request);
+  async listBenchmarkTaskWithOptions(request: ListBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListBenchmarkTaskResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.filter)) {
+    if (!$dara.isNull(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.serviceName)) {
+    if (!$dara.isNull(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListBenchmarkTask",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -17371,7 +20581,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new ListBenchmarkTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new ListBenchmarkTaskResponse({}));
+    } else {
+      return $dara.cast<ListBenchmarkTaskResponse>(await this.execute(params, req, runtime), new ListBenchmarkTaskResponse({}));
+    }
+
   }
 
   /**
@@ -17381,7 +20596,7 @@ export default class Client extends OpenApi {
    * @returns ListBenchmarkTaskResponse
    */
   async listBenchmarkTask(request: ListBenchmarkTaskRequest): Promise<ListBenchmarkTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listBenchmarkTaskWithOptions(request, headers, runtime);
   }
@@ -17394,34 +20609,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGatewayResponse
    */
-  async listGatewayWithOptions(request: ListGatewayRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayResponse> {
-    Util.validateModel(request);
+  async listGatewayWithOptions(request: ListGatewayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListGatewayResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.gatewayId)) {
+    if (!$dara.isNull(request.gatewayId)) {
       query["GatewayId"] = request.gatewayId;
     }
 
-    if (!Util.isUnset(request.gatewayName)) {
+    if (!$dara.isNull(request.gatewayName)) {
       query["GatewayName"] = request.gatewayName;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceName)) {
+    if (!$dara.isNull(request.resourceName)) {
       query["ResourceName"] = request.resourceName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListGateway",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -17432,7 +20647,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListGatewayResponse>(await this.callApi(params, req, runtime), new ListGatewayResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayResponse>(await this.callApi(params, req, runtime), new ListGatewayResponse({}));
+    } else {
+      return $dara.cast<ListGatewayResponse>(await this.execute(params, req, runtime), new ListGatewayResponse({}));
+    }
+
   }
 
   /**
@@ -17442,7 +20662,7 @@ export default class Client extends OpenApi {
    * @returns ListGatewayResponse
    */
   async listGateway(request: ListGatewayRequest): Promise<ListGatewayResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewayWithOptions(request, headers, runtime);
   }
@@ -17454,22 +20674,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGatewayDomainsResponse
    */
-  async listGatewayDomainsWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayDomainsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async listGatewayDomainsWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListGatewayDomainsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListGatewayDomains",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/domains`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/domains`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListGatewayDomainsResponse>(await this.callApi(params, req, runtime), new ListGatewayDomainsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayDomainsResponse>(await this.callApi(params, req, runtime), new ListGatewayDomainsResponse({}));
+    } else {
+      return $dara.cast<ListGatewayDomainsResponse>(await this.execute(params, req, runtime), new ListGatewayDomainsResponse({}));
+    }
+
   }
 
   /**
@@ -17477,7 +20702,7 @@ export default class Client extends OpenApi {
    * @returns ListGatewayDomainsResponse
    */
   async listGatewayDomains(ClusterId: string, GatewayId: string): Promise<ListGatewayDomainsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewayDomainsWithOptions(ClusterId, GatewayId, headers, runtime);
   }
@@ -17489,22 +20714,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGatewayIntranetLinkedVpcResponse
    */
-  async listGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayIntranetLinkedVpcResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async listGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListGatewayIntranetLinkedVpcResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListGatewayIntranetLinkedVpc",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_endpoint_linked_vpc`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/intranet_endpoint_linked_vpc`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListGatewayIntranetLinkedVpcResponse>(await this.callApi(params, req, runtime), new ListGatewayIntranetLinkedVpcResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayIntranetLinkedVpcResponse>(await this.callApi(params, req, runtime), new ListGatewayIntranetLinkedVpcResponse({}));
+    } else {
+      return $dara.cast<ListGatewayIntranetLinkedVpcResponse>(await this.execute(params, req, runtime), new ListGatewayIntranetLinkedVpcResponse({}));
+    }
+
   }
 
   /**
@@ -17512,7 +20742,7 @@ export default class Client extends OpenApi {
    * @returns ListGatewayIntranetLinkedVpcResponse
    */
   async listGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string): Promise<ListGatewayIntranetLinkedVpcResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, headers, runtime);
   }
@@ -17525,29 +20755,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGatewayIntranetLinkedVpcPeerResponse
    */
-  async listGatewayIntranetLinkedVpcPeerWithOptions(ClusterId: string, GatewayId: string, request: ListGatewayIntranetLinkedVpcPeerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayIntranetLinkedVpcPeerResponse> {
-    Util.validateModel(request);
+  async listGatewayIntranetLinkedVpcPeerWithOptions(ClusterId: string, GatewayId: string, request: ListGatewayIntranetLinkedVpcPeerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListGatewayIntranetLinkedVpcPeerResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListGatewayIntranetLinkedVpcPeer",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_endpoint_linked_vpc_peer`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/intranet_endpoint_linked_vpc_peer`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListGatewayIntranetLinkedVpcPeerResponse>(await this.callApi(params, req, runtime), new ListGatewayIntranetLinkedVpcPeerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayIntranetLinkedVpcPeerResponse>(await this.callApi(params, req, runtime), new ListGatewayIntranetLinkedVpcPeerResponse({}));
+    } else {
+      return $dara.cast<ListGatewayIntranetLinkedVpcPeerResponse>(await this.execute(params, req, runtime), new ListGatewayIntranetLinkedVpcPeerResponse({}));
+    }
+
   }
 
   /**
@@ -17557,7 +20792,7 @@ export default class Client extends OpenApi {
    * @returns ListGatewayIntranetLinkedVpcPeerResponse
    */
   async listGatewayIntranetLinkedVpcPeer(ClusterId: string, GatewayId: string, request: ListGatewayIntranetLinkedVpcPeerRequest): Promise<ListGatewayIntranetLinkedVpcPeerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewayIntranetLinkedVpcPeerWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
@@ -17569,22 +20804,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGatewayIntranetSupportedZoneResponse
    */
-  async listGatewayIntranetSupportedZoneWithOptions(GatewayId: string, ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayIntranetSupportedZoneResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async listGatewayIntranetSupportedZoneWithOptions(GatewayId: string, ClusterId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListGatewayIntranetSupportedZoneResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListGatewayIntranetSupportedZone",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_supported_zone`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}/intranet_supported_zone`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListGatewayIntranetSupportedZoneResponse>(await this.callApi(params, req, runtime), new ListGatewayIntranetSupportedZoneResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGatewayIntranetSupportedZoneResponse>(await this.callApi(params, req, runtime), new ListGatewayIntranetSupportedZoneResponse({}));
+    } else {
+      return $dara.cast<ListGatewayIntranetSupportedZoneResponse>(await this.execute(params, req, runtime), new ListGatewayIntranetSupportedZoneResponse({}));
+    }
+
   }
 
   /**
@@ -17592,7 +20832,7 @@ export default class Client extends OpenApi {
    * @returns ListGatewayIntranetSupportedZoneResponse
    */
   async listGatewayIntranetSupportedZone(GatewayId: string, ClusterId: string): Promise<ListGatewayIntranetSupportedZoneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewayIntranetSupportedZoneWithOptions(GatewayId, ClusterId, headers, runtime);
   }
@@ -17605,30 +20845,30 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGroupsResponse
    */
-  async listGroupsWithOptions(request: ListGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
-    Util.validateModel(request);
+  async listGroupsWithOptions(request: ListGroupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListGroupsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.filter)) {
+    if (!$dara.isNull(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListGroups",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -17639,7 +20879,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
+    } else {
+      return $dara.cast<ListGroupsResponse>(await this.execute(params, req, runtime), new ListGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -17649,7 +20894,7 @@ export default class Client extends OpenApi {
    * @returns ListGroupsResponse
    */
   async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGroupsWithOptions(request, headers, runtime);
   }
@@ -17662,33 +20907,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListResourceInstanceWorkerResponse
    */
-  async listResourceInstanceWorkerWithOptions(ClusterId: string, ResourceId: string, InstanceName: string, request: ListResourceInstanceWorkerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceInstanceWorkerResponse> {
-    Util.validateModel(request);
+  async listResourceInstanceWorkerWithOptions(ClusterId: string, ResourceId: string, InstanceName: string, request: ListResourceInstanceWorkerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListResourceInstanceWorkerResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.workerName)) {
+      query["WorkerName"] = request.workerName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListResourceInstanceWorker",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/instance/${OpenApiUtil.getEncodeParam(InstanceName)}/workers`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/instance/${$dara.URL.percentEncode(InstanceName)}/workers`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListResourceInstanceWorkerResponse>(await this.callApi(params, req, runtime), new ListResourceInstanceWorkerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListResourceInstanceWorkerResponse>(await this.callApi(params, req, runtime), new ListResourceInstanceWorkerResponse({}));
+    } else {
+      return $dara.cast<ListResourceInstanceWorkerResponse>(await this.execute(params, req, runtime), new ListResourceInstanceWorkerResponse({}));
+    }
+
   }
 
   /**
@@ -17698,7 +20952,7 @@ export default class Client extends OpenApi {
    * @returns ListResourceInstanceWorkerResponse
    */
   async listResourceInstanceWorker(ClusterId: string, ResourceId: string, InstanceName: string, request: ListResourceInstanceWorkerRequest): Promise<ListResourceInstanceWorkerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listResourceInstanceWorkerWithOptions(ClusterId, ResourceId, InstanceName, request, headers, runtime);
   }
@@ -17706,70 +20960,85 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of instances in a dedicated resource group.
    * 
-   * @param request - ListResourceInstancesRequest
+   * @param tmpReq - ListResourceInstancesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListResourceInstancesResponse
    */
-  async listResourceInstancesWithOptions(ClusterId: string, ResourceId: string, request: ListResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceInstancesResponse> {
-    Util.validateModel(request);
+  async listResourceInstancesWithOptions(ClusterId: string, ResourceId: string, tmpReq: ListResourceInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListResourceInstancesResponse> {
+    tmpReq.validate();
+    let request = new ListResourceInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.label)) {
+      request.labelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.label, "Label", "json");
+    }
+
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.chargeType)) {
+    if (!$dara.isNull(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
     }
 
-    if (!Util.isUnset(request.filter)) {
+    if (!$dara.isNull(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!Util.isUnset(request.instanceIP)) {
+    if (!$dara.isNull(request.instanceIP)) {
       query["InstanceIP"] = request.instanceIP;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.instanceStatus)) {
+    if (!$dara.isNull(request.instanceStatus)) {
       query["InstanceStatus"] = request.instanceStatus;
     }
 
-    if (!Util.isUnset(request.order)) {
+    if (!$dara.isNull(request.labelShrink)) {
+      query["Label"] = request.labelShrink;
+    }
+
+    if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.sort)) {
+    if (!$dara.isNull(request.sort)) {
       query["Sort"] = request.sort;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListResourceInstances",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/instances`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/instances`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListResourceInstancesResponse>(await this.callApi(params, req, runtime), new ListResourceInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListResourceInstancesResponse>(await this.callApi(params, req, runtime), new ListResourceInstancesResponse({}));
+    } else {
+      return $dara.cast<ListResourceInstancesResponse>(await this.execute(params, req, runtime), new ListResourceInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -17779,7 +21048,7 @@ export default class Client extends OpenApi {
    * @returns ListResourceInstancesResponse
    */
   async listResourceInstances(ClusterId: string, ResourceId: string, request: ListResourceInstancesRequest): Promise<ListResourceInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listResourceInstancesWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
@@ -17795,33 +21064,38 @@ export default class Client extends OpenApi {
    * @returns ListResourceServicesResponse
    */
   // Deprecated
-  async listResourceServicesWithOptions(ClusterId: string, ResourceId: string, request: ListResourceServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourceServicesResponse> {
-    Util.validateModel(request);
+  async listResourceServicesWithOptions(ClusterId: string, ResourceId: string, request: ListResourceServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListResourceServicesResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListResourceServices",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/services`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/services`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListResourceServicesResponse>(await this.callApi(params, req, runtime), new ListResourceServicesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListResourceServicesResponse>(await this.callApi(params, req, runtime), new ListResourceServicesResponse({}));
+    } else {
+      return $dara.cast<ListResourceServicesResponse>(await this.execute(params, req, runtime), new ListResourceServicesResponse({}));
+    }
+
   }
 
   /**
@@ -17834,7 +21108,7 @@ export default class Client extends OpenApi {
    */
   // Deprecated
   async listResourceServices(ClusterId: string, ResourceId: string, request: ListResourceServicesRequest): Promise<ListResourceServicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listResourceServicesWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
@@ -17847,34 +21121,46 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListResourcesResponse
    */
-  async listResourcesWithOptions(request: ListResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListResourcesResponse> {
-    Util.validateModel(request);
+  async listResourcesWithOptions(request: ListResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListResourcesResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceName)) {
+    if (!$dara.isNull(request.resourceName)) {
       query["ResourceName"] = request.resourceName;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceStatus)) {
+      query["ResourceStatus"] = request.resourceStatus;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListResources",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -17885,7 +21171,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListResourcesResponse>(await this.callApi(params, req, runtime), new ListResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListResourcesResponse>(await this.callApi(params, req, runtime), new ListResourcesResponse({}));
+    } else {
+      return $dara.cast<ListResourcesResponse>(await this.execute(params, req, runtime), new ListResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -17895,7 +21186,7 @@ export default class Client extends OpenApi {
    * @returns ListResourcesResponse
    */
   async listResources(request: ListResourcesRequest): Promise<ListResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listResourcesWithOptions(request, headers, runtime);
   }
@@ -17907,22 +21198,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceContainersResponse
    */
-  async listServiceContainersWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceContainersResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async listServiceContainersWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListServiceContainersResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListServiceContainers",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/instances/${OpenApiUtil.getEncodeParam(InstanceName)}/containers`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/instances/${$dara.URL.percentEncode(InstanceName)}/containers`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListServiceContainersResponse>(await this.callApi(params, req, runtime), new ListServiceContainersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceContainersResponse>(await this.callApi(params, req, runtime), new ListServiceContainersResponse({}));
+    } else {
+      return $dara.cast<ListServiceContainersResponse>(await this.execute(params, req, runtime), new ListServiceContainersResponse({}));
+    }
+
   }
 
   /**
@@ -17930,7 +21226,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceContainersResponse
    */
   async listServiceContainers(ClusterId: string, ServiceName: string, InstanceName: string): Promise<ListServiceContainersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServiceContainersWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
   }
@@ -17943,77 +21239,82 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceInstancesResponse
    */
-  async listServiceInstancesWithOptions(ClusterId: string, ServiceName: string, request: ListServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceInstancesResponse> {
-    Util.validateModel(request);
+  async listServiceInstancesWithOptions(ClusterId: string, ServiceName: string, request: ListServiceInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListServiceInstancesResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.filter)) {
+    if (!$dara.isNull(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!Util.isUnset(request.hostIP)) {
+    if (!$dara.isNull(request.hostIP)) {
       query["HostIP"] = request.hostIP;
     }
 
-    if (!Util.isUnset(request.instanceIP)) {
+    if (!$dara.isNull(request.instanceIP)) {
       query["InstanceIP"] = request.instanceIP;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.instanceStatus)) {
+    if (!$dara.isNull(request.instanceStatus)) {
       query["InstanceStatus"] = request.instanceStatus;
     }
 
-    if (!Util.isUnset(request.instanceType)) {
+    if (!$dara.isNull(request.instanceType)) {
       query["InstanceType"] = request.instanceType;
     }
 
-    if (!Util.isUnset(request.isSpot)) {
+    if (!$dara.isNull(request.isSpot)) {
       query["IsSpot"] = request.isSpot;
     }
 
-    if (!Util.isUnset(request.order)) {
+    if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.role)) {
+    if (!$dara.isNull(request.role)) {
       query["Role"] = request.role;
     }
 
-    if (!Util.isUnset(request.sort)) {
+    if (!$dara.isNull(request.sort)) {
       query["Sort"] = request.sort;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListServiceInstances",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/instances`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/instances`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListServiceInstancesResponse>(await this.callApi(params, req, runtime), new ListServiceInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceInstancesResponse>(await this.callApi(params, req, runtime), new ListServiceInstancesResponse({}));
+    } else {
+      return $dara.cast<ListServiceInstancesResponse>(await this.execute(params, req, runtime), new ListServiceInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -18023,7 +21324,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceInstancesResponse
    */
   async listServiceInstances(ClusterId: string, ServiceName: string, request: ListServiceInstancesRequest): Promise<ListServiceInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServiceInstancesWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -18036,33 +21337,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceVersionsResponse
    */
-  async listServiceVersionsWithOptions(ClusterId: string, ServiceName: string, request: ListServiceVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceVersionsResponse> {
-    Util.validateModel(request);
+  async listServiceVersionsWithOptions(ClusterId: string, ServiceName: string, request: ListServiceVersionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListServiceVersionsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListServiceVersions",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/versions`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/versions`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListServiceVersionsResponse>(await this.callApi(params, req, runtime), new ListServiceVersionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceVersionsResponse>(await this.callApi(params, req, runtime), new ListServiceVersionsResponse({}));
+    } else {
+      return $dara.cast<ListServiceVersionsResponse>(await this.execute(params, req, runtime), new ListServiceVersionsResponse({}));
+    }
+
   }
 
   /**
@@ -18072,7 +21378,7 @@ export default class Client extends OpenApi {
    * @returns ListServiceVersionsResponse
    */
   async listServiceVersions(ClusterId: string, ServiceName: string, request: ListServiceVersionsRequest): Promise<ListServiceVersionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServiceVersionsWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -18085,88 +21391,88 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServicesResponse
    */
-  async listServicesWithOptions(tmpReq: ListServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServicesResponse> {
-    Util.validateModel(tmpReq);
+  async listServicesWithOptions(tmpReq: ListServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListServicesResponse> {
+    tmpReq.validate();
     let request = new ListServicesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.label)) {
+    if (!$dara.isNull(tmpReq.label)) {
       request.labelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.label, "Label", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.filter)) {
+    if (!$dara.isNull(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!Util.isUnset(request.gateway)) {
+    if (!$dara.isNull(request.gateway)) {
       query["Gateway"] = request.gateway;
     }
 
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.labelShrink)) {
+    if (!$dara.isNull(request.labelShrink)) {
       query["Label"] = request.labelShrink;
     }
 
-    if (!Util.isUnset(request.order)) {
+    if (!$dara.isNull(request.order)) {
       query["Order"] = request.order;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.parentServiceUid)) {
+    if (!$dara.isNull(request.parentServiceUid)) {
       query["ParentServiceUid"] = request.parentServiceUid;
     }
 
-    if (!Util.isUnset(request.quotaId)) {
+    if (!$dara.isNull(request.quotaId)) {
       query["QuotaId"] = request.quotaId;
     }
 
-    if (!Util.isUnset(request.resourceName)) {
+    if (!$dara.isNull(request.resourceName)) {
       query["ResourceName"] = request.resourceName;
     }
 
-    if (!Util.isUnset(request.role)) {
+    if (!$dara.isNull(request.role)) {
       query["Role"] = request.role;
     }
 
-    if (!Util.isUnset(request.serviceName)) {
+    if (!$dara.isNull(request.serviceName)) {
       query["ServiceName"] = request.serviceName;
     }
 
-    if (!Util.isUnset(request.serviceStatus)) {
+    if (!$dara.isNull(request.serviceStatus)) {
       query["ServiceStatus"] = request.serviceStatus;
     }
 
-    if (!Util.isUnset(request.serviceType)) {
+    if (!$dara.isNull(request.serviceType)) {
       query["ServiceType"] = request.serviceType;
     }
 
-    if (!Util.isUnset(request.serviceUid)) {
+    if (!$dara.isNull(request.serviceUid)) {
       query["ServiceUid"] = request.serviceUid;
     }
 
-    if (!Util.isUnset(request.sort)) {
+    if (!$dara.isNull(request.sort)) {
       query["Sort"] = request.sort;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListServices",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -18177,7 +21483,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
+    } else {
+      return $dara.cast<ListServicesResponse>(await this.execute(params, req, runtime), new ListServicesResponse({}));
+    }
+
   }
 
   /**
@@ -18187,7 +21498,7 @@ export default class Client extends OpenApi {
    * @returns ListServicesResponse
    */
   async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listServicesWithOptions(request, headers, runtime);
   }
@@ -18199,11 +21510,11 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTenantAddonsResponse
    */
-  async listTenantAddonsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTenantAddonsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async listTenantAddonsWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListTenantAddonsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTenantAddons",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -18214,7 +21525,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTenantAddonsResponse>(await this.callApi(params, req, runtime), new ListTenantAddonsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTenantAddonsResponse>(await this.callApi(params, req, runtime), new ListTenantAddonsResponse({}));
+    } else {
+      return $dara.cast<ListTenantAddonsResponse>(await this.execute(params, req, runtime), new ListTenantAddonsResponse({}));
+    }
+
   }
 
   /**
@@ -18222,7 +21538,7 @@ export default class Client extends OpenApi {
    * @returns ListTenantAddonsResponse
    */
   async listTenantAddons(): Promise<ListTenantAddonsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTenantAddonsWithOptions(headers, runtime);
   }
@@ -18235,30 +21551,30 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVirtualResourceResponse
    */
-  async listVirtualResourceWithOptions(request: ListVirtualResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVirtualResourceResponse> {
-    Util.validateModel(request);
+  async listVirtualResourceWithOptions(request: ListVirtualResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListVirtualResourceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.virtualResourceId)) {
+    if (!$dara.isNull(request.virtualResourceId)) {
       query["VirtualResourceId"] = request.virtualResourceId;
     }
 
-    if (!Util.isUnset(request.virtualResourceName)) {
+    if (!$dara.isNull(request.virtualResourceName)) {
       query["VirtualResourceName"] = request.virtualResourceName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListVirtualResource",
       version: "2021-07-01",
       protocol: "HTTPS",
@@ -18269,7 +21585,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListVirtualResourceResponse>(await this.callApi(params, req, runtime), new ListVirtualResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVirtualResourceResponse>(await this.callApi(params, req, runtime), new ListVirtualResourceResponse({}));
+    } else {
+      return $dara.cast<ListVirtualResourceResponse>(await this.execute(params, req, runtime), new ListVirtualResourceResponse({}));
+    }
+
   }
 
   /**
@@ -18279,7 +21600,7 @@ export default class Client extends OpenApi {
    * @returns ListVirtualResourceResponse
    */
   async listVirtualResource(request: ListVirtualResourceRequest): Promise<ListVirtualResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listVirtualResourceWithOptions(request, headers, runtime);
   }
@@ -18291,22 +21612,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReinstallTenantAddonResponse
    */
-  async reinstallTenantAddonWithOptions(ClusterId: string, TenantAddonName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReinstallTenantAddonResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async reinstallTenantAddonWithOptions(ClusterId: string, TenantAddonName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ReinstallTenantAddonResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReinstallTenantAddon",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/tenantaddons/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TenantAddonName)}/reinstall`,
+      pathname: `/api/v2/tenantaddons/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(TenantAddonName)}/reinstall`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ReinstallTenantAddonResponse>(await this.callApi(params, req, runtime), new ReinstallTenantAddonResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ReinstallTenantAddonResponse>(await this.callApi(params, req, runtime), new ReinstallTenantAddonResponse({}));
+    } else {
+      return $dara.cast<ReinstallTenantAddonResponse>(await this.execute(params, req, runtime), new ReinstallTenantAddonResponse({}));
+    }
+
   }
 
   /**
@@ -18314,56 +21640,61 @@ export default class Client extends OpenApi {
    * @returns ReinstallTenantAddonResponse
    */
   async reinstallTenantAddon(ClusterId: string, TenantAddonName: string): Promise<ReinstallTenantAddonResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.reinstallTenantAddonWithOptions(ClusterId, TenantAddonName, headers, runtime);
   }
 
   /**
-   * Performs canary release or blue-green release of a service.
+   * Switch the traffic state or weight of the service.
    * 
    * @param request - ReleaseServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReleaseServiceResponse
    */
-  async releaseServiceWithOptions(ClusterId: string, ServiceName: string, request: ReleaseServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ReleaseServiceResponse> {
-    Util.validateModel(request);
+  async releaseServiceWithOptions(ClusterId: string, ServiceName: string, request: ReleaseServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ReleaseServiceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.trafficState)) {
+    if (!$dara.isNull(request.trafficState)) {
       body["TrafficState"] = request.trafficState;
     }
 
-    if (!Util.isUnset(request.weight)) {
+    if (!$dara.isNull(request.weight)) {
       body["Weight"] = request.weight;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReleaseService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/release`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/release`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ReleaseServiceResponse>(await this.callApi(params, req, runtime), new ReleaseServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ReleaseServiceResponse>(await this.callApi(params, req, runtime), new ReleaseServiceResponse({}));
+    } else {
+      return $dara.cast<ReleaseServiceResponse>(await this.execute(params, req, runtime), new ReleaseServiceResponse({}));
+    }
+
   }
 
   /**
-   * Performs canary release or blue-green release of a service.
+   * Switch the traffic state or weight of the service.
    * 
    * @param request - ReleaseServiceRequest
    * @returns ReleaseServiceResponse
    */
   async releaseService(ClusterId: string, ServiceName: string, request: ReleaseServiceRequest): Promise<ReleaseServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.releaseServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -18375,22 +21706,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RestartServiceResponse
    */
-  async restartServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RestartServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async restartServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RestartServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RestartService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/restart`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/restart`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RestartServiceResponse>(await this.callApi(params, req, runtime), new RestartServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RestartServiceResponse>(await this.callApi(params, req, runtime), new RestartServiceResponse({}));
+    } else {
+      return $dara.cast<RestartServiceResponse>(await this.execute(params, req, runtime), new RestartServiceResponse({}));
+    }
+
   }
 
   /**
@@ -18398,7 +21734,7 @@ export default class Client extends OpenApi {
    * @returns RestartServiceResponse
    */
   async restartService(ClusterId: string, ServiceName: string): Promise<RestartServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.restartServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
@@ -18410,22 +21746,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartBenchmarkTaskResponse
    */
-  async startBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartBenchmarkTaskResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async startBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<StartBenchmarkTaskResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartBenchmarkTask",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/benchmark-tasks/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TaskName)}/start`,
+      pathname: `/api/v2/benchmark-tasks/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(TaskName)}/start`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StartBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new StartBenchmarkTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new StartBenchmarkTaskResponse({}));
+    } else {
+      return $dara.cast<StartBenchmarkTaskResponse>(await this.execute(params, req, runtime), new StartBenchmarkTaskResponse({}));
+    }
+
   }
 
   /**
@@ -18433,7 +21774,7 @@ export default class Client extends OpenApi {
    * @returns StartBenchmarkTaskResponse
    */
   async startBenchmarkTask(ClusterId: string, TaskName: string): Promise<StartBenchmarkTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
   }
@@ -18445,22 +21786,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartServiceResponse
    */
-  async startServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async startServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<StartServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/start`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/start`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StartServiceResponse>(await this.callApi(params, req, runtime), new StartServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartServiceResponse>(await this.callApi(params, req, runtime), new StartServiceResponse({}));
+    } else {
+      return $dara.cast<StartServiceResponse>(await this.execute(params, req, runtime), new StartServiceResponse({}));
+    }
+
   }
 
   /**
@@ -18468,7 +21814,7 @@ export default class Client extends OpenApi {
    * @returns StartServiceResponse
    */
   async startService(ClusterId: string, ServiceName: string): Promise<StartServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
@@ -18480,22 +21826,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopBenchmarkTaskResponse
    */
-  async stopBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopBenchmarkTaskResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async stopBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<StopBenchmarkTaskResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopBenchmarkTask",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/benchmark-tasks/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TaskName)}/stop`,
+      pathname: `/api/v2/benchmark-tasks/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(TaskName)}/stop`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StopBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new StopBenchmarkTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new StopBenchmarkTaskResponse({}));
+    } else {
+      return $dara.cast<StopBenchmarkTaskResponse>(await this.execute(params, req, runtime), new StopBenchmarkTaskResponse({}));
+    }
+
   }
 
   /**
@@ -18503,7 +21854,7 @@ export default class Client extends OpenApi {
    * @returns StopBenchmarkTaskResponse
    */
   async stopBenchmarkTask(ClusterId: string, TaskName: string): Promise<StopBenchmarkTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
   }
@@ -18515,22 +21866,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopServiceResponse
    */
-  async stopServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async stopServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<StopServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/stop`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/stop`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StopServiceResponse>(await this.callApi(params, req, runtime), new StopServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopServiceResponse>(await this.callApi(params, req, runtime), new StopServiceResponse({}));
+    } else {
+      return $dara.cast<StopServiceResponse>(await this.execute(params, req, runtime), new StopServiceResponse({}));
+    }
+
   }
 
   /**
@@ -18538,7 +21894,7 @@ export default class Client extends OpenApi {
    * @returns StopServiceResponse
    */
   async stopService(ClusterId: string, ServiceName: string): Promise<StopServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopServiceWithOptions(ClusterId, ServiceName, headers, runtime);
   }
@@ -18551,55 +21907,60 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAppServiceResponse
    */
-  async updateAppServiceWithOptions(ClusterId: string, ServiceName: string, request: UpdateAppServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAppServiceResponse> {
-    Util.validateModel(request);
+  async updateAppServiceWithOptions(ClusterId: string, ServiceName: string, request: UpdateAppServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateAppServiceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.quotaId)) {
+    if (!$dara.isNull(request.quotaId)) {
       query["QuotaId"] = request.quotaId;
     }
 
-    if (!Util.isUnset(request.workspaceId)) {
+    if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appType)) {
+    if (!$dara.isNull(request.appType)) {
       body["AppType"] = request.appType;
     }
 
-    if (!Util.isUnset(request.appVersion)) {
+    if (!$dara.isNull(request.appVersion)) {
       body["AppVersion"] = request.appVersion;
     }
 
-    if (!Util.isUnset(request.config)) {
+    if (!$dara.isNull(request.config)) {
       body["Config"] = request.config;
     }
 
-    if (!Util.isUnset(request.replicas)) {
+    if (!$dara.isNull(request.replicas)) {
       body["Replicas"] = request.replicas;
     }
 
-    if (!Util.isUnset(request.serviceSpec)) {
+    if (!$dara.isNull(request.serviceSpec)) {
       body["ServiceSpec"] = request.serviceSpec;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateAppService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/app_services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}`,
+      pathname: `/api/v2/app_services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAppServiceResponse>(await this.callApi(params, req, runtime), new UpdateAppServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateAppServiceResponse>(await this.callApi(params, req, runtime), new UpdateAppServiceResponse({}));
+    } else {
+      return $dara.cast<UpdateAppServiceResponse>(await this.execute(params, req, runtime), new UpdateAppServiceResponse({}));
+    }
+
   }
 
   /**
@@ -18609,7 +21970,7 @@ export default class Client extends OpenApi {
    * @returns UpdateAppServiceResponse
    */
   async updateAppService(ClusterId: string, ServiceName: string, request: UpdateAppServiceRequest): Promise<UpdateAppServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAppServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -18622,24 +21983,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateBenchmarkTaskResponse
    */
-  async updateBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, request: UpdateBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateBenchmarkTaskResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async updateBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, request: UpdateBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateBenchmarkTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: request.body,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateBenchmarkTask",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/benchmark-tasks/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(TaskName)}`,
+      pathname: `/api/v2/benchmark-tasks/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(TaskName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new UpdateBenchmarkTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateBenchmarkTaskResponse>(await this.callApi(params, req, runtime), new UpdateBenchmarkTaskResponse({}));
+    } else {
+      return $dara.cast<UpdateBenchmarkTaskResponse>(await this.execute(params, req, runtime), new UpdateBenchmarkTaskResponse({}));
+    }
+
   }
 
   /**
@@ -18649,7 +22015,7 @@ export default class Client extends OpenApi {
    * @returns UpdateBenchmarkTaskResponse
    */
   async updateBenchmarkTask(ClusterId: string, TaskName: string, request: UpdateBenchmarkTaskRequest): Promise<UpdateBenchmarkTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
   }
@@ -18662,53 +22028,58 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateGatewayResponse
    */
-  async updateGatewayWithOptions(GatewayId: string, ClusterId: string, request: UpdateGatewayRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayResponse> {
-    Util.validateModel(request);
+  async updateGatewayWithOptions(GatewayId: string, ClusterId: string, request: UpdateGatewayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateGatewayResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.enableInternet)) {
+    if (!$dara.isNull(request.enableInternet)) {
       body["EnableInternet"] = request.enableInternet;
     }
 
-    if (!Util.isUnset(request.enableIntranet)) {
+    if (!$dara.isNull(request.enableIntranet)) {
       body["EnableIntranet"] = request.enableIntranet;
     }
 
-    if (!Util.isUnset(request.enableSSLRedirection)) {
+    if (!$dara.isNull(request.enableSSLRedirection)) {
       body["EnableSSLRedirection"] = request.enableSSLRedirection;
     }
 
-    if (!Util.isUnset(request.instanceType)) {
+    if (!$dara.isNull(request.instanceType)) {
       body["InstanceType"] = request.instanceType;
     }
 
-    if (!Util.isUnset(request.isDefault)) {
+    if (!$dara.isNull(request.isDefault)) {
       body["IsDefault"] = request.isDefault;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.replicas)) {
+    if (!$dara.isNull(request.replicas)) {
       body["Replicas"] = request.replicas;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateGateway",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}`,
+      pathname: `/api/v2/gateways/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(GatewayId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateGatewayResponse>(await this.callApi(params, req, runtime), new UpdateGatewayResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGatewayResponse>(await this.callApi(params, req, runtime), new UpdateGatewayResponse({}));
+    } else {
+      return $dara.cast<UpdateGatewayResponse>(await this.execute(params, req, runtime), new UpdateGatewayResponse({}));
+    }
+
   }
 
   /**
@@ -18718,7 +22089,7 @@ export default class Client extends OpenApi {
    * @returns UpdateGatewayResponse
    */
   async updateGateway(GatewayId: string, ClusterId: string, request: UpdateGatewayRequest): Promise<UpdateGatewayResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateGatewayWithOptions(GatewayId, ClusterId, request, headers, runtime);
   }
@@ -18731,33 +22102,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateResourceResponse
    */
-  async updateResourceWithOptions(ClusterId: string, ResourceId: string, request: UpdateResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceResponse> {
-    Util.validateModel(request);
+  async updateResourceWithOptions(ClusterId: string, ResourceId: string, request: UpdateResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateResourceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceName)) {
+    if (!$dara.isNull(request.resourceName)) {
       body["ResourceName"] = request.resourceName;
     }
 
-    if (!Util.isUnset(request.selfManagedResourceOptions)) {
+    if (!$dara.isNull(request.selfManagedResourceOptions)) {
       body["SelfManagedResourceOptions"] = request.selfManagedResourceOptions;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateResource",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateResourceResponse>(await this.callApi(params, req, runtime), new UpdateResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateResourceResponse>(await this.callApi(params, req, runtime), new UpdateResourceResponse({}));
+    } else {
+      return $dara.cast<UpdateResourceResponse>(await this.execute(params, req, runtime), new UpdateResourceResponse({}));
+    }
+
   }
 
   /**
@@ -18767,7 +22143,7 @@ export default class Client extends OpenApi {
    * @returns UpdateResourceResponse
    */
   async updateResource(ClusterId: string, ResourceId: string, request: UpdateResourceRequest): Promise<UpdateResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateResourceWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
@@ -18780,41 +22156,46 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateResourceDLinkResponse
    */
-  async updateResourceDLinkWithOptions(ClusterId: string, ResourceId: string, request: UpdateResourceDLinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceDLinkResponse> {
-    Util.validateModel(request);
+  async updateResourceDLinkWithOptions(ClusterId: string, ResourceId: string, request: UpdateResourceDLinkRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateResourceDLinkResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.destinationCIDRs)) {
+    if (!$dara.isNull(request.destinationCIDRs)) {
       body["DestinationCIDRs"] = request.destinationCIDRs;
     }
 
-    if (!Util.isUnset(request.securityGroupId)) {
+    if (!$dara.isNull(request.securityGroupId)) {
       body["SecurityGroupId"] = request.securityGroupId;
     }
 
-    if (!Util.isUnset(request.vSwitchId)) {
+    if (!$dara.isNull(request.vSwitchId)) {
       body["VSwitchId"] = request.vSwitchId;
     }
 
-    if (!Util.isUnset(request.vSwitchIdList)) {
+    if (!$dara.isNull(request.vSwitchIdList)) {
       body["VSwitchIdList"] = request.vSwitchIdList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateResourceDLink",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/dlink`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/dlink`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateResourceDLinkResponse>(await this.callApi(params, req, runtime), new UpdateResourceDLinkResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateResourceDLinkResponse>(await this.callApi(params, req, runtime), new UpdateResourceDLinkResponse({}));
+    } else {
+      return $dara.cast<UpdateResourceDLinkResponse>(await this.execute(params, req, runtime), new UpdateResourceDLinkResponse({}));
+    }
+
   }
 
   /**
@@ -18824,7 +22205,7 @@ export default class Client extends OpenApi {
    * @returns UpdateResourceDLinkResponse
    */
   async updateResourceDLink(ClusterId: string, ResourceId: string, request: UpdateResourceDLinkRequest): Promise<UpdateResourceDLinkResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateResourceDLinkWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
@@ -18837,29 +22218,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateResourceInstanceResponse
    */
-  async updateResourceInstanceWithOptions(ClusterId: string, ResourceId: string, InstanceId: string, request: UpdateResourceInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateResourceInstanceResponse> {
-    Util.validateModel(request);
+  async updateResourceInstanceWithOptions(ClusterId: string, ResourceId: string, InstanceId: string, request: UpdateResourceInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateResourceInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.action)) {
+    if (!$dara.isNull(request.action)) {
       body["Action"] = request.action;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateResourceInstance",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/resources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ResourceId)}/instances/${OpenApiUtil.getEncodeParam(InstanceId)}`,
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/instances/${$dara.URL.percentEncode(InstanceId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateResourceInstanceResponse>(await this.callApi(params, req, runtime), new UpdateResourceInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateResourceInstanceResponse>(await this.callApi(params, req, runtime), new UpdateResourceInstanceResponse({}));
+    } else {
+      return $dara.cast<UpdateResourceInstanceResponse>(await this.execute(params, req, runtime), new UpdateResourceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -18869,9 +22255,75 @@ export default class Client extends OpenApi {
    * @returns UpdateResourceInstanceResponse
    */
   async updateResourceInstance(ClusterId: string, ResourceId: string, InstanceId: string, request: UpdateResourceInstanceRequest): Promise<UpdateResourceInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateResourceInstanceWithOptions(ClusterId, ResourceId, InstanceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新资源组实例标签
+   * 
+   * @param tmpReq - UpdateResourceInstanceLabelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateResourceInstanceLabelResponse
+   */
+  async updateResourceInstanceLabelWithOptions(ClusterId: string, ResourceId: string, tmpReq: UpdateResourceInstanceLabelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateResourceInstanceLabelResponse> {
+    tmpReq.validate();
+    let request = new UpdateResourceInstanceLabelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allInstances)) {
+      query["AllInstances"] = request.allInstances;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateResourceInstanceLabel",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/resources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ResourceId)}/label`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateResourceInstanceLabelResponse>(await this.callApi(params, req, runtime), new UpdateResourceInstanceLabelResponse({}));
+    } else {
+      return $dara.cast<UpdateResourceInstanceLabelResponse>(await this.execute(params, req, runtime), new UpdateResourceInstanceLabelResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新资源组实例标签
+   * 
+   * @param request - UpdateResourceInstanceLabelRequest
+   * @returns UpdateResourceInstanceLabelResponse
+   */
+  async updateResourceInstanceLabel(ClusterId: string, ResourceId: string, request: UpdateResourceInstanceLabelRequest): Promise<UpdateResourceInstanceLabelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateResourceInstanceLabelWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
   /**
@@ -18882,30 +22334,35 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceResponse
    */
-  async updateServiceWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceResponse> {
-    Util.validateModel(request);
+  async updateServiceWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateServiceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.updateType)) {
+    if (!$dara.isNull(request.updateType)) {
       query["UpdateType"] = request.updateType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: request.body,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateService",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateServiceResponse>(await this.callApi(params, req, runtime), new UpdateServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateServiceResponse>(await this.callApi(params, req, runtime), new UpdateServiceResponse({}));
+    } else {
+      return $dara.cast<UpdateServiceResponse>(await this.execute(params, req, runtime), new UpdateServiceResponse({}));
+    }
+
   }
 
   /**
@@ -18915,7 +22372,7 @@ export default class Client extends OpenApi {
    * @returns UpdateServiceResponse
    */
   async updateService(ClusterId: string, ServiceName: string, request: UpdateServiceRequest): Promise<UpdateServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -18928,41 +22385,46 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceAutoScalerResponse
    */
-  async updateServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceAutoScalerResponse> {
-    Util.validateModel(request);
+  async updateServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateServiceAutoScalerResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.behavior)) {
+    if (!$dara.isNull(request.behavior)) {
       body["behavior"] = request.behavior;
     }
 
-    if (!Util.isUnset(request.max)) {
+    if (!$dara.isNull(request.max)) {
       body["max"] = request.max;
     }
 
-    if (!Util.isUnset(request.min)) {
+    if (!$dara.isNull(request.min)) {
       body["min"] = request.min;
     }
 
-    if (!Util.isUnset(request.scaleStrategies)) {
+    if (!$dara.isNull(request.scaleStrategies)) {
       body["scaleStrategies"] = request.scaleStrategies;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateServiceAutoScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/autoscaler`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/autoscaler`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateServiceAutoScalerResponse>(await this.callApi(params, req, runtime), new UpdateServiceAutoScalerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateServiceAutoScalerResponse>(await this.callApi(params, req, runtime), new UpdateServiceAutoScalerResponse({}));
+    } else {
+      return $dara.cast<UpdateServiceAutoScalerResponse>(await this.execute(params, req, runtime), new UpdateServiceAutoScalerResponse({}));
+    }
+
   }
 
   /**
@@ -18972,7 +22434,7 @@ export default class Client extends OpenApi {
    * @returns UpdateServiceAutoScalerResponse
    */
   async updateServiceAutoScaler(ClusterId: string, ServiceName: string, request: UpdateServiceAutoScalerRequest): Promise<UpdateServiceAutoScalerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceAutoScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -18985,33 +22447,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceCronScalerResponse
    */
-  async updateServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceCronScalerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceCronScalerResponse> {
-    Util.validateModel(request);
+  async updateServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceCronScalerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateServiceCronScalerResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.excludeDates)) {
+    if (!$dara.isNull(request.excludeDates)) {
       body["ExcludeDates"] = request.excludeDates;
     }
 
-    if (!Util.isUnset(request.scaleJobs)) {
+    if (!$dara.isNull(request.scaleJobs)) {
       body["ScaleJobs"] = request.scaleJobs;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateServiceCronScaler",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/cronscaler`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/cronscaler`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateServiceCronScalerResponse>(await this.callApi(params, req, runtime), new UpdateServiceCronScalerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateServiceCronScalerResponse>(await this.callApi(params, req, runtime), new UpdateServiceCronScalerResponse({}));
+    } else {
+      return $dara.cast<UpdateServiceCronScalerResponse>(await this.execute(params, req, runtime), new UpdateServiceCronScalerResponse({}));
+    }
+
   }
 
   /**
@@ -19021,7 +22488,7 @@ export default class Client extends OpenApi {
    * @returns UpdateServiceCronScalerResponse
    */
   async updateServiceCronScaler(ClusterId: string, ServiceName: string, request: UpdateServiceCronScalerRequest): Promise<UpdateServiceCronScalerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceCronScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -19034,29 +22501,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceInstanceResponse
    */
-  async updateServiceInstanceWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, request: UpdateServiceInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceInstanceResponse> {
-    Util.validateModel(request);
+  async updateServiceInstanceWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, request: UpdateServiceInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateServiceInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.isolate)) {
+    if (!$dara.isNull(request.isolate)) {
       body["Isolate"] = request.isolate;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateServiceInstance",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/instances/${OpenApiUtil.getEncodeParam(InstanceName)}`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/instances/${$dara.URL.percentEncode(InstanceName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateServiceInstanceResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateServiceInstanceResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceResponse({}));
+    } else {
+      return $dara.cast<UpdateServiceInstanceResponse>(await this.execute(params, req, runtime), new UpdateServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -19066,7 +22538,7 @@ export default class Client extends OpenApi {
    * @returns UpdateServiceInstanceResponse
    */
   async updateServiceInstance(ClusterId: string, ServiceName: string, InstanceName: string, request: UpdateServiceInstanceRequest): Promise<UpdateServiceInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceInstanceWithOptions(ClusterId, ServiceName, InstanceName, request, headers, runtime);
   }
@@ -19079,29 +22551,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceLabelResponse
    */
-  async updateServiceLabelWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceLabelRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceLabelResponse> {
-    Util.validateModel(request);
+  async updateServiceLabelWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceLabelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateServiceLabelResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labels)) {
+    if (!$dara.isNull(request.labels)) {
       body["Labels"] = request.labels;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateServiceLabel",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/label`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/label`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateServiceLabelResponse>(await this.callApi(params, req, runtime), new UpdateServiceLabelResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateServiceLabelResponse>(await this.callApi(params, req, runtime), new UpdateServiceLabelResponse({}));
+    } else {
+      return $dara.cast<UpdateServiceLabelResponse>(await this.execute(params, req, runtime), new UpdateServiceLabelResponse({}));
+    }
+
   }
 
   /**
@@ -19111,7 +22588,7 @@ export default class Client extends OpenApi {
    * @returns UpdateServiceLabelResponse
    */
   async updateServiceLabel(ClusterId: string, ServiceName: string, request: UpdateServiceLabelRequest): Promise<UpdateServiceLabelResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceLabelWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -19124,33 +22601,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceMirrorResponse
    */
-  async updateServiceMirrorWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceMirrorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceMirrorResponse> {
-    Util.validateModel(request);
+  async updateServiceMirrorWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceMirrorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateServiceMirrorResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ratio)) {
+    if (!$dara.isNull(request.ratio)) {
       body["Ratio"] = request.ratio;
     }
 
-    if (!Util.isUnset(request.target)) {
+    if (!$dara.isNull(request.target)) {
       body["Target"] = request.target;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateServiceMirror",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/mirror`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/mirror`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateServiceMirrorResponse>(await this.callApi(params, req, runtime), new UpdateServiceMirrorResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateServiceMirrorResponse>(await this.callApi(params, req, runtime), new UpdateServiceMirrorResponse({}));
+    } else {
+      return $dara.cast<UpdateServiceMirrorResponse>(await this.execute(params, req, runtime), new UpdateServiceMirrorResponse({}));
+    }
+
   }
 
   /**
@@ -19160,7 +22642,7 @@ export default class Client extends OpenApi {
    * @returns UpdateServiceMirrorResponse
    */
   async updateServiceMirror(ClusterId: string, ServiceName: string, request: UpdateServiceMirrorRequest): Promise<UpdateServiceMirrorResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceMirrorWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -19173,29 +22655,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceSafetyLockResponse
    */
-  async updateServiceSafetyLockWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceSafetyLockRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceSafetyLockResponse> {
-    Util.validateModel(request);
+  async updateServiceSafetyLockWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceSafetyLockRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateServiceSafetyLockResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.lock)) {
+    if (!$dara.isNull(request.lock)) {
       body["Lock"] = request.lock;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateServiceSafetyLock",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/lock`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/lock`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateServiceSafetyLockResponse>(await this.callApi(params, req, runtime), new UpdateServiceSafetyLockResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateServiceSafetyLockResponse>(await this.callApi(params, req, runtime), new UpdateServiceSafetyLockResponse({}));
+    } else {
+      return $dara.cast<UpdateServiceSafetyLockResponse>(await this.execute(params, req, runtime), new UpdateServiceSafetyLockResponse({}));
+    }
+
   }
 
   /**
@@ -19205,7 +22692,7 @@ export default class Client extends OpenApi {
    * @returns UpdateServiceSafetyLockResponse
    */
   async updateServiceSafetyLock(ClusterId: string, ServiceName: string, request: UpdateServiceSafetyLockRequest): Promise<UpdateServiceSafetyLockResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceSafetyLockWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -19218,29 +22705,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateServiceVersionResponse
    */
-  async updateServiceVersionWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceVersionResponse> {
-    Util.validateModel(request);
+  async updateServiceVersionWithOptions(ClusterId: string, ServiceName: string, request: UpdateServiceVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateServiceVersionResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.version)) {
+    if (!$dara.isNull(request.version)) {
       body["Version"] = request.version;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateServiceVersion",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/version`,
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/version`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateServiceVersionResponse>(await this.callApi(params, req, runtime), new UpdateServiceVersionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateServiceVersionResponse>(await this.callApi(params, req, runtime), new UpdateServiceVersionResponse({}));
+    } else {
+      return $dara.cast<UpdateServiceVersionResponse>(await this.execute(params, req, runtime), new UpdateServiceVersionResponse({}));
+    }
+
   }
 
   /**
@@ -19250,7 +22742,7 @@ export default class Client extends OpenApi {
    * @returns UpdateServiceVersionResponse
    */
   async updateServiceVersion(ClusterId: string, ServiceName: string, request: UpdateServiceVersionRequest): Promise<UpdateServiceVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateServiceVersionWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
@@ -19263,33 +22755,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateVirtualResourceResponse
    */
-  async updateVirtualResourceWithOptions(ClusterId: string, VirtualResourceId: string, request: UpdateVirtualResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateVirtualResourceResponse> {
-    Util.validateModel(request);
+  async updateVirtualResourceWithOptions(ClusterId: string, VirtualResourceId: string, request: UpdateVirtualResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateVirtualResourceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resources)) {
+    if (!$dara.isNull(request.disableSpotProtectionPeriod)) {
+      body["DisableSpotProtectionPeriod"] = request.disableSpotProtectionPeriod;
+    }
+
+    if (!$dara.isNull(request.resources)) {
       body["Resources"] = request.resources;
     }
 
-    if (!Util.isUnset(request.virtualResourceName)) {
+    if (!$dara.isNull(request.virtualResourceName)) {
       body["VirtualResourceName"] = request.virtualResourceName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateVirtualResource",
       version: "2021-07-01",
       protocol: "HTTPS",
-      pathname: `/api/v2/virtualresources/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(VirtualResourceId)}`,
+      pathname: `/api/v2/virtualresources/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(VirtualResourceId)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateVirtualResourceResponse>(await this.callApi(params, req, runtime), new UpdateVirtualResourceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateVirtualResourceResponse>(await this.callApi(params, req, runtime), new UpdateVirtualResourceResponse({}));
+    } else {
+      return $dara.cast<UpdateVirtualResourceResponse>(await this.execute(params, req, runtime), new UpdateVirtualResourceResponse({}));
+    }
+
   }
 
   /**
@@ -19299,7 +22800,7 @@ export default class Client extends OpenApi {
    * @returns UpdateVirtualResourceResponse
    */
   async updateVirtualResource(ClusterId: string, VirtualResourceId: string, request: UpdateVirtualResourceRequest): Promise<UpdateVirtualResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateVirtualResourceWithOptions(ClusterId, VirtualResourceId, request, headers, runtime);
   }
