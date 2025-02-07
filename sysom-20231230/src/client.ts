@@ -6831,6 +6831,11 @@ export class ListInstanceStatusResponse extends $dara.Model {
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @example
+   * xxxxx
+   */
+  clusterId?: string;
+  /**
+   * @example
    * 1
    */
   current?: number;
@@ -6852,6 +6857,7 @@ export class ListInstancesRequest extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'cluster_id',
       current: 'current',
       instance: 'instance',
       pageSize: 'pageSize',
@@ -6862,6 +6868,7 @@ export class ListInstancesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'string',
       current: 'number',
       instance: 'string',
       pageSize: 'number',
@@ -10145,6 +10152,10 @@ export default class Client extends OpenApi {
   async listInstancesWithOptions(request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListInstancesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["cluster_id"] = request.clusterId;
+    }
+
     if (!$dara.isNull(request.current)) {
       query["current"] = request.current;
     }
