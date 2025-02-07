@@ -268,7 +268,7 @@ export class AddFingerprintToOIDCProviderResponseBodyOIDCProvider extends $dara.
 export class CreateAccessKeyResponseBodyAccessKey extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID provided to you by Alibaba Cloud.
+   * The AccessKey ID.
    * 
    * @example
    * LTAI4G3HaMmeHpay2gcq****
@@ -276,7 +276,7 @@ export class CreateAccessKeyResponseBodyAccessKey extends $dara.Model {
   accessKeyId?: string;
   /**
    * @remarks
-   * The AccessKey secret provided to you by Alibaba Cloud.
+   * The AccessKey secret.
    * 
    * @example
    * Y3MSLE6OgizS4qrz5LVFDoyZEL****
@@ -758,7 +758,7 @@ export class CreateGroupResponseBodyGroup extends $dara.Model {
 export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether MFA must be enabled.
+   * Indicates whether to forcefully enable MFA for the RAM user.
    * 
    * @example
    * false
@@ -766,7 +766,7 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   MFABindRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether the RAM user must reset the password at the next logon.
+   * Indicates whether the RAM user is required to reset the password upon the next logon.
    * 
    * @example
    * false
@@ -774,7 +774,7 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   passwordResetRequired?: boolean;
   /**
    * @remarks
-   * The status of password-based logon.
+   * Indicates whether to enable password-based logons to the console.
    * 
    * @example
    * Active
@@ -966,7 +966,7 @@ export class CreateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   arn?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in UTC.
    * 
    * @example
    * 2020-10-22T02:37:05Z
@@ -990,7 +990,7 @@ export class CreateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   SAMLProviderName?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time. The time is displayed in UTC.
    * 
    * @example
    * 2020-10-22T02:51:20Z
@@ -1028,9 +1028,9 @@ export class CreateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
 export class CreateUserRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N.
+   * The key of the tag.
    * 
-   * Valid values of N: 1 to 20. You cannot specify empty strings as tag keys. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
    * 
    * @example
    * operator
@@ -1038,9 +1038,9 @@ export class CreateUserRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N.
+   * The value of the tag.
    * 
-   * Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:`.
+   * The tag value can be an empty string. The tag value can be up to 128 characters in length. The tag value cannot start with `acs:` or contain `http://` or `https://`.
    * 
    * @example
    * alice
@@ -1366,7 +1366,7 @@ export class GetAccessKeyLastUsedResponseBodyAccessKeyLastUsed extends $dara.Mod
 export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfoAccountSecurityPracticeUserInfo extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether MFA is enabled. Valid values:
+   * Indicates whether multi-factor authentication (MFA) is enabled. Valid values:
    * 
    * *   true
    * *   false
@@ -1429,7 +1429,7 @@ export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPractice
   subUserWithOldAccessKey?: number;
   /**
    * @remarks
-   * The number of RAM users that have no AccessKey pairs.
+   * The number of Resource Access Management (RAM) users that have unused AccessKey pairs.
    * 
    * @example
    * 0
@@ -1483,7 +1483,7 @@ export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPractice
 export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfo extends $dara.Model {
   /**
    * @remarks
-   * The information of the security report for the Alibaba Cloud account.
+   * The information about the security report for the Alibaba Cloud account.
    */
   accountSecurityPracticeUserInfo?: GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfoAccountSecurityPracticeUserInfo;
   /**
@@ -1523,7 +1523,7 @@ export class GetAccountSecurityPracticeReportResponseBodyAccountSecurityPractice
 export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of AccessKey pairs that a RAM user can have.
+   * The maximum number of AccessKey pairs that a Resource Access Management (RAM) user can have.
    * 
    * @example
    * 2
@@ -1577,6 +1577,10 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
    * 20
    */
   attachedSystemPoliciesPerUserQuota?: number;
+  /**
+   * @example
+   * 8
+   */
   conditionsPerAKPolicyQuota?: number;
   /**
    * @remarks
@@ -1602,6 +1606,10 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
    * 50
    */
   groupsQuota?: number;
+  /**
+   * @example
+   * 50
+   */
   IPItemsPerAKPolicyQuota?: number;
   /**
    * @remarks
@@ -2188,6 +2196,10 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
 }
 
 export class GetLoginProfileResponseBodyLoginProfile extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   autoDisableLoginStatus?: string;
   /**
    * @remarks
@@ -2782,7 +2794,15 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
 }
 
 export class GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays extends $dara.Model {
+  /**
+   * @example
+   * 730
+   */
   maxIdleDaysForAccessKeys?: number;
+  /**
+   * @example
+   * 730
+   */
   maxIdleDaysForUsers?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3218,6 +3238,18 @@ export class GetUserSsoSettingsResponseBodyUserSsoSettings extends $dara.Model {
    * false
    */
   ssoEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the Security Assertion Markup Language (SAML) SSO requires a domain name in the `<saml:NameID>` element of the SAML response. If yes, the username specified by the identity provider (IdP) for SSO must have a domain name as the suffix.
+   * 
+   * *   If the value of the parameter is `true`, the `<saml:NameID>` element **must** be in the `username@domain` format. You can set `domain` to the default domain name or the configured domain alias.
+   * *   If the value of the parameter is `false`, the `<saml:NameID>` element **must** be in the `username` format and **cannot** contain the `domain` suffix.
+   * 
+   * The default value is `true`.
+   * 
+   * @example
+   * true
+   */
   ssoLoginWithDomain?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3248,11 +3280,20 @@ export class GetUserSsoSettingsResponseBodyUserSsoSettings extends $dara.Model {
 
 export class GetVerificationInfoResponseBodySecurityEmailDevice extends $dara.Model {
   /**
+   * @remarks
+   * The email address.
+   * 
    * @example
    * username@example.com
    */
   email?: string;
   /**
+   * @remarks
+   * The status of the email. Valid values:
+   * 
+   * *   active: The email is activated.
+   * *   pending: The email is pending for activation.
+   * 
    * @example
    * active
    */
@@ -3282,16 +3323,28 @@ export class GetVerificationInfoResponseBodySecurityEmailDevice extends $dara.Mo
 
 export class GetVerificationInfoResponseBodySecurityPhoneDevice extends $dara.Model {
   /**
+   * @remarks
+   * The international dialing code.
+   * 
    * @example
    * 86
    */
   areaCode?: string;
   /**
+   * @remarks
+   * The mobile phone number.
+   * 
    * @example
    * 13900001234
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * The status of the mobile phone. Valid values:
+   * 
+   * *   active: The mobile phone is activated.
+   * *   pending: The mobile phone is pending for activation.
+   * 
    * @example
    * active
    */
@@ -4161,6 +4214,54 @@ export class ListOIDCProvidersResponseBodyOIDCProviders extends $dara.Model {
   }
 }
 
+export class ListPasskeysResponseBodyPasskeys extends $dara.Model {
+  /**
+   * @example
+   * 1737450279
+   */
+  createDate?: string;
+  /**
+   * @example
+   * 1737450390
+   */
+  lastUseDate?: string;
+  /**
+   * @example
+   * PASSKEY-CuZjEHhWcr7GIQOMGvkS
+   */
+  passkeyId?: string;
+  /**
+   * @example
+   * device1
+   */
+  passkeyName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createDate: 'CreateDate',
+      lastUseDate: 'LastUseDate',
+      passkeyId: 'PasskeyId',
+      passkeyName: 'PasskeyName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createDate: 'string',
+      lastUseDate: 'string',
+      passkeyId: 'string',
+      passkeyName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPredefinedScopesResponseBodyPredefinedScopesPredefinedScope extends $dara.Model {
   /**
    * @remarks
@@ -4172,7 +4273,7 @@ export class ListPredefinedScopesResponseBodyPredefinedScopesPredefinedScope ext
   description?: string;
   /**
    * @remarks
-   * The name of the scope.
+   * The name of the permission scope.
    * 
    * @example
    * openid
@@ -5601,7 +5702,15 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
 }
 
 export class SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays extends $dara.Model {
+  /**
+   * @example
+   * 730
+   */
   maxIdleDaysForAccessKeys?: number;
+  /**
+   * @example
+   * 730
+   */
   maxIdleDaysForUsers?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5787,6 +5896,18 @@ export class SetUserSsoSettingsResponseBodyUserSsoSettings extends $dara.Model {
    * true
    */
   ssoEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the SAML SSO requires a domain name in the `<saml:NameID>` element of the SAML response. If yes, the username specified by the IdP for SSO must have a domain name as the suffix.
+   * 
+   * *   If the value of the parameter is `true`, the `<saml:NameID>` element **must** be in the `username@domain` format. You can set `domain` to the default domain name or the configured domain alias.
+   * *   If the value of the parameter is `false`, the `<saml:NameID>` element **must** be in the `username` format and **cannot** contain the `domain` suffix.
+   * 
+   * The default value is `true`.
+   * 
+   * @example
+   * true
+   */
   ssoLoginWithDomain?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5820,7 +5941,7 @@ export class TagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The key of tag N.
    * 
-   * Valid values of N: 1 to 20. You cannot specify empty strings as tag keys. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * Valid values of N: 1 to 20. You cannot specify empty strings as tag keys. The tag key can be up to 128 characters in length. The tag key cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * operator
@@ -5830,7 +5951,7 @@ export class TagResourcesRequestTag extends $dara.Model {
    * @remarks
    * The value of tag N.
    * 
-   * Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be a up to128 characters in length and cannot contain `http://` or `https://`.
+   * Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
    * @example
    * alice
@@ -6257,6 +6378,10 @@ export class UpdateGroupResponseBodyGroup extends $dara.Model {
 }
 
 export class UpdateLoginProfileResponseBodyLoginProfile extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   autoDisableLoginStatus?: string;
   /**
    * @remarks
@@ -6268,7 +6393,7 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   MFABindRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether the RAM user must reset the password at the next logon.
+   * Indicates whether the RAM user is required to reset the password upon the next logon.
    * 
    * @example
    * false
@@ -6276,7 +6401,7 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   passwordResetRequired?: boolean;
   /**
    * @remarks
-   * The status of password-based logon.
+   * Indicates whether to enable password-based logons to the console.
    * 
    * @example
    * Active
@@ -6284,7 +6409,7 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time.
+   * The modification time.
    * 
    * @example
    * 2020-10-14T07:48:41Z
@@ -6586,9 +6711,9 @@ export class UpdateUserResponseBodyUser extends $dara.Model {
    * @remarks
    * The source of the RAM user. Valid values:
    * 
-   * - Manual: The RAM user is manually created in the RAM console.
-   * - SCIM: The RAM user is mapped by using System for Cross-domain Identity Management (SCIM).
-   * - CloudSSO: The RAM user is mapped from a CloudSSO user.
+   * *   Manual: The RAM user is manually created in the RAM console.
+   * *   SCIM: The RAM user is mapped by using System for Cross-domain Identity Management (SCIM).
+   * *   CloudSSO: The RAM user is mapped from a CloudSSO user.
    * 
    * @example
    * Manual
@@ -7184,7 +7309,7 @@ export class ChangePasswordRequest extends $dara.Model {
 export class ChangePasswordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -7281,12 +7406,12 @@ export class CreateAccessKeyRequest extends $dara.Model {
 export class CreateAccessKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the AccessKey pair.
+   * The information about the AccessKey pair.
    */
   accessKey?: CreateAccessKeyResponseBodyAccessKey;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 19DDD9F7-AFCC-4D72-8CBA-CCE5A142E7AB
@@ -7524,7 +7649,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * @remarks
    * The scope of application permissions.
    * 
-   * For more information about the application permission scope, see [Open authorization scope](https://help.aliyun.com/document_detail/93693.html). You can also call the [ListPredefinedScopes](https://help.aliyun.com/document_detail/187206.html) operation to obtain the permission scopes supported by different types of applications.
+   * For more information about the application permission scope, see [Open authorization scope](https://help.aliyun.com/document_detail/93693.html). You can also call the [ListPredefinedScopes](https://help.aliyun.com/document_detail/187206.html) operation to query the permissions that are supported by different types of applications.
    * 
    * If you enter multiple permission scopes, separate them with semicolons (;).
    * 
@@ -7563,9 +7688,9 @@ export class CreateApplicationRequest extends $dara.Model {
    * 
    * You can specify one or more permissions for the `RequiredScopes` parameter. After you specify this parameter, the required permissions are automatically selected and cannot be revoked when a user grants permissions on the application.
    * 
-   * If you enter multiple permissions, separate them with semicolons (;).
+   * If you enter multiple permission scopes, separate them with semicolons (;).
    * 
-   * >  If the permission that you specify for the `RequiredScopes` parameter is not included in value of the `PredefinedScopes` parameter, the permission does not take effect.
+   * >  If the permission that you specify for the `RequiredScopes` parameter is not included in the value of the `PredefinedScopes` parameter, the permission does not take effect.
    * 
    * @example
    * aliuid;profile
@@ -7704,7 +7829,7 @@ export class CreateGroupRequest extends $dara.Model {
    * @remarks
    * The description.
    * 
-   * The value can be up to 128 characters in length.
+   * The description can be up to 128 characters in length.
    * 
    * @example
    * Dev-Team
@@ -7758,12 +7883,12 @@ export class CreateGroupRequest extends $dara.Model {
 export class CreateGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the RAM user group.
+   * The information about the RAM user group.
    */
   group?: CreateGroupResponseBodyGroup;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3C38192B-7BF8-45DA-8F0A-E670EA51426C
@@ -7833,10 +7958,10 @@ export class CreateGroupResponse extends $dara.Model {
 export class CreateLoginProfileRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether multi-factor authentication (MFA) must be enabled. Valid values:
+   * Specifies whether to forcefully enable multi-factor authentication (MFA) for the RAM user. Valid values:
    * 
-   * *   true: MFA must be enabled. The RAM user must bind an MFA device at the next logon.
-   * *   false: MFA is not enabled. This is the default value.
+   * *   true: forcefully enables MFA for the RAM user. The RAM user must bind an MFA device upon the next logon.
+   * *   false (default): does not forcefully enable MFA for the RAM user.
    * 
    * @example
    * false
@@ -7844,7 +7969,7 @@ export class CreateLoginProfileRequest extends $dara.Model {
   MFABindRequired?: boolean;
   /**
    * @remarks
-   * The password that is used to log on to the console.
+   * The password that the RAM user uses to log on to the console.
    * 
    * The password must meet the complexity requirements.
    * 
@@ -7854,10 +7979,10 @@ export class CreateLoginProfileRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Specifies whether the RAM user must reset the password at the next logon. Default value: false. Valid values:
+   * Specifies whether the RAM user is required to reset the password upon the next logon. Valid values:
    * 
    * *   true
-   * *   false
+   * *   false (default)
    * 
    * @example
    * false
@@ -7865,7 +7990,7 @@ export class CreateLoginProfileRequest extends $dara.Model {
   passwordResetRequired?: boolean;
   /**
    * @remarks
-   * The status of password-based logon. Valid values:
+   * Specifies whether to enable password-based logons to the console. Valid values:
    * 
    * *   Active: Password-based logon is enabled. This is the default value.
    * *   Inactive: Password-based logon is disabled.
@@ -7921,7 +8046,7 @@ export class CreateLoginProfileResponseBody extends $dara.Model {
   loginProfile?: CreateLoginProfileResponseBodyLoginProfile;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 29CB303C-1F05-43A6-A6BC-EBC5A797F8DB
@@ -8172,9 +8297,9 @@ export class CreateSAMLProviderRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The metadata file, which is Base64 encoded.
+   * The metadata file which is Base64-encoded.
    * 
-   * The file is provided by an IdP that supports SAML 2.0.
+   * The file is provided by an IdP that supports Security Assertion Markup Language (SAML) 2.0.
    * 
    * @example
    * PD94bWwgdmVy****
@@ -8184,7 +8309,7 @@ export class CreateSAMLProviderRequest extends $dara.Model {
    * @remarks
    * The name of the IdP.
    * 
-   * The value can be up to 128 characters in length. The name can contain letters, digits,`  periods (.), hyphens (-), and underscores (_) `. The name cannot start or end with`  periods (.), hyphens (-), or underscores (_) `.
+   * The name can be up to 128 characters in length. The name can contain letters, digits, `periods (.), hyphens (-), and underscores (_)`. The name cannot start or end with `periods (.), hyphens (-), or underscores (_)`.
    * 
    * This parameter is required.
    * 
@@ -8220,7 +8345,7 @@ export class CreateSAMLProviderRequest extends $dara.Model {
 export class CreateSAMLProviderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A95A763D-F6B7-5242-83EB-AB45CE67F358
@@ -8228,7 +8353,7 @@ export class CreateSAMLProviderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information of the IdP.
+   * The information about the IdP.
    */
   SAMLProvider?: CreateSAMLProviderResponseBodySAMLProvider;
   static names(): { [key: string]: string } {
@@ -8339,18 +8464,16 @@ export class CreateUserRequest extends $dara.Model {
   mobilePhone?: string;
   /**
    * @remarks
-   * The tag value.
-   * 
-   * Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:`.
+   * The tags. You can specify up to 20 tags.
    */
   tag?: CreateUserRequestTag[];
   /**
    * @remarks
-   * The logon name of the RAM user.
+   * The logon name of the Resource Access Management (RAM) user.
    * 
-   * The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name. For more information about how to obtain the default domain name, see [GetDefaultDomain](https://help.aliyun.com/document_detail/186720.html).
+   * The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name. For more information about how to query the default domain name, see [GetDefaultDomain](https://help.aliyun.com/document_detail/186720.html).
    * 
-   * The value of `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be 1 to 64 characters in length.
+   * The value of `UserPrincipalName` must be `1 to 128` characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be `1 to 64` characters in length.
    * 
    * This parameter is required.
    * 
@@ -8504,7 +8627,7 @@ export class CreateVirtualMFADeviceRequest extends $dara.Model {
 export class CreateVirtualMFADeviceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C609CC97-10FE-43EB-BE32-BDC219D8F1E4
@@ -8512,7 +8635,7 @@ export class CreateVirtualMFADeviceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information of the MFA device.
+   * The information about the MFA device.
    */
   virtualMFADevice?: CreateVirtualMFADeviceResponseBodyVirtualMFADevice;
   static names(): { [key: string]: string } {
@@ -8623,7 +8746,7 @@ export class DeleteAccessKeyRequest extends $dara.Model {
 export class DeleteAccessKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
@@ -8732,7 +8855,7 @@ export class DeleteAppSecretRequest extends $dara.Model {
 export class DeleteAppSecretResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 85836703-8D4F-485F-9726-4D1C730F957E
@@ -8829,7 +8952,7 @@ export class DeleteApplicationRequest extends $dara.Model {
 export class DeleteApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 85836703-8D4F-485F-9726-4D1C730F957E
@@ -8924,7 +9047,7 @@ export class DeleteGroupRequest extends $dara.Model {
 export class DeleteGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 85836703-8D4F-485F-9726-4D1C730F957E
@@ -9021,7 +9144,7 @@ export class DeleteLoginProfileRequest extends $dara.Model {
 export class DeleteLoginProfileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
@@ -9178,6 +9301,102 @@ export class DeleteOIDCProviderResponse extends $dara.Model {
   }
 }
 
+export class DeletePasskeyRequest extends $dara.Model {
+  /**
+   * @example
+   * PASSKEY-CuZjEHhWcr7GIQOMGvkS
+   */
+  passkeyId?: string;
+  /**
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passkeyId: 'PasskeyId',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passkeyId: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePasskeyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 8A1673AA-5DB3-5AFB-8758-AF9EC2889259
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePasskeyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePasskeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePasskeyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteSAMLProviderRequest extends $dara.Model {
   /**
    * @remarks
@@ -9213,7 +9432,7 @@ export class DeleteSAMLProviderRequest extends $dara.Model {
 export class DeleteSAMLProviderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 85836703-8D4F-485F-9726-4D1C730F957E
@@ -9322,7 +9541,7 @@ export class DeleteUserRequest extends $dara.Model {
 export class DeleteUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 85836703-8D4F-485F-9726-4D1C730F957E
@@ -9419,7 +9638,7 @@ export class DeleteVirtualMFADeviceRequest extends $dara.Model {
 export class DeleteVirtualMFADeviceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -9516,7 +9735,7 @@ export class DisableVirtualMFARequest extends $dara.Model {
 export class DisableVirtualMFAResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
@@ -9581,7 +9800,7 @@ export class DisableVirtualMFAResponse extends $dara.Model {
 export class GenerateCredentialReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BBCCA90A-A1F0-4B16-B355-692247197805
@@ -9591,7 +9810,7 @@ export class GenerateCredentialReportResponseBody extends $dara.Model {
    * @remarks
    * The generation status of the user credential report. Valid values:
    * 
-   * *   STARTED: The user credential report starts to generate.
+   * *   STARTED: The system starts to generate the user credential report.
    * *   INPROGRESS: The user credential report is being generated.
    * *   COMPLETED: The user credential report is generated.
    * 
@@ -9779,7 +9998,7 @@ export class GetAccessKeyLastUsedResponse extends $dara.Model {
 export class GetAccountMFAInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether MFA is enabled. Valid values:
+   * Indicates whether MFA devices are enabled. Valid values:
    * 
    * *   true
    * *   false
@@ -9790,7 +10009,7 @@ export class GetAccountMFAInfoResponseBody extends $dara.Model {
   isMFAEnable?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4BE83135-0B08-467C-B3A2-27B312FD0F57
@@ -9857,12 +10076,12 @@ export class GetAccountMFAInfoResponse extends $dara.Model {
 export class GetAccountSecurityPracticeReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the security report for the Alibaba Cloud account.
+   * The information about the security report for the Alibaba Cloud account.
    */
   accountSecurityPracticeInfo?: GetAccountSecurityPracticeReportResponseBodyAccountSecurityPracticeInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * ABA822EE-85C2-4418-9577-A1831FC8466D
@@ -9932,7 +10151,7 @@ export class GetAccountSecurityPracticeReportResponse extends $dara.Model {
 export class GetAccountSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 81313F5E-3C85-478F-BCC9-E1B70E4556DB
@@ -11290,7 +11509,7 @@ export class GetUserMFAInfoResponse extends $dara.Model {
 export class GetUserSsoSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 69FC3E5E-D3D9-434B-90CA-BBA8E0551A47
@@ -11364,6 +11583,9 @@ export class GetUserSsoSettingsResponse extends $dara.Model {
 
 export class GetVerificationInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
    * @example
    * test@example.onaliyun.com
    */
@@ -11391,11 +11613,22 @@ export class GetVerificationInfoRequest extends $dara.Model {
 
 export class GetVerificationInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B182C041-8C64-5F2F-A07B-FC67FAF89CF9
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the email.
+   */
   securityEmailDevice?: GetVerificationInfoResponseBodySecurityEmailDevice;
+  /**
+   * @remarks
+   * The information about the mobile phone.
+   */
   securityPhoneDevice?: GetVerificationInfoResponseBodySecurityPhoneDevice;
   static names(): { [key: string]: string } {
     return {
@@ -11610,7 +11843,7 @@ export class ListAppSecretIdsResponseBody extends $dara.Model {
   appSecrets?: ListAppSecretIdsResponseBodyAppSecrets;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5F2FD500-7173-47D6-BD2F-EB60879B4F16
@@ -11797,15 +12030,15 @@ export class ListGroupsRequest extends $dara.Model {
 export class ListGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the RAM user groups.
+   * The information about the RAM user groups.
    */
   groups?: ListGroupsResponseBodyGroups;
   /**
    * @remarks
    * Indicates whether the response is truncated. Valid values:
    * 
-   * - true
-   * - false
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -11821,7 +12054,7 @@ export class ListGroupsResponseBody extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 065527AA-2F2E-AD7C-7484-F2626CFE4934
@@ -12139,6 +12372,101 @@ export class ListOIDCProvidersResponse extends $dara.Model {
   }
 }
 
+export class ListPasskeysRequest extends $dara.Model {
+  /**
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPasskeysResponseBody extends $dara.Model {
+  passkeys?: ListPasskeysResponseBodyPasskeys[];
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passkeys: 'Passkeys',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passkeys: { 'type': 'array', 'itemType': ListPasskeysResponseBodyPasskeys },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.passkeys)) {
+      $dara.Model.validateArray(this.passkeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPasskeysResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPasskeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPasskeysResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPredefinedScopesRequest extends $dara.Model {
   /**
    * @remarks
@@ -12178,12 +12506,12 @@ export class ListPredefinedScopesRequest extends $dara.Model {
 export class ListPredefinedScopesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of application permissions.
+   * The information about application permissions.
    */
   predefinedScopes?: ListPredefinedScopesResponseBodyPredefinedScopes;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 955C096D-EC99-480B-AF37-3921109107D0
@@ -12306,7 +12634,7 @@ export class ListSAMLProvidersResponseBody extends $dara.Model {
   isTruncated?: boolean;
   /**
    * @remarks
-   * The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
+   * The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.``
    * 
    * @example
    * EXAMPLE
@@ -12314,7 +12642,7 @@ export class ListSAMLProvidersResponseBody extends $dara.Model {
   marker?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2D8B70D3-E194-41C9-93C5-F6A10D716D24
@@ -12322,7 +12650,7 @@ export class ListSAMLProvidersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information of the IdP.
+   * The information about IdPs.
    */
   SAMLProviders?: ListSAMLProvidersResponseBodySAMLProviders;
   static names(): { [key: string]: string } {
@@ -13467,7 +13795,7 @@ export class RemoveUserFromGroupRequest extends $dara.Model {
 export class RemoveUserFromGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 85836703-8D4F-485F-9726-4D1C730F957E
@@ -13534,11 +13862,11 @@ export class SetDefaultDomainRequest extends $dara.Model {
    * @remarks
    * The default domain name.
    * 
-   * The name is in the format of `<AccountAlias>.onaliyun.com`. `<AccountAlias>` indicates the account alias. By default, the value of AccountAlias is the ID of the Alibaba Cloud account. The default domain name must end with `.onaliyun.com`.
+   * The default domain name is in the format of `<AccountAlias>.onaliyun.com`. `<AccountAlias>` indicates the account alias. By default, the value of AccountAlias is the ID of the Alibaba Cloud account. The default domain name must end with `.onaliyun.com`.
    * 
-   * The default domain name can contain up to 64 characters in length. The name can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+   * The default domain name can contain up to 64 characters in length. The default domain name can contain letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
-   * >  The default domain name cannot start or end with a hyphen (-) and cannot have two consecutive hyphens (-).
+   * >  The default domain name cannot start or end with a hyphen (-) and cannot contain two consecutive hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -13578,7 +13906,7 @@ export class SetDefaultDomainResponseBody extends $dara.Model {
   defaultDomainName?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 66815255-7CCE-4759-AC37-9755794C3626
@@ -14280,7 +14608,7 @@ export class SetUserSsoSettingsRequest extends $dara.Model {
    * @remarks
    * The metadata file, which is Base64-encoded.
    * 
-   * The file is provided by an IdP that supports SAML 2.0.
+   * The file is provided by an identity provider (IdP) that supports Security Assertion Markup Language (SAML) 2.0.
    * 
    * @example
    * PD94bWwgdmVy****
@@ -14288,15 +14616,27 @@ export class SetUserSsoSettingsRequest extends $dara.Model {
   metadataDocument?: string;
   /**
    * @remarks
-   * Specifies whether to enable SSO for the RAM user. Default value: false. Valid values:
+   * Specifies whether to enable SSO for the RAM user. Valid values:
    * 
    * *   true
-   * *   false
+   * *   false (default)
    * 
    * @example
    * true
    */
   ssoEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the SAML SSO requires a domain name in the `<saml:NameID>` element of the SAML response. If yes, the username specified by the IdP for SSO must have a domain name as the suffix.
+   * 
+   * *   If the value of the parameter is `true`, the `<saml:NameID>` element **must** be in the `username@domain` format. You can set `domain` to the default domain name or the configured domain alias.
+   * *   If the value of the parameter is `false`, the `<saml:NameID>` element **must** be in the `username` format and **cannot** contain the `domain` suffix.
+   * 
+   * Set the value to the default `true`.
+   * 
+   * @example
+   * true
+   */
   ssoLoginWithDomain?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14328,7 +14668,7 @@ export class SetUserSsoSettingsRequest extends $dara.Model {
 export class SetUserSsoSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 87F2E3F6-28A0-43F3-A77F-F7760E62F61E
@@ -14405,18 +14745,18 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The ID of resource N.
    * 
-   * Valid values of N: 1 to 50. If ResourceType is set to user, the resource ID is the ID of the RAM user.
+   * Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource ID is the ID of the RAM user.
    * 
-   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+   * >  You must specify only one of the following parameters: `ResourceId` and `ResourcePrincipalName`.
    */
   resourceId?: string[];
   /**
    * @remarks
    * The name of resource N.
    * 
-   * Valid values of N: 1 to 50. If ResourceType is set to user, the resource name is the name of the RAM user.
+   * Valid values of N: 1 to 50. If the ResourceType parameter is set to user, the resource name is the name of the RAM user.
    * 
-   * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+   * >  You must specify only one of the following parameters: `ResourceId` and `ResourcePrincipalName`.
    * 
    * @example
    * TagResources
@@ -14426,7 +14766,7 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid value:
    * 
-   * *   user: a RAM user
+   * *   user: a Resource Access Management (RAM) user.
    * 
    * @example
    * user
@@ -14434,7 +14774,9 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag value.
+   * The key of tag N.
+   * 
+   * Valid values of N: 1 to 20. You cannot specify empty strings as tag keys. The tag key can be up to 128 characters in length. The tag key cannot start with aliyun or acs: and cannot contain `http://` or `https://`.
    */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
@@ -14476,7 +14818,7 @@ export class TagResourcesRequest extends $dara.Model {
 export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3687BD52-49FD-585B-AB14-CD05B7C76963
@@ -14573,12 +14915,12 @@ export class UnbindMFADeviceRequest extends $dara.Model {
 export class UnbindMFADeviceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the MFA device.
+   * The information about the MFA device.
    */
   MFADevice?: UnbindMFADeviceResponseBodyMFADevice;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A26CB3E9-1021-452A-AC57-3134B3BA0E4C
@@ -14862,7 +15204,7 @@ export class UpdateAccessKeyRequest extends $dara.Model {
 export class UpdateAccessKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
@@ -15157,7 +15499,7 @@ export class UpdateGroupRequest extends $dara.Model {
    * @remarks
    * The new description.
    * 
-   * The value can be up to 128 characters in length.
+   * The description can be up to 128 characters in length.
    * 
    * @example
    * Test-Team
@@ -15213,12 +15555,12 @@ export class UpdateGroupRequest extends $dara.Model {
 export class UpdateGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information of the RAM user group.
+   * The information about the RAM user group.
    */
   group?: UpdateGroupResponseBodyGroup;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CDA656E3-3CE9-4A03-A8A3-B42A0C3C3287
@@ -15288,10 +15630,10 @@ export class UpdateGroupResponse extends $dara.Model {
 export class UpdateLoginProfileRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether multi-factor authentication (MFA) must be enabled. Valid values:
+   * Specifies whether to forcefully enable multi-factor authentication (MFA) for the RAM user. Valid values:
    * 
-   * *   true. The value true indicates that the RAM user must bind an MFA device at the next logon.
-   * *   false.
+   * *   true: forcefully enables MFA for the RAM user. The RAM user must bind an MFA device upon the next logon.
+   * *   false: does not forcefully enable MFA for the RAM user.
    * 
    * @example
    * false
@@ -15301,7 +15643,7 @@ export class UpdateLoginProfileRequest extends $dara.Model {
    * @remarks
    * The new password that is used to log on to the console.
    * 
-   * The password must meet the complexity requirements.
+   * The new password must meet the complexity requirements.
    * 
    * @example
    * mypassword
@@ -15309,7 +15651,7 @@ export class UpdateLoginProfileRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Specifies whether the RAM user must reset the password at the next logon. Valid values:
+   * Specifies whether the RAM user is required to reset the password upon the next logon. Valid values:
    * 
    * *   true
    * *   false
@@ -15320,10 +15662,10 @@ export class UpdateLoginProfileRequest extends $dara.Model {
   passwordResetRequired?: boolean;
   /**
    * @remarks
-   * The status of password-based logon. Valid values:
+   * Specifies whether to enable password-based logons to the console. Valid values:
    * 
-   * *   Active
-   * *   Inactive
+   * *   Active: enables password-based logons to the console.
+   * *   Inactive: disables password-based logons to the console.
    * 
    * @example
    * Active
@@ -15371,12 +15713,12 @@ export class UpdateLoginProfileRequest extends $dara.Model {
 export class UpdateLoginProfileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The logon information.
+   * The console logon configurations.
    */
   loginProfile?: UpdateLoginProfileResponseBodyLoginProfile;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BCDB6A7F-2199-41D9-B577-4FA536A5ADE1
@@ -15586,6 +15928,109 @@ export class UpdateOIDCProviderResponse extends $dara.Model {
   }
 }
 
+export class UpdatePasskeyRequest extends $dara.Model {
+  /**
+   * @example
+   * PASSKEY-CuZjEHhWcr7GIQOMGvkS
+   */
+  passkeyId?: string;
+  /**
+   * @example
+   * device1
+   */
+  passkeyName?: string;
+  /**
+   * @example
+   * test@example.onaliyun.com
+   */
+  userPrincipalName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      passkeyId: 'PasskeyId',
+      passkeyName: 'PasskeyName',
+      userPrincipalName: 'UserPrincipalName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      passkeyId: 'string',
+      passkeyName: 'string',
+      userPrincipalName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePasskeyResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 85836703-8D4F-485F-9726-4D1C730F957E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePasskeyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePasskeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePasskeyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateSAMLProviderRequest extends $dara.Model {
   /**
    * @remarks
@@ -15645,7 +16090,7 @@ export class UpdateSAMLProviderRequest extends $dara.Model {
 export class UpdateSAMLProviderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E5EDDFD2-3654-4F9F-9780-4AE7D81823EF
@@ -15766,7 +16211,7 @@ export class UpdateUserRequest extends $dara.Model {
    * 
    * The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name.
    * 
-   * The value of `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be 1 to 64 characters in length.
+   * The value of `NewUserPrincipalName` must be `1 to 128` characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be `1 to 64` characters in length.
    * 
    * @example
    * new@example.onaliyun.com
@@ -15955,7 +16400,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddClientIdToOIDCProviderResponse>(await this.callApi(params, req, runtime), new AddClientIdToOIDCProviderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddClientIdToOIDCProviderResponse>(await this.callApi(params, req, runtime), new AddClientIdToOIDCProviderResponse({}));
+    } else {
+      return $dara.cast<AddClientIdToOIDCProviderResponse>(await this.execute(params, req, runtime), new AddClientIdToOIDCProviderResponse({}));
+    }
+
   }
 
   /**
@@ -16005,7 +16455,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddFingerprintToOIDCProviderResponse>(await this.callApi(params, req, runtime), new AddFingerprintToOIDCProviderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddFingerprintToOIDCProviderResponse>(await this.callApi(params, req, runtime), new AddFingerprintToOIDCProviderResponse({}));
+    } else {
+      return $dara.cast<AddFingerprintToOIDCProviderResponse>(await this.execute(params, req, runtime), new AddFingerprintToOIDCProviderResponse({}));
+    }
+
   }
 
   /**
@@ -16055,7 +16510,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AddUserToGroupResponse>(await this.callApi(params, req, runtime), new AddUserToGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddUserToGroupResponse>(await this.callApi(params, req, runtime), new AddUserToGroupResponse({}));
+    } else {
+      return $dara.cast<AddUserToGroupResponse>(await this.execute(params, req, runtime), new AddUserToGroupResponse({}));
+    }
+
   }
 
   /**
@@ -16109,7 +16569,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<BindMFADeviceResponse>(await this.callApi(params, req, runtime), new BindMFADeviceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BindMFADeviceResponse>(await this.callApi(params, req, runtime), new BindMFADeviceResponse({}));
+    } else {
+      return $dara.cast<BindMFADeviceResponse>(await this.execute(params, req, runtime), new BindMFADeviceResponse({}));
+    }
+
   }
 
   /**
@@ -16124,10 +16589,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改RAM用户的登录密码
+   * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
    * 
    * @remarks
-   * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
+   * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
    * 
    * @param request - ChangePasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16158,14 +16623,19 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ChangePasswordResponse>(await this.callApi(params, req, runtime), new ChangePasswordResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ChangePasswordResponse>(await this.callApi(params, req, runtime), new ChangePasswordResponse({}));
+    } else {
+      return $dara.cast<ChangePasswordResponse>(await this.execute(params, req, runtime), new ChangePasswordResponse({}));
+    }
+
   }
 
   /**
-   * 修改RAM用户的登录密码
+   * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
    * 
    * @remarks
-   * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can change their passwords.
+   * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
    * 
    * @param request - ChangePasswordRequest
    * @returns ChangePasswordResponse
@@ -16176,7 +16646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建主账号或RAM用户访问密钥
+   * Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - CreateAccessKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16203,11 +16673,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateAccessKeyResponse>(await this.callApi(params, req, runtime), new CreateAccessKeyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAccessKeyResponse>(await this.callApi(params, req, runtime), new CreateAccessKeyResponse({}));
+    } else {
+      return $dara.cast<CreateAccessKeyResponse>(await this.execute(params, req, runtime), new CreateAccessKeyResponse({}));
+    }
+
   }
 
   /**
-   * 创建主账号或RAM用户访问密钥
+   * Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - CreateAccessKeyRequest
    * @returns CreateAccessKeyResponse
@@ -16245,7 +16720,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateAppSecretResponse>(await this.callApi(params, req, runtime), new CreateAppSecretResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAppSecretResponse>(await this.callApi(params, req, runtime), new CreateAppSecretResponse({}));
+    } else {
+      return $dara.cast<CreateAppSecretResponse>(await this.execute(params, req, runtime), new CreateAppSecretResponse({}));
+    }
+
   }
 
   /**
@@ -16323,7 +16803,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
+    } else {
+      return $dara.cast<CreateApplicationResponse>(await this.execute(params, req, runtime), new CreateApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -16338,7 +16823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a RAM user group.
+   * Creates a Resource Access Management (RAM) user group.
    * 
    * @param request - CreateGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16373,11 +16858,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateGroupResponse>(await this.callApi(params, req, runtime), new CreateGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateGroupResponse>(await this.callApi(params, req, runtime), new CreateGroupResponse({}));
+    } else {
+      return $dara.cast<CreateGroupResponse>(await this.execute(params, req, runtime), new CreateGroupResponse({}));
+    }
+
   }
 
   /**
-   * Creates a RAM user group.
+   * Creates a Resource Access Management (RAM) user group.
    * 
    * @param request - CreateGroupRequest
    * @returns CreateGroupResponse
@@ -16388,7 +16878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启指定RAM用户的控制台登录
+   * Enables logon to the console for a Resource Access Management (RAM) user.
    * 
    * @param request - CreateLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16431,11 +16921,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateLoginProfileResponse>(await this.callApi(params, req, runtime), new CreateLoginProfileResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateLoginProfileResponse>(await this.callApi(params, req, runtime), new CreateLoginProfileResponse({}));
+    } else {
+      return $dara.cast<CreateLoginProfileResponse>(await this.execute(params, req, runtime), new CreateLoginProfileResponse({}));
+    }
+
   }
 
   /**
-   * 开启指定RAM用户的控制台登录
+   * Enables logon to the console for a Resource Access Management (RAM) user.
    * 
    * @param request - CreateLoginProfileRequest
    * @returns CreateLoginProfileResponse
@@ -16503,7 +16998,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateOIDCProviderResponse>(await this.callApi(params, req, runtime), new CreateOIDCProviderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateOIDCProviderResponse>(await this.callApi(params, req, runtime), new CreateOIDCProviderResponse({}));
+    } else {
+      return $dara.cast<CreateOIDCProviderResponse>(await this.execute(params, req, runtime), new CreateOIDCProviderResponse({}));
+    }
+
   }
 
   /**
@@ -16528,7 +17028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建角色SSO身份提供商
+   * Creates an identity provider (IdP) for role-based single sign-on (SSO).
    * 
    * @param request - CreateSAMLProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16563,11 +17063,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateSAMLProviderResponse>(await this.callApi(params, req, runtime), new CreateSAMLProviderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSAMLProviderResponse>(await this.callApi(params, req, runtime), new CreateSAMLProviderResponse({}));
+    } else {
+      return $dara.cast<CreateSAMLProviderResponse>(await this.execute(params, req, runtime), new CreateSAMLProviderResponse({}));
+    }
+
   }
 
   /**
-   * 创建角色SSO身份提供商
+   * Creates an identity provider (IdP) for role-based single sign-on (SSO).
    * 
    * @param request - CreateSAMLProviderRequest
    * @returns CreateSAMLProviderResponse
@@ -16628,7 +17133,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
+    } else {
+      return $dara.cast<CreateUserResponse>(await this.execute(params, req, runtime), new CreateUserResponse({}));
+    }
+
   }
 
   /**
@@ -16646,7 +17156,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建多因素认证设备
+   * Creates a virtual multi-factor authentication (MFA) device.
    * 
    * @param request - CreateVirtualMFADeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16673,11 +17183,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new CreateVirtualMFADeviceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new CreateVirtualMFADeviceResponse({}));
+    } else {
+      return $dara.cast<CreateVirtualMFADeviceResponse>(await this.execute(params, req, runtime), new CreateVirtualMFADeviceResponse({}));
+    }
+
   }
 
   /**
-   * 创建多因素认证设备
+   * Creates a virtual multi-factor authentication (MFA) device.
    * 
    * @param request - CreateVirtualMFADeviceRequest
    * @returns CreateVirtualMFADeviceResponse
@@ -16688,7 +17203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户的访问密钥
+   * Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - DeleteAccessKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16719,11 +17234,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteAccessKeyResponse>(await this.callApi(params, req, runtime), new DeleteAccessKeyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAccessKeyResponse>(await this.callApi(params, req, runtime), new DeleteAccessKeyResponse({}));
+    } else {
+      return $dara.cast<DeleteAccessKeyResponse>(await this.execute(params, req, runtime), new DeleteAccessKeyResponse({}));
+    }
+
   }
 
   /**
-   * 删除用户的访问密钥
+   * Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - DeleteAccessKeyRequest
    * @returns DeleteAccessKeyResponse
@@ -16734,7 +17254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete the application secret for the specified application.
+   * Deletes the application secret of an application.
    * 
    * @param request - DeleteAppSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16765,11 +17285,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteAppSecretResponse>(await this.callApi(params, req, runtime), new DeleteAppSecretResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAppSecretResponse>(await this.callApi(params, req, runtime), new DeleteAppSecretResponse({}));
+    } else {
+      return $dara.cast<DeleteAppSecretResponse>(await this.execute(params, req, runtime), new DeleteAppSecretResponse({}));
+    }
+
   }
 
   /**
-   * Delete the application secret for the specified application.
+   * Deletes the application secret of an application.
    * 
    * @param request - DeleteAppSecretRequest
    * @returns DeleteAppSecretResponse
@@ -16807,7 +17332,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
+    } else {
+      return $dara.cast<DeleteApplicationResponse>(await this.execute(params, req, runtime), new DeleteApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -16822,7 +17352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的用户组
+   * Deletes a Resource Access Management (RAM) user group.
    * 
    * @remarks
    * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
@@ -16852,11 +17382,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
+    } else {
+      return $dara.cast<DeleteGroupResponse>(await this.execute(params, req, runtime), new DeleteGroupResponse({}));
+    }
+
   }
 
   /**
-   * 删除指定的用户组
+   * Deletes a Resource Access Management (RAM) user group.
    * 
    * @remarks
    * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
@@ -16870,7 +17405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭指定RAM用户的控制台登录
+   * Disables logon to the console for a Resource Access Management (RAM) user.
    * 
    * @param request - DeleteLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16897,11 +17432,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteLoginProfileResponse>(await this.callApi(params, req, runtime), new DeleteLoginProfileResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteLoginProfileResponse>(await this.callApi(params, req, runtime), new DeleteLoginProfileResponse({}));
+    } else {
+      return $dara.cast<DeleteLoginProfileResponse>(await this.execute(params, req, runtime), new DeleteLoginProfileResponse({}));
+    }
+
   }
 
   /**
-   * 关闭指定RAM用户的控制台登录
+   * Disables logon to the console for a Resource Access Management (RAM) user.
    * 
    * @param request - DeleteLoginProfileRequest
    * @returns DeleteLoginProfileResponse
@@ -16943,7 +17483,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteOIDCProviderResponse>(await this.callApi(params, req, runtime), new DeleteOIDCProviderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteOIDCProviderResponse>(await this.callApi(params, req, runtime), new DeleteOIDCProviderResponse({}));
+    } else {
+      return $dara.cast<DeleteOIDCProviderResponse>(await this.execute(params, req, runtime), new DeleteOIDCProviderResponse({}));
+    }
+
   }
 
   /**
@@ -16962,7 +17507,58 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的角色SSO身份提供商
+   * 删除Passkey
+   * 
+   * @param request - DeletePasskeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePasskeyResponse
+   */
+  async deletePasskeyWithOptions(request: DeletePasskeyRequest, runtime: $dara.RuntimeOptions): Promise<DeletePasskeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.passkeyId)) {
+      query["PasskeyId"] = request.passkeyId;
+    }
+
+    if (!$dara.isNull(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePasskey",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeletePasskeyResponse>(await this.callApi(params, req, runtime), new DeletePasskeyResponse({}));
+    } else {
+      return $dara.cast<DeletePasskeyResponse>(await this.execute(params, req, runtime), new DeletePasskeyResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除Passkey
+   * 
+   * @param request - DeletePasskeyRequest
+   * @returns DeletePasskeyResponse
+   */
+  async deletePasskey(request: DeletePasskeyRequest): Promise<DeletePasskeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePasskeyWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an identity provider (IdP) for role-based single sign-on (SSO).
    * 
    * @param request - DeleteSAMLProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16989,11 +17585,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteSAMLProviderResponse>(await this.callApi(params, req, runtime), new DeleteSAMLProviderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteSAMLProviderResponse>(await this.callApi(params, req, runtime), new DeleteSAMLProviderResponse({}));
+    } else {
+      return $dara.cast<DeleteSAMLProviderResponse>(await this.execute(params, req, runtime), new DeleteSAMLProviderResponse({}));
+    }
+
   }
 
   /**
-   * 删除指定的角色SSO身份提供商
+   * Deletes an identity provider (IdP) for role-based single sign-on (SSO).
    * 
    * @param request - DeleteSAMLProviderRequest
    * @returns DeleteSAMLProviderResponse
@@ -17004,7 +17605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RAM用户
+   * Deletes a Resource Access Management (RAM) user.
    * 
    * @param request - DeleteUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17035,11 +17636,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
+    } else {
+      return $dara.cast<DeleteUserResponse>(await this.execute(params, req, runtime), new DeleteUserResponse({}));
+    }
+
   }
 
   /**
-   * 删除RAM用户
+   * Deletes a Resource Access Management (RAM) user.
    * 
    * @param request - DeleteUserRequest
    * @returns DeleteUserResponse
@@ -17050,7 +17656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除多因素认证设备
+   * Deletes a multi-factor authentication (MFA) device.
    * 
    * @param request - DeleteVirtualMFADeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17077,11 +17683,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new DeleteVirtualMFADeviceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new DeleteVirtualMFADeviceResponse({}));
+    } else {
+      return $dara.cast<DeleteVirtualMFADeviceResponse>(await this.execute(params, req, runtime), new DeleteVirtualMFADeviceResponse({}));
+    }
+
   }
 
   /**
-   * 删除多因素认证设备
+   * Deletes a multi-factor authentication (MFA) device.
    * 
    * @param request - DeleteVirtualMFADeviceRequest
    * @returns DeleteVirtualMFADeviceResponse
@@ -17092,7 +17703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑并删除多因素认证设备
+   * Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
    * 
    * @param request - DisableVirtualMFARequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17119,11 +17730,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DisableVirtualMFAResponse>(await this.callApi(params, req, runtime), new DisableVirtualMFAResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DisableVirtualMFAResponse>(await this.callApi(params, req, runtime), new DisableVirtualMFAResponse({}));
+    } else {
+      return $dara.cast<DisableVirtualMFAResponse>(await this.execute(params, req, runtime), new DisableVirtualMFAResponse({}));
+    }
+
   }
 
   /**
-   * 解绑并删除多因素认证设备
+   * Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
    * 
    * @param request - DisableVirtualMFARequest
    * @returns DisableVirtualMFAResponse
@@ -17134,7 +17750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a user credential report.
+   * Generates the user credential report of an Alibaba Cloud account.
    * 
    * @param request - GenerateCredentialReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17153,11 +17769,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GenerateCredentialReportResponse>(await this.callApi(params, req, runtime), new GenerateCredentialReportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GenerateCredentialReportResponse>(await this.callApi(params, req, runtime), new GenerateCredentialReportResponse({}));
+    } else {
+      return $dara.cast<GenerateCredentialReportResponse>(await this.execute(params, req, runtime), new GenerateCredentialReportResponse({}));
+    }
+
   }
 
   /**
-   * Generates a user credential report.
+   * Generates the user credential report of an Alibaba Cloud account.
    * @returns GenerateCredentialReportResponse
    */
   async generateCredentialReport(): Promise<GenerateCredentialReportResponse> {
@@ -17197,7 +17818,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetAccessKeyLastUsedResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAccessKeyLastUsedResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedResponse({}));
+    } else {
+      return $dara.cast<GetAccessKeyLastUsedResponse>(await this.execute(params, req, runtime), new GetAccessKeyLastUsedResponse({}));
+    }
+
   }
 
   /**
@@ -17212,7 +17838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询主账号多因素认证设备信息
+   * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
    * 
    * @param request - GetAccountMFAInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17231,11 +17857,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetAccountMFAInfoResponse>(await this.callApi(params, req, runtime), new GetAccountMFAInfoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAccountMFAInfoResponse>(await this.callApi(params, req, runtime), new GetAccountMFAInfoResponse({}));
+    } else {
+      return $dara.cast<GetAccountMFAInfoResponse>(await this.execute(params, req, runtime), new GetAccountMFAInfoResponse({}));
+    }
+
   }
 
   /**
-   * 查询主账号多因素认证设备信息
+   * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
    * @returns GetAccountMFAInfoResponse
    */
   async getAccountMFAInfo(): Promise<GetAccountMFAInfoResponse> {
@@ -17244,7 +17875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询阿里云账号的安全报告
+   * Queries the security report of an Alibaba Cloud account.
    * 
    * @param request - GetAccountSecurityPracticeReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17263,11 +17894,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetAccountSecurityPracticeReportResponse>(await this.callApi(params, req, runtime), new GetAccountSecurityPracticeReportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAccountSecurityPracticeReportResponse>(await this.callApi(params, req, runtime), new GetAccountSecurityPracticeReportResponse({}));
+    } else {
+      return $dara.cast<GetAccountSecurityPracticeReportResponse>(await this.execute(params, req, runtime), new GetAccountSecurityPracticeReportResponse({}));
+    }
+
   }
 
   /**
-   * 查询阿里云账号的安全报告
+   * Queries the security report of an Alibaba Cloud account.
    * @returns GetAccountSecurityPracticeReportResponse
    */
   async getAccountSecurityPracticeReport(): Promise<GetAccountSecurityPracticeReportResponse> {
@@ -17276,7 +17912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询主账号概览信息
+   * Queries the overview information about an Alibaba Cloud account.
    * 
    * @param request - GetAccountSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17295,11 +17931,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetAccountSummaryResponse>(await this.callApi(params, req, runtime), new GetAccountSummaryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAccountSummaryResponse>(await this.callApi(params, req, runtime), new GetAccountSummaryResponse({}));
+    } else {
+      return $dara.cast<GetAccountSummaryResponse>(await this.execute(params, req, runtime), new GetAccountSummaryResponse({}));
+    }
+
   }
 
   /**
-   * 查询主账号概览信息
+   * Queries the overview information about an Alibaba Cloud account.
    * @returns GetAccountSummaryResponse
    */
   async getAccountSummary(): Promise<GetAccountSummaryResponse> {
@@ -17339,7 +17980,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetAppSecretResponse>(await this.callApi(params, req, runtime), new GetAppSecretResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAppSecretResponse>(await this.callApi(params, req, runtime), new GetAppSecretResponse({}));
+    } else {
+      return $dara.cast<GetAppSecretResponse>(await this.execute(params, req, runtime), new GetAppSecretResponse({}));
+    }
+
   }
 
   /**
@@ -17384,7 +18030,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
+    } else {
+      return $dara.cast<GetApplicationResponse>(await this.execute(params, req, runtime), new GetApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -17433,7 +18084,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetCredentialReportResponse>(await this.callApi(params, req, runtime), new GetCredentialReportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetCredentialReportResponse>(await this.callApi(params, req, runtime), new GetCredentialReportResponse({}));
+    } else {
+      return $dara.cast<GetCredentialReportResponse>(await this.execute(params, req, runtime), new GetCredentialReportResponse({}));
+    }
+
   }
 
   /**
@@ -17467,7 +18123,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetDefaultDomainResponse>(await this.callApi(params, req, runtime), new GetDefaultDomainResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDefaultDomainResponse>(await this.callApi(params, req, runtime), new GetDefaultDomainResponse({}));
+    } else {
+      return $dara.cast<GetDefaultDomainResponse>(await this.execute(params, req, runtime), new GetDefaultDomainResponse({}));
+    }
+
   }
 
   /**
@@ -17507,7 +18168,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetGroupResponse>(await this.callApi(params, req, runtime), new GetGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetGroupResponse>(await this.callApi(params, req, runtime), new GetGroupResponse({}));
+    } else {
+      return $dara.cast<GetGroupResponse>(await this.execute(params, req, runtime), new GetGroupResponse({}));
+    }
+
   }
 
   /**
@@ -17549,7 +18215,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetLoginProfileResponse>(await this.callApi(params, req, runtime), new GetLoginProfileResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetLoginProfileResponse>(await this.callApi(params, req, runtime), new GetLoginProfileResponse({}));
+    } else {
+      return $dara.cast<GetLoginProfileResponse>(await this.execute(params, req, runtime), new GetLoginProfileResponse({}));
+    }
+
   }
 
   /**
@@ -17595,7 +18266,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetOIDCProviderResponse>(await this.callApi(params, req, runtime), new GetOIDCProviderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetOIDCProviderResponse>(await this.callApi(params, req, runtime), new GetOIDCProviderResponse({}));
+    } else {
+      return $dara.cast<GetOIDCProviderResponse>(await this.execute(params, req, runtime), new GetOIDCProviderResponse({}));
+    }
+
   }
 
   /**
@@ -17633,7 +18309,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new GetPasswordPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new GetPasswordPolicyResponse({}));
+    } else {
+      return $dara.cast<GetPasswordPolicyResponse>(await this.execute(params, req, runtime), new GetPasswordPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -17673,7 +18354,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetSAMLProviderResponse>(await this.callApi(params, req, runtime), new GetSAMLProviderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSAMLProviderResponse>(await this.callApi(params, req, runtime), new GetSAMLProviderResponse({}));
+    } else {
+      return $dara.cast<GetSAMLProviderResponse>(await this.execute(params, req, runtime), new GetSAMLProviderResponse({}));
+    }
+
   }
 
   /**
@@ -17707,7 +18393,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new GetSecurityPreferenceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new GetSecurityPreferenceResponse({}));
+    } else {
+      return $dara.cast<GetSecurityPreferenceResponse>(await this.execute(params, req, runtime), new GetSecurityPreferenceResponse({}));
+    }
+
   }
 
   /**
@@ -17758,7 +18449,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
+    } else {
+      return $dara.cast<GetUserResponse>(await this.execute(params, req, runtime), new GetUserResponse({}));
+    }
+
   }
 
   /**
@@ -17803,7 +18499,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetUserMFAInfoResponse>(await this.callApi(params, req, runtime), new GetUserMFAInfoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetUserMFAInfoResponse>(await this.callApi(params, req, runtime), new GetUserMFAInfoResponse({}));
+    } else {
+      return $dara.cast<GetUserMFAInfoResponse>(await this.execute(params, req, runtime), new GetUserMFAInfoResponse({}));
+    }
+
   }
 
   /**
@@ -17818,7 +18519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户SSO身份提供商信息
+   * Queries the configurations of user-based single sign-on (SSO).
    * 
    * @param request - GetUserSsoSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17837,11 +18538,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetUserSsoSettingsResponse>(await this.callApi(params, req, runtime), new GetUserSsoSettingsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetUserSsoSettingsResponse>(await this.callApi(params, req, runtime), new GetUserSsoSettingsResponse({}));
+    } else {
+      return $dara.cast<GetUserSsoSettingsResponse>(await this.execute(params, req, runtime), new GetUserSsoSettingsResponse({}));
+    }
+
   }
 
   /**
-   * 查询用户SSO身份提供商信息
+   * Queries the configurations of user-based single sign-on (SSO).
    * @returns GetUserSsoSettingsResponse
    */
   async getUserSsoSettings(): Promise<GetUserSsoSettingsResponse> {
@@ -17850,7 +18556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户安全认证的信息
+   * Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
    * 
    * @param request - GetVerificationInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17877,11 +18583,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetVerificationInfoResponse>(await this.callApi(params, req, runtime), new GetVerificationInfoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetVerificationInfoResponse>(await this.callApi(params, req, runtime), new GetVerificationInfoResponse({}));
+    } else {
+      return $dara.cast<GetVerificationInfoResponse>(await this.execute(params, req, runtime), new GetVerificationInfoResponse({}));
+    }
+
   }
 
   /**
-   * 获取用户安全认证的信息
+   * Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
    * 
    * @param request - GetVerificationInfoRequest
    * @returns GetVerificationInfoResponse
@@ -17919,7 +18630,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListAccessKeysResponse>(await this.callApi(params, req, runtime), new ListAccessKeysResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAccessKeysResponse>(await this.callApi(params, req, runtime), new ListAccessKeysResponse({}));
+    } else {
+      return $dara.cast<ListAccessKeysResponse>(await this.execute(params, req, runtime), new ListAccessKeysResponse({}));
+    }
+
   }
 
   /**
@@ -17961,7 +18677,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListAppSecretIdsResponse>(await this.callApi(params, req, runtime), new ListAppSecretIdsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAppSecretIdsResponse>(await this.callApi(params, req, runtime), new ListAppSecretIdsResponse({}));
+    } else {
+      return $dara.cast<ListAppSecretIdsResponse>(await this.execute(params, req, runtime), new ListAppSecretIdsResponse({}));
+    }
+
   }
 
   /**
@@ -17998,7 +18719,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
+    } else {
+      return $dara.cast<ListApplicationsResponse>(await this.execute(params, req, runtime), new ListApplicationsResponse({}));
+    }
+
   }
 
   /**
@@ -18014,7 +18740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries RAM user groups.
+   * Queries Resource Access Management (RAM) user groups.
    * 
    * @param request - ListGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18045,11 +18771,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
+    } else {
+      return $dara.cast<ListGroupsResponse>(await this.execute(params, req, runtime), new ListGroupsResponse({}));
+    }
+
   }
 
   /**
-   * Queries RAM user groups.
+   * Queries Resource Access Management (RAM) user groups.
    * 
    * @param request - ListGroupsRequest
    * @returns ListGroupsResponse
@@ -18087,7 +18818,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListGroupsForUserResponse>(await this.callApi(params, req, runtime), new ListGroupsForUserResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListGroupsForUserResponse>(await this.callApi(params, req, runtime), new ListGroupsForUserResponse({}));
+    } else {
+      return $dara.cast<ListGroupsForUserResponse>(await this.execute(params, req, runtime), new ListGroupsForUserResponse({}));
+    }
+
   }
 
   /**
@@ -18137,7 +18873,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListOIDCProvidersResponse>(await this.callApi(params, req, runtime), new ListOIDCProvidersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListOIDCProvidersResponse>(await this.callApi(params, req, runtime), new ListOIDCProvidersResponse({}));
+    } else {
+      return $dara.cast<ListOIDCProvidersResponse>(await this.execute(params, req, runtime), new ListOIDCProvidersResponse({}));
+    }
+
   }
 
   /**
@@ -18153,6 +18894,53 @@ export default class Client extends OpenApi {
   async listOIDCProviders(request: ListOIDCProvidersRequest): Promise<ListOIDCProvidersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listOIDCProvidersWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Passkey
+   * 
+   * @param request - ListPasskeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPasskeysResponse
+   */
+  async listPasskeysWithOptions(request: ListPasskeysRequest, runtime: $dara.RuntimeOptions): Promise<ListPasskeysResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPasskeys",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListPasskeysResponse>(await this.callApi(params, req, runtime), new ListPasskeysResponse({}));
+    } else {
+      return $dara.cast<ListPasskeysResponse>(await this.execute(params, req, runtime), new ListPasskeysResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询Passkey
+   * 
+   * @param request - ListPasskeysRequest
+   * @returns ListPasskeysResponse
+   */
+  async listPasskeys(request: ListPasskeysRequest): Promise<ListPasskeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPasskeysWithOptions(request, runtime);
   }
 
   /**
@@ -18183,7 +18971,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListPredefinedScopesResponse>(await this.callApi(params, req, runtime), new ListPredefinedScopesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListPredefinedScopesResponse>(await this.callApi(params, req, runtime), new ListPredefinedScopesResponse({}));
+    } else {
+      return $dara.cast<ListPredefinedScopesResponse>(await this.execute(params, req, runtime), new ListPredefinedScopesResponse({}));
+    }
+
   }
 
   /**
@@ -18198,7 +18991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询角色SSO身份提供商列表
+   * Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
    * 
    * @param request - ListSAMLProvidersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18229,11 +19022,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListSAMLProvidersResponse>(await this.callApi(params, req, runtime), new ListSAMLProvidersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSAMLProvidersResponse>(await this.callApi(params, req, runtime), new ListSAMLProvidersResponse({}));
+    } else {
+      return $dara.cast<ListSAMLProvidersResponse>(await this.execute(params, req, runtime), new ListSAMLProvidersResponse({}));
+    }
+
   }
 
   /**
-   * 查询角色SSO身份提供商列表
+   * Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
    * 
    * @param request - ListSAMLProvidersRequest
    * @returns ListSAMLProvidersResponse
@@ -18298,7 +19096,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -18364,7 +19167,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListUserBasicInfosResponse>(await this.callApi(params, req, runtime), new ListUserBasicInfosResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListUserBasicInfosResponse>(await this.callApi(params, req, runtime), new ListUserBasicInfosResponse({}));
+    } else {
+      return $dara.cast<ListUserBasicInfosResponse>(await this.execute(params, req, runtime), new ListUserBasicInfosResponse({}));
+    }
+
   }
 
   /**
@@ -18429,7 +19237,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
+    } else {
+      return $dara.cast<ListUsersResponse>(await this.execute(params, req, runtime), new ListUsersResponse({}));
+    }
+
   }
 
   /**
@@ -18485,7 +19298,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListUsersForGroupResponse>(await this.callApi(params, req, runtime), new ListUsersForGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListUsersForGroupResponse>(await this.callApi(params, req, runtime), new ListUsersForGroupResponse({}));
+    } else {
+      return $dara.cast<ListUsersForGroupResponse>(await this.execute(params, req, runtime), new ListUsersForGroupResponse({}));
+    }
+
   }
 
   /**
@@ -18531,7 +19349,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListVirtualMFADevicesResponse>(await this.callApi(params, req, runtime), new ListVirtualMFADevicesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVirtualMFADevicesResponse>(await this.callApi(params, req, runtime), new ListVirtualMFADevicesResponse({}));
+    } else {
+      return $dara.cast<ListVirtualMFADevicesResponse>(await this.execute(params, req, runtime), new ListVirtualMFADevicesResponse({}));
+    }
+
   }
 
   /**
@@ -18581,7 +19404,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RemoveClientIdFromOIDCProviderResponse>(await this.callApi(params, req, runtime), new RemoveClientIdFromOIDCProviderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RemoveClientIdFromOIDCProviderResponse>(await this.callApi(params, req, runtime), new RemoveClientIdFromOIDCProviderResponse({}));
+    } else {
+      return $dara.cast<RemoveClientIdFromOIDCProviderResponse>(await this.execute(params, req, runtime), new RemoveClientIdFromOIDCProviderResponse({}));
+    }
+
   }
 
   /**
@@ -18635,7 +19463,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RemoveFingerprintFromOIDCProviderResponse>(await this.callApi(params, req, runtime), new RemoveFingerprintFromOIDCProviderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RemoveFingerprintFromOIDCProviderResponse>(await this.callApi(params, req, runtime), new RemoveFingerprintFromOIDCProviderResponse({}));
+    } else {
+      return $dara.cast<RemoveFingerprintFromOIDCProviderResponse>(await this.execute(params, req, runtime), new RemoveFingerprintFromOIDCProviderResponse({}));
+    }
+
   }
 
   /**
@@ -18654,7 +19487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将RAM用户从用户组中移除
+   * Removes a Resource Access Management (RAM) user from a RAM user group.
    * 
    * @param request - RemoveUserFromGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18685,11 +19518,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RemoveUserFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveUserFromGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RemoveUserFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveUserFromGroupResponse({}));
+    } else {
+      return $dara.cast<RemoveUserFromGroupResponse>(await this.execute(params, req, runtime), new RemoveUserFromGroupResponse({}));
+    }
+
   }
 
   /**
-   * 将RAM用户从用户组中移除
+   * Removes a Resource Access Management (RAM) user from a RAM user group.
    * 
    * @param request - RemoveUserFromGroupRequest
    * @returns RemoveUserFromGroupResponse
@@ -18700,7 +19538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the default domain name.
+   * Configures the default domain name for an Alibaba Cloud account.
    * 
    * @param request - SetDefaultDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18727,11 +19565,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetDefaultDomainResponse>(await this.callApi(params, req, runtime), new SetDefaultDomainResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetDefaultDomainResponse>(await this.callApi(params, req, runtime), new SetDefaultDomainResponse({}));
+    } else {
+      return $dara.cast<SetDefaultDomainResponse>(await this.execute(params, req, runtime), new SetDefaultDomainResponse({}));
+    }
+
   }
 
   /**
-   * Configures the default domain name.
+   * Configures the default domain name for an Alibaba Cloud account.
    * 
    * @param request - SetDefaultDomainRequest
    * @returns SetDefaultDomainResponse
@@ -18809,7 +19652,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new SetPasswordPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new SetPasswordPolicyResponse({}));
+    } else {
+      return $dara.cast<SetPasswordPolicyResponse>(await this.execute(params, req, runtime), new SetPasswordPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -18901,7 +19749,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new SetSecurityPreferenceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new SetSecurityPreferenceResponse({}));
+    } else {
+      return $dara.cast<SetSecurityPreferenceResponse>(await this.execute(params, req, runtime), new SetSecurityPreferenceResponse({}));
+    }
+
   }
 
   /**
@@ -18920,7 +19773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置用户SSO身份提供商信息
+   * Configures information about user-based single sign-on (SSO).
    * 
    * @param request - SetUserSsoSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18959,11 +19812,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetUserSsoSettingsResponse>(await this.callApi(params, req, runtime), new SetUserSsoSettingsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetUserSsoSettingsResponse>(await this.callApi(params, req, runtime), new SetUserSsoSettingsResponse({}));
+    } else {
+      return $dara.cast<SetUserSsoSettingsResponse>(await this.execute(params, req, runtime), new SetUserSsoSettingsResponse({}));
+    }
+
   }
 
   /**
-   * 设置用户SSO身份提供商信息
+   * Configures information about user-based single sign-on (SSO).
    * 
    * @param request - SetUserSsoSettingsRequest
    * @returns SetUserSsoSettingsResponse
@@ -19013,7 +19871,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -19028,7 +19891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为RAM用户解绑多因素认证设备
+   * Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
    * 
    * @param request - UnbindMFADeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19055,11 +19918,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UnbindMFADeviceResponse>(await this.callApi(params, req, runtime), new UnbindMFADeviceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnbindMFADeviceResponse>(await this.callApi(params, req, runtime), new UnbindMFADeviceResponse({}));
+    } else {
+      return $dara.cast<UnbindMFADeviceResponse>(await this.execute(params, req, runtime), new UnbindMFADeviceResponse({}));
+    }
+
   }
 
   /**
-   * 为RAM用户解绑多因素认证设备
+   * Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
    * 
    * @param request - UnbindMFADeviceRequest
    * @returns UnbindMFADeviceResponse
@@ -19113,7 +19981,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -19128,7 +20001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改访问密钥状态
+   * Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateAccessKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19163,11 +20036,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateAccessKeyResponse>(await this.callApi(params, req, runtime), new UpdateAccessKeyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateAccessKeyResponse>(await this.callApi(params, req, runtime), new UpdateAccessKeyResponse({}));
+    } else {
+      return $dara.cast<UpdateAccessKeyResponse>(await this.execute(params, req, runtime), new UpdateAccessKeyResponse({}));
+    }
+
   }
 
   /**
-   * 修改访问密钥状态
+   * Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateAccessKeyRequest
    * @returns UpdateAccessKeyResponse
@@ -19237,7 +20115,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateApplicationResponse>(await this.callApi(params, req, runtime), new UpdateApplicationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateApplicationResponse>(await this.callApi(params, req, runtime), new UpdateApplicationResponse({}));
+    } else {
+      return $dara.cast<UpdateApplicationResponse>(await this.execute(params, req, runtime), new UpdateApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -19252,7 +20135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information of a RAM user group.
+   * Modifies information about a Resource Access Management (RAM) user group.
    * 
    * @param request - UpdateGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19291,11 +20174,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateGroupResponse>(await this.callApi(params, req, runtime), new UpdateGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateGroupResponse>(await this.callApi(params, req, runtime), new UpdateGroupResponse({}));
+    } else {
+      return $dara.cast<UpdateGroupResponse>(await this.execute(params, req, runtime), new UpdateGroupResponse({}));
+    }
+
   }
 
   /**
-   * Modifies the information of a RAM user group.
+   * Modifies information about a Resource Access Management (RAM) user group.
    * 
    * @param request - UpdateGroupRequest
    * @returns UpdateGroupResponse
@@ -19306,7 +20194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改RAM用户的控制台登录信息
+   * Modifies the console logon configurations of a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19349,11 +20237,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateLoginProfileResponse>(await this.callApi(params, req, runtime), new UpdateLoginProfileResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateLoginProfileResponse>(await this.callApi(params, req, runtime), new UpdateLoginProfileResponse({}));
+    } else {
+      return $dara.cast<UpdateLoginProfileResponse>(await this.execute(params, req, runtime), new UpdateLoginProfileResponse({}));
+    }
+
   }
 
   /**
-   * 修改RAM用户的控制台登录信息
+   * Modifies the console logon configurations of a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateLoginProfileRequest
    * @returns UpdateLoginProfileResponse
@@ -19407,7 +20300,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateOIDCProviderResponse>(await this.callApi(params, req, runtime), new UpdateOIDCProviderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateOIDCProviderResponse>(await this.callApi(params, req, runtime), new UpdateOIDCProviderResponse({}));
+    } else {
+      return $dara.cast<UpdateOIDCProviderResponse>(await this.execute(params, req, runtime), new UpdateOIDCProviderResponse({}));
+    }
+
   }
 
   /**
@@ -19426,7 +20324,62 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改角色SSO身份提供商信息
+   * 更新Passkey
+   * 
+   * @param request - UpdatePasskeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePasskeyResponse
+   */
+  async updatePasskeyWithOptions(request: UpdatePasskeyRequest, runtime: $dara.RuntimeOptions): Promise<UpdatePasskeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.passkeyId)) {
+      query["PasskeyId"] = request.passkeyId;
+    }
+
+    if (!$dara.isNull(request.passkeyName)) {
+      query["PasskeyName"] = request.passkeyName;
+    }
+
+    if (!$dara.isNull(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePasskey",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdatePasskeyResponse>(await this.callApi(params, req, runtime), new UpdatePasskeyResponse({}));
+    } else {
+      return $dara.cast<UpdatePasskeyResponse>(await this.execute(params, req, runtime), new UpdatePasskeyResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新Passkey
+   * 
+   * @param request - UpdatePasskeyRequest
+   * @returns UpdatePasskeyResponse
+   */
+  async updatePasskey(request: UpdatePasskeyRequest): Promise<UpdatePasskeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updatePasskeyWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
    * 
    * @remarks
    * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
@@ -19464,11 +20417,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateSAMLProviderResponse>(await this.callApi(params, req, runtime), new UpdateSAMLProviderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateSAMLProviderResponse>(await this.callApi(params, req, runtime), new UpdateSAMLProviderResponse({}));
+    } else {
+      return $dara.cast<UpdateSAMLProviderResponse>(await this.execute(params, req, runtime), new UpdateSAMLProviderResponse({}));
+    }
+
   }
 
   /**
-   * 修改角色SSO身份提供商信息
+   * Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
    * 
    * @remarks
    * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
@@ -19536,7 +20494,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
+    } else {
+      return $dara.cast<UpdateUserResponse>(await this.execute(params, req, runtime), new UpdateUserResponse({}));
+    }
+
   }
 
   /**
