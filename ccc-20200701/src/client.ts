@@ -2585,6 +2585,40 @@ export class CreateCampaignRequestCaseList extends $dara.Model {
   }
 }
 
+export class CreateChatMediaUrlResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * $iAHNCNQCo21wMwMGBAAFAAbaACOEAaQhIH6TAqogDGyb-qD2Hbj0A88AAAGRLKYVnwTOACwwYwcACM8AAAGRLRPynQ
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * https://ccc-v2-online.oss-cn-shanghai.aliyuncs.com/ccc-test/namelist.csv?Expires=1642067227&OSSAccessKeyId=****&Signature=****
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomCallTaggingResponseBodyData extends $dara.Model {
   /**
    * @example
@@ -34410,6 +34444,146 @@ export class CreateCampaignResponse extends $dara.Model {
   }
 }
 
+export class CreateChatMediaUrlRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * media id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * jpg
+   */
+  mimeType?: string;
+  /**
+   * @example
+   * 9F766284-F103-4298-8EC5-19F9F9BE5522
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      mimeType: 'MimeType',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      mimeType: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatMediaUrlResponseBody extends $dara.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: CreateChatMediaUrlResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateChatMediaUrlResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    if(Array.isArray(this.params)) {
+      $dara.Model.validateArray(this.params);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChatMediaUrlResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateChatMediaUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateChatMediaUrlResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateContactFlowRequest extends $dara.Model {
   /**
    * @remarks
@@ -57164,6 +57338,189 @@ export class ProcessAliMeCallbackOfStagingResponse extends $dara.Model {
   }
 }
 
+export class ProcessCustomIMCallbackRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cf584733-***-***-9699-cb77aa3b7aa6
+   */
+  accessChannelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * d165de4f-9851-445e-9535-66ebfa72fa51
+   */
+  conversationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  messageContent?: string;
+  /**
+   * @example
+   * 03C67DAD-EB26-41D8-949D-9B0C470FB716
+   */
+  requestId?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  senderAvatarMediaId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 63061274befd6b545aab4c83
+   */
+  senderId?: string;
+  /**
+   * @example
+   * tom
+   */
+  senderName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessChannelId: 'AccessChannelId',
+      conversationId: 'ConversationId',
+      instanceId: 'InstanceId',
+      messageContent: 'MessageContent',
+      requestId: 'RequestId',
+      senderAvatarMediaId: 'SenderAvatarMediaId',
+      senderId: 'SenderId',
+      senderName: 'SenderName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessChannelId: 'string',
+      conversationId: 'string',
+      instanceId: 'string',
+      messageContent: 'string',
+      requestId: 'string',
+      senderAvatarMediaId: 'string',
+      senderId: 'string',
+      senderName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ProcessCustomIMCallbackResponseBody extends $dara.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * chat-65382141036853491
+   */
+  jobId?: string;
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * 2778FA12-EDD6-42AA-9B15-AF855072E5E5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      jobId: 'JobId',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      jobId: 'string',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.params)) {
+      $dara.Model.validateArray(this.params);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ProcessCustomIMCallbackResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ProcessCustomIMCallbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ProcessCustomIMCallbackResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PublishContactFlowRequest extends $dara.Model {
   /**
    * @remarks
@@ -66594,6 +66951,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - CreateChatMediaUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateChatMediaUrlResponse
+   */
+  async createChatMediaUrlWithOptions(request: CreateChatMediaUrlRequest, runtime: $dara.RuntimeOptions): Promise<CreateChatMediaUrlResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.mimeType)) {
+      body["MimeType"] = request.mimeType;
+    }
+
+    if (!$dara.isNull(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateChatMediaUrl",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateChatMediaUrlResponse>(await this.callApi(params, req, runtime), new CreateChatMediaUrlResponse({}));
+    } else {
+      return $dara.cast<CreateChatMediaUrlResponse>(await this.execute(params, req, runtime), new CreateChatMediaUrlResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - CreateChatMediaUrlRequest
+   * @returns CreateChatMediaUrlResponse
+   */
+  async createChatMediaUrl(request: CreateChatMediaUrlRequest): Promise<CreateChatMediaUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createChatMediaUrlWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - CreateContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateContactFlowResponse
@@ -75660,6 +76068,77 @@ export default class Client extends OpenApi {
   async processAliMeCallbackOfStaging(request: ProcessAliMeCallbackOfStagingRequest): Promise<ProcessAliMeCallbackOfStagingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.processAliMeCallbackOfStagingWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ProcessCustomIMCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ProcessCustomIMCallbackResponse
+   */
+  async processCustomIMCallbackWithOptions(request: ProcessCustomIMCallbackRequest, runtime: $dara.RuntimeOptions): Promise<ProcessCustomIMCallbackResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessChannelId)) {
+      body["AccessChannelId"] = request.accessChannelId;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.messageContent)) {
+      body["MessageContent"] = request.messageContent;
+    }
+
+    if (!$dara.isNull(request.requestId)) {
+      body["RequestId"] = request.requestId;
+    }
+
+    if (!$dara.isNull(request.senderAvatarMediaId)) {
+      body["SenderAvatarMediaId"] = request.senderAvatarMediaId;
+    }
+
+    if (!$dara.isNull(request.senderId)) {
+      body["SenderId"] = request.senderId;
+    }
+
+    if (!$dara.isNull(request.senderName)) {
+      body["SenderName"] = request.senderName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ProcessCustomIMCallback",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ProcessCustomIMCallbackResponse>(await this.callApi(params, req, runtime), new ProcessCustomIMCallbackResponse({}));
+    } else {
+      return $dara.cast<ProcessCustomIMCallbackResponse>(await this.execute(params, req, runtime), new ProcessCustomIMCallbackResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - ProcessCustomIMCallbackRequest
+   * @returns ProcessCustomIMCallbackResponse
+   */
+  async processCustomIMCallback(request: ProcessCustomIMCallbackRequest): Promise<ProcessCustomIMCallbackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.processCustomIMCallbackWithOptions(request, runtime);
   }
 
   /**
