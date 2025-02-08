@@ -149,6 +149,32 @@ export class GetInstanceResponseBodyTags extends $dara.Model {
   }
 }
 
+export class ListInstancesRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
@@ -197,6 +223,10 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
    * @remarks
    * The instance status.
    * 
+   * *   normal: The instance works as expected.
+   * *   forbidden: The instance is disabled.
+   * *   deleting: The instance is being deleted.
+   * 
    * @example
    * normal
    */
@@ -207,6 +237,9 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
    * 
    * *   true: ZRS is enabled for the instance.
    * *   false: Locally redundant storage (LRS) is enabled for the instance.
+   * 
+   * @example
+   * true
    */
   isMultiAZ?: boolean;
   /**
@@ -733,9 +766,6 @@ export class CreateInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the instance.
-   * 
-   * *   SSD: high-performance instance
-   * *   HYBRID: capacity instance
    * 
    * This parameter is required.
    * 
@@ -1370,6 +1400,13 @@ export class GetInstanceResponseBody extends $dara.Model {
    * 2019-12-23T07:24:33Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The upper limit for the VCUs of the instance.
+   * 
+   * @example
+   * 6
+   */
   elasticVCUUpperLimit?: number;
   /**
    * @remarks
@@ -1416,6 +1453,9 @@ export class GetInstanceResponseBody extends $dara.Model {
    * 
    * *   true: ZRS is enabled for the instance.
    * *   false: Locally redundant storage (LRS) is enabled for the instance.
+   * 
+   * @example
+   * true
    */
   isMultiAZ?: boolean;
   /**
@@ -1725,14 +1765,11 @@ export class ListInstancesRequest extends $dara.Model {
    * @remarks
    * The instance status.
    * 
-   * *   normal: The instance is running as expected.
-   * *   forbidden: The instance is disabled.
-   * *   Deleting: The instance is being deleted.
-   * 
    * @example
    * normal
    */
   status?: string;
+  tag?: ListInstancesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       instanceName: 'InstanceName',
@@ -1741,6 +1778,7 @@ export class ListInstancesRequest extends $dara.Model {
       nextToken: 'NextToken',
       resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tag: 'Tag',
     };
   }
 
@@ -1752,12 +1790,16 @@ export class ListInstancesRequest extends $dara.Model {
       nextToken: 'string',
       resourceGroupId: 'string',
       status: 'string',
+      tag: { 'type': 'array', 'itemType': ListInstancesRequestTag },
     };
   }
 
   validate() {
     if(Array.isArray(this.instanceNameList)) {
       $dara.Model.validateArray(this.instanceNameList);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
     }
     super.validate();
   }
@@ -1809,14 +1851,11 @@ export class ListInstancesShrinkRequest extends $dara.Model {
    * @remarks
    * The instance status.
    * 
-   * *   normal: The instance is running as expected.
-   * *   forbidden: The instance is disabled.
-   * *   Deleting: The instance is being deleted.
-   * 
    * @example
    * normal
    */
   status?: string;
+  tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
       instanceName: 'InstanceName',
@@ -1825,6 +1864,7 @@ export class ListInstancesShrinkRequest extends $dara.Model {
       nextToken: 'NextToken',
       resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tagShrink: 'Tag',
     };
   }
 
@@ -1836,6 +1876,7 @@ export class ListInstancesShrinkRequest extends $dara.Model {
       nextToken: 'string',
       resourceGroupId: 'string',
       status: 'string',
+      tagShrink: 'string',
     };
   }
 
@@ -2302,10 +2343,7 @@ export class TagResourcesResponse extends $dara.Model {
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all tags from the resources. Default value: false. Valid values:
-   * 
-   * *   true: removes all tags from the resources.
-   * *   false: removes the tags that are specified by the TagKeys parameter from the resources.
+   * Specifies whether to remove all tags from the resources. Default value: false.
    * 
    * @example
    * false
@@ -2920,7 +2958,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    } else {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.execute(params, req, runtime), new ChangeResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -2969,7 +3012,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<CheckInstancePolicyResponse>(await this.callApi(params, req, runtime), new CheckInstancePolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CheckInstancePolicyResponse>(await this.callApi(params, req, runtime), new CheckInstancePolicyResponse({}));
+    } else {
+      return $dara.cast<CheckInstancePolicyResponse>(await this.execute(params, req, runtime), new CheckInstancePolicyResponse({}));
+    }
+
   }
 
   /**
@@ -3055,7 +3103,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+    } else {
+      return $dara.cast<CreateInstanceResponse>(await this.execute(params, req, runtime), new CreateInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -3110,7 +3163,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+    } else {
+      return $dara.cast<DeleteInstanceResponse>(await this.execute(params, req, runtime), new DeleteInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -3168,7 +3226,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<DeleteInstancePolicyResponse>(await this.callApi(params, req, runtime), new DeleteInstancePolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteInstancePolicyResponse>(await this.callApi(params, req, runtime), new DeleteInstancePolicyResponse({}));
+    } else {
+      return $dara.cast<DeleteInstancePolicyResponse>(await this.execute(params, req, runtime), new DeleteInstancePolicyResponse({}));
+    }
+
   }
 
   /**
@@ -3217,7 +3280,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    } else {
+      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
+    }
+
   }
 
   /**
@@ -3262,7 +3330,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
+    } else {
+      return $dara.cast<GetInstanceResponse>(await this.execute(params, req, runtime), new GetInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -3293,6 +3366,10 @@ export default class Client extends OpenApi {
       request.instanceNameListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceNameList, "InstanceNameList", "simple");
     }
 
+    if (!$dara.isNull(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
@@ -3318,6 +3395,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!$dara.isNull(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -3333,7 +3414,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+    } else {
+      return $dara.cast<ListInstancesResponse>(await this.execute(params, req, runtime), new ListInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -3404,7 +3490,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -3457,7 +3548,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -3517,7 +3613,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -3585,7 +3686,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
+    } else {
+      return $dara.cast<UpdateInstanceResponse>(await this.execute(params, req, runtime), new UpdateInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -3639,7 +3745,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<UpdateInstanceElasticVCUUpperLimitResponse>(await this.callApi(params, req, runtime), new UpdateInstanceElasticVCUUpperLimitResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateInstanceElasticVCUUpperLimitResponse>(await this.callApi(params, req, runtime), new UpdateInstanceElasticVCUUpperLimitResponse({}));
+    } else {
+      return $dara.cast<UpdateInstanceElasticVCUUpperLimitResponse>(await this.execute(params, req, runtime), new UpdateInstanceElasticVCUUpperLimitResponse({}));
+    }
+
   }
 
   /**
@@ -3697,7 +3808,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<UpdateInstancePolicyResponse>(await this.callApi(params, req, runtime), new UpdateInstancePolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateInstancePolicyResponse>(await this.callApi(params, req, runtime), new UpdateInstancePolicyResponse({}));
+    } else {
+      return $dara.cast<UpdateInstancePolicyResponse>(await this.execute(params, req, runtime), new UpdateInstancePolicyResponse({}));
+    }
+
   }
 
   /**
