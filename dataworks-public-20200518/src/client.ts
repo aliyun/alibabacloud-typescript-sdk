@@ -4125,7 +4125,7 @@ export class GetBaselineResponseBodyDataOverTimeSettings extends $dara.Model {
   cycle?: number;
   /**
    * @remarks
-   * 承诺时间，hh:mm格式，hh的取值范围为[0,47]，mm的取值范围为[0,59]。
+   * Commitment time, hh:mm format, hh value range is [0,47],mm value range is [0,59].
    * 
    * @example
    * 00:00
@@ -6726,10 +6726,51 @@ export class GetDISyncInstanceInfoResponseBodyData extends $dara.Model {
 }
 
 export class GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList extends $dara.Model {
+  /**
+   * @remarks
+   * The calculation method of indicators,
+   * - avg interval average
+   * - max interval takes the maximum value
+   * 
+   * @example
+   * avg
+   */
   aggregator?: string;
+  /**
+   * @remarks
+   * Comparison method of comparison symbols, indicators and alarm rules
+   * - \\"=\\"
+   * - \\"<\\"
+   * - \\">\\"
+   * 
+   * @example
+   * =
+   */
   comparator?: string;
+  /**
+   * @remarks
+   * Duration: How long does this condition last before an alarm is triggered, in minutes.
+   * 
+   * @example
+   * 3
+   */
   duration?: number;
+  /**
+   * @remarks
+   * - WARNING WARNING: alert
+   * - CRITICAL CRITICAL: alarm
+   * 
+   * @example
+   * WARNING
+   */
   level?: string;
+  /**
+   * @remarks
+   * Comparison threshold between metrics and alarm rules.
+   * 
+   * @example
+   * 1
+   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6761,8 +6802,23 @@ export class GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList extends $dara.M
 }
 
 export class GetDISyncTaskResponseBodyDataAlarmListNotifyRule extends $dara.Model {
+  /**
+   * @remarks
+   * Critical-level alert notification list.
+   */
   critical?: string[];
+  /**
+   * @remarks
+   * Alarm interval, in minutes.
+   * 
+   * @example
+   * 5
+   */
   interval?: number;
+  /**
+   * @remarks
+   * Warning-level alert notification list.
+   */
   warning?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6796,12 +6852,62 @@ export class GetDISyncTaskResponseBodyDataAlarmListNotifyRule extends $dara.Mode
 }
 
 export class GetDISyncTaskResponseBodyDataAlarmList extends $dara.Model {
+  /**
+   * @remarks
+   * Alarm Notification configuration array.
+   */
   alarmRuleList?: GetDISyncTaskResponseBodyDataAlarmListAlarmRuleList[];
+  /**
+   * @remarks
+   * Alarm rule description.
+   * 
+   * @example
+   * Description
+   */
   description?: string;
+  /**
+   * @remarks
+   * Whether alarm rules are enabled.
+   * 
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * Alarm rule id.
+   * 
+   * @example
+   * 45242
+   */
   id?: number;
+  /**
+   * @remarks
+   * Alarm Type:
+   * 
+   * - taskStatus: task status
+   * - bizDelay: business latency
+   * - taskFailoverCount: monitoring Failover
+   * - ddlUnsupport: DDL is not supported
+   * - ddlReport: DDL notifications
+   * - totalDirtyRecordWriteInLines: dirty data
+   * 
+   * @example
+   * taskStatus
+   */
   metric?: string;
+  /**
+   * @remarks
+   * Alert notification rule array.
+   */
   notifyRule?: GetDISyncTaskResponseBodyDataAlarmListNotifyRule;
+  /**
+   * @remarks
+   * Alarm rule name.
+   * 
+   * @example
+   * Delay alert rule name 1
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6984,6 +7090,10 @@ export class GetDISyncTaskResponseBodyDataSolutionDetail extends $dara.Model {
 }
 
 export class GetDISyncTaskResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Array of alarm rules associated with real-time tasks.
+   */
   alarmList?: GetDISyncTaskResponseBodyDataAlarmList[];
   /**
    * @remarks
@@ -10147,7 +10257,7 @@ export class GetDeploymentResponseBodyDataDeployment extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The error message that was returned when the deployment task failed. In this case, the value of the Status parameter is 2.
+   * The error message that was returned when the deployment package failed. In this case, the value of the Status parameter is 2.
    * 
    * @example
    * Success
@@ -10248,7 +10358,7 @@ export class GetDeploymentResponseBodyData extends $dara.Model {
   deployedItems?: GetDeploymentResponseBodyDataDeployedItems[];
   /**
    * @remarks
-   * The details of the deployment task.
+   * The details of the deployment package.
    */
   deployment?: GetDeploymentResponseBodyDataDeployment;
   static names(): { [key: string]: string } {
@@ -11049,12 +11159,13 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   endEffectDate?: number;
   /**
    * @remarks
-   * Scheduling configuration-> previous cycle-> whether to skip the upstream empty run attribute
+   * Indicates whether to skip the dry-run property of the ancestor nodes of the node that corresponds to the file. This parameter corresponds to the Skip the dry-run property of the ancestor node parameter that is displayed after you configure the Depend On parameter in the Dependencies section of the Properties tab in the DataWorks console.
    * 
    * @example
    * true
    */
   ignoreParentSkipRunningProperty?: string;
+  imageId?: string;
   /**
    * @remarks
    * The output names of the parent files on which the current file depends.
@@ -11161,7 +11272,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
   stop?: boolean;
   /**
    * @remarks
-   * Scheduling configuration timeout definition
+   * The timeout period.
    * 
    * @example
    * 1
@@ -11178,6 +11289,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
       dependentType: 'DependentType',
       endEffectDate: 'EndEffectDate',
       ignoreParentSkipRunningProperty: 'IgnoreParentSkipRunningProperty',
+      imageId: 'ImageId',
       inputList: 'InputList',
       inputParameters: 'InputParameters',
       outputList: 'OutputList',
@@ -11204,6 +11316,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
       dependentType: 'string',
       endEffectDate: 'number',
       ignoreParentSkipRunningProperty: 'string',
+      imageId: 'string',
       inputList: { 'type': 'array', 'itemType': GetFileResponseBodyDataNodeConfigurationInputList },
       inputParameters: { 'type': 'array', 'itemType': GetFileResponseBodyDataNodeConfigurationInputParameters },
       outputList: { 'type': 'array', 'itemType': GetFileResponseBodyDataNodeConfigurationOutputList },
@@ -11243,7 +11356,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $dara.Model {
 export class GetFileResponseBodyDataResourceDownloadLink extends $dara.Model {
   /**
    * @remarks
-   * Resource download address link
+   * The download URL of the resource.
    * 
    * @example
    * http://xx
@@ -11283,7 +11396,7 @@ export class GetFileResponseBodyData extends $dara.Model {
   nodeConfiguration?: GetFileResponseBodyDataNodeConfiguration;
   /**
    * @remarks
-   * Resource download address
+   * The download URL of the resource.
    */
   resourceDownloadLink?: GetFileResponseBodyDataResourceDownloadLink;
   static names(): { [key: string]: string } {
@@ -14687,7 +14800,7 @@ export class GetMetaTableColumnResponseBodyData extends $dara.Model {
 export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model {
   /**
    * @remarks
-   * The description of the column.
+   * The description of the field.
    * 
    * @example
    * data comment
@@ -14695,7 +14808,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   caption?: string;
   /**
    * @remarks
-   * The unique identifier of the column.
+   * The unique identifier of the field.
    * 
    * @example
    * odps.engine_name.table_name.1
@@ -14703,7 +14816,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   columnGuid?: string;
   /**
    * @remarks
-   * The name of the column.
+   * The name of the field.
    * 
    * @example
    * 1
@@ -14711,7 +14824,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   columnName?: string;
   /**
    * @remarks
-   * The type of the column.
+   * The data type of the field.
    * 
    * @example
    * string
@@ -14719,7 +14832,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   columnType?: string;
   /**
    * @remarks
-   * The comment for the column.
+   * The remarks of the field.
    * 
    * @example
    * comment
@@ -14727,9 +14840,10 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   comment?: string;
   /**
    * @remarks
-   * Whether the field is a foreign key, with values as follows: 
-   * - true, it is a foreign key. 
-   * - false, it is not a foreign key.
+   * Indicates whether the field is a foreign key. Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -14737,9 +14851,10 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   isForeignKey?: boolean;
   /**
    * @remarks
-   * Indicates whether the column is a partition column, with the following values:
-   * - true: It is a partition column.
-   * - false: It is not a partition column.
+   * Indicates whether the field is a partition field. Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -14747,9 +14862,10 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   isPartitionColumn?: boolean;
   /**
    * @remarks
-   * Indicates whether the column is a primary key, with the following values:
-   * - true: It is a primary key.
-   * - false: It is not a primary key.
+   * Indicates whether the field is a primary key. Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * @example
    * false
@@ -14757,7 +14873,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
   isPrimaryKey?: boolean;
   /**
    * @remarks
-   * The position of the column in the order.
+   * The sequence number of the field.
    * 
    * @example
    * 1
@@ -14803,7 +14919,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $dara.Model 
 export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EMR cluster.
+   * The EMR cluster ID.
    * 
    * @example
    * C-010A704DA760****
@@ -14811,12 +14927,12 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * A list of columns.
+   * The fields in the table.
    */
   columnList?: GetMetaTableFullInfoResponseBodyDataColumnList[];
   /**
    * @remarks
-   * The comment of the table.
+   * The comment on the table.
    * 
    * @example
    * comment
@@ -14824,7 +14940,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The time when the table was created. The result is displayed as a timestamp, which you can convert to the corresponding date based on your timezone.
+   * The time when the table was created. A timestamp is returned for this parameter. You can convert the timestamp to the related date based on the time zone that you use.
    * 
    * @example
    * 1589870293000
@@ -14832,7 +14948,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The storage space occupied by the table, in bytes (B).
+   * The size of the storage space that is consumed by the table. Unit: bytes.
    * 
    * @example
    * 10
@@ -14848,9 +14964,10 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * Environment type, with the following values:
-   * - 0 indicates a table in the development environment.
-   * - 1 indicates a table in the production environment.
+   * The type of the environment. Valid values:
+   * 
+   * *   0: indicates that the table resides in the development environment.
+   * *   1: indicates that the table resides in the production environment.
    * 
    * @example
    * 1
@@ -14858,11 +14975,12 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   envType?: number;
   /**
    * @remarks
-   * Indicates whether the table is visible, with the following values:
-   * - 0: The table is visible to workspace members.
-   * - 1: The table is visible within the tenant.
-   * - 2: The table is visible across tenants.
-   * - 3: The table is only visible to the responsible person.
+   * The scope in which the table is visible. Valid values:
+   * 
+   * *   0: indicates that the table is visible to workspace members.
+   * *   1: indicates that the table is visible to users within a tenant.
+   * *   2: indicates that the table is visible to all tenants.
+   * *   3: indicates that the table is visible only to the table owner.
    * 
    * @example
    * 1
@@ -14870,7 +14988,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   isVisible?: number;
   /**
    * @remarks
-   * The last time the table was accessed. The result is displayed as a timestamp, which you can convert to the corresponding date based on your timezone.
+   * The time when the table was last accessed. A timestamp is returned for this parameter. You can convert the timestamp to the related date based on the time zone that you use.
    * 
    * @example
    * 1589870294000
@@ -14878,7 +14996,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   lastAccessTime?: number;
   /**
    * @remarks
-   * The last time the table structure was changed. The result is displayed as a timestamp, which you can convert to the corresponding date based on your timezone.
+   * The time when the schema of the table was last changed. A timestamp is returned for this parameter. You can convert the timestamp to the related date based on the time zone that you use.
    * 
    * @example
    * 1589870294000
@@ -14886,7 +15004,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   lastDdlTime?: number;
   /**
    * @remarks
-   * The last time the table was updated. The result is displayed as a timestamp, which you can convert to the corresponding date based on your timezone.
+   * The time when the table was last updated. A timestamp is returned for this parameter. You can convert the timestamp to the related date based on the time zone that you use.
    * 
    * @example
    * 1589870294000
@@ -14894,7 +15012,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   lastModifyTime?: number;
   /**
    * @remarks
-   * The lifecycle of the table, in days.
+   * The lifecycle of the table. Unit: days.
    * 
    * @example
    * 5
@@ -14902,7 +15020,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   lifeCycle?: number;
   /**
    * @remarks
-   * The storage location of the Hive table.
+   * The storage path of the Hive table.
    * 
    * @example
    * hdfs://localhost:777/user/hadoop/test.txt
@@ -14918,7 +15036,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * Partition keys.
+   * The partition key column.
    * 
    * @example
    * abc
@@ -14926,7 +15044,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   partitionKeys?: string;
   /**
    * @remarks
-   * The ID of the workspace where the table is located.
+   * The ID of the workspace to which the table belongs.
    * 
    * @example
    * 22
@@ -14934,12 +15052,19 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the workspace where the table is located.
+   * The name of the workspace to which the table belongs.
    * 
    * @example
    * test
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The schema information of the table.
+   * 
+   * @example
+   * default
+   */
   schema?: string;
   /**
    * @remarks
@@ -14967,7 +15092,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * The total number of columns.
+   * The total number of fields.
    * 
    * @example
    * 22
@@ -16063,6 +16188,13 @@ export class GetNodeResponseBodyData extends $dara.Model {
    * odps_first_dev
    */
   connection?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1727280000000
+   */
   createTime?: number;
   /**
    * @remarks
@@ -16072,6 +16204,13 @@ export class GetNodeResponseBodyData extends $dara.Model {
    * 00 00 00 * * ?
    */
   cronExpress?: string;
+  /**
+   * @remarks
+   * The deployment date.
+   * 
+   * @example
+   * 1727280000000
+   */
   deployDate?: number;
   /**
    * @remarks
@@ -16097,9 +16236,37 @@ export class GetNodeResponseBodyData extends $dara.Model {
    * 1
    */
   dqcType?: number;
+  /**
+   * @remarks
+   * The ID of the file.
+   * 
+   * @example
+   * 123
+   */
   fileId?: number;
+  /**
+   * @remarks
+   * The file type. Different file types have different codes. For more information, see [DataWorks node collection](https://help.aliyun.com/document_detail/600169.html).
+   * 
+   * @example
+   * 10
+   */
   fileType?: number;
+  /**
+   * @remarks
+   * The version of the file.
+   * 
+   * @example
+   * 1
+   */
   fileVersion?: number;
+  /**
+   * @remarks
+   * The modification time.
+   * 
+   * @example
+   * 1727280000000
+   */
   modifyTime?: number;
   /**
    * @remarks
@@ -16178,6 +16345,13 @@ export class GetNodeResponseBodyData extends $dara.Model {
    * 60
    */
   repeatInterval?: number;
+  /**
+   * @remarks
+   * Rerun mode. 0 indicates that you can rerun only if you fail, 1 indicates that you can rerun in all cases, and 2 indicates that you cannot rerun in all cases.
+   * 
+   * @example
+   * 1
+   */
   repeatMode?: number;
   /**
    * @remarks
@@ -16187,6 +16361,13 @@ export class GetNodeResponseBodyData extends $dara.Model {
    * true
    */
   repeatability?: string;
+  /**
+   * @remarks
+   * The unique identifier of the resource group.
+   * 
+   * @example
+   * group_123
+   */
   resGroupIdentifier?: string;
   /**
    * @remarks
@@ -16810,6 +16991,9 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveCon
   /**
    * @remarks
    * The description of the column on which you request permissions.
+   * 
+   * @example
+   * Field description
    */
   columnComment?: string;
   /**
@@ -18057,38 +18241,78 @@ export class GetQualityEntityResponseBodyData extends $dara.Model {
 
 export class GetQualityFollowerResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The alert mode. The value is as follows:
+   * 
+   * - 1 (Mail)
+   * - 2 (email and SMS)
+   * - 4 (DingTalk groups of robots or hook)
+   * - 5 (DingTalk groups of robots @ ALL)
+   * 
    * @example
    * 1
    */
   alarmMode?: number;
+  /**
+   * @remarks
+   * The time when the data quality rule subscription configuration was created.
+   * 
+   * @example
+   * 1541576644000
+   */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the partition expression.
+   * 
    * @example
    * 1234
    */
   entityId?: string;
   /**
+   * @remarks
+   * The subscriber to receive alert information.
+   * 
    * @example
    * 1234
    */
   follower?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud account name of the subscriber.
+   * 
    * @example
    * test
    */
   followerAccountName?: string;
   /**
+   * @remarks
+   * The ID of the subscription relationship.
+   * 
    * @example
    * 123
    */
   id?: number;
+  /**
+   * @remarks
+   * The update time of the data quality rule subscription configuration.
+   * 
+   * @example
+   * 1541576644000
+   */
   modifyTime?: number;
   /**
+   * @remarks
+   * The name of the engine or data source.
+   * 
    * @example
    * autotest
    */
   projectName?: string;
   /**
+   * @remarks
+   * The name of the partitioned table.
+   * 
    * @example
    * dual
    */
@@ -18405,6 +18629,9 @@ export class GetRemindResponseBodyDataBaselines extends $dara.Model {
   /**
    * @remarks
    * The name of the baseline.
+   * 
+   * @example
+   * Baseline name
    */
   baselineName?: string;
   static names(): { [key: string]: string } {
@@ -18442,6 +18669,9 @@ export class GetRemindResponseBodyDataBizProcesses extends $dara.Model {
   /**
    * @remarks
    * The name of the workflow.
+   * 
+   * @example
+   * Business process name
    */
   bizProcessName?: string;
   static names(): { [key: string]: string } {
@@ -18479,6 +18709,9 @@ export class GetRemindResponseBodyDataNodes extends $dara.Model {
   /**
    * @remarks
    * The name of the node.
+   * 
+   * @example
+   * Node name
    */
   nodeName?: string;
   /**
@@ -18555,8 +18788,19 @@ export class GetRemindResponseBodyDataProjects extends $dara.Model {
 }
 
 export class GetRemindResponseBodyDataReceivers extends $dara.Model {
+  /**
+   * @remarks
+   * The alert recipient.
+   */
   alertTargets?: string[];
   /**
+   * @remarks
+   * The type of the alert recipient. For more information about alert recipients, see the Receivers parameter. Valid values:
+   * 
+   * *   OWNER: indicate the task owner.
+   * *   OTHER: indicates specified personnel.
+   * *   SHIFT_SCHEDULE: indicates personnel in a shift schedule.
+   * 
    * @example
    * OWNER
    */
@@ -18638,22 +18882,30 @@ export class GetRemindResponseBodyData extends $dara.Model {
   alertInterval?: number;
   /**
    * @remarks
-   * The alert notification method.
+   * The notification method.
    */
   alertMethods?: string[];
   /**
    * @remarks
-   * The description of the alert recipient.
+   * The description of the alert recipient. For more information about alert recipients, see the Receivers parameter.
    */
   alertTargets?: string[];
   /**
    * @remarks
-   * The recipient of the alert. Valid values: OWNER and OTHER. The value OWNER indicates the node owner. The value OTHER indicates a specified user.
+   * The type of the alert recipient. For more information about alert recipient types, see the Receivers parameter. Valid values:
+   * 
+   * *   OWNER: the task owner
+   * *   OTHER: specified personnel
+   * *   SHIFT_SCHEDULE: personnel in a shift schedule
    * 
    * @example
    * OWNER
    */
   alertUnit?: string;
+  /**
+   * @remarks
+   * The IDs of the nodes that are added to a whitelist.
+   */
   allowNodes?: number[];
   /**
    * @remarks
@@ -18719,6 +18971,10 @@ export class GetRemindResponseBodyData extends $dara.Model {
    * The workspaces to which the custom alert rule is applied. This parameter is returned if the value of the RemindUnit parameter is PROJECT.
    */
   projects?: GetRemindResponseBodyDataProjects[];
+  /**
+   * @remarks
+   * The information about the alert recipients.
+   */
   receivers?: GetRemindResponseBodyDataReceivers[];
   /**
    * @remarks
@@ -18731,6 +18987,9 @@ export class GetRemindResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The name of the rule.
+   * 
+   * @example
+   * Rule name
    */
   remindName?: string;
   /**
@@ -18764,7 +19023,7 @@ export class GetRemindResponseBodyData extends $dara.Model {
   useflag?: boolean;
   /**
    * @remarks
-   * The information about the webhook URL.
+   * WebHook URL
    */
   webhooks?: string[];
   static names(): { [key: string]: string } {
@@ -19082,6 +19341,9 @@ export class GetTopicResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The name of the baseline to which the worst baseline instance belongs.
+   * 
+   * @example
+   * Baseline name
    */
   baselineName?: string;
   /**
@@ -19159,6 +19421,9 @@ export class GetTopicResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The name of the node that triggered the event.
+   * 
+   * @example
+   * Node name
    */
   nodeName?: string;
   /**
@@ -19188,6 +19453,9 @@ export class GetTopicResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The name of the event.
+   * 
+   * @example
+   * 1234 error
    */
   topicName?: string;
   /**
@@ -19274,44 +19542,72 @@ export class GetTopicResponseBodyData extends $dara.Model {
 export class GetTopicInfluenceResponseBodyDataInfluences extends $dara.Model {
   /**
    * @remarks
-   * The baseline ID.
+   * The ID of the baseline.
    * 
    * @example
-   * 1234
+   * 12345
    */
   baselineId?: number;
+  /**
+   * @remarks
+   * The name of the baseline.
+   * 
+   * @example
+   * Baseline name
+   */
   baselineName?: string;
   /**
+   * @remarks
+   * The data timestamp of the baseline instance.
+   * 
    * @example
    * 1553356800000
    */
   bizdate?: number;
   /**
+   * @remarks
+   * The margin of the baseline instance. Unit: seconds.
+   * 
    * @example
    * 360
    */
   buffer?: number;
   /**
+   * @remarks
+   * The ID of the cycle of the baseline instance. For a baseline instance that is scheduled by day, the field value is 1. For a baseline instance that is scheduled by hour, the field value ranges from 1 to 24.
+   * 
    * @example
    * 1
    */
   inGroupId?: number;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account used by the baseline owner. Multiple IDs are separated by commas (,).
+   * 
    * @example
    * 952795****
    */
   owner?: string;
   /**
+   * @remarks
+   * The priority of the baseline. Valid values: 1, 2, 5, 7, and 8.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The ID of the workspace to which the baseline belongs.
+   * 
    * @example
    * 1234
    */
   projectId?: number;
   /**
+   * @remarks
+   * The status of the baseline. Valid values: ERROR, SAFE, DANGROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes are run before the alert duration begins. The value DANGROUS indicates that nodes are still running after the alert duration ends but the committed time does not arrive. The value OVER indicates that nodes are still running after the committed time.
+   * 
    * @example
    * SAFE
    */
@@ -19356,10 +19652,13 @@ export class GetTopicInfluenceResponseBodyDataInfluences extends $dara.Model {
 export class GetTopicInfluenceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The affected baseline instances.
+   * The list of affected baseline instances.
    */
   influences?: GetTopicInfluenceResponseBodyDataInfluences[];
   /**
+   * @remarks
+   * The ID of the event.
+   * 
    * @example
    * 1234
    */
@@ -19453,6 +19752,9 @@ export class ListAlertMessagesResponseBodyDataAlertMessagesInstances extends $da
   /**
    * @remarks
    * The name of the node.
+   * 
+   * @example
+   * Node name
    */
   nodeName?: string;
   /**
@@ -19512,6 +19814,9 @@ export class ListAlertMessagesResponseBodyDataAlertMessagesNodes extends $dara.M
   /**
    * @remarks
    * The name of the node.
+   * 
+   * @example
+   * Node name
    */
   nodeName?: string;
   /**
@@ -19569,6 +19874,9 @@ export class ListAlertMessagesResponseBodyDataAlertMessagesSlaAlert extends $dar
   /**
    * @remarks
    * The name of the baseline.
+   * 
+   * @example
+   * Baseline name
    */
   baselineName?: string;
   /**
@@ -19672,6 +19980,9 @@ export class ListAlertMessagesResponseBodyDataAlertMessagesTopics extends $dara.
   /**
    * @remarks
    * The name of the event.
+   * 
+   * @example
+   * 9527 error
    */
   topicName?: string;
   /**
@@ -19765,6 +20076,9 @@ export class ListAlertMessagesResponseBodyDataAlertMessages extends $dara.Model 
   /**
    * @remarks
    * The content of the alert.
+   * 
+   * @example
+   * Node error
    */
   content?: string;
   /**
@@ -19791,6 +20105,9 @@ export class ListAlertMessagesResponseBodyDataAlertMessages extends $dara.Model 
   /**
    * @remarks
    * The name of the custom alert rule that was triggered. This parameter is returned if the value of the Source parameter is REMIND_ALERT.
+   * 
+   * @example
+   * Custom monitoring rule name
    */
   remindName?: string;
   /**
@@ -19940,6 +20257,9 @@ export class ListBaselineConfigsResponseBodyDataBaselines extends $dara.Model {
   /**
    * @remarks
    * The name of the baseline.
+   * 
+   * @example
+   * Baseline name
    */
   baselineName?: string;
   /**
@@ -21058,46 +21378,76 @@ export class ListCalcEnginesResponseBodyData extends $dara.Model {
 
 export class ListCheckProcessesResponseBodyPagingInfoCheckProcesses extends $dara.Model {
   /**
+   * @remarks
+   * Extension point event encoding.
+   * 
    * @example
    * commit-file
    */
   eventCode?: string;
   /**
+   * @remarks
+   * The name of the extension point event.
+   * 
    * @example
    * DnsEvent
    */
   eventName?: string;
   /**
+   * @remarks
+   * The English name of the event.
+   * 
    * @example
    * Pre-event for Node Commit
    */
   eventNameEn?: string;
   /**
+   * @remarks
+   * DataWorks the message ID of the open message. After an extended point event is triggered, you can obtain the message ID from the received event message.
+   * 
    * @example
    * b824a5de-4223-4315-af3e-c4449d236db4
    */
   messageId?: string;
   /**
+   * @remarks
+   * The operator ID.
+   * 
    * @example
    * 297635
    */
   operator?: string;
   /**
+   * @remarks
+   * The ID of the process instance.
+   * 
    * @example
    * rdk_generate_d395da25-b0d3-4114-b2a5-d0247444a661_none_3496903_365203
    */
   processId?: string;
   /**
+   * @remarks
+   * The name of the check object, such as the file name or node name.
+   * 
    * @example
    * odps_sql_test
    */
   processName?: string;
   /**
+   * @remarks
+   * The ID of the DataWorks workspace.
+   * 
    * @example
    * 32563
    */
   projectId?: number;
   /**
+   * @remarks
+   * The status of the extender check.
+   * - CHECKING CHECKING
+   * - PASSED the pass check
+   * - BLOCKED check failed
+   * 
    * @example
    * CHECKING
    */
@@ -21140,18 +21490,31 @@ export class ListCheckProcessesResponseBodyPagingInfoCheckProcesses extends $dar
 }
 
 export class ListCheckProcessesResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The check details of the extension.
+   */
   checkProcesses?: ListCheckProcessesResponseBodyPagingInfoCheckProcesses[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries displayed on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 12
    */
@@ -21924,6 +22287,9 @@ export class ListDIAlarmRulesResponseBodyDIAlarmRulePagingDIJobAlarmRules extend
   /**
    * @remarks
    * The description of the alert rule.
+   * 
+   * @example
+   * mysql synchronizes to hologres heartbeat alert
    */
   description?: string;
   /**
@@ -23733,6 +24099,9 @@ export class ListDataServiceApisResponseBodyDataApis extends $dara.Model {
   /**
    * @remarks
    * The name of the API.
+   * 
+   * @example
+   * My API name
    */
   apiName?: string;
   /**
@@ -23762,6 +24131,9 @@ export class ListDataServiceApisResponseBodyDataApis extends $dara.Model {
   /**
    * @remarks
    * The description of the API.
+   * 
+   * @example
+   * Test API description
    */
   description?: string;
   /**
@@ -25713,6 +26085,9 @@ export class ListDataServicePublishedApisResponseBodyDataApis extends $dara.Mode
   /**
    * @remarks
    * The name of the API.
+   * 
+   * @example
+   * My API name
    */
   apiName?: string;
   /**
@@ -25742,6 +26117,9 @@ export class ListDataServicePublishedApisResponseBodyDataApis extends $dara.Mode
   /**
    * @remarks
    * The description.
+   * 
+   * @example
+   * Test API description
    */
   description?: string;
   /**
@@ -26516,11 +26894,17 @@ export class ListEnabledExtensionsForProjectResponseBodyExtensions extends $dara
   /**
    * @remarks
    * The description of the extension.
+   * 
+   * @example
+   * ODPS SQL compatible Spark engine detection
    */
   extensionDesc?: string;
   /**
    * @remarks
    * The name of the extension.
+   * 
+   * @example
+   * max_pt function is not allowed.
    */
   extensionName?: string;
   /**
@@ -26642,6 +27026,9 @@ export class ListExtensionsResponseBodyPagingInfoExtensionsBindEventList extends
   /**
    * @remarks
    * The name of the event.
+   * 
+   * @example
+   * File submission pre-event
    */
   eventName?: string;
   static names(): { [key: string]: string } {
@@ -26676,16 +27063,25 @@ export class ListExtensionsResponseBodyPagingInfoExtensions extends $dara.Model 
   /**
    * @remarks
    * The unique code of the extension.
+   * 
+   * @example
+   * Extension Code
    */
   extensionCode?: string;
   /**
    * @remarks
    * The description of the extension.
+   * 
+   * @example
+   * This is a description
    */
   extensionDesc?: string;
   /**
    * @remarks
    * The name of the extension.
+   * 
+   * @example
+   * Extension name
    */
   extensionName?: string;
   /**
@@ -26910,6 +27306,9 @@ export class ListFileVersionsResponseBodyDataFileVersions extends $dara.Model {
   /**
    * @remarks
    * The description of the file version.
+   * 
+   * @example
+   * Second version submission
    */
   comment?: string;
   /**
@@ -27106,6 +27505,13 @@ export class ListFileVersionsResponseBodyData extends $dara.Model {
 }
 
 export class ListFilesResponseBodyDataFiles extends $dara.Model {
+  /**
+   * @remarks
+   * The path of the folder where the file is located.
+   * 
+   * @example
+   * Business_process/my_first_business_process/MaxCompute/ods_layer
+   */
   absoluteFolderPath?: string;
   /**
    * @remarks
@@ -27424,6 +27830,9 @@ export class ListFoldersResponseBodyDataFolders extends $dara.Model {
   /**
    * @remarks
    * The path of the folder.
+   * 
+   * @example
+   * Business_process/my_first_business_process/MaxCompute/ods_layer
    */
   folderPath?: string;
   static names(): { [key: string]: string } {
@@ -27641,6 +28050,9 @@ export class ListInnerNodesResponseBodyPagingNodes extends $dara.Model {
   /**
    * @remarks
    * The name of the resource group.
+   * 
+   * @example
+   * Default Resource Group
    */
   resGroupName?: string;
   /**
@@ -29097,6 +29509,9 @@ export class ListMigrationsResponseBodyDataMigrations extends $dara.Model {
   /**
    * @remarks
    * The description of the export task.
+   * 
+   * @example
+   * Automated Test creation
    */
   description?: string;
   /**
@@ -29447,6 +29862,13 @@ export class ListNodesResponseBodyDataNodes extends $dara.Model {
    * odps_first
    */
   connection?: string;
+  /**
+   * @remarks
+   * The timestamp when the node was created. Unit: milliseconds.
+   * 
+   * @example
+   * 1593879116000
+   */
   createTime?: number;
   /**
    * @remarks
@@ -29456,6 +29878,13 @@ export class ListNodesResponseBodyDataNodes extends $dara.Model {
    * 00 00 00 * * ?
    */
   cronExpress?: string;
+  /**
+   * @remarks
+   * The timestamp when the node was deployed. Unit: milliseconds.
+   * 
+   * @example
+   * 1734537600000
+   */
   deployDate?: number;
   /**
    * @remarks
@@ -29481,9 +29910,38 @@ export class ListNodesResponseBodyDataNodes extends $dara.Model {
    * 1
    */
   dqcType?: number;
+  /**
+   * @remarks
+   * The file ID. You can call the ListFiles operation to query the ID.
+   * 
+   * @example
+   * 20
+   */
   fileId?: number;
+  /**
+   * @remarks
+   * Different file types have different codes. For more information, see [DataWorks node collection](https://help.aliyun.com/document_detail/600169.html).
+   * You can also call the [ListFileType](https://help.aliyun.com/document_detail/212428.html) interface to query the code type of the file.
+   * 
+   * @example
+   * 10
+   */
   fileType?: number;
+  /**
+   * @remarks
+   * The latest version number of the file.
+   * 
+   * @example
+   * 3
+   */
   fileVersion?: number;
+  /**
+   * @remarks
+   * The timestamp when the node was modified. Unit: milliseconds.
+   * 
+   * @example
+   * 1593879116000
+   */
   modifyTime?: number;
   /**
    * @remarks
@@ -29557,6 +30015,13 @@ export class ListNodesResponseBodyDataNodes extends $dara.Model {
    * 60
    */
   repeatInterval?: number;
+  /**
+   * @remarks
+   * The rerun mode. The value 0 indicates that rerun can be performed only if a failure occurs. The value 1 indicates that rerun can be performed in all cases. The value 2 indicates that rerun cannot be performed in all cases.
+   * 
+   * @example
+   * 1
+   */
   repeatMode?: number;
   /**
    * @remarks
@@ -29566,6 +30031,13 @@ export class ListNodesResponseBodyDataNodes extends $dara.Model {
    * true
    */
   repeatability?: boolean;
+  /**
+   * @remarks
+   * The identifier of the resource group.
+   * 
+   * @example
+   * group_123
+   */
   resGroupIdentifier?: string;
   /**
    * @remarks
@@ -29659,12 +30131,7 @@ export class ListNodesResponseBodyDataNodes extends $dara.Model {
 export class ListNodesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The scheduling type of the node. Valid values:
-   * 
-   * *   NORMAL: indicates that the node is a normal auto triggered node.
-   * *   MANUAL: indicates that the node is a manually triggered node.
-   * *   PAUSE: indicates that the node is a paused node.
-   * *   SKIP: indicates that the node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
+   * The information about the nodes.
    */
   nodes?: ListNodesResponseBodyDataNodes[];
   /**
@@ -29733,6 +30200,9 @@ export class ListNodesByBaselineResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The name of the node.
+   * 
+   * @example
+   * Node name
    */
   nodeName?: string;
   /**
@@ -29920,6 +30390,9 @@ export class ListNodesByOutputResponseBodyDataNodeList extends $dara.Model {
   /**
    * @remarks
    * The name of the resource group.
+   * 
+   * @example
+   * Default Resource Group
    */
   resGroupName?: string;
   /**
@@ -31139,6 +31612,9 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   /**
    * @remarks
    * The description of the monitoring rule.
+   * 
+   * @example
+   * The description of the rule.
    */
   comment?: string;
   /**
@@ -31310,6 +31786,9 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   /**
    * @remarks
    * The name of the monitoring rule.
+   * 
+   * @example
+   * The name of the rule.
    */
   ruleName?: string;
   /**
@@ -31344,6 +31823,9 @@ export class ListQualityResultsByEntityResponseBodyDataRuleChecks extends $dara.
   /**
    * @remarks
    * The name of the monitoring template.
+   * 
+   * @example
+   * Expected value verification
    */
   templateName?: string;
   /**
@@ -31752,6 +32234,9 @@ export class ListQualityResultsByRuleResponseBodyDataRuleChecks extends $dara.Mo
   /**
    * @remarks
    * The description of the monitoring rule.
+   * 
+   * @example
+   * The description of the rule.
    */
   comment?: string;
   /**
@@ -31931,6 +32416,9 @@ export class ListQualityResultsByRuleResponseBodyDataRuleChecks extends $dara.Mo
   /**
    * @remarks
    * The name of the monitoring rule.
+   * 
+   * @example
+   * The name of the rule.
    */
   ruleName?: string;
   /**
@@ -31965,6 +32453,9 @@ export class ListQualityResultsByRuleResponseBodyDataRuleChecks extends $dara.Mo
   /**
    * @remarks
    * The name of the monitoring template.
+   * 
+   * @example
+   * Expected value verification
    */
   templateName?: string;
   /**
@@ -32199,6 +32690,9 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   /**
    * @remarks
    * The description of the system defense rule.
+   * 
+   * @example
+   * Verify table rules
    */
   comment?: string;
   /**
@@ -32368,6 +32862,9 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   /**
    * @remarks
    * The name of the monitoring template.
+   * 
+   * @example
+   * Number of SQL task table rows, 1, 7, and 30 days wave detection
    */
   templateName?: string;
   /**
@@ -33174,6 +33671,9 @@ export class ListShiftPersonnelsResponseBodyPagingShiftPersons extends $dara.Mod
   /**
    * @remarks
    * The name of the on-duty engineer.
+   * 
+   * @example
+   * Zhang San
    */
   shiftPersonName?: string;
   /**
@@ -33283,6 +33783,9 @@ export class ListShiftSchedulesResponseBodyPagingShiftSchedules extends $dara.Mo
   /**
    * @remarks
    * The name of the shift schedule.
+   * 
+   * @example
+   * Duty table name
    */
   shiftScheduleName?: string;
   static names(): { [key: string]: string } {
@@ -33780,31 +34283,49 @@ export class ListTableThemeResponseBodyData extends $dara.Model {
 
 export class ListTablesResponseBodyDataTableEntityListEntityContent extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the data source.
+   * 
    * @example
    * accountId:cn-shanghai:odps:project
    */
   dataSourceQualifiedName?: string;
   /**
+   * @remarks
+   * The unique ID of the data source identifier.
+   * 
    * @example
    * e70f92239d491057f6a2563b545bdaf8cc6b537d9dc55ec84c55f7cfefg
    */
   dataSourceUniqueId?: string;
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * database
    */
   databaseName?: string;
   /**
+   * @remarks
+   * The ID of the data source instance.
+   * 
    * @example
    * rm-uf6rn0123
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the ODPS project.
+   * 
    * @example
    * project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The name of the table.
+   * 
    * @example
    * table
    */
@@ -33841,8 +34362,15 @@ export class ListTablesResponseBodyDataTableEntityListEntityContent extends $dar
 }
 
 export class ListTablesResponseBodyDataTableEntityList extends $dara.Model {
+  /**
+   * @remarks
+   * Table entity information.
+   */
   entityContent?: ListTablesResponseBodyDataTableEntityListEntityContent;
   /**
+   * @remarks
+   * The unique identifier of the table entity.
+   * 
    * @example
    * maxcompute-table.project.table
    */
@@ -33875,12 +34403,22 @@ export class ListTablesResponseBodyDataTableEntityList extends $dara.Model {
 
 export class ListTablesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Pagination information, which specifies the starting point of the next read.
+   * 
    * @example
    * AAAAAVY3rYiv9VoUJQSiCitgjgSwg+byk0FIjirFkm4zfM4G0xYwM/FQvOhgrTHsCPIZ5yqXYu2NG6qRCRC52HvwbOA=
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * Entity array.
+   */
   tableEntityList?: ListTablesResponseBodyDataTableEntityList[];
   /**
+   * @remarks
+   * The total number.
+   * 
    * @example
    * 100
    */
@@ -34862,6 +35400,9 @@ export class TestNetworkConnectionResponseBodyTaskList extends $dara.Model {
   /**
    * @remarks
    * The reason why the data source and resource group failed the connectivity test. If data source and the resource group passed the connectivity test, this parameter is left empty.
+   * 
+   * @example
+   * Connectable
    */
   connectMessage?: string;
   /**
@@ -34934,6 +35475,9 @@ export class TopTenElapsedTimeInstanceResponseBodyInstanceConsumeTimeRankConsume
   /**
    * @remarks
    * The name of the node.
+   * 
+   * @example
+   * Node name
    */
   nodeName?: string;
   /**
@@ -35045,6 +35589,9 @@ export class TopTenErrorTimesInstanceResponseBodyInstanceErrorRankErrorRank exte
   /**
    * @remarks
    * The name of the node.
+   * 
+   * @example
+   * Node name
    */
   nodeName?: string;
   /**
@@ -35601,6 +36148,9 @@ export class UpdateDIJobRequestJobSettingsColumnDataTypeSettings extends $dara.M
 
 export class UpdateDIJobRequestJobSettingsCycleScheduleSettings extends $dara.Model {
   /**
+   * @remarks
+   * The scheduling parameters.
+   * 
    * @example
    * bizdate=$bizdate
    */
@@ -35683,14 +36233,14 @@ export class UpdateDIJobRequestJobSettingsRuntimeSettings extends $dara.Model {
    * @remarks
    * The name of the configuration item. Valid values:
    * 
-   * *   runtime.offline.speed.limit.mb: indicates the maximum transmission rate that is allowed for a batch synchronization task. This configuration item takes effect only when runtime.offline.speed.limit.enable is set to true.
-   * *   runtime.offline.speed.limit.enable: indicates whether throttling is enabled for a batch synchronization task.
-   * *   dst.offline.connection.max: indicates the maximum number of connections that are allowed for writing data to the destination of a batch synchronization task.
-   * *   runtime.offline.concurrent: indicates the maximum number of parallel threads that are allowed for a batch synchronization task.
-   * *   dst.realtime.connection.max: indicates the maximum number of connections that are allowed for writing data to the destination of a real-time synchronization task.
-   * *   runtime.enable.auto.create.schema: indicates whether schemas are automatically created in the destination of a synchronization task.
-   * *   src.offline.datasource.max.connection: indicates the maximum number of connections that are allowed for reading data from the source of a batch synchronization task.
-   * *   runtime.realtime.concurrent: indicates the maximum number of parallel threads that are allowed for a real-time synchronization task.
+   * *   runtime.offline.speed.limit.mb: specifies the maximum transmission rate that is allowed for a batch synchronization task. This configuration item takes effect only when runtime.offline.speed.limit.enable is set to true.
+   * *   runtime.offline.speed.limit.enable: specifies whether throttling is enabled for a batch synchronization task.
+   * *   dst.offline.connection.max: specifies the maximum number of connections that are allowed for writing data to the destination of a batch synchronization task.
+   * *   runtime.offline.concurrent: specifies the maximum number of parallel threads that are allowed for a batch synchronization task.
+   * *   dst.realtime.connection.max: specifies the maximum number of connections that are allowed for writing data to the destination of a real-time synchronization task.
+   * *   runtime.enable.auto.create.schema: specifies whether schemas are automatically created in the destination of a synchronization task.
+   * *   src.offline.datasource.max.connection: specifies the maximum number of connections that are allowed for reading data from the source of a batch synchronization task.
+   * *   runtime.realtime.concurrent: specifies the maximum number of parallel threads that are allowed for a real-time synchronization task.
    * 
    * @example
    * runtime.offline.concurrent
@@ -35729,6 +36279,9 @@ export class UpdateDIJobRequestJobSettingsRuntimeSettings extends $dara.Model {
 
 export class UpdateDIJobRequestJobSettings extends $dara.Model {
   /**
+   * @remarks
+   * The channel control settings for the synchronization task. The value of this parameter must be a JSON string.
+   * 
    * @example
    * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
    */
@@ -35738,6 +36291,10 @@ export class UpdateDIJobRequestJobSettings extends $dara.Model {
    * The settings for data type mappings between source fields and destination fields. The value of this parameter must be an array.
    */
   columnDataTypeSettings?: UpdateDIJobRequestJobSettingsColumnDataTypeSettings[];
+  /**
+   * @remarks
+   * The settings for periodic scheduling.
+   */
   cycleScheduleSettings?: UpdateDIJobRequestJobSettingsCycleScheduleSettings;
   /**
    * @remarks
@@ -35862,6 +36419,9 @@ export class UpdateDIJobRequestResourceSettings extends $dara.Model {
    */
   realtimeResourceSettings?: UpdateDIJobRequestResourceSettingsRealtimeResourceSettings;
   /**
+   * @remarks
+   * The number of compute units (CUs) in the resource group that are used for full and incremental synchronization.
+   * 
    * @example
    * 2.0
    */
@@ -35949,6 +36509,10 @@ export class UpdateDIJobRequestTableMappingsTransformationRules extends $dara.Mo
    * *   Rename
    * *   AddColumn
    * *   HandleDml
+   * *   DefineIncrementalCondition
+   * *   DefineCycleScheduleSettings
+   * *   DefineRuntimeSettings
+   * *   DefinePartitionKey
    * 
    * @example
    * Rename
@@ -36001,12 +36565,12 @@ export class UpdateDIJobRequestTableMappingsTransformationRules extends $dara.Mo
 export class UpdateDIJobRequestTableMappings extends $dara.Model {
   /**
    * @remarks
-   * The rule used to select synchronization objects in the source. You can configure multiple rules.
+   * The list of rules that you want to use to select synchronization objects in the source.
    */
   sourceObjectSelectionRules?: UpdateDIJobRequestTableMappingsSourceObjectSelectionRules[];
   /**
    * @remarks
-   * The transformation rules that are applied to the selected synchronization objects.
+   * The list of transformation rules that you want to apply to the synchronization objects selected from the source.
    */
   transformationRules?: UpdateDIJobRequestTableMappingsTransformationRules[];
   static names(): { [key: string]: string } {
@@ -36047,6 +36611,10 @@ export class UpdateDIJobRequestTransformationRules extends $dara.Model {
    * *   Rename
    * *   AddColumn
    * *   HandleDml
+   * *   DefineIncrementalCondition
+   * *   DefineCycleScheduleSettings
+   * *   DefineRuntimeSettings
+   * *   DefinePartitionKey
    * 
    * @example
    * Rename
@@ -36054,17 +36622,17 @@ export class UpdateDIJobRequestTransformationRules extends $dara.Model {
   ruleActionType?: string;
   /**
    * @remarks
-   * The expression of the rule. The expression is a JSON string.
+   * The expression of the rule. The expression must be a JSON string.
    * 
    * Example of a renaming rule: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922","variables":[{"variableName":"srcDatabaseName","variableRules":[{"from":"fromdb","to":"todb"}]}]}.
    * 
-   * expression: the expression of the renaming rule. The expression may contain the following variables: ${srcDatasourceName}, ${srcDatabaseName}, and ${srcTableName}. ${srcDatasourceName} indicates the name of the source. ${srcDatabaseName} indicates the name of a source database. ${srcTableName} indicates the name of a source table. variables: the generation rule for a variable used in the expression of the renaming rule. The default value of the specified variable is the original value of the object indicated by the variable. You can define a group of string replacement rules to change the original values based on your business requirements. variableName: the name of the variable. The variable name is not enclosed in ${}. variableRules: the string replacement rules for variables. The system runs the string replacement rules in sequence for string replacement. from indicates the original string. to indicates the new string. Example of a rule used to add a specific field to the destination and assign a value to the field: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}.
+   * expression: the expression of the renaming rule. The expression may contain the following variables: ${srcDatasourceName}, ${srcDatabaseName}, and ${srcTableName}. ${srcDatasourceName} specifies the name of the source. ${srcDatabaseName} specifies the name of a source database. ${srcTableName} specifies the name of a source table. variables: the generation rule for a variable used in the expression of the renaming rule. The default value of the specified variable is the original value of the object indicated by the variable. You can define a group of string replacement rules to change the original values based on your business requirements. variableName: the name of the variable. Do not enclose the variable name in ${}. variableRules: the string replacement rules for variables. The system runs the string replacement rules in sequence. from specifies the original string. to specifies the new string. Example of a rule used to add a specific field to the destination and assign a value to the field: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}.
    * 
-   * If no rule of this type is configured, no fields are added to the destination and no values are assigned by default. columnName: the name of the field that is added. columnValueType: the value type of the field. Valid values: Constant and Variable. columnValue: the value of the field that is added. If the valueType parameter is set to Constant, the value of the columnValue parameter must be a constant of the STRING type. If the valueType parameter is set to Variable, the value of the columnValue parameter must be a built-in variable. The following built-in variables are supported: EXECUTE_TIME (LONG data type), DB_NAME_SRC (STRING data type), DATASOURCE_NAME_SRC (STRING data type), TABLE_NAME_SRC (STRING data type), DB_NAME_DEST (STRING data type), DATASOURCE_NAME_DEST (STRING data type), TABLE_NAME_DEST (STRING data type), and DB_NAME_SRC_TRANSED (STRING data type). EXECUTE_TIME indicates the execution time. DB_NAME_SRC indicates the name of a source database. DATASOURCE_NAME_SRC indicates the name of the source. TABLE_NAME_SRC indicates the name of a source table. DB_NAME_DEST indicates the name of a destination database. DATASOURCE_NAME_DEST indicates the name of the destination. TABLE_NAME_DEST indicates the name of a destination table. DB_NAME_SRC_TRANSED indicates the database name obtained after a transformation. Example of a rule used to specify primary key fields for a destination table: {"columns":["ukcolumn1","ukcolumn2"]}.
+   * If you do not configure such a rule, no fields are added to the destination and no values are assigned by default. columnName: the name of the field that you want to add. columnValueType: the value type of the field. Valid values: Constant and Variable. columnValue: the value of the field that you want to add. If you set the valueType parameter to Constant, set the columnValue parameter to a custom constant of the STRING type. If you set the valueType parameter to Variable, set the columnValue to a built-in variable. The following built-in variables are supported: EXECUTE_TIME (LONG data type), DB_NAME_SRC (STRING data type), DATASOURCE_NAME_SRC (STRING data type), TABLE_NAME_SRC (STRING data type), DB_NAME_DEST (STRING data type), DATASOURCE_NAME_DEST (STRING data type), TABLE_NAME_DEST (STRING data type), and DB_NAME_SRC_TRANSED (STRING data type). EXECUTE_TIME specifies the execution time. DB_NAME_SRC indicates the name of a source database. DATASOURCE_NAME_SRC specifies the name of the source. TABLE_NAME_SRC specifies the name of a source table. DB_NAME_DEST specifies the name of a destination database. DATASOURCE_NAME_DEST specifies the name of the destination. TABLE_NAME_DEST specifies the name of a destination table. DB_NAME_SRC_TRANSED specifies the database name obtained after a transformation. Example of a rule used to specify primary key fields for a destination table: {"columns":["ukcolumn1","ukcolumn2"]}.
    * 
-   * If no rule of this type is configured, the primary key fields in the mapped source table are used for the destination table by default. If the destination table is an existing table, Data Integration does not modify the schema of the destination table. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run. If the destination table is automatically created by the system, Data Integration automatically creates the schema of the destination table. The schema contains the primary key fields that you specify. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run. Example of a rule used to process DML messages: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}.
+   * If you do not configure such a rule, the primary key fields in the mapped source table are used for the destination table by default. If the destination table is an existing table, Data Integration does not modify the schema of the destination table. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run. If the destination table is automatically created by the system, Data Integration automatically creates the schema of the destination table. The schema contains the primary key fields that you specify. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run. Example of a rule used to process DML messages: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}.
    * 
-   * If no rule of this type is configured, the default processing policy for messages generated for insert, update, and delete operations is Normal. dmlType: the DML operation. Valid values: Insert, Update, and Delete. dmlAction: the processing policy for DML messages. Valid values: Normal, Ignore, Filter, and LogicalDelete. Filter indicates conditional processing. You can set the dmlAction parameter to Filter only when the dmlType parameter is set to Update or Delete. filterCondition: the condition used to filter DML messages. This parameter is required only when the dmlAction parameter is set to Filter.
+   * If you do not configure such a rule, the default processing policy for messages generated for insert, update, and delete operations is Normal. dmlType: the DML operation. Valid values: Insert, Update, and Delete. dmlAction: the processing policy for DML messages. Valid values: Normal, Ignore, Filter, and LogicalDelete. Filter indicates conditional processing. You can set the dmlAction parameter to Filter only when the dmlType parameter is set to Update or Delete. filterCondition: the condition used to filter DML messages. This parameter is required only when the dmlAction parameter is set to Filter.
    * 
    * @example
    * {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
@@ -39248,10 +39816,10 @@ export class CreateBusinessRequest extends $dara.Model {
   projectIdentifier?: string;
   /**
    * @remarks
-   * The module to which the business process belongs. Valid values:
+   * The module to which the workflow belongs. Valid values:
    * 
-   * - NORMAL: The business process is initiated automatically.
-   * - MANUAL_BIZ: The business process requires manual initiation.
+   * *   NORMAL: The workflow belongs to auto triggered workflows.
+   * *   MANUAL_BIZ: The workflow belongs to manually triggered workflows.
    * 
    * @example
    * NORMAL
@@ -39291,7 +39859,7 @@ export class CreateBusinessRequest extends $dara.Model {
 export class CreateBusinessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the business process.
+   * The workflow ID.
    * 
    * @example
    * 100001
@@ -39323,7 +39891,7 @@ export class CreateBusinessResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can use the request ID to query logs and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -39331,7 +39899,7 @@ export class CreateBusinessResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -39807,7 +40375,7 @@ export class CreateDIAlarmRuleRequest extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * The description of the alert rule.
+   * The description of the task.
    * 
    * @example
    * mysql synchronizes to hologres heartbeat alert
@@ -39899,7 +40467,7 @@ export class CreateDIAlarmRuleShrinkRequest extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * The description of the alert rule.
+   * The description of the task.
    * 
    * @example
    * mysql synchronizes to hologres heartbeat alert
@@ -42412,10 +42980,10 @@ export class CreateFileRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * If the directory specified in the parameter (FileFolderPath) does not exist in the system, whether the directory is automatically created. The values are as follows:
+   * Specifies whether to automatically create the directory that is specified by the FileFolderPath parameter if the directory does not exist. Valid values:
    * 
-   * - true: If the directory does not exist, the directory is automatically created.
-   * - false: If the directory does not exist, the call fails.
+   * *   true: The system automatically creates the directory if the directory does not exist.
+   * *   false: The system does not automatically create the directory if the directory does not exist. In this case, the call fails.
    * 
    * @example
    * false
@@ -42535,6 +43103,7 @@ export class CreateFileRequest extends $dara.Model {
    * false
    */
   ignoreParentSkipRunningProperty?: boolean;
+  imageId?: string;
   /**
    * @remarks
    * The output name of the parent file on which the current file depends. If you specify multiple output names, separate them with commas (,).
@@ -42713,6 +43282,7 @@ export class CreateFileRequest extends $dara.Model {
       fileName: 'FileName',
       fileType: 'FileType',
       ignoreParentSkipRunningProperty: 'IgnoreParentSkipRunningProperty',
+      imageId: 'ImageId',
       inputList: 'InputList',
       inputParameters: 'InputParameters',
       outputParameters: 'OutputParameters',
@@ -42751,6 +43321,7 @@ export class CreateFileRequest extends $dara.Model {
       fileName: 'string',
       fileType: 'number',
       ignoreParentSkipRunningProperty: 'boolean',
+      imageId: 'string',
       inputList: 'string',
       inputParameters: 'string',
       outputParameters: 'string',
@@ -42899,7 +43470,7 @@ export class CreateFileResponse extends $dara.Model {
 export class CreateFolderRequest extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The path of the folder.
    * 
    * This parameter is required.
    * 
@@ -45356,7 +45927,7 @@ export class CreateQualityRuleRequest extends $dara.Model {
   checker?: number;
   /**
    * @remarks
-   * The description of the monitoring rule.
+   * The description of the rule.
    * 
    * @example
    * Verification
@@ -47091,10 +47662,10 @@ export class CreateUdfFileRequest extends $dara.Model {
   cmdDescription?: string;
   /**
    * @remarks
-   * If the directory specified in the parameter (FileFolderPath) does not exist in the system, whether the directory is automatically created. The values are as follows:
+   * Specifies whether to automatically create the directory that is specified by the FileFolderPath parameter if the directory does not exist. Valid values:
    * 
-   * - true: If the directory does not exist, the directory is automatically created.
-   * - false: If the directory does not exist, the call fails.
+   * *   true: The system automatically creates the directory if the directory does not exist.
+   * *   false: The system does not automatically create the directory if the directory does not exist. In this case, the call fails.
    * 
    * @example
    * false
@@ -47182,7 +47753,7 @@ export class CreateUdfFileRequest extends $dara.Model {
   returnValue?: string;
   /**
    * @remarks
-   * The description of the function. This parameter corresponds to the Description parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+   * The description of the function. This parameter corresponds to the Description parameter in the Register Function section of the configuration tab of the function on the DataStudio page.
    * 
    * @example
    * Concatenate several strings to generate a new string
@@ -53693,7 +54264,7 @@ export class DsgSceneQuerySceneListByNameRequest extends $dara.Model {
 export class DsgSceneQuerySceneListByNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data entries returned.
+   * The returned data.
    */
   data?: DsgSceneQuerySceneListByNameResponseBodyData[];
   /**
@@ -63231,7 +63802,9 @@ export class GetMetaTableColumnResponse extends $dara.Model {
 export class GetMetaTableFullInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the EMR cluster. You can log in to the EMR management console to obtain the cluster ID.
+   * The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+   * 
+   * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to query the ID.
    * 
    * @example
    * C-010A704DA760****
@@ -63239,7 +63812,7 @@ export class GetMetaTableFullInfoRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Data type, currently only supports the value `emr`.
+   * The type of the data source. Set the value to emr.
    * 
    * @example
    * emr
@@ -63247,7 +63820,9 @@ export class GetMetaTableFullInfoRequest extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The name of the EMR database. You can obtain the database name by calling the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) interface.
+   * The name of the database. This parameter is required only if you set the DataSourceType parameter to emr.
+   * 
+   * You can call the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) operation to query the database name.
    * 
    * @example
    * abc
@@ -63271,7 +63846,7 @@ export class GetMetaTableFullInfoRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier of the table. You can obtain the unique identifier by calling the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) interface.
+   * The unique identifier of the table. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the unique identifier of the table.
    * 
    * @example
    * odps.engine_name.table_name
@@ -63279,7 +63854,9 @@ export class GetMetaTableFullInfoRequest extends $dara.Model {
   tableGuid?: string;
   /**
    * @remarks
-   * The name of the EMR table. You can obtain the table name by calling the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) interface.
+   * The name of the table in the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+   * 
+   * You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the table name.
    * 
    * @example
    * abc
@@ -63321,12 +63898,12 @@ export class GetMetaTableFullInfoRequest extends $dara.Model {
 export class GetMetaTableFullInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Business data.
+   * The business data.
    */
   data?: GetMetaTableFullInfoResponseBodyData;
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 1031203110005
@@ -63334,7 +63911,7 @@ export class GetMetaTableFullInfoResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The specified parameters are invalid.
@@ -63342,7 +63919,7 @@ export class GetMetaTableFullInfoResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -63350,7 +63927,7 @@ export class GetMetaTableFullInfoResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Request ID. Used for locating logs and troubleshooting issues.
+   * The request ID.
    * 
    * @example
    * 0bc1411515937****
@@ -63358,7 +63935,7 @@ export class GetMetaTableFullInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Whether the call was successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -65161,7 +65738,7 @@ export class GetNodeRequest extends $dara.Model {
   nodeId?: number;
   /**
    * @remarks
-   * The priority of the node. Valid values: 1, 3, 5, 7, and 8.
+   * The environment of the workspace. Valid values: PROD and DEV.
    * 
    * This parameter is required.
    * 
@@ -66141,10 +66718,13 @@ export class GetOpRiskDataRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The method that you use to identify risks. Valid values:
+   * The method that you use to identify risks.
    * 
    * *   You can manually identify risks.
    * *   You can also use a sensitive data identification rule to identify risks. You can log on to the DataWorks console and go to the Risk Identification Rules page in Data Security Guard to obtain the name of the rule.
+   * 
+   * @example
+   * Manual identification
    */
   riskType?: string;
   static names(): { [key: string]: string } {
@@ -66195,6 +66775,21 @@ export class GetOpRiskDataResponseBody extends $dara.Model {
    * *   sql: the SQL statement that is executed
    * *   opAccount: the account that is used to perform the operation
    * *   opTime: the time when the operation was performed
+   * 
+   * @example
+   * {
+   *       "opRiskDatas": [
+   *             {
+   *                   "riskType": "Hierarchical dimension, EMR engine dimension and project dimension, EMR engine project dimension operation data, export method dimension, EMR engine",
+   *                   "opTime": "2021-01-04 23:39:13",
+   *                   "opType": "SQL_SELECT",
+   *                   "opAccount": "user",
+   *                   "sensType": "Email/name/mobile phone number",
+   *                   "sql": "SELECT * FROM default.jiade_1219_test_create LIMIT 20"
+   *             }
+   *       ],
+   *       "totalCount": 499
+   * }
    */
   riskData?: string;
   static names(): { [key: string]: string } {
@@ -66357,6 +66952,9 @@ export class GetOpSensitiveDataResponseBody extends $dara.Model {
    * *   sql: the SQL statement that is executed.
    * *   opAccount: the account that is used to perform the operation.
    * *   opTime: the time when the operation was performed.
+   * 
+   * @example
+   * "opSensDatas": [       {         "sensLevel": "L4",         "opTime": "2021-02-07 00:14:51",         "opAccount": "ALIYUN$dsg_test",         "sensType": "Mobile phone number",         "sql": "select * from dsg_demo.tbl_phonebook where phone_no = &#39;1331111****&#39;;"       }     ],     "totalCount": 6
    */
   opSensitiveData?: string;
   /**
@@ -67114,15 +67712,26 @@ export class GetQualityEntityResponse extends $dara.Model {
 export class GetQualityFollowerRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the partition filter expression.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1234
    */
   entityId?: number;
+  /**
+   * @remarks
+   * The ID of the DataWorks workspace.
+   * 
+   * @example
+   * 27
+   */
   projectId?: number;
   /**
    * @remarks
+   * The name of the engine or data source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -67155,28 +67764,47 @@ export class GetQualityFollowerRequest extends $dara.Model {
 }
 
 export class GetQualityFollowerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the subscription relationship.
+   */
   data?: GetQualityFollowerResponseBodyData[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * You have no permission.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP return code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 38cbdef0-f6cf-49
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the call is successful.
+   * 
    * @example
    * true
    */
@@ -67483,7 +68111,7 @@ export class GetRemindResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID. You can use the ID to troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * 0000-ABCD-EFGH-IJKLMNOPQ
@@ -67966,6 +68594,8 @@ export class GetTopicResponse extends $dara.Model {
 export class GetTopicInfluenceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the event.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -67996,30 +68626,45 @@ export class GetTopicInfluenceRequest extends $dara.Model {
 export class GetTopicInfluenceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The list of baseline instances affected by the event.
    */
   data?: GetTopicInfluenceResponseBodyData;
   /**
+   * @remarks
+   * The error code returned.
+   * 
    * @example
    * 1031203110005
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned.
+   * 
    * @example
    * The specified parameters are invalid.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The ID of the request. You can use the ID to troubleshoot issues.
+   * 
    * @example
    * 0000-ABCD-EFG****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -68521,6 +69166,9 @@ export class ListBaselineConfigsRequest extends $dara.Model {
   /**
    * @remarks
    * The keyword in the baseline name, which is used to search for the baseline.
+   * 
+   * @example
+   * Baseline name search keywords
    */
   searchText?: string;
   /**
@@ -69533,12 +70181,21 @@ export class ListCalcEnginesResponse extends $dara.Model {
 export class ListCheckProcessesRequest extends $dara.Model {
   /**
    * @remarks
+   * Extension point event encoding.
+   * 
    * This parameter is required.
    * 
    * @example
    * commit-file
    */
   eventCode?: string;
+  /**
+   * @remarks
+   * The message ID in DataWorks OpenEvent. You can obtain the ID from a received message when an extension point event is triggered.
+   * 
+   * @example
+   * 03400b03-b721-4c34-8727-2****1
+   */
   messageId?: string;
   /**
    * @remarks
@@ -69549,21 +70206,37 @@ export class ListCheckProcessesRequest extends $dara.Model {
    */
   operator?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * 123465
    */
   projectId?: number;
   /**
+   * @remarks
+   * The check status of the extension. Valid values:
+   * 
+   * *   CHECKING
+   * *   PASSED
+   * *   BLOCKED
+   * 
    * @example
    * True
    */
@@ -69602,8 +70275,15 @@ export class ListCheckProcessesRequest extends $dara.Model {
 }
 
 export class ListCheckProcessesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListCheckProcessesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0000-ABCD-EF****
    */
@@ -71128,6 +71808,9 @@ export class ListDataServiceApisRequest extends $dara.Model {
   /**
    * @remarks
    * The keyword in API names. The keyword is used to search for the APIs whose names contain the keyword.
+   * 
+   * @example
+   * My API name
    */
   apiNameKeyword?: string;
   /**
@@ -72000,6 +72683,9 @@ export class ListDataServicePublishedApisRequest extends $dara.Model {
   /**
    * @remarks
    * The keyword in API names. The keyword is used to search for the APIs whose names contain the keyword.
+   * 
+   * @example
+   * My API name
    */
   apiNameKeyword?: string;
   /**
@@ -73615,6 +74301,9 @@ export class ListFileVersionsResponse extends $dara.Model {
 
 export class ListFilesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The exact matching file name. The file name of the query result is exactly the same as this parameter.
+   * 
    * @example
    * ods_create.sql
    */
@@ -73622,9 +74311,15 @@ export class ListFilesRequest extends $dara.Model {
   /**
    * @remarks
    * The path of the files.
+   * 
+   * @example
+   * Business_process/my_first_business_process/MaxCompute/ods_layer
    */
   fileFolderPath?: string;
   /**
+   * @remarks
+   * The file ID list. The File ID set of the query result can only be a subset of the list. You can specify up to 50 fileids at a time.
+   * 
    * @example
    * 78237,816123
    */
@@ -73648,11 +74343,17 @@ export class ListFilesRequest extends $dara.Model {
    */
   keyword?: string;
   /**
+   * @remarks
+   * Whether the query result contains the path of the folder where the file is located.
+   * 
    * @example
    * false
    */
   needAbsoluteFolderPath?: boolean;
   /**
+   * @remarks
+   * Whether the query results contain file content (for files with more content, there may be a long network transmission delay).
+   * 
    * @example
    * false
    */
@@ -73915,6 +74616,9 @@ export class ListFoldersRequest extends $dara.Model {
    * The path of the parent folder.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Business_process/my_first_business_process/MaxCompute
    */
   parentFolderPath?: string;
   /**
@@ -74579,6 +75283,16 @@ export class ListInstancesRequest extends $dara.Model {
    * openmr_8****
    */
   nodeName?: string;
+  /**
+   * @remarks
+   * The sorting rule of the instances to be returned. Valid values:
+   * 
+   * *   CREATE_TIME_DESC: The instances are sorted in descending order of their creation time.
+   * *   INSTANCE_ID_DESC (default): The instances are sorted in descending order of their IDs.
+   * 
+   * @example
+   * INSTANCE_ID_DESC
+   */
   orderBy?: string;
   /**
    * @remarks
@@ -74614,7 +75328,7 @@ export class ListInstancesRequest extends $dara.Model {
   programType?: string;
   /**
    * @remarks
-   * The time when the node was last modified.
+   * The environment in which the node runs. Valid values: DEV and PROD.
    * 
    * This parameter is required.
    * 
@@ -74634,7 +75348,16 @@ export class ListInstancesRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The time when the instance started to wait to be scheduled.
+   * The status of the node. Valid values:
+   * 
+   * *   NOT_RUN: The node is not run.
+   * *   WAIT_TIME: The node is waiting for the scheduling time to arrive.
+   * *   WAIT_RESOURCE: The node is waiting for resources.
+   * *   RUNNING: The node is running.
+   * *   CHECKING: Data quality is being checked for the node.
+   * *   CHECKING_CONDITION: Branch conditions are being checked for the node.
+   * *   FAILURE: The node fails to run.
+   * *   SUCCESS: The node is successfully run.
    * 
    * @example
    * NOT_RUN
@@ -76433,7 +77156,7 @@ export class ListNodesRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10. Maximum value: 100.
+   * The page number. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 1
@@ -76441,7 +77164,7 @@ export class ListNodesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The number of entries per page. Default value: 10. Maximum value: 100.
    * 
    * @example
    * 10
@@ -76457,7 +77180,7 @@ export class ListNodesRequest extends $dara.Model {
   programType?: string;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: 10. Maximum value: 100.
+   * The environment in which the node runs. Valid values: DEV and PROD.
    * 
    * This parameter is required.
    * 
@@ -76475,6 +77198,17 @@ export class ListNodesRequest extends $dara.Model {
    * 1234
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The scheduling type. Valid values:
+   * 
+   * *   NORMAL: Nodes are scheduled as expected.
+   * *   PAUSE: Nodes are paused.
+   * *   SKIP: Nodes are dry-run. Dry-run nodes are started as scheduled, but the system sets the status of the nodes to successful when it starts to run them.
+   * 
+   * @example
+   * NORMAL
+   */
   schedulerType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -76516,7 +77250,7 @@ export class ListNodesRequest extends $dara.Model {
 export class ListNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the associated workflow.
+   * The nodes.
    */
   data?: ListNodesResponseBodyData;
   /**
@@ -79282,6 +80016,9 @@ export class ListShiftSchedulesRequest extends $dara.Model {
   /**
    * @remarks
    * The keyword used to perform a fuzzy search on shift schedules.
+   * 
+   * @example
+   * Duty table name keyword
    */
   shiftScheduleName?: string;
   static names(): { [key: string]: string } {
@@ -79850,6 +80587,8 @@ export class ListTableThemeResponse extends $dara.Model {
 export class ListTablesRequest extends $dara.Model {
   /**
    * @remarks
+   * The type of the data source. Valid values: ODPS, emr, mysql, holo, analyticdb_for_mysql, oracle, postgresql, sqlserver, clickhouse, and starrocks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -79860,11 +80599,17 @@ export class ListTablesRequest extends $dara.Model {
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * Pagination information, which specifies the starting point of this read.
+   * 
    * @example
    * 12222
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The number of entries displayed on each page. The default value is 10 and the maximum value is 100.
+   * 
    * @example
    * 10
    */
@@ -80860,6 +81605,9 @@ export class QueryDefaultTemplateResponseBody extends $dara.Model {
    * The returned data about the default data category and data sensitivity level template. The data is in the JSON array format.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * [{"gmtModified":1709022365000,"fileName":"default file","isDelete":false,"isDefaultTemplate":true}]
    */
   data?: any;
   /**
@@ -80877,6 +81625,9 @@ export class QueryDefaultTemplateResponseBody extends $dara.Model {
    * The error message.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Parameter error
    */
   errorMessage?: string;
   /**
@@ -81166,6 +81917,9 @@ export class QueryRecognizeDataByRuleTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * Missing parameter
    */
   errorMessage?: string;
   /**
@@ -81267,6 +82021,9 @@ export class QueryRecognizeRuleDetailRequest extends $dara.Model {
    * The name of the sensitive field. To obtain the name of the sensitive field, call the [QuerySensNodeInfo](https://help.aliyun.com/document_detail/2747189.html) operation or log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Data Category and Sensitivity Level page.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Name
    */
   sensitiveName?: string;
   /**
@@ -81306,6 +82063,9 @@ export class QueryRecognizeRuleDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the sensitive field in the JSON format.
+   * 
+   * @example
+   * {"nodeName":"basic unit overview","gmtModified":1709017449000,"hitThreshold":30,"sensitiveName":"mobile-yinni","templateId":"8222abeb-9784-4417-b420-0322926d5cbf","recognizeRulesType":2,"delete":false,"bydAccuracy":1,"colScan":"," defineType ":1,": ydAccuracy ":{" contentRule ":))," operationType ":0}," nodeParent ":" unit/unit basic information/unit basic overview "," level ":6," keyRuleId ":" 228248921215042mobile-yinni "," isDelete ":false," levelName ":" 6level "," sensitive ":false," operationType ":0," sourceName ": dsg-test-zuoyue","nodeId":"bea2fc81-90c9-45f3-b7a9-26d534208a0d","status":1}
    */
   data?: any;
   /**
@@ -81319,6 +82079,9 @@ export class QueryRecognizeRuleDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * Missing parameter
    */
   errorMessage?: string;
   /**
@@ -81434,6 +82197,9 @@ export class QueryRecognizeRulesTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * Missing parameter
    */
   errorMessage?: string;
   /**
@@ -81593,6 +82359,9 @@ export class QuerySensClassificationResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * Missing parameter
    */
   errorMessage?: string;
   /**
@@ -81752,6 +82521,9 @@ export class QuerySensLevelResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * Missing parameter
    */
   errorMessage?: string;
   /**
@@ -81875,6 +82647,9 @@ export class QuerySensNodeInfoRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the sensitive field. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Data Security Guard page to obtain the name.
+   * 
+   * @example
+   * ID card
    */
   sensitiveName?: string;
   /**
@@ -81945,6 +82720,9 @@ export class QuerySensNodeInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned business data in the JSON format.
+   * 
+   * @example
+   * {"success": true, "httpStatusCode": 200, "data": { "result": [ { "sensitiveName": "certificate expiration date", "sensitiveId": "fd4ff5a2-9537-43d1-8e4f-1d0b5ffaac12", "status": 0, "templateName": "built-in classification and grading template", "keyRuleId": "228248921215042 certificate expiration date"} ], "totalCount": 1, "currentPage": 1, "pageSize": 10 }, "requestId": 10000001}
    */
   data?: any;
   /**
@@ -81958,6 +82736,9 @@ export class QuerySensNodeInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * Missing parameter
    */
   errorMessage?: string;
   /**
@@ -82146,7 +82927,7 @@ export class RegisterLineageRelationResponseBody extends $dara.Model {
   lineageRelation?: RegisterLineageRelationResponseBodyLineageRelation;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
    * EE50E05E-028C-182B-9xxx
@@ -83594,6 +84375,9 @@ export class RunManualDagNodesRequest extends $dara.Model {
    * The environment type of Operation Center. Valid values: PROD and DEV. The value PROD indicates the production environment. The value DEV indicates the development environment.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * PROD or DEV
    */
   projectEnv?: string;
   /**
@@ -84099,6 +84883,9 @@ export class SaveDataServiceApiTestResultRequest extends $dara.Model {
   /**
    * @remarks
    * The sample failure response of the API. This parameter is optional.
+   * 
+   * @example
+   * {"apiLog": null, "data": null, "errCode": 1108110622, "errMsg": "data Source query failed", "requestId": "0 bc14a **** 5902762031 ****"}
    */
   failResultSample?: string;
   /**
@@ -86323,6 +87110,9 @@ export class SubmitFileRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the commit operation.
+   * 
+   * @example
+   * Submit a task for the first time
    */
   comment?: string;
   /**
@@ -88144,11 +88934,15 @@ export class UpdateClusterConfigsRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
+   * The configuration information of the cluster submodule.
+   * 
    * This parameter is required.
    */
   configValues?: ClusterConfig[];
   /**
    * @remarks
+   * The ID of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -88210,11 +89004,15 @@ export class UpdateClusterConfigsShrinkRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
+   * The configuration information of the cluster submodule.
+   * 
    * This parameter is required.
    */
   configValuesShrink?: string;
   /**
    * @remarks
+   * The ID of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -88261,21 +89059,33 @@ export class UpdateClusterConfigsResponseBody extends $dara.Model {
    */
   data?: boolean;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 101011005
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Invalid.Cluster.ClusterNotFound
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * 
    * @example
    * 0000-ABCD-E****
    */
@@ -88717,6 +89527,9 @@ export class UpdateDIAlarmRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the alert rule.
+   * 
+   * @example
+   * mysql synchronizes to hologres heartbeat alert
    */
   description?: string;
   /**
@@ -88806,6 +89619,9 @@ export class UpdateDIAlarmRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the alert rule.
+   * 
+   * @example
+   * mysql synchronizes to hologres heartbeat alert
    */
   description?: string;
   /**
@@ -88952,6 +89768,9 @@ export class UpdateDIJobRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the synchronization task.
+   * 
+   * @example
+   * Synchronize mysql to hologres
    */
   description?: string;
   /**
@@ -88971,7 +89790,7 @@ export class UpdateDIJobRequest extends $dara.Model {
   tableMappings?: UpdateDIJobRequestTableMappings[];
   /**
    * @remarks
-   * The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+   * The list of transformation rules that you want to apply to the synchronization objects selected from the source. Each entry in the list defines a transformation rule.
    */
   transformationRules?: UpdateDIJobRequestTransformationRules[];
   static names(): { [key: string]: string } {
@@ -89029,6 +89848,9 @@ export class UpdateDIJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the synchronization task.
+   * 
+   * @example
+   * Synchronize mysql to hologres
    */
   description?: string;
   /**
@@ -89048,7 +89870,7 @@ export class UpdateDIJobShrinkRequest extends $dara.Model {
   tableMappingsShrink?: string;
   /**
    * @remarks
-   * The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+   * The list of transformation rules that you want to apply to the synchronization objects selected from the source. Each entry in the list defines a transformation rule.
    */
   transformationRulesShrink?: string;
   static names(): { [key: string]: string } {
@@ -90114,6 +90936,9 @@ export class UpdateFileRequest extends $dara.Model {
    */
   advancedSettings?: string;
   /**
+   * @remarks
+   * Whether the scheduling configuration takes effect immediately after the release.
+   * 
    * @example
    * true
    */
@@ -90236,11 +91061,17 @@ export class UpdateFileRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the file.
+   * 
+   * @example
+   * Here is the file description
    */
   fileDescription?: string;
   /**
    * @remarks
    * The path of the file.
+   * 
+   * @example
+   * Business_process/First_Business_Process/data_integration/Folder_1/Folder_2
    */
   fileFolderPath?: string;
   /**
@@ -90264,10 +91095,14 @@ export class UpdateFileRequest extends $dara.Model {
    */
   fileName?: string;
   /**
+   * @remarks
+   * Scheduling configuration-> previous cycle-> whether to skip the upstream empty run attribute.
+   * 
    * @example
    * true
    */
   ignoreParentSkipRunningProperty?: boolean;
+  imageId?: string;
   /**
    * @remarks
    * The output name of the parent file on which the current file depends. If you specify multiple output names, separate them with commas (,).
@@ -90451,6 +91286,7 @@ export class UpdateFileRequest extends $dara.Model {
       fileId: 'FileId',
       fileName: 'FileName',
       ignoreParentSkipRunningProperty: 'IgnoreParentSkipRunningProperty',
+      imageId: 'ImageId',
       inputList: 'InputList',
       inputParameters: 'InputParameters',
       outputList: 'OutputList',
@@ -90488,6 +91324,7 @@ export class UpdateFileRequest extends $dara.Model {
       fileId: 'number',
       fileName: 'string',
       ignoreParentSkipRunningProperty: 'boolean',
+      imageId: 'string',
       inputList: 'string',
       inputParameters: 'string',
       outputList: 'string',
@@ -93836,7 +94673,7 @@ export class UpdateUdfFileRequest extends $dara.Model {
   returnValue?: string;
   /**
    * @remarks
-   * The description of the function. This parameter corresponds to the Description parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+   * The description of the function. This parameter corresponds to the Description parameter in the Register Function section of the configuration tab of the function on the DataStudio page.
    * 
    * @example
    * Concatenate several strings to generate a new string
@@ -96051,6 +96888,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ignoreParentSkipRunningProperty)) {
       body["IgnoreParentSkipRunningProperty"] = request.ignoreParentSkipRunningProperty;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
     }
 
     if (!$dara.isNull(request.inputList)) {
@@ -103051,7 +103892,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke the GetMetaTableFullInfo interface to obtain the complete information of a table (including field information).
+   * Queries the complete information about a table, including information about fields in the table.
+   * 
+   * @remarks
+   * You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
    * 
    * @param request - GetMetaTableFullInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -103083,7 +103927,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Invoke the GetMetaTableFullInfo interface to obtain the complete information of a table (including field information).
+   * Queries the complete information about a table, including information about fields in the table.
+   * 
+   * @remarks
+   * You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
    * 
    * @param request - GetMetaTableFullInfoRequest
    * @returns GetMetaTableFullInfoResponse
@@ -104306,6 +105153,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the subscribers of a partition filter expression.
+   * 
    * @param request - GetQualityFollowerRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetQualityFollowerResponse
@@ -104348,6 +105197,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the subscribers of a partition filter expression.
+   * 
    * @param request - GetQualityFollowerRequest
    * @returns GetQualityFollowerResponse
    */
@@ -104616,6 +105467,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries baseline instances affected by an event.
+   * 
+   * @remarks
+   * ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetTopicInfluence\\&type=RPC\\&version=2020-05-18)
+   * 
    * @param request - GetTopicInfluenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTopicInfluenceResponse
@@ -104650,6 +105507,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries baseline instances affected by an event.
+   * 
+   * @remarks
+   * ## Debugging
+   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetTopicInfluence\\&type=RPC\\&version=2020-05-18)
+   * 
    * @param request - GetTopicInfluenceRequest
    * @returns GetTopicInfluenceResponse
    */
@@ -105162,7 +106025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询扩展事件的检查列表
+   * Queries the check results of extension point events.
    * 
    * @param request - ListCheckProcessesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -105222,7 +106085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询扩展事件的检查列表
+   * Queries the check results of extension point events.
    * 
    * @param request - ListCheckProcessesRequest
    * @returns ListCheckProcessesResponse
@@ -106539,6 +107402,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of file versions.
+   * 
    * @param request - ListFileVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFileVersionsResponse
@@ -106589,6 +107454,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of file versions.
+   * 
    * @param request - ListFileVersionsRequest
    * @returns ListFileVersionsResponse
    */
@@ -106598,6 +107465,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of files.
+   * 
    * @param request - ListFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFilesResponse
@@ -106684,6 +107553,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of files.
+   * 
    * @param request - ListFilesRequest
    * @returns ListFilesResponse
    */
@@ -106933,7 +107804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the directed acyclic graph (DAG). You can set this parameter to the value of the DagId parameter returned by the [RunCycleDagNodes](https://help.aliyun.com/document_detail/212961.html), [RunSmokeTest](https://help.aliyun.com/document_detail/212949.html), or [RunManualDagNodes](https://help.aliyun.com/document_detail/212830.html) operation based on your business requirements. The RunManualDagNodes operation is used to backfill data, the RunSmokeTest operation is used to perform smoke testing, and the RunManualDagNodes operation is used to run nodes in a manually triggered workflow.
+   * Queries a list of instances.
    * 
    * @param request - ListInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -107025,7 +107896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the directed acyclic graph (DAG). You can set this parameter to the value of the DagId parameter returned by the [RunCycleDagNodes](https://help.aliyun.com/document_detail/212961.html), [RunSmokeTest](https://help.aliyun.com/document_detail/212949.html), or [RunManualDagNodes](https://help.aliyun.com/document_detail/212830.html) operation based on your business requirements. The RunManualDagNodes operation is used to backfill data, the RunSmokeTest operation is used to perform smoke testing, and the RunManualDagNodes operation is used to run nodes in a manually triggered workflow.
+   * Queries a list of instances.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -111728,7 +112599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新集群的配置信息
+   * Updates the configurations of submodules in a workspace. You can configure SPARK parameters.
    * 
    * @param tmpReq - UpdateClusterConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -111784,7 +112655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新集群的配置信息
+   * Updates the configurations of submodules in a workspace. You can configure SPARK parameters.
    * 
    * @param request - UpdateClusterConfigsRequest
    * @returns UpdateClusterConfigsResponse
@@ -112400,6 +113271,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ignoreParentSkipRunningProperty)) {
       body["IgnoreParentSkipRunningProperty"] = request.ignoreParentSkipRunningProperty;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
     }
 
     if (!$dara.isNull(request.inputList)) {
