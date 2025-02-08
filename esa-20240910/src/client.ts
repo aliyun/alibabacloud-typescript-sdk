@@ -11852,6 +11852,82 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
   }
 }
 
+export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
+  /**
+   * @example
+   * 395386449776640
+   */
+  configId?: number;
+  /**
+   * @example
+   * global
+   */
+  configType?: string;
+  /**
+   * @example
+   * on
+   */
+  enable?: string;
+  /**
+   * @example
+   * (http.request.uri.path.file_name eq \\"jpg\\")
+   */
+  rule?: string;
+  /**
+   * @example
+   * on
+   */
+  ruleEnable?: string;
+  /**
+   * @example
+   * test
+   */
+  ruleName?: string;
+  /**
+   * @example
+   * 1
+   */
+  sequence?: number;
+  /**
+   * @example
+   * 1
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      configType: 'ConfigType',
+      enable: 'Enable',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      configType: 'string',
+      enable: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceQuotasResponseBodyQuotas extends $dara.Model {
   /**
    * @remarks
@@ -12928,6 +13004,110 @@ export class ListManagedRulesGroupsResponseBodyManagedRulesGroups extends $dara.
     return {
       name: 'string',
       ruleCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkOptimizationsResponseBodyConfigs extends $dara.Model {
+  /**
+   * @example
+   * 395386449776640
+   */
+  configId?: number;
+  /**
+   * @example
+   * global
+   */
+  configType?: string;
+  /**
+   * @example
+   * on
+   */
+  grpc?: string;
+  /**
+   * @example
+   * on
+   */
+  http2Origin?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
+  rule?: string;
+  /**
+   * @example
+   * on
+   */
+  ruleEnable?: string;
+  /**
+   * @example
+   * rule_example
+   */
+  ruleName?: string;
+  /**
+   * @example
+   * 1
+   */
+  sequence?: number;
+  /**
+   * @example
+   * 1
+   */
+  siteVersion?: number;
+  /**
+   * @example
+   * on
+   */
+  smartRouting?: string;
+  /**
+   * @example
+   * 500
+   */
+  uploadMaxFilesize?: string;
+  /**
+   * @example
+   * on
+   */
+  websocket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      configType: 'ConfigType',
+      grpc: 'Grpc',
+      http2Origin: 'Http2Origin',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      siteVersion: 'SiteVersion',
+      smartRouting: 'SmartRouting',
+      uploadMaxFilesize: 'UploadMaxFilesize',
+      websocket: 'Websocket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      configType: 'string',
+      grpc: 'string',
+      http2Origin: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'number',
+      siteVersion: 'number',
+      smartRouting: 'string',
+      uploadMaxFilesize: 'string',
+      websocket: 'string',
     };
   }
 
@@ -21996,6 +22176,140 @@ export class CreateHttpsBasicConfigurationResponse extends $dara.Model {
   }
 }
 
+export class CreateImageTransformRequest extends $dara.Model {
+  /**
+   * @example
+   * on
+   */
+  enable?: string;
+  /**
+   * @example
+   * (http.request.uri.path.file_name eq \\"jpg\\")
+   */
+  rule?: string;
+  /**
+   * @example
+   * on
+   */
+  ruleEnable?: string;
+  /**
+   * @example
+   * test
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  /**
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageTransformResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 352816096987136
+   */
+  configId?: number;
+  /**
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateImageTransformResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateImageTransformResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateImageTransformResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateKvNamespaceRequest extends $dara.Model {
   /**
    * @remarks
@@ -22646,6 +22960,168 @@ export class CreateLoadBalancerResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateLoadBalancerResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkOptimizationRequest extends $dara.Model {
+  /**
+   * @example
+   * on
+   */
+  grpc?: string;
+  /**
+   * @example
+   * on
+   */
+  http2Origin?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
+  rule?: string;
+  /**
+   * @example
+   * on
+   */
+  ruleEnable?: string;
+  /**
+   * @example
+   * rule_example
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 340035003106221
+   */
+  siteId?: number;
+  /**
+   * @example
+   * 1
+   */
+  siteVersion?: number;
+  /**
+   * @example
+   * on
+   */
+  smartRouting?: string;
+  /**
+   * @example
+   * 100
+   */
+  uploadMaxFilesize?: string;
+  /**
+   * @example
+   * on
+   */
+  websocket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grpc: 'Grpc',
+      http2Origin: 'Http2Origin',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+      smartRouting: 'SmartRouting',
+      uploadMaxFilesize: 'UploadMaxFilesize',
+      websocket: 'Websocket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grpc: 'string',
+      http2Origin: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      siteId: 'number',
+      siteVersion: 'number',
+      smartRouting: 'string',
+      uploadMaxFilesize: 'string',
+      websocket: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkOptimizationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 352816096987136
+   */
+  configId?: number;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkOptimizationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNetworkOptimizationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateNetworkOptimizationResponseBody,
     };
   }
 
@@ -28584,6 +29060,115 @@ export class DeleteHttpsBasicConfigurationResponse extends $dara.Model {
   }
 }
 
+export class DeleteImageTransformRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration ID, which can be obtained by calling the [ListImageTransforms](~~ListImageTransforms~~) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 352816096987136
+   */
+  configId?: number;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteImageTransformResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A74
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteImageTransformResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteImageTransformResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteImageTransformResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteKvRequest extends $dara.Model {
   /**
    * @remarks
@@ -28968,6 +29553,108 @@ export class DeleteLoadBalancerResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteLoadBalancerResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkOptimizationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 352816**********
+   */
+  configId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkOptimizationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkOptimizationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNetworkOptimizationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteNetworkOptimizationResponseBody,
     };
   }
 
@@ -36449,6 +37136,204 @@ export class GetIPv6Response extends $dara.Model {
   }
 }
 
+export class GetImageTransformRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration ID, which can be obtained by calling the [ListImageTransforms](~~ListImageTransforms~~) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 352816096987136
+   */
+  configId?: number;
+  /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageTransformResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
+  configId?: number;
+  /**
+   * @remarks
+   * The configuration type. Valid values:
+   * 
+   * *   global: global configuration.
+   * *   rule: rule configuration.
+   * 
+   * @example
+   * global
+   */
+  configType?: string;
+  /**
+   * @remarks
+   * Indicates whether the image transformations feature is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
+  enable?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The rule content, which is a policy or conditional expression.
+   * 
+   * @example
+   * (http.request.uri.path.file_name eq \\"jpg\\")
+   */
+  rule?: string;
+  /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   **on**
+   * *   **off**
+   * 
+   * @example
+   * on
+   */
+  ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * test
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 2
+   */
+  sequence?: number;
+  /**
+   * @remarks
+   * The version number of the website.
+   * 
+   * @example
+   * 0
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      configType: 'ConfigType',
+      enable: 'Enable',
+      requestId: 'RequestId',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      configType: 'string',
+      enable: 'string',
+      requestId: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageTransformResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetImageTransformResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetImageTransformResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetKvRequest extends $dara.Model {
   /**
    * @remarks
@@ -37424,6 +38309,192 @@ export class GetManagedTransformResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetManagedTransformResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkOptimizationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 35281609698****
+   */
+  configId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12312312213212
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkOptimizationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 35281609698****
+   */
+  configId?: number;
+  /**
+   * @example
+   * global
+   */
+  configType?: string;
+  /**
+   * @example
+   * on
+   */
+  grpc?: string;
+  /**
+   * @example
+   * on
+   */
+  http2Origin?: string;
+  /**
+   * @example
+   * C370DAF1-C838-4288-A1A0-9A87633D248E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
+  rule?: string;
+  /**
+   * @example
+   * on
+   */
+  ruleEnable?: string;
+  /**
+   * @example
+   * rule_example
+   */
+  ruleName?: string;
+  /**
+   * @example
+   * 2
+   */
+  sequence?: number;
+  /**
+   * @example
+   * 1
+   */
+  siteVersion?: number;
+  /**
+   * @example
+   * on
+   */
+  smartRouting?: string;
+  /**
+   * @example
+   * 500
+   */
+  uploadMaxFilesize?: string;
+  /**
+   * @example
+   * on
+   */
+  websocket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      configType: 'ConfigType',
+      grpc: 'Grpc',
+      http2Origin: 'Http2Origin',
+      requestId: 'RequestId',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      siteVersion: 'SiteVersion',
+      smartRouting: 'SmartRouting',
+      uploadMaxFilesize: 'UploadMaxFilesize',
+      websocket: 'Websocket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      configType: 'string',
+      grpc: 'string',
+      http2Origin: 'string',
+      requestId: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'number',
+      siteVersion: 'number',
+      smartRouting: 'string',
+      uploadMaxFilesize: 'string',
+      websocket: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkOptimizationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNetworkOptimizationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetNetworkOptimizationResponseBody,
     };
   }
 
@@ -40562,6 +41633,105 @@ export class GetSiteNameExclusiveResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetSiteNameExclusiveResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSitePauseRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSitePauseResponseBody extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  paused?: boolean;
+  /**
+   * @example
+   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paused: 'Paused',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paused: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSitePauseResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSitePauseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSitePauseResponseBody,
     };
   }
 
@@ -44544,6 +45714,174 @@ export class ListHttpsBasicConfigurationsResponse extends $dara.Model {
   }
 }
 
+export class ListImageTransformsRequest extends $dara.Model {
+  /**
+   * @example
+   * 352816096987136
+   */
+  configId?: number;
+  /**
+   * @example
+   * global
+   */
+  configType?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * test1
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  /**
+   * @example
+   * 1
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      configType: 'ConfigType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      ruleName: 'RuleName',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      configType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      ruleName: 'string',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImageTransformsResponseBody extends $dara.Model {
+  configs?: ListImageTransformsResponseBodyConfigs[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 16
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': ListImageTransformsResponseBodyConfigs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configs)) {
+      $dara.Model.validateArray(this.configs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImageTransformsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListImageTransformsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListImageTransformsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstanceQuotasRequest extends $dara.Model {
   /**
    * @remarks
@@ -45891,6 +47229,174 @@ export class ListManagedRulesGroupsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListManagedRulesGroupsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkOptimizationsRequest extends $dara.Model {
+  /**
+   * @example
+   * 3528160969****
+   */
+  configId?: number;
+  /**
+   * @example
+   * global
+   */
+  configType?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * test
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1231231221****
+   */
+  siteId?: number;
+  /**
+   * @example
+   * 1
+   */
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      configType: 'ConfigType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      ruleName: 'RuleName',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      configType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      ruleName: 'string',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkOptimizationsResponseBody extends $dara.Model {
+  configs?: ListNetworkOptimizationsResponseBodyConfigs[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': ListNetworkOptimizationsResponseBodyConfigs },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configs)) {
+      $dara.Model.validateArray(this.configs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetworkOptimizationsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNetworkOptimizationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNetworkOptimizationsResponseBody,
     };
   }
 
@@ -54758,6 +56264,136 @@ export class UpdateIPv6Response extends $dara.Model {
   }
 }
 
+export class UpdateImageTransformRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 352816096987136
+   */
+  configId?: number;
+  /**
+   * @example
+   * on
+   */
+  enable?: string;
+  /**
+   * @example
+   * (http.request.uri.path.file_name eq \\"jpg\\")
+   */
+  rule?: string;
+  /**
+   * @example
+   * on
+   */
+  ruleEnable?: string;
+  /**
+   * @example
+   * test
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateImageTransformResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateImageTransformResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateImageTransformResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateImageTransformResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateKvNamespaceRequest extends $dara.Model {
   /**
    * @remarks
@@ -55538,6 +57174,164 @@ export class UpdateManagedTransformResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateManagedTransformResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNetworkOptimizationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 352816096987136
+   */
+  configId?: number;
+  /**
+   * @example
+   * on
+   */
+  grpc?: string;
+  /**
+   * @example
+   * on
+   */
+  http2Origin?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
+  rule?: string;
+  /**
+   * @example
+   * on
+   */
+  ruleEnable?: string;
+  /**
+   * @example
+   * rule_example
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  /**
+   * @example
+   * on
+   */
+  smartRouting?: string;
+  /**
+   * @example
+   * 100
+   */
+  uploadMaxFilesize?: string;
+  /**
+   * @example
+   * on
+   */
+  websocket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      grpc: 'Grpc',
+      http2Origin: 'Http2Origin',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      siteId: 'SiteId',
+      smartRouting: 'SmartRouting',
+      uploadMaxFilesize: 'UploadMaxFilesize',
+      websocket: 'Websocket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      grpc: 'string',
+      http2Origin: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      siteId: 'number',
+      smartRouting: 'string',
+      uploadMaxFilesize: 'string',
+      websocket: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNetworkOptimizationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNetworkOptimizationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateNetworkOptimizationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateNetworkOptimizationResponseBody,
     };
   }
 
@@ -57973,6 +59767,108 @@ export class UpdateSiteNameExclusiveResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateSiteNameExclusiveResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSitePauseRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  paused?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      paused: 'Paused',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paused: 'boolean',
+      siteId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSitePauseResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 6abd807e-ed2a-44de-ac54-ac38a62472e6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSitePauseResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSitePauseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSitePauseResponseBody,
     };
   }
 
@@ -61928,6 +63824,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增站点图片转换配置
+   * 
+   * @param request - CreateImageTransformRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateImageTransformResponse
+   */
+  async createImageTransformWithOptions(request: CreateImageTransformRequest, runtime: $dara.RuntimeOptions): Promise<CreateImageTransformResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateImageTransform",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateImageTransformResponse>(await this.callApi(params, req, runtime), new CreateImageTransformResponse({}));
+    } else {
+      return $dara.cast<CreateImageTransformResponse>(await this.execute(params, req, runtime), new CreateImageTransformResponse({}));
+    }
+
+  }
+
+  /**
+   * 新增站点图片转换配置
+   * 
+   * @param request - CreateImageTransformRequest
+   * @returns CreateImageTransformResponse
+   */
+  async createImageTransform(request: CreateImageTransformRequest): Promise<CreateImageTransformResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createImageTransformWithOptions(request, runtime);
+  }
+
+  /**
    * Create a namespace in your Alibaba Cloud account.
    * 
    * @param request - CreateKvNamespaceRequest
@@ -62170,6 +64133,89 @@ export default class Client extends OpenApi {
   async createLoadBalancer(request: CreateLoadBalancerRequest): Promise<CreateLoadBalancerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createLoadBalancerWithOptions(request, runtime);
+  }
+
+  /**
+   * 新增站点网络优化配置
+   * 
+   * @param request - CreateNetworkOptimizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNetworkOptimizationResponse
+   */
+  async createNetworkOptimizationWithOptions(request: CreateNetworkOptimizationRequest, runtime: $dara.RuntimeOptions): Promise<CreateNetworkOptimizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.grpc)) {
+      query["Grpc"] = request.grpc;
+    }
+
+    if (!$dara.isNull(request.http2Origin)) {
+      query["Http2Origin"] = request.http2Origin;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    if (!$dara.isNull(request.smartRouting)) {
+      query["SmartRouting"] = request.smartRouting;
+    }
+
+    if (!$dara.isNull(request.uploadMaxFilesize)) {
+      query["UploadMaxFilesize"] = request.uploadMaxFilesize;
+    }
+
+    if (!$dara.isNull(request.websocket)) {
+      query["Websocket"] = request.websocket;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNetworkOptimization",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateNetworkOptimizationResponse>(await this.callApi(params, req, runtime), new CreateNetworkOptimizationResponse({}));
+    } else {
+      return $dara.cast<CreateNetworkOptimizationResponse>(await this.execute(params, req, runtime), new CreateNetworkOptimizationResponse({}));
+    }
+
+  }
+
+  /**
+   * 新增站点网络优化配置
+   * 
+   * @param request - CreateNetworkOptimizationRequest
+   * @returns CreateNetworkOptimizationResponse
+   */
+  async createNetworkOptimization(request: CreateNetworkOptimizationRequest): Promise<CreateNetworkOptimizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createNetworkOptimizationWithOptions(request, runtime);
   }
 
   /**
@@ -64368,6 +66414,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes the configuration of image transformations for a website.
+   * 
+   * @param request - DeleteImageTransformRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteImageTransformResponse
+   */
+  async deleteImageTransformWithOptions(request: DeleteImageTransformRequest, runtime: $dara.RuntimeOptions): Promise<DeleteImageTransformResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteImageTransform",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteImageTransformResponse>(await this.callApi(params, req, runtime), new DeleteImageTransformResponse({}));
+    } else {
+      return $dara.cast<DeleteImageTransformResponse>(await this.execute(params, req, runtime), new DeleteImageTransformResponse({}));
+    }
+
+  }
+
+  /**
+   * Deletes the configuration of image transformations for a website.
+   * 
+   * @param request - DeleteImageTransformRequest
+   * @returns DeleteImageTransformResponse
+   */
+  async deleteImageTransform(request: DeleteImageTransformRequest): Promise<DeleteImageTransformResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteImageTransformWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a key-value pair from a namespace.
    * 
    * @param request - DeleteKvRequest
@@ -64553,6 +66650,57 @@ export default class Client extends OpenApi {
   async deleteLoadBalancer(request: DeleteLoadBalancerRequest): Promise<DeleteLoadBalancerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteLoadBalancerWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除网络优化配置
+   * 
+   * @param request - DeleteNetworkOptimizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNetworkOptimizationResponse
+   */
+  async deleteNetworkOptimizationWithOptions(request: DeleteNetworkOptimizationRequest, runtime: $dara.RuntimeOptions): Promise<DeleteNetworkOptimizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNetworkOptimization",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteNetworkOptimizationResponse>(await this.callApi(params, req, runtime), new DeleteNetworkOptimizationResponse({}));
+    } else {
+      return $dara.cast<DeleteNetworkOptimizationResponse>(await this.execute(params, req, runtime), new DeleteNetworkOptimizationResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除网络优化配置
+   * 
+   * @param request - DeleteNetworkOptimizationRequest
+   * @returns DeleteNetworkOptimizationResponse
+   */
+  async deleteNetworkOptimization(request: DeleteNetworkOptimizationRequest): Promise<DeleteNetworkOptimizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteNetworkOptimizationWithOptions(request, runtime);
   }
 
   /**
@@ -67175,6 +69323,49 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the configuration of image transformations for a website.
+   * 
+   * @param request - GetImageTransformRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetImageTransformResponse
+   */
+  async getImageTransformWithOptions(request: GetImageTransformRequest, runtime: $dara.RuntimeOptions): Promise<GetImageTransformResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetImageTransform",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetImageTransformResponse>(await this.callApi(params, req, runtime), new GetImageTransformResponse({}));
+    } else {
+      return $dara.cast<GetImageTransformResponse>(await this.execute(params, req, runtime), new GetImageTransformResponse({}));
+    }
+
+  }
+
+  /**
+   * Queries the configuration of image transformations for a website.
+   * 
+   * @param request - GetImageTransformRequest
+   * @returns GetImageTransformResponse
+   */
+  async getImageTransform(request: GetImageTransformRequest): Promise<GetImageTransformResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getImageTransformWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the value of a key in a key-value pair.
    * 
    * @param request - GetKvRequest
@@ -67428,6 +69619,49 @@ export default class Client extends OpenApi {
   async getManagedTransform(request: GetManagedTransformRequest): Promise<GetManagedTransformResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getManagedTransformWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询单条网络优化配置
+   * 
+   * @param request - GetNetworkOptimizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNetworkOptimizationResponse
+   */
+  async getNetworkOptimizationWithOptions(request: GetNetworkOptimizationRequest, runtime: $dara.RuntimeOptions): Promise<GetNetworkOptimizationResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNetworkOptimization",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetNetworkOptimizationResponse>(await this.callApi(params, req, runtime), new GetNetworkOptimizationResponse({}));
+    } else {
+      return $dara.cast<GetNetworkOptimizationResponse>(await this.execute(params, req, runtime), new GetNetworkOptimizationResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询单条网络优化配置
+   * 
+   * @param request - GetNetworkOptimizationRequest
+   * @returns GetNetworkOptimizationResponse
+   */
+  async getNetworkOptimization(request: GetNetworkOptimizationRequest): Promise<GetNetworkOptimizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNetworkOptimizationWithOptions(request, runtime);
   }
 
   /**
@@ -68371,6 +70605,49 @@ export default class Client extends OpenApi {
   async getSiteNameExclusive(request: GetSiteNameExclusiveRequest): Promise<GetSiteNameExclusiveResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSiteNameExclusiveWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询站点暂停配置
+   * 
+   * @param request - GetSitePauseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSitePauseResponse
+   */
+  async getSitePauseWithOptions(request: GetSitePauseRequest, runtime: $dara.RuntimeOptions): Promise<GetSitePauseResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSitePause",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSitePauseResponse>(await this.callApi(params, req, runtime), new GetSitePauseResponse({}));
+    } else {
+      return $dara.cast<GetSitePauseResponse>(await this.execute(params, req, runtime), new GetSitePauseResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询站点暂停配置
+   * 
+   * @param request - GetSitePauseRequest
+   * @returns GetSitePauseResponse
+   */
+  async getSitePause(request: GetSitePauseRequest): Promise<GetSitePauseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSitePauseWithOptions(request, runtime);
   }
 
   /**
@@ -69515,6 +71792,49 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询多条站点图片转换配置
+   * 
+   * @param request - ListImageTransformsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListImageTransformsResponse
+   */
+  async listImageTransformsWithOptions(request: ListImageTransformsRequest, runtime: $dara.RuntimeOptions): Promise<ListImageTransformsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListImageTransforms",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListImageTransformsResponse>(await this.callApi(params, req, runtime), new ListImageTransformsResponse({}));
+    } else {
+      return $dara.cast<ListImageTransformsResponse>(await this.execute(params, req, runtime), new ListImageTransformsResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询多条站点图片转换配置
+   * 
+   * @param request - ListImageTransformsRequest
+   * @returns ListImageTransformsResponse
+   */
+  async listImageTransforms(request: ListImageTransformsRequest): Promise<ListImageTransformsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listImageTransformsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the quota details in a subscription plan.
    * 
    * @param request - ListInstanceQuotasRequest
@@ -69888,6 +72208,49 @@ export default class Client extends OpenApi {
   async listManagedRulesGroups(request: ListManagedRulesGroupsRequest): Promise<ListManagedRulesGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listManagedRulesGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询多条网络优化配置
+   * 
+   * @param request - ListNetworkOptimizationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNetworkOptimizationsResponse
+   */
+  async listNetworkOptimizationsWithOptions(request: ListNetworkOptimizationsRequest, runtime: $dara.RuntimeOptions): Promise<ListNetworkOptimizationsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNetworkOptimizations",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNetworkOptimizationsResponse>(await this.callApi(params, req, runtime), new ListNetworkOptimizationsResponse({}));
+    } else {
+      return $dara.cast<ListNetworkOptimizationsResponse>(await this.execute(params, req, runtime), new ListNetworkOptimizationsResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询多条网络优化配置
+   * 
+   * @param request - ListNetworkOptimizationsRequest
+   * @returns ListNetworkOptimizationsResponse
+   */
+  async listNetworkOptimizations(request: ListNetworkOptimizationsRequest): Promise<ListNetworkOptimizationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listNetworkOptimizationsWithOptions(request, runtime);
   }
 
   /**
@@ -73053,6 +75416,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改站点图片转换配置
+   * 
+   * @param request - UpdateImageTransformRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateImageTransformResponse
+   */
+  async updateImageTransformWithOptions(request: UpdateImageTransformRequest, runtime: $dara.RuntimeOptions): Promise<UpdateImageTransformResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateImageTransform",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateImageTransformResponse>(await this.callApi(params, req, runtime), new UpdateImageTransformResponse({}));
+    } else {
+      return $dara.cast<UpdateImageTransformResponse>(await this.execute(params, req, runtime), new UpdateImageTransformResponse({}));
+    }
+
+  }
+
+  /**
+   * 修改站点图片转换配置
+   * 
+   * @param request - UpdateImageTransformRequest
+   * @returns UpdateImageTransformResponse
+   */
+  async updateImageTransform(request: UpdateImageTransformRequest): Promise<UpdateImageTransformResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateImageTransformWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the name of a namespace in Edge KV.
    * 
    * @param request - UpdateKvNamespaceRequest
@@ -73354,6 +75784,89 @@ export default class Client extends OpenApi {
   async updateManagedTransform(request: UpdateManagedTransformRequest): Promise<UpdateManagedTransformResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateManagedTransformWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改网络优化配置
+   * 
+   * @param request - UpdateNetworkOptimizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNetworkOptimizationResponse
+   */
+  async updateNetworkOptimizationWithOptions(request: UpdateNetworkOptimizationRequest, runtime: $dara.RuntimeOptions): Promise<UpdateNetworkOptimizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.grpc)) {
+      query["Grpc"] = request.grpc;
+    }
+
+    if (!$dara.isNull(request.http2Origin)) {
+      query["Http2Origin"] = request.http2Origin;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.smartRouting)) {
+      query["SmartRouting"] = request.smartRouting;
+    }
+
+    if (!$dara.isNull(request.uploadMaxFilesize)) {
+      query["UploadMaxFilesize"] = request.uploadMaxFilesize;
+    }
+
+    if (!$dara.isNull(request.websocket)) {
+      query["Websocket"] = request.websocket;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNetworkOptimization",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateNetworkOptimizationResponse>(await this.callApi(params, req, runtime), new UpdateNetworkOptimizationResponse({}));
+    } else {
+      return $dara.cast<UpdateNetworkOptimizationResponse>(await this.execute(params, req, runtime), new UpdateNetworkOptimizationResponse({}));
+    }
+
+  }
+
+  /**
+   * 修改网络优化配置
+   * 
+   * @param request - UpdateNetworkOptimizationRequest
+   * @returns UpdateNetworkOptimizationResponse
+   */
+  async updateNetworkOptimization(request: UpdateNetworkOptimizationRequest): Promise<UpdateNetworkOptimizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateNetworkOptimizationWithOptions(request, runtime);
   }
 
   /**
@@ -74394,6 +76907,57 @@ export default class Client extends OpenApi {
   async updateSiteNameExclusive(request: UpdateSiteNameExclusiveRequest): Promise<UpdateSiteNameExclusiveResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSiteNameExclusiveWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改站点暂停配置
+   * 
+   * @param request - UpdateSitePauseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSitePauseResponse
+   */
+  async updateSitePauseWithOptions(request: UpdateSitePauseRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSitePauseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.paused)) {
+      query["Paused"] = request.paused;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSitePause",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateSitePauseResponse>(await this.callApi(params, req, runtime), new UpdateSitePauseResponse({}));
+    } else {
+      return $dara.cast<UpdateSitePauseResponse>(await this.execute(params, req, runtime), new UpdateSitePauseResponse({}));
+    }
+
+  }
+
+  /**
+   * 修改站点暂停配置
+   * 
+   * @param request - UpdateSitePauseRequest
+   * @returns UpdateSitePauseResponse
+   */
+  async updateSitePause(request: UpdateSitePauseRequest): Promise<UpdateSitePauseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSitePauseWithOptions(request, runtime);
   }
 
   /**
