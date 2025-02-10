@@ -5364,11 +5364,13 @@ export class InstallAgentForClusterRequest extends $dara.Model {
    * c9d7f3fc3d42942afbcb65c1100ffb19d
    */
   clusterId?: string;
+  grayscaleConfig?: string;
   static names(): { [key: string]: string } {
     return {
       agentId: 'agent_id',
       agentVersion: 'agent_version',
       clusterId: 'cluster_id',
+      grayscaleConfig: 'grayscale_config',
     };
   }
 
@@ -5377,6 +5379,7 @@ export class InstallAgentForClusterRequest extends $dara.Model {
       agentId: 'string',
       agentVersion: 'string',
       clusterId: 'string',
+      grayscaleConfig: 'string',
     };
   }
 
@@ -9436,6 +9439,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clusterId)) {
       body["cluster_id"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.grayscaleConfig)) {
+      body["grayscale_config"] = request.grayscaleConfig;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
