@@ -16341,7 +16341,37 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
   }
 }
 
+export class PurgeCachesRequestContentCacheKeys extends $dara.Model {
+  headers?: { [key: string]: string };
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'Headers',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      url: 'string',
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PurgeCachesRequestContent extends $dara.Model {
+  cacheKeys?: PurgeCachesRequestContentCacheKeys[];
   /**
    * @remarks
    * The cache tags that are used to purge the cache. This parameter is required if Type is set to cachetag.
@@ -16377,6 +16407,7 @@ export class PurgeCachesRequestContent extends $dara.Model {
   purgeAll?: boolean;
   static names(): { [key: string]: string } {
     return {
+      cacheKeys: 'CacheKeys',
       cacheTags: 'CacheTags',
       directories: 'Directories',
       files: 'Files',
@@ -16388,6 +16419,7 @@ export class PurgeCachesRequestContent extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cacheKeys: { 'type': 'array', 'itemType': PurgeCachesRequestContentCacheKeys },
       cacheTags: { 'type': 'array', 'itemType': 'string' },
       directories: { 'type': 'array', 'itemType': 'string' },
       files: { 'type': 'array', 'itemType': 'any' },
@@ -16398,6 +16430,9 @@ export class PurgeCachesRequestContent extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.cacheKeys)) {
+      $dara.Model.validateArray(this.cacheKeys);
+    }
     if(Array.isArray(this.cacheTags)) {
       $dara.Model.validateArray(this.cacheTags);
     }
@@ -22671,17 +22706,26 @@ export class CreateLoadBalancerRequest extends $dara.Model {
    */
   adaptiveRouting?: CreateLoadBalancerRequestAdaptiveRouting;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * {"AL,MO": [92298024898****],"CN-SH,CN-SX,CN-SC":[92304347804****,92843536908****]}
    */
   defaultPools?: number[];
   description?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 123
    */
   fallbackPool?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * order
    */
@@ -22721,6 +22765,9 @@ export class CreateLoadBalancerRequest extends $dara.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * ip
    */
@@ -22801,17 +22848,26 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
    */
   adaptiveRoutingShrink?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * {"AL,MO": [92298024898****],"CN-SH,CN-SX,CN-SC":[92304347804****,92843536908****]}
    */
   defaultPoolsShrink?: string;
   description?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 123
    */
   fallbackPool?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * order
    */
@@ -22851,6 +22907,9 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * ip
    */
