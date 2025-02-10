@@ -5,6 +5,242 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class CreateMultiOrderRequestOrderItemsComponents extends $dara.Model {
+  /**
+   * @example
+   * RegionId
+   */
+  key?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMultiOrderRequestOrderItems extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  amount?: number;
+  /**
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @example
+   * false
+   */
+  autoRenew?: boolean;
+  components?: CreateMultiOrderRequestOrderItemsComponents[];
+  /**
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @example
+   * Year
+   */
+  periodUnit?: string;
+  /**
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
+  promotionId?: string;
+  resourceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DurationPackage
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      components: 'Components',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      promotionId: 'PromotionId',
+      resourceIds: 'ResourceIds',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      components: { 'type': 'array', 'itemType': CreateMultiOrderRequestOrderItemsComponents },
+      period: 'number',
+      periodUnit: 'string',
+      promotionId: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.components)) {
+      $dara.Model.validateArray(this.components);
+    }
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMultiOrderShrinkRequestOrderItemsComponents extends $dara.Model {
+  /**
+   * @example
+   * RegionId
+   */
+  key?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMultiOrderShrinkRequestOrderItems extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  amount?: number;
+  /**
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @example
+   * false
+   */
+  autoRenew?: boolean;
+  components?: CreateMultiOrderShrinkRequestOrderItemsComponents[];
+  /**
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @example
+   * Year
+   */
+  periodUnit?: string;
+  /**
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
+  promotionId?: string;
+  resourceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DurationPackage
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      components: 'Components',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      promotionId: 'PromotionId',
+      resourceIds: 'ResourceIds',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      components: { 'type': 'array', 'itemType': CreateMultiOrderShrinkRequestOrderItemsComponents },
+      period: 'number',
+      periodUnit: 'string',
+      promotionId: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.components)) {
+      $dara.Model.validateArray(this.components);
+    }
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDeliveryAddressResponseBodyAddressesArea extends $dara.Model {
   /**
    * @example
@@ -299,6 +535,149 @@ export class DescribePackageDeductionsResponseBodyDeductions extends $dara.Model
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMultiOrderRequest extends $dara.Model {
+  orderItems?: CreateMultiOrderRequestOrderItems[];
+  /**
+   * @example
+   * create
+   */
+  orderType?: string;
+  properties?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      orderItems: 'OrderItems',
+      orderType: 'OrderType',
+      properties: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderItems: { 'type': 'array', 'itemType': CreateMultiOrderRequestOrderItems },
+      orderType: 'string',
+      properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.orderItems)) {
+      $dara.Model.validateArray(this.orderItems);
+    }
+    if(this.properties) {
+      $dara.Model.validateMap(this.properties);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMultiOrderShrinkRequest extends $dara.Model {
+  orderItems?: CreateMultiOrderShrinkRequestOrderItems[];
+  /**
+   * @example
+   * create
+   */
+  orderType?: string;
+  propertiesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderItems: 'OrderItems',
+      orderType: 'OrderType',
+      propertiesShrink: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderItems: { 'type': 'array', 'itemType': CreateMultiOrderShrinkRequestOrderItems },
+      orderType: 'string',
+      propertiesShrink: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.orderItems)) {
+      $dara.Model.validateArray(this.orderItems);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMultiOrderResponseBody extends $dara.Model {
+  orderIds?: number[];
+  /**
+   * @example
+   * 833C4D2C-09C7-5CE6-8159-06758B964970
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderIds: 'OrderIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderIds: { 'type': 'array', 'itemType': 'number' },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.orderIds)) {
+      $dara.Model.validateArray(this.orderIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMultiOrderResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMultiOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMultiOrderResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
     super.validate();
   }
 
@@ -679,6 +1058,63 @@ export default class Client extends OpenApi {
     }
 
     return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * @param tmpReq - CreateMultiOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMultiOrderResponse
+   */
+  async createMultiOrderWithOptions(tmpReq: CreateMultiOrderRequest, runtime: $dara.RuntimeOptions): Promise<CreateMultiOrderResponse> {
+    tmpReq.validate();
+    let request = new CreateMultiOrderShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.properties)) {
+      request.propertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.properties, "Properties", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.orderItems)) {
+      query["OrderItems"] = request.orderItems;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.propertiesShrink)) {
+      query["Properties"] = request.propertiesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMultiOrder",
+      version: "2021-12-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateMultiOrderResponse>(await this.callApi(params, req, runtime), new CreateMultiOrderResponse({}));
+    } else {
+      return $dara.cast<CreateMultiOrderResponse>(await this.execute(params, req, runtime), new CreateMultiOrderResponse({}));
+    }
+
+  }
+
+  /**
+   * @param request - CreateMultiOrderRequest
+   * @returns CreateMultiOrderResponse
+   */
+  async createMultiOrder(request: CreateMultiOrderRequest): Promise<CreateMultiOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMultiOrderWithOptions(request, runtime);
   }
 
   /**
