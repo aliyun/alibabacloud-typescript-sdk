@@ -1,14 +1,1485 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import GatewayClient from '@alicloud/gateway-pop';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class AttachPolicyRequest extends $tea.Model {
+export class CreateTagsRequestTagKeyValueParamListTagValueParamList extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the value for tag N.
+   * 
+   * Valid values of N: 1 to 10.
+   * 
+   * @example
+   * Test environment
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The value of tag N.
+   * 
+   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * 
+   * Valid values of N: 1 to 10.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTagsRequestTagKeyValueParamList extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the key for tag N.
+   * 
+   * Valid values of N: 1 to 10.
+   * 
+   * @example
+   * Business environment
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The value of tag N.
+   * 
+   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
+   * 
+   * Valid values of N: 1 to 10.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Environment
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The information about the tag values.
+   */
+  tagValueParamList?: CreateTagsRequestTagKeyValueParamListTagValueParamList[];
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      key: 'Key',
+      tagValueParamList: 'TagValueParamList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      key: 'string',
+      tagValueParamList: { 'type': 'array', 'itemType': CreateTagsRequestTagKeyValueParamListTagValueParamList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagValueParamList)) {
+      $dara.Model.validateArray(this.tagValueParamList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * China (Hangzhou)
+   */
+  localName?: string;
+  /**
+   * @remarks
+   * The endpoint of the Tag service in the region.
+   * 
+   * @example
+   * tag.aliyuncs.com
+   */
+  regionEndpoint?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'LocalName',
+      regionEndpoint: 'RegionEndpoint',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      regionEndpoint: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegions extends $dara.Model {
+  region?: DescribeRegionsResponseBodyRegionsRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.region)) {
+      $dara.Model.validateArray(this.region);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConfigRuleReportResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the report was generated. This value is a UNIX timestamp.
+   * 
+   * @example
+   * 1655089159000
+   */
+  createdTime?: number;
+  /**
+   * @remarks
+   * The ID of the report.
+   * 
+   * @example
+   * crp-ao0786618088006c****
+   */
+  reportId?: string;
+  /**
+   * @remarks
+   * The ID of the object.
+   * 
+   * >  This parameter is returned if you set the `TargetType` and `TargetId` parameters in the current request to the same values as the parameters that are configured when you call the [GenerateConfigRuleReport](https://help.aliyun.com/document_detail/433313.html) operation to generate the report.
+   * 
+   * @example
+   * 154950938137****
+   */
+  targetId?: string;
+  /**
+   * @remarks
+   * The type of the object. Valid values:
+   * 
+   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
+   * *   ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * *   FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * *   ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * 
+   * >  This parameter is returned if you set the `TargetType` and `TargetId` parameters in the current request to the same values as the parameters that are configured when you call the [GenerateConfigRuleReport](https://help.aliyun.com/document_detail/433313.html) operation to generate the report.
+   * 
+   * @example
+   * ACCOUNT
+   */
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      reportId: 'ReportId',
+      targetId: 'TargetId',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'number',
+      reportId: 'string',
+      targetId: 'string',
+      targetType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList extends $dara.Model {
+  attachSeq?: number;
+  attachTime?: string;
+  policyId?: string;
+  policyName?: string;
+  targetId?: string;
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachSeq: 'AttachSeq',
+      attachTime: 'AttachTime',
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+      targetId: 'TargetId',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachSeq: 'number',
+      attachTime: 'string',
+      policyId: 'string',
+      policyName: 'string',
+      targetId: 'string',
+      targetType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEffectivePolicyResponseBodyPolicyAttachments extends $dara.Model {
+  policyList?: GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList[];
+  policyType?: string;
+  tagKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyList: 'PolicyList',
+      policyType: 'PolicyType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyList: { 'type': 'array', 'itemType': GetEffectivePolicyResponseBodyPolicyAttachmentsPolicyList },
+      policyType: 'string',
+      tagKey: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyList)) {
+      $dara.Model.validateArray(this.policyList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPolicyResponseBodyPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The document of the tag policy.
+   * 
+   * @example
+   * {\\"tags\\":{\\"CostCenter\\":{\\"tag_value\\":{\\"@@assign\\":[\\"Beijing\\",\\"Shanghai\\"]},\\"tag_key\\":{\\"@@assign\\":\\"CostCenter\\"}}}}
+   */
+  policyContent?: string;
+  /**
+   * @remarks
+   * The description of the tag policy.
+   * 
+   * @example
+   * This is a tag policy example.
+   */
+  policyDesc?: string;
+  /**
+   * @remarks
+   * The name of the tag policy.
+   * 
+   * @example
+   * test
+   */
+  policyName?: string;
+  /**
+   * @remarks
+   * The mode of the Tag Policy feature. Valid values:
+   * 
+   * *   USER: single-account mode
+   * *   RD: multi-account mode
+   * 
+   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+   * 
+   * @example
+   * USER
+   */
+  userType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyContent: 'PolicyContent',
+      policyDesc: 'PolicyDesc',
+      policyName: 'PolicyName',
+      userType: 'UserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyContent: 'string',
+      policyDesc: 'string',
+      policyName: 'string',
+      userType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPolicyEnableStatusResponseBodyStatusModels extends $dara.Model {
+  /**
+   * @remarks
+   * The status of the Tag Policy feature. Valid values:
+   * 
+   * *   PendingEnable: The feature is being enabled.
+   * *   Enabled: The feature is enabled.
+   * *   Closing: The feature is being disabled.
+   * *   Disabled: The feature is disabled.
+   * 
+   * @example
+   * Enabled
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The mode of the Tag Policy feature. Valid values:
+   * 
+   * *   USER: single-account mode
+   * *   RD: multi-account mode
+   * 
+   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+   * 
+   * @example
+   * RD
+   */
+  userType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      userType: 'UserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      userType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConfigRulesForTargetResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the account group.
+   * 
+   * You can use the ID to query the content of the related resource non-compliance report in Cloud Config.
+   * 
+   * >  This parameter is returned only if you use the Tag Policy feature in multi-account mode.
+   * 
+   * @example
+   * ca-efdc33dc9b37002d****
+   */
+  aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the rule.
+   * 
+   * @example
+   * cr-0lb4866180880069****
+   */
+  configRuleId?: string;
+  /**
+   * @remarks
+   * The use scenario of the tag policy. Valid values:
+   * 
+   * *   tags: enables tags with specified tag values to be added to resources.
+   * *   rg_inherit: enables resources in a resource group to automatically inherit tags from the resource group.
+   * 
+   * @example
+   * tags
+   */
+  policyType?: string;
+  /**
+   * @remarks
+   * Indicates whether automatic remediation is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  remediation?: boolean;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * CostCenter
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value for automatic remediation.
+   * 
+   * @example
+   * Project
+   */
+  tagValue?: string;
+  /**
+   * @remarks
+   * The ID of the object.
+   * 
+   * @example
+   * 134254031178****
+   */
+  targetId?: string;
+  /**
+   * @remarks
+   * The type of the object. Valid values:
+   * 
+   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
+   * *   ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * *   FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * *   ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * 
+   * @example
+   * USER
+   */
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregatorId: 'AggregatorId',
+      configRuleId: 'ConfigRuleId',
+      policyType: 'PolicyType',
+      remediation: 'Remediation',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+      targetId: 'TargetId',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregatorId: 'string',
+      configRuleId: 'string',
+      policyType: 'string',
+      remediation: 'boolean',
+      tagKey: 'string',
+      tagValue: 'string',
+      targetId: 'string',
+      targetType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesResponseBodyPolicyList extends $dara.Model {
+  /**
+   * @remarks
+   * The document of the tag policy.
+   * 
+   * @example
+   * {\\"tags\\":{\\"CostCenter\\":{\\"tag_value\\":{\\"@@assign\\":[\\"Beijing\\",\\"Shanghai\\"]},\\"tag_key\\":{\\"@@assign\\":\\"CostCenter\\"}}}}
+   */
+  policyContent?: string;
+  /**
+   * @remarks
+   * The description of the tag policy.
+   * 
+   * @example
+   * This is a tag policy example.
+   */
+  policyDesc?: string;
+  /**
+   * @remarks
+   * The ID of the tag policy.
+   * 
+   * @example
+   * p-de62a0bf400e4b69****
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * The name of the tag policy.
+   * 
+   * @example
+   * example
+   */
+  policyName?: string;
+  /**
+   * @remarks
+   * The mode of the Tag Policy feature. Valid values:
+   * 
+   * *   USER: single-account mode
+   * *   RD: multi-account mode
+   * 
+   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+   * 
+   * @example
+   * USER
+   */
+  userType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyContent: 'PolicyContent',
+      policyDesc: 'PolicyDesc',
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+      userType: 'UserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyContent: 'string',
+      policyDesc: 'string',
+      policyId: 'string',
+      policyName: 'string',
+      userType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesForTargetResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The document of the tag policy.
+   * 
+   * @example
+   * {\\"tags\\":{\\"CostCenter\\":{\\"tag_value\\":{\\"@@assign\\":[\\"Beijing\\",\\"Shanghai\\"]},\\"tag_key\\":{\\"@@assign\\":\\"CostCenter\\"}}}}
+   */
+  policyContent?: string;
+  /**
+   * @remarks
+   * The description of the tag policy.
+   * 
+   * @example
+   * This is a tag policy example.
+   */
+  policyDesc?: string;
+  /**
+   * @remarks
+   * The ID of the tag policy.
+   * 
+   * @example
+   * p-de62a0bf400e4b69****
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * The name of the tag policy.
+   * 
+   * @example
+   * example
+   */
+  policyName?: string;
+  /**
+   * @remarks
+   * The mode of the Tag Policy feature. Valid values:
+   * 
+   * *   USER: single-account mode
+   * *   RD: multi-account mode
+   * 
+   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
+   * 
+   * @example
+   * USER
+   */
+  userType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyContent: 'PolicyContent',
+      policyDesc: 'PolicyDesc',
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+      userType: 'UserType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyContent: 'string',
+      policyDesc: 'string',
+      policyId: 'string',
+      policyName: 'string',
+      userType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourcesByTagRequestTagFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. This parameter specifies a filter condition for the query.
+   * 
+   * The tag key can be a maximum of 128 characters in length. It cannot contain `http://` or `https://` and cannot start with `acs:` or `aliyun`.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * k1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value. This parameter specifies a filter condition for the query.
+   * 
+   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * v1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourcesByTagResponseBodyResourcesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the tag. Valid values:
+   * 
+   * *   custom
+   * *   system
+   * 
+   * @example
+   * custom
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * k1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * v1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourcesByTagResponseBodyResources extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the resource.
+   * 
+   * @example
+   * vpc-wz9pifyuw26esxd05****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The information of the tags.
+   * 
+   * This parameter is returned only if the `IncludeAllTags` parameter is set to `True`.
+   */
+  tags?: ListResourcesByTagResponseBodyResourcesTags[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      tags: { 'type': 'array', 'itemType': ListResourcesByTagResponseBodyResourcesTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupportResourceTypesResponseBodySupportResourceTypesSupportItems extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the tag-related capability item is supported. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  support?: boolean;
+  /**
+   * @remarks
+   * The code of the tag-related capability item.
+   * 
+   * @example
+   * TAG_CONSOLE_SUPPORT
+   */
+  supportCode?: string;
+  /**
+   * @remarks
+   * The details of the support for the tag-related capability item.
+   */
+  supportDetails?: { [key: string]: string }[];
+  static names(): { [key: string]: string } {
+    return {
+      support: 'Support',
+      supportCode: 'SupportCode',
+      supportDetails: 'SupportDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      support: 'boolean',
+      supportCode: 'string',
+      supportDetails: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supportDetails)) {
+      $dara.Model.validateArray(this.supportDetails);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupportResourceTypesResponseBodySupportResourceTypes extends $dara.Model {
+  /**
+   * @remarks
+   * The resource ARN template.
+   * 
+   * @example
+   * acs:ecs:*:*:instance/${ResourceId}
+   */
+  arnTemplate?: string;
+  /**
+   * @remarks
+   * The service code.
+   * 
+   * @example
+   * ecs
+   */
+  productCode?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * instance
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The supported tag-related capability items.
+   * 
+   * >  This parameter is returned only if the `ShowItems` parameter is set to `true`.
+   */
+  supportItems?: ListSupportResourceTypesResponseBodySupportResourceTypesSupportItems[];
+  static names(): { [key: string]: string } {
+    return {
+      arnTemplate: 'ArnTemplate',
+      productCode: 'ProductCode',
+      resourceType: 'ResourceType',
+      supportItems: 'SupportItems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arnTemplate: 'string',
+      productCode: 'string',
+      resourceType: 'string',
+      supportItems: { 'type': 'array', 'itemType': ListSupportResourceTypesResponseBodySupportResourceTypesSupportItems },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supportItems)) {
+      $dara.Model.validateArray(this.supportItems);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysRequestTagFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key for a fuzzy query.
+   * 
+   * This parameter is used together with the `FuzzyType` parameter.
+   * 
+   * @example
+   * team
+   */
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysResponseBodyKeysKey extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the resource tag. Valid values:
+   * 
+   * *   custom
+   * *   system
+   * 
+   * @example
+   * custom
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The description of the tag key.
+   * 
+   * @example
+   * Business team
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * team
+   */
+  key?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      description: 'Description',
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      description: 'string',
+      key: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagKeysResponseBodyKeys extends $dara.Model {
+  key?: ListTagKeysResponseBodyKeysKey[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: { 'type': 'array', 'itemType': ListTagKeysResponseBodyKeysKey },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.key)) {
+      $dara.Model.validateArray(this.key);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResourcesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the tag. Valid values:
+   * 
+   * *   Custom
+   * *   System
+   * 
+   * @example
+   * Custom
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * k1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * v1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
+  /**
+   * @remarks
+   * The ARN of the resource.
+   * 
+   * @example
+   * arn:acs:ecs:cn-hangzhou:123456789****:instance/i-bp15hr53jws84akg****
+   */
+  resourceARN?: string;
+  /**
+   * @remarks
+   * The information of the tags.
+   */
+  tags?: ListTagResourcesResponseBodyTagResourcesTags[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceARN: 'ResourceARN',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceARN: 'string',
+      tags: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagValuesRequestTagFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The tag value for a fuzzy query.
+   * 
+   * This parameter is used together with the `FuzzyType` parameter.
+   * 
+   * @example
+   * v1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagValuesResponseBodyValues extends $dara.Model {
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTargetsForPolicyResponseBodyTargets extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the object.
+   * 
+   * @example
+   * 195320939469****
+   */
+  targetId?: string;
+  /**
+   * @remarks
+   * The type of the object. Valid values:
+   * 
+   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
+   * *   ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * *   FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * *   ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+   * 
+   * @example
+   * ACCOUNT
+   */
+  targetType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      targetId: 'TargetId',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetId: 'string',
+      targetType: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBodyFailedResourcesFailedResourceResult extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidResourceId.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The specified ResourceIds are not found in our records.
+   */
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBodyFailedResourcesFailedResource extends $dara.Model {
+  /**
+   * @remarks
+   * The ARN of the resource.
+   * 
+   * @example
+   * arn:acs:vpc:cn-hangzhou:123456789****:vpc/vpc-bp19dd90tkt6tz7wu****
+   */
+  resourceARN?: string;
+  /**
+   * @remarks
+   * The information about the error.
+   */
+  result?: TagResourcesResponseBodyFailedResourcesFailedResourceResult;
+  static names(): { [key: string]: string } {
+    return {
+      resourceARN: 'ResourceARN',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceARN: 'string',
+      result: TagResourcesResponseBodyFailedResourcesFailedResourceResult,
+    };
+  }
+
+  validate() {
+    if(this.result && typeof (this.result as any).validate === 'function') {
+      (this.result as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBodyFailedResources extends $dara.Model {
+  failedResource?: TagResourcesResponseBodyFailedResourcesFailedResource[];
+  static names(): { [key: string]: string } {
+    return {
+      failedResource: 'FailedResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedResource: { 'type': 'array', 'itemType': TagResourcesResponseBodyFailedResourcesFailedResource },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failedResource)) {
+      $dara.Model.validateArray(this.failedResource);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBodyFailedResourcesFailedResourceResult extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidResourceId.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The specified ResourceIds are not found in our records.
+   */
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBodyFailedResourcesFailedResource extends $dara.Model {
+  /**
+   * @remarks
+   * The ARN of the resource.
+   * 
+   * @example
+   * arn:acs:ecs:cn-hangzhou:123456789****:instance/i-xxxxxxxxxx1
+   */
+  resourceARN?: string;
+  /**
+   * @remarks
+   * The information about the error.
+   */
+  result?: UntagResourcesResponseBodyFailedResourcesFailedResourceResult;
+  static names(): { [key: string]: string } {
+    return {
+      resourceARN: 'ResourceARN',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceARN: 'string',
+      result: UntagResourcesResponseBodyFailedResourcesFailedResourceResult,
+    };
+  }
+
+  validate() {
+    if(this.result && typeof (this.result as any).validate === 'function') {
+      (this.result as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBodyFailedResources extends $dara.Model {
+  failedResource?: UntagResourcesResponseBodyFailedResourcesFailedResource[];
+  static names(): { [key: string]: string } {
+    return {
+      failedResource: 'FailedResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedResource: { 'type': 'array', 'itemType': UntagResourcesResponseBodyFailedResourcesFailedResource },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failedResource)) {
+      $dara.Model.validateArray(this.failedResource);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachPolicyRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -79,12 +1550,16 @@ export class AttachPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachPolicyResponseBody extends $tea.Model {
+export class AttachPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -105,12 +1580,16 @@ export class AttachPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachPolicyResponse extends $tea.Model {
+export class AttachPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AttachPolicyResponseBody;
@@ -130,12 +1609,22 @@ export class AttachPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckCreatedByEnabledRequest extends $tea.Model {
+export class CheckCreatedByEnabledRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -168,12 +1657,16 @@ export class CheckCreatedByEnabledRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckCreatedByEnabledResponseBody extends $tea.Model {
+export class CheckCreatedByEnabledResponseBody extends $dara.Model {
   /**
    * @example
    * false
@@ -198,12 +1691,16 @@ export class CheckCreatedByEnabledResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CheckCreatedByEnabledResponse extends $tea.Model {
+export class CheckCreatedByEnabledResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CheckCreatedByEnabledResponseBody;
@@ -223,12 +1720,22 @@ export class CheckCreatedByEnabledResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CloseCreatedByRequest extends $tea.Model {
+export class CloseCreatedByRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -261,12 +1768,16 @@ export class CloseCreatedByRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CloseCreatedByResponseBody extends $tea.Model {
+export class CloseCreatedByResponseBody extends $dara.Model {
   /**
    * @example
    * AECFE0F2-CEC3-5D16-BE4C-E2F95083D063
@@ -284,12 +1795,16 @@ export class CloseCreatedByResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CloseCreatedByResponse extends $tea.Model {
+export class CloseCreatedByResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CloseCreatedByResponseBody;
@@ -309,12 +1824,22 @@ export class CloseCreatedByResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePolicyRequest extends $tea.Model {
+export class CreatePolicyRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
@@ -412,12 +1937,16 @@ export class CreatePolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePolicyResponseBody extends $tea.Model {
+export class CreatePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the tag policy.
@@ -458,12 +1987,16 @@ export class CreatePolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePolicyResponse extends $tea.Model {
+export class CreatePolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreatePolicyResponseBody;
@@ -483,12 +2016,22 @@ export class CreatePolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTagsRequest extends $tea.Model {
+export class CreateTagsRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -531,12 +2074,19 @@ export class CreateTagsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagKeyValueParamList)) {
+      $dara.Model.validateArray(this.tagKeyValueParamList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTagsResponseBody extends $tea.Model {
+export class CreateTagsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -557,12 +2107,16 @@ export class CreateTagsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTagsResponse extends $tea.Model {
+export class CreateTagsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateTagsResponseBody;
@@ -582,12 +2136,22 @@ export class CreateTagsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeletePolicyRequest extends $tea.Model {
+export class DeletePolicyRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -629,12 +2193,16 @@ export class DeletePolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeletePolicyResponseBody extends $tea.Model {
+export class DeletePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -655,12 +2223,16 @@ export class DeletePolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeletePolicyResponse extends $tea.Model {
+export class DeletePolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeletePolicyResponseBody;
@@ -680,12 +2252,22 @@ export class DeletePolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteTagRequest extends $tea.Model {
+export class DeleteTagRequest extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -743,12 +2325,16 @@ export class DeleteTagRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteTagResponseBody extends $tea.Model {
+export class DeleteTagResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -769,12 +2355,16 @@ export class DeleteTagResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteTagResponse extends $tea.Model {
+export class DeleteTagResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteTagResponseBody;
@@ -794,12 +2384,22 @@ export class DeleteTagResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsRequest extends $tea.Model {
+export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
    * The supported natural language. Valid values:
@@ -846,12 +2446,16 @@ export class DescribeRegionsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponseBody extends $tea.Model {
+export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information of the regions.
@@ -879,12 +2483,19 @@ export class DescribeRegionsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.regions && typeof (this.regions as any).validate === 'function') {
+      (this.regions as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponse extends $tea.Model {
+export class DescribeRegionsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeRegionsResponseBody;
@@ -904,12 +2515,22 @@ export class DescribeRegionsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachPolicyRequest extends $tea.Model {
+export class DetachPolicyRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -980,12 +2601,16 @@ export class DetachPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachPolicyResponseBody extends $tea.Model {
+export class DetachPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -1006,12 +2631,16 @@ export class DetachPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachPolicyResponse extends $tea.Model {
+export class DetachPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DetachPolicyResponseBody;
@@ -1031,12 +2660,22 @@ export class DetachPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DisablePolicyTypeRequest extends $tea.Model {
+export class DisablePolicyTypeRequest extends $dara.Model {
   openType?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1072,12 +2711,16 @@ export class DisablePolicyTypeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DisablePolicyTypeResponseBody extends $tea.Model {
+export class DisablePolicyTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -1098,12 +2741,16 @@ export class DisablePolicyTypeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DisablePolicyTypeResponse extends $tea.Model {
+export class DisablePolicyTypeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DisablePolicyTypeResponseBody;
@@ -1123,12 +2770,22 @@ export class DisablePolicyTypeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EnablePolicyTypeRequest extends $tea.Model {
+export class EnablePolicyTypeRequest extends $dara.Model {
   openType?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -1164,12 +2821,16 @@ export class EnablePolicyTypeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EnablePolicyTypeResponseBody extends $tea.Model {
+export class EnablePolicyTypeResponseBody extends $dara.Model {
   /**
    * @example
    * 6E27F22C-EDA3-132E-A53F-77DE3BC2343D
@@ -1187,12 +2848,16 @@ export class EnablePolicyTypeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EnablePolicyTypeResponse extends $tea.Model {
+export class EnablePolicyTypeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: EnablePolicyTypeResponseBody;
@@ -1212,12 +2877,22 @@ export class EnablePolicyTypeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateConfigRuleReportRequest extends $tea.Model {
+export class GenerateConfigRuleReportRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -1291,12 +2966,16 @@ export class GenerateConfigRuleReportRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateConfigRuleReportResponseBody extends $tea.Model {
+export class GenerateConfigRuleReportResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the resource non-compliance report.
@@ -1327,12 +3006,16 @@ export class GenerateConfigRuleReportResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateConfigRuleReportResponse extends $tea.Model {
+export class GenerateConfigRuleReportResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GenerateConfigRuleReportResponseBody;
@@ -1352,12 +3035,22 @@ export class GenerateConfigRuleReportResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConfigRuleReportRequest extends $tea.Model {
+export class GetConfigRuleReportRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -1431,12 +3124,16 @@ export class GetConfigRuleReportRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConfigRuleReportResponseBody extends $tea.Model {
+export class GetConfigRuleReportResponseBody extends $dara.Model {
   /**
    * @remarks
    * The basic information of the resource non-compliance report that is last generated.
@@ -1487,12 +3184,19 @@ export class GetConfigRuleReportResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConfigRuleReportResponse extends $tea.Model {
+export class GetConfigRuleReportResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetConfigRuleReportResponseBody;
@@ -1512,12 +3216,22 @@ export class GetConfigRuleReportResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetEffectivePolicyRequest extends $tea.Model {
+export class GetEffectivePolicyRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -1529,6 +3243,7 @@ export class GetEffectivePolicyRequest extends $tea.Model {
    */
   regionId?: string;
   resourceOwnerAccount?: string;
+  tagKeys?: string[];
   /**
    * @remarks
    * The ID of the object.
@@ -1560,6 +3275,7 @@ export class GetEffectivePolicyRequest extends $tea.Model {
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
+      tagKeys: 'TagKeys',
       targetId: 'TargetId',
       targetType: 'TargetType',
     };
@@ -1571,9 +3287,17 @@ export class GetEffectivePolicyRequest extends $tea.Model {
       ownerId: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
+      tagKeys: { 'type': 'array', 'itemType': 'string' },
       targetId: 'string',
       targetType: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagKeys)) {
+      $dara.Model.validateArray(this.tagKeys);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -1581,7 +3305,7 @@ export class GetEffectivePolicyRequest extends $tea.Model {
   }
 }
 
-export class GetEffectivePolicyResponseBody extends $tea.Model {
+export class GetEffectivePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The effective tag policy.
@@ -1590,6 +3314,7 @@ export class GetEffectivePolicyResponseBody extends $tea.Model {
    * {\\"tags\\":{\\"costcenter\\":{\\"tag_value\\":[\\"Beijing\\",\\"Shanghai\\"],\\"tag_key\\":\\"CostCenter\\"}}}
    */
   effectivePolicy?: string;
+  policyAttachments?: GetEffectivePolicyResponseBodyPolicyAttachments[];
   /**
    * @remarks
    * The ID of the request.
@@ -1601,6 +3326,7 @@ export class GetEffectivePolicyResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       effectivePolicy: 'EffectivePolicy',
+      policyAttachments: 'PolicyAttachments',
       requestId: 'RequestId',
     };
   }
@@ -1608,8 +3334,16 @@ export class GetEffectivePolicyResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       effectivePolicy: 'string',
+      policyAttachments: { 'type': 'array', 'itemType': GetEffectivePolicyResponseBodyPolicyAttachments },
       requestId: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyAttachments)) {
+      $dara.Model.validateArray(this.policyAttachments);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -1617,7 +3351,7 @@ export class GetEffectivePolicyResponseBody extends $tea.Model {
   }
 }
 
-export class GetEffectivePolicyResponse extends $tea.Model {
+export class GetEffectivePolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetEffectivePolicyResponseBody;
@@ -1637,12 +3371,22 @@ export class GetEffectivePolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPolicyRequest extends $tea.Model {
+export class GetPolicyRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -1684,12 +3428,16 @@ export class GetPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPolicyResponseBody extends $tea.Model {
+export class GetPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the tag policy.
@@ -1717,12 +3465,19 @@ export class GetPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.policy && typeof (this.policy as any).validate === 'function') {
+      (this.policy as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPolicyResponse extends $tea.Model {
+export class GetPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetPolicyResponseBody;
@@ -1742,12 +3497,22 @@ export class GetPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPolicyEnableStatusRequest extends $tea.Model {
+export class GetPolicyEnableStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The enabling type. Valid values:
@@ -1810,12 +3575,16 @@ export class GetPolicyEnableStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPolicyEnableStatusResponseBody extends $tea.Model {
+export class GetPolicyEnableStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -1843,12 +3612,19 @@ export class GetPolicyEnableStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.statusModels)) {
+      $dara.Model.validateArray(this.statusModels);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetPolicyEnableStatusResponse extends $tea.Model {
+export class GetPolicyEnableStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetPolicyEnableStatusResponseBody;
@@ -1868,12 +3644,22 @@ export class GetPolicyEnableStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConfigRulesForTargetRequest extends $tea.Model {
+export class ListConfigRulesForTargetRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries to return on each page.
@@ -1992,12 +3778,16 @@ export class ListConfigRulesForTargetRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConfigRulesForTargetResponseBody extends $tea.Model {
+export class ListConfigRulesForTargetResponseBody extends $dara.Model {
   /**
    * @remarks
    * The tag detection tasks.
@@ -2038,12 +3828,19 @@ export class ListConfigRulesForTargetResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConfigRulesForTargetResponse extends $tea.Model {
+export class ListConfigRulesForTargetResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListConfigRulesForTargetResponseBody;
@@ -2063,12 +3860,22 @@ export class ListConfigRulesForTargetResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPoliciesRequest extends $tea.Model {
+export class ListPoliciesRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries to return on each page.
@@ -2151,12 +3958,22 @@ export class ListPoliciesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    if(Array.isArray(this.policyNames)) {
+      $dara.Model.validateArray(this.policyNames);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPoliciesResponseBody extends $tea.Model {
+export class ListPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the next query is required.
@@ -2197,12 +4014,19 @@ export class ListPoliciesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.policyList)) {
+      $dara.Model.validateArray(this.policyList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPoliciesResponse extends $tea.Model {
+export class ListPoliciesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListPoliciesResponseBody;
@@ -2222,12 +4046,22 @@ export class ListPoliciesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPoliciesForTargetRequest extends $tea.Model {
+export class ListPoliciesForTargetRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries to return on each page.
@@ -2306,12 +4140,16 @@ export class ListPoliciesForTargetRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPoliciesForTargetResponseBody extends $tea.Model {
+export class ListPoliciesForTargetResponseBody extends $dara.Model {
   /**
    * @remarks
    * The tag policies that are attached to the object.
@@ -2352,12 +4190,19 @@ export class ListPoliciesForTargetResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListPoliciesForTargetResponse extends $tea.Model {
+export class ListPoliciesForTargetResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListPoliciesForTargetResponseBody;
@@ -2377,12 +4222,22 @@ export class ListPoliciesForTargetResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourcesByTagRequest extends $tea.Model {
+export class ListResourcesByTagRequest extends $dara.Model {
   tagFilter?: ListResourcesByTagRequestTagFilter;
   /**
    * @remarks
@@ -2482,12 +4337,19 @@ export class ListResourcesByTagRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tagFilter && typeof (this.tagFilter as any).validate === 'function') {
+      (this.tagFilter as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourcesByTagResponseBody extends $tea.Model {
+export class ListResourcesByTagResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the `next query` is required.
@@ -2530,12 +4392,19 @@ export class ListResourcesByTagResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListResourcesByTagResponse extends $tea.Model {
+export class ListResourcesByTagResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListResourcesByTagResponseBody;
@@ -2555,12 +4424,22 @@ export class ListResourcesByTagResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSupportResourceTypesRequest extends $tea.Model {
+export class ListSupportResourceTypesRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries to return on each page.
@@ -2663,12 +4542,16 @@ export class ListSupportResourceTypesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSupportResourceTypesResponseBody extends $tea.Model {
+export class ListSupportResourceTypesResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the next query is required.
@@ -2709,12 +4592,19 @@ export class ListSupportResourceTypesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.supportResourceTypes)) {
+      $dara.Model.validateArray(this.supportResourceTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSupportResourceTypesResponse extends $tea.Model {
+export class ListSupportResourceTypesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListSupportResourceTypesResponseBody;
@@ -2734,12 +4624,22 @@ export class ListSupportResourceTypesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagKeysRequest extends $tea.Model {
+export class ListTagKeysRequest extends $dara.Model {
   tagFilter?: ListTagKeysRequestTagFilter;
   /**
    * @remarks
@@ -2759,10 +4659,8 @@ export class ListTagKeysRequest extends $tea.Model {
    * @remarks
    * The type of the query. Valid values:
    * 
-   * *   EQUAL: exact match. This is the default value.
-   * *   PREFIX: prefix-based fuzzy match.
-   * 
-   * >  This parameter is available only in the China (Shenzhen) and China (Hong Kong) regions.
+   * *   EQUAL (default): exact match
+   * *   PREFIX: prefix-based fuzzy match
    * 
    * @example
    * EQUAL
@@ -2859,12 +4757,19 @@ export class ListTagKeysRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tagFilter && typeof (this.tagFilter as any).validate === 'function') {
+      (this.tagFilter as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagKeysResponseBody extends $tea.Model {
+export class ListTagKeysResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information of the tag keys.
@@ -2905,12 +4810,19 @@ export class ListTagKeysResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.keys && typeof (this.keys as any).validate === 'function') {
+      (this.keys as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagKeysResponse extends $tea.Model {
+export class ListTagKeysResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagKeysResponseBody;
@@ -2930,12 +4842,22 @@ export class ListTagKeysResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequest extends $tea.Model {
+export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the tag. Valid values:
@@ -3037,12 +4959,19 @@ export class ListTagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceARN)) {
+      $dara.Model.validateArray(this.resourceARN);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBody extends $tea.Model {
+export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the `next query` is required.
@@ -3083,12 +5012,19 @@ export class ListTagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagResources)) {
+      $dara.Model.validateArray(this.tagResources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponse extends $tea.Model {
+export class ListTagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagResourcesResponseBody;
@@ -3108,21 +5044,29 @@ export class ListTagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagValuesRequest extends $tea.Model {
+export class ListTagValuesRequest extends $dara.Model {
   tagFilter?: ListTagValuesRequestTagFilter;
   /**
    * @remarks
    * The type of the query. Valid values:
    * 
-   * *   EQUAL: exact match. This is the default value.
-   * *   PREFIX: prefix-based fuzzy match.
-   * 
-   * >  This parameter is available only in the China (Shenzhen) and China (Hong Kong) regions.
+   * *   EQUAL (default): exact match
+   * *   PREFIX: prefix-based fuzzy match
    * 
    * @example
    * EQUAL
@@ -3229,12 +5173,19 @@ export class ListTagValuesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tagFilter && typeof (this.tagFilter as any).validate === 'function') {
+      (this.tagFilter as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagValuesResponseBody extends $tea.Model {
+export class ListTagValuesResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the next query is required. The value of this parameter may be empty.
@@ -3275,12 +5226,19 @@ export class ListTagValuesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.values && typeof (this.values as any).validate === 'function') {
+      (this.values as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagValuesResponse extends $tea.Model {
+export class ListTagValuesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagValuesResponseBody;
@@ -3300,12 +5258,22 @@ export class ListTagValuesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTargetsForPolicyRequest extends $tea.Model {
+export class ListTargetsForPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries to return on each page.
@@ -3369,12 +5337,16 @@ export class ListTargetsForPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTargetsForPolicyResponseBody extends $tea.Model {
+export class ListTargetsForPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the object belongs to the resource directory. Valid values:
@@ -3440,12 +5412,19 @@ export class ListTargetsForPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.targets)) {
+      $dara.Model.validateArray(this.targets);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTargetsForPolicyResponse extends $tea.Model {
+export class ListTargetsForPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTargetsForPolicyResponseBody;
@@ -3465,12 +5444,22 @@ export class ListTargetsForPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPolicyRequest extends $tea.Model {
+export class ModifyPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform a dry run for the request. Valid values:
@@ -3570,12 +5559,16 @@ export class ModifyPolicyRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPolicyResponseBody extends $tea.Model {
+export class ModifyPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -3596,12 +5589,16 @@ export class ModifyPolicyResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPolicyResponse extends $tea.Model {
+export class ModifyPolicyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ModifyPolicyResponseBody;
@@ -3621,12 +5618,22 @@ export class ModifyPolicyResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OpenCreatedByRequest extends $tea.Model {
+export class OpenCreatedByRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -3661,12 +5668,16 @@ export class OpenCreatedByRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OpenCreatedByResponseBody extends $tea.Model {
+export class OpenCreatedByResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the request.
@@ -3687,12 +5698,16 @@ export class OpenCreatedByResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OpenCreatedByResponse extends $tea.Model {
+export class OpenCreatedByResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: OpenCreatedByResponseBody;
@@ -3712,12 +5727,22 @@ export class OpenCreatedByResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequest extends $tea.Model {
+export class TagResourcesRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -3785,12 +5810,19 @@ export class TagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceARN)) {
+      $dara.Model.validateArray(this.resourceARN);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponseBody extends $tea.Model {
+export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the resources to which tags fail to be added.
@@ -3824,12 +5856,19 @@ export class TagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.failedResources && typeof (this.failedResources as any).validate === 'function') {
+      (this.failedResources as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponse extends $tea.Model {
+export class TagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: TagResourcesResponseBody;
@@ -3849,12 +5888,22 @@ export class TagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesRequest extends $tea.Model {
+export class UntagResourcesRequest extends $dara.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -3883,7 +5932,9 @@ export class UntagResourcesRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   /**
    * @remarks
-   * A tag key.
+   * The key of tag N.
+   * 
+   * Valid values of N: 1 to 10.
    * 
    * This parameter is required.
    * 
@@ -3913,12 +5964,22 @@ export class UntagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceARN)) {
+      $dara.Model.validateArray(this.resourceARN);
+    }
+    if(Array.isArray(this.tagKey)) {
+      $dara.Model.validateArray(this.tagKey);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesResponseBody extends $tea.Model {
+export class UntagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the resources from which tags fail to be removed.
@@ -3952,12 +6013,19 @@ export class UntagResourcesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.failedResources && typeof (this.failedResources as any).validate === 'function') {
+      (this.failedResources as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesResponse extends $tea.Model {
+export class UntagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UntagResourcesResponseBody;
@@ -3977,1253 +6045,14 @@ export class UntagResourcesResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTagsRequestTagKeyValueParamListTagValueParamList extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the value for tag N.
-   * 
-   * Valid values of N: 1 to 10.
-   * 
-   * @example
-   * Test environment
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The value of tag N.
-   * 
-   * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. 
-   * 
-   * Valid values of N: 1 to 10.
-   * 
-   * @example
-   * test
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTagsRequestTagKeyValueParamList extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the key for tag N.
-   * 
-   * Valid values of N: 1 to 10.
-   * 
-   * @example
-   * Business environment
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The key of tag N.
-   * 
-   * The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
-   * 
-   * Valid values of N: 1 to 10.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Environment
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The information about the tag value.
-   */
-  tagValueParamList?: CreateTagsRequestTagKeyValueParamListTagValueParamList[];
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      key: 'Key',
-      tagValueParamList: 'TagValueParamList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      key: 'string',
-      tagValueParamList: { 'type': 'array', 'itemType': CreateTagsRequestTagKeyValueParamListTagValueParamList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * China (Hangzhou)
-   */
-  localName?: string;
-  /**
-   * @remarks
-   * The endpoint of the Tag service in the region.
-   * 
-   * @example
-   * tag.aliyuncs.com
-   */
-  regionEndpoint?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      localName: 'LocalName',
-      regionEndpoint: 'RegionEndpoint',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      localName: 'string',
-      regionEndpoint: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
-  region?: DescribeRegionsResponseBodyRegionsRegion[];
-  static names(): { [key: string]: string } {
-    return {
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConfigRuleReportResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the report was generated. This value is a UNIX timestamp.
-   * 
-   * @example
-   * 1655089159000
-   */
-  createdTime?: number;
-  /**
-   * @remarks
-   * The ID of the report.
-   * 
-   * @example
-   * crp-ao0786618088006c****
-   */
-  reportId?: string;
-  /**
-   * @remarks
-   * The ID of the object.
-   * 
-   * >  This parameter is returned if you set the `TargetType` and `TargetId` parameters in the current request to the same values as the parameters that are configured when you call the [GenerateConfigRuleReport](https://help.aliyun.com/document_detail/433313.html) operation to generate the report.
-   * 
-   * @example
-   * 154950938137****
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the object. Valid values:
-   * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * 
-   * >  This parameter is returned if you set the `TargetType` and `TargetId` parameters in the current request to the same values as the parameters that are configured when you call the [GenerateConfigRuleReport](https://help.aliyun.com/document_detail/433313.html) operation to generate the report.
-   * 
-   * @example
-   * ACCOUNT
-   */
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      reportId: 'ReportId',
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'number',
-      reportId: 'string',
-      targetId: 'string',
-      targetType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyResponseBodyPolicy extends $tea.Model {
-  /**
-   * @remarks
-   * The document of the tag policy.
-   * 
-   * @example
-   * {\\"tags\\":{\\"CostCenter\\":{\\"tag_value\\":{\\"@@assign\\":[\\"Beijing\\",\\"Shanghai\\"]},\\"tag_key\\":{\\"@@assign\\":\\"CostCenter\\"}}}}
-   */
-  policyContent?: string;
-  /**
-   * @remarks
-   * The description of the tag policy.
-   * 
-   * @example
-   * This is a tag policy example.
-   */
-  policyDesc?: string;
-  /**
-   * @remarks
-   * The name of the tag policy.
-   * 
-   * @example
-   * test
-   */
-  policyName?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. Valid values:
-   * 
-   * *   USER: single-account mode
-   * *   RD: multi-account mode
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * @example
-   * USER
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyContent: 'PolicyContent',
-      policyDesc: 'PolicyDesc',
-      policyName: 'PolicyName',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyContent: 'string',
-      policyDesc: 'string',
-      policyName: 'string',
-      userType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyEnableStatusResponseBodyStatusModels extends $tea.Model {
-  /**
-   * @remarks
-   * The status of the Tag Policy feature. Valid values:
-   * 
-   * *   PendingEnable: The feature is being enabled.
-   * *   Enabled: The feature is enabled.
-   * *   Closing: The feature is being disabled.
-   * *   Disabled: The feature is disabled.
-   * 
-   * @example
-   * Enabled
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. Valid values:
-   * 
-   * *   USER: single-account mode
-   * *   RD: multi-account mode
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * @example
-   * RD
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      userType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConfigRulesForTargetResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the account group.
-   * 
-   * You can use the ID to query the content of the related resource non-compliance report in Cloud Config.
-   * 
-   * >  This parameter is returned only if you use the Tag Policy feature in multi-account mode.
-   * 
-   * @example
-   * ca-efdc33dc9b37002d****
-   */
-  aggregatorId?: string;
-  /**
-   * @remarks
-   * The ID of the rule.
-   * 
-   * @example
-   * cr-0lb4866180880069****
-   */
-  configRuleId?: string;
-  /**
-   * @remarks
-   * The use scenario of the tag policy. Valid values:
-   * 
-   * *   tags: enables tags with specified tag values to be added to resources.
-   * *   rg_inherit: enables resources in a resource group to automatically inherit tags from the resource group.
-   * 
-   * @example
-   * tags
-   */
-  policyType?: string;
-  /**
-   * @remarks
-   * Indicates whether automatic remediation is enabled. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  remediation?: boolean;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * CostCenter
-   */
-  tagKey?: string;
-  /**
-   * @remarks
-   * The tag value for automatic remediation.
-   * 
-   * @example
-   * Project
-   */
-  tagValue?: string;
-  /**
-   * @remarks
-   * The ID of the object.
-   * 
-   * @example
-   * 134254031178****
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the object. Valid values:
-   * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * 
-   * @example
-   * USER
-   */
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aggregatorId: 'AggregatorId',
-      configRuleId: 'ConfigRuleId',
-      policyType: 'PolicyType',
-      remediation: 'Remediation',
-      tagKey: 'TagKey',
-      tagValue: 'TagValue',
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aggregatorId: 'string',
-      configRuleId: 'string',
-      policyType: 'string',
-      remediation: 'boolean',
-      tagKey: 'string',
-      tagValue: 'string',
-      targetId: 'string',
-      targetType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPoliciesResponseBodyPolicyList extends $tea.Model {
-  /**
-   * @remarks
-   * The document of the tag policy.
-   * 
-   * @example
-   * {\\"tags\\":{\\"CostCenter\\":{\\"tag_value\\":{\\"@@assign\\":[\\"Beijing\\",\\"Shanghai\\"]},\\"tag_key\\":{\\"@@assign\\":\\"CostCenter\\"}}}}
-   */
-  policyContent?: string;
-  /**
-   * @remarks
-   * The description of the tag policy.
-   * 
-   * @example
-   * This is a tag policy example.
-   */
-  policyDesc?: string;
-  /**
-   * @remarks
-   * The ID of the tag policy.
-   * 
-   * @example
-   * p-de62a0bf400e4b69****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The name of the tag policy.
-   * 
-   * @example
-   * example
-   */
-  policyName?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. Valid values:
-   * 
-   * *   USER: single-account mode
-   * *   RD: multi-account mode
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * @example
-   * USER
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyContent: 'PolicyContent',
-      policyDesc: 'PolicyDesc',
-      policyId: 'PolicyId',
-      policyName: 'PolicyName',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyContent: 'string',
-      policyDesc: 'string',
-      policyId: 'string',
-      policyName: 'string',
-      userType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListPoliciesForTargetResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The document of the tag policy.
-   * 
-   * @example
-   * {\\"tags\\":{\\"CostCenter\\":{\\"tag_value\\":{\\"@@assign\\":[\\"Beijing\\",\\"Shanghai\\"]},\\"tag_key\\":{\\"@@assign\\":\\"CostCenter\\"}}}}
-   */
-  policyContent?: string;
-  /**
-   * @remarks
-   * The description of the tag policy.
-   * 
-   * @example
-   * This is a tag policy example.
-   */
-  policyDesc?: string;
-  /**
-   * @remarks
-   * The ID of the tag policy.
-   * 
-   * @example
-   * p-de62a0bf400e4b69****
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The name of the tag policy.
-   * 
-   * @example
-   * example
-   */
-  policyName?: string;
-  /**
-   * @remarks
-   * The mode of the Tag Policy feature. Valid values:
-   * 
-   * *   USER: single-account mode
-   * *   RD: multi-account mode
-   * 
-   * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
-   * 
-   * @example
-   * USER
-   */
-  userType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyContent: 'PolicyContent',
-      policyDesc: 'PolicyDesc',
-      policyId: 'PolicyId',
-      policyName: 'PolicyName',
-      userType: 'UserType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyContent: 'string',
-      policyDesc: 'string',
-      policyId: 'string',
-      policyName: 'string',
-      userType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourcesByTagRequestTagFilter extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key. This parameter specifies a filter condition for the query.
-   * 
-   * The tag key can be a maximum of 128 characters in length. It cannot contain `http://` or `https://` and cannot start with `acs:` or `aliyun`.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * k1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value. This parameter specifies a filter condition for the query.
-   * 
-   * The tag value can be a maximum of 128 characters in length. It cannot contain `http://` or `https://`.
-   * 
-   * @example
-   * v1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourcesByTagResponseBodyResourcesTags extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the tag. Valid values:
-   * 
-   * *   custom
-   * *   system
-   * 
-   * @example
-   * custom
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * k1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * v1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListResourcesByTagResponseBodyResources extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the resource.
-   * 
-   * @example
-   * vpc-wz9pifyuw26esxd05****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The information of the tags.
-   * 
-   * This parameter is returned only if the `IncludeAllTags` parameter is set to `True`.
-   */
-  tags?: ListResourcesByTagResponseBodyResourcesTags[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceId: 'ResourceId',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceId: 'string',
-      tags: { 'type': 'array', 'itemType': ListResourcesByTagResponseBodyResourcesTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSupportResourceTypesResponseBodySupportResourceTypesSupportItems extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the tag-related capability item is supported. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  support?: boolean;
-  /**
-   * @remarks
-   * The code of the tag-related capability item.
-   * 
-   * @example
-   * TAG_CONSOLE_SUPPORT
-   */
-  supportCode?: string;
-  /**
-   * @remarks
-   * The details of the support for the tag-related capability item.
-   */
-  supportDetails?: { [key: string]: string }[];
-  static names(): { [key: string]: string } {
-    return {
-      support: 'Support',
-      supportCode: 'SupportCode',
-      supportDetails: 'SupportDetails',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      support: 'boolean',
-      supportCode: 'string',
-      supportDetails: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSupportResourceTypesResponseBodySupportResourceTypes extends $tea.Model {
-  arnTemplate?: string;
-  /**
-   * @remarks
-   * The service code.
-   * 
-   * @example
-   * ecs
-   */
-  productCode?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * instance
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The supported tag-related capability items.
-   * 
-   * >  This parameter is returned only if the `ShowItems` parameter is set to `true`.
-   */
-  supportItems?: ListSupportResourceTypesResponseBodySupportResourceTypesSupportItems[];
-  static names(): { [key: string]: string } {
-    return {
-      arnTemplate: 'ArnTemplate',
-      productCode: 'ProductCode',
-      resourceType: 'ResourceType',
-      supportItems: 'SupportItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      arnTemplate: 'string',
-      productCode: 'string',
-      resourceType: 'string',
-      supportItems: { 'type': 'array', 'itemType': ListSupportResourceTypesResponseBodySupportResourceTypesSupportItems },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysRequestTagFilter extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * This parameter is used together with the `FuzzyType` parameter.
-   * 
-   * >  This parameter is available only in the China (Shenzhen) and China (Hong Kong) regions.
-   * 
-   * @example
-   * team
-   */
-  key?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysResponseBodyKeysKey extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the resource tag. Valid values:
-   * 
-   * *   custom
-   * *   system
-   * 
-   * @example
-   * custom
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The description of the tag key.
-   * 
-   * @example
-   * Business team
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * team
-   */
-  key?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      description: 'Description',
-      key: 'Key',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      description: 'string',
-      key: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagKeysResponseBodyKeys extends $tea.Model {
-  key?: ListTagKeysResponseBodyKeysKey[];
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: { 'type': 'array', 'itemType': ListTagKeysResponseBodyKeysKey },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResourcesTags extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the tag. Valid values:
-   * 
-   * *   Custom
-   * *   System
-   * 
-   * @example
-   * Custom
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * k1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * v1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
-  /**
-   * @remarks
-   * The ARN of the resource.
-   * 
-   * @example
-   * arn:acs:ecs:cn-hangzhou:123456789****:instance/i-bp15hr53jws84akg****
-   */
-  resourceARN?: string;
-  /**
-   * @remarks
-   * The information of the tags.
-   */
-  tags?: ListTagResourcesResponseBodyTagResourcesTags[];
-  static names(): { [key: string]: string } {
-    return {
-      resourceARN: 'ResourceARN',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceARN: 'string',
-      tags: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagValuesRequestTagFilter extends $tea.Model {
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * This parameter is used together with the `FuzzyType` parameter.
-   * 
-   * >  This parameter is available only in the China (Shenzhen) and China (Hong Kong) regions.
-   * 
-   * @example
-   * v1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagValuesResponseBodyValues extends $tea.Model {
-  value?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      value: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTargetsForPolicyResponseBodyTargets extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the object.
-   * 
-   * @example
-   * 195320939469****
-   */
-  targetId?: string;
-  /**
-   * @remarks
-   * The type of the object. Valid values:
-   * 
-   * *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
-   * *   ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * *   ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
-   * 
-   * @example
-   * ACCOUNT
-   */
-  targetType?: number;
-  static names(): { [key: string]: string } {
-    return {
-      targetId: 'TargetId',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      targetId: 'string',
-      targetType: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBodyFailedResourcesFailedResourceResult extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidResourceId.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The specified ResourceIds are not found in our records.
-   */
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBodyFailedResourcesFailedResource extends $tea.Model {
-  /**
-   * @remarks
-   * The ARN of the resource.
-   * 
-   * @example
-   * arn:acs:vpc:cn-hangzhou:123456789****:vpc/vpc-bp19dd90tkt6tz7wu****
-   */
-  resourceARN?: string;
-  /**
-   * @remarks
-   * The information about the error.
-   */
-  result?: TagResourcesResponseBodyFailedResourcesFailedResourceResult;
-  static names(): { [key: string]: string } {
-    return {
-      resourceARN: 'ResourceARN',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceARN: 'string',
-      result: TagResourcesResponseBodyFailedResourcesFailedResourceResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBodyFailedResources extends $tea.Model {
-  failedResource?: TagResourcesResponseBodyFailedResourcesFailedResource[];
-  static names(): { [key: string]: string } {
-    return {
-      failedResource: 'FailedResource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedResource: { 'type': 'array', 'itemType': TagResourcesResponseBodyFailedResourcesFailedResource },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBodyFailedResourcesFailedResourceResult extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidResourceId.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The specified ResourceIds are not found in our records.
-   */
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBodyFailedResourcesFailedResource extends $tea.Model {
-  /**
-   * @remarks
-   * The ARN of the resource.
-   * 
-   * @example
-   * arn:acs:ecs:cn-hangzhou:123456789****:instance/i-xxxxxxxxxx1
-   */
-  resourceARN?: string;
-  /**
-   * @remarks
-   * The information about the error.
-   */
-  result?: UntagResourcesResponseBodyFailedResourcesFailedResourceResult;
-  static names(): { [key: string]: string } {
-    return {
-      resourceARN: 'ResourceARN',
-      result: 'Result',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceARN: 'string',
-      result: UntagResourcesResponseBodyFailedResourcesFailedResourceResult,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBodyFailedResources extends $tea.Model {
-  failedResource?: UntagResourcesResponseBodyFailedResourcesFailedResource[];
-  static names(): { [key: string]: string } {
-    return {
-      failedResource: 'FailedResource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedResource: { 'type': 'array', 'itemType': UntagResourcesResponseBodyFailedResourcesFailedResource },
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -5234,52 +6063,41 @@ export class UntagResourcesResponseBodyFailedResources extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._productId = "Tag";
-    let gatewayClient = new GatewayClient();
-    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
-      'cn-qingdao': "tag.aliyuncs.com",
-      'cn-beijing': "tag.aliyuncs.com",
-      'cn-hangzhou': "tag.aliyuncs.com",
-      'cn-shanghai': "tag.aliyuncs.com",
-      'cn-shenzhen': "tag.aliyuncs.com",
-      'cn-hongkong': "tag.aliyuncs.com",
-      'ap-southeast-1': "tag.aliyuncs.com",
-      'us-west-1': "tag.aliyuncs.com",
-      'us-east-1': "tag.aliyuncs.com",
-      'cn-hangzhou-finance': "tag.aliyuncs.com",
+      'us-west-1': "tag.us-east-1.aliyuncs.com",
+      'cn-hangzhou-finance': "tag.cn-hangzhou.aliyuncs.com",
       'cn-shanghai-finance-1': "tag.aliyuncs.com",
       'ap-northeast-2-pop': "tag.aliyuncs.com",
       'cn-beijing-finance-pop': "tag.aliyuncs.com",
       'cn-beijing-gov-1': "tag.aliyuncs.com",
-      'cn-beijing-nu16-b01': "tag.aliyuncs.com",
+      'cn-beijing-nu16-b01': "tag.cn-hangzhou.aliyuncs.com",
       'cn-edge-1': "tag.aliyuncs.com",
-      'cn-fujian': "tag.aliyuncs.com",
-      'cn-haidian-cm12-c01': "tag.aliyuncs.com",
+      'cn-fujian': "tag.cn-hangzhou.aliyuncs.com",
+      'cn-haidian-cm12-c01': "tag.cn-north-2-gov-1.aliyuncs.com",
       'cn-hangzhou-bj-b01': "tag.aliyuncs.com",
       'cn-hangzhou-internal-prod-1': "tag.aliyuncs.com",
       'cn-hangzhou-internal-test-1': "tag.aliyuncs.com",
-      'cn-hangzhou-internal-test-2': "tag.aliyuncs.com",
-      'cn-hangzhou-internal-test-3': "tag.aliyuncs.com",
-      'cn-hangzhou-test-306': "tag.aliyuncs.com",
+      'cn-hangzhou-internal-test-2': "tag.cn-hangzhou.aliyuncs.com",
+      'cn-hangzhou-internal-test-3': "tag.cn-hangzhou.aliyuncs.com",
+      'cn-hangzhou-test-306': "tag.cn-hangzhou.aliyuncs.com",
       'cn-hongkong-finance-pop': "tag.aliyuncs.com",
-      'cn-huhehaote-nebula-1': "tag.aliyuncs.com",
-      'cn-shanghai-et15-b01': "tag.aliyuncs.com",
+      'cn-huhehaote-nebula-1': "tag.cn-qingdao-nebula.aliyuncs.com",
+      'cn-shanghai-et15-b01': "tag.cn-hangzhou.aliyuncs.com",
       'cn-shanghai-et2-b01': "tag.aliyuncs.com",
       'cn-shanghai-inner': "tag.aliyuncs.com",
       'cn-shanghai-internal-test-1': "tag.aliyuncs.com",
       'cn-shenzhen-inner': "tag.aliyuncs.com",
-      'cn-shenzhen-st4-d01': "tag.aliyuncs.com",
+      'cn-shenzhen-st4-d01': "tag.cn-hangzhou.aliyuncs.com",
       'cn-shenzhen-su18-b01': "tag.aliyuncs.com",
       'cn-wuhan': "tag.aliyuncs.com",
       'cn-yushanfang': "tag.aliyuncs.com",
       'cn-zhangbei': "tag.aliyuncs.com",
-      'cn-zhangbei-na61-b01': "tag.aliyuncs.com",
+      'cn-zhangbei-na61-b01': "tag.cn-hangzhou.aliyuncs.com",
       'cn-zhangjiakou-na62-a01': "tag.aliyuncs.com",
-      'cn-zhengzhou-nebula-1': "tag.aliyuncs.com",
+      'cn-zhengzhou-nebula-1': "tag.cn-qingdao-nebula.aliyuncs.com",
       'eu-west-1-oxs': "tag.cn-shenzhen-cloudstone.aliyuncs.com",
       'rus-west-1-pop': "tag.aliyuncs.com",
     };
@@ -5289,15 +6107,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -5311,41 +6129,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachPolicyResponse
    */
-  async attachPolicyWithOptions(request: AttachPolicyRequest, runtime: $Util.RuntimeOptions): Promise<AttachPolicyResponse> {
-    Util.validateModel(request);
+  async attachPolicyWithOptions(request: AttachPolicyRequest, runtime: $dara.RuntimeOptions): Promise<AttachPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.targetId)) {
+    if (!$dara.isNull(request.targetId)) {
       query["TargetId"] = request.targetId;
     }
 
-    if (!Util.isUnset(request.targetType)) {
+    if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AttachPolicy",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -5356,10 +6174,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<AttachPolicyResponse>(await this.callApi(params, req, runtime), new AttachPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AttachPolicyResponse>(await this.callApi(params, req, runtime), new AttachPolicyResponse({}));
     } else {
-      return $tea.cast<AttachPolicyResponse>(await this.execute(params, req, runtime), new AttachPolicyResponse({}));
+      return $dara.cast<AttachPolicyResponse>(await this.execute(params, req, runtime), new AttachPolicyResponse({}));
     }
 
   }
@@ -5375,7 +6193,7 @@ export default class Client extends OpenApi {
    * @returns AttachPolicyResponse
    */
   async attachPolicy(request: AttachPolicyRequest): Promise<AttachPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.attachPolicyWithOptions(request, runtime);
   }
 
@@ -5386,33 +6204,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckCreatedByEnabledResponse
    */
-  async checkCreatedByEnabledWithOptions(request: CheckCreatedByEnabledRequest, runtime: $Util.RuntimeOptions): Promise<CheckCreatedByEnabledResponse> {
-    Util.validateModel(request);
+  async checkCreatedByEnabledWithOptions(request: CheckCreatedByEnabledRequest, runtime: $dara.RuntimeOptions): Promise<CheckCreatedByEnabledResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckCreatedByEnabled",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -5423,10 +6241,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CheckCreatedByEnabledResponse>(await this.callApi(params, req, runtime), new CheckCreatedByEnabledResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CheckCreatedByEnabledResponse>(await this.callApi(params, req, runtime), new CheckCreatedByEnabledResponse({}));
     } else {
-      return $tea.cast<CheckCreatedByEnabledResponse>(await this.execute(params, req, runtime), new CheckCreatedByEnabledResponse({}));
+      return $dara.cast<CheckCreatedByEnabledResponse>(await this.execute(params, req, runtime), new CheckCreatedByEnabledResponse({}));
     }
 
   }
@@ -5438,7 +6256,7 @@ export default class Client extends OpenApi {
    * @returns CheckCreatedByEnabledResponse
    */
   async checkCreatedByEnabled(request: CheckCreatedByEnabledRequest): Promise<CheckCreatedByEnabledResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkCreatedByEnabledWithOptions(request, runtime);
   }
 
@@ -5449,33 +6267,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CloseCreatedByResponse
    */
-  async closeCreatedByWithOptions(request: CloseCreatedByRequest, runtime: $Util.RuntimeOptions): Promise<CloseCreatedByResponse> {
-    Util.validateModel(request);
+  async closeCreatedByWithOptions(request: CloseCreatedByRequest, runtime: $dara.RuntimeOptions): Promise<CloseCreatedByResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CloseCreatedBy",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -5486,10 +6304,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CloseCreatedByResponse>(await this.callApi(params, req, runtime), new CloseCreatedByResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CloseCreatedByResponse>(await this.callApi(params, req, runtime), new CloseCreatedByResponse({}));
     } else {
-      return $tea.cast<CloseCreatedByResponse>(await this.execute(params, req, runtime), new CloseCreatedByResponse({}));
+      return $dara.cast<CloseCreatedByResponse>(await this.execute(params, req, runtime), new CloseCreatedByResponse({}));
     }
 
   }
@@ -5501,7 +6319,7 @@ export default class Client extends OpenApi {
    * @returns CloseCreatedByResponse
    */
   async closeCreatedBy(request: CloseCreatedByRequest): Promise<CloseCreatedByResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.closeCreatedByWithOptions(request, runtime);
   }
 
@@ -5516,49 +6334,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePolicyResponse
    */
-  async createPolicyWithOptions(request: CreatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyResponse> {
-    Util.validateModel(request);
+  async createPolicyWithOptions(request: CreatePolicyRequest, runtime: $dara.RuntimeOptions): Promise<CreatePolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dryRun)) {
+    if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.policyContent)) {
+    if (!$dara.isNull(request.policyContent)) {
       query["PolicyContent"] = request.policyContent;
     }
 
-    if (!Util.isUnset(request.policyDesc)) {
+    if (!$dara.isNull(request.policyDesc)) {
       query["PolicyDesc"] = request.policyDesc;
     }
 
-    if (!Util.isUnset(request.policyName)) {
+    if (!$dara.isNull(request.policyName)) {
       query["PolicyName"] = request.policyName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.userType)) {
+    if (!$dara.isNull(request.userType)) {
       query["UserType"] = request.userType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreatePolicy",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -5569,10 +6387,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreatePolicyResponse>(await this.callApi(params, req, runtime), new CreatePolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreatePolicyResponse>(await this.callApi(params, req, runtime), new CreatePolicyResponse({}));
     } else {
-      return $tea.cast<CreatePolicyResponse>(await this.execute(params, req, runtime), new CreatePolicyResponse({}));
+      return $dara.cast<CreatePolicyResponse>(await this.execute(params, req, runtime), new CreatePolicyResponse({}));
     }
 
   }
@@ -5588,12 +6406,12 @@ export default class Client extends OpenApi {
    * @returns CreatePolicyResponse
    */
   async createPolicy(request: CreatePolicyRequest): Promise<CreatePolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createPolicyWithOptions(request, runtime);
   }
 
   /**
-   * Creates preset tags.
+   * Creates predefined tags.
    * 
    * @remarks
    * ###
@@ -5604,33 +6422,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateTagsResponse
    */
-  async createTagsWithOptions(request: CreateTagsRequest, runtime: $Util.RuntimeOptions): Promise<CreateTagsResponse> {
-    Util.validateModel(request);
+  async createTagsWithOptions(request: CreateTagsRequest, runtime: $dara.RuntimeOptions): Promise<CreateTagsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.tagKeyValueParamList)) {
+    if (!$dara.isNull(request.tagKeyValueParamList)) {
       query["TagKeyValueParamList"] = request.tagKeyValueParamList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateTags",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -5641,16 +6459,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateTagsResponse>(await this.callApi(params, req, runtime), new CreateTagsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateTagsResponse>(await this.callApi(params, req, runtime), new CreateTagsResponse({}));
     } else {
-      return $tea.cast<CreateTagsResponse>(await this.execute(params, req, runtime), new CreateTagsResponse({}));
+      return $dara.cast<CreateTagsResponse>(await this.execute(params, req, runtime), new CreateTagsResponse({}));
     }
 
   }
 
   /**
-   * Creates preset tags.
+   * Creates predefined tags.
    * 
    * @remarks
    * ###
@@ -5661,7 +6479,7 @@ export default class Client extends OpenApi {
    * @returns CreateTagsResponse
    */
   async createTags(request: CreateTagsRequest): Promise<CreateTagsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createTagsWithOptions(request, runtime);
   }
 
@@ -5676,33 +6494,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePolicyResponse
    */
-  async deletePolicyWithOptions(request: DeletePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyResponse> {
-    Util.validateModel(request);
+  async deletePolicyWithOptions(request: DeletePolicyRequest, runtime: $dara.RuntimeOptions): Promise<DeletePolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeletePolicy",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -5713,10 +6531,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeletePolicyResponse>(await this.callApi(params, req, runtime), new DeletePolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeletePolicyResponse>(await this.callApi(params, req, runtime), new DeletePolicyResponse({}));
     } else {
-      return $tea.cast<DeletePolicyResponse>(await this.execute(params, req, runtime), new DeletePolicyResponse({}));
+      return $dara.cast<DeletePolicyResponse>(await this.execute(params, req, runtime), new DeletePolicyResponse({}));
     }
 
   }
@@ -5732,7 +6550,7 @@ export default class Client extends OpenApi {
    * @returns DeletePolicyResponse
    */
   async deletePolicy(request: DeletePolicyRequest): Promise<DeletePolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePolicyWithOptions(request, runtime);
   }
 
@@ -5746,37 +6564,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteTagResponse
    */
-  async deleteTagWithOptions(request: DeleteTagRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagResponse> {
-    Util.validateModel(request);
+  async deleteTagWithOptions(request: DeleteTagRequest, runtime: $dara.RuntimeOptions): Promise<DeleteTagResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.key)) {
+    if (!$dara.isNull(request.key)) {
       query["Key"] = request.key;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.value)) {
+    if (!$dara.isNull(request.value)) {
       query["Value"] = request.value;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteTag",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -5787,10 +6605,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteTagResponse>(await this.callApi(params, req, runtime), new DeleteTagResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteTagResponse>(await this.callApi(params, req, runtime), new DeleteTagResponse({}));
     } else {
-      return $tea.cast<DeleteTagResponse>(await this.execute(params, req, runtime), new DeleteTagResponse({}));
+      return $dara.cast<DeleteTagResponse>(await this.execute(params, req, runtime), new DeleteTagResponse({}));
     }
 
   }
@@ -5805,7 +6623,7 @@ export default class Client extends OpenApi {
    * @returns DeleteTagResponse
    */
   async deleteTag(request: DeleteTagRequest): Promise<DeleteTagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteTagWithOptions(request, runtime);
   }
 
@@ -5816,37 +6634,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.acceptLanguage)) {
+    if (!$dara.isNull(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRegions",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -5857,10 +6675,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
     } else {
-      return $tea.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
+      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
     }
 
   }
@@ -5872,7 +6690,7 @@ export default class Client extends OpenApi {
    * @returns DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
@@ -5887,41 +6705,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachPolicyResponse
    */
-  async detachPolicyWithOptions(request: DetachPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DetachPolicyResponse> {
-    Util.validateModel(request);
+  async detachPolicyWithOptions(request: DetachPolicyRequest, runtime: $dara.RuntimeOptions): Promise<DetachPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.targetId)) {
+    if (!$dara.isNull(request.targetId)) {
       query["TargetId"] = request.targetId;
     }
 
-    if (!Util.isUnset(request.targetType)) {
+    if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetachPolicy",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -5932,10 +6750,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DetachPolicyResponse>(await this.callApi(params, req, runtime), new DetachPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DetachPolicyResponse>(await this.callApi(params, req, runtime), new DetachPolicyResponse({}));
     } else {
-      return $tea.cast<DetachPolicyResponse>(await this.execute(params, req, runtime), new DetachPolicyResponse({}));
+      return $dara.cast<DetachPolicyResponse>(await this.execute(params, req, runtime), new DetachPolicyResponse({}));
     }
 
   }
@@ -5951,7 +6769,7 @@ export default class Client extends OpenApi {
    * @returns DetachPolicyResponse
    */
   async detachPolicy(request: DetachPolicyRequest): Promise<DetachPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detachPolicyWithOptions(request, runtime);
   }
 
@@ -5962,41 +6780,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisablePolicyTypeResponse
    */
-  async disablePolicyTypeWithOptions(request: DisablePolicyTypeRequest, runtime: $Util.RuntimeOptions): Promise<DisablePolicyTypeResponse> {
-    Util.validateModel(request);
+  async disablePolicyTypeWithOptions(request: DisablePolicyTypeRequest, runtime: $dara.RuntimeOptions): Promise<DisablePolicyTypeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.openType)) {
+    if (!$dara.isNull(request.openType)) {
       query["OpenType"] = request.openType;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.userType)) {
+    if (!$dara.isNull(request.userType)) {
       query["UserType"] = request.userType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DisablePolicyType",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -6007,10 +6825,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DisablePolicyTypeResponse>(await this.callApi(params, req, runtime), new DisablePolicyTypeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DisablePolicyTypeResponse>(await this.callApi(params, req, runtime), new DisablePolicyTypeResponse({}));
     } else {
-      return $tea.cast<DisablePolicyTypeResponse>(await this.execute(params, req, runtime), new DisablePolicyTypeResponse({}));
+      return $dara.cast<DisablePolicyTypeResponse>(await this.execute(params, req, runtime), new DisablePolicyTypeResponse({}));
     }
 
   }
@@ -6022,7 +6840,7 @@ export default class Client extends OpenApi {
    * @returns DisablePolicyTypeResponse
    */
   async disablePolicyType(request: DisablePolicyTypeRequest): Promise<DisablePolicyTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.disablePolicyTypeWithOptions(request, runtime);
   }
 
@@ -6033,41 +6851,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnablePolicyTypeResponse
    */
-  async enablePolicyTypeWithOptions(request: EnablePolicyTypeRequest, runtime: $Util.RuntimeOptions): Promise<EnablePolicyTypeResponse> {
-    Util.validateModel(request);
+  async enablePolicyTypeWithOptions(request: EnablePolicyTypeRequest, runtime: $dara.RuntimeOptions): Promise<EnablePolicyTypeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.openType)) {
+    if (!$dara.isNull(request.openType)) {
       query["OpenType"] = request.openType;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.userType)) {
+    if (!$dara.isNull(request.userType)) {
       query["UserType"] = request.userType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "EnablePolicyType",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -6078,10 +6896,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<EnablePolicyTypeResponse>(await this.callApi(params, req, runtime), new EnablePolicyTypeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EnablePolicyTypeResponse>(await this.callApi(params, req, runtime), new EnablePolicyTypeResponse({}));
     } else {
-      return $tea.cast<EnablePolicyTypeResponse>(await this.execute(params, req, runtime), new EnablePolicyTypeResponse({}));
+      return $dara.cast<EnablePolicyTypeResponse>(await this.execute(params, req, runtime), new EnablePolicyTypeResponse({}));
     }
 
   }
@@ -6093,7 +6911,7 @@ export default class Client extends OpenApi {
    * @returns EnablePolicyTypeResponse
    */
   async enablePolicyType(request: EnablePolicyTypeRequest): Promise<EnablePolicyTypeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.enablePolicyTypeWithOptions(request, runtime);
   }
 
@@ -6108,41 +6926,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateConfigRuleReportResponse
    */
-  async generateConfigRuleReportWithOptions(request: GenerateConfigRuleReportRequest, runtime: $Util.RuntimeOptions): Promise<GenerateConfigRuleReportResponse> {
-    Util.validateModel(request);
+  async generateConfigRuleReportWithOptions(request: GenerateConfigRuleReportRequest, runtime: $dara.RuntimeOptions): Promise<GenerateConfigRuleReportResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.targetId)) {
+    if (!$dara.isNull(request.targetId)) {
       query["TargetId"] = request.targetId;
     }
 
-    if (!Util.isUnset(request.targetType)) {
+    if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }
 
-    if (!Util.isUnset(request.userType)) {
+    if (!$dara.isNull(request.userType)) {
       query["UserType"] = request.userType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GenerateConfigRuleReport",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -6153,10 +6971,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GenerateConfigRuleReportResponse>(await this.callApi(params, req, runtime), new GenerateConfigRuleReportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GenerateConfigRuleReportResponse>(await this.callApi(params, req, runtime), new GenerateConfigRuleReportResponse({}));
     } else {
-      return $tea.cast<GenerateConfigRuleReportResponse>(await this.execute(params, req, runtime), new GenerateConfigRuleReportResponse({}));
+      return $dara.cast<GenerateConfigRuleReportResponse>(await this.execute(params, req, runtime), new GenerateConfigRuleReportResponse({}));
     }
 
   }
@@ -6172,7 +6990,7 @@ export default class Client extends OpenApi {
    * @returns GenerateConfigRuleReportResponse
    */
   async generateConfigRuleReport(request: GenerateConfigRuleReportRequest): Promise<GenerateConfigRuleReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.generateConfigRuleReportWithOptions(request, runtime);
   }
 
@@ -6187,41 +7005,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConfigRuleReportResponse
    */
-  async getConfigRuleReportWithOptions(request: GetConfigRuleReportRequest, runtime: $Util.RuntimeOptions): Promise<GetConfigRuleReportResponse> {
-    Util.validateModel(request);
+  async getConfigRuleReportWithOptions(request: GetConfigRuleReportRequest, runtime: $dara.RuntimeOptions): Promise<GetConfigRuleReportResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.targetId)) {
+    if (!$dara.isNull(request.targetId)) {
       query["TargetId"] = request.targetId;
     }
 
-    if (!Util.isUnset(request.targetType)) {
+    if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }
 
-    if (!Util.isUnset(request.userType)) {
+    if (!$dara.isNull(request.userType)) {
       query["UserType"] = request.userType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetConfigRuleReport",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -6232,10 +7050,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetConfigRuleReportResponse>(await this.callApi(params, req, runtime), new GetConfigRuleReportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetConfigRuleReportResponse>(await this.callApi(params, req, runtime), new GetConfigRuleReportResponse({}));
     } else {
-      return $tea.cast<GetConfigRuleReportResponse>(await this.execute(params, req, runtime), new GetConfigRuleReportResponse({}));
+      return $dara.cast<GetConfigRuleReportResponse>(await this.execute(params, req, runtime), new GetConfigRuleReportResponse({}));
     }
 
   }
@@ -6251,7 +7069,7 @@ export default class Client extends OpenApi {
    * @returns GetConfigRuleReportResponse
    */
   async getConfigRuleReport(request: GetConfigRuleReportRequest): Promise<GetConfigRuleReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getConfigRuleReportWithOptions(request, runtime);
   }
 
@@ -6267,37 +7085,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetEffectivePolicyResponse
    */
-  async getEffectivePolicyWithOptions(request: GetEffectivePolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetEffectivePolicyResponse> {
-    Util.validateModel(request);
+  async getEffectivePolicyWithOptions(request: GetEffectivePolicyRequest, runtime: $dara.RuntimeOptions): Promise<GetEffectivePolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.targetId)) {
+    if (!$dara.isNull(request.tagKeys)) {
+      query["TagKeys"] = request.tagKeys;
+    }
+
+    if (!$dara.isNull(request.targetId)) {
       query["TargetId"] = request.targetId;
     }
 
-    if (!Util.isUnset(request.targetType)) {
+    if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetEffectivePolicy",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -6308,10 +7130,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetEffectivePolicyResponse>(await this.callApi(params, req, runtime), new GetEffectivePolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetEffectivePolicyResponse>(await this.callApi(params, req, runtime), new GetEffectivePolicyResponse({}));
     } else {
-      return $tea.cast<GetEffectivePolicyResponse>(await this.execute(params, req, runtime), new GetEffectivePolicyResponse({}));
+      return $dara.cast<GetEffectivePolicyResponse>(await this.execute(params, req, runtime), new GetEffectivePolicyResponse({}));
     }
 
   }
@@ -6328,7 +7150,7 @@ export default class Client extends OpenApi {
    * @returns GetEffectivePolicyResponse
    */
   async getEffectivePolicy(request: GetEffectivePolicyRequest): Promise<GetEffectivePolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getEffectivePolicyWithOptions(request, runtime);
   }
 
@@ -6342,33 +7164,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPolicyResponse
    */
-  async getPolicyWithOptions(request: GetPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyResponse> {
-    Util.validateModel(request);
+  async getPolicyWithOptions(request: GetPolicyRequest, runtime: $dara.RuntimeOptions): Promise<GetPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetPolicy",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -6379,10 +7201,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetPolicyResponse>(await this.callApi(params, req, runtime), new GetPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetPolicyResponse>(await this.callApi(params, req, runtime), new GetPolicyResponse({}));
     } else {
-      return $tea.cast<GetPolicyResponse>(await this.execute(params, req, runtime), new GetPolicyResponse({}));
+      return $dara.cast<GetPolicyResponse>(await this.execute(params, req, runtime), new GetPolicyResponse({}));
     }
 
   }
@@ -6397,7 +7219,7 @@ export default class Client extends OpenApi {
    * @returns GetPolicyResponse
    */
   async getPolicy(request: GetPolicyRequest): Promise<GetPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getPolicyWithOptions(request, runtime);
   }
 
@@ -6411,41 +7233,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPolicyEnableStatusResponse
    */
-  async getPolicyEnableStatusWithOptions(request: GetPolicyEnableStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyEnableStatusResponse> {
-    Util.validateModel(request);
+  async getPolicyEnableStatusWithOptions(request: GetPolicyEnableStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetPolicyEnableStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.openType)) {
+    if (!$dara.isNull(request.openType)) {
       query["OpenType"] = request.openType;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.userType)) {
+    if (!$dara.isNull(request.userType)) {
       query["UserType"] = request.userType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetPolicyEnableStatus",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -6456,10 +7278,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetPolicyEnableStatusResponse>(await this.callApi(params, req, runtime), new GetPolicyEnableStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetPolicyEnableStatusResponse>(await this.callApi(params, req, runtime), new GetPolicyEnableStatusResponse({}));
     } else {
-      return $tea.cast<GetPolicyEnableStatusResponse>(await this.execute(params, req, runtime), new GetPolicyEnableStatusResponse({}));
+      return $dara.cast<GetPolicyEnableStatusResponse>(await this.execute(params, req, runtime), new GetPolicyEnableStatusResponse({}));
     }
 
   }
@@ -6474,7 +7296,7 @@ export default class Client extends OpenApi {
    * @returns GetPolicyEnableStatusResponse
    */
   async getPolicyEnableStatus(request: GetPolicyEnableStatusRequest): Promise<GetPolicyEnableStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getPolicyEnableStatusWithOptions(request, runtime);
   }
 
@@ -6489,57 +7311,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListConfigRulesForTargetResponse
    */
-  async listConfigRulesForTargetWithOptions(request: ListConfigRulesForTargetRequest, runtime: $Util.RuntimeOptions): Promise<ListConfigRulesForTargetResponse> {
-    Util.validateModel(request);
+  async listConfigRulesForTargetWithOptions(request: ListConfigRulesForTargetRequest, runtime: $dara.RuntimeOptions): Promise<ListConfigRulesForTargetResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResult)) {
+    if (!$dara.isNull(request.maxResult)) {
       query["MaxResult"] = request.maxResult;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.policyType)) {
+    if (!$dara.isNull(request.policyType)) {
       query["PolicyType"] = request.policyType;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    if (!Util.isUnset(request.targetId)) {
+    if (!$dara.isNull(request.targetId)) {
       query["TargetId"] = request.targetId;
     }
 
-    if (!Util.isUnset(request.targetType)) {
+    if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }
 
-    if (!Util.isUnset(request.userType)) {
+    if (!$dara.isNull(request.userType)) {
       query["UserType"] = request.userType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListConfigRulesForTarget",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -6550,10 +7372,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListConfigRulesForTargetResponse>(await this.callApi(params, req, runtime), new ListConfigRulesForTargetResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListConfigRulesForTargetResponse>(await this.callApi(params, req, runtime), new ListConfigRulesForTargetResponse({}));
     } else {
-      return $tea.cast<ListConfigRulesForTargetResponse>(await this.execute(params, req, runtime), new ListConfigRulesForTargetResponse({}));
+      return $dara.cast<ListConfigRulesForTargetResponse>(await this.execute(params, req, runtime), new ListConfigRulesForTargetResponse({}));
     }
 
   }
@@ -6569,7 +7391,7 @@ export default class Client extends OpenApi {
    * @returns ListConfigRulesForTargetResponse
    */
   async listConfigRulesForTarget(request: ListConfigRulesForTargetRequest): Promise<ListConfigRulesForTargetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listConfigRulesForTargetWithOptions(request, runtime);
   }
 
@@ -6584,49 +7406,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPoliciesResponse
    */
-  async listPoliciesWithOptions(request: ListPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesResponse> {
-    Util.validateModel(request);
+  async listPoliciesWithOptions(request: ListPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<ListPoliciesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResult)) {
+    if (!$dara.isNull(request.maxResult)) {
       query["MaxResult"] = request.maxResult;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.policyIds)) {
+    if (!$dara.isNull(request.policyIds)) {
       query["PolicyIds"] = request.policyIds;
     }
 
-    if (!Util.isUnset(request.policyNames)) {
+    if (!$dara.isNull(request.policyNames)) {
       query["PolicyNames"] = request.policyNames;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.userType)) {
+    if (!$dara.isNull(request.userType)) {
       query["UserType"] = request.userType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPolicies",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -6637,10 +7459,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListPoliciesResponse>(await this.callApi(params, req, runtime), new ListPoliciesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListPoliciesResponse>(await this.callApi(params, req, runtime), new ListPoliciesResponse({}));
     } else {
-      return $tea.cast<ListPoliciesResponse>(await this.execute(params, req, runtime), new ListPoliciesResponse({}));
+      return $dara.cast<ListPoliciesResponse>(await this.execute(params, req, runtime), new ListPoliciesResponse({}));
     }
 
   }
@@ -6656,7 +7478,7 @@ export default class Client extends OpenApi {
    * @returns ListPoliciesResponse
    */
   async listPolicies(request: ListPoliciesRequest): Promise<ListPoliciesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPoliciesWithOptions(request, runtime);
   }
 
@@ -6671,45 +7493,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPoliciesForTargetResponse
    */
-  async listPoliciesForTargetWithOptions(request: ListPoliciesForTargetRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesForTargetResponse> {
-    Util.validateModel(request);
+  async listPoliciesForTargetWithOptions(request: ListPoliciesForTargetRequest, runtime: $dara.RuntimeOptions): Promise<ListPoliciesForTargetResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResult)) {
+    if (!$dara.isNull(request.maxResult)) {
       query["MaxResult"] = request.maxResult;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.targetId)) {
+    if (!$dara.isNull(request.targetId)) {
       query["TargetId"] = request.targetId;
     }
 
-    if (!Util.isUnset(request.targetType)) {
+    if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListPoliciesForTarget",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -6720,10 +7542,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListPoliciesForTargetResponse>(await this.callApi(params, req, runtime), new ListPoliciesForTargetResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListPoliciesForTargetResponse>(await this.callApi(params, req, runtime), new ListPoliciesForTargetResponse({}));
     } else {
-      return $tea.cast<ListPoliciesForTargetResponse>(await this.execute(params, req, runtime), new ListPoliciesForTargetResponse({}));
+      return $dara.cast<ListPoliciesForTargetResponse>(await this.execute(params, req, runtime), new ListPoliciesForTargetResponse({}));
     }
 
   }
@@ -6739,7 +7561,7 @@ export default class Client extends OpenApi {
    * @returns ListPoliciesForTargetResponse
    */
   async listPoliciesForTarget(request: ListPoliciesForTargetRequest): Promise<ListPoliciesForTargetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listPoliciesForTargetWithOptions(request, runtime);
   }
 
@@ -6753,57 +7575,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListResourcesByTagResponse
    */
-  async listResourcesByTagWithOptions(request: ListResourcesByTagRequest, runtime: $Util.RuntimeOptions): Promise<ListResourcesByTagResponse> {
-    Util.validateModel(request);
+  async listResourcesByTagWithOptions(request: ListResourcesByTagRequest, runtime: $dara.RuntimeOptions): Promise<ListResourcesByTagResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.fuzzyType)) {
+    if (!$dara.isNull(request.fuzzyType)) {
       query["FuzzyType"] = request.fuzzyType;
     }
 
-    if (!Util.isUnset(request.includeAllTags)) {
+    if (!$dara.isNull(request.includeAllTags)) {
       query["IncludeAllTags"] = request.includeAllTags;
     }
 
-    if (!Util.isUnset(request.maxResult)) {
+    if (!$dara.isNull(request.maxResult)) {
       query["MaxResult"] = request.maxResult;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagFilter)) {
+    if (!$dara.isNull(request.tagFilter)) {
       query["TagFilter"] = request.tagFilter;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListResourcesByTag",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -6814,10 +7636,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListResourcesByTagResponse>(await this.callApi(params, req, runtime), new ListResourcesByTagResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListResourcesByTagResponse>(await this.callApi(params, req, runtime), new ListResourcesByTagResponse({}));
     } else {
-      return $tea.cast<ListResourcesByTagResponse>(await this.execute(params, req, runtime), new ListResourcesByTagResponse({}));
+      return $dara.cast<ListResourcesByTagResponse>(await this.execute(params, req, runtime), new ListResourcesByTagResponse({}));
     }
 
   }
@@ -6832,7 +7654,7 @@ export default class Client extends OpenApi {
    * @returns ListResourcesByTagResponse
    */
   async listResourcesByTag(request: ListResourcesByTagRequest): Promise<ListResourcesByTagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listResourcesByTagWithOptions(request, runtime);
   }
 
@@ -6840,7 +7662,7 @@ export default class Client extends OpenApi {
    * Queries the resource types supported by tags and tag-related capability items.
    * 
    * @remarks
-   * ### [](#)Call examples
+   * ### [](#)Call example
    * *   Query a list of resource types supported by TagResources or UntagResources. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22TAG_CONSOLE_SUPPORT%22%7D).
    * *   Query a list of resource types supported by ListTagResources or ListResourcesByTag. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22%7D).
    * *   Query a list of resource types that support createdby tags. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22CREATED_BY_TAG_CONSOLE_SUPPORT%22%7D).
@@ -6849,53 +7671,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSupportResourceTypesResponse
    */
-  async listSupportResourceTypesWithOptions(request: ListSupportResourceTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListSupportResourceTypesResponse> {
-    Util.validateModel(request);
+  async listSupportResourceTypesWithOptions(request: ListSupportResourceTypesRequest, runtime: $dara.RuntimeOptions): Promise<ListSupportResourceTypesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResult)) {
+    if (!$dara.isNull(request.maxResult)) {
       query["MaxResult"] = request.maxResult;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.productCode)) {
+    if (!$dara.isNull(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceTye)) {
+    if (!$dara.isNull(request.resourceTye)) {
       query["ResourceTye"] = request.resourceTye;
     }
 
-    if (!Util.isUnset(request.showItems)) {
+    if (!$dara.isNull(request.showItems)) {
       query["ShowItems"] = request.showItems;
     }
 
-    if (!Util.isUnset(request.supportCode)) {
+    if (!$dara.isNull(request.supportCode)) {
       query["SupportCode"] = request.supportCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListSupportResourceTypes",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -6906,10 +7728,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListSupportResourceTypesResponse>(await this.callApi(params, req, runtime), new ListSupportResourceTypesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSupportResourceTypesResponse>(await this.callApi(params, req, runtime), new ListSupportResourceTypesResponse({}));
     } else {
-      return $tea.cast<ListSupportResourceTypesResponse>(await this.execute(params, req, runtime), new ListSupportResourceTypesResponse({}));
+      return $dara.cast<ListSupportResourceTypesResponse>(await this.execute(params, req, runtime), new ListSupportResourceTypesResponse({}));
     }
 
   }
@@ -6918,7 +7740,7 @@ export default class Client extends OpenApi {
    * Queries the resource types supported by tags and tag-related capability items.
    * 
    * @remarks
-   * ### [](#)Call examples
+   * ### [](#)Call example
    * *   Query a list of resource types supported by TagResources or UntagResources. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22TAG_CONSOLE_SUPPORT%22%7D).
    * *   Query a list of resource types supported by ListTagResources or ListResourcesByTag. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22%7D).
    * *   Query a list of resource types that support createdby tags. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22CREATED_BY_TAG_CONSOLE_SUPPORT%22%7D).
@@ -6927,7 +7749,7 @@ export default class Client extends OpenApi {
    * @returns ListSupportResourceTypesResponse
    */
   async listSupportResourceTypes(request: ListSupportResourceTypesRequest): Promise<ListSupportResourceTypesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listSupportResourceTypesWithOptions(request, runtime);
   }
 
@@ -6941,61 +7763,61 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagKeysResponse
    */
-  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
-    Util.validateModel(request);
+  async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $dara.RuntimeOptions): Promise<ListTagKeysResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.category)) {
+    if (!$dara.isNull(request.category)) {
       query["Category"] = request.category;
     }
 
-    if (!Util.isUnset(request.fuzzyType)) {
+    if (!$dara.isNull(request.fuzzyType)) {
       query["FuzzyType"] = request.fuzzyType;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.queryType)) {
+    if (!$dara.isNull(request.queryType)) {
       query["QueryType"] = request.queryType;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagFilter)) {
+    if (!$dara.isNull(request.tagFilter)) {
       query["TagFilter"] = request.tagFilter;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagKeys",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -7006,10 +7828,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
     } else {
-      return $tea.cast<ListTagKeysResponse>(await this.execute(params, req, runtime), new ListTagKeysResponse({}));
+      return $dara.cast<ListTagKeysResponse>(await this.execute(params, req, runtime), new ListTagKeysResponse({}));
     }
 
   }
@@ -7024,7 +7846,7 @@ export default class Client extends OpenApi {
    * @returns ListTagKeysResponse
    */
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
   }
 
@@ -7038,53 +7860,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.category)) {
+    if (!$dara.isNull(request.category)) {
       query["Category"] = request.category;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceARN)) {
+    if (!$dara.isNull(request.resourceARN)) {
       query["ResourceARN"] = request.resourceARN;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       query["Tags"] = request.tags;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -7095,10 +7917,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
     } else {
-      return $tea.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
     }
 
   }
@@ -7113,7 +7935,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
@@ -7127,61 +7949,61 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagValuesResponse
    */
-  async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
-    Util.validateModel(request);
+  async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagValuesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.fuzzyType)) {
+    if (!$dara.isNull(request.fuzzyType)) {
       query["FuzzyType"] = request.fuzzyType;
     }
 
-    if (!Util.isUnset(request.key)) {
+    if (!$dara.isNull(request.key)) {
       query["Key"] = request.key;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.queryType)) {
+    if (!$dara.isNull(request.queryType)) {
       query["QueryType"] = request.queryType;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagFilter)) {
+    if (!$dara.isNull(request.tagFilter)) {
       query["TagFilter"] = request.tagFilter;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagValues",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -7192,10 +8014,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
     } else {
-      return $tea.cast<ListTagValuesResponse>(await this.execute(params, req, runtime), new ListTagValuesResponse({}));
+      return $dara.cast<ListTagValuesResponse>(await this.execute(params, req, runtime), new ListTagValuesResponse({}));
     }
 
   }
@@ -7210,7 +8032,7 @@ export default class Client extends OpenApi {
    * @returns ListTagValuesResponse
    */
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
   }
 
@@ -7225,41 +8047,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTargetsForPolicyResponse
    */
-  async listTargetsForPolicyWithOptions(request: ListTargetsForPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListTargetsForPolicyResponse> {
-    Util.validateModel(request);
+  async listTargetsForPolicyWithOptions(request: ListTargetsForPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ListTargetsForPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResult)) {
+    if (!$dara.isNull(request.maxResult)) {
       query["MaxResult"] = request.maxResult;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTargetsForPolicy",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -7270,10 +8092,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTargetsForPolicyResponse>(await this.callApi(params, req, runtime), new ListTargetsForPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTargetsForPolicyResponse>(await this.callApi(params, req, runtime), new ListTargetsForPolicyResponse({}));
     } else {
-      return $tea.cast<ListTargetsForPolicyResponse>(await this.execute(params, req, runtime), new ListTargetsForPolicyResponse({}));
+      return $dara.cast<ListTargetsForPolicyResponse>(await this.execute(params, req, runtime), new ListTargetsForPolicyResponse({}));
     }
 
   }
@@ -7289,7 +8111,7 @@ export default class Client extends OpenApi {
    * @returns ListTargetsForPolicyResponse
    */
   async listTargetsForPolicy(request: ListTargetsForPolicyRequest): Promise<ListTargetsForPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTargetsForPolicyWithOptions(request, runtime);
   }
 
@@ -7303,49 +8125,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyPolicyResponse
    */
-  async modifyPolicyWithOptions(request: ModifyPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPolicyResponse> {
-    Util.validateModel(request);
+  async modifyPolicyWithOptions(request: ModifyPolicyRequest, runtime: $dara.RuntimeOptions): Promise<ModifyPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dryRun)) {
+    if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.policyContent)) {
+    if (!$dara.isNull(request.policyContent)) {
       query["PolicyContent"] = request.policyContent;
     }
 
-    if (!Util.isUnset(request.policyDesc)) {
+    if (!$dara.isNull(request.policyDesc)) {
       query["PolicyDesc"] = request.policyDesc;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.policyName)) {
+    if (!$dara.isNull(request.policyName)) {
       query["PolicyName"] = request.policyName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyPolicy",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -7356,10 +8178,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyPolicyResponse>(await this.callApi(params, req, runtime), new ModifyPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyPolicyResponse>(await this.callApi(params, req, runtime), new ModifyPolicyResponse({}));
     } else {
-      return $tea.cast<ModifyPolicyResponse>(await this.execute(params, req, runtime), new ModifyPolicyResponse({}));
+      return $dara.cast<ModifyPolicyResponse>(await this.execute(params, req, runtime), new ModifyPolicyResponse({}));
     }
 
   }
@@ -7374,7 +8196,7 @@ export default class Client extends OpenApi {
    * @returns ModifyPolicyResponse
    */
   async modifyPolicy(request: ModifyPolicyRequest): Promise<ModifyPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPolicyWithOptions(request, runtime);
   }
 
@@ -7388,33 +8210,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenCreatedByResponse
    */
-  async openCreatedByWithOptions(request: OpenCreatedByRequest, runtime: $Util.RuntimeOptions): Promise<OpenCreatedByResponse> {
-    Util.validateModel(request);
+  async openCreatedByWithOptions(request: OpenCreatedByRequest, runtime: $dara.RuntimeOptions): Promise<OpenCreatedByResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OpenCreatedBy",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -7425,10 +8247,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<OpenCreatedByResponse>(await this.callApi(params, req, runtime), new OpenCreatedByResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OpenCreatedByResponse>(await this.callApi(params, req, runtime), new OpenCreatedByResponse({}));
     } else {
-      return $tea.cast<OpenCreatedByResponse>(await this.execute(params, req, runtime), new OpenCreatedByResponse({}));
+      return $dara.cast<OpenCreatedByResponse>(await this.execute(params, req, runtime), new OpenCreatedByResponse({}));
     }
 
   }
@@ -7443,7 +8265,7 @@ export default class Client extends OpenApi {
    * @returns OpenCreatedByResponse
    */
   async openCreatedBy(request: OpenCreatedByRequest): Promise<OpenCreatedByResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.openCreatedByWithOptions(request, runtime);
   }
 
@@ -7458,41 +8280,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceARN)) {
+    if (!$dara.isNull(request.resourceARN)) {
       query["ResourceARN"] = request.resourceARN;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       query["Tags"] = request.tags;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -7503,10 +8325,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
     } else {
-      return $tea.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
     }
 
   }
@@ -7522,7 +8344,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
@@ -7537,41 +8359,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceARN)) {
+    if (!$dara.isNull(request.resourceARN)) {
       query["ResourceARN"] = request.resourceARN;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2018-08-28",
       protocol: "HTTPS",
@@ -7582,10 +8404,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
     } else {
-      return $tea.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
     }
 
   }
@@ -7601,7 +8423,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
