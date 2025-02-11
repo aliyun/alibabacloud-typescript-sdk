@@ -25418,6 +25418,7 @@ export class CreateDesktopsRequest extends $dara.Model {
    */
   regionId?: string;
   resourceGroupId?: string;
+  savingPlanId?: string;
   snapshotPolicyId?: string;
   /**
    * @remarks
@@ -25517,6 +25518,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       promotionId: 'PromotionId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      savingPlanId: 'SavingPlanId',
       snapshotPolicyId: 'SnapshotPolicyId',
       tag: 'Tag',
       timerGroupId: 'TimerGroupId',
@@ -25554,6 +25556,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       promotionId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      savingPlanId: 'string',
       snapshotPolicyId: 'string',
       tag: { 'type': 'array', 'itemType': CreateDesktopsRequestTag },
       timerGroupId: 'string',
@@ -25834,6 +25837,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
    */
   regionId?: string;
   resourceGroupId?: string;
+  savingPlanId?: string;
   snapshotPolicyId?: string;
   /**
    * @remarks
@@ -25933,6 +25937,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
       promotionId: 'PromotionId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      savingPlanId: 'SavingPlanId',
       snapshotPolicyId: 'SnapshotPolicyId',
       tag: 'Tag',
       timerGroupId: 'TimerGroupId',
@@ -25970,6 +25975,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
       promotionId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      savingPlanId: 'string',
       snapshotPolicyId: 'string',
       tag: { 'type': 'array', 'itemType': CreateDesktopsShrinkRequestTag },
       timerGroupId: 'string',
@@ -60978,6 +60984,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.savingPlanId)) {
+      query["SavingPlanId"] = request.savingPlanId;
     }
 
     if (!$dara.isNull(request.snapshotPolicyId)) {
