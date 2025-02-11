@@ -1492,6 +1492,7 @@ export class CreateDataImportOrderRequestParam extends $dara.Model {
    * This parameter is required.
    */
   dbItemList?: CreateDataImportOrderRequestParamDbItemList[];
+  execMode?: string;
   /**
    * @remarks
    * The encoding algorithm to be used by the destination database. Valid values:
@@ -1601,6 +1602,7 @@ export class CreateDataImportOrderRequestParam extends $dara.Model {
       classify: 'Classify',
       csvFirstRowIsColumnDef: 'CsvFirstRowIsColumnDef',
       dbItemList: 'DbItemList',
+      execMode: 'ExecMode',
       fileEncoding: 'FileEncoding',
       fileType: 'FileType',
       ignoreError: 'IgnoreError',
@@ -1619,6 +1621,7 @@ export class CreateDataImportOrderRequestParam extends $dara.Model {
       classify: 'string',
       csvFirstRowIsColumnDef: 'boolean',
       dbItemList: { 'type': 'array', 'itemType': CreateDataImportOrderRequestParamDbItemList },
+      execMode: 'string',
       fileEncoding: 'string',
       fileType: 'string',
       ignoreError: 'boolean',
@@ -1944,6 +1947,53 @@ export class CreateDatabaseExportOrderResponseBodyCreateOrderResult extends $dar
     if(Array.isArray(this.createOrderResult)) {
       $dara.Model.validateArray(this.createOrderResult);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDifyInstanceResponseBodyData extends $dara.Model {
+  instanceId?: string;
+  replicas?: number;
+  resourceQuota?: string;
+  securityGroupId?: string;
+  status?: string;
+  vSwitchId?: string;
+  vpcId?: string;
+  workspaceId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      replicas: 'Replicas',
+      resourceQuota: 'ResourceQuota',
+      securityGroupId: 'SecurityGroupId',
+      status: 'Status',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      workspaceId: 'WorkspaceId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      replicas: 'number',
+      resourceQuota: 'string',
+      securityGroupId: 'string',
+      status: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+      workspaceId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -2698,6 +2748,32 @@ export class CreateUploadOSSFileJobRequestUploadTarget extends $dara.Model {
       bucketName: 'string',
       endpoint: 'string',
       objectName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDifyDefaultVpcResponseBodyData extends $dara.Model {
+  defaultVpcId?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultVpcId: 'DefaultVpcId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultVpcId: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -32000,6 +32076,279 @@ export class CreateDatabaseExportOrderResponse extends $dara.Model {
   }
 }
 
+export class CreateDifyInstanceRequest extends $dara.Model {
+  adbpgInstanceMode?: string;
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dataRegion?: string;
+  databaseOption?: string;
+  dbEngineType?: string;
+  dbEngineVersion?: string;
+  dbInstanceAccount?: string;
+  dbInstanceCategory?: string;
+  dbInstanceClass?: string;
+  dbInstancePassword?: string;
+  dbResourceId?: number;
+  dbStorageSize?: string;
+  dbStorageType?: string;
+  dryRun?: boolean;
+  kvStoreAccount?: string;
+  kvStoreEngineVersion?: string;
+  kvStoreInstanceClass?: string;
+  kvStoreNodeType?: string;
+  kvStoreOption?: string;
+  kvStorePassword?: string;
+  kvStoreResourceId?: number;
+  kvStoreType?: string;
+  ossPath?: string;
+  ossResourceId?: number;
+  payPeriod?: number;
+  payPeriodType?: string;
+  payType?: string;
+  replicas?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceQuota?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  securityGroupId?: string;
+  segDiskPerformanceLevel?: string;
+  segNodeNum?: number;
+  storageType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  vSwitchId?: string;
+  vectordbAccount?: string;
+  vectordbCategory?: string;
+  vectordbEngineVersion?: string;
+  vectordbInstanceSpec?: string;
+  vectordbOption?: string;
+  vectordbPassword?: string;
+  vectordbResourceId?: number;
+  vectordbStorageSize?: string;
+  vectordbStorageType?: string;
+  vectordbType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  vpcId?: string;
+  workspaceDescription?: string;
+  workspaceId?: string;
+  workspaceName?: string;
+  workspaceOption?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adbpgInstanceMode: 'AdbpgInstanceMode',
+      clientToken: 'ClientToken',
+      dataRegion: 'DataRegion',
+      databaseOption: 'DatabaseOption',
+      dbEngineType: 'DbEngineType',
+      dbEngineVersion: 'DbEngineVersion',
+      dbInstanceAccount: 'DbInstanceAccount',
+      dbInstanceCategory: 'DbInstanceCategory',
+      dbInstanceClass: 'DbInstanceClass',
+      dbInstancePassword: 'DbInstancePassword',
+      dbResourceId: 'DbResourceId',
+      dbStorageSize: 'DbStorageSize',
+      dbStorageType: 'DbStorageType',
+      dryRun: 'DryRun',
+      kvStoreAccount: 'KvStoreAccount',
+      kvStoreEngineVersion: 'KvStoreEngineVersion',
+      kvStoreInstanceClass: 'KvStoreInstanceClass',
+      kvStoreNodeType: 'KvStoreNodeType',
+      kvStoreOption: 'KvStoreOption',
+      kvStorePassword: 'KvStorePassword',
+      kvStoreResourceId: 'KvStoreResourceId',
+      kvStoreType: 'KvStoreType',
+      ossPath: 'OssPath',
+      ossResourceId: 'OssResourceId',
+      payPeriod: 'PayPeriod',
+      payPeriodType: 'PayPeriodType',
+      payType: 'PayType',
+      replicas: 'Replicas',
+      resourceQuota: 'ResourceQuota',
+      securityGroupId: 'SecurityGroupId',
+      segDiskPerformanceLevel: 'SegDiskPerformanceLevel',
+      segNodeNum: 'SegNodeNum',
+      storageType: 'StorageType',
+      vSwitchId: 'VSwitchId',
+      vectordbAccount: 'VectordbAccount',
+      vectordbCategory: 'VectordbCategory',
+      vectordbEngineVersion: 'VectordbEngineVersion',
+      vectordbInstanceSpec: 'VectordbInstanceSpec',
+      vectordbOption: 'VectordbOption',
+      vectordbPassword: 'VectordbPassword',
+      vectordbResourceId: 'VectordbResourceId',
+      vectordbStorageSize: 'VectordbStorageSize',
+      vectordbStorageType: 'VectordbStorageType',
+      vectordbType: 'VectordbType',
+      vpcId: 'VpcId',
+      workspaceDescription: 'WorkspaceDescription',
+      workspaceId: 'WorkspaceId',
+      workspaceName: 'WorkspaceName',
+      workspaceOption: 'WorkspaceOption',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adbpgInstanceMode: 'string',
+      clientToken: 'string',
+      dataRegion: 'string',
+      databaseOption: 'string',
+      dbEngineType: 'string',
+      dbEngineVersion: 'string',
+      dbInstanceAccount: 'string',
+      dbInstanceCategory: 'string',
+      dbInstanceClass: 'string',
+      dbInstancePassword: 'string',
+      dbResourceId: 'number',
+      dbStorageSize: 'string',
+      dbStorageType: 'string',
+      dryRun: 'boolean',
+      kvStoreAccount: 'string',
+      kvStoreEngineVersion: 'string',
+      kvStoreInstanceClass: 'string',
+      kvStoreNodeType: 'string',
+      kvStoreOption: 'string',
+      kvStorePassword: 'string',
+      kvStoreResourceId: 'number',
+      kvStoreType: 'string',
+      ossPath: 'string',
+      ossResourceId: 'number',
+      payPeriod: 'number',
+      payPeriodType: 'string',
+      payType: 'string',
+      replicas: 'number',
+      resourceQuota: 'string',
+      securityGroupId: 'string',
+      segDiskPerformanceLevel: 'string',
+      segNodeNum: 'number',
+      storageType: 'string',
+      vSwitchId: 'string',
+      vectordbAccount: 'string',
+      vectordbCategory: 'string',
+      vectordbEngineVersion: 'string',
+      vectordbInstanceSpec: 'string',
+      vectordbOption: 'string',
+      vectordbPassword: 'string',
+      vectordbResourceId: 'number',
+      vectordbStorageSize: 'string',
+      vectordbStorageType: 'string',
+      vectordbType: 'string',
+      vpcId: 'string',
+      workspaceDescription: 'string',
+      workspaceId: 'string',
+      workspaceName: 'string',
+      workspaceOption: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDifyInstanceResponseBody extends $dara.Model {
+  code?: string;
+  data?: CreateDifyInstanceResponseBodyData;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateDifyInstanceResponseBodyData,
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDifyInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDifyInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDifyInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFreeLockCorrectOrderRequest extends $dara.Model {
   /**
    * @remarks
@@ -38256,6 +38605,114 @@ export class DeleteUserResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDifyDefaultVpcRequest extends $dara.Model {
+  clientToken?: string;
+  dataRegion?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dataRegion: 'DataRegion',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dataRegion: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDifyDefaultVpcResponseBody extends $dara.Model {
+  code?: string;
+  data?: DescribeDifyDefaultVpcResponseBodyData;
+  errorCode?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeDifyDefaultVpcResponseBodyData,
+      errorCode: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDifyDefaultVpcResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDifyDefaultVpcResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDifyDefaultVpcResponseBody,
     };
   }
 
@@ -76124,6 +76581,269 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用于创建DIFY实例及相关资源，支持自定义配置。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
+   * - 如果选择新建工作空间 (`CreateNewInstance`)，则必须提供 `workspaceName` 和 `workspaceDescription`。
+   * - `vpcId`, `VSwitchID`, `zoneId`, `regionCode`, `ResourceQuota`, `Replicas`, `storageType`, `dbInstanceClass`, `dbEngineVersion`, `kvstoreEngineVersion` 是必填项。
+   * - 当 `storageType` 为 `oss` 时，需要指定 `ossBucketResourceId` 和 `ossPath`。
+   * - 如果需要新建数据库实例，则必须提供 `instanceAccount` 和 `instancePassword`。
+   * - 预付费模式下，`PayPeriodType` 和 `PayPeriod` 必须填写。
+   * - 可以通过设置 `dryRun` 为 `true` 来执行预检查而不实际创建实例。
+   * 
+   * @param request - CreateDifyInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDifyInstanceResponse
+   */
+  async createDifyInstanceWithOptions(request: CreateDifyInstanceRequest, runtime: $dara.RuntimeOptions): Promise<CreateDifyInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.adbpgInstanceMode)) {
+      query["AdbpgInstanceMode"] = request.adbpgInstanceMode;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!$dara.isNull(request.databaseOption)) {
+      query["DatabaseOption"] = request.databaseOption;
+    }
+
+    if (!$dara.isNull(request.dbEngineType)) {
+      query["DbEngineType"] = request.dbEngineType;
+    }
+
+    if (!$dara.isNull(request.dbEngineVersion)) {
+      query["DbEngineVersion"] = request.dbEngineVersion;
+    }
+
+    if (!$dara.isNull(request.dbInstanceAccount)) {
+      query["DbInstanceAccount"] = request.dbInstanceAccount;
+    }
+
+    if (!$dara.isNull(request.dbInstanceCategory)) {
+      query["DbInstanceCategory"] = request.dbInstanceCategory;
+    }
+
+    if (!$dara.isNull(request.dbInstanceClass)) {
+      query["DbInstanceClass"] = request.dbInstanceClass;
+    }
+
+    if (!$dara.isNull(request.dbInstancePassword)) {
+      query["DbInstancePassword"] = request.dbInstancePassword;
+    }
+
+    if (!$dara.isNull(request.dbResourceId)) {
+      query["DbResourceId"] = request.dbResourceId;
+    }
+
+    if (!$dara.isNull(request.dbStorageSize)) {
+      query["DbStorageSize"] = request.dbStorageSize;
+    }
+
+    if (!$dara.isNull(request.dbStorageType)) {
+      query["DbStorageType"] = request.dbStorageType;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.kvStoreAccount)) {
+      query["KvStoreAccount"] = request.kvStoreAccount;
+    }
+
+    if (!$dara.isNull(request.kvStoreEngineVersion)) {
+      query["KvStoreEngineVersion"] = request.kvStoreEngineVersion;
+    }
+
+    if (!$dara.isNull(request.kvStoreInstanceClass)) {
+      query["KvStoreInstanceClass"] = request.kvStoreInstanceClass;
+    }
+
+    if (!$dara.isNull(request.kvStoreNodeType)) {
+      query["KvStoreNodeType"] = request.kvStoreNodeType;
+    }
+
+    if (!$dara.isNull(request.kvStoreOption)) {
+      query["KvStoreOption"] = request.kvStoreOption;
+    }
+
+    if (!$dara.isNull(request.kvStorePassword)) {
+      query["KvStorePassword"] = request.kvStorePassword;
+    }
+
+    if (!$dara.isNull(request.kvStoreResourceId)) {
+      query["KvStoreResourceId"] = request.kvStoreResourceId;
+    }
+
+    if (!$dara.isNull(request.kvStoreType)) {
+      query["KvStoreType"] = request.kvStoreType;
+    }
+
+    if (!$dara.isNull(request.ossPath)) {
+      query["OssPath"] = request.ossPath;
+    }
+
+    if (!$dara.isNull(request.ossResourceId)) {
+      query["OssResourceId"] = request.ossResourceId;
+    }
+
+    if (!$dara.isNull(request.payPeriod)) {
+      query["PayPeriod"] = request.payPeriod;
+    }
+
+    if (!$dara.isNull(request.payPeriodType)) {
+      query["PayPeriodType"] = request.payPeriodType;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.replicas)) {
+      query["Replicas"] = request.replicas;
+    }
+
+    if (!$dara.isNull(request.resourceQuota)) {
+      query["ResourceQuota"] = request.resourceQuota;
+    }
+
+    if (!$dara.isNull(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!$dara.isNull(request.segDiskPerformanceLevel)) {
+      query["SegDiskPerformanceLevel"] = request.segDiskPerformanceLevel;
+    }
+
+    if (!$dara.isNull(request.segNodeNum)) {
+      query["SegNodeNum"] = request.segNodeNum;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vectordbAccount)) {
+      query["VectordbAccount"] = request.vectordbAccount;
+    }
+
+    if (!$dara.isNull(request.vectordbCategory)) {
+      query["VectordbCategory"] = request.vectordbCategory;
+    }
+
+    if (!$dara.isNull(request.vectordbEngineVersion)) {
+      query["VectordbEngineVersion"] = request.vectordbEngineVersion;
+    }
+
+    if (!$dara.isNull(request.vectordbInstanceSpec)) {
+      query["VectordbInstanceSpec"] = request.vectordbInstanceSpec;
+    }
+
+    if (!$dara.isNull(request.vectordbOption)) {
+      query["VectordbOption"] = request.vectordbOption;
+    }
+
+    if (!$dara.isNull(request.vectordbPassword)) {
+      query["VectordbPassword"] = request.vectordbPassword;
+    }
+
+    if (!$dara.isNull(request.vectordbResourceId)) {
+      query["VectordbResourceId"] = request.vectordbResourceId;
+    }
+
+    if (!$dara.isNull(request.vectordbStorageSize)) {
+      query["VectordbStorageSize"] = request.vectordbStorageSize;
+    }
+
+    if (!$dara.isNull(request.vectordbStorageType)) {
+      query["VectordbStorageType"] = request.vectordbStorageType;
+    }
+
+    if (!$dara.isNull(request.vectordbType)) {
+      query["VectordbType"] = request.vectordbType;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.workspaceDescription)) {
+      query["WorkspaceDescription"] = request.workspaceDescription;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceName)) {
+      query["WorkspaceName"] = request.workspaceName;
+    }
+
+    if (!$dara.isNull(request.workspaceOption)) {
+      query["WorkspaceOption"] = request.workspaceOption;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDifyInstance",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDifyInstanceResponse>(await this.callApi(params, req, runtime), new CreateDifyInstanceResponse({}));
+    } else {
+      return $dara.cast<CreateDifyInstanceResponse>(await this.execute(params, req, runtime), new CreateDifyInstanceResponse({}));
+    }
+
+  }
+
+  /**
+   * 用于创建DIFY实例及相关资源，支持自定义配置。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
+   * - 如果选择新建工作空间 (`CreateNewInstance`)，则必须提供 `workspaceName` 和 `workspaceDescription`。
+   * - `vpcId`, `VSwitchID`, `zoneId`, `regionCode`, `ResourceQuota`, `Replicas`, `storageType`, `dbInstanceClass`, `dbEngineVersion`, `kvstoreEngineVersion` 是必填项。
+   * - 当 `storageType` 为 `oss` 时，需要指定 `ossBucketResourceId` 和 `ossPath`。
+   * - 如果需要新建数据库实例，则必须提供 `instanceAccount` 和 `instancePassword`。
+   * - 预付费模式下，`PayPeriodType` 和 `PayPeriod` 必须填写。
+   * - 可以通过设置 `dryRun` 为 `true` 来执行预检查而不实际创建实例。
+   * 
+   * @param request - CreateDifyInstanceRequest
+   * @returns CreateDifyInstanceResponse
+   */
+  async createDifyInstance(request: CreateDifyInstanceRequest): Promise<CreateDifyInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDifyInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * 创建无锁变更工单
    * 
    * @remarks
@@ -78338,6 +79058,81 @@ export default class Client extends OpenApi {
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 用于创建DIFY实例及相关资源，支持自定义配置。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
+   * - 如果选择新建工作空间 (`CreateNewInstance`)，则必须提供 `workspaceName` 和 `workspaceDescription`。
+   * - `vpcId`, `VSwitchID`, `zoneId`, `regionCode`, `ResourceQuota`, `Replicas`, `storageType`, `dbInstanceClass`, `dbEngineVersion`, `kvstoreEngineVersion` 是必填项。
+   * - 当 `storageType` 为 `oss` 时，需要指定 `ossBucketResourceId` 和 `ossPath`。
+   * - 如果需要新建数据库实例，则必须提供 `instanceAccount` 和 `instancePassword`。
+   * - 预付费模式下，`PayPeriodType` 和 `PayPeriod` 必须填写。
+   * - 可以通过设置 `dryRun` 为 `true` 来执行预检查而不实际创建实例。
+   * 
+   * @param request - DescribeDifyDefaultVpcRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDifyDefaultVpcResponse
+   */
+  async describeDifyDefaultVpcWithOptions(request: DescribeDifyDefaultVpcRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDifyDefaultVpcResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDifyDefaultVpc",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDifyDefaultVpcResponse>(await this.callApi(params, req, runtime), new DescribeDifyDefaultVpcResponse({}));
+    } else {
+      return $dara.cast<DescribeDifyDefaultVpcResponse>(await this.execute(params, req, runtime), new DescribeDifyDefaultVpcResponse({}));
+    }
+
+  }
+
+  /**
+   * 用于创建DIFY实例及相关资源，支持自定义配置。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
+   * - 如果选择新建工作空间 (`CreateNewInstance`)，则必须提供 `workspaceName` 和 `workspaceDescription`。
+   * - `vpcId`, `VSwitchID`, `zoneId`, `regionCode`, `ResourceQuota`, `Replicas`, `storageType`, `dbInstanceClass`, `dbEngineVersion`, `kvstoreEngineVersion` 是必填项。
+   * - 当 `storageType` 为 `oss` 时，需要指定 `ossBucketResourceId` 和 `ossPath`。
+   * - 如果需要新建数据库实例，则必须提供 `instanceAccount` 和 `instancePassword`。
+   * - 预付费模式下，`PayPeriodType` 和 `PayPeriod` 必须填写。
+   * - 可以通过设置 `dryRun` 为 `true` 来执行预检查而不实际创建实例。
+   * 
+   * @param request - DescribeDifyDefaultVpcRequest
+   * @returns DescribeDifyDefaultVpcResponse
+   */
+  async describeDifyDefaultVpc(request: DescribeDifyDefaultVpcRequest): Promise<DescribeDifyDefaultVpcResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDifyDefaultVpcWithOptions(request, runtime);
   }
 
   /**
