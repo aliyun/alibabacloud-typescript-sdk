@@ -1,13 +1,5493 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class AddHotlineNumberRequest extends $tea.Model {
+export class AddHotlineNumberRequestOutboundRangeList extends $dara.Model {
+  /**
+   * @example
+   * 123456
+   */
+  departmentId?: number;
+  groupIdList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      departmentId: 'DepartmentId',
+      groupIdList: 'GroupIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentId: 'number',
+      groupIdList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.groupIdList)) {
+      $dara.Model.validateArray(this.groupIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateQualityProjectsResponseBodyData extends $dara.Model {
+  instanceId?: string;
+  projectId?: number;
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      projectId: 'ProjectId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      projectId: 'number',
+      version: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAiOutboundTaskRequestRecallRule extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  count?: number;
+  /**
+   * @example
+   * 1
+   */
+  interval?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      interval: 'Interval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      interval: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateQualityProjectResponseBodyData extends $dara.Model {
+  instanceId?: string;
+  projectId?: number;
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      projectId: 'ProjectId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      projectId: 'number',
+      version: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EditQualityProjectResponseBodyData extends $dara.Model {
+  instanceId?: string;
+  projectId?: number;
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      projectId: 'ProjectId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      projectId: 'number',
+      version: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EditQualityRuleTagRequestAnalysisTypes extends $dara.Model {
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentResponseBodyDataGroupList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  channelType?: number;
+  description?: string;
+  displayName?: string;
+  name?: string;
+  /**
+   * @example
+   * 123456
+   */
+  skillGroupId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      channelType: 'ChannelType',
+      description: 'Description',
+      displayName: 'DisplayName',
+      name: 'Name',
+      skillGroupId: 'SkillGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelType: 'number',
+      description: 'string',
+      displayName: 'string',
+      name: 'string',
+      skillGroupId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 123@123.com
+   */
+  accountName?: string;
+  /**
+   * @example
+   * 222222
+   */
+  agentId?: number;
+  displayName?: string;
+  groupList?: GetAgentResponseBodyDataGroupList[];
+  /**
+   * @example
+   * 0
+   */
+  status?: number;
+  /**
+   * @example
+   * 0
+   */
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      agentId: 'AgentId',
+      displayName: 'DisplayName',
+      groupList: 'GroupList',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      agentId: 'number',
+      displayName: 'string',
+      groupList: { 'type': 'array', 'itemType': GetAgentResponseBodyDataGroupList },
+      status: 'number',
+      tenantId: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.groupList)) {
+      $dara.Model.validateArray(this.groupList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentBasisStatusResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentByIdResponseBodyData extends $dara.Model {
+  agentId?: number;
+  createUserName?: string;
+  foreignKey?: string;
+  foreignNick?: string;
+  realName?: string;
+  servicerType?: number;
+  showName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'AgentId',
+      createUserName: 'CreateUserName',
+      foreignKey: 'ForeignKey',
+      foreignNick: 'ForeignNick',
+      realName: 'RealName',
+      servicerType: 'ServicerType',
+      showName: 'ShowName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'number',
+      createUserName: 'string',
+      foreignKey: 'string',
+      foreignNick: 'string',
+      realName: 'string',
+      servicerType: 'number',
+      showName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentDetailReportResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * {"t_wait":379322.0,"hotline_time_outcall_avg":"32.00","n_ringing":0,"t_outbound_40":0.0,"hotline_time_incall_avg":-1,"t_calldialing":0.0,"n_inbound":276,"servicer_id":"-1","call_in_sep_sat_cnt":13,"request_cnt":231,"n_not_ready_99":811,"t_work_outbound":49338.0,"hotline_rate_handle_in_60s":"96%","n_not_ready_login":811,"t_not_ready_login":0.0,"n_work_inbound":176,"}
+   */
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentIndexRealTimeResponseBodyDataColumns extends $dara.Model {
+  key?: string;
+  /**
+   * @example
+   * servicerId
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentIndexRealTimeResponseBodyData extends $dara.Model {
+  columns?: GetAgentIndexRealTimeResponseBodyDataColumns[];
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  rows?: { [key: string]: any }[];
+  /**
+   * @example
+   * 4
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'Columns',
+      page: 'Page',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': GetAgentIndexRealTimeResponseBodyDataColumns },
+      page: 'number',
+      pageSize: 'number',
+      rows: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
+    }
+    if(Array.isArray(this.rows)) {
+      $dara.Model.validateArray(this.rows);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentServiceStatusResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * {"online_40s_transfer_ready_cnt":81,"minute_id":"-1","online_unsatis_cnt":0,"online_simple_cnt":0,"average_queue_time":-1,"service_pickup":"2086","total_waiting_time":"981","online_service_time_len":58208,"online_direct_give_up_len":0,"break_ratio":"2%"}
+   */
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentStatisticsResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * {"n_resttype_1":15,"t_outcall_speak":829747,"average_incoming_time":"8451.29","n_resttype_3":0,"minute_id":"-1","n_conference_speak":0,"n_resttype_2":0,"n_resttype_5":0,"n_resttype_4":0,"n_resttype_7":0,"n_resttype_6":0,"n_resttype_9":0,"n_resttype_8":0,"n_outcall_dial":25,"total_break_time":"58555","n_internal_speak":0,"n_send_step_transfer":7,"n_consulted_internal_speak":0}
+   */
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAiOutboundTaskBizDataResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * {"customer":123}
+   */
+  bizData?: string;
+  /**
+   * @example
+   * 123
+   */
+  caseId?: number;
+  /**
+   * @example
+   * 158****0000
+   */
+  phoneNum?: string;
+  /**
+   * @example
+   * 123456
+   */
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bizData: 'BizData',
+      caseId: 'CaseId',
+      phoneNum: 'PhoneNum',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizData: 'string',
+      caseId: 'number',
+      phoneNum: 'string',
+      taskId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAiOutboundTaskDetailResponseBodyDataRecallRule extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  count?: number;
+  /**
+   * @example
+   * 2
+   */
+  interval?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      interval: 'Interval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      interval: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAiOutboundTaskDetailResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  concurrentRate?: number;
+  description?: string;
+  /**
+   * @example
+   * {"TUESDAY":[{"start":"06:00","end":"06:05"}],"MONDAY":[{"start":"09:00","end":"18:00"},{"start":"20:30","end":"21:45"},{"start":"22:30","end":"22:50"}],"WEDNESDAY":[{"start":"09:00","end":"18:00"}],"THURSDAY":[{"start":"09:00","end":"18:00"}],"FRIDAY":[{"start":"09:00","end":"18:00"}],"SATURDAY":[{"start":"09:00","end":"18:00"}],"SUNDAY":[{"start":"17:00","end":"23:45"}]}
+   */
+  executionTime?: string;
+  /**
+   * @example
+   * 1.2
+   */
+  forecastCallRate?: number;
+  /**
+   * @example
+   * 123456
+   */
+  handlerId?: number;
+  /**
+   * @example
+   * 热线技能组
+   */
+  handlerName?: string;
+  /**
+   * @example
+   * xx外呼任务
+   */
+  name?: string;
+  /**
+   * @example
+   * 0
+   */
+  numRepeated?: number;
+  outboundNums?: string[];
+  recallRule?: GetAiOutboundTaskDetailResponseBodyDataRecallRule;
+  /**
+   * @example
+   * 1
+   */
+  status?: number;
+  /**
+   * @example
+   * 未开始
+   */
+  statusDesc?: string;
+  /**
+   * @example
+   * 123
+   */
+  taskId?: number;
+  /**
+   * @example
+   * 2
+   */
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      concurrentRate: 'ConcurrentRate',
+      description: 'Description',
+      executionTime: 'ExecutionTime',
+      forecastCallRate: 'ForecastCallRate',
+      handlerId: 'HandlerId',
+      handlerName: 'HandlerName',
+      name: 'Name',
+      numRepeated: 'NumRepeated',
+      outboundNums: 'OutboundNums',
+      recallRule: 'RecallRule',
+      status: 'Status',
+      statusDesc: 'StatusDesc',
+      taskId: 'TaskId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      concurrentRate: 'number',
+      description: 'string',
+      executionTime: 'string',
+      forecastCallRate: 'number',
+      handlerId: 'number',
+      handlerName: 'string',
+      name: 'string',
+      numRepeated: 'number',
+      outboundNums: { 'type': 'array', 'itemType': 'string' },
+      recallRule: GetAiOutboundTaskDetailResponseBodyDataRecallRule,
+      status: 'number',
+      statusDesc: 'string',
+      taskId: 'number',
+      type: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.outboundNums)) {
+      $dara.Model.validateArray(this.outboundNums);
+    }
+    if(this.recallRule && typeof (this.recallRule as any).validate === 'function') {
+      (this.recallRule as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAiOutboundTaskExecDetailResponseBodyDataList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  batchVersion?: number;
+  /**
+   * @example
+   * 123
+   */
+  bizData?: string;
+  /**
+   * @example
+   * 1
+   */
+  callCount?: number;
+  /**
+   * @example
+   * 123456
+   */
+  caseId?: number;
+  /**
+   * @example
+   * 1632289999000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 未接通
+   */
+  lastCallResult?: string;
+  /**
+   * @example
+   * 150****0000
+   */
+  phoneNum?: string;
+  /**
+   * @example
+   * 1
+   */
+  status?: number;
+  /**
+   * @example
+   * 待呼叫
+   */
+  statusDesc?: number;
+  static names(): { [key: string]: string } {
+    return {
+      batchVersion: 'BatchVersion',
+      bizData: 'BizData',
+      callCount: 'CallCount',
+      caseId: 'CaseId',
+      createTime: 'CreateTime',
+      lastCallResult: 'LastCallResult',
+      phoneNum: 'PhoneNum',
+      status: 'Status',
+      statusDesc: 'StatusDesc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchVersion: 'number',
+      bizData: 'string',
+      callCount: 'number',
+      caseId: 'number',
+      createTime: 'number',
+      lastCallResult: 'string',
+      phoneNum: 'string',
+      status: 'number',
+      statusDesc: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAiOutboundTaskExecDetailResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * true
+   */
+  hasNextPage?: boolean;
+  list?: GetAiOutboundTaskExecDetailResponseBodyDataList[];
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 199
+   */
+  totalResults?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      hasNextPage: 'HasNextPage',
+      list: 'List',
+      pageSize: 'PageSize',
+      totalResults: 'TotalResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      hasNextPage: 'boolean',
+      list: { 'type': 'array', 'itemType': GetAiOutboundTaskExecDetailResponseBodyDataList },
+      pageSize: 'number',
+      totalResults: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAiOutboundTaskListResponseBodyDataList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  concurrentRate?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
+  createTime?: number;
+  description?: string;
+  /**
+   * @example
+   * 70
+   */
+  finishCount?: number;
+  /**
+   * @example
+   * 0.7
+   */
+  finishRate?: number;
+  /**
+   * @example
+   * 2468****
+   */
+  handlerId?: number;
+  /**
+   * @example
+   * 热线技能组
+   */
+  handlerName?: string;
+  /**
+   * @example
+   * xx外呼任务
+   */
+  name?: string;
+  /**
+   * @example
+   * 0
+   */
+  status?: number;
+  /**
+   * @example
+   * 未开始
+   */
+  statusDesc?: string;
+  /**
+   * @example
+   * 1763****
+   */
+  taskId?: number;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      concurrentRate: 'ConcurrentRate',
+      createTime: 'CreateTime',
+      description: 'Description',
+      finishCount: 'FinishCount',
+      finishRate: 'FinishRate',
+      handlerId: 'HandlerId',
+      handlerName: 'HandlerName',
+      name: 'Name',
+      status: 'Status',
+      statusDesc: 'StatusDesc',
+      taskId: 'TaskId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      concurrentRate: 'number',
+      createTime: 'number',
+      description: 'string',
+      finishCount: 'number',
+      finishRate: 'number',
+      handlerId: 'number',
+      handlerName: 'string',
+      name: 'string',
+      status: 'number',
+      statusDesc: 'string',
+      taskId: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAiOutboundTaskListResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * false
+   */
+  hasNextPage?: boolean;
+  list?: GetAiOutboundTaskListResponseBodyDataList[];
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
+  totalResults?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      hasNextPage: 'HasNextPage',
+      list: 'List',
+      pageSize: 'PageSize',
+      totalResults: 'TotalResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      hasNextPage: 'boolean',
+      list: { 'type': 'array', 'itemType': GetAiOutboundTaskListResponseBodyDataList },
+      pageSize: 'number',
+      totalResults: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAiOutboundTaskProgressResponseBodyDataCalloutProgress extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  callLossCount?: number;
+  /**
+   * @example
+   * 0.01
+   */
+  callLossRate?: number;
+  /**
+   * @example
+   * 5
+   */
+  callOutConnectCount?: number;
+  /**
+   * @example
+   * 0.5
+   */
+  callOutConnectRate?: number;
+  /**
+   * @example
+   * 10
+   */
+  callOutCount?: number;
+  /**
+   * @example
+   * 4
+   */
+  callOutServicerPickupCount?: number;
+  /**
+   * @example
+   * 0.4
+   */
+  callOutServicerPickupRate?: number;
+  /**
+   * @example
+   * 5
+   */
+  callOutUserPickupCount?: number;
+  /**
+   * @example
+   * 0.5
+   */
+  callOutUserPickupRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callLossCount: 'CallLossCount',
+      callLossRate: 'CallLossRate',
+      callOutConnectCount: 'CallOutConnectCount',
+      callOutConnectRate: 'CallOutConnectRate',
+      callOutCount: 'CallOutCount',
+      callOutServicerPickupCount: 'CallOutServicerPickupCount',
+      callOutServicerPickupRate: 'CallOutServicerPickupRate',
+      callOutUserPickupCount: 'CallOutUserPickupCount',
+      callOutUserPickupRate: 'CallOutUserPickupRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callLossCount: 'number',
+      callLossRate: 'number',
+      callOutConnectCount: 'number',
+      callOutConnectRate: 'number',
+      callOutCount: 'number',
+      callOutServicerPickupCount: 'number',
+      callOutServicerPickupRate: 'number',
+      callOutUserPickupCount: 'number',
+      callOutUserPickupRate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAiOutboundTaskProgressResponseBodyDataTaskProgress extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  callingCount?: number;
+  /**
+   * @example
+   * 2
+   */
+  connectCount?: number;
+  /**
+   * @example
+   * 0.2
+   */
+  connectRate?: number;
+  /**
+   * @example
+   * 2
+   */
+  finishCount?: number;
+  /**
+   * @example
+   * 0.20
+   */
+  finishRate?: number;
+  /**
+   * @example
+   * 2
+   */
+  servicerPickupCount?: number;
+  /**
+   * @example
+   * 0.2
+   */
+  servicerPickupRate?: number;
+  /**
+   * @example
+   * 2
+   */
+  terminateCount?: number;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 2
+   */
+  userPickupCount?: number;
+  /**
+   * @example
+   * 0.2
+   */
+  userPickupRate?: number;
+  /**
+   * @example
+   * 2
+   */
+  waitingCallCount?: number;
+  /**
+   * @example
+   * 2
+   */
+  waitingRecallCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callingCount: 'CallingCount',
+      connectCount: 'ConnectCount',
+      connectRate: 'ConnectRate',
+      finishCount: 'FinishCount',
+      finishRate: 'FinishRate',
+      servicerPickupCount: 'ServicerPickupCount',
+      servicerPickupRate: 'ServicerPickupRate',
+      terminateCount: 'TerminateCount',
+      totalCount: 'TotalCount',
+      userPickupCount: 'UserPickupCount',
+      userPickupRate: 'UserPickupRate',
+      waitingCallCount: 'WaitingCallCount',
+      waitingRecallCount: 'WaitingRecallCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callingCount: 'number',
+      connectCount: 'number',
+      connectRate: 'number',
+      finishCount: 'number',
+      finishRate: 'number',
+      servicerPickupCount: 'number',
+      servicerPickupRate: 'number',
+      terminateCount: 'number',
+      totalCount: 'number',
+      userPickupCount: 'number',
+      userPickupRate: 'number',
+      waitingCallCount: 'number',
+      waitingRecallCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAiOutboundTaskProgressResponseBodyData extends $dara.Model {
+  calloutProgress?: GetAiOutboundTaskProgressResponseBodyDataCalloutProgress;
+  /**
+   * @example
+   * 123456
+   */
+  taskId?: number;
+  taskProgress?: GetAiOutboundTaskProgressResponseBodyDataTaskProgress;
+  /**
+   * @example
+   * 2
+   */
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      calloutProgress: 'CalloutProgress',
+      taskId: 'TaskId',
+      taskProgress: 'TaskProgress',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      calloutProgress: GetAiOutboundTaskProgressResponseBodyDataCalloutProgress,
+      taskId: 'number',
+      taskProgress: GetAiOutboundTaskProgressResponseBodyDataTaskProgress,
+      type: 'number',
+    };
+  }
+
+  validate() {
+    if(this.calloutProgress && typeof (this.calloutProgress as any).validate === 'function') {
+      (this.calloutProgress as any).validate();
+    }
+    if(this.taskProgress && typeof (this.taskProgress as any).validate === 'function') {
+      (this.taskProgress as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAllDepartmentResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  departmentId?: number;
+  departmentName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      departmentId: 'DepartmentId',
+      departmentName: 'DepartmentName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentId: 'number',
+      departmentName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCustomerInfoResponseBodyData extends $dara.Model {
+  customizeFields?: { [key: string]: any };
+  nick?: string;
+  /**
+   * @example
+   * 6666666
+   */
+  outerId?: string;
+  /**
+   * @example
+   * https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLSW7XPFlJDwVunXP8pr84TvltwtLlNqTlOVSFeM3bCgn57mAB4JuZZmvMW0qicqW0PyzyUdZpxiaFQ
+   */
+  photo?: string;
+  realName?: string;
+  /**
+   * @example
+   * 823456789023
+   */
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      customizeFields: 'CustomizeFields',
+      nick: 'Nick',
+      outerId: 'OuterId',
+      photo: 'Photo',
+      realName: 'RealName',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customizeFields: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      nick: 'string',
+      outerId: 'string',
+      photo: 'string',
+      realName: 'string',
+      userId: 'number',
+    };
+  }
+
+  validate() {
+    if(this.customizeFields) {
+      $dara.Model.validateMap(this.customizeFields);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDepGroupTreeDataResponseBodyDataGroupDTOS extends $dara.Model {
+  name?: string;
+  /**
+   * @example
+   * 555555
+   */
+  skillGroupId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      skillGroupId: 'SkillGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      skillGroupId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDepGroupTreeDataResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  depGroupId?: string;
+  depGroupName?: string;
+  groupDTOS?: GetDepGroupTreeDataResponseBodyDataGroupDTOS[];
+  static names(): { [key: string]: string } {
+    return {
+      depGroupId: 'DepGroupId',
+      depGroupName: 'DepGroupName',
+      groupDTOS: 'GroupDTOS',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      depGroupId: 'string',
+      depGroupName: 'string',
+      groupDTOS: { 'type': 'array', 'itemType': GetDepGroupTreeDataResponseBodyDataGroupDTOS },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.groupDTOS)) {
+      $dara.Model.validateArray(this.groupDTOS);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDepartmentalLatitudeAgentStatusResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotlineAgentDetailResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 2235****
+   */
+  agentId?: number;
+  /**
+   * @example
+   * 1
+   */
+  agentStatus?: number;
+  /**
+   * @example
+   * AgentCheckout
+   */
+  agentStatusCode?: string;
+  /**
+   * @example
+   * false
+   */
+  assigned?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  restType?: number;
+  /**
+   * @example
+   * ccc_xp_pre-cn-***
+   */
+  tenantId?: number;
+  /**
+   * @example
+   * dnthF_oinHg7JMJDmKqex3Ux****
+   */
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'AgentId',
+      agentStatus: 'AgentStatus',
+      agentStatusCode: 'AgentStatusCode',
+      assigned: 'Assigned',
+      restType: 'RestType',
+      tenantId: 'TenantId',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'number',
+      agentStatus: 'number',
+      agentStatusCode: 'string',
+      assigned: 'boolean',
+      restType: 'number',
+      tenantId: 'number',
+      token: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotlineAgentDetailReportResponseBodyDataColumns extends $dara.Model {
+  /**
+   * @example
+   * realName
+   */
+  key?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotlineAgentDetailReportResponseBodyData extends $dara.Model {
+  columns?: GetHotlineAgentDetailReportResponseBodyDataColumns[];
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  rows?: { [key: string]: any }[];
+  /**
+   * @example
+   * 7
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'Columns',
+      page: 'Page',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': GetHotlineAgentDetailReportResponseBodyDataColumns },
+      page: 'number',
+      pageSize: 'number',
+      rows: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
+    }
+    if(Array.isArray(this.rows)) {
+      $dara.Model.validateArray(this.rows);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotlineCallActionResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 8999****
+   */
+  actionId?: number;
+  /**
+   * @example
+   * 2367****
+   */
+  buId?: number;
+  /**
+   * @example
+   * 1122****
+   */
+  calloutId?: number;
+  calloutName?: string;
+  /**
+   * @example
+   * 1138902****
+   */
+  caseId?: number;
+  /**
+   * @example
+   * 2377****
+   */
+  channelId?: string;
+  /**
+   * @example
+   * 2
+   */
+  channelType?: number;
+  /**
+   * @example
+   * 1223****
+   */
+  depId?: number;
+  /**
+   * @example
+   * true
+   */
+  isTransfer?: string;
+  /**
+   * @example
+   * 7856876****
+   */
+  memberId?: number;
+  /**
+   * @example
+   * 8900****
+   */
+  memberList?: string;
+  memberName?: string;
+  /**
+   * @example
+   * 1332****
+   */
+  servicerId?: number;
+  servicerName?: string;
+  /**
+   * @example
+   * 3423****
+   */
+  subTouchId?: number;
+  /**
+   * @example
+   * 12345****
+   */
+  taskId?: number;
+  /**
+   * @example
+   * 2235****
+   */
+  touchId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      actionId: 'ActionId',
+      buId: 'BuId',
+      calloutId: 'CalloutId',
+      calloutName: 'CalloutName',
+      caseId: 'CaseId',
+      channelId: 'ChannelId',
+      channelType: 'ChannelType',
+      depId: 'DepId',
+      isTransfer: 'IsTransfer',
+      memberId: 'MemberId',
+      memberList: 'MemberList',
+      memberName: 'MemberName',
+      servicerId: 'ServicerId',
+      servicerName: 'ServicerName',
+      subTouchId: 'SubTouchId',
+      taskId: 'TaskId',
+      touchId: 'TouchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionId: 'number',
+      buId: 'number',
+      calloutId: 'number',
+      calloutName: 'string',
+      caseId: 'number',
+      channelId: 'string',
+      channelType: 'number',
+      depId: 'number',
+      isTransfer: 'string',
+      memberId: 'number',
+      memberList: 'string',
+      memberName: 'string',
+      servicerId: 'number',
+      servicerName: 'string',
+      subTouchId: 'number',
+      taskId: 'number',
+      touchId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotlineGroupDetailReportResponseBodyDataColumns extends $dara.Model {
+  /**
+   * @example
+   * skillGroupName
+   */
+  key?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotlineGroupDetailReportResponseBodyData extends $dara.Model {
+  columns?: GetHotlineGroupDetailReportResponseBodyDataColumns[];
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  rows?: { [key: string]: any }[];
+  /**
+   * @example
+   * 9
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      columns: 'Columns',
+      page: 'Page',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      columns: { 'type': 'array', 'itemType': GetHotlineGroupDetailReportResponseBodyDataColumns },
+      page: 'number',
+      pageSize: 'number',
+      rows: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
+    }
+    if(Array.isArray(this.rows)) {
+      $dara.Model.validateArray(this.rows);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotlineMessageLogResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 100****2077
+   */
+  acid?: string;
+  content?: string;
+  /**
+   * @example
+   * 1623738027480
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 11deca999****
+   */
+  mid?: string;
+  /**
+   * @example
+   * 1
+   */
+  senderType?: number;
+  /**
+   * @example
+   * 1623738026460
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acid: 'Acid',
+      content: 'Content',
+      endTime: 'EndTime',
+      mid: 'Mid',
+      senderType: 'SenderType',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acid: 'string',
+      content: 'string',
+      endTime: 'number',
+      mid: 'string',
+      senderType: 'number',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHotlineServiceStatisticsResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceListResponseBodyCommodityInstances extends $dara.Model {
+  instanceId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOnlineSeatInformationResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOnlineServiceVolumeResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * {"tenant_id":"905","online_40s_transfer_ready_cnt":109,"minute_id":"-1","wait_time_len":1215,"pickup_rate":"63.09%","thirty_seconds_to_pickUp":"2560","date_id":"-1","online_over_out_cnt":0,"online_20s_transfer_ready_cnt":109,"thirty_seconds_response_rate":"63.09%","abandonment_rate":"63.09%","service_time_len":68378,"service_pickup":"2560","hour_id":"-1","online_10s_transfer_ready_cnt":109}
+   */
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOutbounNumListResponseBodyDataNum extends $dara.Model {
+  description?: string;
+  /**
+   * @example
+   * 1
+   */
+  type?: number;
+  /**
+   * @example
+   * 07512234****
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      type: 'number',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOutbounNumListResponseBodyDataNumGroup extends $dara.Model {
+  /**
+   * @example
+   * Jella
+   */
+  description?: string;
+  /**
+   * @example
+   * 2
+   */
+  type?: number;
+  /**
+   * @example
+   * 7688****
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      type: 'number',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOutbounNumListResponseBodyData extends $dara.Model {
+  num?: GetOutbounNumListResponseBodyDataNum[];
+  numGroup?: GetOutbounNumListResponseBodyDataNumGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      num: 'Num',
+      numGroup: 'NumGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      num: { 'type': 'array', 'itemType': GetOutbounNumListResponseBodyDataNum },
+      numGroup: { 'type': 'array', 'itemType': GetOutbounNumListResponseBodyDataNumGroup },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.num)) {
+      $dara.Model.validateArray(this.num);
+    }
+    if(Array.isArray(this.numGroup)) {
+      $dara.Model.validateArray(this.numGroup);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityProjectDetailResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  checkFreqType?: number;
+  /**
+   * @example
+   * 2021-04-07 18:07:18
+   */
+  createTime?: string;
+  depList?: number[];
+  groupList?: number[];
+  /**
+   * @example
+   * 15977801
+   */
+  id?: number;
+  /**
+   * @example
+   * 2021-04-07 18:07:19
+   */
+  modifyTime?: string;
+  projectName?: string;
+  qualityRuleIds?: number[];
+  /**
+   * @example
+   * 1
+   */
+  qualityType?: number;
+  servicerList?: number[];
+  /**
+   * @example
+   * 0
+   */
+  status?: number;
+  /**
+   * @example
+   * 1
+   */
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkFreqType: 'CheckFreqType',
+      createTime: 'CreateTime',
+      depList: 'DepList',
+      groupList: 'GroupList',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      projectName: 'ProjectName',
+      qualityRuleIds: 'QualityRuleIds',
+      qualityType: 'QualityType',
+      servicerList: 'ServicerList',
+      status: 'Status',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkFreqType: 'number',
+      createTime: 'string',
+      depList: { 'type': 'array', 'itemType': 'number' },
+      groupList: { 'type': 'array', 'itemType': 'number' },
+      id: 'number',
+      modifyTime: 'string',
+      projectName: 'string',
+      qualityRuleIds: { 'type': 'array', 'itemType': 'number' },
+      qualityType: 'number',
+      servicerList: { 'type': 'array', 'itemType': 'number' },
+      status: 'number',
+      version: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.depList)) {
+      $dara.Model.validateArray(this.depList);
+    }
+    if(Array.isArray(this.groupList)) {
+      $dara.Model.validateArray(this.groupList);
+    }
+    if(Array.isArray(this.qualityRuleIds)) {
+      $dara.Model.validateArray(this.qualityRuleIds);
+    }
+    if(Array.isArray(this.servicerList)) {
+      $dara.Model.validateArray(this.servicerList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityProjectListResponseBodyDataQualityProjectList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  checkFreqType?: number;
+  /**
+   * @example
+   * 2021-04-07 18:07:18
+   */
+  createTime?: string;
+  depList?: number[];
+  groupList?: number[];
+  /**
+   * @example
+   * 15977801
+   */
+  id?: number;
+  /**
+   * @example
+   * 2021-04-07 18:07:19
+   */
+  modifyTime?: string;
+  projectName?: string;
+  qualityRuleIds?: number[];
+  /**
+   * @example
+   * 1
+   */
+  qualityType?: number;
+  servicerList?: number[];
+  /**
+   * @example
+   * 0
+   */
+  status?: number;
+  /**
+   * @example
+   * 1
+   */
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkFreqType: 'CheckFreqType',
+      createTime: 'CreateTime',
+      depList: 'DepList',
+      groupList: 'GroupList',
+      id: 'Id',
+      modifyTime: 'ModifyTime',
+      projectName: 'ProjectName',
+      qualityRuleIds: 'QualityRuleIds',
+      qualityType: 'QualityType',
+      servicerList: 'ServicerList',
+      status: 'Status',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkFreqType: 'number',
+      createTime: 'string',
+      depList: { 'type': 'array', 'itemType': 'number' },
+      groupList: { 'type': 'array', 'itemType': 'number' },
+      id: 'number',
+      modifyTime: 'string',
+      projectName: 'string',
+      qualityRuleIds: { 'type': 'array', 'itemType': 'number' },
+      qualityType: 'number',
+      servicerList: { 'type': 'array', 'itemType': 'number' },
+      status: 'number',
+      version: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.depList)) {
+      $dara.Model.validateArray(this.depList);
+    }
+    if(Array.isArray(this.groupList)) {
+      $dara.Model.validateArray(this.groupList);
+    }
+    if(Array.isArray(this.qualityRuleIds)) {
+      $dara.Model.validateArray(this.qualityRuleIds);
+    }
+    if(Array.isArray(this.servicerList)) {
+      $dara.Model.validateArray(this.servicerList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityProjectListResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  qualityProjectList?: GetQualityProjectListResponseBodyDataQualityProjectList[];
+  /**
+   * @example
+   * 35
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      qualityProjectList: 'QualityProjectList',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      qualityProjectList: { 'type': 'array', 'itemType': GetQualityProjectListResponseBodyDataQualityProjectList },
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.qualityProjectList)) {
+      $dara.Model.validateArray(this.qualityProjectList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityProjectLogResponseBodyData extends $dara.Model {
+  actionData?: string;
+  actionTime?: string;
+  actionType?: string;
+  projectCreateTime?: string;
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      actionData: 'ActionData',
+      actionTime: 'ActionTime',
+      actionType: 'ActionType',
+      projectCreateTime: 'ProjectCreateTime',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionData: 'string',
+      actionTime: 'string',
+      actionType: 'string',
+      projectCreateTime: 'string',
+      projectId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityResultResponseBodyDataQualityResultResponseList extends $dara.Model {
+  channelType?: string;
+  channelTypeName?: string;
+  groupId?: string;
+  groupName?: string;
+  hitDetail?: string;
+  hitStatus?: boolean;
+  instanceName?: string;
+  memberName?: string;
+  projectId?: string;
+  projectName?: string;
+  ruleId?: string;
+  ruleName?: string;
+  servicerId?: string;
+  servicerName?: string;
+  touchId?: string;
+  touchStartTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelType: 'ChannelType',
+      channelTypeName: 'ChannelTypeName',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      hitDetail: 'HitDetail',
+      hitStatus: 'HitStatus',
+      instanceName: 'InstanceName',
+      memberName: 'MemberName',
+      projectId: 'ProjectId',
+      projectName: 'ProjectName',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      servicerId: 'ServicerId',
+      servicerName: 'ServicerName',
+      touchId: 'TouchId',
+      touchStartTime: 'TouchStartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelType: 'string',
+      channelTypeName: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      hitDetail: 'string',
+      hitStatus: 'boolean',
+      instanceName: 'string',
+      memberName: 'string',
+      projectId: 'string',
+      projectName: 'string',
+      ruleId: 'string',
+      ruleName: 'string',
+      servicerId: 'string',
+      servicerName: 'string',
+      touchId: 'string',
+      touchStartTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityResultResponseBodyData extends $dara.Model {
+  pageNo?: number;
+  pageSize?: number;
+  qualityResultResponseList?: GetQualityResultResponseBodyDataQualityResultResponseList[];
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      qualityResultResponseList: 'QualityResultResponseList',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      qualityResultResponseList: { 'type': 'array', 'itemType': GetQualityResultResponseBodyDataQualityResultResponseList },
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.qualityResultResponseList)) {
+      $dara.Model.validateArray(this.qualityResultResponseList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityRuleDetailResponseBodyData extends $dara.Model {
+  keyWords?: string[];
+  matchType?: number;
+  name?: string;
+  ruleCreateTime?: string;
+  ruleId?: number;
+  ruleTag?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyWords: 'KeyWords',
+      matchType: 'MatchType',
+      name: 'Name',
+      ruleCreateTime: 'RuleCreateTime',
+      ruleId: 'RuleId',
+      ruleTag: 'RuleTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyWords: { 'type': 'array', 'itemType': 'string' },
+      matchType: 'number',
+      name: 'string',
+      ruleCreateTime: 'string',
+      ruleId: 'number',
+      ruleTag: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.keyWords)) {
+      $dara.Model.validateArray(this.keyWords);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityRuleListResponseBodyDataQualityRuleList extends $dara.Model {
+  keyWords?: string[];
+  matchType?: number;
+  name?: string;
+  ruleCreateTime?: string;
+  ruleId?: number;
+  ruleTag?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyWords: 'KeyWords',
+      matchType: 'MatchType',
+      name: 'Name',
+      ruleCreateTime: 'RuleCreateTime',
+      ruleId: 'RuleId',
+      ruleTag: 'RuleTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyWords: { 'type': 'array', 'itemType': 'string' },
+      matchType: 'number',
+      name: 'string',
+      ruleCreateTime: 'string',
+      ruleId: 'number',
+      ruleTag: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.keyWords)) {
+      $dara.Model.validateArray(this.keyWords);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityRuleListResponseBodyData extends $dara.Model {
+  pageNo?: number;
+  pageSize?: number;
+  qualityRuleList?: GetQualityRuleListResponseBodyDataQualityRuleList[];
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      qualityRuleList: 'QualityRuleList',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      qualityRuleList: { 'type': 'array', 'itemType': GetQualityRuleListResponseBodyDataQualityRuleList },
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.qualityRuleList)) {
+      $dara.Model.validateArray(this.qualityRuleList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQualityRuleTagListResponseBodyData extends $dara.Model {
+  ruleTagId?: number;
+  ruleTagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleTagId: 'RuleTagId',
+      ruleTagName: 'RuleTagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleTagId: 'number',
+      ruleTagName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueueInformationResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRecordDataResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1001067****
+   */
+  acid?: string;
+  /**
+   * @example
+   * http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com/accrec_tmp/10010679716-12-01-56.wav?***
+   */
+  ossLink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acid: 'Acid',
+      ossLink: 'OssLink',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acid: 'string',
+      ossLink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRecordUrlResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1001067****
+   */
+  acid?: string;
+  /**
+   * @example
+   * http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com/accrec_tmp/10010679716-12-01-56.wav?***
+   */
+  ossLink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acid: 'Acid',
+      ossLink: 'OssLink',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acid: 'string',
+      ossLink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRtcTokenResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 139000000
+   */
+  accountName?: string;
+  /**
+   * @example
+   * 200000000*******
+   */
+  rtcId?: string;
+  /**
+   * @example
+   * {“cleansession”:true,”clientId”:”GID_VOIP@@@ClientId_****”,”conferenceTopic”:”cs_alicom_voip_conference”,”host”:”mqtt-cn-4590mdhb901.mqtt.aliyuncs.com”,”meetingEventKeepAliveInterval”:0,”phoneTopic”:”alicom_voip_phone”,”port”:0,”reconnectTimeout”:2000,”registerTime”:0,”sdkClientPort”:8883,”serverId”:”GID_VOIP@@@MTEuMTMuMTM2LjExOA==”,”sgwServerTopic”:”alicom_voip_server_pre”,”tlsport”:443,”tokenData”:”abcdef”,”useTLS”:false}
+   */
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      rtcId: 'RtcId',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      rtcId: 'string',
+      token: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSeatInformationResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  rowr?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rowr: 'Rowr',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rowr: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSkillGroupAgentStatusDetailsResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSkillGroupAndAgentStatusSummaryResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSkillGroupLatitudeStateResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSkillGroupServiceCapabilityResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSkillGroupServiceStatusResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSkillGroupStatusTotalResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
+  pageSize?: number;
+  rows?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      rows: 'Rows',
+      totalNum: 'TotalNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+      rows: 'string',
+      totalNum: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $dara.Model {
+  /**
+   * @example
+   * 7719786
+   */
+  acid?: string;
+  /**
+   * @example
+   * 12
+   */
+  activeTransferId?: string;
+  /**
+   * @example
+   * 37
+   */
+  callContinueTime?: number;
+  /**
+   * @example
+   * normal
+   */
+  callResult?: string;
+  /**
+   * @example
+   * 1
+   */
+  callType?: number;
+  /**
+   * @example
+   * 135615*****
+   */
+  calledNumber?: string;
+  /**
+   * @example
+   * 0571773
+   */
+  callingNumber?: string;
+  /**
+   * @example
+   * 2020-10-02 22:32:55
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 4
+   */
+  evaluationLevel?: number;
+  /**
+   * @example
+   * 4
+   */
+  evaluationScore?: number;
+  /**
+   * @example
+   * 123456
+   */
+  groupId?: number;
+  groupName?: string;
+  /**
+   * @example
+   * 2
+   */
+  hangUpRole?: string;
+  /**
+   * @example
+   * 2020-10-02 22:33:46
+   */
+  hangUpTime?: string;
+  /**
+   * @example
+   * acc1c58dab4a4dd280e3813c66
+   */
+  id?: string;
+  /**
+   * @example
+   * 2020-10-02 22:32:55
+   */
+  inQueueTime?: string;
+  /**
+   * @example
+   * 7856876
+   */
+  memberId?: string;
+  memberName?: string;
+  /**
+   * @example
+   * 2020-10-02 22:32:59
+   */
+  outQueueTime?: string;
+  /**
+   * @example
+   * 12
+   */
+  passiveTransferId?: string;
+  /**
+   * @example
+   * 1
+   */
+  passiveTransferIdType?: string;
+  /**
+   * @example
+   * 2020-10-02 22:33:09
+   */
+  pickUpTime?: string;
+  /**
+   * @example
+   * 4
+   */
+  queueUpContinueTime?: number;
+  /**
+   * @example
+   * 10
+   */
+  ringContinueTime?: number;
+  /**
+   * @example
+   * 2020-10-02 22:33:09
+   */
+  ringEndTime?: string;
+  /**
+   * @example
+   * 2020-10-02 22:32:59
+   */
+  ringStartTime?: string;
+  /**
+   * @example
+   * 555555
+   */
+  servicerId?: string;
+  servicerName?: string;
+  /**
+   * @example
+   * 1861111****
+   */
+  trunkCall?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acid: 'Acid',
+      activeTransferId: 'ActiveTransferId',
+      callContinueTime: 'CallContinueTime',
+      callResult: 'CallResult',
+      callType: 'CallType',
+      calledNumber: 'CalledNumber',
+      callingNumber: 'CallingNumber',
+      createTime: 'CreateTime',
+      evaluationLevel: 'EvaluationLevel',
+      evaluationScore: 'EvaluationScore',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      hangUpRole: 'HangUpRole',
+      hangUpTime: 'HangUpTime',
+      id: 'Id',
+      inQueueTime: 'InQueueTime',
+      memberId: 'MemberId',
+      memberName: 'MemberName',
+      outQueueTime: 'OutQueueTime',
+      passiveTransferId: 'PassiveTransferId',
+      passiveTransferIdType: 'PassiveTransferIdType',
+      pickUpTime: 'PickUpTime',
+      queueUpContinueTime: 'QueueUpContinueTime',
+      ringContinueTime: 'RingContinueTime',
+      ringEndTime: 'RingEndTime',
+      ringStartTime: 'RingStartTime',
+      servicerId: 'ServicerId',
+      servicerName: 'ServicerName',
+      trunkCall: 'TrunkCall',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acid: 'string',
+      activeTransferId: 'string',
+      callContinueTime: 'number',
+      callResult: 'string',
+      callType: 'number',
+      calledNumber: 'string',
+      callingNumber: 'string',
+      createTime: 'string',
+      evaluationLevel: 'number',
+      evaluationScore: 'number',
+      groupId: 'number',
+      groupName: 'string',
+      hangUpRole: 'string',
+      hangUpTime: 'string',
+      id: 'string',
+      inQueueTime: 'string',
+      memberId: 'string',
+      memberName: 'string',
+      outQueueTime: 'string',
+      passiveTransferId: 'string',
+      passiveTransferIdType: 'string',
+      pickUpTime: 'string',
+      queueUpContinueTime: 'number',
+      ringContinueTime: 'number',
+      ringEndTime: 'string',
+      ringStartTime: 'string',
+      servicerId: 'string',
+      servicerName: 'string',
+      trunkCall: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HotlineSessionQueryResponseBodyData extends $dara.Model {
+  callDetailRecord?: HotlineSessionQueryResponseBodyDataCallDetailRecord[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 26
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      callDetailRecord: 'CallDetailRecord',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callDetailRecord: { 'type': 'array', 'itemType': HotlineSessionQueryResponseBodyDataCallDetailRecord },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.callDetailRecord)) {
+      $dara.Model.validateArray(this.callDetailRecord);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertAiOutboundPhoneNumsRequestDetails extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  bizData?: string;
+  /**
+   * @example
+   * 150****0000
+   */
+  phoneNum?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizData: 'BizData',
+      phoneNum: 'PhoneNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizData: 'string',
+      phoneNum: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertAiOutboundPhoneNumsResponseBodyDataFailInfo extends $dara.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  bizData?: string;
+  /**
+   * @example
+   * 号码格式异常
+   */
+  msg?: string;
+  /**
+   * @example
+   * 150****0000
+   */
+  phoneNum?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizData: 'BizData',
+      msg: 'Msg',
+      phoneNum: 'PhoneNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizData: 'string',
+      msg: 'string',
+      phoneNum: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InsertAiOutboundPhoneNumsResponseBodyData extends $dara.Model {
+  failInfo?: InsertAiOutboundPhoneNumsResponseBodyDataFailInfo[];
+  /**
+   * @example
+   * 7
+   */
+  successCount?: number;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failInfo: 'FailInfo',
+      successCount: 'SuccessCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failInfo: { 'type': 'array', 'itemType': InsertAiOutboundPhoneNumsResponseBodyDataFailInfo },
+      successCount: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failInfo)) {
+      $dara.Model.validateArray(this.failInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentBySkillGroupIdResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * username@example.com
+   */
+  accountName?: string;
+  /**
+   * @example
+   * 666666
+   */
+  agentId?: number;
+  displayName?: string;
+  /**
+   * @example
+   * 0
+   */
+  status?: number;
+  /**
+   * @example
+   * 0
+   */
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      agentId: 'AgentId',
+      displayName: 'DisplayName',
+      status: 'Status',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      agentId: 'number',
+      displayName: 'string',
+      status: 'number',
+      tenantId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAiccsRobotResponseBodyData extends $dara.Model {
+  atProfession?: string;
+  atSence?: string;
+  /**
+   * @example
+   * 123456
+   */
+  id?: number;
+  robotName?: string;
+  /**
+   * @example
+   * CUSTOM
+   */
+  robotType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      atProfession: 'AtProfession',
+      atSence: 'AtSence',
+      id: 'Id',
+      robotName: 'RobotName',
+      robotType: 'RobotType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      atProfession: 'string',
+      atSence: 'string',
+      id: 'number',
+      robotName: 'string',
+      robotType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChatRecordDetailResponseBodyResultDataDataMessageList extends $dara.Model {
+  content?: string;
+  /**
+   * @example
+   * 1614578400000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * MSG
+   */
+  msgType?: string;
+  /**
+   * @example
+   * account1
+   */
+  senderName?: string;
+  /**
+   * @example
+   * 2
+   */
+  senderType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      createTime: 'CreateTime',
+      msgType: 'MsgType',
+      senderName: 'SenderName',
+      senderType: 'SenderType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      createTime: 'number',
+      msgType: 'string',
+      senderName: 'string',
+      senderType: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChatRecordDetailResponseBodyResultDataData extends $dara.Model {
+  /**
+   * @example
+   * 1614578410000
+   */
+  endTime?: number;
+  messageList?: ListChatRecordDetailResponseBodyResultDataDataMessageList[];
+  /**
+   * @example
+   * 123@123.com
+   */
+  servicerName?: string;
+  /**
+   * @example
+   * 1614578400000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      messageList: 'MessageList',
+      servicerName: 'ServicerName',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      messageList: { 'type': 'array', 'itemType': ListChatRecordDetailResponseBodyResultDataDataMessageList },
+      servicerName: 'string',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.messageList)) {
+      $dara.Model.validateArray(this.messageList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChatRecordDetailResponseBodyResultData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  data?: ListChatRecordDetailResponseBodyResultDataData[];
+  /**
+   * @example
+   * 10
+   */
+  onePageSize?: number;
+  /**
+   * @example
+   * 10
+   */
+  totalPage?: number;
+  /**
+   * @example
+   * 100
+   */
+  totalResults?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      data: 'Data',
+      onePageSize: 'OnePageSize',
+      totalPage: 'TotalPage',
+      totalResults: 'TotalResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      data: { 'type': 'array', 'itemType': ListChatRecordDetailResponseBodyResultDataData },
+      onePageSize: 'number',
+      totalPage: 'number',
+      totalResults: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDialogResponseBodyData extends $dara.Model {
+  content?: string;
+  /**
+   * @example
+   * normal
+   */
+  nodeType?: string;
+  /**
+   * @example
+   * robot
+   */
+  role?: string;
+  tag?: string;
+  /**
+   * @example
+   * 1619763900718
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      nodeType: 'NodeType',
+      role: 'Role',
+      tag: 'Tag',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      nodeType: 'string',
+      role: 'string',
+      tag: 'string',
+      time: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotlineRecordResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 100365558
+   */
+  callId?: string;
+  /**
+   * @example
+   * 100365548
+   */
+  connectionId?: string;
+  /**
+   * @example
+   * 16128694810
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 16128694110
+   */
+  startTime?: number;
+  /**
+   * @example
+   * http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callId: 'CallId',
+      connectionId: 'ConnectionId',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callId: 'string',
+      connectionId: 'string',
+      endTime: 'number',
+      startTime: 'number',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotlineRecordDetailResponseBodyResultDataData extends $dara.Model {
+  /**
+   * @example
+   * 1614578410000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * http://xxx.xxxxx/xx.wav
+   */
+  ossUrl?: string;
+  /**
+   * @example
+   * 123@123.com
+   */
+  servicerName?: string;
+  /**
+   * @example
+   * 1614578400000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      ossUrl: 'OssUrl',
+      servicerName: 'ServicerName',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      ossUrl: 'string',
+      servicerName: 'string',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHotlineRecordDetailResponseBodyResultData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  data?: ListHotlineRecordDetailResponseBodyResultDataData[];
+  /**
+   * @example
+   * 100
+   */
+  onePageSize?: number;
+  /**
+   * @example
+   * 10
+   */
+  totalPage?: number;
+  /**
+   * @example
+   * 945
+   */
+  totalResults?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      data: 'Data',
+      onePageSize: 'OnePageSize',
+      totalPage: 'TotalPage',
+      totalResults: 'TotalResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      data: { 'type': 'array', 'itemType': ListHotlineRecordDetailResponseBodyResultDataData },
+      onePageSize: 'number',
+      totalPage: 'number',
+      totalResults: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRobotCallDialogResponseBodyData extends $dara.Model {
+  content?: string;
+  /**
+   * @example
+   * normal
+   */
+  nodeType?: string;
+  /**
+   * @example
+   * robot
+   */
+  role?: string;
+  tag?: string;
+  /**
+   * @example
+   * 1621483557000
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      nodeType: 'NodeType',
+      role: 'Role',
+      tag: 'Tag',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      nodeType: 'string',
+      role: 'string',
+      tag: 'string',
+      time: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRobotNodeResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  isOutput?: number;
+  modelName?: string;
+  /**
+   * @example
+   * 123456
+   */
+  nodeIdentifier?: string;
+  nodeName?: string;
+  processName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isOutput: 'IsOutput',
+      modelName: 'ModelName',
+      nodeIdentifier: 'NodeIdentifier',
+      nodeName: 'NodeName',
+      processName: 'ProcessName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isOutput: 'number',
+      modelName: 'string',
+      nodeIdentifier: 'string',
+      nodeName: 'string',
+      processName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRobotParamsResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  isEmpty?: number;
+  /**
+   * @example
+   * name
+   */
+  paramCode?: string;
+  paramName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isEmpty: 'IsEmpty',
+      paramCode: 'ParamCode',
+      paramName: 'ParamName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isEmpty: 'number',
+      paramCode: 'string',
+      paramName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRolesResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  buId?: number;
+  /**
+   * @example
+   * admin
+   */
+  code?: string;
+  /**
+   * @example
+   * 2020-01-03T20:25:33Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * Admin
+   */
+  description?: string;
+  /**
+   * @example
+   * 0
+   */
+  roleGroupId?: number;
+  roleGroupName?: string;
+  /**
+   * @example
+   * 1
+   */
+  roleId?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buId: 'BuId',
+      code: 'Code',
+      createTime: 'CreateTime',
+      description: 'Description',
+      roleGroupId: 'RoleGroupId',
+      roleGroupName: 'RoleGroupName',
+      roleId: 'RoleId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buId: 'number',
+      code: 'string',
+      createTime: 'string',
+      description: 'string',
+      roleGroupId: 'number',
+      roleGroupName: 'string',
+      roleId: 'number',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  channelType?: number;
+  description?: string;
+  displayName?: string;
+  name?: string;
+  /**
+   * @example
+   * 123456
+   */
+  skillGroupId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      channelType: 'ChannelType',
+      description: 'Description',
+      displayName: 'DisplayName',
+      name: 'Name',
+      skillGroupId: 'SkillGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelType: 'number',
+      description: 'string',
+      displayName: 'string',
+      name: 'string',
+      skillGroupId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskResponseBodyDataRecord extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  completeCount?: number;
+  /**
+   * @example
+   * 1618477232000
+   */
+  fireTime?: string;
+  /**
+   * @example
+   * 1618477232000
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 123456
+   */
+  id?: number;
+  /**
+   * @example
+   * 123456
+   */
+  robotId?: number;
+  robotName?: string;
+  /**
+   * @example
+   * RELEASE
+   */
+  status?: string;
+  taskName?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      completeCount: 'CompleteCount',
+      fireTime: 'FireTime',
+      gmtCreate: 'GmtCreate',
+      id: 'Id',
+      robotId: 'RobotId',
+      robotName: 'RobotName',
+      status: 'Status',
+      taskName: 'TaskName',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completeCount: 'number',
+      fireTime: 'string',
+      gmtCreate: 'string',
+      id: 'number',
+      robotId: 'number',
+      robotName: 'string',
+      status: 'string',
+      taskName: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  record?: ListTaskResponseBodyDataRecord[];
+  /**
+   * @example
+   * 50
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      record: 'Record',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      record: { 'type': 'array', 'itemType': ListTaskResponseBodyDataRecord },
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.record)) {
+      $dara.Model.validateArray(this.record);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskDetailResponseBodyDataRecord extends $dara.Model {
+  /**
+   * @example
+   * 186****0000
+   */
+  called?: string;
+  /**
+   * @example
+   * 136****0000
+   */
+  caller?: string;
+  direction?: string;
+  /**
+   * @example
+   * 30
+   */
+  duration?: number;
+  /**
+   * @example
+   * 2021-05-20 00:03:00
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 123456
+   */
+  id?: number;
+  /**
+   * @example
+   * 1
+   */
+  retryCurTimes?: number;
+  /**
+   * @example
+   * 1
+   */
+  retryTimes?: number;
+  /**
+   * @example
+   * 2021-05-20 00:00:00
+   */
+  startTime?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
+  status?: string;
+  /**
+   * @example
+   * 00001
+   */
+  statusCode?: string;
+  statusCodeDesc?: string;
+  tags?: string;
+  static names(): { [key: string]: string } {
+    return {
+      called: 'Called',
+      caller: 'Caller',
+      direction: 'Direction',
+      duration: 'Duration',
+      endTime: 'EndTime',
+      id: 'Id',
+      retryCurTimes: 'RetryCurTimes',
+      retryTimes: 'RetryTimes',
+      startTime: 'StartTime',
+      status: 'Status',
+      statusCode: 'StatusCode',
+      statusCodeDesc: 'StatusCodeDesc',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      called: 'string',
+      caller: 'string',
+      direction: 'string',
+      duration: 'number',
+      endTime: 'string',
+      id: 'number',
+      retryCurTimes: 'number',
+      retryTimes: 'number',
+      startTime: 'string',
+      status: 'string',
+      statusCode: 'string',
+      statusCodeDesc: 'string',
+      tags: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskDetailResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 20
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageSize?: number;
+  record?: ListTaskDetailResponseBodyDataRecord[];
+  /**
+   * @example
+   * 50
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      record: 'Record',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      record: { 'type': 'array', 'itemType': ListTaskDetailResponseBodyDataRecord },
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.record)) {
+      $dara.Model.validateArray(this.record);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MakeDoubleCallResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 68255155365620598
+   */
+  acid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acid: 'Acid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeListGroupDOList extends $dara.Model {
+  /**
+   * @example
+   * 6083****
+   */
+  groupId?: number;
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'number',
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeList extends $dara.Model {
+  /**
+   * @example
+   * 2256****
+   */
+  departmentId?: number;
+  departmentName?: string;
+  groupDOList?: QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeListGroupDOList[];
+  static names(): { [key: string]: string } {
+    return {
+      departmentId: 'DepartmentId',
+      departmentName: 'DepartmentName',
+      groupDOList: 'GroupDOList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentId: 'number',
+      departmentName: 'string',
+      groupDOList: { 'type': 'array', 'itemType': QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeListGroupDOList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.groupDOList)) {
+      $dara.Model.validateArray(this.groupDOList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotlineNumberResponseBodyDataHotlineNumList extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  calloutAllDepartment?: boolean;
+  calloutRangeList?: QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeList[];
+  /**
+   * @example
+   * 测试
+   */
+  description?: string;
+  /**
+   * @example
+   * 0
+   */
+  evaluationStatus?: number;
+  /**
+   * @example
+   * 12
+   */
+  flowId?: number;
+  /**
+   * @example
+   * 测试流程
+   */
+  flowName?: string;
+  /**
+   * @example
+   * 0571****2211
+   */
+  hotlineNumber?: string;
+  /**
+   * @example
+   * true
+   */
+  inBoundEnabled?: boolean;
+  /**
+   * @example
+   * 浙江杭州
+   */
+  location?: string;
+  /**
+   * @example
+   * true
+   */
+  outboundEnabled?: boolean;
+  /**
+   * @example
+   * 电信
+   */
+  sp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      calloutAllDepartment: 'CalloutAllDepartment',
+      calloutRangeList: 'CalloutRangeList',
+      description: 'Description',
+      evaluationStatus: 'EvaluationStatus',
+      flowId: 'FlowId',
+      flowName: 'FlowName',
+      hotlineNumber: 'HotlineNumber',
+      inBoundEnabled: 'InBoundEnabled',
+      location: 'Location',
+      outboundEnabled: 'OutboundEnabled',
+      sp: 'Sp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      calloutAllDepartment: 'boolean',
+      calloutRangeList: { 'type': 'array', 'itemType': QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeList },
+      description: 'string',
+      evaluationStatus: 'number',
+      flowId: 'number',
+      flowName: 'string',
+      hotlineNumber: 'string',
+      inBoundEnabled: 'boolean',
+      location: 'string',
+      outboundEnabled: 'boolean',
+      sp: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.calloutRangeList)) {
+      $dara.Model.validateArray(this.calloutRangeList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryHotlineNumberResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  hotlineNumList?: QueryHotlineNumberResponseBodyDataHotlineNumList[];
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 123
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      hotlineNumList: 'HotlineNumList',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      hotlineNumList: { 'type': 'array', 'itemType': QueryHotlineNumberResponseBodyDataHotlineNumList },
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hotlineNumList)) {
+      $dara.Model.validateArray(this.hotlineNumList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOutboundTaskResponseBodyDataList extends $dara.Model {
+  buId?: number;
+  callerNum?: string;
+  creator?: string;
+  departmentId?: number;
+  description?: string;
+  endDate?: string;
+  endTime?: string;
+  extAttrs?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  groupName?: string;
+  id?: number;
+  model?: number;
+  modifier?: string;
+  name?: string;
+  retryInterval?: number;
+  retryTime?: number;
+  skillGroup?: number;
+  startDate?: string;
+  startTime?: string;
+  status?: number;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      buId: 'BuId',
+      callerNum: 'CallerNum',
+      creator: 'Creator',
+      departmentId: 'DepartmentId',
+      description: 'Description',
+      endDate: 'EndDate',
+      endTime: 'EndTime',
+      extAttrs: 'ExtAttrs',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      groupName: 'GroupName',
+      id: 'Id',
+      model: 'Model',
+      modifier: 'Modifier',
+      name: 'Name',
+      retryInterval: 'RetryInterval',
+      retryTime: 'RetryTime',
+      skillGroup: 'SkillGroup',
+      startDate: 'StartDate',
+      startTime: 'StartTime',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buId: 'number',
+      callerNum: 'string',
+      creator: 'string',
+      departmentId: 'number',
+      description: 'string',
+      endDate: 'string',
+      endTime: 'string',
+      extAttrs: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      groupName: 'string',
+      id: 'number',
+      model: 'number',
+      modifier: 'string',
+      name: 'string',
+      retryInterval: 'number',
+      retryTime: 'number',
+      skillGroup: 'number',
+      startDate: 'string',
+      startTime: 'string',
+      status: 'number',
+      type: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryOutboundTaskResponseBodyData extends $dara.Model {
+  currentPage?: string;
+  list?: QueryOutboundTaskResponseBodyDataList[];
+  pageSize?: string;
+  totalResults?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      list: 'List',
+      pageSize: 'PageSize',
+      totalResults: 'TotalResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'string',
+      list: { 'type': 'array', 'itemType': QueryOutboundTaskResponseBodyDataList },
+      pageSize: 'string',
+      totalResults: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySkillGroupsResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  channelType?: number;
+  description?: string;
+  displayName?: string;
+  /**
+   * @example
+   * 123456
+   */
+  skillGroupId?: number;
+  skillGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelType: 'ChannelType',
+      description: 'Description',
+      displayName: 'DisplayName',
+      skillGroupId: 'SkillGroupId',
+      skillGroupName: 'SkillGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelType: 'number',
+      description: 'string',
+      displayName: 'string',
+      skillGroupId: 'number',
+      skillGroupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTaskDetailResponseBodyDataList extends $dara.Model {
+  ani?: string;
+  buId?: number;
+  departmentId?: number;
+  dnis?: string;
+  endReason?: number;
+  extAttrs?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  id?: number;
+  memberId?: number;
+  memberName?: string;
+  outboundNum?: number;
+  outboundTaskId?: number;
+  priority?: number;
+  retryTime?: string;
+  servicerId?: number;
+  servicerName?: string;
+  skillGroup?: number;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ani: 'Ani',
+      buId: 'BuId',
+      departmentId: 'DepartmentId',
+      dnis: 'Dnis',
+      endReason: 'EndReason',
+      extAttrs: 'ExtAttrs',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      memberId: 'MemberId',
+      memberName: 'MemberName',
+      outboundNum: 'OutboundNum',
+      outboundTaskId: 'OutboundTaskId',
+      priority: 'Priority',
+      retryTime: 'RetryTime',
+      servicerId: 'ServicerId',
+      servicerName: 'ServicerName',
+      skillGroup: 'SkillGroup',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ani: 'string',
+      buId: 'number',
+      departmentId: 'number',
+      dnis: 'string',
+      endReason: 'number',
+      extAttrs: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      id: 'number',
+      memberId: 'number',
+      memberName: 'string',
+      outboundNum: 'number',
+      outboundTaskId: 'number',
+      priority: 'number',
+      retryTime: 'string',
+      servicerId: 'number',
+      servicerName: 'string',
+      skillGroup: 'number',
+      status: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTaskDetailResponseBodyData extends $dara.Model {
+  currentPage?: string;
+  list?: QueryTaskDetailResponseBodyDataList[];
+  pageSize?: string;
+  totalResults?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      list: 'List',
+      pageSize: 'PageSize',
+      totalResults: 'TotalResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'string',
+      list: { 'type': 'array', 'itemType': QueryTaskDetailResponseBodyDataList },
+      pageSize: 'string',
+      totalResults: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $dara.Model {
+  /**
+   * @example
+   * 187****0000
+   */
+  ani?: string;
+  /**
+   * @example
+   * 05712688****
+   */
+  dnis?: string;
+  /**
+   * @example
+   * 2
+   */
+  evaluationLevel?: number;
+  /**
+   * @example
+   * 1
+   */
+  evaluationScore?: number;
+  /**
+   * @example
+   * 0
+   */
+  evaluationSolution?: number;
+  /**
+   * @example
+   * 1
+   */
+  evaluationStatus?: number;
+  /**
+   * @example
+   * 1
+   */
+  onlineJoinRespInterval?: number;
+  /**
+   * @example
+   * 0
+   */
+  onlineSessionSource?: number;
+  /**
+   * @example
+   * 05712688****
+   */
+  outCallRouteNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ani: 'Ani',
+      dnis: 'Dnis',
+      evaluationLevel: 'EvaluationLevel',
+      evaluationScore: 'EvaluationScore',
+      evaluationSolution: 'EvaluationSolution',
+      evaluationStatus: 'EvaluationStatus',
+      onlineJoinRespInterval: 'OnlineJoinRespInterval',
+      onlineSessionSource: 'OnlineSessionSource',
+      outCallRouteNumber: 'OutCallRouteNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ani: 'string',
+      dnis: 'string',
+      evaluationLevel: 'number',
+      evaluationScore: 'number',
+      evaluationSolution: 'number',
+      evaluationStatus: 'number',
+      onlineJoinRespInterval: 'number',
+      onlineSessionSource: 'number',
+      outCallRouteNumber: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTouchListResponseBodyResultDataData extends $dara.Model {
+  /**
+   * @example
+   * 905
+   */
+  buId?: number;
+  /**
+   * @example
+   * 4f8807a9de024507a3090b5b66a8****
+   */
+  channelId?: string;
+  /**
+   * @example
+   * 1
+   */
+  channelType?: number;
+  /**
+   * @example
+   * 1611207976000
+   */
+  closeTime?: number;
+  commonQueueName?: string;
+  /**
+   * @example
+   * 100
+   */
+  depId?: number;
+  extAttrs?: QueryTouchListResponseBodyResultDataDataExtAttrs;
+  extAttrsString?: { [key: string]: any };
+  /**
+   * @example
+   * xxxx
+   */
+  feedback?: string;
+  /**
+   * @example
+   * 1611209971000
+   */
+  firstTime?: number;
+  /**
+   * @example
+   * 6400665****
+   */
+  fromId?: number;
+  /**
+   * @example
+   * 1611209971000
+   */
+  gmtCreate?: number;
+  /**
+   * @example
+   * 1611207979000
+   */
+  gmtModified?: number;
+  /**
+   * @example
+   * 6400665****
+   */
+  memberId?: number;
+  memberName?: string;
+  /**
+   * @example
+   * 0
+   */
+  parentTouchId?: number;
+  /**
+   * @example
+   * 111
+   */
+  queueId?: number;
+  /**
+   * @example
+   * 67****
+   */
+  servicerId?: number;
+  /**
+   * @example
+   * 13900001234
+   */
+  servicerName?: string;
+  /**
+   * @example
+   * 1
+   */
+  status?: number;
+  /**
+   * @example
+   * null
+   */
+  switchUser?: string;
+  /**
+   * @example
+   * 678026
+   */
+  toId?: number;
+  /**
+   * @example
+   * 1
+   */
+  touchContent?: string;
+  /**
+   * @example
+   * 2
+   */
+  touchEndReason?: number;
+  /**
+   * @example
+   * 1386****
+   */
+  touchId?: string;
+  /**
+   * @example
+   * 111
+   */
+  touchTime?: string;
+  /**
+   * @example
+   * 2
+   */
+  touchType?: number;
+  /**
+   * @example
+   * 1386****
+   */
+  userTouchId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      buId: 'BuId',
+      channelId: 'ChannelId',
+      channelType: 'ChannelType',
+      closeTime: 'CloseTime',
+      commonQueueName: 'CommonQueueName',
+      depId: 'DepId',
+      extAttrs: 'ExtAttrs',
+      extAttrsString: 'ExtAttrsString',
+      feedback: 'Feedback',
+      firstTime: 'FirstTime',
+      fromId: 'FromId',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      memberId: 'MemberId',
+      memberName: 'MemberName',
+      parentTouchId: 'ParentTouchId',
+      queueId: 'QueueId',
+      servicerId: 'ServicerId',
+      servicerName: 'ServicerName',
+      status: 'Status',
+      switchUser: 'SwitchUser',
+      toId: 'ToId',
+      touchContent: 'TouchContent',
+      touchEndReason: 'TouchEndReason',
+      touchId: 'TouchId',
+      touchTime: 'TouchTime',
+      touchType: 'TouchType',
+      userTouchId: 'UserTouchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buId: 'number',
+      channelId: 'string',
+      channelType: 'number',
+      closeTime: 'number',
+      commonQueueName: 'string',
+      depId: 'number',
+      extAttrs: QueryTouchListResponseBodyResultDataDataExtAttrs,
+      extAttrsString: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      feedback: 'string',
+      firstTime: 'number',
+      fromId: 'number',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      memberId: 'number',
+      memberName: 'string',
+      parentTouchId: 'number',
+      queueId: 'number',
+      servicerId: 'number',
+      servicerName: 'string',
+      status: 'number',
+      switchUser: 'string',
+      toId: 'number',
+      touchContent: 'string',
+      touchEndReason: 'number',
+      touchId: 'string',
+      touchTime: 'string',
+      touchType: 'number',
+      userTouchId: 'number',
+    };
+  }
+
+  validate() {
+    if(this.extAttrs && typeof (this.extAttrs as any).validate === 'function') {
+      (this.extAttrs as any).validate();
+    }
+    if(this.extAttrsString) {
+      $dara.Model.validateMap(this.extAttrsString);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTouchListResponseBodyResultData extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  data?: QueryTouchListResponseBodyResultDataData[];
+  /**
+   * @example
+   * false
+   */
+  empty?: boolean;
+  /**
+   * @example
+   * 2
+   */
+  nextPage?: number;
+  /**
+   * @example
+   * 2
+   */
+  onePageSize?: number;
+  /**
+   * @example
+   * 2
+   */
+  previousPage?: number;
+  /**
+   * @example
+   * 4
+   */
+  totalPage?: number;
+  /**
+   * @example
+   * 100
+   */
+  totalResults?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      data: 'Data',
+      empty: 'Empty',
+      nextPage: 'NextPage',
+      onePageSize: 'OnePageSize',
+      previousPage: 'PreviousPage',
+      totalPage: 'TotalPage',
+      totalResults: 'TotalResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      data: { 'type': 'array', 'itemType': QueryTouchListResponseBodyResultDataData },
+      empty: 'boolean',
+      nextPage: 'number',
+      onePageSize: 'number',
+      previousPage: 'number',
+      totalPage: 'number',
+      totalResults: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveAgentFromSkillGroupResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  successCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      successCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetHotlineNumberRequestOutboundRangeList extends $dara.Model {
+  /**
+   * @example
+   * 123456
+   */
+  departmentId?: number;
+  groupIdList?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      departmentId: 'DepartmentId',
+      groupIdList: 'GroupIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      departmentId: 'number',
+      groupIdList: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.groupIdList)) {
+      $dara.Model.validateArray(this.groupIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAiOutboundTaskRequestRecallRule extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  count?: number;
+  /**
+   * @example
+   * 5
+   */
+  interval?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      interval: 'Interval',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      interval: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddHotlineNumberRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -115,12 +5595,19 @@ export class AddHotlineNumberRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.outboundRangeList)) {
+      $dara.Model.validateArray(this.outboundRangeList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddHotlineNumberShrinkRequest extends $tea.Model {
+export class AddHotlineNumberShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -228,12 +5715,16 @@ export class AddHotlineNumberShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddHotlineNumberResponseBody extends $tea.Model {
+export class AddHotlineNumberResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -279,12 +5770,16 @@ export class AddHotlineNumberResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddHotlineNumberResponse extends $tea.Model {
+export class AddHotlineNumberResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddHotlineNumberResponseBody;
@@ -304,12 +5799,22 @@ export class AddHotlineNumberResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddOuterAccountRequest extends $tea.Model {
+export class AddOuterAccountRequest extends $dara.Model {
   /**
    * @example
    * http://****
@@ -384,12 +5889,16 @@ export class AddOuterAccountRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddOuterAccountResponseBody extends $tea.Model {
+export class AddOuterAccountResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -435,12 +5944,16 @@ export class AddOuterAccountResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddOuterAccountResponse extends $tea.Model {
+export class AddOuterAccountResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddOuterAccountResponseBody;
@@ -460,12 +5973,22 @@ export class AddOuterAccountResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddSkillGroupRequest extends $tea.Model {
+export class AddSkillGroupRequest extends $dara.Model {
   /**
    * @example
    * 123456
@@ -517,12 +6040,16 @@ export class AddSkillGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddSkillGroupResponseBody extends $tea.Model {
+export class AddSkillGroupResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -568,12 +6095,16 @@ export class AddSkillGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddSkillGroupResponse extends $tea.Model {
+export class AddSkillGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddSkillGroupResponseBody;
@@ -593,12 +6124,22 @@ export class AddSkillGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AiccsSmartCallRequest extends $tea.Model {
+export class AiccsSmartCallRequest extends $dara.Model {
   /**
    * @example
    * true
@@ -826,12 +6367,16 @@ export class AiccsSmartCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AiccsSmartCallResponseBody extends $tea.Model {
+export class AiccsSmartCallResponseBody extends $dara.Model {
   /**
    * @example
    * 116012854210^10281427****
@@ -870,12 +6415,16 @@ export class AiccsSmartCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AiccsSmartCallResponse extends $tea.Model {
+export class AiccsSmartCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AiccsSmartCallResponseBody;
@@ -895,12 +6444,22 @@ export class AiccsSmartCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AiccsSmartCallOperateRequest extends $tea.Model {
+export class AiccsSmartCallOperateRequest extends $dara.Model {
   /**
    * @example
    * 116012854210^102814279****
@@ -948,12 +6507,16 @@ export class AiccsSmartCallOperateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AiccsSmartCallOperateResponseBody extends $tea.Model {
+export class AiccsSmartCallOperateResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -992,12 +6555,16 @@ export class AiccsSmartCallOperateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AiccsSmartCallOperateResponse extends $tea.Model {
+export class AiccsSmartCallOperateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AiccsSmartCallOperateResponseBody;
@@ -1017,12 +6584,22 @@ export class AiccsSmartCallOperateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AnswerCallRequest extends $tea.Model {
+export class AnswerCallRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1081,12 +6658,16 @@ export class AnswerCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AnswerCallResponseBody extends $tea.Model {
+export class AnswerCallResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -1125,12 +6706,16 @@ export class AnswerCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AnswerCallResponse extends $tea.Model {
+export class AnswerCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AnswerCallResponseBody;
@@ -1150,12 +6735,22 @@ export class AnswerCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachTaskRequest extends $tea.Model {
+export class AttachTaskRequest extends $dara.Model {
   callString?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -1188,12 +6783,16 @@ export class AttachTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachTaskResponseBody extends $tea.Model {
+export class AttachTaskResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -1239,12 +6838,16 @@ export class AttachTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachTaskResponse extends $tea.Model {
+export class AttachTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AttachTaskResponseBody;
@@ -1264,12 +6867,22 @@ export class AttachTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BatchCreateQualityProjectsRequest extends $tea.Model {
+export class BatchCreateQualityProjectsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1317,12 +6930,25 @@ export class BatchCreateQualityProjectsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.analysisIds)) {
+      $dara.Model.validateArray(this.analysisIds);
+    }
+    if(Array.isArray(this.channelTouchType)) {
+      $dara.Model.validateArray(this.channelTouchType);
+    }
+    if(Array.isArray(this.instanceList)) {
+      $dara.Model.validateArray(this.instanceList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BatchCreateQualityProjectsResponseBody extends $tea.Model {
+export class BatchCreateQualityProjectsResponseBody extends $dara.Model {
   code?: string;
   data?: BatchCreateQualityProjectsResponseBodyData[];
   message?: string;
@@ -1348,12 +6974,19 @@ export class BatchCreateQualityProjectsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BatchCreateQualityProjectsResponse extends $tea.Model {
+export class BatchCreateQualityProjectsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BatchCreateQualityProjectsResponseBody;
@@ -1373,12 +7006,22 @@ export class BatchCreateQualityProjectsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelTaskRequest extends $tea.Model {
+export class CancelTaskRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1408,12 +7051,16 @@ export class CancelTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelTaskResponseBody extends $tea.Model {
+export class CancelTaskResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -1459,12 +7106,16 @@ export class CancelTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelTaskResponse extends $tea.Model {
+export class CancelTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CancelTaskResponseBody;
@@ -1484,12 +7135,22 @@ export class CancelTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChangeChatAgentStatusRequest extends $tea.Model {
+export class ChangeChatAgentStatusRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1537,12 +7198,16 @@ export class ChangeChatAgentStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChangeChatAgentStatusResponseBody extends $tea.Model {
+export class ChangeChatAgentStatusResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -1595,12 +7260,16 @@ export class ChangeChatAgentStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChangeChatAgentStatusResponse extends $tea.Model {
+export class ChangeChatAgentStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ChangeChatAgentStatusResponseBody;
@@ -1620,12 +7289,22 @@ export class ChangeChatAgentStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChangeQualityProjectStatusRequest extends $tea.Model {
+export class ChangeQualityProjectStatusRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1657,12 +7336,16 @@ export class ChangeQualityProjectStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChangeQualityProjectStatusResponseBody extends $tea.Model {
+export class ChangeQualityProjectStatusResponseBody extends $dara.Model {
   code?: string;
   data?: string;
   message?: string;
@@ -1688,12 +7371,16 @@ export class ChangeQualityProjectStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ChangeQualityProjectStatusResponse extends $tea.Model {
+export class ChangeQualityProjectStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ChangeQualityProjectStatusResponseBody;
@@ -1713,12 +7400,22 @@ export class ChangeQualityProjectStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAgentRequest extends $tea.Model {
+export class CreateAgentRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1769,12 +7466,22 @@ export class CreateAgentRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.skillGroupId)) {
+      $dara.Model.validateArray(this.skillGroupId);
+    }
+    if(Array.isArray(this.skillGroupIdList)) {
+      $dara.Model.validateArray(this.skillGroupIdList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAgentResponseBody extends $tea.Model {
+export class CreateAgentResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -1827,12 +7534,16 @@ export class CreateAgentResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAgentResponse extends $tea.Model {
+export class CreateAgentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateAgentResponseBody;
@@ -1852,12 +7563,22 @@ export class CreateAgentResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAiOutboundTaskRequest extends $tea.Model {
+export class CreateAiOutboundTaskRequest extends $dara.Model {
   /**
    * @example
    * 10
@@ -1958,12 +7679,22 @@ export class CreateAiOutboundTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.outboundNums)) {
+      $dara.Model.validateArray(this.outboundNums);
+    }
+    if(this.recallRule && typeof (this.recallRule as any).validate === 'function') {
+      (this.recallRule as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAiOutboundTaskShrinkRequest extends $tea.Model {
+export class CreateAiOutboundTaskShrinkRequest extends $dara.Model {
   /**
    * @example
    * 10
@@ -2064,12 +7795,16 @@ export class CreateAiOutboundTaskShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAiOutboundTaskResponseBody extends $tea.Model {
+export class CreateAiOutboundTaskResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -2115,12 +7850,16 @@ export class CreateAiOutboundTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAiOutboundTaskResponse extends $tea.Model {
+export class CreateAiOutboundTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateAiOutboundTaskResponseBody;
@@ -2140,12 +7879,22 @@ export class CreateAiOutboundTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAiOutboundTaskBatchRequest extends $tea.Model {
+export class CreateAiOutboundTaskBatchRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2176,12 +7925,16 @@ export class CreateAiOutboundTaskBatchRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAiOutboundTaskBatchResponseBody extends $tea.Model {
+export class CreateAiOutboundTaskBatchResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -2227,12 +7980,16 @@ export class CreateAiOutboundTaskBatchResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAiOutboundTaskBatchResponse extends $tea.Model {
+export class CreateAiOutboundTaskBatchResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateAiOutboundTaskBatchResponseBody;
@@ -2252,12 +8009,22 @@ export class CreateAiOutboundTaskBatchResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDepartmentRequest extends $tea.Model {
+export class CreateDepartmentRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2285,12 +8052,16 @@ export class CreateDepartmentRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDepartmentResponseBody extends $tea.Model {
+export class CreateDepartmentResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -2343,12 +8114,16 @@ export class CreateDepartmentResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDepartmentResponse extends $tea.Model {
+export class CreateDepartmentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateDepartmentResponseBody;
@@ -2368,12 +8143,22 @@ export class CreateDepartmentResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateOutboundTaskRequest extends $tea.Model {
+export class CreateOutboundTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2471,12 +8256,16 @@ export class CreateOutboundTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateOutboundTaskResponseBody extends $tea.Model {
+export class CreateOutboundTaskResponseBody extends $dara.Model {
   code?: string;
   data?: string;
   message?: string;
@@ -2502,12 +8291,16 @@ export class CreateOutboundTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateOutboundTaskResponse extends $tea.Model {
+export class CreateOutboundTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateOutboundTaskResponseBody;
@@ -2527,12 +8320,22 @@ export class CreateOutboundTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateQualityProjectRequest extends $tea.Model {
+export class CreateQualityProjectRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2596,12 +8399,31 @@ export class CreateQualityProjectRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.analysisIds)) {
+      $dara.Model.validateArray(this.analysisIds);
+    }
+    if(Array.isArray(this.channelTouchType)) {
+      $dara.Model.validateArray(this.channelTouchType);
+    }
+    if(Array.isArray(this.depList)) {
+      $dara.Model.validateArray(this.depList);
+    }
+    if(Array.isArray(this.groupList)) {
+      $dara.Model.validateArray(this.groupList);
+    }
+    if(Array.isArray(this.servicerList)) {
+      $dara.Model.validateArray(this.servicerList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateQualityProjectResponseBody extends $tea.Model {
+export class CreateQualityProjectResponseBody extends $dara.Model {
   code?: string;
   data?: CreateQualityProjectResponseBodyData;
   message?: string;
@@ -2627,12 +8449,19 @@ export class CreateQualityProjectResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateQualityProjectResponse extends $tea.Model {
+export class CreateQualityProjectResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateQualityProjectResponseBody;
@@ -2652,12 +8481,22 @@ export class CreateQualityProjectResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateQualityRuleRequest extends $tea.Model {
+export class CreateQualityRuleRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2703,12 +8542,19 @@ export class CreateQualityRuleRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.keyWords)) {
+      $dara.Model.validateArray(this.keyWords);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateQualityRuleResponseBody extends $tea.Model {
+export class CreateQualityRuleResponseBody extends $dara.Model {
   code?: string;
   message?: string;
   requestId?: string;
@@ -2731,12 +8577,16 @@ export class CreateQualityRuleResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateQualityRuleResponse extends $tea.Model {
+export class CreateQualityRuleResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateQualityRuleResponseBody;
@@ -2756,12 +8606,22 @@ export class CreateQualityRuleResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSkillGroupRequest extends $tea.Model {
+export class CreateSkillGroupRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2819,12 +8679,16 @@ export class CreateSkillGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSkillGroupResponseBody extends $tea.Model {
+export class CreateSkillGroupResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -2870,12 +8734,16 @@ export class CreateSkillGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSkillGroupResponse extends $tea.Model {
+export class CreateSkillGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateSkillGroupResponseBody;
@@ -2895,12 +8763,22 @@ export class CreateSkillGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTaskRequest extends $tea.Model {
+export class CreateTaskRequest extends $dara.Model {
   callString?: string;
   /**
    * @remarks
@@ -3021,12 +8899,16 @@ export class CreateTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTaskResponseBody extends $tea.Model {
+export class CreateTaskResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -3072,12 +8954,16 @@ export class CreateTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTaskResponse extends $tea.Model {
+export class CreateTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateTaskResponseBody;
@@ -3097,12 +8983,22 @@ export class CreateTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateThirdSsoAgentRequest extends $tea.Model {
+export class CreateThirdSsoAgentRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3169,12 +9065,22 @@ export class CreateThirdSsoAgentRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.roleIds)) {
+      $dara.Model.validateArray(this.roleIds);
+    }
+    if(Array.isArray(this.skillGroupIds)) {
+      $dara.Model.validateArray(this.skillGroupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateThirdSsoAgentResponseBody extends $tea.Model {
+export class CreateThirdSsoAgentResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -3230,12 +9136,16 @@ export class CreateThirdSsoAgentResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateThirdSsoAgentResponse extends $tea.Model {
+export class CreateThirdSsoAgentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateThirdSsoAgentResponseBody;
@@ -3255,12 +9165,22 @@ export class CreateThirdSsoAgentResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAgentRequest extends $tea.Model {
+export class DeleteAgentRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3298,12 +9218,16 @@ export class DeleteAgentRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAgentResponseBody extends $tea.Model {
+export class DeleteAgentResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -3349,12 +9273,16 @@ export class DeleteAgentResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAgentResponse extends $tea.Model {
+export class DeleteAgentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteAgentResponseBody;
@@ -3374,12 +9302,22 @@ export class DeleteAgentResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAiOutboundTaskRequest extends $tea.Model {
+export class DeleteAiOutboundTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3410,12 +9348,16 @@ export class DeleteAiOutboundTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAiOutboundTaskResponseBody extends $tea.Model {
+export class DeleteAiOutboundTaskResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -3454,12 +9396,16 @@ export class DeleteAiOutboundTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAiOutboundTaskResponse extends $tea.Model {
+export class DeleteAiOutboundTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteAiOutboundTaskResponseBody;
@@ -3479,12 +9425,22 @@ export class DeleteAiOutboundTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteDepartmentRequest extends $tea.Model {
+export class DeleteDepartmentRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3515,12 +9471,16 @@ export class DeleteDepartmentRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteDepartmentResponseBody extends $tea.Model {
+export class DeleteDepartmentResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -3573,12 +9533,16 @@ export class DeleteDepartmentResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteDepartmentResponse extends $tea.Model {
+export class DeleteDepartmentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteDepartmentResponseBody;
@@ -3598,12 +9562,22 @@ export class DeleteDepartmentResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteHotlineNumberRequest extends $tea.Model {
+export class DeleteHotlineNumberRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3634,12 +9608,16 @@ export class DeleteHotlineNumberRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteHotlineNumberResponseBody extends $tea.Model {
+export class DeleteHotlineNumberResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -3685,12 +9663,16 @@ export class DeleteHotlineNumberResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteHotlineNumberResponse extends $tea.Model {
+export class DeleteHotlineNumberResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteHotlineNumberResponseBody;
@@ -3710,12 +9692,22 @@ export class DeleteHotlineNumberResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteOutboundTaskRequest extends $tea.Model {
+export class DeleteOutboundTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3740,12 +9732,16 @@ export class DeleteOutboundTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteOutboundTaskResponseBody extends $tea.Model {
+export class DeleteOutboundTaskResponseBody extends $dara.Model {
   code?: string;
   data?: string;
   message?: string;
@@ -3771,12 +9767,16 @@ export class DeleteOutboundTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteOutboundTaskResponse extends $tea.Model {
+export class DeleteOutboundTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteOutboundTaskResponseBody;
@@ -3796,12 +9796,22 @@ export class DeleteOutboundTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteOuterAccountRequest extends $tea.Model {
+export class DeleteOuterAccountRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3832,12 +9842,16 @@ export class DeleteOuterAccountRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteOuterAccountResponseBody extends $tea.Model {
+export class DeleteOuterAccountResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -3883,12 +9897,16 @@ export class DeleteOuterAccountResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteOuterAccountResponse extends $tea.Model {
+export class DeleteOuterAccountResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteOuterAccountResponseBody;
@@ -3908,12 +9926,22 @@ export class DeleteOuterAccountResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteQualityProjectRequest extends $tea.Model {
+export class DeleteQualityProjectRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3934,12 +9962,16 @@ export class DeleteQualityProjectRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteQualityProjectResponseBody extends $tea.Model {
+export class DeleteQualityProjectResponseBody extends $dara.Model {
   code?: string;
   data?: string;
   message?: string;
@@ -3965,12 +9997,16 @@ export class DeleteQualityProjectResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteQualityProjectResponse extends $tea.Model {
+export class DeleteQualityProjectResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteQualityProjectResponseBody;
@@ -3990,12 +10026,22 @@ export class DeleteQualityProjectResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteQualityRuleRequest extends $tea.Model {
+export class DeleteQualityRuleRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4020,12 +10066,16 @@ export class DeleteQualityRuleRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteQualityRuleResponseBody extends $tea.Model {
+export class DeleteQualityRuleResponseBody extends $dara.Model {
   code?: string;
   data?: string;
   message?: string;
@@ -4051,12 +10101,16 @@ export class DeleteQualityRuleResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteQualityRuleResponse extends $tea.Model {
+export class DeleteQualityRuleResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteQualityRuleResponseBody;
@@ -4076,12 +10130,22 @@ export class DeleteQualityRuleResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSkillGroupRequest extends $tea.Model {
+export class DeleteSkillGroupRequest extends $dara.Model {
   /**
    * @example
    * 123456
@@ -4106,12 +10170,16 @@ export class DeleteSkillGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSkillGroupResponseBody extends $tea.Model {
+export class DeleteSkillGroupResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -4157,12 +10225,16 @@ export class DeleteSkillGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSkillGroupResponse extends $tea.Model {
+export class DeleteSkillGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteSkillGroupResponseBody;
@@ -4182,12 +10254,22 @@ export class DeleteSkillGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRecordDataRequest extends $tea.Model {
+export class DescribeRecordDataRequest extends $dara.Model {
   /**
    * @example
    * 2235****
@@ -4242,12 +10324,16 @@ export class DescribeRecordDataRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRecordDataResponseBody extends $tea.Model {
+export class DescribeRecordDataResponseBody extends $dara.Model {
   /**
    * @example
    * 1004849****
@@ -4300,12 +10386,16 @@ export class DescribeRecordDataResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRecordDataResponse extends $tea.Model {
+export class DescribeRecordDataResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeRecordDataResponseBody;
@@ -4325,12 +10415,22 @@ export class DescribeRecordDataResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EditQualityProjectRequest extends $tea.Model {
+export class EditQualityProjectRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4412,12 +10512,31 @@ export class EditQualityProjectRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.analysisIds)) {
+      $dara.Model.validateArray(this.analysisIds);
+    }
+    if(Array.isArray(this.channelTouchType)) {
+      $dara.Model.validateArray(this.channelTouchType);
+    }
+    if(Array.isArray(this.depList)) {
+      $dara.Model.validateArray(this.depList);
+    }
+    if(Array.isArray(this.groupList)) {
+      $dara.Model.validateArray(this.groupList);
+    }
+    if(Array.isArray(this.servicerList)) {
+      $dara.Model.validateArray(this.servicerList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EditQualityProjectResponseBody extends $tea.Model {
+export class EditQualityProjectResponseBody extends $dara.Model {
   code?: string;
   data?: EditQualityProjectResponseBodyData[];
   message?: string;
@@ -4443,12 +10562,19 @@ export class EditQualityProjectResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EditQualityProjectResponse extends $tea.Model {
+export class EditQualityProjectResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: EditQualityProjectResponseBody;
@@ -4468,12 +10594,22 @@ export class EditQualityProjectResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EditQualityRuleRequest extends $tea.Model {
+export class EditQualityRuleRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4526,12 +10662,19 @@ export class EditQualityRuleRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.keyWords)) {
+      $dara.Model.validateArray(this.keyWords);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EditQualityRuleResponseBody extends $tea.Model {
+export class EditQualityRuleResponseBody extends $dara.Model {
   code?: string;
   message?: string;
   requestId?: string;
@@ -4554,12 +10697,16 @@ export class EditQualityRuleResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EditQualityRuleResponse extends $tea.Model {
+export class EditQualityRuleResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: EditQualityRuleResponseBody;
@@ -4579,12 +10726,22 @@ export class EditQualityRuleResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EditQualityRuleTagRequest extends $tea.Model {
+export class EditQualityRuleTagRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4609,12 +10766,19 @@ export class EditQualityRuleTagRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.analysisTypes)) {
+      $dara.Model.validateArray(this.analysisTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EditQualityRuleTagResponseBody extends $tea.Model {
+export class EditQualityRuleTagResponseBody extends $dara.Model {
   code?: string;
   data?: string;
   message?: string;
@@ -4640,12 +10804,16 @@ export class EditQualityRuleTagResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EditQualityRuleTagResponse extends $tea.Model {
+export class EditQualityRuleTagResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: EditQualityRuleTagResponseBody;
@@ -4665,12 +10833,22 @@ export class EditQualityRuleTagResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EncryptPhoneNumRequest extends $tea.Model {
+export class EncryptPhoneNumRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4701,12 +10879,16 @@ export class EncryptPhoneNumRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EncryptPhoneNumResponseBody extends $tea.Model {
+export class EncryptPhoneNumResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -4748,12 +10930,16 @@ export class EncryptPhoneNumResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EncryptPhoneNumResponse extends $tea.Model {
+export class EncryptPhoneNumResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: EncryptPhoneNumResponseBody;
@@ -4773,12 +10959,22 @@ export class EncryptPhoneNumResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FetchCallRequest extends $tea.Model {
+export class FetchCallRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4844,12 +11040,16 @@ export class FetchCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FetchCallResponseBody extends $tea.Model {
+export class FetchCallResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -4888,12 +11088,16 @@ export class FetchCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FetchCallResponse extends $tea.Model {
+export class FetchCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: FetchCallResponseBody;
@@ -4913,12 +11117,22 @@ export class FetchCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FinishHotlineServiceRequest extends $tea.Model {
+export class FinishHotlineServiceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4956,12 +11170,16 @@ export class FinishHotlineServiceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FinishHotlineServiceResponseBody extends $tea.Model {
+export class FinishHotlineServiceResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -5007,12 +11225,16 @@ export class FinishHotlineServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FinishHotlineServiceResponse extends $tea.Model {
+export class FinishHotlineServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: FinishHotlineServiceResponseBody;
@@ -5032,12 +11254,22 @@ export class FinishHotlineServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateWebSocketSignRequest extends $tea.Model {
+export class GenerateWebSocketSignRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -5075,12 +11307,16 @@ export class GenerateWebSocketSignRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateWebSocketSignResponseBody extends $tea.Model {
+export class GenerateWebSocketSignResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -5133,12 +11369,16 @@ export class GenerateWebSocketSignResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GenerateWebSocketSignResponse extends $tea.Model {
+export class GenerateWebSocketSignResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GenerateWebSocketSignResponseBody;
@@ -5158,12 +11398,22 @@ export class GenerateWebSocketSignResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentRequest extends $tea.Model {
+export class GetAgentRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -5201,12 +11451,16 @@ export class GetAgentRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentResponseBody extends $tea.Model {
+export class GetAgentResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -5248,12 +11502,19 @@ export class GetAgentResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentResponse extends $tea.Model {
+export class GetAgentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAgentResponseBody;
@@ -5273,12 +11534,22 @@ export class GetAgentResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentBasisStatusRequest extends $tea.Model {
+export class GetAgentBasisStatusRequest extends $dara.Model {
   agentIds?: number[];
   /**
    * @example
@@ -5333,12 +11604,22 @@ export class GetAgentBasisStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.agentIds)) {
+      $dara.Model.validateArray(this.agentIds);
+    }
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentBasisStatusShrinkRequest extends $tea.Model {
+export class GetAgentBasisStatusShrinkRequest extends $dara.Model {
   agentIdsShrink?: string;
   /**
    * @example
@@ -5393,12 +11674,16 @@ export class GetAgentBasisStatusShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentBasisStatusResponseBody extends $tea.Model {
+export class GetAgentBasisStatusResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -5440,12 +11725,19 @@ export class GetAgentBasisStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentBasisStatusResponse extends $tea.Model {
+export class GetAgentBasisStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAgentBasisStatusResponseBody;
@@ -5465,12 +11757,22 @@ export class GetAgentBasisStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentByIdRequest extends $tea.Model {
+export class GetAgentByIdRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -5495,12 +11797,16 @@ export class GetAgentByIdRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentByIdResponseBody extends $tea.Model {
+export class GetAgentByIdResponseBody extends $dara.Model {
   code?: string;
   data?: GetAgentByIdResponseBodyData;
   message?: string;
@@ -5526,12 +11832,19 @@ export class GetAgentByIdResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentByIdResponse extends $tea.Model {
+export class GetAgentByIdResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAgentByIdResponseBody;
@@ -5551,12 +11864,22 @@ export class GetAgentByIdResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentDetailReportRequest extends $tea.Model {
+export class GetAgentDetailReportRequest extends $dara.Model {
   agentIds?: number[];
   /**
    * @example
@@ -5632,12 +11955,22 @@ export class GetAgentDetailReportRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.agentIds)) {
+      $dara.Model.validateArray(this.agentIds);
+    }
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentDetailReportShrinkRequest extends $tea.Model {
+export class GetAgentDetailReportShrinkRequest extends $dara.Model {
   agentIdsShrink?: string;
   /**
    * @example
@@ -5713,12 +12046,16 @@ export class GetAgentDetailReportShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentDetailReportResponseBody extends $tea.Model {
+export class GetAgentDetailReportResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -5760,12 +12097,19 @@ export class GetAgentDetailReportResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentDetailReportResponse extends $tea.Model {
+export class GetAgentDetailReportResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAgentDetailReportResponseBody;
@@ -5785,12 +12129,22 @@ export class GetAgentDetailReportResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentIndexRealTimeRequest extends $tea.Model {
+export class GetAgentIndexRealTimeRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -5831,12 +12185,22 @@ export class GetAgentIndexRealTimeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentIndexRealTimeResponseBody extends $tea.Model {
+export class GetAgentIndexRealTimeResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -5878,12 +12242,19 @@ export class GetAgentIndexRealTimeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentIndexRealTimeResponse extends $tea.Model {
+export class GetAgentIndexRealTimeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAgentIndexRealTimeResponseBody;
@@ -5903,12 +12274,22 @@ export class GetAgentIndexRealTimeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentServiceStatusRequest extends $tea.Model {
+export class GetAgentServiceStatusRequest extends $dara.Model {
   agentIds?: number[];
   /**
    * @example
@@ -5984,12 +12365,22 @@ export class GetAgentServiceStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.agentIds)) {
+      $dara.Model.validateArray(this.agentIds);
+    }
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentServiceStatusShrinkRequest extends $tea.Model {
+export class GetAgentServiceStatusShrinkRequest extends $dara.Model {
   agentIdsShrink?: string;
   /**
    * @example
@@ -6065,12 +12456,16 @@ export class GetAgentServiceStatusShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentServiceStatusResponseBody extends $tea.Model {
+export class GetAgentServiceStatusResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -6112,12 +12507,19 @@ export class GetAgentServiceStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentServiceStatusResponse extends $tea.Model {
+export class GetAgentServiceStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAgentServiceStatusResponseBody;
@@ -6137,12 +12539,22 @@ export class GetAgentServiceStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentStatisticsRequest extends $tea.Model {
+export class GetAgentStatisticsRequest extends $dara.Model {
   agentIds?: number[];
   /**
    * @example
@@ -6218,12 +12630,22 @@ export class GetAgentStatisticsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.agentIds)) {
+      $dara.Model.validateArray(this.agentIds);
+    }
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentStatisticsShrinkRequest extends $tea.Model {
+export class GetAgentStatisticsShrinkRequest extends $dara.Model {
   agentIdsShrink?: string;
   /**
    * @example
@@ -6299,12 +12721,16 @@ export class GetAgentStatisticsShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentStatisticsResponseBody extends $tea.Model {
+export class GetAgentStatisticsResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -6346,12 +12772,19 @@ export class GetAgentStatisticsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAgentStatisticsResponse extends $tea.Model {
+export class GetAgentStatisticsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAgentStatisticsResponseBody;
@@ -6371,12 +12804,22 @@ export class GetAgentStatisticsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskBizDataRequest extends $tea.Model {
+export class GetAiOutboundTaskBizDataRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -6407,12 +12850,16 @@ export class GetAiOutboundTaskBizDataRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskBizDataResponseBody extends $tea.Model {
+export class GetAiOutboundTaskBizDataResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -6454,12 +12901,19 @@ export class GetAiOutboundTaskBizDataResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskBizDataResponse extends $tea.Model {
+export class GetAiOutboundTaskBizDataResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAiOutboundTaskBizDataResponseBody;
@@ -6479,12 +12933,22 @@ export class GetAiOutboundTaskBizDataResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskDetailRequest extends $tea.Model {
+export class GetAiOutboundTaskDetailRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -6515,12 +12979,16 @@ export class GetAiOutboundTaskDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskDetailResponseBody extends $tea.Model {
+export class GetAiOutboundTaskDetailResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -6562,12 +13030,19 @@ export class GetAiOutboundTaskDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskDetailResponse extends $tea.Model {
+export class GetAiOutboundTaskDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAiOutboundTaskDetailResponseBody;
@@ -6587,12 +13062,22 @@ export class GetAiOutboundTaskDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskExecDetailRequest extends $tea.Model {
+export class GetAiOutboundTaskExecDetailRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -6685,12 +13170,16 @@ export class GetAiOutboundTaskExecDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskExecDetailResponseBody extends $tea.Model {
+export class GetAiOutboundTaskExecDetailResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -6732,12 +13221,19 @@ export class GetAiOutboundTaskExecDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskExecDetailResponse extends $tea.Model {
+export class GetAiOutboundTaskExecDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAiOutboundTaskExecDetailResponseBody;
@@ -6757,12 +13253,22 @@ export class GetAiOutboundTaskExecDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskListRequest extends $tea.Model {
+export class GetAiOutboundTaskListRequest extends $dara.Model {
   /**
    * @example
    * 1617761765000
@@ -6841,12 +13347,16 @@ export class GetAiOutboundTaskListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskListResponseBody extends $tea.Model {
+export class GetAiOutboundTaskListResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -6888,12 +13398,19 @@ export class GetAiOutboundTaskListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskListResponse extends $tea.Model {
+export class GetAiOutboundTaskListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAiOutboundTaskListResponseBody;
@@ -6913,12 +13430,22 @@ export class GetAiOutboundTaskListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskProgressRequest extends $tea.Model {
+export class GetAiOutboundTaskProgressRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -6956,12 +13483,16 @@ export class GetAiOutboundTaskProgressRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskProgressResponseBody extends $tea.Model {
+export class GetAiOutboundTaskProgressResponseBody extends $dara.Model {
   /**
    * @example
    * ok
@@ -7003,12 +13534,19 @@ export class GetAiOutboundTaskProgressResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAiOutboundTaskProgressResponse extends $tea.Model {
+export class GetAiOutboundTaskProgressResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAiOutboundTaskProgressResponseBody;
@@ -7028,12 +13566,22 @@ export class GetAiOutboundTaskProgressResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAllDepartmentRequest extends $tea.Model {
+export class GetAllDepartmentRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -7054,12 +13602,16 @@ export class GetAllDepartmentRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAllDepartmentResponseBody extends $tea.Model {
+export class GetAllDepartmentResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -7108,12 +13660,19 @@ export class GetAllDepartmentResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAllDepartmentResponse extends $tea.Model {
+export class GetAllDepartmentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAllDepartmentResponseBody;
@@ -7133,12 +13692,22 @@ export class GetAllDepartmentResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCallSoundRecordRequest extends $tea.Model {
+export class GetCallSoundRecordRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -7178,12 +13747,16 @@ export class GetCallSoundRecordRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCallSoundRecordResponseBody extends $tea.Model {
+export class GetCallSoundRecordResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -7229,12 +13802,16 @@ export class GetCallSoundRecordResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCallSoundRecordResponse extends $tea.Model {
+export class GetCallSoundRecordResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetCallSoundRecordResponseBody;
@@ -7254,12 +13831,22 @@ export class GetCallSoundRecordResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConfigNumListRequest extends $tea.Model {
+export class GetConfigNumListRequest extends $dara.Model {
   /**
    * @example
    * 123@123.com
@@ -7294,12 +13881,16 @@ export class GetConfigNumListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConfigNumListResponseBody extends $tea.Model {
+export class GetConfigNumListResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -7341,12 +13932,19 @@ export class GetConfigNumListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConfigNumListResponse extends $tea.Model {
+export class GetConfigNumListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetConfigNumListResponseBody;
@@ -7366,12 +13964,22 @@ export class GetConfigNumListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCustomerInfoRequest extends $tea.Model {
+export class GetCustomerInfoRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -7402,12 +14010,16 @@ export class GetCustomerInfoRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCustomerInfoResponseBody extends $tea.Model {
+export class GetCustomerInfoResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -7449,12 +14061,19 @@ export class GetCustomerInfoResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCustomerInfoResponse extends $tea.Model {
+export class GetCustomerInfoResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetCustomerInfoResponseBody;
@@ -7474,12 +14093,22 @@ export class GetCustomerInfoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDepGroupTreeDataRequest extends $tea.Model {
+export class GetDepGroupTreeDataRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -7510,12 +14139,16 @@ export class GetDepGroupTreeDataRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDepGroupTreeDataResponseBody extends $tea.Model {
+export class GetDepGroupTreeDataResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -7557,12 +14190,19 @@ export class GetDepGroupTreeDataResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDepGroupTreeDataResponse extends $tea.Model {
+export class GetDepGroupTreeDataResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetDepGroupTreeDataResponseBody;
@@ -7582,12 +14222,22 @@ export class GetDepGroupTreeDataResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDepartmentalLatitudeAgentStatusRequest extends $tea.Model {
+export class GetDepartmentalLatitudeAgentStatusRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -7646,12 +14296,19 @@ export class GetDepartmentalLatitudeAgentStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDepartmentalLatitudeAgentStatusShrinkRequest extends $tea.Model {
+export class GetDepartmentalLatitudeAgentStatusShrinkRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -7710,12 +14367,16 @@ export class GetDepartmentalLatitudeAgentStatusShrinkRequest extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDepartmentalLatitudeAgentStatusResponseBody extends $tea.Model {
+export class GetDepartmentalLatitudeAgentStatusResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -7757,12 +14418,19 @@ export class GetDepartmentalLatitudeAgentStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetDepartmentalLatitudeAgentStatusResponse extends $tea.Model {
+export class GetDepartmentalLatitudeAgentStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetDepartmentalLatitudeAgentStatusResponseBody;
@@ -7782,12 +14450,22 @@ export class GetDepartmentalLatitudeAgentStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineAgentDetailRequest extends $tea.Model {
+export class GetHotlineAgentDetailRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -7825,12 +14503,16 @@ export class GetHotlineAgentDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineAgentDetailResponseBody extends $tea.Model {
+export class GetHotlineAgentDetailResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -7879,12 +14561,19 @@ export class GetHotlineAgentDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineAgentDetailResponse extends $tea.Model {
+export class GetHotlineAgentDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetHotlineAgentDetailResponseBody;
@@ -7904,12 +14593,22 @@ export class GetHotlineAgentDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineAgentDetailReportRequest extends $tea.Model {
+export class GetHotlineAgentDetailReportRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -7970,12 +14669,22 @@ export class GetHotlineAgentDetailReportRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineAgentDetailReportResponseBody extends $tea.Model {
+export class GetHotlineAgentDetailReportResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -8024,12 +14733,19 @@ export class GetHotlineAgentDetailReportResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineAgentDetailReportResponse extends $tea.Model {
+export class GetHotlineAgentDetailReportResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetHotlineAgentDetailReportResponseBody;
@@ -8049,12 +14765,22 @@ export class GetHotlineAgentDetailReportResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineAgentStatusRequest extends $tea.Model {
+export class GetHotlineAgentStatusRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -8085,12 +14811,16 @@ export class GetHotlineAgentStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineAgentStatusResponseBody extends $tea.Model {
+export class GetHotlineAgentStatusResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -8139,12 +14869,16 @@ export class GetHotlineAgentStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineAgentStatusResponse extends $tea.Model {
+export class GetHotlineAgentStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetHotlineAgentStatusResponseBody;
@@ -8164,12 +14898,22 @@ export class GetHotlineAgentStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineCallActionRequest extends $tea.Model {
+export class GetHotlineCallActionRequest extends $dara.Model {
   /**
    * @example
    * {"time":1}
@@ -8232,12 +14976,16 @@ export class GetHotlineCallActionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineCallActionResponseBody extends $tea.Model {
+export class GetHotlineCallActionResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -8279,12 +15027,19 @@ export class GetHotlineCallActionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineCallActionResponse extends $tea.Model {
+export class GetHotlineCallActionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetHotlineCallActionResponseBody;
@@ -8304,12 +15059,22 @@ export class GetHotlineCallActionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineGroupDetailReportRequest extends $tea.Model {
+export class GetHotlineGroupDetailReportRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -8370,12 +15135,22 @@ export class GetHotlineGroupDetailReportRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineGroupDetailReportResponseBody extends $tea.Model {
+export class GetHotlineGroupDetailReportResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -8417,12 +15192,19 @@ export class GetHotlineGroupDetailReportResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineGroupDetailReportResponse extends $tea.Model {
+export class GetHotlineGroupDetailReportResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetHotlineGroupDetailReportResponseBody;
@@ -8442,12 +15224,22 @@ export class GetHotlineGroupDetailReportResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineMessageLogRequest extends $tea.Model {
+export class GetHotlineMessageLogRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -8478,12 +15270,16 @@ export class GetHotlineMessageLogRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineMessageLogResponseBody extends $tea.Model {
+export class GetHotlineMessageLogResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -8525,12 +15321,19 @@ export class GetHotlineMessageLogResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineMessageLogResponse extends $tea.Model {
+export class GetHotlineMessageLogResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetHotlineMessageLogResponseBody;
@@ -8550,12 +15353,22 @@ export class GetHotlineMessageLogResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineRuntimeInfoRequest extends $tea.Model {
+export class GetHotlineRuntimeInfoRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -8586,12 +15399,16 @@ export class GetHotlineRuntimeInfoRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineRuntimeInfoResponseBody extends $tea.Model {
+export class GetHotlineRuntimeInfoResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -8633,12 +15450,19 @@ export class GetHotlineRuntimeInfoResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data) {
+      $dara.Model.validateMap(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineRuntimeInfoResponse extends $tea.Model {
+export class GetHotlineRuntimeInfoResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetHotlineRuntimeInfoResponseBody;
@@ -8658,12 +15482,22 @@ export class GetHotlineRuntimeInfoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineServiceStatisticsRequest extends $tea.Model {
+export class GetHotlineServiceStatisticsRequest extends $dara.Model {
   agentIds?: number[];
   /**
    * @example
@@ -8749,12 +15583,25 @@ export class GetHotlineServiceStatisticsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.agentIds)) {
+      $dara.Model.validateArray(this.agentIds);
+    }
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineServiceStatisticsShrinkRequest extends $tea.Model {
+export class GetHotlineServiceStatisticsShrinkRequest extends $dara.Model {
   agentIdsShrink?: string;
   /**
    * @example
@@ -8840,12 +15687,16 @@ export class GetHotlineServiceStatisticsShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineServiceStatisticsResponseBody extends $tea.Model {
+export class GetHotlineServiceStatisticsResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -8887,12 +15738,19 @@ export class GetHotlineServiceStatisticsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineServiceStatisticsResponse extends $tea.Model {
+export class GetHotlineServiceStatisticsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetHotlineServiceStatisticsResponseBody;
@@ -8912,12 +15770,22 @@ export class GetHotlineServiceStatisticsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineWaitingNumberRequest extends $tea.Model {
+export class GetHotlineWaitingNumberRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -8955,12 +15823,16 @@ export class GetHotlineWaitingNumberRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineWaitingNumberResponseBody extends $tea.Model {
+export class GetHotlineWaitingNumberResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -9006,12 +15878,16 @@ export class GetHotlineWaitingNumberResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetHotlineWaitingNumberResponse extends $tea.Model {
+export class GetHotlineWaitingNumberResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetHotlineWaitingNumberResponseBody;
@@ -9031,12 +15907,22 @@ export class GetHotlineWaitingNumberResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetIndexCurrentValueRequest extends $tea.Model {
+export class GetIndexCurrentValueRequest extends $dara.Model {
   /**
    * @example
    * 2332****,2334****
@@ -9068,12 +15954,16 @@ export class GetIndexCurrentValueRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetIndexCurrentValueResponseBody extends $tea.Model {
+export class GetIndexCurrentValueResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -9115,12 +16005,19 @@ export class GetIndexCurrentValueResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetIndexCurrentValueResponse extends $tea.Model {
+export class GetIndexCurrentValueResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetIndexCurrentValueResponseBody;
@@ -9140,12 +16037,22 @@ export class GetIndexCurrentValueResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceListRequest extends $tea.Model {
+export class GetInstanceListRequest extends $dara.Model {
   name?: string;
   pageNumber?: number;
   pageSize?: number;
@@ -9165,12 +16072,16 @@ export class GetInstanceListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceListResponseBody extends $tea.Model {
+export class GetInstanceListResponseBody extends $dara.Model {
   code?: string;
   commodityInstances?: GetInstanceListResponseBodyCommodityInstances[];
   httpStatusCode?: number;
@@ -9208,12 +16119,19 @@ export class GetInstanceListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.commodityInstances)) {
+      $dara.Model.validateArray(this.commodityInstances);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceListResponse extends $tea.Model {
+export class GetInstanceListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetInstanceListResponseBody;
@@ -9233,12 +16151,22 @@ export class GetInstanceListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMcuLvsIpRequest extends $tea.Model {
+export class GetMcuLvsIpRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -9259,12 +16187,16 @@ export class GetMcuLvsIpRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMcuLvsIpResponseBody extends $tea.Model {
+export class GetMcuLvsIpResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -9310,12 +16242,16 @@ export class GetMcuLvsIpResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetMcuLvsIpResponse extends $tea.Model {
+export class GetMcuLvsIpResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetMcuLvsIpResponseBody;
@@ -9335,12 +16271,22 @@ export class GetMcuLvsIpResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNumLocationRequest extends $tea.Model {
+export class GetNumLocationRequest extends $dara.Model {
   /**
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
@@ -9378,12 +16324,16 @@ export class GetNumLocationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNumLocationResponseBody extends $tea.Model {
+export class GetNumLocationResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -9425,12 +16375,16 @@ export class GetNumLocationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetNumLocationResponse extends $tea.Model {
+export class GetNumLocationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetNumLocationResponseBody;
@@ -9450,12 +16404,22 @@ export class GetNumLocationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOnlineSeatInformationRequest extends $tea.Model {
+export class GetOnlineSeatInformationRequest extends $dara.Model {
   agentIds?: number[];
   /**
    * @example
@@ -9510,12 +16474,22 @@ export class GetOnlineSeatInformationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.agentIds)) {
+      $dara.Model.validateArray(this.agentIds);
+    }
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOnlineSeatInformationShrinkRequest extends $tea.Model {
+export class GetOnlineSeatInformationShrinkRequest extends $dara.Model {
   agentIdsShrink?: string;
   /**
    * @example
@@ -9570,12 +16544,16 @@ export class GetOnlineSeatInformationShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOnlineSeatInformationResponseBody extends $tea.Model {
+export class GetOnlineSeatInformationResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -9617,12 +16595,19 @@ export class GetOnlineSeatInformationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOnlineSeatInformationResponse extends $tea.Model {
+export class GetOnlineSeatInformationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetOnlineSeatInformationResponseBody;
@@ -9642,12 +16627,22 @@ export class GetOnlineSeatInformationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOnlineServiceVolumeRequest extends $tea.Model {
+export class GetOnlineServiceVolumeRequest extends $dara.Model {
   agentIds?: number[];
   /**
    * @example
@@ -9733,12 +16728,25 @@ export class GetOnlineServiceVolumeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.agentIds)) {
+      $dara.Model.validateArray(this.agentIds);
+    }
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOnlineServiceVolumeShrinkRequest extends $tea.Model {
+export class GetOnlineServiceVolumeShrinkRequest extends $dara.Model {
   agentIdsShrink?: string;
   /**
    * @example
@@ -9824,12 +16832,16 @@ export class GetOnlineServiceVolumeShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOnlineServiceVolumeResponseBody extends $tea.Model {
+export class GetOnlineServiceVolumeResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -9871,12 +16883,19 @@ export class GetOnlineServiceVolumeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOnlineServiceVolumeResponse extends $tea.Model {
+export class GetOnlineServiceVolumeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetOnlineServiceVolumeResponseBody;
@@ -9896,12 +16915,22 @@ export class GetOnlineServiceVolumeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOutbounNumListRequest extends $tea.Model {
+export class GetOutbounNumListRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -9939,12 +16968,16 @@ export class GetOutbounNumListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOutbounNumListResponseBody extends $tea.Model {
+export class GetOutbounNumListResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -9993,12 +17026,19 @@ export class GetOutbounNumListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetOutbounNumListResponse extends $tea.Model {
+export class GetOutbounNumListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetOutbounNumListResponseBody;
@@ -10018,12 +17058,22 @@ export class GetOutbounNumListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityProjectDetailRequest extends $tea.Model {
+export class GetQualityProjectDetailRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -10054,12 +17104,16 @@ export class GetQualityProjectDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityProjectDetailResponseBody extends $tea.Model {
+export class GetQualityProjectDetailResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -10101,12 +17155,19 @@ export class GetQualityProjectDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityProjectDetailResponse extends $tea.Model {
+export class GetQualityProjectDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetQualityProjectDetailResponseBody;
@@ -10126,12 +17187,22 @@ export class GetQualityProjectDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityProjectListRequest extends $tea.Model {
+export class GetQualityProjectListRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -10190,12 +17261,16 @@ export class GetQualityProjectListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityProjectListResponseBody extends $tea.Model {
+export class GetQualityProjectListResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -10237,12 +17312,19 @@ export class GetQualityProjectListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityProjectListResponse extends $tea.Model {
+export class GetQualityProjectListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetQualityProjectListResponseBody;
@@ -10262,12 +17344,22 @@ export class GetQualityProjectListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityProjectLogRequest extends $tea.Model {
+export class GetQualityProjectLogRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -10288,12 +17380,16 @@ export class GetQualityProjectLogRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityProjectLogResponseBody extends $tea.Model {
+export class GetQualityProjectLogResponseBody extends $dara.Model {
   code?: string;
   data?: GetQualityProjectLogResponseBodyData[];
   message?: string;
@@ -10319,12 +17415,19 @@ export class GetQualityProjectLogResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityProjectLogResponse extends $tea.Model {
+export class GetQualityProjectLogResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetQualityProjectLogResponseBody;
@@ -10344,12 +17447,22 @@ export class GetQualityProjectLogResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityResultRequest extends $tea.Model {
+export class GetQualityResultRequest extends $dara.Model {
   channelType?: string;
   groupIds?: number[];
   hitStatus?: number;
@@ -10402,12 +17515,25 @@ export class GetQualityResultRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    if(Array.isArray(this.projectIds)) {
+      $dara.Model.validateArray(this.projectIds);
+    }
+    if(Array.isArray(this.qualityRuleIds)) {
+      $dara.Model.validateArray(this.qualityRuleIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityResultResponseBody extends $tea.Model {
+export class GetQualityResultResponseBody extends $dara.Model {
   channelTypeName?: string;
   code?: string;
   data?: GetQualityResultResponseBodyData;
@@ -10436,12 +17562,19 @@ export class GetQualityResultResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityResultResponse extends $tea.Model {
+export class GetQualityResultResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetQualityResultResponseBody;
@@ -10461,12 +17594,22 @@ export class GetQualityResultResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityRuleDetailRequest extends $tea.Model {
+export class GetQualityRuleDetailRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -10491,12 +17634,16 @@ export class GetQualityRuleDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityRuleDetailResponseBody extends $tea.Model {
+export class GetQualityRuleDetailResponseBody extends $dara.Model {
   code?: string;
   data?: GetQualityRuleDetailResponseBodyData;
   message?: string;
@@ -10522,12 +17669,19 @@ export class GetQualityRuleDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityRuleDetailResponse extends $tea.Model {
+export class GetQualityRuleDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetQualityRuleDetailResponseBody;
@@ -10547,12 +17701,22 @@ export class GetQualityRuleDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityRuleListRequest extends $tea.Model {
+export class GetQualityRuleListRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -10576,12 +17740,16 @@ export class GetQualityRuleListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityRuleListResponseBody extends $tea.Model {
+export class GetQualityRuleListResponseBody extends $dara.Model {
   code?: string;
   data?: GetQualityRuleListResponseBodyData;
   message?: string;
@@ -10607,12 +17775,19 @@ export class GetQualityRuleListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityRuleListResponse extends $tea.Model {
+export class GetQualityRuleListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetQualityRuleListResponseBody;
@@ -10632,12 +17807,22 @@ export class GetQualityRuleListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityRuleTagListRequest extends $tea.Model {
+export class GetQualityRuleTagListRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -10655,12 +17840,16 @@ export class GetQualityRuleTagListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityRuleTagListResponseBody extends $tea.Model {
+export class GetQualityRuleTagListResponseBody extends $dara.Model {
   code?: string;
   data?: GetQualityRuleTagListResponseBodyData[];
   message?: string;
@@ -10686,12 +17875,19 @@ export class GetQualityRuleTagListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQualityRuleTagListResponse extends $tea.Model {
+export class GetQualityRuleTagListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetQualityRuleTagListResponseBody;
@@ -10711,12 +17907,22 @@ export class GetQualityRuleTagListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQueueInformationRequest extends $tea.Model {
+export class GetQueueInformationRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -10785,12 +17991,22 @@ export class GetQueueInformationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQueueInformationShrinkRequest extends $tea.Model {
+export class GetQueueInformationShrinkRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -10859,12 +18075,16 @@ export class GetQueueInformationShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQueueInformationResponseBody extends $tea.Model {
+export class GetQueueInformationResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -10906,12 +18126,19 @@ export class GetQueueInformationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQueueInformationResponse extends $tea.Model {
+export class GetQueueInformationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetQueueInformationResponseBody;
@@ -10931,12 +18158,22 @@ export class GetQueueInformationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRecordDataRequest extends $tea.Model {
+export class GetRecordDataRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -10967,12 +18204,16 @@ export class GetRecordDataRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRecordDataResponseBody extends $tea.Model {
+export class GetRecordDataResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -11021,12 +18262,19 @@ export class GetRecordDataResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRecordDataResponse extends $tea.Model {
+export class GetRecordDataResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetRecordDataResponseBody;
@@ -11046,12 +18294,22 @@ export class GetRecordDataResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRecordUrlRequest extends $tea.Model {
+export class GetRecordUrlRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -11092,12 +18350,16 @@ export class GetRecordUrlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRecordUrlResponseBody extends $tea.Model {
+export class GetRecordUrlResponseBody extends $dara.Model {
   data?: GetRecordUrlResponseBodyData;
   /**
    * @example
@@ -11132,12 +18394,19 @@ export class GetRecordUrlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRecordUrlResponse extends $tea.Model {
+export class GetRecordUrlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetRecordUrlResponseBody;
@@ -11157,12 +18426,22 @@ export class GetRecordUrlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRtcTokenRequest extends $tea.Model {
+export class GetRtcTokenRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -11193,12 +18472,16 @@ export class GetRtcTokenRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRtcTokenResponseBody extends $tea.Model {
+export class GetRtcTokenResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -11244,12 +18527,19 @@ export class GetRtcTokenResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetRtcTokenResponse extends $tea.Model {
+export class GetRtcTokenResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetRtcTokenResponseBody;
@@ -11269,12 +18559,22 @@ export class GetRtcTokenResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSeatInformationRequest extends $tea.Model {
+export class GetSeatInformationRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -11333,12 +18633,19 @@ export class GetSeatInformationRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSeatInformationShrinkRequest extends $tea.Model {
+export class GetSeatInformationShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -11397,12 +18704,16 @@ export class GetSeatInformationShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSeatInformationResponseBody extends $tea.Model {
+export class GetSeatInformationResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -11444,12 +18755,19 @@ export class GetSeatInformationResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSeatInformationResponse extends $tea.Model {
+export class GetSeatInformationResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetSeatInformationResponseBody;
@@ -11469,12 +18787,22 @@ export class GetSeatInformationResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupAgentStatusDetailsRequest extends $tea.Model {
+export class GetSkillGroupAgentStatusDetailsRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -11543,12 +18871,22 @@ export class GetSkillGroupAgentStatusDetailsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupAgentStatusDetailsShrinkRequest extends $tea.Model {
+export class GetSkillGroupAgentStatusDetailsShrinkRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -11617,12 +18955,16 @@ export class GetSkillGroupAgentStatusDetailsShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupAgentStatusDetailsResponseBody extends $tea.Model {
+export class GetSkillGroupAgentStatusDetailsResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -11664,12 +19006,19 @@ export class GetSkillGroupAgentStatusDetailsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupAgentStatusDetailsResponse extends $tea.Model {
+export class GetSkillGroupAgentStatusDetailsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetSkillGroupAgentStatusDetailsResponseBody;
@@ -11689,12 +19038,22 @@ export class GetSkillGroupAgentStatusDetailsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupAndAgentStatusSummaryRequest extends $tea.Model {
+export class GetSkillGroupAndAgentStatusSummaryRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -11763,12 +19122,22 @@ export class GetSkillGroupAndAgentStatusSummaryRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupAndAgentStatusSummaryShrinkRequest extends $tea.Model {
+export class GetSkillGroupAndAgentStatusSummaryShrinkRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -11837,12 +19206,16 @@ export class GetSkillGroupAndAgentStatusSummaryShrinkRequest extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupAndAgentStatusSummaryResponseBody extends $tea.Model {
+export class GetSkillGroupAndAgentStatusSummaryResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -11884,12 +19257,19 @@ export class GetSkillGroupAndAgentStatusSummaryResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupAndAgentStatusSummaryResponse extends $tea.Model {
+export class GetSkillGroupAndAgentStatusSummaryResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetSkillGroupAndAgentStatusSummaryResponseBody;
@@ -11909,12 +19289,22 @@ export class GetSkillGroupAndAgentStatusSummaryResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupLatitudeStateRequest extends $tea.Model {
+export class GetSkillGroupLatitudeStateRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -11983,12 +19373,22 @@ export class GetSkillGroupLatitudeStateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupLatitudeStateShrinkRequest extends $tea.Model {
+export class GetSkillGroupLatitudeStateShrinkRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -12057,12 +19457,16 @@ export class GetSkillGroupLatitudeStateShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupLatitudeStateResponseBody extends $tea.Model {
+export class GetSkillGroupLatitudeStateResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -12104,12 +19508,19 @@ export class GetSkillGroupLatitudeStateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupLatitudeStateResponse extends $tea.Model {
+export class GetSkillGroupLatitudeStateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetSkillGroupLatitudeStateResponseBody;
@@ -12129,12 +19540,22 @@ export class GetSkillGroupLatitudeStateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupServiceCapabilityRequest extends $tea.Model {
+export class GetSkillGroupServiceCapabilityRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -12203,12 +19624,22 @@ export class GetSkillGroupServiceCapabilityRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupServiceCapabilityShrinkRequest extends $tea.Model {
+export class GetSkillGroupServiceCapabilityShrinkRequest extends $dara.Model {
   /**
    * @example
    * 1
@@ -12277,12 +19708,16 @@ export class GetSkillGroupServiceCapabilityShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupServiceCapabilityResponseBody extends $tea.Model {
+export class GetSkillGroupServiceCapabilityResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -12324,12 +19759,19 @@ export class GetSkillGroupServiceCapabilityResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupServiceCapabilityResponse extends $tea.Model {
+export class GetSkillGroupServiceCapabilityResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetSkillGroupServiceCapabilityResponseBody;
@@ -12349,12 +19791,22 @@ export class GetSkillGroupServiceCapabilityResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupServiceStatusRequest extends $tea.Model {
+export class GetSkillGroupServiceStatusRequest extends $dara.Model {
   agentIds?: number[];
   /**
    * @example
@@ -12454,12 +19906,25 @@ export class GetSkillGroupServiceStatusRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.agentIds)) {
+      $dara.Model.validateArray(this.agentIds);
+    }
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupServiceStatusShrinkRequest extends $tea.Model {
+export class GetSkillGroupServiceStatusShrinkRequest extends $dara.Model {
   agentIdsShrink?: string;
   /**
    * @example
@@ -12559,12 +20024,16 @@ export class GetSkillGroupServiceStatusShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupServiceStatusResponseBody extends $tea.Model {
+export class GetSkillGroupServiceStatusResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -12606,12 +20075,19 @@ export class GetSkillGroupServiceStatusResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupServiceStatusResponse extends $tea.Model {
+export class GetSkillGroupServiceStatusResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetSkillGroupServiceStatusResponseBody;
@@ -12631,12 +20107,22 @@ export class GetSkillGroupServiceStatusResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupStatusTotalRequest extends $tea.Model {
+export class GetSkillGroupStatusTotalRequest extends $dara.Model {
   agentIds?: number[];
   /**
    * @example
@@ -12722,12 +20208,25 @@ export class GetSkillGroupStatusTotalRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.agentIds)) {
+      $dara.Model.validateArray(this.agentIds);
+    }
+    if(Array.isArray(this.depIds)) {
+      $dara.Model.validateArray(this.depIds);
+    }
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupStatusTotalShrinkRequest extends $tea.Model {
+export class GetSkillGroupStatusTotalShrinkRequest extends $dara.Model {
   agentIdsShrink?: string;
   /**
    * @example
@@ -12813,12 +20312,16 @@ export class GetSkillGroupStatusTotalShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupStatusTotalResponseBody extends $tea.Model {
+export class GetSkillGroupStatusTotalResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -12860,12 +20363,19 @@ export class GetSkillGroupStatusTotalResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSkillGroupStatusTotalResponse extends $tea.Model {
+export class GetSkillGroupStatusTotalResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetSkillGroupStatusTotalResponseBody;
@@ -12885,12 +20395,22 @@ export class GetSkillGroupStatusTotalResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HangUpDoubleCallRequest extends $tea.Model {
+export class HangUpDoubleCallRequest extends $dara.Model {
   /**
    * @example
    * 68255155****
@@ -12915,12 +20435,16 @@ export class HangUpDoubleCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HangUpDoubleCallResponseBody extends $tea.Model {
+export class HangUpDoubleCallResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -12959,12 +20483,16 @@ export class HangUpDoubleCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HangUpDoubleCallResponse extends $tea.Model {
+export class HangUpDoubleCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: HangUpDoubleCallResponseBody;
@@ -12984,12 +20512,22 @@ export class HangUpDoubleCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HangupCallRequest extends $tea.Model {
+export class HangupCallRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -13048,12 +20586,16 @@ export class HangupCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HangupCallResponseBody extends $tea.Model {
+export class HangupCallResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -13092,12 +20634,16 @@ export class HangupCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HangupCallResponse extends $tea.Model {
+export class HangupCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: HangupCallResponseBody;
@@ -13117,12 +20663,142 @@ export class HangupCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HangupThirdCallRequest extends $tea.Model {
+export class HangupOperateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 147776727911^134522727911
+   */
+  callId?: string;
+  /**
+   * @example
+   * true
+   */
+  immediateHangup?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      callId: 'CallId',
+      immediateHangup: 'ImmediateHangup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callId: 'string',
+      immediateHangup: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HangupOperateResponseBody extends $dara.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * OK
+   */
+  mesage?: string;
+  /**
+   * @example
+   * EFD543DD-E087-54A2-AC0B-54E0656511D7
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      mesage: 'Mesage',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      mesage: 'string',
+      requestId: 'string',
+      result: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HangupOperateResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: HangupOperateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: HangupOperateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HangupThirdCallRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -13181,12 +20857,16 @@ export class HangupThirdCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HangupThirdCallResponseBody extends $tea.Model {
+export class HangupThirdCallResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -13225,12 +20905,16 @@ export class HangupThirdCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HangupThirdCallResponse extends $tea.Model {
+export class HangupThirdCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: HangupThirdCallResponseBody;
@@ -13250,12 +20934,22 @@ export class HangupThirdCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HoldCallRequest extends $tea.Model {
+export class HoldCallRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -13314,12 +21008,16 @@ export class HoldCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HoldCallResponseBody extends $tea.Model {
+export class HoldCallResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -13358,12 +21056,16 @@ export class HoldCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HoldCallResponse extends $tea.Model {
+export class HoldCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: HoldCallResponseBody;
@@ -13383,12 +21085,22 @@ export class HoldCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HotlineSessionQueryRequest extends $tea.Model {
+export class HotlineSessionQueryRequest extends $dara.Model {
   /**
    * @example
    * 7719786****
@@ -13547,12 +21259,40 @@ export class HotlineSessionQueryRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.acidList)) {
+      $dara.Model.validateArray(this.acidList);
+    }
+    if(Array.isArray(this.callResultList)) {
+      $dara.Model.validateArray(this.callResultList);
+    }
+    if(Array.isArray(this.callTypeList)) {
+      $dara.Model.validateArray(this.callTypeList);
+    }
+    if(Array.isArray(this.calledNumberList)) {
+      $dara.Model.validateArray(this.calledNumberList);
+    }
+    if(Array.isArray(this.callingNumberList)) {
+      $dara.Model.validateArray(this.callingNumberList);
+    }
+    if(Array.isArray(this.groupIdList)) {
+      $dara.Model.validateArray(this.groupIdList);
+    }
+    if(Array.isArray(this.memberIdList)) {
+      $dara.Model.validateArray(this.memberIdList);
+    }
+    if(Array.isArray(this.servicerIdList)) {
+      $dara.Model.validateArray(this.servicerIdList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HotlineSessionQueryResponseBody extends $tea.Model {
+export class HotlineSessionQueryResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -13594,12 +21334,19 @@ export class HotlineSessionQueryResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HotlineSessionQueryResponse extends $tea.Model {
+export class HotlineSessionQueryResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: HotlineSessionQueryResponseBody;
@@ -13619,12 +21366,22 @@ export class HotlineSessionQueryResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InsertAiOutboundPhoneNumsRequest extends $tea.Model {
+export class InsertAiOutboundPhoneNumsRequest extends $dara.Model {
   /**
    * @example
    * 2
@@ -13669,12 +21426,19 @@ export class InsertAiOutboundPhoneNumsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.details)) {
+      $dara.Model.validateArray(this.details);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InsertAiOutboundPhoneNumsShrinkRequest extends $tea.Model {
+export class InsertAiOutboundPhoneNumsShrinkRequest extends $dara.Model {
   /**
    * @example
    * 2
@@ -13719,12 +21483,16 @@ export class InsertAiOutboundPhoneNumsShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InsertAiOutboundPhoneNumsResponseBody extends $tea.Model {
+export class InsertAiOutboundPhoneNumsResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -13766,12 +21534,19 @@ export class InsertAiOutboundPhoneNumsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InsertAiOutboundPhoneNumsResponse extends $tea.Model {
+export class InsertAiOutboundPhoneNumsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: InsertAiOutboundPhoneNumsResponseBody;
@@ -13791,12 +21566,22 @@ export class InsertAiOutboundPhoneNumsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InsertTaskDetailRequest extends $tea.Model {
+export class InsertTaskDetailRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -13828,12 +21613,16 @@ export class InsertTaskDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InsertTaskDetailResponseBody extends $tea.Model {
+export class InsertTaskDetailResponseBody extends $dara.Model {
   code?: string;
   data?: string;
   message?: string;
@@ -13859,12 +21648,16 @@ export class InsertTaskDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InsertTaskDetailResponse extends $tea.Model {
+export class InsertTaskDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: InsertTaskDetailResponseBody;
@@ -13884,12 +21677,22 @@ export class InsertTaskDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class JoinThirdCallRequest extends $tea.Model {
+export class JoinThirdCallRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -13955,12 +21758,16 @@ export class JoinThirdCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class JoinThirdCallResponseBody extends $tea.Model {
+export class JoinThirdCallResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -13999,12 +21806,16 @@ export class JoinThirdCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class JoinThirdCallResponse extends $tea.Model {
+export class JoinThirdCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: JoinThirdCallResponseBody;
@@ -14024,12 +21835,22 @@ export class JoinThirdCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAgentBySkillGroupIdRequest extends $tea.Model {
+export class ListAgentBySkillGroupIdRequest extends $dara.Model {
   /**
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
@@ -14067,12 +21888,16 @@ export class ListAgentBySkillGroupIdRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAgentBySkillGroupIdResponseBody extends $tea.Model {
+export class ListAgentBySkillGroupIdResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -14114,12 +21939,19 @@ export class ListAgentBySkillGroupIdResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAgentBySkillGroupIdResponse extends $tea.Model {
+export class ListAgentBySkillGroupIdResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAgentBySkillGroupIdResponseBody;
@@ -14139,12 +21971,22 @@ export class ListAgentBySkillGroupIdResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAiccsRobotRequest extends $tea.Model {
+export class ListAiccsRobotRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -14167,12 +22009,16 @@ export class ListAiccsRobotRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAiccsRobotResponseBody extends $tea.Model {
+export class ListAiccsRobotResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -14214,12 +22060,19 @@ export class ListAiccsRobotResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAiccsRobotResponse extends $tea.Model {
+export class ListAiccsRobotResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAiccsRobotResponseBody;
@@ -14239,12 +22092,22 @@ export class ListAiccsRobotResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListChatRecordDetailRequest extends $tea.Model {
+export class ListChatRecordDetailRequest extends $dara.Model {
   /**
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
@@ -14300,12 +22163,16 @@ export class ListChatRecordDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListChatRecordDetailResponseBody extends $tea.Model {
+export class ListChatRecordDetailResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -14354,12 +22221,19 @@ export class ListChatRecordDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.resultData && typeof (this.resultData as any).validate === 'function') {
+      (this.resultData as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListChatRecordDetailResponse extends $tea.Model {
+export class ListChatRecordDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListChatRecordDetailResponseBody;
@@ -14379,12 +22253,22 @@ export class ListChatRecordDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDialogRequest extends $tea.Model {
+export class ListDialogRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -14424,12 +22308,16 @@ export class ListDialogRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDialogResponseBody extends $tea.Model {
+export class ListDialogResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -14471,12 +22359,19 @@ export class ListDialogResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDialogResponse extends $tea.Model {
+export class ListDialogResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListDialogResponseBody;
@@ -14496,12 +22391,22 @@ export class ListDialogResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListHotlineRecordRequest extends $tea.Model {
+export class ListHotlineRecordRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -14539,12 +22444,16 @@ export class ListHotlineRecordRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListHotlineRecordResponseBody extends $tea.Model {
+export class ListHotlineRecordResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -14586,12 +22495,19 @@ export class ListHotlineRecordResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListHotlineRecordResponse extends $tea.Model {
+export class ListHotlineRecordResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListHotlineRecordResponseBody;
@@ -14611,12 +22527,22 @@ export class ListHotlineRecordResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListHotlineRecordDetailRequest extends $tea.Model {
+export class ListHotlineRecordDetailRequest extends $dara.Model {
   /**
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
@@ -14672,12 +22598,16 @@ export class ListHotlineRecordDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListHotlineRecordDetailResponseBody extends $tea.Model {
+export class ListHotlineRecordDetailResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -14726,12 +22656,19 @@ export class ListHotlineRecordDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.resultData && typeof (this.resultData as any).validate === 'function') {
+      (this.resultData as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListHotlineRecordDetailResponse extends $tea.Model {
+export class ListHotlineRecordDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListHotlineRecordDetailResponseBody;
@@ -14751,12 +22688,22 @@ export class ListHotlineRecordDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListOutboundPhoneNumberRequest extends $tea.Model {
+export class ListOutboundPhoneNumberRequest extends $dara.Model {
   /**
    * @example
    * 123@****.com
@@ -14791,12 +22738,16 @@ export class ListOutboundPhoneNumberRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListOutboundPhoneNumberResponseBody extends $tea.Model {
+export class ListOutboundPhoneNumberResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -14845,12 +22796,19 @@ export class ListOutboundPhoneNumberResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListOutboundPhoneNumberResponse extends $tea.Model {
+export class ListOutboundPhoneNumberResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListOutboundPhoneNumberResponseBody;
@@ -14870,12 +22828,22 @@ export class ListOutboundPhoneNumberResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRobotCallDialogRequest extends $tea.Model {
+export class ListRobotCallDialogRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -14915,12 +22883,16 @@ export class ListRobotCallDialogRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRobotCallDialogResponseBody extends $tea.Model {
+export class ListRobotCallDialogResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -14962,12 +22934,19 @@ export class ListRobotCallDialogResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRobotCallDialogResponse extends $tea.Model {
+export class ListRobotCallDialogResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListRobotCallDialogResponseBody;
@@ -14987,12 +22966,22 @@ export class ListRobotCallDialogResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRobotNodeRequest extends $tea.Model {
+export class ListRobotNodeRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -15022,12 +23011,16 @@ export class ListRobotNodeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRobotNodeResponseBody extends $tea.Model {
+export class ListRobotNodeResponseBody extends $dara.Model {
   /**
    * @example
    * Ok
@@ -15069,12 +23062,19 @@ export class ListRobotNodeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRobotNodeResponse extends $tea.Model {
+export class ListRobotNodeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListRobotNodeResponseBody;
@@ -15094,12 +23094,22 @@ export class ListRobotNodeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRobotParamsRequest extends $tea.Model {
+export class ListRobotParamsRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -15129,12 +23139,16 @@ export class ListRobotParamsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRobotParamsResponseBody extends $tea.Model {
+export class ListRobotParamsResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -15176,12 +23190,19 @@ export class ListRobotParamsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRobotParamsResponse extends $tea.Model {
+export class ListRobotParamsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListRobotParamsResponseBody;
@@ -15201,12 +23222,22 @@ export class ListRobotParamsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRolesRequest extends $tea.Model {
+export class ListRolesRequest extends $dara.Model {
   /**
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
@@ -15234,12 +23265,16 @@ export class ListRolesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRolesResponseBody extends $tea.Model {
+export class ListRolesResponseBody extends $dara.Model {
   data?: ListRolesResponseBodyData[];
   /**
    * @example
@@ -15281,12 +23316,19 @@ export class ListRolesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRolesResponse extends $tea.Model {
+export class ListRolesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListRolesResponseBody;
@@ -15306,12 +23348,22 @@ export class ListRolesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSkillGroupRequest extends $tea.Model {
+export class ListSkillGroupRequest extends $dara.Model {
   /**
    * @example
    * 2
@@ -15346,12 +23398,16 @@ export class ListSkillGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSkillGroupResponseBody extends $tea.Model {
+export class ListSkillGroupResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -15393,12 +23449,19 @@ export class ListSkillGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSkillGroupResponse extends $tea.Model {
+export class ListSkillGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListSkillGroupResponseBody;
@@ -15418,12 +23481,22 @@ export class ListSkillGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTaskRequest extends $tea.Model {
+export class ListTaskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @example
@@ -15473,12 +23546,16 @@ export class ListTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTaskResponseBody extends $tea.Model {
+export class ListTaskResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -15520,12 +23597,19 @@ export class ListTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTaskResponse extends $tea.Model {
+export class ListTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTaskResponseBody;
@@ -15545,12 +23629,22 @@ export class ListTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTaskDetailRequest extends $tea.Model {
+export class ListTaskDetailRequest extends $dara.Model {
   /**
    * @example
    * 186****0000
@@ -15622,12 +23716,16 @@ export class ListTaskDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTaskDetailResponseBody extends $tea.Model {
+export class ListTaskDetailResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -15669,12 +23767,19 @@ export class ListTaskDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTaskDetailResponse extends $tea.Model {
+export class ListTaskDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTaskDetailResponseBody;
@@ -15694,12 +23799,22 @@ export class ListTaskDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LlmSmartCallRequest extends $tea.Model {
+export class LlmSmartCallRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -15750,12 +23865,22 @@ export class LlmSmartCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.promptParam) {
+      $dara.Model.validateMap(this.promptParam);
+    }
+    if(this.startWordParam) {
+      $dara.Model.validateMap(this.startWordParam);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LlmSmartCallShrinkRequest extends $tea.Model {
+export class LlmSmartCallShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -15806,12 +23931,16 @@ export class LlmSmartCallShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LlmSmartCallResponseBody extends $tea.Model {
+export class LlmSmartCallResponseBody extends $dara.Model {
   /**
    * @example
    * 125165515***^11195613****
@@ -15853,12 +23982,16 @@ export class LlmSmartCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LlmSmartCallResponse extends $tea.Model {
+export class LlmSmartCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: LlmSmartCallResponseBody;
@@ -15878,12 +24011,22 @@ export class LlmSmartCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MakeCallRequest extends $tea.Model {
+export class MakeCallRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -15951,12 +24094,16 @@ export class MakeCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MakeCallResponseBody extends $tea.Model {
+export class MakeCallResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -16002,12 +24149,16 @@ export class MakeCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MakeCallResponse extends $tea.Model {
+export class MakeCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: MakeCallResponseBody;
@@ -16027,12 +24178,22 @@ export class MakeCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MakeDoubleCallRequest extends $tea.Model {
+export class MakeDoubleCallRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -16097,12 +24258,16 @@ export class MakeDoubleCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MakeDoubleCallResponseBody extends $tea.Model {
+export class MakeDoubleCallResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -16144,12 +24309,19 @@ export class MakeDoubleCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MakeDoubleCallResponse extends $tea.Model {
+export class MakeDoubleCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: MakeDoubleCallResponseBody;
@@ -16169,12 +24341,22 @@ export class MakeDoubleCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryHotlineInQueueRequest extends $tea.Model {
+export class QueryHotlineInQueueRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -16205,12 +24387,16 @@ export class QueryHotlineInQueueRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryHotlineInQueueResponseBody extends $tea.Model {
+export class QueryHotlineInQueueResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -16256,12 +24442,16 @@ export class QueryHotlineInQueueResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryHotlineInQueueResponse extends $tea.Model {
+export class QueryHotlineInQueueResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryHotlineInQueueResponseBody;
@@ -16281,12 +24471,22 @@ export class QueryHotlineInQueueResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryHotlineNumberRequest extends $tea.Model {
+export class QueryHotlineNumberRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -16344,12 +24544,19 @@ export class QueryHotlineNumberRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryHotlineNumberShrinkRequest extends $tea.Model {
+export class QueryHotlineNumberShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -16407,12 +24614,16 @@ export class QueryHotlineNumberShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryHotlineNumberResponseBody extends $tea.Model {
+export class QueryHotlineNumberResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -16454,12 +24665,19 @@ export class QueryHotlineNumberResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryHotlineNumberResponse extends $tea.Model {
+export class QueryHotlineNumberResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryHotlineNumberResponseBody;
@@ -16479,12 +24697,22 @@ export class QueryHotlineNumberResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryOutboundTaskRequest extends $tea.Model {
+export class QueryOutboundTaskRequest extends $dara.Model {
   ani?: string;
   currentPage?: number;
   departmentId?: string;
@@ -16544,12 +24772,16 @@ export class QueryOutboundTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryOutboundTaskResponseBody extends $tea.Model {
+export class QueryOutboundTaskResponseBody extends $dara.Model {
   code?: string;
   data?: QueryOutboundTaskResponseBodyData;
   httpStatusCode?: string;
@@ -16578,12 +24810,19 @@ export class QueryOutboundTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryOutboundTaskResponse extends $tea.Model {
+export class QueryOutboundTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryOutboundTaskResponseBody;
@@ -16603,12 +24842,22 @@ export class QueryOutboundTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySkillGroupsRequest extends $tea.Model {
+export class QuerySkillGroupsRequest extends $dara.Model {
   /**
    * @example
    * 2
@@ -16670,12 +24919,16 @@ export class QuerySkillGroupsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySkillGroupsResponseBody extends $tea.Model {
+export class QuerySkillGroupsResponseBody extends $dara.Model {
   /**
    * @example
    * 1
@@ -16724,12 +24977,19 @@ export class QuerySkillGroupsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySkillGroupsResponse extends $tea.Model {
+export class QuerySkillGroupsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySkillGroupsResponseBody;
@@ -16749,12 +25009,22 @@ export class QuerySkillGroupsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTaskDetailRequest extends $tea.Model {
+export class QueryTaskDetailRequest extends $dara.Model {
   ani?: string;
   currentPage?: number;
   departmentIdList?: string;
@@ -16814,12 +25084,16 @@ export class QueryTaskDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTaskDetailResponseBody extends $tea.Model {
+export class QueryTaskDetailResponseBody extends $dara.Model {
   code?: string;
   data?: QueryTaskDetailResponseBodyData;
   httpStatusCode?: string;
@@ -16848,12 +25122,19 @@ export class QueryTaskDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTaskDetailResponse extends $tea.Model {
+export class QueryTaskDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryTaskDetailResponseBody;
@@ -16873,12 +25154,22 @@ export class QueryTaskDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTicketsRequest extends $tea.Model {
+export class QueryTicketsRequest extends $dara.Model {
   /**
    * @example
    * 223468****
@@ -16979,12 +25270,19 @@ export class QueryTicketsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.extra) {
+      $dara.Model.validateMap(this.extra);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTicketsShrinkRequest extends $tea.Model {
+export class QueryTicketsShrinkRequest extends $dara.Model {
   /**
    * @example
    * 223468****
@@ -17085,12 +25383,16 @@ export class QueryTicketsShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTicketsResponseBody extends $tea.Model {
+export class QueryTicketsResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -17136,12 +25438,16 @@ export class QueryTicketsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTicketsResponse extends $tea.Model {
+export class QueryTicketsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryTicketsResponseBody;
@@ -17161,12 +25467,22 @@ export class QueryTicketsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTouchListRequest extends $tea.Model {
+export class QueryTouchListRequest extends $dara.Model {
   channelId?: string[];
   channelType?: number[];
   /**
@@ -17265,12 +25581,52 @@ export class QueryTouchListRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.channelId)) {
+      $dara.Model.validateArray(this.channelId);
+    }
+    if(Array.isArray(this.channelType)) {
+      $dara.Model.validateArray(this.channelType);
+    }
+    if(Array.isArray(this.evaluationLevel)) {
+      $dara.Model.validateArray(this.evaluationLevel);
+    }
+    if(Array.isArray(this.evaluationScore)) {
+      $dara.Model.validateArray(this.evaluationScore);
+    }
+    if(Array.isArray(this.evaluationStatus)) {
+      $dara.Model.validateArray(this.evaluationStatus);
+    }
+    if(Array.isArray(this.memberId)) {
+      $dara.Model.validateArray(this.memberId);
+    }
+    if(Array.isArray(this.memberName)) {
+      $dara.Model.validateArray(this.memberName);
+    }
+    if(Array.isArray(this.queueId)) {
+      $dara.Model.validateArray(this.queueId);
+    }
+    if(Array.isArray(this.servicerId)) {
+      $dara.Model.validateArray(this.servicerId);
+    }
+    if(Array.isArray(this.servicerName)) {
+      $dara.Model.validateArray(this.servicerName);
+    }
+    if(Array.isArray(this.touchId)) {
+      $dara.Model.validateArray(this.touchId);
+    }
+    if(Array.isArray(this.touchType)) {
+      $dara.Model.validateArray(this.touchType);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTouchListResponseBody extends $tea.Model {
+export class QueryTouchListResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -17312,12 +25668,19 @@ export class QueryTouchListResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.resultData && typeof (this.resultData as any).validate === 'function') {
+      (this.resultData as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryTouchListResponse extends $tea.Model {
+export class QueryTouchListResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryTouchListResponseBody;
@@ -17337,12 +25700,22 @@ export class QueryTouchListResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RemoveAgentFromSkillGroupRequest extends $tea.Model {
+export class RemoveAgentFromSkillGroupRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -17380,12 +25753,19 @@ export class RemoveAgentFromSkillGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.agentIds)) {
+      $dara.Model.validateArray(this.agentIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RemoveAgentFromSkillGroupShrinkRequest extends $tea.Model {
+export class RemoveAgentFromSkillGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -17423,12 +25803,16 @@ export class RemoveAgentFromSkillGroupShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RemoveAgentFromSkillGroupResponseBody extends $tea.Model {
+export class RemoveAgentFromSkillGroupResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -17470,12 +25854,19 @@ export class RemoveAgentFromSkillGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RemoveAgentFromSkillGroupResponse extends $tea.Model {
+export class RemoveAgentFromSkillGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RemoveAgentFromSkillGroupResponseBody;
@@ -17495,12 +25886,22 @@ export class RemoveAgentFromSkillGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RemoveSkillGroupRequest extends $tea.Model {
+export class RemoveSkillGroupRequest extends $dara.Model {
   /**
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
@@ -17538,12 +25939,16 @@ export class RemoveSkillGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RemoveSkillGroupResponseBody extends $tea.Model {
+export class RemoveSkillGroupResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -17582,12 +25987,16 @@ export class RemoveSkillGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RemoveSkillGroupResponse extends $tea.Model {
+export class RemoveSkillGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RemoveSkillGroupResponseBody;
@@ -17607,12 +26016,22 @@ export class RemoveSkillGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResetHotlineNumberRequest extends $tea.Model {
+export class ResetHotlineNumberRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -17720,12 +26139,19 @@ export class ResetHotlineNumberRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.outboundRangeList)) {
+      $dara.Model.validateArray(this.outboundRangeList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResetHotlineNumberShrinkRequest extends $tea.Model {
+export class ResetHotlineNumberShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -17833,12 +26259,16 @@ export class ResetHotlineNumberShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResetHotlineNumberResponseBody extends $tea.Model {
+export class ResetHotlineNumberResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -17884,12 +26314,16 @@ export class ResetHotlineNumberResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResetHotlineNumberResponse extends $tea.Model {
+export class ResetHotlineNumberResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ResetHotlineNumberResponseBody;
@@ -17909,12 +26343,22 @@ export class ResetHotlineNumberResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RestartOutboundTaskRequest extends $tea.Model {
+export class RestartOutboundTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -17939,12 +26383,16 @@ export class RestartOutboundTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RestartOutboundTaskResponseBody extends $tea.Model {
+export class RestartOutboundTaskResponseBody extends $dara.Model {
   code?: string;
   data?: string;
   message?: string;
@@ -17970,12 +26418,16 @@ export class RestartOutboundTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RestartOutboundTaskResponse extends $tea.Model {
+export class RestartOutboundTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RestartOutboundTaskResponseBody;
@@ -17995,12 +26447,22 @@ export class RestartOutboundTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RobotCallRequest extends $tea.Model {
+export class RobotCallRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -18074,12 +26536,16 @@ export class RobotCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RobotCallResponseBody extends $tea.Model {
+export class RobotCallResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -18118,12 +26584,16 @@ export class RobotCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RobotCallResponse extends $tea.Model {
+export class RobotCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RobotCallResponseBody;
@@ -18143,12 +26613,22 @@ export class RobotCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendCcoSmartCallRequest extends $tea.Model {
+export class SendCcoSmartCallRequest extends $dara.Model {
   /**
    * @example
    * true
@@ -18376,12 +26856,16 @@ export class SendCcoSmartCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendCcoSmartCallResponseBody extends $tea.Model {
+export class SendCcoSmartCallResponseBody extends $dara.Model {
   /**
    * @example
    * 16012854210^10281427****
@@ -18420,12 +26904,16 @@ export class SendCcoSmartCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendCcoSmartCallResponse extends $tea.Model {
+export class SendCcoSmartCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SendCcoSmartCallResponseBody;
@@ -18445,12 +26933,22 @@ export class SendCcoSmartCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendCcoSmartCallOperateRequest extends $tea.Model {
+export class SendCcoSmartCallOperateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -18504,12 +27002,16 @@ export class SendCcoSmartCallOperateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendCcoSmartCallOperateResponseBody extends $tea.Model {
+export class SendCcoSmartCallOperateResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -18548,12 +27050,16 @@ export class SendCcoSmartCallOperateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendCcoSmartCallOperateResponse extends $tea.Model {
+export class SendCcoSmartCallOperateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SendCcoSmartCallOperateResponseBody;
@@ -18573,12 +27079,22 @@ export class SendCcoSmartCallOperateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendHotlineHeartBeatRequest extends $tea.Model {
+export class SendHotlineHeartBeatRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -18626,12 +27142,16 @@ export class SendHotlineHeartBeatRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendHotlineHeartBeatResponseBody extends $tea.Model {
+export class SendHotlineHeartBeatResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -18670,12 +27190,16 @@ export class SendHotlineHeartBeatResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SendHotlineHeartBeatResponse extends $tea.Model {
+export class SendHotlineHeartBeatResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SendHotlineHeartBeatResponseBody;
@@ -18695,12 +27219,22 @@ export class SendHotlineHeartBeatResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartAiOutboundTaskRequest extends $tea.Model {
+export class StartAiOutboundTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -18731,12 +27265,16 @@ export class StartAiOutboundTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartAiOutboundTaskResponseBody extends $tea.Model {
+export class StartAiOutboundTaskResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -18775,12 +27313,16 @@ export class StartAiOutboundTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartAiOutboundTaskResponse extends $tea.Model {
+export class StartAiOutboundTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartAiOutboundTaskResponseBody;
@@ -18800,12 +27342,22 @@ export class StartAiOutboundTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartCallRequest extends $tea.Model {
+export class StartCallRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -18863,12 +27415,16 @@ export class StartCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartCallResponseBody extends $tea.Model {
+export class StartCallResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -18907,12 +27463,16 @@ export class StartCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartCallResponse extends $tea.Model {
+export class StartCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartCallResponseBody;
@@ -18932,12 +27492,22 @@ export class StartCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartCallV2Request extends $tea.Model {
+export class StartCallV2Request extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -19005,12 +27575,16 @@ export class StartCallV2Request extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartCallV2ResponseBody extends $tea.Model {
+export class StartCallV2ResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -19049,12 +27623,16 @@ export class StartCallV2ResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartCallV2Response extends $tea.Model {
+export class StartCallV2Response extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartCallV2ResponseBody;
@@ -19074,12 +27652,22 @@ export class StartCallV2Response extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartChatWorkRequest extends $tea.Model {
+export class StartChatWorkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -19110,12 +27698,16 @@ export class StartChatWorkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartChatWorkResponseBody extends $tea.Model {
+export class StartChatWorkResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -19168,12 +27760,16 @@ export class StartChatWorkResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartChatWorkResponse extends $tea.Model {
+export class StartChatWorkResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartChatWorkResponseBody;
@@ -19193,12 +27789,22 @@ export class StartChatWorkResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartHotlineServiceRequest extends $tea.Model {
+export class StartHotlineServiceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -19236,12 +27842,16 @@ export class StartHotlineServiceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartHotlineServiceResponseBody extends $tea.Model {
+export class StartHotlineServiceResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -19294,12 +27904,16 @@ export class StartHotlineServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartHotlineServiceResponse extends $tea.Model {
+export class StartHotlineServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartHotlineServiceResponseBody;
@@ -19319,12 +27933,22 @@ export class StartHotlineServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartMicroOutboundRequest extends $tea.Model {
+export class StartMicroOutboundRequest extends $dara.Model {
   /**
    * @example
    * 223457****
@@ -19400,12 +28024,16 @@ export class StartMicroOutboundRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartMicroOutboundResponseBody extends $tea.Model {
+export class StartMicroOutboundResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -19458,12 +28086,16 @@ export class StartMicroOutboundResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartMicroOutboundResponse extends $tea.Model {
+export class StartMicroOutboundResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartMicroOutboundResponseBody;
@@ -19483,12 +28115,22 @@ export class StartMicroOutboundResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartTaskRequest extends $tea.Model {
+export class StartTaskRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -19525,12 +28167,16 @@ export class StartTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartTaskResponseBody extends $tea.Model {
+export class StartTaskResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -19576,12 +28222,16 @@ export class StartTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartTaskResponse extends $tea.Model {
+export class StartTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartTaskResponseBody;
@@ -19601,12 +28251,22 @@ export class StartTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopAiOutboundTaskRequest extends $tea.Model {
+export class StopAiOutboundTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -19637,12 +28297,16 @@ export class StopAiOutboundTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopAiOutboundTaskResponseBody extends $tea.Model {
+export class StopAiOutboundTaskResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -19681,12 +28345,16 @@ export class StopAiOutboundTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopAiOutboundTaskResponse extends $tea.Model {
+export class StopAiOutboundTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StopAiOutboundTaskResponseBody;
@@ -19706,12 +28374,22 @@ export class StopAiOutboundTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopTaskRequest extends $tea.Model {
+export class StopTaskRequest extends $dara.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -19741,12 +28419,16 @@ export class StopTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopTaskResponseBody extends $tea.Model {
+export class StopTaskResponseBody extends $dara.Model {
   /**
    * @example
    * Ok
@@ -19792,12 +28474,16 @@ export class StopTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopTaskResponse extends $tea.Model {
+export class StopTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StopTaskResponseBody;
@@ -19817,12 +28503,22 @@ export class StopTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SuspendHotlineServiceRequest extends $tea.Model {
+export class SuspendHotlineServiceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -19867,12 +28563,16 @@ export class SuspendHotlineServiceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SuspendHotlineServiceResponseBody extends $tea.Model {
+export class SuspendHotlineServiceResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -19911,12 +28611,16 @@ export class SuspendHotlineServiceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SuspendHotlineServiceResponse extends $tea.Model {
+export class SuspendHotlineServiceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SuspendHotlineServiceResponseBody;
@@ -19936,12 +28640,22 @@ export class SuspendHotlineServiceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SuspendOutboundTaskRequest extends $tea.Model {
+export class SuspendOutboundTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -19966,12 +28680,16 @@ export class SuspendOutboundTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SuspendOutboundTaskResponseBody extends $tea.Model {
+export class SuspendOutboundTaskResponseBody extends $dara.Model {
   code?: string;
   data?: string;
   message?: string;
@@ -19997,12 +28715,16 @@ export class SuspendOutboundTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SuspendOutboundTaskResponse extends $tea.Model {
+export class SuspendOutboundTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: SuspendOutboundTaskResponseBody;
@@ -20022,12 +28744,22 @@ export class SuspendOutboundTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TerminateAiOutboundTaskRequest extends $tea.Model {
+export class TerminateAiOutboundTaskRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -20058,12 +28790,16 @@ export class TerminateAiOutboundTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TerminateAiOutboundTaskResponseBody extends $tea.Model {
+export class TerminateAiOutboundTaskResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -20102,12 +28838,16 @@ export class TerminateAiOutboundTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TerminateAiOutboundTaskResponse extends $tea.Model {
+export class TerminateAiOutboundTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: TerminateAiOutboundTaskResponseBody;
@@ -20127,12 +28867,22 @@ export class TerminateAiOutboundTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransferCallToSkillGroupRequest extends $tea.Model {
+export class TransferCallToSkillGroupRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -20222,12 +28972,16 @@ export class TransferCallToSkillGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransferCallToSkillGroupResponseBody extends $tea.Model {
+export class TransferCallToSkillGroupResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -20266,12 +29020,16 @@ export class TransferCallToSkillGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TransferCallToSkillGroupResponse extends $tea.Model {
+export class TransferCallToSkillGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: TransferCallToSkillGroupResponseBody;
@@ -20291,12 +29049,22 @@ export class TransferCallToSkillGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAgentRequest extends $tea.Model {
+export class UpdateAgentRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -20347,12 +29115,22 @@ export class UpdateAgentRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.skillGroupId)) {
+      $dara.Model.validateArray(this.skillGroupId);
+    }
+    if(Array.isArray(this.skillGroupIdList)) {
+      $dara.Model.validateArray(this.skillGroupIdList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAgentResponseBody extends $tea.Model {
+export class UpdateAgentResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -20398,12 +29176,16 @@ export class UpdateAgentResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAgentResponse extends $tea.Model {
+export class UpdateAgentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateAgentResponseBody;
@@ -20423,12 +29205,22 @@ export class UpdateAgentResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAiOutboundTaskRequest extends $tea.Model {
+export class UpdateAiOutboundTaskRequest extends $dara.Model {
   /**
    * @example
    * 10
@@ -20526,12 +29318,22 @@ export class UpdateAiOutboundTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.outboundNums)) {
+      $dara.Model.validateArray(this.outboundNums);
+    }
+    if(this.recallRule && typeof (this.recallRule as any).validate === 'function') {
+      (this.recallRule as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAiOutboundTaskShrinkRequest extends $tea.Model {
+export class UpdateAiOutboundTaskShrinkRequest extends $dara.Model {
   /**
    * @example
    * 10
@@ -20629,12 +29431,16 @@ export class UpdateAiOutboundTaskShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAiOutboundTaskResponseBody extends $tea.Model {
+export class UpdateAiOutboundTaskResponseBody extends $dara.Model {
   /**
    * @example
    * ok
@@ -20673,12 +29479,16 @@ export class UpdateAiOutboundTaskResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAiOutboundTaskResponse extends $tea.Model {
+export class UpdateAiOutboundTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateAiOutboundTaskResponseBody;
@@ -20698,12 +29508,22 @@ export class UpdateAiOutboundTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateDepartmentRequest extends $tea.Model {
+export class UpdateDepartmentRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -20741,12 +29561,16 @@ export class UpdateDepartmentRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateDepartmentResponseBody extends $tea.Model {
+export class UpdateDepartmentResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -20799,12 +29623,16 @@ export class UpdateDepartmentResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateDepartmentResponse extends $tea.Model {
+export class UpdateDepartmentResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateDepartmentResponseBody;
@@ -20824,12 +29652,22 @@ export class UpdateDepartmentResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateOuterAccountRequest extends $tea.Model {
+export class UpdateOuterAccountRequest extends $dara.Model {
   /**
    * @example
    * http://****
@@ -20904,12 +29742,16 @@ export class UpdateOuterAccountRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateOuterAccountResponseBody extends $tea.Model {
+export class UpdateOuterAccountResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -20955,12 +29797,16 @@ export class UpdateOuterAccountResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateOuterAccountResponse extends $tea.Model {
+export class UpdateOuterAccountResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateOuterAccountResponseBody;
@@ -20980,12 +29826,22 @@ export class UpdateOuterAccountResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSkillGroupRequest extends $tea.Model {
+export class UpdateSkillGroupRequest extends $dara.Model {
   /**
    * @example
    * 46c1341e-2648-447a-9b11-70b6a298d94d
@@ -21032,12 +29888,16 @@ export class UpdateSkillGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSkillGroupResponseBody extends $tea.Model {
+export class UpdateSkillGroupResponseBody extends $dara.Model {
   /**
    * @example
    * Success
@@ -21076,12 +29936,16 @@ export class UpdateSkillGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSkillGroupResponse extends $tea.Model {
+export class UpdateSkillGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateSkillGroupResponseBody;
@@ -21101,4929 +29965,14 @@ export class UpdateSkillGroupResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddHotlineNumberRequestOutboundRangeList extends $tea.Model {
-  /**
-   * @example
-   * 123456
-   */
-  departmentId?: number;
-  groupIdList?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      departmentId: 'DepartmentId',
-      groupIdList: 'GroupIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      departmentId: 'number',
-      groupIdList: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchCreateQualityProjectsResponseBodyData extends $tea.Model {
-  instanceId?: string;
-  projectId?: number;
-  version?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      projectId: 'ProjectId',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      projectId: 'number',
-      version: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAiOutboundTaskRequestRecallRule extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  count?: number;
-  /**
-   * @example
-   * 1
-   */
-  interval?: number;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      interval: 'Interval',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      interval: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateQualityProjectResponseBodyData extends $tea.Model {
-  instanceId?: string;
-  projectId?: number;
-  version?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      projectId: 'ProjectId',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      projectId: 'number',
-      version: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EditQualityProjectResponseBodyData extends $tea.Model {
-  instanceId?: string;
-  projectId?: number;
-  version?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      projectId: 'ProjectId',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      projectId: 'number',
-      version: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EditQualityRuleTagRequestAnalysisTypes extends $tea.Model {
-  id?: number;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAgentResponseBodyDataGroupList extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  channelType?: number;
-  description?: string;
-  displayName?: string;
-  name?: string;
-  /**
-   * @example
-   * 123456
-   */
-  skillGroupId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      channelType: 'ChannelType',
-      description: 'Description',
-      displayName: 'DisplayName',
-      name: 'Name',
-      skillGroupId: 'SkillGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      channelType: 'number',
-      description: 'string',
-      displayName: 'string',
-      name: 'string',
-      skillGroupId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAgentResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 123@123.com
-   */
-  accountName?: string;
-  /**
-   * @example
-   * 222222
-   */
-  agentId?: number;
-  displayName?: string;
-  groupList?: GetAgentResponseBodyDataGroupList[];
-  /**
-   * @example
-   * 0
-   */
-  status?: number;
-  /**
-   * @example
-   * 0
-   */
-  tenantId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      agentId: 'AgentId',
-      displayName: 'DisplayName',
-      groupList: 'GroupList',
-      status: 'Status',
-      tenantId: 'TenantId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      agentId: 'number',
-      displayName: 'string',
-      groupList: { 'type': 'array', 'itemType': GetAgentResponseBodyDataGroupList },
-      status: 'number',
-      tenantId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAgentBasisStatusResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAgentByIdResponseBodyData extends $tea.Model {
-  agentId?: number;
-  createUserName?: string;
-  foreignKey?: string;
-  foreignNick?: string;
-  realName?: string;
-  servicerType?: number;
-  showName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      agentId: 'AgentId',
-      createUserName: 'CreateUserName',
-      foreignKey: 'ForeignKey',
-      foreignNick: 'ForeignNick',
-      realName: 'RealName',
-      servicerType: 'ServicerType',
-      showName: 'ShowName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      agentId: 'number',
-      createUserName: 'string',
-      foreignKey: 'string',
-      foreignNick: 'string',
-      realName: 'string',
-      servicerType: 'number',
-      showName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAgentDetailReportResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * {"t_wait":379322.0,"hotline_time_outcall_avg":"32.00","n_ringing":0,"t_outbound_40":0.0,"hotline_time_incall_avg":-1,"t_calldialing":0.0,"n_inbound":276,"servicer_id":"-1","call_in_sep_sat_cnt":13,"request_cnt":231,"n_not_ready_99":811,"t_work_outbound":49338.0,"hotline_rate_handle_in_60s":"96%","n_not_ready_login":811,"t_not_ready_login":0.0,"n_work_inbound":176,"}
-   */
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAgentIndexRealTimeResponseBodyDataColumns extends $tea.Model {
-  key?: string;
-  /**
-   * @example
-   * servicerId
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAgentIndexRealTimeResponseBodyData extends $tea.Model {
-  columns?: GetAgentIndexRealTimeResponseBodyDataColumns[];
-  /**
-   * @example
-   * 1
-   */
-  page?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  rows?: { [key: string]: any }[];
-  /**
-   * @example
-   * 4
-   */
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      columns: 'Columns',
-      page: 'Page',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columns: { 'type': 'array', 'itemType': GetAgentIndexRealTimeResponseBodyDataColumns },
-      page: 'number',
-      pageSize: 'number',
-      rows: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAgentServiceStatusResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * {"online_40s_transfer_ready_cnt":81,"minute_id":"-1","online_unsatis_cnt":0,"online_simple_cnt":0,"average_queue_time":-1,"service_pickup":"2086","total_waiting_time":"981","online_service_time_len":58208,"online_direct_give_up_len":0,"break_ratio":"2%"}
-   */
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAgentStatisticsResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * {"n_resttype_1":15,"t_outcall_speak":829747,"average_incoming_time":"8451.29","n_resttype_3":0,"minute_id":"-1","n_conference_speak":0,"n_resttype_2":0,"n_resttype_5":0,"n_resttype_4":0,"n_resttype_7":0,"n_resttype_6":0,"n_resttype_9":0,"n_resttype_8":0,"n_outcall_dial":25,"total_break_time":"58555","n_internal_speak":0,"n_send_step_transfer":7,"n_consulted_internal_speak":0}
-   */
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAiOutboundTaskBizDataResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * {"customer":123}
-   */
-  bizData?: string;
-  /**
-   * @example
-   * 123
-   */
-  caseId?: number;
-  /**
-   * @example
-   * 158****0000
-   */
-  phoneNum?: string;
-  /**
-   * @example
-   * 123456
-   */
-  taskId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bizData: 'BizData',
-      caseId: 'CaseId',
-      phoneNum: 'PhoneNum',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizData: 'string',
-      caseId: 'number',
-      phoneNum: 'string',
-      taskId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAiOutboundTaskDetailResponseBodyDataRecallRule extends $tea.Model {
-  /**
-   * @example
-   * 2
-   */
-  count?: number;
-  /**
-   * @example
-   * 2
-   */
-  interval?: number;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      interval: 'Interval',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      interval: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAiOutboundTaskDetailResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  concurrentRate?: number;
-  description?: string;
-  /**
-   * @example
-   * {"TUESDAY":[{"start":"06:00","end":"06:05"}],"MONDAY":[{"start":"09:00","end":"18:00"},{"start":"20:30","end":"21:45"},{"start":"22:30","end":"22:50"}],"WEDNESDAY":[{"start":"09:00","end":"18:00"}],"THURSDAY":[{"start":"09:00","end":"18:00"}],"FRIDAY":[{"start":"09:00","end":"18:00"}],"SATURDAY":[{"start":"09:00","end":"18:00"}],"SUNDAY":[{"start":"17:00","end":"23:45"}]}
-   */
-  executionTime?: string;
-  /**
-   * @example
-   * 1.2
-   */
-  forecastCallRate?: number;
-  /**
-   * @example
-   * 123456
-   */
-  handlerId?: number;
-  /**
-   * @example
-   * 热线技能组
-   */
-  handlerName?: string;
-  /**
-   * @example
-   * xx外呼任务
-   */
-  name?: string;
-  /**
-   * @example
-   * 0
-   */
-  numRepeated?: number;
-  outboundNums?: string[];
-  recallRule?: GetAiOutboundTaskDetailResponseBodyDataRecallRule;
-  /**
-   * @example
-   * 1
-   */
-  status?: number;
-  /**
-   * @example
-   * 未开始
-   */
-  statusDesc?: string;
-  /**
-   * @example
-   * 123
-   */
-  taskId?: number;
-  /**
-   * @example
-   * 2
-   */
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      concurrentRate: 'ConcurrentRate',
-      description: 'Description',
-      executionTime: 'ExecutionTime',
-      forecastCallRate: 'ForecastCallRate',
-      handlerId: 'HandlerId',
-      handlerName: 'HandlerName',
-      name: 'Name',
-      numRepeated: 'NumRepeated',
-      outboundNums: 'OutboundNums',
-      recallRule: 'RecallRule',
-      status: 'Status',
-      statusDesc: 'StatusDesc',
-      taskId: 'TaskId',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      concurrentRate: 'number',
-      description: 'string',
-      executionTime: 'string',
-      forecastCallRate: 'number',
-      handlerId: 'number',
-      handlerName: 'string',
-      name: 'string',
-      numRepeated: 'number',
-      outboundNums: { 'type': 'array', 'itemType': 'string' },
-      recallRule: GetAiOutboundTaskDetailResponseBodyDataRecallRule,
-      status: 'number',
-      statusDesc: 'string',
-      taskId: 'number',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAiOutboundTaskExecDetailResponseBodyDataList extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  batchVersion?: number;
-  /**
-   * @example
-   * 123
-   */
-  bizData?: string;
-  /**
-   * @example
-   * 1
-   */
-  callCount?: number;
-  /**
-   * @example
-   * 123456
-   */
-  caseId?: number;
-  /**
-   * @example
-   * 1632289999000
-   */
-  createTime?: number;
-  /**
-   * @example
-   * 未接通
-   */
-  lastCallResult?: string;
-  /**
-   * @example
-   * 150****0000
-   */
-  phoneNum?: string;
-  /**
-   * @example
-   * 1
-   */
-  status?: number;
-  /**
-   * @example
-   * 待呼叫
-   */
-  statusDesc?: number;
-  static names(): { [key: string]: string } {
-    return {
-      batchVersion: 'BatchVersion',
-      bizData: 'BizData',
-      callCount: 'CallCount',
-      caseId: 'CaseId',
-      createTime: 'CreateTime',
-      lastCallResult: 'LastCallResult',
-      phoneNum: 'PhoneNum',
-      status: 'Status',
-      statusDesc: 'StatusDesc',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      batchVersion: 'number',
-      bizData: 'string',
-      callCount: 'number',
-      caseId: 'number',
-      createTime: 'number',
-      lastCallResult: 'string',
-      phoneNum: 'string',
-      status: 'number',
-      statusDesc: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAiOutboundTaskExecDetailResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * true
-   */
-  hasNextPage?: boolean;
-  list?: GetAiOutboundTaskExecDetailResponseBodyDataList[];
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 199
-   */
-  totalResults?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      hasNextPage: 'HasNextPage',
-      list: 'List',
-      pageSize: 'PageSize',
-      totalResults: 'TotalResults',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      hasNextPage: 'boolean',
-      list: { 'type': 'array', 'itemType': GetAiOutboundTaskExecDetailResponseBodyDataList },
-      pageSize: 'number',
-      totalResults: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAiOutboundTaskListResponseBodyDataList extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  concurrentRate?: number;
-  /**
-   * @example
-   * 1615083365000
-   */
-  createTime?: number;
-  description?: string;
-  /**
-   * @example
-   * 70
-   */
-  finishCount?: number;
-  /**
-   * @example
-   * 0.7
-   */
-  finishRate?: number;
-  /**
-   * @example
-   * 2468****
-   */
-  handlerId?: number;
-  /**
-   * @example
-   * 热线技能组
-   */
-  handlerName?: string;
-  /**
-   * @example
-   * xx外呼任务
-   */
-  name?: string;
-  /**
-   * @example
-   * 0
-   */
-  status?: number;
-  /**
-   * @example
-   * 未开始
-   */
-  statusDesc?: string;
-  /**
-   * @example
-   * 1763****
-   */
-  taskId?: number;
-  /**
-   * @example
-   * 100
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      concurrentRate: 'ConcurrentRate',
-      createTime: 'CreateTime',
-      description: 'Description',
-      finishCount: 'FinishCount',
-      finishRate: 'FinishRate',
-      handlerId: 'HandlerId',
-      handlerName: 'HandlerName',
-      name: 'Name',
-      status: 'Status',
-      statusDesc: 'StatusDesc',
-      taskId: 'TaskId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      concurrentRate: 'number',
-      createTime: 'number',
-      description: 'string',
-      finishCount: 'number',
-      finishRate: 'number',
-      handlerId: 'number',
-      handlerName: 'string',
-      name: 'string',
-      status: 'number',
-      statusDesc: 'string',
-      taskId: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAiOutboundTaskListResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * false
-   */
-  hasNextPage?: boolean;
-  list?: GetAiOutboundTaskListResponseBodyDataList[];
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 10
-   */
-  totalResults?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      hasNextPage: 'HasNextPage',
-      list: 'List',
-      pageSize: 'PageSize',
-      totalResults: 'TotalResults',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      hasNextPage: 'boolean',
-      list: { 'type': 'array', 'itemType': GetAiOutboundTaskListResponseBodyDataList },
-      pageSize: 'number',
-      totalResults: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAiOutboundTaskProgressResponseBodyDataCalloutProgress extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  callLossCount?: number;
-  /**
-   * @example
-   * 0.01
-   */
-  callLossRate?: number;
-  /**
-   * @example
-   * 5
-   */
-  callOutConnectCount?: number;
-  /**
-   * @example
-   * 0.5
-   */
-  callOutConnectRate?: number;
-  /**
-   * @example
-   * 10
-   */
-  callOutCount?: number;
-  /**
-   * @example
-   * 4
-   */
-  callOutServicerPickupCount?: number;
-  /**
-   * @example
-   * 0.4
-   */
-  callOutServicerPickupRate?: number;
-  /**
-   * @example
-   * 5
-   */
-  callOutUserPickupCount?: number;
-  /**
-   * @example
-   * 0.5
-   */
-  callOutUserPickupRate?: number;
-  static names(): { [key: string]: string } {
-    return {
-      callLossCount: 'CallLossCount',
-      callLossRate: 'CallLossRate',
-      callOutConnectCount: 'CallOutConnectCount',
-      callOutConnectRate: 'CallOutConnectRate',
-      callOutCount: 'CallOutCount',
-      callOutServicerPickupCount: 'CallOutServicerPickupCount',
-      callOutServicerPickupRate: 'CallOutServicerPickupRate',
-      callOutUserPickupCount: 'CallOutUserPickupCount',
-      callOutUserPickupRate: 'CallOutUserPickupRate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callLossCount: 'number',
-      callLossRate: 'number',
-      callOutConnectCount: 'number',
-      callOutConnectRate: 'number',
-      callOutCount: 'number',
-      callOutServicerPickupCount: 'number',
-      callOutServicerPickupRate: 'number',
-      callOutUserPickupCount: 'number',
-      callOutUserPickupRate: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAiOutboundTaskProgressResponseBodyDataTaskProgress extends $tea.Model {
-  /**
-   * @example
-   * 2
-   */
-  callingCount?: number;
-  /**
-   * @example
-   * 2
-   */
-  connectCount?: number;
-  /**
-   * @example
-   * 0.2
-   */
-  connectRate?: number;
-  /**
-   * @example
-   * 2
-   */
-  finishCount?: number;
-  /**
-   * @example
-   * 0.20
-   */
-  finishRate?: number;
-  /**
-   * @example
-   * 2
-   */
-  servicerPickupCount?: number;
-  /**
-   * @example
-   * 0.2
-   */
-  servicerPickupRate?: number;
-  /**
-   * @example
-   * 2
-   */
-  terminateCount?: number;
-  /**
-   * @example
-   * 10
-   */
-  totalCount?: number;
-  /**
-   * @example
-   * 2
-   */
-  userPickupCount?: number;
-  /**
-   * @example
-   * 0.2
-   */
-  userPickupRate?: number;
-  /**
-   * @example
-   * 2
-   */
-  waitingCallCount?: number;
-  /**
-   * @example
-   * 2
-   */
-  waitingRecallCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      callingCount: 'CallingCount',
-      connectCount: 'ConnectCount',
-      connectRate: 'ConnectRate',
-      finishCount: 'FinishCount',
-      finishRate: 'FinishRate',
-      servicerPickupCount: 'ServicerPickupCount',
-      servicerPickupRate: 'ServicerPickupRate',
-      terminateCount: 'TerminateCount',
-      totalCount: 'TotalCount',
-      userPickupCount: 'UserPickupCount',
-      userPickupRate: 'UserPickupRate',
-      waitingCallCount: 'WaitingCallCount',
-      waitingRecallCount: 'WaitingRecallCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callingCount: 'number',
-      connectCount: 'number',
-      connectRate: 'number',
-      finishCount: 'number',
-      finishRate: 'number',
-      servicerPickupCount: 'number',
-      servicerPickupRate: 'number',
-      terminateCount: 'number',
-      totalCount: 'number',
-      userPickupCount: 'number',
-      userPickupRate: 'number',
-      waitingCallCount: 'number',
-      waitingRecallCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAiOutboundTaskProgressResponseBodyData extends $tea.Model {
-  calloutProgress?: GetAiOutboundTaskProgressResponseBodyDataCalloutProgress;
-  /**
-   * @example
-   * 123456
-   */
-  taskId?: number;
-  taskProgress?: GetAiOutboundTaskProgressResponseBodyDataTaskProgress;
-  /**
-   * @example
-   * 2
-   */
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      calloutProgress: 'CalloutProgress',
-      taskId: 'TaskId',
-      taskProgress: 'TaskProgress',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      calloutProgress: GetAiOutboundTaskProgressResponseBodyDataCalloutProgress,
-      taskId: 'number',
-      taskProgress: GetAiOutboundTaskProgressResponseBodyDataTaskProgress,
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAllDepartmentResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  departmentId?: number;
-  departmentName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      departmentId: 'DepartmentId',
-      departmentName: 'DepartmentName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      departmentId: 'number',
-      departmentName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCustomerInfoResponseBodyData extends $tea.Model {
-  customizeFields?: { [key: string]: any };
-  nick?: string;
-  /**
-   * @example
-   * 6666666
-   */
-  outerId?: string;
-  /**
-   * @example
-   * https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLSW7XPFlJDwVunXP8pr84TvltwtLlNqTlOVSFeM3bCgn57mAB4JuZZmvMW0qicqW0PyzyUdZpxiaFQ
-   */
-  photo?: string;
-  realName?: string;
-  /**
-   * @example
-   * 823456789023
-   */
-  userId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      customizeFields: 'CustomizeFields',
-      nick: 'Nick',
-      outerId: 'OuterId',
-      photo: 'Photo',
-      realName: 'RealName',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customizeFields: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      nick: 'string',
-      outerId: 'string',
-      photo: 'string',
-      realName: 'string',
-      userId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDepGroupTreeDataResponseBodyDataGroupDTOS extends $tea.Model {
-  name?: string;
-  /**
-   * @example
-   * 555555
-   */
-  skillGroupId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      skillGroupId: 'SkillGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      skillGroupId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDepGroupTreeDataResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 10
-   */
-  depGroupId?: string;
-  depGroupName?: string;
-  groupDTOS?: GetDepGroupTreeDataResponseBodyDataGroupDTOS[];
-  static names(): { [key: string]: string } {
-    return {
-      depGroupId: 'DepGroupId',
-      depGroupName: 'DepGroupName',
-      groupDTOS: 'GroupDTOS',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      depGroupId: 'string',
-      depGroupName: 'string',
-      groupDTOS: { 'type': 'array', 'itemType': GetDepGroupTreeDataResponseBodyDataGroupDTOS },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDepartmentalLatitudeAgentStatusResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHotlineAgentDetailResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 2235****
-   */
-  agentId?: number;
-  /**
-   * @example
-   * 1
-   */
-  agentStatus?: number;
-  /**
-   * @example
-   * AgentCheckout
-   */
-  agentStatusCode?: string;
-  /**
-   * @example
-   * false
-   */
-  assigned?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  restType?: number;
-  /**
-   * @example
-   * ccc_xp_pre-cn-***
-   */
-  tenantId?: number;
-  /**
-   * @example
-   * dnthF_oinHg7JMJDmKqex3Ux****
-   */
-  token?: string;
-  static names(): { [key: string]: string } {
-    return {
-      agentId: 'AgentId',
-      agentStatus: 'AgentStatus',
-      agentStatusCode: 'AgentStatusCode',
-      assigned: 'Assigned',
-      restType: 'RestType',
-      tenantId: 'TenantId',
-      token: 'Token',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      agentId: 'number',
-      agentStatus: 'number',
-      agentStatusCode: 'string',
-      assigned: 'boolean',
-      restType: 'number',
-      tenantId: 'number',
-      token: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHotlineAgentDetailReportResponseBodyDataColumns extends $tea.Model {
-  /**
-   * @example
-   * realName
-   */
-  key?: string;
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHotlineAgentDetailReportResponseBodyData extends $tea.Model {
-  columns?: GetHotlineAgentDetailReportResponseBodyDataColumns[];
-  /**
-   * @example
-   * 1
-   */
-  page?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  rows?: { [key: string]: any }[];
-  /**
-   * @example
-   * 7
-   */
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      columns: 'Columns',
-      page: 'Page',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columns: { 'type': 'array', 'itemType': GetHotlineAgentDetailReportResponseBodyDataColumns },
-      page: 'number',
-      pageSize: 'number',
-      rows: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHotlineCallActionResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 8999****
-   */
-  actionId?: number;
-  /**
-   * @example
-   * 2367****
-   */
-  buId?: number;
-  /**
-   * @example
-   * 1122****
-   */
-  calloutId?: number;
-  calloutName?: string;
-  /**
-   * @example
-   * 1138902****
-   */
-  caseId?: number;
-  /**
-   * @example
-   * 2377****
-   */
-  channelId?: string;
-  /**
-   * @example
-   * 2
-   */
-  channelType?: number;
-  /**
-   * @example
-   * 1223****
-   */
-  depId?: number;
-  /**
-   * @example
-   * true
-   */
-  isTransfer?: string;
-  /**
-   * @example
-   * 7856876****
-   */
-  memberId?: number;
-  /**
-   * @example
-   * 8900****
-   */
-  memberList?: string;
-  memberName?: string;
-  /**
-   * @example
-   * 1332****
-   */
-  servicerId?: number;
-  servicerName?: string;
-  /**
-   * @example
-   * 3423****
-   */
-  subTouchId?: number;
-  /**
-   * @example
-   * 12345****
-   */
-  taskId?: number;
-  /**
-   * @example
-   * 2235****
-   */
-  touchId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      actionId: 'ActionId',
-      buId: 'BuId',
-      calloutId: 'CalloutId',
-      calloutName: 'CalloutName',
-      caseId: 'CaseId',
-      channelId: 'ChannelId',
-      channelType: 'ChannelType',
-      depId: 'DepId',
-      isTransfer: 'IsTransfer',
-      memberId: 'MemberId',
-      memberList: 'MemberList',
-      memberName: 'MemberName',
-      servicerId: 'ServicerId',
-      servicerName: 'ServicerName',
-      subTouchId: 'SubTouchId',
-      taskId: 'TaskId',
-      touchId: 'TouchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionId: 'number',
-      buId: 'number',
-      calloutId: 'number',
-      calloutName: 'string',
-      caseId: 'number',
-      channelId: 'string',
-      channelType: 'number',
-      depId: 'number',
-      isTransfer: 'string',
-      memberId: 'number',
-      memberList: 'string',
-      memberName: 'string',
-      servicerId: 'number',
-      servicerName: 'string',
-      subTouchId: 'number',
-      taskId: 'number',
-      touchId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHotlineGroupDetailReportResponseBodyDataColumns extends $tea.Model {
-  /**
-   * @example
-   * skillGroupName
-   */
-  key?: string;
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHotlineGroupDetailReportResponseBodyData extends $tea.Model {
-  columns?: GetHotlineGroupDetailReportResponseBodyDataColumns[];
-  /**
-   * @example
-   * 1
-   */
-  page?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  rows?: { [key: string]: any }[];
-  /**
-   * @example
-   * 9
-   */
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      columns: 'Columns',
-      page: 'Page',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columns: { 'type': 'array', 'itemType': GetHotlineGroupDetailReportResponseBodyDataColumns },
-      page: 'number',
-      pageSize: 'number',
-      rows: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHotlineMessageLogResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 100****2077
-   */
-  acid?: string;
-  content?: string;
-  /**
-   * @example
-   * 1623738027480
-   */
-  endTime?: number;
-  /**
-   * @example
-   * 11deca999****
-   */
-  mid?: string;
-  /**
-   * @example
-   * 1
-   */
-  senderType?: number;
-  /**
-   * @example
-   * 1623738026460
-   */
-  startTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      acid: 'Acid',
-      content: 'Content',
-      endTime: 'EndTime',
-      mid: 'Mid',
-      senderType: 'SenderType',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acid: 'string',
-      content: 'string',
-      endTime: 'number',
-      mid: 'string',
-      senderType: 'number',
-      startTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHotlineServiceStatisticsResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceListResponseBodyCommodityInstances extends $tea.Model {
-  instanceId?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOnlineSeatInformationResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOnlineServiceVolumeResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * {"tenant_id":"905","online_40s_transfer_ready_cnt":109,"minute_id":"-1","wait_time_len":1215,"pickup_rate":"63.09%","thirty_seconds_to_pickUp":"2560","date_id":"-1","online_over_out_cnt":0,"online_20s_transfer_ready_cnt":109,"thirty_seconds_response_rate":"63.09%","abandonment_rate":"63.09%","service_time_len":68378,"service_pickup":"2560","hour_id":"-1","online_10s_transfer_ready_cnt":109}
-   */
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOutbounNumListResponseBodyDataNum extends $tea.Model {
-  description?: string;
-  /**
-   * @example
-   * 1
-   */
-  type?: number;
-  /**
-   * @example
-   * 07512234****
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      type: 'Type',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      type: 'number',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOutbounNumListResponseBodyDataNumGroup extends $tea.Model {
-  /**
-   * @example
-   * Jella
-   */
-  description?: string;
-  /**
-   * @example
-   * 2
-   */
-  type?: number;
-  /**
-   * @example
-   * 7688****
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      type: 'Type',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      type: 'number',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOutbounNumListResponseBodyData extends $tea.Model {
-  num?: GetOutbounNumListResponseBodyDataNum[];
-  numGroup?: GetOutbounNumListResponseBodyDataNumGroup[];
-  static names(): { [key: string]: string } {
-    return {
-      num: 'Num',
-      numGroup: 'NumGroup',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      num: { 'type': 'array', 'itemType': GetOutbounNumListResponseBodyDataNum },
-      numGroup: { 'type': 'array', 'itemType': GetOutbounNumListResponseBodyDataNumGroup },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQualityProjectDetailResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  checkFreqType?: number;
-  /**
-   * @example
-   * 2021-04-07 18:07:18
-   */
-  createTime?: string;
-  depList?: number[];
-  groupList?: number[];
-  /**
-   * @example
-   * 15977801
-   */
-  id?: number;
-  /**
-   * @example
-   * 2021-04-07 18:07:19
-   */
-  modifyTime?: string;
-  projectName?: string;
-  qualityRuleIds?: number[];
-  /**
-   * @example
-   * 1
-   */
-  qualityType?: number;
-  servicerList?: number[];
-  /**
-   * @example
-   * 0
-   */
-  status?: number;
-  /**
-   * @example
-   * 1
-   */
-  version?: number;
-  static names(): { [key: string]: string } {
-    return {
-      checkFreqType: 'CheckFreqType',
-      createTime: 'CreateTime',
-      depList: 'DepList',
-      groupList: 'GroupList',
-      id: 'Id',
-      modifyTime: 'ModifyTime',
-      projectName: 'ProjectName',
-      qualityRuleIds: 'QualityRuleIds',
-      qualityType: 'QualityType',
-      servicerList: 'ServicerList',
-      status: 'Status',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkFreqType: 'number',
-      createTime: 'string',
-      depList: { 'type': 'array', 'itemType': 'number' },
-      groupList: { 'type': 'array', 'itemType': 'number' },
-      id: 'number',
-      modifyTime: 'string',
-      projectName: 'string',
-      qualityRuleIds: { 'type': 'array', 'itemType': 'number' },
-      qualityType: 'number',
-      servicerList: { 'type': 'array', 'itemType': 'number' },
-      status: 'number',
-      version: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQualityProjectListResponseBodyDataQualityProjectList extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  checkFreqType?: number;
-  /**
-   * @example
-   * 2021-04-07 18:07:18
-   */
-  createTime?: string;
-  depList?: number[];
-  groupList?: number[];
-  /**
-   * @example
-   * 15977801
-   */
-  id?: number;
-  /**
-   * @example
-   * 2021-04-07 18:07:19
-   */
-  modifyTime?: string;
-  projectName?: string;
-  qualityRuleIds?: number[];
-  /**
-   * @example
-   * 1
-   */
-  qualityType?: number;
-  servicerList?: number[];
-  /**
-   * @example
-   * 0
-   */
-  status?: number;
-  /**
-   * @example
-   * 1
-   */
-  version?: number;
-  static names(): { [key: string]: string } {
-    return {
-      checkFreqType: 'CheckFreqType',
-      createTime: 'CreateTime',
-      depList: 'DepList',
-      groupList: 'GroupList',
-      id: 'Id',
-      modifyTime: 'ModifyTime',
-      projectName: 'ProjectName',
-      qualityRuleIds: 'QualityRuleIds',
-      qualityType: 'QualityType',
-      servicerList: 'ServicerList',
-      status: 'Status',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkFreqType: 'number',
-      createTime: 'string',
-      depList: { 'type': 'array', 'itemType': 'number' },
-      groupList: { 'type': 'array', 'itemType': 'number' },
-      id: 'number',
-      modifyTime: 'string',
-      projectName: 'string',
-      qualityRuleIds: { 'type': 'array', 'itemType': 'number' },
-      qualityType: 'number',
-      servicerList: { 'type': 'array', 'itemType': 'number' },
-      status: 'number',
-      version: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQualityProjectListResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNo?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  qualityProjectList?: GetQualityProjectListResponseBodyDataQualityProjectList[];
-  /**
-   * @example
-   * 35
-   */
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      qualityProjectList: 'QualityProjectList',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNo: 'number',
-      pageSize: 'number',
-      qualityProjectList: { 'type': 'array', 'itemType': GetQualityProjectListResponseBodyDataQualityProjectList },
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQualityProjectLogResponseBodyData extends $tea.Model {
-  actionData?: string;
-  actionTime?: string;
-  actionType?: string;
-  projectCreateTime?: string;
-  projectId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      actionData: 'ActionData',
-      actionTime: 'ActionTime',
-      actionType: 'ActionType',
-      projectCreateTime: 'ProjectCreateTime',
-      projectId: 'ProjectId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actionData: 'string',
-      actionTime: 'string',
-      actionType: 'string',
-      projectCreateTime: 'string',
-      projectId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQualityResultResponseBodyDataQualityResultResponseList extends $tea.Model {
-  channelType?: string;
-  channelTypeName?: string;
-  groupId?: string;
-  groupName?: string;
-  hitDetail?: string;
-  hitStatus?: boolean;
-  instanceName?: string;
-  memberName?: string;
-  projectId?: string;
-  projectName?: string;
-  ruleId?: string;
-  ruleName?: string;
-  servicerId?: string;
-  servicerName?: string;
-  touchId?: string;
-  touchStartTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      channelType: 'ChannelType',
-      channelTypeName: 'ChannelTypeName',
-      groupId: 'GroupId',
-      groupName: 'GroupName',
-      hitDetail: 'HitDetail',
-      hitStatus: 'HitStatus',
-      instanceName: 'InstanceName',
-      memberName: 'MemberName',
-      projectId: 'ProjectId',
-      projectName: 'ProjectName',
-      ruleId: 'RuleId',
-      ruleName: 'RuleName',
-      servicerId: 'ServicerId',
-      servicerName: 'ServicerName',
-      touchId: 'TouchId',
-      touchStartTime: 'TouchStartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      channelType: 'string',
-      channelTypeName: 'string',
-      groupId: 'string',
-      groupName: 'string',
-      hitDetail: 'string',
-      hitStatus: 'boolean',
-      instanceName: 'string',
-      memberName: 'string',
-      projectId: 'string',
-      projectName: 'string',
-      ruleId: 'string',
-      ruleName: 'string',
-      servicerId: 'string',
-      servicerName: 'string',
-      touchId: 'string',
-      touchStartTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQualityResultResponseBodyData extends $tea.Model {
-  pageNo?: number;
-  pageSize?: number;
-  qualityResultResponseList?: GetQualityResultResponseBodyDataQualityResultResponseList[];
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      qualityResultResponseList: 'QualityResultResponseList',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNo: 'number',
-      pageSize: 'number',
-      qualityResultResponseList: { 'type': 'array', 'itemType': GetQualityResultResponseBodyDataQualityResultResponseList },
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQualityRuleDetailResponseBodyData extends $tea.Model {
-  keyWords?: string[];
-  matchType?: number;
-  name?: string;
-  ruleCreateTime?: string;
-  ruleId?: number;
-  ruleTag?: number;
-  static names(): { [key: string]: string } {
-    return {
-      keyWords: 'KeyWords',
-      matchType: 'MatchType',
-      name: 'Name',
-      ruleCreateTime: 'RuleCreateTime',
-      ruleId: 'RuleId',
-      ruleTag: 'RuleTag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyWords: { 'type': 'array', 'itemType': 'string' },
-      matchType: 'number',
-      name: 'string',
-      ruleCreateTime: 'string',
-      ruleId: 'number',
-      ruleTag: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQualityRuleListResponseBodyDataQualityRuleList extends $tea.Model {
-  keyWords?: string[];
-  matchType?: number;
-  name?: string;
-  ruleCreateTime?: string;
-  ruleId?: number;
-  ruleTag?: number;
-  static names(): { [key: string]: string } {
-    return {
-      keyWords: 'KeyWords',
-      matchType: 'MatchType',
-      name: 'Name',
-      ruleCreateTime: 'RuleCreateTime',
-      ruleId: 'RuleId',
-      ruleTag: 'RuleTag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyWords: { 'type': 'array', 'itemType': 'string' },
-      matchType: 'number',
-      name: 'string',
-      ruleCreateTime: 'string',
-      ruleId: 'number',
-      ruleTag: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQualityRuleListResponseBodyData extends $tea.Model {
-  pageNo?: number;
-  pageSize?: number;
-  qualityRuleList?: GetQualityRuleListResponseBodyDataQualityRuleList[];
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      qualityRuleList: 'QualityRuleList',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNo: 'number',
-      pageSize: 'number',
-      qualityRuleList: { 'type': 'array', 'itemType': GetQualityRuleListResponseBodyDataQualityRuleList },
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQualityRuleTagListResponseBodyData extends $tea.Model {
-  ruleTagId?: number;
-  ruleTagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ruleTagId: 'RuleTagId',
-      ruleTagName: 'RuleTagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ruleTagId: 'number',
-      ruleTagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQueueInformationResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRecordDataResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1001067****
-   */
-  acid?: string;
-  /**
-   * @example
-   * http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com/accrec_tmp/10010679716-12-01-56.wav?***
-   */
-  ossLink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acid: 'Acid',
-      ossLink: 'OssLink',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acid: 'string',
-      ossLink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRecordUrlResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1001067****
-   */
-  acid?: string;
-  /**
-   * @example
-   * http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com/accrec_tmp/10010679716-12-01-56.wav?***
-   */
-  ossLink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acid: 'Acid',
-      ossLink: 'OssLink',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acid: 'string',
-      ossLink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRtcTokenResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 139000000
-   */
-  accountName?: string;
-  /**
-   * @example
-   * 200000000*******
-   */
-  rtcId?: string;
-  /**
-   * @example
-   * {“cleansession”:true,”clientId”:”GID_VOIP@@@ClientId_****”,”conferenceTopic”:”cs_alicom_voip_conference”,”host”:”mqtt-cn-4590mdhb901.mqtt.aliyuncs.com”,”meetingEventKeepAliveInterval”:0,”phoneTopic”:”alicom_voip_phone”,”port”:0,”reconnectTimeout”:2000,”registerTime”:0,”sdkClientPort”:8883,”serverId”:”GID_VOIP@@@MTEuMTMuMTM2LjExOA==”,”sgwServerTopic”:”alicom_voip_server_pre”,”tlsport”:443,”tokenData”:”abcdef”,”useTLS”:false}
-   */
-  token?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      rtcId: 'RtcId',
-      token: 'Token',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      rtcId: 'string',
-      token: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSeatInformationResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  rowr?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rowr: 'Rowr',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rowr: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSkillGroupAgentStatusDetailsResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSkillGroupAndAgentStatusSummaryResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSkillGroupLatitudeStateResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSkillGroupServiceCapabilityResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSkillGroupServiceStatusResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSkillGroupStatusTotalResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNum?: number;
-  /**
-   * @example
-   * 2000
-   */
-  pageSize?: number;
-  rows?: string;
-  /**
-   * @example
-   * 4
-   */
-  totalNum?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      rows: 'Rows',
-      totalNum: 'TotalNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      rows: 'string',
-      totalNum: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $tea.Model {
-  /**
-   * @example
-   * 7719786
-   */
-  acid?: string;
-  /**
-   * @example
-   * 12
-   */
-  activeTransferId?: string;
-  /**
-   * @example
-   * 37
-   */
-  callContinueTime?: number;
-  /**
-   * @example
-   * normal
-   */
-  callResult?: string;
-  /**
-   * @example
-   * 1
-   */
-  callType?: number;
-  /**
-   * @example
-   * 135615*****
-   */
-  calledNumber?: string;
-  /**
-   * @example
-   * 0571773
-   */
-  callingNumber?: string;
-  /**
-   * @example
-   * 2020-10-02 22:32:55
-   */
-  createTime?: string;
-  /**
-   * @example
-   * 4
-   */
-  evaluationLevel?: number;
-  /**
-   * @example
-   * 4
-   */
-  evaluationScore?: number;
-  /**
-   * @example
-   * 123456
-   */
-  groupId?: number;
-  groupName?: string;
-  /**
-   * @example
-   * 2
-   */
-  hangUpRole?: string;
-  /**
-   * @example
-   * 2020-10-02 22:33:46
-   */
-  hangUpTime?: string;
-  /**
-   * @example
-   * acc1c58dab4a4dd280e3813c66
-   */
-  id?: string;
-  /**
-   * @example
-   * 2020-10-02 22:32:55
-   */
-  inQueueTime?: string;
-  /**
-   * @example
-   * 7856876
-   */
-  memberId?: string;
-  memberName?: string;
-  /**
-   * @example
-   * 2020-10-02 22:32:59
-   */
-  outQueueTime?: string;
-  /**
-   * @example
-   * 12
-   */
-  passiveTransferId?: string;
-  /**
-   * @example
-   * 1
-   */
-  passiveTransferIdType?: string;
-  /**
-   * @example
-   * 2020-10-02 22:33:09
-   */
-  pickUpTime?: string;
-  /**
-   * @example
-   * 4
-   */
-  queueUpContinueTime?: number;
-  /**
-   * @example
-   * 10
-   */
-  ringContinueTime?: number;
-  /**
-   * @example
-   * 2020-10-02 22:33:09
-   */
-  ringEndTime?: string;
-  /**
-   * @example
-   * 2020-10-02 22:32:59
-   */
-  ringStartTime?: string;
-  /**
-   * @example
-   * 555555
-   */
-  servicerId?: string;
-  servicerName?: string;
-  /**
-   * @example
-   * 1861111****
-   */
-  trunkCall?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acid: 'Acid',
-      activeTransferId: 'ActiveTransferId',
-      callContinueTime: 'CallContinueTime',
-      callResult: 'CallResult',
-      callType: 'CallType',
-      calledNumber: 'CalledNumber',
-      callingNumber: 'CallingNumber',
-      createTime: 'CreateTime',
-      evaluationLevel: 'EvaluationLevel',
-      evaluationScore: 'EvaluationScore',
-      groupId: 'GroupId',
-      groupName: 'GroupName',
-      hangUpRole: 'HangUpRole',
-      hangUpTime: 'HangUpTime',
-      id: 'Id',
-      inQueueTime: 'InQueueTime',
-      memberId: 'MemberId',
-      memberName: 'MemberName',
-      outQueueTime: 'OutQueueTime',
-      passiveTransferId: 'PassiveTransferId',
-      passiveTransferIdType: 'PassiveTransferIdType',
-      pickUpTime: 'PickUpTime',
-      queueUpContinueTime: 'QueueUpContinueTime',
-      ringContinueTime: 'RingContinueTime',
-      ringEndTime: 'RingEndTime',
-      ringStartTime: 'RingStartTime',
-      servicerId: 'ServicerId',
-      servicerName: 'ServicerName',
-      trunkCall: 'TrunkCall',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acid: 'string',
-      activeTransferId: 'string',
-      callContinueTime: 'number',
-      callResult: 'string',
-      callType: 'number',
-      calledNumber: 'string',
-      callingNumber: 'string',
-      createTime: 'string',
-      evaluationLevel: 'number',
-      evaluationScore: 'number',
-      groupId: 'number',
-      groupName: 'string',
-      hangUpRole: 'string',
-      hangUpTime: 'string',
-      id: 'string',
-      inQueueTime: 'string',
-      memberId: 'string',
-      memberName: 'string',
-      outQueueTime: 'string',
-      passiveTransferId: 'string',
-      passiveTransferIdType: 'string',
-      pickUpTime: 'string',
-      queueUpContinueTime: 'number',
-      ringContinueTime: 'number',
-      ringEndTime: 'string',
-      ringStartTime: 'string',
-      servicerId: 'string',
-      servicerName: 'string',
-      trunkCall: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HotlineSessionQueryResponseBodyData extends $tea.Model {
-  callDetailRecord?: HotlineSessionQueryResponseBodyDataCallDetailRecord[];
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 26
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      callDetailRecord: 'CallDetailRecord',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callDetailRecord: { 'type': 'array', 'itemType': HotlineSessionQueryResponseBodyDataCallDetailRecord },
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InsertAiOutboundPhoneNumsRequestDetails extends $tea.Model {
-  /**
-   * @example
-   * xxxx
-   */
-  bizData?: string;
-  /**
-   * @example
-   * 150****0000
-   */
-  phoneNum?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizData: 'BizData',
-      phoneNum: 'PhoneNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizData: 'string',
-      phoneNum: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InsertAiOutboundPhoneNumsResponseBodyDataFailInfo extends $tea.Model {
-  /**
-   * @example
-   * xxxx
-   */
-  bizData?: string;
-  /**
-   * @example
-   * 号码格式异常
-   */
-  msg?: string;
-  /**
-   * @example
-   * 150****0000
-   */
-  phoneNum?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizData: 'BizData',
-      msg: 'Msg',
-      phoneNum: 'PhoneNum',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizData: 'string',
-      msg: 'string',
-      phoneNum: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InsertAiOutboundPhoneNumsResponseBodyData extends $tea.Model {
-  failInfo?: InsertAiOutboundPhoneNumsResponseBodyDataFailInfo[];
-  /**
-   * @example
-   * 7
-   */
-  successCount?: number;
-  /**
-   * @example
-   * 10
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      failInfo: 'FailInfo',
-      successCount: 'SuccessCount',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failInfo: { 'type': 'array', 'itemType': InsertAiOutboundPhoneNumsResponseBodyDataFailInfo },
-      successCount: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAgentBySkillGroupIdResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * username@example.com
-   */
-  accountName?: string;
-  /**
-   * @example
-   * 666666
-   */
-  agentId?: number;
-  displayName?: string;
-  /**
-   * @example
-   * 0
-   */
-  status?: number;
-  /**
-   * @example
-   * 0
-   */
-  tenantId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      agentId: 'AgentId',
-      displayName: 'DisplayName',
-      status: 'Status',
-      tenantId: 'TenantId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      agentId: 'number',
-      displayName: 'string',
-      status: 'number',
-      tenantId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAiccsRobotResponseBodyData extends $tea.Model {
-  atProfession?: string;
-  atSence?: string;
-  /**
-   * @example
-   * 123456
-   */
-  id?: number;
-  robotName?: string;
-  /**
-   * @example
-   * CUSTOM
-   */
-  robotType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      atProfession: 'AtProfession',
-      atSence: 'AtSence',
-      id: 'Id',
-      robotName: 'RobotName',
-      robotType: 'RobotType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      atProfession: 'string',
-      atSence: 'string',
-      id: 'number',
-      robotName: 'string',
-      robotType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListChatRecordDetailResponseBodyResultDataDataMessageList extends $tea.Model {
-  content?: string;
-  /**
-   * @example
-   * 1614578400000
-   */
-  createTime?: number;
-  /**
-   * @example
-   * MSG
-   */
-  msgType?: string;
-  /**
-   * @example
-   * account1
-   */
-  senderName?: string;
-  /**
-   * @example
-   * 2
-   */
-  senderType?: number;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      createTime: 'CreateTime',
-      msgType: 'MsgType',
-      senderName: 'SenderName',
-      senderType: 'SenderType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      createTime: 'number',
-      msgType: 'string',
-      senderName: 'string',
-      senderType: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListChatRecordDetailResponseBodyResultDataData extends $tea.Model {
-  /**
-   * @example
-   * 1614578410000
-   */
-  endTime?: number;
-  messageList?: ListChatRecordDetailResponseBodyResultDataDataMessageList[];
-  /**
-   * @example
-   * 123@123.com
-   */
-  servicerName?: string;
-  /**
-   * @example
-   * 1614578400000
-   */
-  startTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      messageList: 'MessageList',
-      servicerName: 'ServicerName',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'number',
-      messageList: { 'type': 'array', 'itemType': ListChatRecordDetailResponseBodyResultDataDataMessageList },
-      servicerName: 'string',
-      startTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListChatRecordDetailResponseBodyResultData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  data?: ListChatRecordDetailResponseBodyResultDataData[];
-  /**
-   * @example
-   * 10
-   */
-  onePageSize?: number;
-  /**
-   * @example
-   * 10
-   */
-  totalPage?: number;
-  /**
-   * @example
-   * 100
-   */
-  totalResults?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      data: 'Data',
-      onePageSize: 'OnePageSize',
-      totalPage: 'TotalPage',
-      totalResults: 'TotalResults',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      data: { 'type': 'array', 'itemType': ListChatRecordDetailResponseBodyResultDataData },
-      onePageSize: 'number',
-      totalPage: 'number',
-      totalResults: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDialogResponseBodyData extends $tea.Model {
-  content?: string;
-  /**
-   * @example
-   * normal
-   */
-  nodeType?: string;
-  /**
-   * @example
-   * robot
-   */
-  role?: string;
-  tag?: string;
-  /**
-   * @example
-   * 1619763900718
-   */
-  time?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      nodeType: 'NodeType',
-      role: 'Role',
-      tag: 'Tag',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      nodeType: 'string',
-      role: 'string',
-      tag: 'string',
-      time: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHotlineRecordResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 100365558
-   */
-  callId?: string;
-  /**
-   * @example
-   * 100365548
-   */
-  connectionId?: string;
-  /**
-   * @example
-   * 16128694810
-   */
-  endTime?: number;
-  /**
-   * @example
-   * 16128694110
-   */
-  startTime?: number;
-  /**
-   * @example
-   * http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com
-   */
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callId: 'CallId',
-      connectionId: 'ConnectionId',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callId: 'string',
-      connectionId: 'string',
-      endTime: 'number',
-      startTime: 'number',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHotlineRecordDetailResponseBodyResultDataData extends $tea.Model {
-  /**
-   * @example
-   * 1614578410000
-   */
-  endTime?: number;
-  /**
-   * @example
-   * http://xxx.xxxxx/xx.wav
-   */
-  ossUrl?: string;
-  /**
-   * @example
-   * 123@123.com
-   */
-  servicerName?: string;
-  /**
-   * @example
-   * 1614578400000
-   */
-  startTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      ossUrl: 'OssUrl',
-      servicerName: 'ServicerName',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'number',
-      ossUrl: 'string',
-      servicerName: 'string',
-      startTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListHotlineRecordDetailResponseBodyResultData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  data?: ListHotlineRecordDetailResponseBodyResultDataData[];
-  /**
-   * @example
-   * 100
-   */
-  onePageSize?: number;
-  /**
-   * @example
-   * 10
-   */
-  totalPage?: number;
-  /**
-   * @example
-   * 945
-   */
-  totalResults?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      data: 'Data',
-      onePageSize: 'OnePageSize',
-      totalPage: 'TotalPage',
-      totalResults: 'TotalResults',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      data: { 'type': 'array', 'itemType': ListHotlineRecordDetailResponseBodyResultDataData },
-      onePageSize: 'number',
-      totalPage: 'number',
-      totalResults: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRobotCallDialogResponseBodyData extends $tea.Model {
-  content?: string;
-  /**
-   * @example
-   * normal
-   */
-  nodeType?: string;
-  /**
-   * @example
-   * robot
-   */
-  role?: string;
-  tag?: string;
-  /**
-   * @example
-   * 1621483557000
-   */
-  time?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      nodeType: 'NodeType',
-      role: 'Role',
-      tag: 'Tag',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      nodeType: 'string',
-      role: 'string',
-      tag: 'string',
-      time: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRobotNodeResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  isOutput?: number;
-  modelName?: string;
-  /**
-   * @example
-   * 123456
-   */
-  nodeIdentifier?: string;
-  nodeName?: string;
-  processName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isOutput: 'IsOutput',
-      modelName: 'ModelName',
-      nodeIdentifier: 'NodeIdentifier',
-      nodeName: 'NodeName',
-      processName: 'ProcessName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isOutput: 'number',
-      modelName: 'string',
-      nodeIdentifier: 'string',
-      nodeName: 'string',
-      processName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRobotParamsResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 0
-   */
-  isEmpty?: number;
-  /**
-   * @example
-   * name
-   */
-  paramCode?: string;
-  paramName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isEmpty: 'IsEmpty',
-      paramCode: 'ParamCode',
-      paramName: 'ParamName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isEmpty: 'number',
-      paramCode: 'string',
-      paramName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRolesResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  buId?: number;
-  /**
-   * @example
-   * admin
-   */
-  code?: string;
-  /**
-   * @example
-   * 2020-01-03T20:25:33Z
-   */
-  createTime?: string;
-  /**
-   * @example
-   * Admin
-   */
-  description?: string;
-  /**
-   * @example
-   * 0
-   */
-  roleGroupId?: number;
-  roleGroupName?: string;
-  /**
-   * @example
-   * 1
-   */
-  roleId?: number;
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      buId: 'BuId',
-      code: 'Code',
-      createTime: 'CreateTime',
-      description: 'Description',
-      roleGroupId: 'RoleGroupId',
-      roleGroupName: 'RoleGroupName',
-      roleId: 'RoleId',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buId: 'number',
-      code: 'string',
-      createTime: 'string',
-      description: 'string',
-      roleGroupId: 'number',
-      roleGroupName: 'string',
-      roleId: 'number',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSkillGroupResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 2
-   */
-  channelType?: number;
-  description?: string;
-  displayName?: string;
-  name?: string;
-  /**
-   * @example
-   * 123456
-   */
-  skillGroupId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      channelType: 'ChannelType',
-      description: 'Description',
-      displayName: 'DisplayName',
-      name: 'Name',
-      skillGroupId: 'SkillGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      channelType: 'number',
-      description: 'string',
-      displayName: 'string',
-      name: 'string',
-      skillGroupId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTaskResponseBodyDataRecord extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  completeCount?: number;
-  /**
-   * @example
-   * 1618477232000
-   */
-  fireTime?: string;
-  /**
-   * @example
-   * 1618477232000
-   */
-  gmtCreate?: string;
-  /**
-   * @example
-   * 123456
-   */
-  id?: number;
-  /**
-   * @example
-   * 123456
-   */
-  robotId?: number;
-  robotName?: string;
-  /**
-   * @example
-   * RELEASE
-   */
-  status?: string;
-  taskName?: string;
-  /**
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      completeCount: 'CompleteCount',
-      fireTime: 'FireTime',
-      gmtCreate: 'GmtCreate',
-      id: 'Id',
-      robotId: 'RobotId',
-      robotName: 'RobotName',
-      status: 'Status',
-      taskName: 'TaskName',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      completeCount: 'number',
-      fireTime: 'string',
-      gmtCreate: 'string',
-      id: 'number',
-      robotId: 'number',
-      robotName: 'string',
-      status: 'string',
-      taskName: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTaskResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageNo?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  record?: ListTaskResponseBodyDataRecord[];
-  /**
-   * @example
-   * 50
-   */
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      record: 'Record',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNo: 'number',
-      pageSize: 'number',
-      record: { 'type': 'array', 'itemType': ListTaskResponseBodyDataRecord },
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTaskDetailResponseBodyDataRecord extends $tea.Model {
-  /**
-   * @example
-   * 186****0000
-   */
-  called?: string;
-  /**
-   * @example
-   * 136****0000
-   */
-  caller?: string;
-  direction?: string;
-  /**
-   * @example
-   * 30
-   */
-  duration?: number;
-  /**
-   * @example
-   * 2021-05-20 00:03:00
-   */
-  endTime?: string;
-  /**
-   * @example
-   * 123456
-   */
-  id?: number;
-  /**
-   * @example
-   * 1
-   */
-  retryCurTimes?: number;
-  /**
-   * @example
-   * 1
-   */
-  retryTimes?: number;
-  /**
-   * @example
-   * 2021-05-20 00:00:00
-   */
-  startTime?: string;
-  /**
-   * @example
-   * SUCCESS
-   */
-  status?: string;
-  /**
-   * @example
-   * 00001
-   */
-  statusCode?: string;
-  statusCodeDesc?: string;
-  tags?: string;
-  static names(): { [key: string]: string } {
-    return {
-      called: 'Called',
-      caller: 'Caller',
-      direction: 'Direction',
-      duration: 'Duration',
-      endTime: 'EndTime',
-      id: 'Id',
-      retryCurTimes: 'RetryCurTimes',
-      retryTimes: 'RetryTimes',
-      startTime: 'StartTime',
-      status: 'Status',
-      statusCode: 'StatusCode',
-      statusCodeDesc: 'StatusCodeDesc',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      called: 'string',
-      caller: 'string',
-      direction: 'string',
-      duration: 'number',
-      endTime: 'string',
-      id: 'number',
-      retryCurTimes: 'number',
-      retryTimes: 'number',
-      startTime: 'string',
-      status: 'string',
-      statusCode: 'string',
-      statusCodeDesc: 'string',
-      tags: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTaskDetailResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 20
-   */
-  pageNo?: number;
-  /**
-   * @example
-   * 1
-   */
-  pageSize?: number;
-  record?: ListTaskDetailResponseBodyDataRecord[];
-  /**
-   * @example
-   * 50
-   */
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      record: 'Record',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNo: 'number',
-      pageSize: 'number',
-      record: { 'type': 'array', 'itemType': ListTaskDetailResponseBodyDataRecord },
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MakeDoubleCallResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 68255155365620598
-   */
-  acid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acid: 'Acid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeListGroupDOList extends $tea.Model {
-  /**
-   * @example
-   * 6083****
-   */
-  groupId?: number;
-  groupName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupId: 'GroupId',
-      groupName: 'GroupName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupId: 'number',
-      groupName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeList extends $tea.Model {
-  /**
-   * @example
-   * 2256****
-   */
-  departmentId?: number;
-  departmentName?: string;
-  groupDOList?: QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeListGroupDOList[];
-  static names(): { [key: string]: string } {
-    return {
-      departmentId: 'DepartmentId',
-      departmentName: 'DepartmentName',
-      groupDOList: 'GroupDOList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      departmentId: 'number',
-      departmentName: 'string',
-      groupDOList: { 'type': 'array', 'itemType': QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeListGroupDOList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryHotlineNumberResponseBodyDataHotlineNumList extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  calloutAllDepartment?: boolean;
-  calloutRangeList?: QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeList[];
-  /**
-   * @example
-   * 测试
-   */
-  description?: string;
-  /**
-   * @example
-   * 0
-   */
-  evaluationStatus?: number;
-  /**
-   * @example
-   * 12
-   */
-  flowId?: number;
-  /**
-   * @example
-   * 测试流程
-   */
-  flowName?: string;
-  /**
-   * @example
-   * 0571****2211
-   */
-  hotlineNumber?: string;
-  /**
-   * @example
-   * true
-   */
-  inBoundEnabled?: boolean;
-  /**
-   * @example
-   * 浙江杭州
-   */
-  location?: string;
-  /**
-   * @example
-   * true
-   */
-  outboundEnabled?: boolean;
-  /**
-   * @example
-   * 电信
-   */
-  sp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      calloutAllDepartment: 'CalloutAllDepartment',
-      calloutRangeList: 'CalloutRangeList',
-      description: 'Description',
-      evaluationStatus: 'EvaluationStatus',
-      flowId: 'FlowId',
-      flowName: 'FlowName',
-      hotlineNumber: 'HotlineNumber',
-      inBoundEnabled: 'InBoundEnabled',
-      location: 'Location',
-      outboundEnabled: 'OutboundEnabled',
-      sp: 'Sp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      calloutAllDepartment: 'boolean',
-      calloutRangeList: { 'type': 'array', 'itemType': QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeList },
-      description: 'string',
-      evaluationStatus: 'number',
-      flowId: 'number',
-      flowName: 'string',
-      hotlineNumber: 'string',
-      inBoundEnabled: 'boolean',
-      location: 'string',
-      outboundEnabled: 'boolean',
-      sp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryHotlineNumberResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  hotlineNumList?: QueryHotlineNumberResponseBodyDataHotlineNumList[];
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 123
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      hotlineNumList: 'HotlineNumList',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      hotlineNumList: { 'type': 'array', 'itemType': QueryHotlineNumberResponseBodyDataHotlineNumList },
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOutboundTaskResponseBodyDataList extends $tea.Model {
-  buId?: number;
-  callerNum?: string;
-  creator?: string;
-  departmentId?: number;
-  description?: string;
-  endDate?: string;
-  endTime?: string;
-  extAttrs?: string;
-  gmtCreate?: number;
-  gmtModified?: number;
-  groupName?: string;
-  id?: number;
-  model?: number;
-  modifier?: string;
-  name?: string;
-  retryInterval?: number;
-  retryTime?: number;
-  skillGroup?: number;
-  startDate?: string;
-  startTime?: string;
-  status?: number;
-  type?: number;
-  static names(): { [key: string]: string } {
-    return {
-      buId: 'BuId',
-      callerNum: 'CallerNum',
-      creator: 'Creator',
-      departmentId: 'DepartmentId',
-      description: 'Description',
-      endDate: 'EndDate',
-      endTime: 'EndTime',
-      extAttrs: 'ExtAttrs',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      groupName: 'GroupName',
-      id: 'Id',
-      model: 'Model',
-      modifier: 'Modifier',
-      name: 'Name',
-      retryInterval: 'RetryInterval',
-      retryTime: 'RetryTime',
-      skillGroup: 'SkillGroup',
-      startDate: 'StartDate',
-      startTime: 'StartTime',
-      status: 'Status',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buId: 'number',
-      callerNum: 'string',
-      creator: 'string',
-      departmentId: 'number',
-      description: 'string',
-      endDate: 'string',
-      endTime: 'string',
-      extAttrs: 'string',
-      gmtCreate: 'number',
-      gmtModified: 'number',
-      groupName: 'string',
-      id: 'number',
-      model: 'number',
-      modifier: 'string',
-      name: 'string',
-      retryInterval: 'number',
-      retryTime: 'number',
-      skillGroup: 'number',
-      startDate: 'string',
-      startTime: 'string',
-      status: 'number',
-      type: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryOutboundTaskResponseBodyData extends $tea.Model {
-  currentPage?: string;
-  list?: QueryOutboundTaskResponseBodyDataList[];
-  pageSize?: string;
-  totalResults?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      list: 'List',
-      pageSize: 'PageSize',
-      totalResults: 'TotalResults',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'string',
-      list: { 'type': 'array', 'itemType': QueryOutboundTaskResponseBodyDataList },
-      pageSize: 'string',
-      totalResults: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySkillGroupsResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 2
-   */
-  channelType?: number;
-  description?: string;
-  displayName?: string;
-  /**
-   * @example
-   * 123456
-   */
-  skillGroupId?: number;
-  skillGroupName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      channelType: 'ChannelType',
-      description: 'Description',
-      displayName: 'DisplayName',
-      skillGroupId: 'SkillGroupId',
-      skillGroupName: 'SkillGroupName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      channelType: 'number',
-      description: 'string',
-      displayName: 'string',
-      skillGroupId: 'number',
-      skillGroupName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailResponseBodyDataList extends $tea.Model {
-  ani?: string;
-  buId?: number;
-  departmentId?: number;
-  dnis?: string;
-  endReason?: number;
-  extAttrs?: string;
-  gmtCreate?: number;
-  gmtModified?: number;
-  id?: number;
-  memberId?: number;
-  memberName?: string;
-  outboundNum?: number;
-  outboundTaskId?: number;
-  priority?: number;
-  retryTime?: string;
-  servicerId?: number;
-  servicerName?: string;
-  skillGroup?: number;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ani: 'Ani',
-      buId: 'BuId',
-      departmentId: 'DepartmentId',
-      dnis: 'Dnis',
-      endReason: 'EndReason',
-      extAttrs: 'ExtAttrs',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      memberId: 'MemberId',
-      memberName: 'MemberName',
-      outboundNum: 'OutboundNum',
-      outboundTaskId: 'OutboundTaskId',
-      priority: 'Priority',
-      retryTime: 'RetryTime',
-      servicerId: 'ServicerId',
-      servicerName: 'ServicerName',
-      skillGroup: 'SkillGroup',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ani: 'string',
-      buId: 'number',
-      departmentId: 'number',
-      dnis: 'string',
-      endReason: 'number',
-      extAttrs: 'string',
-      gmtCreate: 'number',
-      gmtModified: 'number',
-      id: 'number',
-      memberId: 'number',
-      memberName: 'string',
-      outboundNum: 'number',
-      outboundTaskId: 'number',
-      priority: 'number',
-      retryTime: 'string',
-      servicerId: 'number',
-      servicerName: 'string',
-      skillGroup: 'number',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskDetailResponseBodyData extends $tea.Model {
-  currentPage?: string;
-  list?: QueryTaskDetailResponseBodyDataList[];
-  pageSize?: string;
-  totalResults?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      list: 'List',
-      pageSize: 'PageSize',
-      totalResults: 'TotalResults',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'string',
-      list: { 'type': 'array', 'itemType': QueryTaskDetailResponseBodyDataList },
-      pageSize: 'string',
-      totalResults: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $tea.Model {
-  /**
-   * @example
-   * 187****0000
-   */
-  ani?: string;
-  /**
-   * @example
-   * 05712688****
-   */
-  dnis?: string;
-  /**
-   * @example
-   * 2
-   */
-  evaluationLevel?: number;
-  /**
-   * @example
-   * 1
-   */
-  evaluationScore?: number;
-  /**
-   * @example
-   * 0
-   */
-  evaluationSolution?: number;
-  /**
-   * @example
-   * 1
-   */
-  evaluationStatus?: number;
-  /**
-   * @example
-   * 1
-   */
-  onlineJoinRespInterval?: number;
-  /**
-   * @example
-   * 0
-   */
-  onlineSessionSource?: number;
-  /**
-   * @example
-   * 05712688****
-   */
-  outCallRouteNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ani: 'Ani',
-      dnis: 'Dnis',
-      evaluationLevel: 'EvaluationLevel',
-      evaluationScore: 'EvaluationScore',
-      evaluationSolution: 'EvaluationSolution',
-      evaluationStatus: 'EvaluationStatus',
-      onlineJoinRespInterval: 'OnlineJoinRespInterval',
-      onlineSessionSource: 'OnlineSessionSource',
-      outCallRouteNumber: 'OutCallRouteNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ani: 'string',
-      dnis: 'string',
-      evaluationLevel: 'number',
-      evaluationScore: 'number',
-      evaluationSolution: 'number',
-      evaluationStatus: 'number',
-      onlineJoinRespInterval: 'number',
-      onlineSessionSource: 'number',
-      outCallRouteNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTouchListResponseBodyResultDataData extends $tea.Model {
-  /**
-   * @example
-   * 905
-   */
-  buId?: number;
-  /**
-   * @example
-   * 4f8807a9de024507a3090b5b66a8****
-   */
-  channelId?: string;
-  /**
-   * @example
-   * 1
-   */
-  channelType?: number;
-  /**
-   * @example
-   * 1611207976000
-   */
-  closeTime?: number;
-  commonQueueName?: string;
-  /**
-   * @example
-   * 100
-   */
-  depId?: number;
-  extAttrs?: QueryTouchListResponseBodyResultDataDataExtAttrs;
-  extAttrsString?: { [key: string]: any };
-  /**
-   * @example
-   * xxxx
-   */
-  feedback?: string;
-  /**
-   * @example
-   * 1611209971000
-   */
-  firstTime?: number;
-  /**
-   * @example
-   * 6400665****
-   */
-  fromId?: number;
-  /**
-   * @example
-   * 1611209971000
-   */
-  gmtCreate?: number;
-  /**
-   * @example
-   * 1611207979000
-   */
-  gmtModified?: number;
-  /**
-   * @example
-   * 6400665****
-   */
-  memberId?: number;
-  memberName?: string;
-  /**
-   * @example
-   * 0
-   */
-  parentTouchId?: number;
-  /**
-   * @example
-   * 111
-   */
-  queueId?: number;
-  /**
-   * @example
-   * 67****
-   */
-  servicerId?: number;
-  /**
-   * @example
-   * 13900001234
-   */
-  servicerName?: string;
-  /**
-   * @example
-   * 1
-   */
-  status?: number;
-  /**
-   * @example
-   * null
-   */
-  switchUser?: string;
-  /**
-   * @example
-   * 678026
-   */
-  toId?: number;
-  /**
-   * @example
-   * 1
-   */
-  touchContent?: string;
-  /**
-   * @example
-   * 2
-   */
-  touchEndReason?: number;
-  /**
-   * @example
-   * 1386****
-   */
-  touchId?: string;
-  /**
-   * @example
-   * 111
-   */
-  touchTime?: string;
-  /**
-   * @example
-   * 2
-   */
-  touchType?: number;
-  /**
-   * @example
-   * 1386****
-   */
-  userTouchId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      buId: 'BuId',
-      channelId: 'ChannelId',
-      channelType: 'ChannelType',
-      closeTime: 'CloseTime',
-      commonQueueName: 'CommonQueueName',
-      depId: 'DepId',
-      extAttrs: 'ExtAttrs',
-      extAttrsString: 'ExtAttrsString',
-      feedback: 'Feedback',
-      firstTime: 'FirstTime',
-      fromId: 'FromId',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      memberId: 'MemberId',
-      memberName: 'MemberName',
-      parentTouchId: 'ParentTouchId',
-      queueId: 'QueueId',
-      servicerId: 'ServicerId',
-      servicerName: 'ServicerName',
-      status: 'Status',
-      switchUser: 'SwitchUser',
-      toId: 'ToId',
-      touchContent: 'TouchContent',
-      touchEndReason: 'TouchEndReason',
-      touchId: 'TouchId',
-      touchTime: 'TouchTime',
-      touchType: 'TouchType',
-      userTouchId: 'UserTouchId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buId: 'number',
-      channelId: 'string',
-      channelType: 'number',
-      closeTime: 'number',
-      commonQueueName: 'string',
-      depId: 'number',
-      extAttrs: QueryTouchListResponseBodyResultDataDataExtAttrs,
-      extAttrsString: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      feedback: 'string',
-      firstTime: 'number',
-      fromId: 'number',
-      gmtCreate: 'number',
-      gmtModified: 'number',
-      memberId: 'number',
-      memberName: 'string',
-      parentTouchId: 'number',
-      queueId: 'number',
-      servicerId: 'number',
-      servicerName: 'string',
-      status: 'number',
-      switchUser: 'string',
-      toId: 'number',
-      touchContent: 'string',
-      touchEndReason: 'number',
-      touchId: 'string',
-      touchTime: 'string',
-      touchType: 'number',
-      userTouchId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTouchListResponseBodyResultData extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  data?: QueryTouchListResponseBodyResultDataData[];
-  /**
-   * @example
-   * false
-   */
-  empty?: boolean;
-  /**
-   * @example
-   * 2
-   */
-  nextPage?: number;
-  /**
-   * @example
-   * 2
-   */
-  onePageSize?: number;
-  /**
-   * @example
-   * 2
-   */
-  previousPage?: number;
-  /**
-   * @example
-   * 4
-   */
-  totalPage?: number;
-  /**
-   * @example
-   * 100
-   */
-  totalResults?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      data: 'Data',
-      empty: 'Empty',
-      nextPage: 'NextPage',
-      onePageSize: 'OnePageSize',
-      previousPage: 'PreviousPage',
-      totalPage: 'TotalPage',
-      totalResults: 'TotalResults',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      data: { 'type': 'array', 'itemType': QueryTouchListResponseBodyResultDataData },
-      empty: 'boolean',
-      nextPage: 'number',
-      onePageSize: 'number',
-      previousPage: 'number',
-      totalPage: 'number',
-      totalResults: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveAgentFromSkillGroupResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 2
-   */
-  successCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      successCount: 'SuccessCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      successCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetHotlineNumberRequestOutboundRangeList extends $tea.Model {
-  /**
-   * @example
-   * 123456
-   */
-  departmentId?: number;
-  groupIdList?: number[];
-  static names(): { [key: string]: string } {
-    return {
-      departmentId: 'DepartmentId',
-      groupIdList: 'GroupIdList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      departmentId: 'number',
-      groupIdList: { 'type': 'array', 'itemType': 'number' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateAiOutboundTaskRequestRecallRule extends $tea.Model {
-  /**
-   * @example
-   * 2
-   */
-  count?: number;
-  /**
-   * @example
-   * 5
-   */
-  interval?: number;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      interval: 'Interval',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      interval: 'number',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -26034,7 +29983,7 @@ export class UpdateAiOutboundTaskRequestRecallRule extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "central";
     this.checkConfig(config);
@@ -26043,15 +29992,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -26061,63 +30010,63 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddHotlineNumberResponse
    */
-  async addHotlineNumberWithOptions(tmpReq: AddHotlineNumberRequest, runtime: $Util.RuntimeOptions): Promise<AddHotlineNumberResponse> {
-    Util.validateModel(tmpReq);
+  async addHotlineNumberWithOptions(tmpReq: AddHotlineNumberRequest, runtime: $dara.RuntimeOptions): Promise<AddHotlineNumberResponse> {
+    tmpReq.validate();
     let request = new AddHotlineNumberShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.outboundRangeList)) {
+    if (!$dara.isNull(tmpReq.outboundRangeList)) {
       request.outboundRangeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outboundRangeList, "OutboundRangeList", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.enableInbound)) {
+    if (!$dara.isNull(request.enableInbound)) {
       body["EnableInbound"] = request.enableInbound;
     }
 
-    if (!Util.isUnset(request.enableInboundEvaluation)) {
+    if (!$dara.isNull(request.enableInboundEvaluation)) {
       body["EnableInboundEvaluation"] = request.enableInboundEvaluation;
     }
 
-    if (!Util.isUnset(request.enableOutbound)) {
+    if (!$dara.isNull(request.enableOutbound)) {
       body["EnableOutbound"] = request.enableOutbound;
     }
 
-    if (!Util.isUnset(request.enableOutboundEvaluation)) {
+    if (!$dara.isNull(request.enableOutboundEvaluation)) {
       body["EnableOutboundEvaluation"] = request.enableOutboundEvaluation;
     }
 
-    if (!Util.isUnset(request.evaluationLevel)) {
+    if (!$dara.isNull(request.evaluationLevel)) {
       body["EvaluationLevel"] = request.evaluationLevel;
     }
 
-    if (!Util.isUnset(request.hotlineNumber)) {
+    if (!$dara.isNull(request.hotlineNumber)) {
       body["HotlineNumber"] = request.hotlineNumber;
     }
 
-    if (!Util.isUnset(request.inboundFlowId)) {
+    if (!$dara.isNull(request.inboundFlowId)) {
       body["InboundFlowId"] = request.inboundFlowId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.outboundAllDepart)) {
+    if (!$dara.isNull(request.outboundAllDepart)) {
       body["OutboundAllDepart"] = request.outboundAllDepart;
     }
 
-    if (!Util.isUnset(request.outboundRangeListShrink)) {
+    if (!$dara.isNull(request.outboundRangeListShrink)) {
       body["OutboundRangeList"] = request.outboundRangeListShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddHotlineNumber",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26128,7 +30077,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddHotlineNumberResponse>(await this.callApi(params, req, runtime), new AddHotlineNumberResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddHotlineNumberResponse>(await this.callApi(params, req, runtime), new AddHotlineNumberResponse({}));
+    } else {
+      return $dara.cast<AddHotlineNumberResponse>(await this.execute(params, req, runtime), new AddHotlineNumberResponse({}));
+    }
+
   }
 
   /**
@@ -26138,7 +30092,7 @@ export default class Client extends OpenApi {
    * @returns AddHotlineNumberResponse
    */
   async addHotlineNumber(request: AddHotlineNumberRequest): Promise<AddHotlineNumberResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addHotlineNumberWithOptions(request, runtime);
   }
 
@@ -26147,13 +30101,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddOuterAccountResponse
    */
-  async addOuterAccountWithOptions(request: AddOuterAccountRequest, runtime: $Util.RuntimeOptions): Promise<AddOuterAccountResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async addOuterAccountWithOptions(request: AddOuterAccountRequest, runtime: $dara.RuntimeOptions): Promise<AddOuterAccountResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddOuterAccount",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26164,7 +30118,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddOuterAccountResponse>(await this.callApi(params, req, runtime), new AddOuterAccountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddOuterAccountResponse>(await this.callApi(params, req, runtime), new AddOuterAccountResponse({}));
+    } else {
+      return $dara.cast<AddOuterAccountResponse>(await this.execute(params, req, runtime), new AddOuterAccountResponse({}));
+    }
+
   }
 
   /**
@@ -26172,7 +30131,7 @@ export default class Client extends OpenApi {
    * @returns AddOuterAccountResponse
    */
   async addOuterAccount(request: AddOuterAccountRequest): Promise<AddOuterAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addOuterAccountWithOptions(request, runtime);
   }
 
@@ -26181,13 +30140,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddSkillGroupResponse
    */
-  async addSkillGroupWithOptions(request: AddSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddSkillGroupResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async addSkillGroupWithOptions(request: AddSkillGroupRequest, runtime: $dara.RuntimeOptions): Promise<AddSkillGroupResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddSkillGroup",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26198,7 +30157,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddSkillGroupResponse>(await this.callApi(params, req, runtime), new AddSkillGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddSkillGroupResponse>(await this.callApi(params, req, runtime), new AddSkillGroupResponse({}));
+    } else {
+      return $dara.cast<AddSkillGroupResponse>(await this.execute(params, req, runtime), new AddSkillGroupResponse({}));
+    }
+
   }
 
   /**
@@ -26206,7 +30170,7 @@ export default class Client extends OpenApi {
    * @returns AddSkillGroupResponse
    */
   async addSkillGroup(request: AddSkillGroupRequest): Promise<AddSkillGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addSkillGroupWithOptions(request, runtime);
   }
 
@@ -26215,141 +30179,141 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AiccsSmartCallResponse
    */
-  async aiccsSmartCallWithOptions(request: AiccsSmartCallRequest, runtime: $Util.RuntimeOptions): Promise<AiccsSmartCallResponse> {
-    Util.validateModel(request);
+  async aiccsSmartCallWithOptions(request: AiccsSmartCallRequest, runtime: $dara.RuntimeOptions): Promise<AiccsSmartCallResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.actionCodeBreak)) {
+    if (!$dara.isNull(request.actionCodeBreak)) {
       query["ActionCodeBreak"] = request.actionCodeBreak;
     }
 
-    if (!Util.isUnset(request.actionCodeTimeBreak)) {
+    if (!$dara.isNull(request.actionCodeTimeBreak)) {
       query["ActionCodeTimeBreak"] = request.actionCodeTimeBreak;
     }
 
-    if (!Util.isUnset(request.asrAlsAmId)) {
+    if (!$dara.isNull(request.asrAlsAmId)) {
       query["AsrAlsAmId"] = request.asrAlsAmId;
     }
 
-    if (!Util.isUnset(request.asrBaseId)) {
+    if (!$dara.isNull(request.asrBaseId)) {
       query["AsrBaseId"] = request.asrBaseId;
     }
 
-    if (!Util.isUnset(request.asrModelId)) {
+    if (!$dara.isNull(request.asrModelId)) {
       query["AsrModelId"] = request.asrModelId;
     }
 
-    if (!Util.isUnset(request.asrVocabularyId)) {
+    if (!$dara.isNull(request.asrVocabularyId)) {
       query["AsrVocabularyId"] = request.asrVocabularyId;
     }
 
-    if (!Util.isUnset(request.backgroundFileCode)) {
+    if (!$dara.isNull(request.backgroundFileCode)) {
       query["BackgroundFileCode"] = request.backgroundFileCode;
     }
 
-    if (!Util.isUnset(request.backgroundSpeed)) {
+    if (!$dara.isNull(request.backgroundSpeed)) {
       query["BackgroundSpeed"] = request.backgroundSpeed;
     }
 
-    if (!Util.isUnset(request.backgroundVolume)) {
+    if (!$dara.isNull(request.backgroundVolume)) {
       query["BackgroundVolume"] = request.backgroundVolume;
     }
 
-    if (!Util.isUnset(request.calledNumber)) {
+    if (!$dara.isNull(request.calledNumber)) {
       query["CalledNumber"] = request.calledNumber;
     }
 
-    if (!Util.isUnset(request.calledShowNumber)) {
+    if (!$dara.isNull(request.calledShowNumber)) {
       query["CalledShowNumber"] = request.calledShowNumber;
     }
 
-    if (!Util.isUnset(request.dynamicId)) {
+    if (!$dara.isNull(request.dynamicId)) {
       query["DynamicId"] = request.dynamicId;
     }
 
-    if (!Util.isUnset(request.earlyMediaAsr)) {
+    if (!$dara.isNull(request.earlyMediaAsr)) {
       query["EarlyMediaAsr"] = request.earlyMediaAsr;
     }
 
-    if (!Util.isUnset(request.enableITN)) {
+    if (!$dara.isNull(request.enableITN)) {
       query["EnableITN"] = request.enableITN;
     }
 
-    if (!Util.isUnset(request.muteTime)) {
+    if (!$dara.isNull(request.muteTime)) {
       query["MuteTime"] = request.muteTime;
     }
 
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pauseTime)) {
+    if (!$dara.isNull(request.pauseTime)) {
       query["PauseTime"] = request.pauseTime;
     }
 
-    if (!Util.isUnset(request.playTimes)) {
+    if (!$dara.isNull(request.playTimes)) {
       query["PlayTimes"] = request.playTimes;
     }
 
-    if (!Util.isUnset(request.prodCode)) {
+    if (!$dara.isNull(request.prodCode)) {
       query["ProdCode"] = request.prodCode;
     }
 
-    if (!Util.isUnset(request.recordFlag)) {
+    if (!$dara.isNull(request.recordFlag)) {
       query["RecordFlag"] = request.recordFlag;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.sessionTimeout)) {
+    if (!$dara.isNull(request.sessionTimeout)) {
       query["SessionTimeout"] = request.sessionTimeout;
     }
 
-    if (!Util.isUnset(request.speed)) {
+    if (!$dara.isNull(request.speed)) {
       query["Speed"] = request.speed;
     }
 
-    if (!Util.isUnset(request.ttsConf)) {
+    if (!$dara.isNull(request.ttsConf)) {
       query["TtsConf"] = request.ttsConf;
     }
 
-    if (!Util.isUnset(request.ttsSpeed)) {
+    if (!$dara.isNull(request.ttsSpeed)) {
       query["TtsSpeed"] = request.ttsSpeed;
     }
 
-    if (!Util.isUnset(request.ttsStyle)) {
+    if (!$dara.isNull(request.ttsStyle)) {
       query["TtsStyle"] = request.ttsStyle;
     }
 
-    if (!Util.isUnset(request.ttsVolume)) {
+    if (!$dara.isNull(request.ttsVolume)) {
       query["TtsVolume"] = request.ttsVolume;
     }
 
-    if (!Util.isUnset(request.voiceCode)) {
+    if (!$dara.isNull(request.voiceCode)) {
       query["VoiceCode"] = request.voiceCode;
     }
 
-    if (!Util.isUnset(request.voiceCodeParam)) {
+    if (!$dara.isNull(request.voiceCodeParam)) {
       query["VoiceCodeParam"] = request.voiceCodeParam;
     }
 
-    if (!Util.isUnset(request.volume)) {
+    if (!$dara.isNull(request.volume)) {
       query["Volume"] = request.volume;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AiccsSmartCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26360,7 +30324,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AiccsSmartCallResponse>(await this.callApi(params, req, runtime), new AiccsSmartCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AiccsSmartCallResponse>(await this.callApi(params, req, runtime), new AiccsSmartCallResponse({}));
+    } else {
+      return $dara.cast<AiccsSmartCallResponse>(await this.execute(params, req, runtime), new AiccsSmartCallResponse({}));
+    }
+
   }
 
   /**
@@ -26368,7 +30337,7 @@ export default class Client extends OpenApi {
    * @returns AiccsSmartCallResponse
    */
   async aiccsSmartCall(request: AiccsSmartCallRequest): Promise<AiccsSmartCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.aiccsSmartCallWithOptions(request, runtime);
   }
 
@@ -26377,41 +30346,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AiccsSmartCallOperateResponse
    */
-  async aiccsSmartCallOperateWithOptions(request: AiccsSmartCallOperateRequest, runtime: $Util.RuntimeOptions): Promise<AiccsSmartCallOperateResponse> {
-    Util.validateModel(request);
+  async aiccsSmartCallOperateWithOptions(request: AiccsSmartCallOperateRequest, runtime: $dara.RuntimeOptions): Promise<AiccsSmartCallOperateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       query["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.command)) {
+    if (!$dara.isNull(request.command)) {
       query["Command"] = request.command;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.param)) {
+    if (!$dara.isNull(request.param)) {
       query["Param"] = request.param;
     }
 
-    if (!Util.isUnset(request.prodCode)) {
+    if (!$dara.isNull(request.prodCode)) {
       query["ProdCode"] = request.prodCode;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AiccsSmartCallOperate",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26422,7 +30391,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AiccsSmartCallOperateResponse>(await this.callApi(params, req, runtime), new AiccsSmartCallOperateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AiccsSmartCallOperateResponse>(await this.callApi(params, req, runtime), new AiccsSmartCallOperateResponse({}));
+    } else {
+      return $dara.cast<AiccsSmartCallOperateResponse>(await this.execute(params, req, runtime), new AiccsSmartCallOperateResponse({}));
+    }
+
   }
 
   /**
@@ -26430,7 +30404,7 @@ export default class Client extends OpenApi {
    * @returns AiccsSmartCallOperateResponse
    */
   async aiccsSmartCallOperate(request: AiccsSmartCallOperateRequest): Promise<AiccsSmartCallOperateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.aiccsSmartCallOperateWithOptions(request, runtime);
   }
 
@@ -26439,37 +30413,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AnswerCallResponse
    */
-  async answerCallWithOptions(request: AnswerCallRequest, runtime: $Util.RuntimeOptions): Promise<AnswerCallResponse> {
-    Util.validateModel(request);
+  async answerCallWithOptions(request: AnswerCallRequest, runtime: $dara.RuntimeOptions): Promise<AnswerCallResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       body["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.connectionId)) {
+    if (!$dara.isNull(request.connectionId)) {
       body["ConnectionId"] = request.connectionId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.jobId)) {
       body["JobId"] = request.jobId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AnswerCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26480,7 +30454,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AnswerCallResponse>(await this.callApi(params, req, runtime), new AnswerCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AnswerCallResponse>(await this.callApi(params, req, runtime), new AnswerCallResponse({}));
+    } else {
+      return $dara.cast<AnswerCallResponse>(await this.execute(params, req, runtime), new AnswerCallResponse({}));
+    }
+
   }
 
   /**
@@ -26488,7 +30467,7 @@ export default class Client extends OpenApi {
    * @returns AnswerCallResponse
    */
   async answerCall(request: AnswerCallRequest): Promise<AnswerCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.answerCallWithOptions(request, runtime);
   }
 
@@ -26499,33 +30478,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachTaskResponse
    */
-  async attachTaskWithOptions(request: AttachTaskRequest, runtime: $Util.RuntimeOptions): Promise<AttachTaskResponse> {
-    Util.validateModel(request);
+  async attachTaskWithOptions(request: AttachTaskRequest, runtime: $dara.RuntimeOptions): Promise<AttachTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callString)) {
+    if (!$dara.isNull(request.callString)) {
       query["CallString"] = request.callString;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AttachTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26536,7 +30515,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachTaskResponse>(await this.callApi(params, req, runtime), new AttachTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AttachTaskResponse>(await this.callApi(params, req, runtime), new AttachTaskResponse({}));
+    } else {
+      return $dara.cast<AttachTaskResponse>(await this.execute(params, req, runtime), new AttachTaskResponse({}));
+    }
+
   }
 
   /**
@@ -26546,7 +30530,7 @@ export default class Client extends OpenApi {
    * @returns AttachTaskResponse
    */
   async attachTask(request: AttachTaskRequest): Promise<AttachTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.attachTaskWithOptions(request, runtime);
   }
 
@@ -26555,41 +30539,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BatchCreateQualityProjectsResponse
    */
-  async batchCreateQualityProjectsWithOptions(request: BatchCreateQualityProjectsRequest, runtime: $Util.RuntimeOptions): Promise<BatchCreateQualityProjectsResponse> {
-    Util.validateModel(request);
+  async batchCreateQualityProjectsWithOptions(request: BatchCreateQualityProjectsRequest, runtime: $dara.RuntimeOptions): Promise<BatchCreateQualityProjectsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.analysisIds)) {
+    if (!$dara.isNull(request.analysisIds)) {
       query["AnalysisIds"] = request.analysisIds;
     }
 
-    if (!Util.isUnset(request.channelTouchType)) {
+    if (!$dara.isNull(request.channelTouchType)) {
       query["ChannelTouchType"] = request.channelTouchType;
     }
 
-    if (!Util.isUnset(request.checkFreqType)) {
+    if (!$dara.isNull(request.checkFreqType)) {
       query["CheckFreqType"] = request.checkFreqType;
     }
 
-    if (!Util.isUnset(request.instanceList)) {
+    if (!$dara.isNull(request.instanceList)) {
       query["InstanceList"] = request.instanceList;
     }
 
-    if (!Util.isUnset(request.projectName)) {
+    if (!$dara.isNull(request.projectName)) {
       query["ProjectName"] = request.projectName;
     }
 
-    if (!Util.isUnset(request.timeRangeEnd)) {
+    if (!$dara.isNull(request.timeRangeEnd)) {
       query["TimeRangeEnd"] = request.timeRangeEnd;
     }
 
-    if (!Util.isUnset(request.timeRangeStart)) {
+    if (!$dara.isNull(request.timeRangeStart)) {
       query["TimeRangeStart"] = request.timeRangeStart;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BatchCreateQualityProjects",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26600,7 +30584,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BatchCreateQualityProjectsResponse>(await this.callApi(params, req, runtime), new BatchCreateQualityProjectsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BatchCreateQualityProjectsResponse>(await this.callApi(params, req, runtime), new BatchCreateQualityProjectsResponse({}));
+    } else {
+      return $dara.cast<BatchCreateQualityProjectsResponse>(await this.execute(params, req, runtime), new BatchCreateQualityProjectsResponse({}));
+    }
+
   }
 
   /**
@@ -26608,7 +30597,7 @@ export default class Client extends OpenApi {
    * @returns BatchCreateQualityProjectsResponse
    */
   async batchCreateQualityProjects(request: BatchCreateQualityProjectsRequest): Promise<BatchCreateQualityProjectsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.batchCreateQualityProjectsWithOptions(request, runtime);
   }
 
@@ -26619,29 +30608,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelTaskResponse
    */
-  async cancelTaskWithOptions(request: CancelTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
-    Util.validateModel(request);
+  async cancelTaskWithOptions(request: CancelTaskRequest, runtime: $dara.RuntimeOptions): Promise<CancelTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26652,7 +30641,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
+    } else {
+      return $dara.cast<CancelTaskResponse>(await this.execute(params, req, runtime), new CancelTaskResponse({}));
+    }
+
   }
 
   /**
@@ -26662,7 +30656,7 @@ export default class Client extends OpenApi {
    * @returns CancelTaskResponse
    */
   async cancelTask(request: CancelTaskRequest): Promise<CancelTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelTaskWithOptions(request, runtime);
   }
 
@@ -26673,29 +30667,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeChatAgentStatusResponse
    */
-  async changeChatAgentStatusWithOptions(request: ChangeChatAgentStatusRequest, runtime: $Util.RuntimeOptions): Promise<ChangeChatAgentStatusResponse> {
-    Util.validateModel(request);
+  async changeChatAgentStatusWithOptions(request: ChangeChatAgentStatusRequest, runtime: $dara.RuntimeOptions): Promise<ChangeChatAgentStatusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.method)) {
+    if (!$dara.isNull(request.method)) {
       body["Method"] = request.method;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChangeChatAgentStatus",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26706,7 +30700,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangeChatAgentStatusResponse>(await this.callApi(params, req, runtime), new ChangeChatAgentStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ChangeChatAgentStatusResponse>(await this.callApi(params, req, runtime), new ChangeChatAgentStatusResponse({}));
+    } else {
+      return $dara.cast<ChangeChatAgentStatusResponse>(await this.execute(params, req, runtime), new ChangeChatAgentStatusResponse({}));
+    }
+
   }
 
   /**
@@ -26716,7 +30715,7 @@ export default class Client extends OpenApi {
    * @returns ChangeChatAgentStatusResponse
    */
   async changeChatAgentStatus(request: ChangeChatAgentStatusRequest): Promise<ChangeChatAgentStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.changeChatAgentStatusWithOptions(request, runtime);
   }
 
@@ -26725,25 +30724,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeQualityProjectStatusResponse
    */
-  async changeQualityProjectStatusWithOptions(request: ChangeQualityProjectStatusRequest, runtime: $Util.RuntimeOptions): Promise<ChangeQualityProjectStatusResponse> {
-    Util.validateModel(request);
+  async changeQualityProjectStatusWithOptions(request: ChangeQualityProjectStatusRequest, runtime: $dara.RuntimeOptions): Promise<ChangeQualityProjectStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.projectId)) {
+    if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChangeQualityProjectStatus",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26754,7 +30753,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangeQualityProjectStatusResponse>(await this.callApi(params, req, runtime), new ChangeQualityProjectStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ChangeQualityProjectStatusResponse>(await this.callApi(params, req, runtime), new ChangeQualityProjectStatusResponse({}));
+    } else {
+      return $dara.cast<ChangeQualityProjectStatusResponse>(await this.execute(params, req, runtime), new ChangeQualityProjectStatusResponse({}));
+    }
+
   }
 
   /**
@@ -26762,7 +30766,7 @@ export default class Client extends OpenApi {
    * @returns ChangeQualityProjectStatusResponse
    */
   async changeQualityProjectStatus(request: ChangeQualityProjectStatusRequest): Promise<ChangeQualityProjectStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.changeQualityProjectStatusWithOptions(request, runtime);
   }
 
@@ -26771,31 +30775,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAgentResponse
    */
-  async createAgentWithOptions(request: CreateAgentRequest, runtime: $Util.RuntimeOptions): Promise<CreateAgentResponse> {
-    Util.validateModel(request);
+  async createAgentWithOptions(request: CreateAgentRequest, runtime: $dara.RuntimeOptions): Promise<CreateAgentResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       body["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.skillGroupId)) {
+    if (!$dara.isNull(request.skillGroupId)) {
       bodyFlat["SkillGroupId"] = request.skillGroupId;
     }
 
-    if (!Util.isUnset(request.skillGroupIdList)) {
+    if (!$dara.isNull(request.skillGroupIdList)) {
       bodyFlat["SkillGroupIdList"] = request.skillGroupIdList;
     }
 
@@ -26803,10 +30807,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAgent",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26817,7 +30821,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAgentResponse>(await this.callApi(params, req, runtime), new CreateAgentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAgentResponse>(await this.callApi(params, req, runtime), new CreateAgentResponse({}));
+    } else {
+      return $dara.cast<CreateAgentResponse>(await this.execute(params, req, runtime), new CreateAgentResponse({}));
+    }
+
   }
 
   /**
@@ -26825,7 +30834,7 @@ export default class Client extends OpenApi {
    * @returns CreateAgentResponse
    */
   async createAgent(request: CreateAgentRequest): Promise<CreateAgentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAgentWithOptions(request, runtime);
   }
 
@@ -26836,67 +30845,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAiOutboundTaskResponse
    */
-  async createAiOutboundTaskWithOptions(tmpReq: CreateAiOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateAiOutboundTaskResponse> {
-    Util.validateModel(tmpReq);
+  async createAiOutboundTaskWithOptions(tmpReq: CreateAiOutboundTaskRequest, runtime: $dara.RuntimeOptions): Promise<CreateAiOutboundTaskResponse> {
+    tmpReq.validate();
     let request = new CreateAiOutboundTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.outboundNums)) {
+    if (!$dara.isNull(tmpReq.outboundNums)) {
       request.outboundNumsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outboundNums, "OutboundNums", "json");
     }
 
-    if (!Util.isUnset(tmpReq.recallRule)) {
+    if (!$dara.isNull(tmpReq.recallRule)) {
       request.recallRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recallRule, "RecallRule", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.concurrentRate)) {
+    if (!$dara.isNull(request.concurrentRate)) {
       query["ConcurrentRate"] = request.concurrentRate;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.executionTime)) {
+    if (!$dara.isNull(request.executionTime)) {
       query["ExecutionTime"] = request.executionTime;
     }
 
-    if (!Util.isUnset(request.forecastCallRate)) {
+    if (!$dara.isNull(request.forecastCallRate)) {
       query["ForecastCallRate"] = request.forecastCallRate;
     }
 
-    if (!Util.isUnset(request.handlerId)) {
+    if (!$dara.isNull(request.handlerId)) {
       query["HandlerId"] = request.handlerId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.numRepeated)) {
+    if (!$dara.isNull(request.numRepeated)) {
       query["NumRepeated"] = request.numRepeated;
     }
 
-    if (!Util.isUnset(request.outboundNumsShrink)) {
+    if (!$dara.isNull(request.outboundNumsShrink)) {
       query["OutboundNums"] = request.outboundNumsShrink;
     }
 
-    if (!Util.isUnset(request.recallRuleShrink)) {
+    if (!$dara.isNull(request.recallRuleShrink)) {
       query["RecallRule"] = request.recallRuleShrink;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAiOutboundTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26907,7 +30916,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new CreateAiOutboundTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new CreateAiOutboundTaskResponse({}));
+    } else {
+      return $dara.cast<CreateAiOutboundTaskResponse>(await this.execute(params, req, runtime), new CreateAiOutboundTaskResponse({}));
+    }
+
   }
 
   /**
@@ -26917,7 +30931,7 @@ export default class Client extends OpenApi {
    * @returns CreateAiOutboundTaskResponse
    */
   async createAiOutboundTask(request: CreateAiOutboundTaskRequest): Promise<CreateAiOutboundTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAiOutboundTaskWithOptions(request, runtime);
   }
 
@@ -26928,21 +30942,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAiOutboundTaskBatchResponse
    */
-  async createAiOutboundTaskBatchWithOptions(request: CreateAiOutboundTaskBatchRequest, runtime: $Util.RuntimeOptions): Promise<CreateAiOutboundTaskBatchResponse> {
-    Util.validateModel(request);
+  async createAiOutboundTaskBatchWithOptions(request: CreateAiOutboundTaskBatchRequest, runtime: $dara.RuntimeOptions): Promise<CreateAiOutboundTaskBatchResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAiOutboundTaskBatch",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26953,7 +30967,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAiOutboundTaskBatchResponse>(await this.callApi(params, req, runtime), new CreateAiOutboundTaskBatchResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAiOutboundTaskBatchResponse>(await this.callApi(params, req, runtime), new CreateAiOutboundTaskBatchResponse({}));
+    } else {
+      return $dara.cast<CreateAiOutboundTaskBatchResponse>(await this.execute(params, req, runtime), new CreateAiOutboundTaskBatchResponse({}));
+    }
+
   }
 
   /**
@@ -26963,7 +30982,7 @@ export default class Client extends OpenApi {
    * @returns CreateAiOutboundTaskBatchResponse
    */
   async createAiOutboundTaskBatch(request: CreateAiOutboundTaskBatchRequest): Promise<CreateAiOutboundTaskBatchResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAiOutboundTaskBatchWithOptions(request, runtime);
   }
 
@@ -26974,21 +30993,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDepartmentResponse
    */
-  async createDepartmentWithOptions(request: CreateDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateDepartmentResponse> {
-    Util.validateModel(request);
+  async createDepartmentWithOptions(request: CreateDepartmentRequest, runtime: $dara.RuntimeOptions): Promise<CreateDepartmentResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.departmentName)) {
+    if (!$dara.isNull(request.departmentName)) {
       query["DepartmentName"] = request.departmentName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateDepartment",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -26999,7 +31018,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateDepartmentResponse>(await this.callApi(params, req, runtime), new CreateDepartmentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDepartmentResponse>(await this.callApi(params, req, runtime), new CreateDepartmentResponse({}));
+    } else {
+      return $dara.cast<CreateDepartmentResponse>(await this.execute(params, req, runtime), new CreateDepartmentResponse({}));
+    }
+
   }
 
   /**
@@ -27009,7 +31033,7 @@ export default class Client extends OpenApi {
    * @returns CreateDepartmentResponse
    */
   async createDepartment(request: CreateDepartmentRequest): Promise<CreateDepartmentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createDepartmentWithOptions(request, runtime);
   }
 
@@ -27018,81 +31042,81 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateOutboundTaskResponse
    */
-  async createOutboundTaskWithOptions(request: CreateOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateOutboundTaskResponse> {
-    Util.validateModel(request);
+  async createOutboundTaskWithOptions(request: CreateOutboundTaskRequest, runtime: $dara.RuntimeOptions): Promise<CreateOutboundTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ani)) {
+    if (!$dara.isNull(request.ani)) {
       query["Ani"] = request.ani;
     }
 
-    if (!Util.isUnset(request.callInfos)) {
+    if (!$dara.isNull(request.callInfos)) {
       query["CallInfos"] = request.callInfos;
     }
 
-    if (!Util.isUnset(request.departmentId)) {
+    if (!$dara.isNull(request.departmentId)) {
       query["DepartmentId"] = request.departmentId;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       query["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.extAttrs)) {
+    if (!$dara.isNull(request.extAttrs)) {
       query["ExtAttrs"] = request.extAttrs;
     }
 
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.model)) {
+    if (!$dara.isNull(request.model)) {
       query["Model"] = request.model;
     }
 
-    if (!Util.isUnset(request.retryInterval)) {
+    if (!$dara.isNull(request.retryInterval)) {
       query["RetryInterval"] = request.retryInterval;
     }
 
-    if (!Util.isUnset(request.retryTime)) {
+    if (!$dara.isNull(request.retryTime)) {
       query["RetryTime"] = request.retryTime;
     }
 
-    if (!Util.isUnset(request.skillGroup)) {
+    if (!$dara.isNull(request.skillGroup)) {
       query["SkillGroup"] = request.skillGroup;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       query["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.taskName)) {
+    if (!$dara.isNull(request.taskName)) {
       query["TaskName"] = request.taskName;
     }
 
-    if (!Util.isUnset(request.taskType)) {
+    if (!$dara.isNull(request.taskType)) {
       query["TaskType"] = request.taskType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateOutboundTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27103,7 +31127,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateOutboundTaskResponse>(await this.callApi(params, req, runtime), new CreateOutboundTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateOutboundTaskResponse>(await this.callApi(params, req, runtime), new CreateOutboundTaskResponse({}));
+    } else {
+      return $dara.cast<CreateOutboundTaskResponse>(await this.execute(params, req, runtime), new CreateOutboundTaskResponse({}));
+    }
+
   }
 
   /**
@@ -27111,7 +31140,7 @@ export default class Client extends OpenApi {
    * @returns CreateOutboundTaskResponse
    */
   async createOutboundTask(request: CreateOutboundTaskRequest): Promise<CreateOutboundTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createOutboundTaskWithOptions(request, runtime);
   }
 
@@ -27120,57 +31149,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateQualityProjectResponse
    */
-  async createQualityProjectWithOptions(request: CreateQualityProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityProjectResponse> {
-    Util.validateModel(request);
+  async createQualityProjectWithOptions(request: CreateQualityProjectRequest, runtime: $dara.RuntimeOptions): Promise<CreateQualityProjectResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.analysisIds)) {
+    if (!$dara.isNull(request.analysisIds)) {
       body["AnalysisIds"] = request.analysisIds;
     }
 
-    if (!Util.isUnset(request.channelTouchType)) {
+    if (!$dara.isNull(request.channelTouchType)) {
       body["ChannelTouchType"] = request.channelTouchType;
     }
 
-    if (!Util.isUnset(request.checkFreqType)) {
+    if (!$dara.isNull(request.checkFreqType)) {
       body["CheckFreqType"] = request.checkFreqType;
     }
 
-    if (!Util.isUnset(request.depList)) {
+    if (!$dara.isNull(request.depList)) {
       body["DepList"] = request.depList;
     }
 
-    if (!Util.isUnset(request.groupList)) {
+    if (!$dara.isNull(request.groupList)) {
       body["GroupList"] = request.groupList;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.projectName)) {
+    if (!$dara.isNull(request.projectName)) {
       body["ProjectName"] = request.projectName;
     }
 
-    if (!Util.isUnset(request.scopeType)) {
+    if (!$dara.isNull(request.scopeType)) {
       body["ScopeType"] = request.scopeType;
     }
 
-    if (!Util.isUnset(request.servicerList)) {
+    if (!$dara.isNull(request.servicerList)) {
       body["ServicerList"] = request.servicerList;
     }
 
-    if (!Util.isUnset(request.timeRangeEnd)) {
+    if (!$dara.isNull(request.timeRangeEnd)) {
       body["TimeRangeEnd"] = request.timeRangeEnd;
     }
 
-    if (!Util.isUnset(request.timeRangeStart)) {
+    if (!$dara.isNull(request.timeRangeStart)) {
       body["TimeRangeStart"] = request.timeRangeStart;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateQualityProject",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27181,7 +31210,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateQualityProjectResponse>(await this.callApi(params, req, runtime), new CreateQualityProjectResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateQualityProjectResponse>(await this.callApi(params, req, runtime), new CreateQualityProjectResponse({}));
+    } else {
+      return $dara.cast<CreateQualityProjectResponse>(await this.execute(params, req, runtime), new CreateQualityProjectResponse({}));
+    }
+
   }
 
   /**
@@ -27189,7 +31223,7 @@ export default class Client extends OpenApi {
    * @returns CreateQualityProjectResponse
    */
   async createQualityProject(request: CreateQualityProjectRequest): Promise<CreateQualityProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createQualityProjectWithOptions(request, runtime);
   }
 
@@ -27198,33 +31232,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateQualityRuleResponse
    */
-  async createQualityRuleWithOptions(request: CreateQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityRuleResponse> {
-    Util.validateModel(request);
+  async createQualityRuleWithOptions(request: CreateQualityRuleRequest, runtime: $dara.RuntimeOptions): Promise<CreateQualityRuleResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.keyWords)) {
+    if (!$dara.isNull(request.keyWords)) {
       body["KeyWords"] = request.keyWords;
     }
 
-    if (!Util.isUnset(request.matchType)) {
+    if (!$dara.isNull(request.matchType)) {
       body["MatchType"] = request.matchType;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.ruleTag)) {
+    if (!$dara.isNull(request.ruleTag)) {
       body["RuleTag"] = request.ruleTag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateQualityRule",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27235,7 +31269,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateQualityRuleResponse>(await this.callApi(params, req, runtime), new CreateQualityRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateQualityRuleResponse>(await this.callApi(params, req, runtime), new CreateQualityRuleResponse({}));
+    } else {
+      return $dara.cast<CreateQualityRuleResponse>(await this.execute(params, req, runtime), new CreateQualityRuleResponse({}));
+    }
+
   }
 
   /**
@@ -27243,7 +31282,7 @@ export default class Client extends OpenApi {
    * @returns CreateQualityRuleResponse
    */
   async createQualityRule(request: CreateQualityRuleRequest): Promise<CreateQualityRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createQualityRuleWithOptions(request, runtime);
   }
 
@@ -27252,41 +31291,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSkillGroupResponse
    */
-  async createSkillGroupWithOptions(request: CreateSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateSkillGroupResponse> {
-    Util.validateModel(request);
+  async createSkillGroupWithOptions(request: CreateSkillGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreateSkillGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.channelType)) {
+    if (!$dara.isNull(request.channelType)) {
       body["ChannelType"] = request.channelType;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.departmentId)) {
+    if (!$dara.isNull(request.departmentId)) {
       body["DepartmentId"] = request.departmentId;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       body["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.skillGroupName)) {
+    if (!$dara.isNull(request.skillGroupName)) {
       body["SkillGroupName"] = request.skillGroupName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateSkillGroup",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27297,7 +31336,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateSkillGroupResponse>(await this.callApi(params, req, runtime), new CreateSkillGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSkillGroupResponse>(await this.callApi(params, req, runtime), new CreateSkillGroupResponse({}));
+    } else {
+      return $dara.cast<CreateSkillGroupResponse>(await this.execute(params, req, runtime), new CreateSkillGroupResponse({}));
+    }
+
   }
 
   /**
@@ -27305,7 +31349,7 @@ export default class Client extends OpenApi {
    * @returns CreateSkillGroupResponse
    */
   async createSkillGroup(request: CreateSkillGroupRequest): Promise<CreateSkillGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createSkillGroupWithOptions(request, runtime);
   }
 
@@ -27316,77 +31360,77 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateTaskResponse
    */
-  async createTaskWithOptions(request: CreateTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateTaskResponse> {
-    Util.validateModel(request);
+  async createTaskWithOptions(request: CreateTaskRequest, runtime: $dara.RuntimeOptions): Promise<CreateTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callString)) {
+    if (!$dara.isNull(request.callString)) {
       query["CallString"] = request.callString;
     }
 
-    if (!Util.isUnset(request.callStringType)) {
+    if (!$dara.isNull(request.callStringType)) {
       query["CallStringType"] = request.callStringType;
     }
 
-    if (!Util.isUnset(request.caller)) {
+    if (!$dara.isNull(request.caller)) {
       query["Caller"] = request.caller;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.retryCount)) {
+    if (!$dara.isNull(request.retryCount)) {
       query["RetryCount"] = request.retryCount;
     }
 
-    if (!Util.isUnset(request.retryFlag)) {
+    if (!$dara.isNull(request.retryFlag)) {
       query["RetryFlag"] = request.retryFlag;
     }
 
-    if (!Util.isUnset(request.retryInterval)) {
+    if (!$dara.isNull(request.retryInterval)) {
       query["RetryInterval"] = request.retryInterval;
     }
 
-    if (!Util.isUnset(request.retryStatusCode)) {
+    if (!$dara.isNull(request.retryStatusCode)) {
       query["RetryStatusCode"] = request.retryStatusCode;
     }
 
-    if (!Util.isUnset(request.robotId)) {
+    if (!$dara.isNull(request.robotId)) {
       query["RobotId"] = request.robotId;
     }
 
-    if (!Util.isUnset(request.seatCount)) {
+    if (!$dara.isNull(request.seatCount)) {
       query["SeatCount"] = request.seatCount;
     }
 
-    if (!Util.isUnset(request.startNow)) {
+    if (!$dara.isNull(request.startNow)) {
       query["StartNow"] = request.startNow;
     }
 
-    if (!Util.isUnset(request.taskName)) {
+    if (!$dara.isNull(request.taskName)) {
       query["TaskName"] = request.taskName;
     }
 
-    if (!Util.isUnset(request.workDay)) {
+    if (!$dara.isNull(request.workDay)) {
       query["WorkDay"] = request.workDay;
     }
 
-    if (!Util.isUnset(request.workTimeList)) {
+    if (!$dara.isNull(request.workTimeList)) {
       query["WorkTimeList"] = request.workTimeList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27397,7 +31441,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
+    } else {
+      return $dara.cast<CreateTaskResponse>(await this.execute(params, req, runtime), new CreateTaskResponse({}));
+    }
+
   }
 
   /**
@@ -27407,7 +31456,7 @@ export default class Client extends OpenApi {
    * @returns CreateTaskResponse
    */
   async createTask(request: CreateTaskRequest): Promise<CreateTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createTaskWithOptions(request, runtime);
   }
 
@@ -27418,39 +31467,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateThirdSsoAgentResponse
    */
-  async createThirdSsoAgentWithOptions(request: CreateThirdSsoAgentRequest, runtime: $Util.RuntimeOptions): Promise<CreateThirdSsoAgentResponse> {
-    Util.validateModel(request);
+  async createThirdSsoAgentWithOptions(request: CreateThirdSsoAgentRequest, runtime: $dara.RuntimeOptions): Promise<CreateThirdSsoAgentResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       body["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       body["ClientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       body["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
     let bodyFlat : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.roleIds)) {
+    if (!$dara.isNull(request.roleIds)) {
       bodyFlat["RoleIds"] = request.roleIds;
     }
 
-    if (!Util.isUnset(request.skillGroupIds)) {
+    if (!$dara.isNull(request.skillGroupIds)) {
       bodyFlat["SkillGroupIds"] = request.skillGroupIds;
     }
 
@@ -27458,10 +31507,10 @@ export default class Client extends OpenApi {
       ...body,
       ...OpenApiUtil.query(bodyFlat),
     };
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateThirdSsoAgent",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27472,7 +31521,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateThirdSsoAgentResponse>(await this.callApi(params, req, runtime), new CreateThirdSsoAgentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateThirdSsoAgentResponse>(await this.callApi(params, req, runtime), new CreateThirdSsoAgentResponse({}));
+    } else {
+      return $dara.cast<CreateThirdSsoAgentResponse>(await this.execute(params, req, runtime), new CreateThirdSsoAgentResponse({}));
+    }
+
   }
 
   /**
@@ -27482,7 +31536,7 @@ export default class Client extends OpenApi {
    * @returns CreateThirdSsoAgentResponse
    */
   async createThirdSsoAgent(request: CreateThirdSsoAgentRequest): Promise<CreateThirdSsoAgentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createThirdSsoAgentWithOptions(request, runtime);
   }
 
@@ -27493,25 +31547,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAgentResponse
    */
-  async deleteAgentWithOptions(request: DeleteAgentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAgentResponse> {
-    Util.validateModel(request);
+  async deleteAgentWithOptions(request: DeleteAgentRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAgentResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAgent",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27522,7 +31576,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAgentResponse>(await this.callApi(params, req, runtime), new DeleteAgentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAgentResponse>(await this.callApi(params, req, runtime), new DeleteAgentResponse({}));
+    } else {
+      return $dara.cast<DeleteAgentResponse>(await this.execute(params, req, runtime), new DeleteAgentResponse({}));
+    }
+
   }
 
   /**
@@ -27532,7 +31591,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAgentResponse
    */
   async deleteAgent(request: DeleteAgentRequest): Promise<DeleteAgentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAgentWithOptions(request, runtime);
   }
 
@@ -27543,21 +31602,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAiOutboundTaskResponse
    */
-  async deleteAiOutboundTaskWithOptions(request: DeleteAiOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAiOutboundTaskResponse> {
-    Util.validateModel(request);
+  async deleteAiOutboundTaskWithOptions(request: DeleteAiOutboundTaskRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAiOutboundTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAiOutboundTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27568,7 +31627,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new DeleteAiOutboundTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new DeleteAiOutboundTaskResponse({}));
+    } else {
+      return $dara.cast<DeleteAiOutboundTaskResponse>(await this.execute(params, req, runtime), new DeleteAiOutboundTaskResponse({}));
+    }
+
   }
 
   /**
@@ -27578,7 +31642,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAiOutboundTaskResponse
    */
   async deleteAiOutboundTask(request: DeleteAiOutboundTaskRequest): Promise<DeleteAiOutboundTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAiOutboundTaskWithOptions(request, runtime);
   }
 
@@ -27589,21 +31653,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDepartmentResponse
    */
-  async deleteDepartmentWithOptions(request: DeleteDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDepartmentResponse> {
-    Util.validateModel(request);
+  async deleteDepartmentWithOptions(request: DeleteDepartmentRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDepartmentResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.departmentId)) {
+    if (!$dara.isNull(request.departmentId)) {
       query["DepartmentId"] = request.departmentId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDepartment",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27614,7 +31678,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDepartmentResponse>(await this.callApi(params, req, runtime), new DeleteDepartmentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDepartmentResponse>(await this.callApi(params, req, runtime), new DeleteDepartmentResponse({}));
+    } else {
+      return $dara.cast<DeleteDepartmentResponse>(await this.execute(params, req, runtime), new DeleteDepartmentResponse({}));
+    }
+
   }
 
   /**
@@ -27624,7 +31693,7 @@ export default class Client extends OpenApi {
    * @returns DeleteDepartmentResponse
    */
   async deleteDepartment(request: DeleteDepartmentRequest): Promise<DeleteDepartmentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDepartmentWithOptions(request, runtime);
   }
 
@@ -27635,21 +31704,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteHotlineNumberResponse
    */
-  async deleteHotlineNumberWithOptions(request: DeleteHotlineNumberRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHotlineNumberResponse> {
-    Util.validateModel(request);
+  async deleteHotlineNumberWithOptions(request: DeleteHotlineNumberRequest, runtime: $dara.RuntimeOptions): Promise<DeleteHotlineNumberResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.hotlineNumber)) {
+    if (!$dara.isNull(request.hotlineNumber)) {
       body["HotlineNumber"] = request.hotlineNumber;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteHotlineNumber",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27660,7 +31729,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteHotlineNumberResponse>(await this.callApi(params, req, runtime), new DeleteHotlineNumberResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteHotlineNumberResponse>(await this.callApi(params, req, runtime), new DeleteHotlineNumberResponse({}));
+    } else {
+      return $dara.cast<DeleteHotlineNumberResponse>(await this.execute(params, req, runtime), new DeleteHotlineNumberResponse({}));
+    }
+
   }
 
   /**
@@ -27670,7 +31744,7 @@ export default class Client extends OpenApi {
    * @returns DeleteHotlineNumberResponse
    */
   async deleteHotlineNumber(request: DeleteHotlineNumberRequest): Promise<DeleteHotlineNumberResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteHotlineNumberWithOptions(request, runtime);
   }
 
@@ -27679,21 +31753,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteOutboundTaskResponse
    */
-  async deleteOutboundTaskWithOptions(request: DeleteOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOutboundTaskResponse> {
-    Util.validateModel(request);
+  async deleteOutboundTaskWithOptions(request: DeleteOutboundTaskRequest, runtime: $dara.RuntimeOptions): Promise<DeleteOutboundTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.outboundTaskId)) {
+    if (!$dara.isNull(request.outboundTaskId)) {
       query["OutboundTaskId"] = request.outboundTaskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteOutboundTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27704,7 +31778,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteOutboundTaskResponse>(await this.callApi(params, req, runtime), new DeleteOutboundTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteOutboundTaskResponse>(await this.callApi(params, req, runtime), new DeleteOutboundTaskResponse({}));
+    } else {
+      return $dara.cast<DeleteOutboundTaskResponse>(await this.execute(params, req, runtime), new DeleteOutboundTaskResponse({}));
+    }
+
   }
 
   /**
@@ -27712,7 +31791,7 @@ export default class Client extends OpenApi {
    * @returns DeleteOutboundTaskResponse
    */
   async deleteOutboundTask(request: DeleteOutboundTaskRequest): Promise<DeleteOutboundTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteOutboundTaskWithOptions(request, runtime);
   }
 
@@ -27721,13 +31800,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteOuterAccountResponse
    */
-  async deleteOuterAccountWithOptions(request: DeleteOuterAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOuterAccountResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteOuterAccountWithOptions(request: DeleteOuterAccountRequest, runtime: $dara.RuntimeOptions): Promise<DeleteOuterAccountResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteOuterAccount",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27738,7 +31817,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteOuterAccountResponse>(await this.callApi(params, req, runtime), new DeleteOuterAccountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteOuterAccountResponse>(await this.callApi(params, req, runtime), new DeleteOuterAccountResponse({}));
+    } else {
+      return $dara.cast<DeleteOuterAccountResponse>(await this.execute(params, req, runtime), new DeleteOuterAccountResponse({}));
+    }
+
   }
 
   /**
@@ -27746,7 +31830,7 @@ export default class Client extends OpenApi {
    * @returns DeleteOuterAccountResponse
    */
   async deleteOuterAccount(request: DeleteOuterAccountRequest): Promise<DeleteOuterAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteOuterAccountWithOptions(request, runtime);
   }
 
@@ -27755,21 +31839,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteQualityProjectResponse
    */
-  async deleteQualityProjectWithOptions(request: DeleteQualityProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityProjectResponse> {
-    Util.validateModel(request);
+  async deleteQualityProjectWithOptions(request: DeleteQualityProjectRequest, runtime: $dara.RuntimeOptions): Promise<DeleteQualityProjectResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.projectId)) {
+    if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteQualityProject",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27780,7 +31864,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteQualityProjectResponse>(await this.callApi(params, req, runtime), new DeleteQualityProjectResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteQualityProjectResponse>(await this.callApi(params, req, runtime), new DeleteQualityProjectResponse({}));
+    } else {
+      return $dara.cast<DeleteQualityProjectResponse>(await this.execute(params, req, runtime), new DeleteQualityProjectResponse({}));
+    }
+
   }
 
   /**
@@ -27788,7 +31877,7 @@ export default class Client extends OpenApi {
    * @returns DeleteQualityProjectResponse
    */
   async deleteQualityProject(request: DeleteQualityProjectRequest): Promise<DeleteQualityProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteQualityProjectWithOptions(request, runtime);
   }
 
@@ -27797,21 +31886,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteQualityRuleResponse
    */
-  async deleteQualityRuleWithOptions(request: DeleteQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityRuleResponse> {
-    Util.validateModel(request);
+  async deleteQualityRuleWithOptions(request: DeleteQualityRuleRequest, runtime: $dara.RuntimeOptions): Promise<DeleteQualityRuleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteQualityRule",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27822,7 +31911,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteQualityRuleResponse>(await this.callApi(params, req, runtime), new DeleteQualityRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteQualityRuleResponse>(await this.callApi(params, req, runtime), new DeleteQualityRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteQualityRuleResponse>(await this.execute(params, req, runtime), new DeleteQualityRuleResponse({}));
+    }
+
   }
 
   /**
@@ -27830,7 +31924,7 @@ export default class Client extends OpenApi {
    * @returns DeleteQualityRuleResponse
    */
   async deleteQualityRule(request: DeleteQualityRuleRequest): Promise<DeleteQualityRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteQualityRuleWithOptions(request, runtime);
   }
 
@@ -27839,13 +31933,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSkillGroupResponse
    */
-  async deleteSkillGroupWithOptions(request: DeleteSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSkillGroupResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteSkillGroupWithOptions(request: DeleteSkillGroupRequest, runtime: $dara.RuntimeOptions): Promise<DeleteSkillGroupResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteSkillGroup",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27856,7 +31950,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteSkillGroupResponse>(await this.callApi(params, req, runtime), new DeleteSkillGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteSkillGroupResponse>(await this.callApi(params, req, runtime), new DeleteSkillGroupResponse({}));
+    } else {
+      return $dara.cast<DeleteSkillGroupResponse>(await this.execute(params, req, runtime), new DeleteSkillGroupResponse({}));
+    }
+
   }
 
   /**
@@ -27864,7 +31963,7 @@ export default class Client extends OpenApi {
    * @returns DeleteSkillGroupResponse
    */
   async deleteSkillGroup(request: DeleteSkillGroupRequest): Promise<DeleteSkillGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSkillGroupWithOptions(request, runtime);
   }
 
@@ -27873,45 +31972,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRecordDataResponse
    */
-  async describeRecordDataWithOptions(request: DescribeRecordDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordDataResponse> {
-    Util.validateModel(request);
+  async describeRecordDataWithOptions(request: DescribeRecordDataRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRecordDataResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.accountType)) {
+    if (!$dara.isNull(request.accountType)) {
       query["AccountType"] = request.accountType;
     }
 
-    if (!Util.isUnset(request.acid)) {
+    if (!$dara.isNull(request.acid)) {
       query["Acid"] = request.acid;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.prodCode)) {
+    if (!$dara.isNull(request.prodCode)) {
       query["ProdCode"] = request.prodCode;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.secLevel)) {
+    if (!$dara.isNull(request.secLevel)) {
       query["SecLevel"] = request.secLevel;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRecordData",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -27922,7 +32021,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRecordDataResponse>(await this.callApi(params, req, runtime), new DescribeRecordDataResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRecordDataResponse>(await this.callApi(params, req, runtime), new DescribeRecordDataResponse({}));
+    } else {
+      return $dara.cast<DescribeRecordDataResponse>(await this.execute(params, req, runtime), new DescribeRecordDataResponse({}));
+    }
+
   }
 
   /**
@@ -27930,7 +32034,7 @@ export default class Client extends OpenApi {
    * @returns DescribeRecordDataResponse
    */
   async describeRecordData(request: DescribeRecordDataRequest): Promise<DescribeRecordDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRecordDataWithOptions(request, runtime);
   }
 
@@ -27939,67 +32043,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EditQualityProjectResponse
    */
-  async editQualityProjectWithOptions(request: EditQualityProjectRequest, runtime: $Util.RuntimeOptions): Promise<EditQualityProjectResponse> {
-    Util.validateModel(request);
+  async editQualityProjectWithOptions(request: EditQualityProjectRequest, runtime: $dara.RuntimeOptions): Promise<EditQualityProjectResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.analysisIds)) {
+    if (!$dara.isNull(request.analysisIds)) {
       query["AnalysisIds"] = request.analysisIds;
     }
 
-    if (!Util.isUnset(request.channelTouchType)) {
+    if (!$dara.isNull(request.channelTouchType)) {
       query["ChannelTouchType"] = request.channelTouchType;
     }
 
-    if (!Util.isUnset(request.checkFreqType)) {
+    if (!$dara.isNull(request.checkFreqType)) {
       query["CheckFreqType"] = request.checkFreqType;
     }
 
-    if (!Util.isUnset(request.depList)) {
+    if (!$dara.isNull(request.depList)) {
       query["DepList"] = request.depList;
     }
 
-    if (!Util.isUnset(request.groupList)) {
+    if (!$dara.isNull(request.groupList)) {
       query["GroupList"] = request.groupList;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.projectId)) {
+    if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
 
-    if (!Util.isUnset(request.projectVersion)) {
+    if (!$dara.isNull(request.projectVersion)) {
       query["ProjectVersion"] = request.projectVersion;
     }
 
-    if (!Util.isUnset(request.scopeType)) {
+    if (!$dara.isNull(request.scopeType)) {
       query["ScopeType"] = request.scopeType;
     }
 
-    if (!Util.isUnset(request.servicerList)) {
+    if (!$dara.isNull(request.servicerList)) {
       query["ServicerList"] = request.servicerList;
     }
 
-    if (!Util.isUnset(request.timeRangeEnd)) {
+    if (!$dara.isNull(request.timeRangeEnd)) {
       query["TimeRangeEnd"] = request.timeRangeEnd;
     }
 
-    if (!Util.isUnset(request.timeRangeStart)) {
+    if (!$dara.isNull(request.timeRangeStart)) {
       query["TimeRangeStart"] = request.timeRangeStart;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.projectName)) {
+    if (!$dara.isNull(request.projectName)) {
       body["ProjectName"] = request.projectName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "EditQualityProject",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28010,7 +32114,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EditQualityProjectResponse>(await this.callApi(params, req, runtime), new EditQualityProjectResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EditQualityProjectResponse>(await this.callApi(params, req, runtime), new EditQualityProjectResponse({}));
+    } else {
+      return $dara.cast<EditQualityProjectResponse>(await this.execute(params, req, runtime), new EditQualityProjectResponse({}));
+    }
+
   }
 
   /**
@@ -28018,7 +32127,7 @@ export default class Client extends OpenApi {
    * @returns EditQualityProjectResponse
    */
   async editQualityProject(request: EditQualityProjectRequest): Promise<EditQualityProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.editQualityProjectWithOptions(request, runtime);
   }
 
@@ -28027,37 +32136,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EditQualityRuleResponse
    */
-  async editQualityRuleWithOptions(request: EditQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<EditQualityRuleResponse> {
-    Util.validateModel(request);
+  async editQualityRuleWithOptions(request: EditQualityRuleRequest, runtime: $dara.RuntimeOptions): Promise<EditQualityRuleResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.keyWords)) {
+    if (!$dara.isNull(request.keyWords)) {
       body["KeyWords"] = request.keyWords;
     }
 
-    if (!Util.isUnset(request.matchType)) {
+    if (!$dara.isNull(request.matchType)) {
       body["MatchType"] = request.matchType;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.qualityRuleId)) {
+    if (!$dara.isNull(request.qualityRuleId)) {
       body["QualityRuleId"] = request.qualityRuleId;
     }
 
-    if (!Util.isUnset(request.ruleTag)) {
+    if (!$dara.isNull(request.ruleTag)) {
       body["RuleTag"] = request.ruleTag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "EditQualityRule",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28068,7 +32177,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EditQualityRuleResponse>(await this.callApi(params, req, runtime), new EditQualityRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EditQualityRuleResponse>(await this.callApi(params, req, runtime), new EditQualityRuleResponse({}));
+    } else {
+      return $dara.cast<EditQualityRuleResponse>(await this.execute(params, req, runtime), new EditQualityRuleResponse({}));
+    }
+
   }
 
   /**
@@ -28076,7 +32190,7 @@ export default class Client extends OpenApi {
    * @returns EditQualityRuleResponse
    */
   async editQualityRule(request: EditQualityRuleRequest): Promise<EditQualityRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.editQualityRuleWithOptions(request, runtime);
   }
 
@@ -28085,21 +32199,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EditQualityRuleTagResponse
    */
-  async editQualityRuleTagWithOptions(request: EditQualityRuleTagRequest, runtime: $Util.RuntimeOptions): Promise<EditQualityRuleTagResponse> {
-    Util.validateModel(request);
+  async editQualityRuleTagWithOptions(request: EditQualityRuleTagRequest, runtime: $dara.RuntimeOptions): Promise<EditQualityRuleTagResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.analysisTypes)) {
+    if (!$dara.isNull(request.analysisTypes)) {
       query["AnalysisTypes"] = request.analysisTypes;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "EditQualityRuleTag",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28110,7 +32224,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EditQualityRuleTagResponse>(await this.callApi(params, req, runtime), new EditQualityRuleTagResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EditQualityRuleTagResponse>(await this.callApi(params, req, runtime), new EditQualityRuleTagResponse({}));
+    } else {
+      return $dara.cast<EditQualityRuleTagResponse>(await this.execute(params, req, runtime), new EditQualityRuleTagResponse({}));
+    }
+
   }
 
   /**
@@ -28118,7 +32237,7 @@ export default class Client extends OpenApi {
    * @returns EditQualityRuleTagResponse
    */
   async editQualityRuleTag(request: EditQualityRuleTagRequest): Promise<EditQualityRuleTagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.editQualityRuleTagWithOptions(request, runtime);
   }
 
@@ -28129,13 +32248,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EncryptPhoneNumResponse
    */
-  async encryptPhoneNumWithOptions(request: EncryptPhoneNumRequest, runtime: $Util.RuntimeOptions): Promise<EncryptPhoneNumResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async encryptPhoneNumWithOptions(request: EncryptPhoneNumRequest, runtime: $dara.RuntimeOptions): Promise<EncryptPhoneNumResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "EncryptPhoneNum",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28146,7 +32265,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EncryptPhoneNumResponse>(await this.callApi(params, req, runtime), new EncryptPhoneNumResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EncryptPhoneNumResponse>(await this.callApi(params, req, runtime), new EncryptPhoneNumResponse({}));
+    } else {
+      return $dara.cast<EncryptPhoneNumResponse>(await this.execute(params, req, runtime), new EncryptPhoneNumResponse({}));
+    }
+
   }
 
   /**
@@ -28156,7 +32280,7 @@ export default class Client extends OpenApi {
    * @returns EncryptPhoneNumResponse
    */
   async encryptPhoneNum(request: EncryptPhoneNumRequest): Promise<EncryptPhoneNumResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.encryptPhoneNumWithOptions(request, runtime);
   }
 
@@ -28165,41 +32289,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FetchCallResponse
    */
-  async fetchCallWithOptions(request: FetchCallRequest, runtime: $Util.RuntimeOptions): Promise<FetchCallResponse> {
-    Util.validateModel(request);
+  async fetchCallWithOptions(request: FetchCallRequest, runtime: $dara.RuntimeOptions): Promise<FetchCallResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       body["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.connectionId)) {
+    if (!$dara.isNull(request.connectionId)) {
       body["ConnectionId"] = request.connectionId;
     }
 
-    if (!Util.isUnset(request.holdConnectionId)) {
+    if (!$dara.isNull(request.holdConnectionId)) {
       body["HoldConnectionId"] = request.holdConnectionId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.jobId)) {
       body["JobId"] = request.jobId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "FetchCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28210,7 +32334,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<FetchCallResponse>(await this.callApi(params, req, runtime), new FetchCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<FetchCallResponse>(await this.callApi(params, req, runtime), new FetchCallResponse({}));
+    } else {
+      return $dara.cast<FetchCallResponse>(await this.execute(params, req, runtime), new FetchCallResponse({}));
+    }
+
   }
 
   /**
@@ -28218,7 +32347,7 @@ export default class Client extends OpenApi {
    * @returns FetchCallResponse
    */
   async fetchCall(request: FetchCallRequest): Promise<FetchCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.fetchCallWithOptions(request, runtime);
   }
 
@@ -28227,25 +32356,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FinishHotlineServiceResponse
    */
-  async finishHotlineServiceWithOptions(request: FinishHotlineServiceRequest, runtime: $Util.RuntimeOptions): Promise<FinishHotlineServiceResponse> {
-    Util.validateModel(request);
+  async finishHotlineServiceWithOptions(request: FinishHotlineServiceRequest, runtime: $dara.RuntimeOptions): Promise<FinishHotlineServiceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "FinishHotlineService",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28256,7 +32385,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<FinishHotlineServiceResponse>(await this.callApi(params, req, runtime), new FinishHotlineServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<FinishHotlineServiceResponse>(await this.callApi(params, req, runtime), new FinishHotlineServiceResponse({}));
+    } else {
+      return $dara.cast<FinishHotlineServiceResponse>(await this.execute(params, req, runtime), new FinishHotlineServiceResponse({}));
+    }
+
   }
 
   /**
@@ -28264,7 +32398,7 @@ export default class Client extends OpenApi {
    * @returns FinishHotlineServiceResponse
    */
   async finishHotlineService(request: FinishHotlineServiceRequest): Promise<FinishHotlineServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.finishHotlineServiceWithOptions(request, runtime);
   }
 
@@ -28273,25 +32407,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateWebSocketSignResponse
    */
-  async generateWebSocketSignWithOptions(request: GenerateWebSocketSignRequest, runtime: $Util.RuntimeOptions): Promise<GenerateWebSocketSignResponse> {
-    Util.validateModel(request);
+  async generateWebSocketSignWithOptions(request: GenerateWebSocketSignRequest, runtime: $dara.RuntimeOptions): Promise<GenerateWebSocketSignResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GenerateWebSocketSign",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28302,7 +32436,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateWebSocketSignResponse>(await this.callApi(params, req, runtime), new GenerateWebSocketSignResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GenerateWebSocketSignResponse>(await this.callApi(params, req, runtime), new GenerateWebSocketSignResponse({}));
+    } else {
+      return $dara.cast<GenerateWebSocketSignResponse>(await this.execute(params, req, runtime), new GenerateWebSocketSignResponse({}));
+    }
+
   }
 
   /**
@@ -28310,7 +32449,7 @@ export default class Client extends OpenApi {
    * @returns GenerateWebSocketSignResponse
    */
   async generateWebSocketSign(request: GenerateWebSocketSignRequest): Promise<GenerateWebSocketSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.generateWebSocketSignWithOptions(request, runtime);
   }
 
@@ -28319,13 +32458,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAgentResponse
    */
-  async getAgentWithOptions(request: GetAgentRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getAgentWithOptions(request: GetAgentRequest, runtime: $dara.RuntimeOptions): Promise<GetAgentResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAgent",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28336,7 +32475,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAgentResponse>(await this.callApi(params, req, runtime), new GetAgentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAgentResponse>(await this.callApi(params, req, runtime), new GetAgentResponse({}));
+    } else {
+      return $dara.cast<GetAgentResponse>(await this.execute(params, req, runtime), new GetAgentResponse({}));
+    }
+
   }
 
   /**
@@ -28344,7 +32488,7 @@ export default class Client extends OpenApi {
    * @returns GetAgentResponse
    */
   async getAgent(request: GetAgentRequest): Promise<GetAgentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAgentWithOptions(request, runtime);
   }
 
@@ -28355,23 +32499,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAgentBasisStatusResponse
    */
-  async getAgentBasisStatusWithOptions(tmpReq: GetAgentBasisStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentBasisStatusResponse> {
-    Util.validateModel(tmpReq);
+  async getAgentBasisStatusWithOptions(tmpReq: GetAgentBasisStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetAgentBasisStatusResponse> {
+    tmpReq.validate();
     let request = new GetAgentBasisStatusShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.agentIds)) {
+    if (!$dara.isNull(tmpReq.agentIds)) {
       request.agentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentIds, "AgentIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAgentBasisStatus",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28382,7 +32526,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAgentBasisStatusResponse>(await this.callApi(params, req, runtime), new GetAgentBasisStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAgentBasisStatusResponse>(await this.callApi(params, req, runtime), new GetAgentBasisStatusResponse({}));
+    } else {
+      return $dara.cast<GetAgentBasisStatusResponse>(await this.execute(params, req, runtime), new GetAgentBasisStatusResponse({}));
+    }
+
   }
 
   /**
@@ -28392,7 +32541,7 @@ export default class Client extends OpenApi {
    * @returns GetAgentBasisStatusResponse
    */
   async getAgentBasisStatus(request: GetAgentBasisStatusRequest): Promise<GetAgentBasisStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAgentBasisStatusWithOptions(request, runtime);
   }
 
@@ -28401,21 +32550,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAgentByIdResponse
    */
-  async getAgentByIdWithOptions(request: GetAgentByIdRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentByIdResponse> {
-    Util.validateModel(request);
+  async getAgentByIdWithOptions(request: GetAgentByIdRequest, runtime: $dara.RuntimeOptions): Promise<GetAgentByIdResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.agentId)) {
+    if (!$dara.isNull(request.agentId)) {
       body["AgentId"] = request.agentId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAgentById",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28426,7 +32575,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAgentByIdResponse>(await this.callApi(params, req, runtime), new GetAgentByIdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAgentByIdResponse>(await this.callApi(params, req, runtime), new GetAgentByIdResponse({}));
+    } else {
+      return $dara.cast<GetAgentByIdResponse>(await this.execute(params, req, runtime), new GetAgentByIdResponse({}));
+    }
+
   }
 
   /**
@@ -28434,7 +32588,7 @@ export default class Client extends OpenApi {
    * @returns GetAgentByIdResponse
    */
   async getAgentById(request: GetAgentByIdRequest): Promise<GetAgentByIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAgentByIdWithOptions(request, runtime);
   }
 
@@ -28445,23 +32599,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAgentDetailReportResponse
    */
-  async getAgentDetailReportWithOptions(tmpReq: GetAgentDetailReportRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentDetailReportResponse> {
-    Util.validateModel(tmpReq);
+  async getAgentDetailReportWithOptions(tmpReq: GetAgentDetailReportRequest, runtime: $dara.RuntimeOptions): Promise<GetAgentDetailReportResponse> {
+    tmpReq.validate();
     let request = new GetAgentDetailReportShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.agentIds)) {
+    if (!$dara.isNull(tmpReq.agentIds)) {
       request.agentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentIds, "AgentIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAgentDetailReport",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28472,7 +32626,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAgentDetailReportResponse>(await this.callApi(params, req, runtime), new GetAgentDetailReportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAgentDetailReportResponse>(await this.callApi(params, req, runtime), new GetAgentDetailReportResponse({}));
+    } else {
+      return $dara.cast<GetAgentDetailReportResponse>(await this.execute(params, req, runtime), new GetAgentDetailReportResponse({}));
+    }
+
   }
 
   /**
@@ -28482,7 +32641,7 @@ export default class Client extends OpenApi {
    * @returns GetAgentDetailReportResponse
    */
   async getAgentDetailReport(request: GetAgentDetailReportRequest): Promise<GetAgentDetailReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAgentDetailReportWithOptions(request, runtime);
   }
 
@@ -28491,33 +32650,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAgentIndexRealTimeResponse
    */
-  async getAgentIndexRealTimeWithOptions(request: GetAgentIndexRealTimeRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentIndexRealTimeResponse> {
-    Util.validateModel(request);
+  async getAgentIndexRealTimeWithOptions(request: GetAgentIndexRealTimeRequest, runtime: $dara.RuntimeOptions): Promise<GetAgentIndexRealTimeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.depIds)) {
+    if (!$dara.isNull(request.depIds)) {
       query["DepIds"] = request.depIds;
     }
 
-    if (!Util.isUnset(request.groupIds)) {
+    if (!$dara.isNull(request.groupIds)) {
       query["GroupIds"] = request.groupIds;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAgentIndexRealTime",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28528,7 +32687,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAgentIndexRealTimeResponse>(await this.callApi(params, req, runtime), new GetAgentIndexRealTimeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAgentIndexRealTimeResponse>(await this.callApi(params, req, runtime), new GetAgentIndexRealTimeResponse({}));
+    } else {
+      return $dara.cast<GetAgentIndexRealTimeResponse>(await this.execute(params, req, runtime), new GetAgentIndexRealTimeResponse({}));
+    }
+
   }
 
   /**
@@ -28536,7 +32700,7 @@ export default class Client extends OpenApi {
    * @returns GetAgentIndexRealTimeResponse
    */
   async getAgentIndexRealTime(request: GetAgentIndexRealTimeRequest): Promise<GetAgentIndexRealTimeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAgentIndexRealTimeWithOptions(request, runtime);
   }
 
@@ -28547,23 +32711,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAgentServiceStatusResponse
    */
-  async getAgentServiceStatusWithOptions(tmpReq: GetAgentServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentServiceStatusResponse> {
-    Util.validateModel(tmpReq);
+  async getAgentServiceStatusWithOptions(tmpReq: GetAgentServiceStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetAgentServiceStatusResponse> {
+    tmpReq.validate();
     let request = new GetAgentServiceStatusShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.agentIds)) {
+    if (!$dara.isNull(tmpReq.agentIds)) {
       request.agentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentIds, "AgentIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAgentServiceStatus",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28574,7 +32738,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAgentServiceStatusResponse>(await this.callApi(params, req, runtime), new GetAgentServiceStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAgentServiceStatusResponse>(await this.callApi(params, req, runtime), new GetAgentServiceStatusResponse({}));
+    } else {
+      return $dara.cast<GetAgentServiceStatusResponse>(await this.execute(params, req, runtime), new GetAgentServiceStatusResponse({}));
+    }
+
   }
 
   /**
@@ -28584,7 +32753,7 @@ export default class Client extends OpenApi {
    * @returns GetAgentServiceStatusResponse
    */
   async getAgentServiceStatus(request: GetAgentServiceStatusRequest): Promise<GetAgentServiceStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAgentServiceStatusWithOptions(request, runtime);
   }
 
@@ -28595,23 +32764,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAgentStatisticsResponse
    */
-  async getAgentStatisticsWithOptions(tmpReq: GetAgentStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentStatisticsResponse> {
-    Util.validateModel(tmpReq);
+  async getAgentStatisticsWithOptions(tmpReq: GetAgentStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<GetAgentStatisticsResponse> {
+    tmpReq.validate();
     let request = new GetAgentStatisticsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.agentIds)) {
+    if (!$dara.isNull(tmpReq.agentIds)) {
       request.agentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentIds, "AgentIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAgentStatistics",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28622,7 +32791,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAgentStatisticsResponse>(await this.callApi(params, req, runtime), new GetAgentStatisticsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAgentStatisticsResponse>(await this.callApi(params, req, runtime), new GetAgentStatisticsResponse({}));
+    } else {
+      return $dara.cast<GetAgentStatisticsResponse>(await this.execute(params, req, runtime), new GetAgentStatisticsResponse({}));
+    }
+
   }
 
   /**
@@ -28632,7 +32806,7 @@ export default class Client extends OpenApi {
    * @returns GetAgentStatisticsResponse
    */
   async getAgentStatistics(request: GetAgentStatisticsRequest): Promise<GetAgentStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAgentStatisticsWithOptions(request, runtime);
   }
 
@@ -28643,13 +32817,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAiOutboundTaskBizDataResponse
    */
-  async getAiOutboundTaskBizDataWithOptions(request: GetAiOutboundTaskBizDataRequest, runtime: $Util.RuntimeOptions): Promise<GetAiOutboundTaskBizDataResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getAiOutboundTaskBizDataWithOptions(request: GetAiOutboundTaskBizDataRequest, runtime: $dara.RuntimeOptions): Promise<GetAiOutboundTaskBizDataResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAiOutboundTaskBizData",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28660,7 +32834,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAiOutboundTaskBizDataResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskBizDataResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAiOutboundTaskBizDataResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskBizDataResponse({}));
+    } else {
+      return $dara.cast<GetAiOutboundTaskBizDataResponse>(await this.execute(params, req, runtime), new GetAiOutboundTaskBizDataResponse({}));
+    }
+
   }
 
   /**
@@ -28670,7 +32849,7 @@ export default class Client extends OpenApi {
    * @returns GetAiOutboundTaskBizDataResponse
    */
   async getAiOutboundTaskBizData(request: GetAiOutboundTaskBizDataRequest): Promise<GetAiOutboundTaskBizDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAiOutboundTaskBizDataWithOptions(request, runtime);
   }
 
@@ -28681,13 +32860,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAiOutboundTaskDetailResponse
    */
-  async getAiOutboundTaskDetailWithOptions(request: GetAiOutboundTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetAiOutboundTaskDetailResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getAiOutboundTaskDetailWithOptions(request: GetAiOutboundTaskDetailRequest, runtime: $dara.RuntimeOptions): Promise<GetAiOutboundTaskDetailResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAiOutboundTaskDetail",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28698,7 +32877,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAiOutboundTaskDetailResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAiOutboundTaskDetailResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskDetailResponse({}));
+    } else {
+      return $dara.cast<GetAiOutboundTaskDetailResponse>(await this.execute(params, req, runtime), new GetAiOutboundTaskDetailResponse({}));
+    }
+
   }
 
   /**
@@ -28708,7 +32892,7 @@ export default class Client extends OpenApi {
    * @returns GetAiOutboundTaskDetailResponse
    */
   async getAiOutboundTaskDetail(request: GetAiOutboundTaskDetailRequest): Promise<GetAiOutboundTaskDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAiOutboundTaskDetailWithOptions(request, runtime);
   }
 
@@ -28719,13 +32903,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAiOutboundTaskExecDetailResponse
    */
-  async getAiOutboundTaskExecDetailWithOptions(request: GetAiOutboundTaskExecDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetAiOutboundTaskExecDetailResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getAiOutboundTaskExecDetailWithOptions(request: GetAiOutboundTaskExecDetailRequest, runtime: $dara.RuntimeOptions): Promise<GetAiOutboundTaskExecDetailResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAiOutboundTaskExecDetail",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28736,7 +32920,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAiOutboundTaskExecDetailResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskExecDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAiOutboundTaskExecDetailResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskExecDetailResponse({}));
+    } else {
+      return $dara.cast<GetAiOutboundTaskExecDetailResponse>(await this.execute(params, req, runtime), new GetAiOutboundTaskExecDetailResponse({}));
+    }
+
   }
 
   /**
@@ -28746,7 +32935,7 @@ export default class Client extends OpenApi {
    * @returns GetAiOutboundTaskExecDetailResponse
    */
   async getAiOutboundTaskExecDetail(request: GetAiOutboundTaskExecDetailRequest): Promise<GetAiOutboundTaskExecDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAiOutboundTaskExecDetailWithOptions(request, runtime);
   }
 
@@ -28757,13 +32946,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAiOutboundTaskListResponse
    */
-  async getAiOutboundTaskListWithOptions(request: GetAiOutboundTaskListRequest, runtime: $Util.RuntimeOptions): Promise<GetAiOutboundTaskListResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getAiOutboundTaskListWithOptions(request: GetAiOutboundTaskListRequest, runtime: $dara.RuntimeOptions): Promise<GetAiOutboundTaskListResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAiOutboundTaskList",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28774,7 +32963,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAiOutboundTaskListResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAiOutboundTaskListResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskListResponse({}));
+    } else {
+      return $dara.cast<GetAiOutboundTaskListResponse>(await this.execute(params, req, runtime), new GetAiOutboundTaskListResponse({}));
+    }
+
   }
 
   /**
@@ -28784,7 +32978,7 @@ export default class Client extends OpenApi {
    * @returns GetAiOutboundTaskListResponse
    */
   async getAiOutboundTaskList(request: GetAiOutboundTaskListRequest): Promise<GetAiOutboundTaskListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAiOutboundTaskListWithOptions(request, runtime);
   }
 
@@ -28795,13 +32989,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAiOutboundTaskProgressResponse
    */
-  async getAiOutboundTaskProgressWithOptions(request: GetAiOutboundTaskProgressRequest, runtime: $Util.RuntimeOptions): Promise<GetAiOutboundTaskProgressResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getAiOutboundTaskProgressWithOptions(request: GetAiOutboundTaskProgressRequest, runtime: $dara.RuntimeOptions): Promise<GetAiOutboundTaskProgressResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAiOutboundTaskProgress",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28812,7 +33006,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAiOutboundTaskProgressResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskProgressResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAiOutboundTaskProgressResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskProgressResponse({}));
+    } else {
+      return $dara.cast<GetAiOutboundTaskProgressResponse>(await this.execute(params, req, runtime), new GetAiOutboundTaskProgressResponse({}));
+    }
+
   }
 
   /**
@@ -28822,7 +33021,7 @@ export default class Client extends OpenApi {
    * @returns GetAiOutboundTaskProgressResponse
    */
   async getAiOutboundTaskProgress(request: GetAiOutboundTaskProgressRequest): Promise<GetAiOutboundTaskProgressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAiOutboundTaskProgressWithOptions(request, runtime);
   }
 
@@ -28833,13 +33032,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAllDepartmentResponse
    */
-  async getAllDepartmentWithOptions(request: GetAllDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<GetAllDepartmentResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getAllDepartmentWithOptions(request: GetAllDepartmentRequest, runtime: $dara.RuntimeOptions): Promise<GetAllDepartmentResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAllDepartment",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28850,7 +33049,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAllDepartmentResponse>(await this.callApi(params, req, runtime), new GetAllDepartmentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAllDepartmentResponse>(await this.callApi(params, req, runtime), new GetAllDepartmentResponse({}));
+    } else {
+      return $dara.cast<GetAllDepartmentResponse>(await this.execute(params, req, runtime), new GetAllDepartmentResponse({}));
+    }
+
   }
 
   /**
@@ -28860,7 +33064,7 @@ export default class Client extends OpenApi {
    * @returns GetAllDepartmentResponse
    */
   async getAllDepartment(request: GetAllDepartmentRequest): Promise<GetAllDepartmentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAllDepartmentWithOptions(request, runtime);
   }
 
@@ -28871,33 +33075,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCallSoundRecordResponse
    */
-  async getCallSoundRecordWithOptions(request: GetCallSoundRecordRequest, runtime: $Util.RuntimeOptions): Promise<GetCallSoundRecordResponse> {
-    Util.validateModel(request);
+  async getCallSoundRecordWithOptions(request: GetCallSoundRecordRequest, runtime: $dara.RuntimeOptions): Promise<GetCallSoundRecordResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       query["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.createTime)) {
+    if (!$dara.isNull(request.createTime)) {
       query["CreateTime"] = request.createTime;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetCallSoundRecord",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28908,7 +33112,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCallSoundRecordResponse>(await this.callApi(params, req, runtime), new GetCallSoundRecordResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetCallSoundRecordResponse>(await this.callApi(params, req, runtime), new GetCallSoundRecordResponse({}));
+    } else {
+      return $dara.cast<GetCallSoundRecordResponse>(await this.execute(params, req, runtime), new GetCallSoundRecordResponse({}));
+    }
+
   }
 
   /**
@@ -28918,7 +33127,7 @@ export default class Client extends OpenApi {
    * @returns GetCallSoundRecordResponse
    */
   async getCallSoundRecord(request: GetCallSoundRecordRequest): Promise<GetCallSoundRecordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getCallSoundRecordWithOptions(request, runtime);
   }
 
@@ -28929,13 +33138,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConfigNumListResponse
    */
-  async getConfigNumListWithOptions(request: GetConfigNumListRequest, runtime: $Util.RuntimeOptions): Promise<GetConfigNumListResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getConfigNumListWithOptions(request: GetConfigNumListRequest, runtime: $dara.RuntimeOptions): Promise<GetConfigNumListResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetConfigNumList",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28946,7 +33155,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetConfigNumListResponse>(await this.callApi(params, req, runtime), new GetConfigNumListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetConfigNumListResponse>(await this.callApi(params, req, runtime), new GetConfigNumListResponse({}));
+    } else {
+      return $dara.cast<GetConfigNumListResponse>(await this.execute(params, req, runtime), new GetConfigNumListResponse({}));
+    }
+
   }
 
   /**
@@ -28956,7 +33170,7 @@ export default class Client extends OpenApi {
    * @returns GetConfigNumListResponse
    */
   async getConfigNumList(request: GetConfigNumListRequest): Promise<GetConfigNumListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getConfigNumListWithOptions(request, runtime);
   }
 
@@ -28967,13 +33181,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCustomerInfoResponse
    */
-  async getCustomerInfoWithOptions(request: GetCustomerInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomerInfoResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getCustomerInfoWithOptions(request: GetCustomerInfoRequest, runtime: $dara.RuntimeOptions): Promise<GetCustomerInfoResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetCustomerInfo",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -28984,7 +33198,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCustomerInfoResponse>(await this.callApi(params, req, runtime), new GetCustomerInfoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetCustomerInfoResponse>(await this.callApi(params, req, runtime), new GetCustomerInfoResponse({}));
+    } else {
+      return $dara.cast<GetCustomerInfoResponse>(await this.execute(params, req, runtime), new GetCustomerInfoResponse({}));
+    }
+
   }
 
   /**
@@ -28994,7 +33213,7 @@ export default class Client extends OpenApi {
    * @returns GetCustomerInfoResponse
    */
   async getCustomerInfo(request: GetCustomerInfoRequest): Promise<GetCustomerInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getCustomerInfoWithOptions(request, runtime);
   }
 
@@ -29005,13 +33224,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDepGroupTreeDataResponse
    */
-  async getDepGroupTreeDataWithOptions(request: GetDepGroupTreeDataRequest, runtime: $Util.RuntimeOptions): Promise<GetDepGroupTreeDataResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getDepGroupTreeDataWithOptions(request: GetDepGroupTreeDataRequest, runtime: $dara.RuntimeOptions): Promise<GetDepGroupTreeDataResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDepGroupTreeData",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29022,7 +33241,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDepGroupTreeDataResponse>(await this.callApi(params, req, runtime), new GetDepGroupTreeDataResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDepGroupTreeDataResponse>(await this.callApi(params, req, runtime), new GetDepGroupTreeDataResponse({}));
+    } else {
+      return $dara.cast<GetDepGroupTreeDataResponse>(await this.execute(params, req, runtime), new GetDepGroupTreeDataResponse({}));
+    }
+
   }
 
   /**
@@ -29032,7 +33256,7 @@ export default class Client extends OpenApi {
    * @returns GetDepGroupTreeDataResponse
    */
   async getDepGroupTreeData(request: GetDepGroupTreeDataRequest): Promise<GetDepGroupTreeDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDepGroupTreeDataWithOptions(request, runtime);
   }
 
@@ -29043,19 +33267,19 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDepartmentalLatitudeAgentStatusResponse
    */
-  async getDepartmentalLatitudeAgentStatusWithOptions(tmpReq: GetDepartmentalLatitudeAgentStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetDepartmentalLatitudeAgentStatusResponse> {
-    Util.validateModel(tmpReq);
+  async getDepartmentalLatitudeAgentStatusWithOptions(tmpReq: GetDepartmentalLatitudeAgentStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetDepartmentalLatitudeAgentStatusResponse> {
+    tmpReq.validate();
     let request = new GetDepartmentalLatitudeAgentStatusShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetDepartmentalLatitudeAgentStatus",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29066,7 +33290,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDepartmentalLatitudeAgentStatusResponse>(await this.callApi(params, req, runtime), new GetDepartmentalLatitudeAgentStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDepartmentalLatitudeAgentStatusResponse>(await this.callApi(params, req, runtime), new GetDepartmentalLatitudeAgentStatusResponse({}));
+    } else {
+      return $dara.cast<GetDepartmentalLatitudeAgentStatusResponse>(await this.execute(params, req, runtime), new GetDepartmentalLatitudeAgentStatusResponse({}));
+    }
+
   }
 
   /**
@@ -29076,7 +33305,7 @@ export default class Client extends OpenApi {
    * @returns GetDepartmentalLatitudeAgentStatusResponse
    */
   async getDepartmentalLatitudeAgentStatus(request: GetDepartmentalLatitudeAgentStatusRequest): Promise<GetDepartmentalLatitudeAgentStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getDepartmentalLatitudeAgentStatusWithOptions(request, runtime);
   }
 
@@ -29085,13 +33314,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHotlineAgentDetailResponse
    */
-  async getHotlineAgentDetailWithOptions(request: GetHotlineAgentDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineAgentDetailResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getHotlineAgentDetailWithOptions(request: GetHotlineAgentDetailRequest, runtime: $dara.RuntimeOptions): Promise<GetHotlineAgentDetailResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetHotlineAgentDetail",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29102,7 +33331,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetHotlineAgentDetailResponse>(await this.callApi(params, req, runtime), new GetHotlineAgentDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetHotlineAgentDetailResponse>(await this.callApi(params, req, runtime), new GetHotlineAgentDetailResponse({}));
+    } else {
+      return $dara.cast<GetHotlineAgentDetailResponse>(await this.execute(params, req, runtime), new GetHotlineAgentDetailResponse({}));
+    }
+
   }
 
   /**
@@ -29110,7 +33344,7 @@ export default class Client extends OpenApi {
    * @returns GetHotlineAgentDetailResponse
    */
   async getHotlineAgentDetail(request: GetHotlineAgentDetailRequest): Promise<GetHotlineAgentDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getHotlineAgentDetailWithOptions(request, runtime);
   }
 
@@ -29119,41 +33353,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHotlineAgentDetailReportResponse
    */
-  async getHotlineAgentDetailReportWithOptions(request: GetHotlineAgentDetailReportRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineAgentDetailReportResponse> {
-    Util.validateModel(request);
+  async getHotlineAgentDetailReportWithOptions(request: GetHotlineAgentDetailReportRequest, runtime: $dara.RuntimeOptions): Promise<GetHotlineAgentDetailReportResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.depIds)) {
+    if (!$dara.isNull(request.depIds)) {
       query["DepIds"] = request.depIds;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       query["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.groupIds)) {
+    if (!$dara.isNull(request.groupIds)) {
       query["GroupIds"] = request.groupIds;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       query["StartDate"] = request.startDate;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetHotlineAgentDetailReport",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29164,7 +33398,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetHotlineAgentDetailReportResponse>(await this.callApi(params, req, runtime), new GetHotlineAgentDetailReportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetHotlineAgentDetailReportResponse>(await this.callApi(params, req, runtime), new GetHotlineAgentDetailReportResponse({}));
+    } else {
+      return $dara.cast<GetHotlineAgentDetailReportResponse>(await this.execute(params, req, runtime), new GetHotlineAgentDetailReportResponse({}));
+    }
+
   }
 
   /**
@@ -29172,7 +33411,7 @@ export default class Client extends OpenApi {
    * @returns GetHotlineAgentDetailReportResponse
    */
   async getHotlineAgentDetailReport(request: GetHotlineAgentDetailReportRequest): Promise<GetHotlineAgentDetailReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getHotlineAgentDetailReportWithOptions(request, runtime);
   }
 
@@ -29181,21 +33420,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHotlineAgentStatusResponse
    */
-  async getHotlineAgentStatusWithOptions(request: GetHotlineAgentStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineAgentStatusResponse> {
-    Util.validateModel(request);
+  async getHotlineAgentStatusWithOptions(request: GetHotlineAgentStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetHotlineAgentStatusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetHotlineAgentStatus",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29206,7 +33445,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetHotlineAgentStatusResponse>(await this.callApi(params, req, runtime), new GetHotlineAgentStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetHotlineAgentStatusResponse>(await this.callApi(params, req, runtime), new GetHotlineAgentStatusResponse({}));
+    } else {
+      return $dara.cast<GetHotlineAgentStatusResponse>(await this.execute(params, req, runtime), new GetHotlineAgentStatusResponse({}));
+    }
+
   }
 
   /**
@@ -29214,7 +33458,7 @@ export default class Client extends OpenApi {
    * @returns GetHotlineAgentStatusResponse
    */
   async getHotlineAgentStatus(request: GetHotlineAgentStatusRequest): Promise<GetHotlineAgentStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getHotlineAgentStatusWithOptions(request, runtime);
   }
 
@@ -29225,41 +33469,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHotlineCallActionResponse
    */
-  async getHotlineCallActionWithOptions(request: GetHotlineCallActionRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineCallActionResponse> {
-    Util.validateModel(request);
+  async getHotlineCallActionWithOptions(request: GetHotlineCallActionRequest, runtime: $dara.RuntimeOptions): Promise<GetHotlineCallActionResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.acc)) {
+    if (!$dara.isNull(request.acc)) {
       body["Acc"] = request.acc;
     }
 
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.act)) {
+    if (!$dara.isNull(request.act)) {
       body["Act"] = request.act;
     }
 
-    if (!Util.isUnset(request.biz)) {
+    if (!$dara.isNull(request.biz)) {
       body["Biz"] = request.biz;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.fromSource)) {
+    if (!$dara.isNull(request.fromSource)) {
       body["FromSource"] = request.fromSource;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetHotlineCallAction",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29270,7 +33514,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetHotlineCallActionResponse>(await this.callApi(params, req, runtime), new GetHotlineCallActionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetHotlineCallActionResponse>(await this.callApi(params, req, runtime), new GetHotlineCallActionResponse({}));
+    } else {
+      return $dara.cast<GetHotlineCallActionResponse>(await this.execute(params, req, runtime), new GetHotlineCallActionResponse({}));
+    }
+
   }
 
   /**
@@ -29280,7 +33529,7 @@ export default class Client extends OpenApi {
    * @returns GetHotlineCallActionResponse
    */
   async getHotlineCallAction(request: GetHotlineCallActionRequest): Promise<GetHotlineCallActionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getHotlineCallActionWithOptions(request, runtime);
   }
 
@@ -29289,41 +33538,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHotlineGroupDetailReportResponse
    */
-  async getHotlineGroupDetailReportWithOptions(request: GetHotlineGroupDetailReportRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineGroupDetailReportResponse> {
-    Util.validateModel(request);
+  async getHotlineGroupDetailReportWithOptions(request: GetHotlineGroupDetailReportRequest, runtime: $dara.RuntimeOptions): Promise<GetHotlineGroupDetailReportResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.depIds)) {
+    if (!$dara.isNull(request.depIds)) {
       query["DepIds"] = request.depIds;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       query["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.groupIds)) {
+    if (!$dara.isNull(request.groupIds)) {
       query["GroupIds"] = request.groupIds;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       query["StartDate"] = request.startDate;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetHotlineGroupDetailReport",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29334,7 +33583,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetHotlineGroupDetailReportResponse>(await this.callApi(params, req, runtime), new GetHotlineGroupDetailReportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetHotlineGroupDetailReportResponse>(await this.callApi(params, req, runtime), new GetHotlineGroupDetailReportResponse({}));
+    } else {
+      return $dara.cast<GetHotlineGroupDetailReportResponse>(await this.execute(params, req, runtime), new GetHotlineGroupDetailReportResponse({}));
+    }
+
   }
 
   /**
@@ -29342,7 +33596,7 @@ export default class Client extends OpenApi {
    * @returns GetHotlineGroupDetailReportResponse
    */
   async getHotlineGroupDetailReport(request: GetHotlineGroupDetailReportRequest): Promise<GetHotlineGroupDetailReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getHotlineGroupDetailReportWithOptions(request, runtime);
   }
 
@@ -29353,13 +33607,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHotlineMessageLogResponse
    */
-  async getHotlineMessageLogWithOptions(request: GetHotlineMessageLogRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineMessageLogResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getHotlineMessageLogWithOptions(request: GetHotlineMessageLogRequest, runtime: $dara.RuntimeOptions): Promise<GetHotlineMessageLogResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetHotlineMessageLog",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29370,7 +33624,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetHotlineMessageLogResponse>(await this.callApi(params, req, runtime), new GetHotlineMessageLogResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetHotlineMessageLogResponse>(await this.callApi(params, req, runtime), new GetHotlineMessageLogResponse({}));
+    } else {
+      return $dara.cast<GetHotlineMessageLogResponse>(await this.execute(params, req, runtime), new GetHotlineMessageLogResponse({}));
+    }
+
   }
 
   /**
@@ -29380,7 +33639,7 @@ export default class Client extends OpenApi {
    * @returns GetHotlineMessageLogResponse
    */
   async getHotlineMessageLog(request: GetHotlineMessageLogRequest): Promise<GetHotlineMessageLogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getHotlineMessageLogWithOptions(request, runtime);
   }
 
@@ -29391,13 +33650,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHotlineRuntimeInfoResponse
    */
-  async getHotlineRuntimeInfoWithOptions(request: GetHotlineRuntimeInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineRuntimeInfoResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getHotlineRuntimeInfoWithOptions(request: GetHotlineRuntimeInfoRequest, runtime: $dara.RuntimeOptions): Promise<GetHotlineRuntimeInfoResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetHotlineRuntimeInfo",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29408,7 +33667,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetHotlineRuntimeInfoResponse>(await this.callApi(params, req, runtime), new GetHotlineRuntimeInfoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetHotlineRuntimeInfoResponse>(await this.callApi(params, req, runtime), new GetHotlineRuntimeInfoResponse({}));
+    } else {
+      return $dara.cast<GetHotlineRuntimeInfoResponse>(await this.execute(params, req, runtime), new GetHotlineRuntimeInfoResponse({}));
+    }
+
   }
 
   /**
@@ -29418,7 +33682,7 @@ export default class Client extends OpenApi {
    * @returns GetHotlineRuntimeInfoResponse
    */
   async getHotlineRuntimeInfo(request: GetHotlineRuntimeInfoRequest): Promise<GetHotlineRuntimeInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getHotlineRuntimeInfoWithOptions(request, runtime);
   }
 
@@ -29429,27 +33693,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHotlineServiceStatisticsResponse
    */
-  async getHotlineServiceStatisticsWithOptions(tmpReq: GetHotlineServiceStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineServiceStatisticsResponse> {
-    Util.validateModel(tmpReq);
+  async getHotlineServiceStatisticsWithOptions(tmpReq: GetHotlineServiceStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<GetHotlineServiceStatisticsResponse> {
+    tmpReq.validate();
     let request = new GetHotlineServiceStatisticsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.agentIds)) {
+    if (!$dara.isNull(tmpReq.agentIds)) {
       request.agentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentIds, "AgentIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.groupIds)) {
+    if (!$dara.isNull(tmpReq.groupIds)) {
       request.groupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupIds, "GroupIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetHotlineServiceStatistics",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29460,7 +33724,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetHotlineServiceStatisticsResponse>(await this.callApi(params, req, runtime), new GetHotlineServiceStatisticsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetHotlineServiceStatisticsResponse>(await this.callApi(params, req, runtime), new GetHotlineServiceStatisticsResponse({}));
+    } else {
+      return $dara.cast<GetHotlineServiceStatisticsResponse>(await this.execute(params, req, runtime), new GetHotlineServiceStatisticsResponse({}));
+    }
+
   }
 
   /**
@@ -29470,7 +33739,7 @@ export default class Client extends OpenApi {
    * @returns GetHotlineServiceStatisticsResponse
    */
   async getHotlineServiceStatistics(request: GetHotlineServiceStatisticsRequest): Promise<GetHotlineServiceStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getHotlineServiceStatisticsWithOptions(request, runtime);
   }
 
@@ -29479,13 +33748,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHotlineWaitingNumberResponse
    */
-  async getHotlineWaitingNumberWithOptions(request: GetHotlineWaitingNumberRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineWaitingNumberResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getHotlineWaitingNumberWithOptions(request: GetHotlineWaitingNumberRequest, runtime: $dara.RuntimeOptions): Promise<GetHotlineWaitingNumberResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetHotlineWaitingNumber",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29496,7 +33765,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetHotlineWaitingNumberResponse>(await this.callApi(params, req, runtime), new GetHotlineWaitingNumberResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetHotlineWaitingNumberResponse>(await this.callApi(params, req, runtime), new GetHotlineWaitingNumberResponse({}));
+    } else {
+      return $dara.cast<GetHotlineWaitingNumberResponse>(await this.execute(params, req, runtime), new GetHotlineWaitingNumberResponse({}));
+    }
+
   }
 
   /**
@@ -29504,7 +33778,7 @@ export default class Client extends OpenApi {
    * @returns GetHotlineWaitingNumberResponse
    */
   async getHotlineWaitingNumber(request: GetHotlineWaitingNumberRequest): Promise<GetHotlineWaitingNumberResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getHotlineWaitingNumberWithOptions(request, runtime);
   }
 
@@ -29513,25 +33787,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetIndexCurrentValueResponse
    */
-  async getIndexCurrentValueWithOptions(request: GetIndexCurrentValueRequest, runtime: $Util.RuntimeOptions): Promise<GetIndexCurrentValueResponse> {
-    Util.validateModel(request);
+  async getIndexCurrentValueWithOptions(request: GetIndexCurrentValueRequest, runtime: $dara.RuntimeOptions): Promise<GetIndexCurrentValueResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.depIds)) {
+    if (!$dara.isNull(request.depIds)) {
       query["DepIds"] = request.depIds;
     }
 
-    if (!Util.isUnset(request.groupIds)) {
+    if (!$dara.isNull(request.groupIds)) {
       query["GroupIds"] = request.groupIds;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetIndexCurrentValue",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29542,7 +33816,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetIndexCurrentValueResponse>(await this.callApi(params, req, runtime), new GetIndexCurrentValueResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetIndexCurrentValueResponse>(await this.callApi(params, req, runtime), new GetIndexCurrentValueResponse({}));
+    } else {
+      return $dara.cast<GetIndexCurrentValueResponse>(await this.execute(params, req, runtime), new GetIndexCurrentValueResponse({}));
+    }
+
   }
 
   /**
@@ -29550,7 +33829,7 @@ export default class Client extends OpenApi {
    * @returns GetIndexCurrentValueResponse
    */
   async getIndexCurrentValue(request: GetIndexCurrentValueRequest): Promise<GetIndexCurrentValueResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getIndexCurrentValueWithOptions(request, runtime);
   }
 
@@ -29559,25 +33838,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceListResponse
    */
-  async getInstanceListWithOptions(request: GetInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceListResponse> {
-    Util.validateModel(request);
+  async getInstanceListWithOptions(request: GetInstanceListRequest, runtime: $dara.RuntimeOptions): Promise<GetInstanceListResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       body["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetInstanceList",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29588,7 +33867,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetInstanceListResponse>(await this.callApi(params, req, runtime), new GetInstanceListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetInstanceListResponse>(await this.callApi(params, req, runtime), new GetInstanceListResponse({}));
+    } else {
+      return $dara.cast<GetInstanceListResponse>(await this.execute(params, req, runtime), new GetInstanceListResponse({}));
+    }
+
   }
 
   /**
@@ -29596,7 +33880,7 @@ export default class Client extends OpenApi {
    * @returns GetInstanceListResponse
    */
   async getInstanceList(request: GetInstanceListRequest): Promise<GetInstanceListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getInstanceListWithOptions(request, runtime);
   }
 
@@ -29607,13 +33891,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMcuLvsIpResponse
    */
-  async getMcuLvsIpWithOptions(request: GetMcuLvsIpRequest, runtime: $Util.RuntimeOptions): Promise<GetMcuLvsIpResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getMcuLvsIpWithOptions(request: GetMcuLvsIpRequest, runtime: $dara.RuntimeOptions): Promise<GetMcuLvsIpResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMcuLvsIp",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29624,7 +33908,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMcuLvsIpResponse>(await this.callApi(params, req, runtime), new GetMcuLvsIpResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMcuLvsIpResponse>(await this.callApi(params, req, runtime), new GetMcuLvsIpResponse({}));
+    } else {
+      return $dara.cast<GetMcuLvsIpResponse>(await this.execute(params, req, runtime), new GetMcuLvsIpResponse({}));
+    }
+
   }
 
   /**
@@ -29634,7 +33923,7 @@ export default class Client extends OpenApi {
    * @returns GetMcuLvsIpResponse
    */
   async getMcuLvsIp(request: GetMcuLvsIpRequest): Promise<GetMcuLvsIpResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getMcuLvsIpWithOptions(request, runtime);
   }
 
@@ -29643,13 +33932,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNumLocationResponse
    */
-  async getNumLocationWithOptions(request: GetNumLocationRequest, runtime: $Util.RuntimeOptions): Promise<GetNumLocationResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getNumLocationWithOptions(request: GetNumLocationRequest, runtime: $dara.RuntimeOptions): Promise<GetNumLocationResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetNumLocation",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29660,7 +33949,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetNumLocationResponse>(await this.callApi(params, req, runtime), new GetNumLocationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetNumLocationResponse>(await this.callApi(params, req, runtime), new GetNumLocationResponse({}));
+    } else {
+      return $dara.cast<GetNumLocationResponse>(await this.execute(params, req, runtime), new GetNumLocationResponse({}));
+    }
+
   }
 
   /**
@@ -29668,7 +33962,7 @@ export default class Client extends OpenApi {
    * @returns GetNumLocationResponse
    */
   async getNumLocation(request: GetNumLocationRequest): Promise<GetNumLocationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getNumLocationWithOptions(request, runtime);
   }
 
@@ -29679,23 +33973,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOnlineSeatInformationResponse
    */
-  async getOnlineSeatInformationWithOptions(tmpReq: GetOnlineSeatInformationRequest, runtime: $Util.RuntimeOptions): Promise<GetOnlineSeatInformationResponse> {
-    Util.validateModel(tmpReq);
+  async getOnlineSeatInformationWithOptions(tmpReq: GetOnlineSeatInformationRequest, runtime: $dara.RuntimeOptions): Promise<GetOnlineSeatInformationResponse> {
+    tmpReq.validate();
     let request = new GetOnlineSeatInformationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.agentIds)) {
+    if (!$dara.isNull(tmpReq.agentIds)) {
       request.agentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentIds, "AgentIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetOnlineSeatInformation",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29706,7 +34000,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetOnlineSeatInformationResponse>(await this.callApi(params, req, runtime), new GetOnlineSeatInformationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetOnlineSeatInformationResponse>(await this.callApi(params, req, runtime), new GetOnlineSeatInformationResponse({}));
+    } else {
+      return $dara.cast<GetOnlineSeatInformationResponse>(await this.execute(params, req, runtime), new GetOnlineSeatInformationResponse({}));
+    }
+
   }
 
   /**
@@ -29716,7 +34015,7 @@ export default class Client extends OpenApi {
    * @returns GetOnlineSeatInformationResponse
    */
   async getOnlineSeatInformation(request: GetOnlineSeatInformationRequest): Promise<GetOnlineSeatInformationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getOnlineSeatInformationWithOptions(request, runtime);
   }
 
@@ -29727,27 +34026,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOnlineServiceVolumeResponse
    */
-  async getOnlineServiceVolumeWithOptions(tmpReq: GetOnlineServiceVolumeRequest, runtime: $Util.RuntimeOptions): Promise<GetOnlineServiceVolumeResponse> {
-    Util.validateModel(tmpReq);
+  async getOnlineServiceVolumeWithOptions(tmpReq: GetOnlineServiceVolumeRequest, runtime: $dara.RuntimeOptions): Promise<GetOnlineServiceVolumeResponse> {
+    tmpReq.validate();
     let request = new GetOnlineServiceVolumeShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.agentIds)) {
+    if (!$dara.isNull(tmpReq.agentIds)) {
       request.agentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentIds, "AgentIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.groupIds)) {
+    if (!$dara.isNull(tmpReq.groupIds)) {
       request.groupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupIds, "GroupIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetOnlineServiceVolume",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29758,7 +34057,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetOnlineServiceVolumeResponse>(await this.callApi(params, req, runtime), new GetOnlineServiceVolumeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetOnlineServiceVolumeResponse>(await this.callApi(params, req, runtime), new GetOnlineServiceVolumeResponse({}));
+    } else {
+      return $dara.cast<GetOnlineServiceVolumeResponse>(await this.execute(params, req, runtime), new GetOnlineServiceVolumeResponse({}));
+    }
+
   }
 
   /**
@@ -29768,7 +34072,7 @@ export default class Client extends OpenApi {
    * @returns GetOnlineServiceVolumeResponse
    */
   async getOnlineServiceVolume(request: GetOnlineServiceVolumeRequest): Promise<GetOnlineServiceVolumeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getOnlineServiceVolumeWithOptions(request, runtime);
   }
 
@@ -29777,25 +34081,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOutbounNumListResponse
    */
-  async getOutbounNumListWithOptions(request: GetOutbounNumListRequest, runtime: $Util.RuntimeOptions): Promise<GetOutbounNumListResponse> {
-    Util.validateModel(request);
+  async getOutbounNumListWithOptions(request: GetOutbounNumListRequest, runtime: $dara.RuntimeOptions): Promise<GetOutbounNumListResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetOutbounNumList",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29806,7 +34110,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetOutbounNumListResponse>(await this.callApi(params, req, runtime), new GetOutbounNumListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetOutbounNumListResponse>(await this.callApi(params, req, runtime), new GetOutbounNumListResponse({}));
+    } else {
+      return $dara.cast<GetOutbounNumListResponse>(await this.execute(params, req, runtime), new GetOutbounNumListResponse({}));
+    }
+
   }
 
   /**
@@ -29814,7 +34123,7 @@ export default class Client extends OpenApi {
    * @returns GetOutbounNumListResponse
    */
   async getOutbounNumList(request: GetOutbounNumListRequest): Promise<GetOutbounNumListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getOutbounNumListWithOptions(request, runtime);
   }
 
@@ -29823,21 +34132,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetQualityProjectDetailResponse
    */
-  async getQualityProjectDetailWithOptions(request: GetQualityProjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityProjectDetailResponse> {
-    Util.validateModel(request);
+  async getQualityProjectDetailWithOptions(request: GetQualityProjectDetailRequest, runtime: $dara.RuntimeOptions): Promise<GetQualityProjectDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.projectId)) {
+    if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetQualityProjectDetail",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29848,7 +34157,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetQualityProjectDetailResponse>(await this.callApi(params, req, runtime), new GetQualityProjectDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetQualityProjectDetailResponse>(await this.callApi(params, req, runtime), new GetQualityProjectDetailResponse({}));
+    } else {
+      return $dara.cast<GetQualityProjectDetailResponse>(await this.execute(params, req, runtime), new GetQualityProjectDetailResponse({}));
+    }
+
   }
 
   /**
@@ -29856,7 +34170,7 @@ export default class Client extends OpenApi {
    * @returns GetQualityProjectDetailResponse
    */
   async getQualityProjectDetail(request: GetQualityProjectDetailRequest): Promise<GetQualityProjectDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getQualityProjectDetailWithOptions(request, runtime);
   }
 
@@ -29865,41 +34179,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetQualityProjectListResponse
    */
-  async getQualityProjectListWithOptions(request: GetQualityProjectListRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityProjectListResponse> {
-    Util.validateModel(request);
+  async getQualityProjectListWithOptions(request: GetQualityProjectListRequest, runtime: $dara.RuntimeOptions): Promise<GetQualityProjectListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.projectId)) {
+    if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
 
-    if (!Util.isUnset(request.projectName)) {
+    if (!$dara.isNull(request.projectName)) {
       query["ProjectName"] = request.projectName;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.checkFreqType)) {
+    if (!$dara.isNull(request.checkFreqType)) {
       query["checkFreqType"] = request.checkFreqType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetQualityProjectList",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29910,7 +34224,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetQualityProjectListResponse>(await this.callApi(params, req, runtime), new GetQualityProjectListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetQualityProjectListResponse>(await this.callApi(params, req, runtime), new GetQualityProjectListResponse({}));
+    } else {
+      return $dara.cast<GetQualityProjectListResponse>(await this.execute(params, req, runtime), new GetQualityProjectListResponse({}));
+    }
+
   }
 
   /**
@@ -29918,7 +34237,7 @@ export default class Client extends OpenApi {
    * @returns GetQualityProjectListResponse
    */
   async getQualityProjectList(request: GetQualityProjectListRequest): Promise<GetQualityProjectListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getQualityProjectListWithOptions(request, runtime);
   }
 
@@ -29927,21 +34246,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetQualityProjectLogResponse
    */
-  async getQualityProjectLogWithOptions(request: GetQualityProjectLogRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityProjectLogResponse> {
-    Util.validateModel(request);
+  async getQualityProjectLogWithOptions(request: GetQualityProjectLogRequest, runtime: $dara.RuntimeOptions): Promise<GetQualityProjectLogResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.projectId)) {
+    if (!$dara.isNull(request.projectId)) {
       query["ProjectId"] = request.projectId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetQualityProjectLog",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -29952,7 +34271,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetQualityProjectLogResponse>(await this.callApi(params, req, runtime), new GetQualityProjectLogResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetQualityProjectLogResponse>(await this.callApi(params, req, runtime), new GetQualityProjectLogResponse({}));
+    } else {
+      return $dara.cast<GetQualityProjectLogResponse>(await this.execute(params, req, runtime), new GetQualityProjectLogResponse({}));
+    }
+
   }
 
   /**
@@ -29960,7 +34284,7 @@ export default class Client extends OpenApi {
    * @returns GetQualityProjectLogResponse
    */
   async getQualityProjectLog(request: GetQualityProjectLogRequest): Promise<GetQualityProjectLogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getQualityProjectLogWithOptions(request, runtime);
   }
 
@@ -29969,53 +34293,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetQualityResultResponse
    */
-  async getQualityResultWithOptions(request: GetQualityResultRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityResultResponse> {
-    Util.validateModel(request);
+  async getQualityResultWithOptions(request: GetQualityResultRequest, runtime: $dara.RuntimeOptions): Promise<GetQualityResultResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.channelType)) {
+    if (!$dara.isNull(request.channelType)) {
       query["ChannelType"] = request.channelType;
     }
 
-    if (!Util.isUnset(request.groupIds)) {
+    if (!$dara.isNull(request.groupIds)) {
       query["GroupIds"] = request.groupIds;
     }
 
-    if (!Util.isUnset(request.hitStatus)) {
+    if (!$dara.isNull(request.hitStatus)) {
       query["HitStatus"] = request.hitStatus;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.projectIds)) {
+    if (!$dara.isNull(request.projectIds)) {
       query["ProjectIds"] = request.projectIds;
     }
 
-    if (!Util.isUnset(request.qualityRuleIds)) {
+    if (!$dara.isNull(request.qualityRuleIds)) {
       query["QualityRuleIds"] = request.qualityRuleIds;
     }
 
-    if (!Util.isUnset(request.touchEndTime)) {
+    if (!$dara.isNull(request.touchEndTime)) {
       query["TouchEndTime"] = request.touchEndTime;
     }
 
-    if (!Util.isUnset(request.touchStartTime)) {
+    if (!$dara.isNull(request.touchStartTime)) {
       query["TouchStartTime"] = request.touchStartTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetQualityResult",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30026,7 +34350,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetQualityResultResponse>(await this.callApi(params, req, runtime), new GetQualityResultResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetQualityResultResponse>(await this.callApi(params, req, runtime), new GetQualityResultResponse({}));
+    } else {
+      return $dara.cast<GetQualityResultResponse>(await this.execute(params, req, runtime), new GetQualityResultResponse({}));
+    }
+
   }
 
   /**
@@ -30034,7 +34363,7 @@ export default class Client extends OpenApi {
    * @returns GetQualityResultResponse
    */
   async getQualityResult(request: GetQualityResultRequest): Promise<GetQualityResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getQualityResultWithOptions(request, runtime);
   }
 
@@ -30043,21 +34372,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetQualityRuleDetailResponse
    */
-  async getQualityRuleDetailWithOptions(request: GetQualityRuleDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityRuleDetailResponse> {
-    Util.validateModel(request);
+  async getQualityRuleDetailWithOptions(request: GetQualityRuleDetailRequest, runtime: $dara.RuntimeOptions): Promise<GetQualityRuleDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.qualityRuleId)) {
+    if (!$dara.isNull(request.qualityRuleId)) {
       query["QualityRuleId"] = request.qualityRuleId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetQualityRuleDetail",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30068,7 +34397,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetQualityRuleDetailResponse>(await this.callApi(params, req, runtime), new GetQualityRuleDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetQualityRuleDetailResponse>(await this.callApi(params, req, runtime), new GetQualityRuleDetailResponse({}));
+    } else {
+      return $dara.cast<GetQualityRuleDetailResponse>(await this.execute(params, req, runtime), new GetQualityRuleDetailResponse({}));
+    }
+
   }
 
   /**
@@ -30076,7 +34410,7 @@ export default class Client extends OpenApi {
    * @returns GetQualityRuleDetailResponse
    */
   async getQualityRuleDetail(request: GetQualityRuleDetailRequest): Promise<GetQualityRuleDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getQualityRuleDetailWithOptions(request, runtime);
   }
 
@@ -30085,25 +34419,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetQualityRuleListResponse
    */
-  async getQualityRuleListWithOptions(request: GetQualityRuleListRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityRuleListResponse> {
-    Util.validateModel(request);
+  async getQualityRuleListWithOptions(request: GetQualityRuleListRequest, runtime: $dara.RuntimeOptions): Promise<GetQualityRuleListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetQualityRuleList",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30114,7 +34448,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetQualityRuleListResponse>(await this.callApi(params, req, runtime), new GetQualityRuleListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetQualityRuleListResponse>(await this.callApi(params, req, runtime), new GetQualityRuleListResponse({}));
+    } else {
+      return $dara.cast<GetQualityRuleListResponse>(await this.execute(params, req, runtime), new GetQualityRuleListResponse({}));
+    }
+
   }
 
   /**
@@ -30122,7 +34461,7 @@ export default class Client extends OpenApi {
    * @returns GetQualityRuleListResponse
    */
   async getQualityRuleList(request: GetQualityRuleListRequest): Promise<GetQualityRuleListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getQualityRuleListWithOptions(request, runtime);
   }
 
@@ -30131,17 +34470,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetQualityRuleTagListResponse
    */
-  async getQualityRuleTagListWithOptions(request: GetQualityRuleTagListRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityRuleTagListResponse> {
-    Util.validateModel(request);
+  async getQualityRuleTagListWithOptions(request: GetQualityRuleTagListRequest, runtime: $dara.RuntimeOptions): Promise<GetQualityRuleTagListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetQualityRuleTagList",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30152,7 +34491,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetQualityRuleTagListResponse>(await this.callApi(params, req, runtime), new GetQualityRuleTagListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetQualityRuleTagListResponse>(await this.callApi(params, req, runtime), new GetQualityRuleTagListResponse({}));
+    } else {
+      return $dara.cast<GetQualityRuleTagListResponse>(await this.execute(params, req, runtime), new GetQualityRuleTagListResponse({}));
+    }
+
   }
 
   /**
@@ -30160,7 +34504,7 @@ export default class Client extends OpenApi {
    * @returns GetQualityRuleTagListResponse
    */
   async getQualityRuleTagList(request: GetQualityRuleTagListRequest): Promise<GetQualityRuleTagListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getQualityRuleTagListWithOptions(request, runtime);
   }
 
@@ -30171,23 +34515,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetQueueInformationResponse
    */
-  async getQueueInformationWithOptions(tmpReq: GetQueueInformationRequest, runtime: $Util.RuntimeOptions): Promise<GetQueueInformationResponse> {
-    Util.validateModel(tmpReq);
+  async getQueueInformationWithOptions(tmpReq: GetQueueInformationRequest, runtime: $dara.RuntimeOptions): Promise<GetQueueInformationResponse> {
+    tmpReq.validate();
     let request = new GetQueueInformationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.groupIds)) {
+    if (!$dara.isNull(tmpReq.groupIds)) {
       request.groupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupIds, "GroupIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetQueueInformation",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30198,7 +34542,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetQueueInformationResponse>(await this.callApi(params, req, runtime), new GetQueueInformationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetQueueInformationResponse>(await this.callApi(params, req, runtime), new GetQueueInformationResponse({}));
+    } else {
+      return $dara.cast<GetQueueInformationResponse>(await this.execute(params, req, runtime), new GetQueueInformationResponse({}));
+    }
+
   }
 
   /**
@@ -30208,7 +34557,7 @@ export default class Client extends OpenApi {
    * @returns GetQueueInformationResponse
    */
   async getQueueInformation(request: GetQueueInformationRequest): Promise<GetQueueInformationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getQueueInformationWithOptions(request, runtime);
   }
 
@@ -30217,21 +34566,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRecordDataResponse
    */
-  async getRecordDataWithOptions(request: GetRecordDataRequest, runtime: $Util.RuntimeOptions): Promise<GetRecordDataResponse> {
-    Util.validateModel(request);
+  async getRecordDataWithOptions(request: GetRecordDataRequest, runtime: $dara.RuntimeOptions): Promise<GetRecordDataResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.acid)) {
+    if (!$dara.isNull(request.acid)) {
       query["Acid"] = request.acid;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetRecordData",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30242,7 +34591,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetRecordDataResponse>(await this.callApi(params, req, runtime), new GetRecordDataResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetRecordDataResponse>(await this.callApi(params, req, runtime), new GetRecordDataResponse({}));
+    } else {
+      return $dara.cast<GetRecordDataResponse>(await this.execute(params, req, runtime), new GetRecordDataResponse({}));
+    }
+
   }
 
   /**
@@ -30250,7 +34604,7 @@ export default class Client extends OpenApi {
    * @returns GetRecordDataResponse
    */
   async getRecordData(request: GetRecordDataRequest): Promise<GetRecordDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getRecordDataWithOptions(request, runtime);
   }
 
@@ -30261,13 +34615,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRecordUrlResponse
    */
-  async getRecordUrlWithOptions(request: GetRecordUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetRecordUrlResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getRecordUrlWithOptions(request: GetRecordUrlRequest, runtime: $dara.RuntimeOptions): Promise<GetRecordUrlResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetRecordUrl",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30278,7 +34632,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetRecordUrlResponse>(await this.callApi(params, req, runtime), new GetRecordUrlResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetRecordUrlResponse>(await this.callApi(params, req, runtime), new GetRecordUrlResponse({}));
+    } else {
+      return $dara.cast<GetRecordUrlResponse>(await this.execute(params, req, runtime), new GetRecordUrlResponse({}));
+    }
+
   }
 
   /**
@@ -30288,7 +34647,7 @@ export default class Client extends OpenApi {
    * @returns GetRecordUrlResponse
    */
   async getRecordUrl(request: GetRecordUrlRequest): Promise<GetRecordUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getRecordUrlWithOptions(request, runtime);
   }
 
@@ -30299,13 +34658,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRtcTokenResponse
    */
-  async getRtcTokenWithOptions(request: GetRtcTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetRtcTokenResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getRtcTokenWithOptions(request: GetRtcTokenRequest, runtime: $dara.RuntimeOptions): Promise<GetRtcTokenResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetRtcToken",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30316,7 +34675,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetRtcTokenResponse>(await this.callApi(params, req, runtime), new GetRtcTokenResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetRtcTokenResponse>(await this.callApi(params, req, runtime), new GetRtcTokenResponse({}));
+    } else {
+      return $dara.cast<GetRtcTokenResponse>(await this.execute(params, req, runtime), new GetRtcTokenResponse({}));
+    }
+
   }
 
   /**
@@ -30326,7 +34690,7 @@ export default class Client extends OpenApi {
    * @returns GetRtcTokenResponse
    */
   async getRtcToken(request: GetRtcTokenRequest): Promise<GetRtcTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getRtcTokenWithOptions(request, runtime);
   }
 
@@ -30337,19 +34701,19 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSeatInformationResponse
    */
-  async getSeatInformationWithOptions(tmpReq: GetSeatInformationRequest, runtime: $Util.RuntimeOptions): Promise<GetSeatInformationResponse> {
-    Util.validateModel(tmpReq);
+  async getSeatInformationWithOptions(tmpReq: GetSeatInformationRequest, runtime: $dara.RuntimeOptions): Promise<GetSeatInformationResponse> {
+    tmpReq.validate();
     let request = new GetSeatInformationShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "depIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSeatInformation",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30360,7 +34724,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSeatInformationResponse>(await this.callApi(params, req, runtime), new GetSeatInformationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSeatInformationResponse>(await this.callApi(params, req, runtime), new GetSeatInformationResponse({}));
+    } else {
+      return $dara.cast<GetSeatInformationResponse>(await this.execute(params, req, runtime), new GetSeatInformationResponse({}));
+    }
+
   }
 
   /**
@@ -30370,7 +34739,7 @@ export default class Client extends OpenApi {
    * @returns GetSeatInformationResponse
    */
   async getSeatInformation(request: GetSeatInformationRequest): Promise<GetSeatInformationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSeatInformationWithOptions(request, runtime);
   }
 
@@ -30381,23 +34750,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSkillGroupAgentStatusDetailsResponse
    */
-  async getSkillGroupAgentStatusDetailsWithOptions(tmpReq: GetSkillGroupAgentStatusDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupAgentStatusDetailsResponse> {
-    Util.validateModel(tmpReq);
+  async getSkillGroupAgentStatusDetailsWithOptions(tmpReq: GetSkillGroupAgentStatusDetailsRequest, runtime: $dara.RuntimeOptions): Promise<GetSkillGroupAgentStatusDetailsResponse> {
+    tmpReq.validate();
     let request = new GetSkillGroupAgentStatusDetailsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.groupIds)) {
+    if (!$dara.isNull(tmpReq.groupIds)) {
       request.groupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupIds, "GroupIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSkillGroupAgentStatusDetails",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30408,7 +34777,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSkillGroupAgentStatusDetailsResponse>(await this.callApi(params, req, runtime), new GetSkillGroupAgentStatusDetailsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSkillGroupAgentStatusDetailsResponse>(await this.callApi(params, req, runtime), new GetSkillGroupAgentStatusDetailsResponse({}));
+    } else {
+      return $dara.cast<GetSkillGroupAgentStatusDetailsResponse>(await this.execute(params, req, runtime), new GetSkillGroupAgentStatusDetailsResponse({}));
+    }
+
   }
 
   /**
@@ -30418,7 +34792,7 @@ export default class Client extends OpenApi {
    * @returns GetSkillGroupAgentStatusDetailsResponse
    */
   async getSkillGroupAgentStatusDetails(request: GetSkillGroupAgentStatusDetailsRequest): Promise<GetSkillGroupAgentStatusDetailsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSkillGroupAgentStatusDetailsWithOptions(request, runtime);
   }
 
@@ -30429,23 +34803,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSkillGroupAndAgentStatusSummaryResponse
    */
-  async getSkillGroupAndAgentStatusSummaryWithOptions(tmpReq: GetSkillGroupAndAgentStatusSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupAndAgentStatusSummaryResponse> {
-    Util.validateModel(tmpReq);
+  async getSkillGroupAndAgentStatusSummaryWithOptions(tmpReq: GetSkillGroupAndAgentStatusSummaryRequest, runtime: $dara.RuntimeOptions): Promise<GetSkillGroupAndAgentStatusSummaryResponse> {
+    tmpReq.validate();
     let request = new GetSkillGroupAndAgentStatusSummaryShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.groupIds)) {
+    if (!$dara.isNull(tmpReq.groupIds)) {
       request.groupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupIds, "GroupIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSkillGroupAndAgentStatusSummary",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30456,7 +34830,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSkillGroupAndAgentStatusSummaryResponse>(await this.callApi(params, req, runtime), new GetSkillGroupAndAgentStatusSummaryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSkillGroupAndAgentStatusSummaryResponse>(await this.callApi(params, req, runtime), new GetSkillGroupAndAgentStatusSummaryResponse({}));
+    } else {
+      return $dara.cast<GetSkillGroupAndAgentStatusSummaryResponse>(await this.execute(params, req, runtime), new GetSkillGroupAndAgentStatusSummaryResponse({}));
+    }
+
   }
 
   /**
@@ -30466,7 +34845,7 @@ export default class Client extends OpenApi {
    * @returns GetSkillGroupAndAgentStatusSummaryResponse
    */
   async getSkillGroupAndAgentStatusSummary(request: GetSkillGroupAndAgentStatusSummaryRequest): Promise<GetSkillGroupAndAgentStatusSummaryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSkillGroupAndAgentStatusSummaryWithOptions(request, runtime);
   }
 
@@ -30477,23 +34856,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSkillGroupLatitudeStateResponse
    */
-  async getSkillGroupLatitudeStateWithOptions(tmpReq: GetSkillGroupLatitudeStateRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupLatitudeStateResponse> {
-    Util.validateModel(tmpReq);
+  async getSkillGroupLatitudeStateWithOptions(tmpReq: GetSkillGroupLatitudeStateRequest, runtime: $dara.RuntimeOptions): Promise<GetSkillGroupLatitudeStateResponse> {
+    tmpReq.validate();
     let request = new GetSkillGroupLatitudeStateShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.groupIds)) {
+    if (!$dara.isNull(tmpReq.groupIds)) {
       request.groupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupIds, "GroupIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSkillGroupLatitudeState",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30504,7 +34883,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSkillGroupLatitudeStateResponse>(await this.callApi(params, req, runtime), new GetSkillGroupLatitudeStateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSkillGroupLatitudeStateResponse>(await this.callApi(params, req, runtime), new GetSkillGroupLatitudeStateResponse({}));
+    } else {
+      return $dara.cast<GetSkillGroupLatitudeStateResponse>(await this.execute(params, req, runtime), new GetSkillGroupLatitudeStateResponse({}));
+    }
+
   }
 
   /**
@@ -30514,7 +34898,7 @@ export default class Client extends OpenApi {
    * @returns GetSkillGroupLatitudeStateResponse
    */
   async getSkillGroupLatitudeState(request: GetSkillGroupLatitudeStateRequest): Promise<GetSkillGroupLatitudeStateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSkillGroupLatitudeStateWithOptions(request, runtime);
   }
 
@@ -30525,23 +34909,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSkillGroupServiceCapabilityResponse
    */
-  async getSkillGroupServiceCapabilityWithOptions(tmpReq: GetSkillGroupServiceCapabilityRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupServiceCapabilityResponse> {
-    Util.validateModel(tmpReq);
+  async getSkillGroupServiceCapabilityWithOptions(tmpReq: GetSkillGroupServiceCapabilityRequest, runtime: $dara.RuntimeOptions): Promise<GetSkillGroupServiceCapabilityResponse> {
+    tmpReq.validate();
     let request = new GetSkillGroupServiceCapabilityShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.groupIds)) {
+    if (!$dara.isNull(tmpReq.groupIds)) {
       request.groupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupIds, "GroupIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSkillGroupServiceCapability",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30552,7 +34936,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSkillGroupServiceCapabilityResponse>(await this.callApi(params, req, runtime), new GetSkillGroupServiceCapabilityResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSkillGroupServiceCapabilityResponse>(await this.callApi(params, req, runtime), new GetSkillGroupServiceCapabilityResponse({}));
+    } else {
+      return $dara.cast<GetSkillGroupServiceCapabilityResponse>(await this.execute(params, req, runtime), new GetSkillGroupServiceCapabilityResponse({}));
+    }
+
   }
 
   /**
@@ -30562,7 +34951,7 @@ export default class Client extends OpenApi {
    * @returns GetSkillGroupServiceCapabilityResponse
    */
   async getSkillGroupServiceCapability(request: GetSkillGroupServiceCapabilityRequest): Promise<GetSkillGroupServiceCapabilityResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSkillGroupServiceCapabilityWithOptions(request, runtime);
   }
 
@@ -30573,27 +34962,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSkillGroupServiceStatusResponse
    */
-  async getSkillGroupServiceStatusWithOptions(tmpReq: GetSkillGroupServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupServiceStatusResponse> {
-    Util.validateModel(tmpReq);
+  async getSkillGroupServiceStatusWithOptions(tmpReq: GetSkillGroupServiceStatusRequest, runtime: $dara.RuntimeOptions): Promise<GetSkillGroupServiceStatusResponse> {
+    tmpReq.validate();
     let request = new GetSkillGroupServiceStatusShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.agentIds)) {
+    if (!$dara.isNull(tmpReq.agentIds)) {
       request.agentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentIds, "AgentIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.groupIds)) {
+    if (!$dara.isNull(tmpReq.groupIds)) {
       request.groupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupIds, "GroupIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSkillGroupServiceStatus",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30604,7 +34993,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSkillGroupServiceStatusResponse>(await this.callApi(params, req, runtime), new GetSkillGroupServiceStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSkillGroupServiceStatusResponse>(await this.callApi(params, req, runtime), new GetSkillGroupServiceStatusResponse({}));
+    } else {
+      return $dara.cast<GetSkillGroupServiceStatusResponse>(await this.execute(params, req, runtime), new GetSkillGroupServiceStatusResponse({}));
+    }
+
   }
 
   /**
@@ -30614,7 +35008,7 @@ export default class Client extends OpenApi {
    * @returns GetSkillGroupServiceStatusResponse
    */
   async getSkillGroupServiceStatus(request: GetSkillGroupServiceStatusRequest): Promise<GetSkillGroupServiceStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSkillGroupServiceStatusWithOptions(request, runtime);
   }
 
@@ -30625,27 +35019,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSkillGroupStatusTotalResponse
    */
-  async getSkillGroupStatusTotalWithOptions(tmpReq: GetSkillGroupStatusTotalRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupStatusTotalResponse> {
-    Util.validateModel(tmpReq);
+  async getSkillGroupStatusTotalWithOptions(tmpReq: GetSkillGroupStatusTotalRequest, runtime: $dara.RuntimeOptions): Promise<GetSkillGroupStatusTotalResponse> {
+    tmpReq.validate();
     let request = new GetSkillGroupStatusTotalShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.agentIds)) {
+    if (!$dara.isNull(tmpReq.agentIds)) {
       request.agentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentIds, "AgentIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.depIds)) {
+    if (!$dara.isNull(tmpReq.depIds)) {
       request.depIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.depIds, "DepIds", "simple");
     }
 
-    if (!Util.isUnset(tmpReq.groupIds)) {
+    if (!$dara.isNull(tmpReq.groupIds)) {
       request.groupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupIds, "GroupIds", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSkillGroupStatusTotal",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30656,7 +35050,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSkillGroupStatusTotalResponse>(await this.callApi(params, req, runtime), new GetSkillGroupStatusTotalResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSkillGroupStatusTotalResponse>(await this.callApi(params, req, runtime), new GetSkillGroupStatusTotalResponse({}));
+    } else {
+      return $dara.cast<GetSkillGroupStatusTotalResponse>(await this.execute(params, req, runtime), new GetSkillGroupStatusTotalResponse({}));
+    }
+
   }
 
   /**
@@ -30666,7 +35065,7 @@ export default class Client extends OpenApi {
    * @returns GetSkillGroupStatusTotalResponse
    */
   async getSkillGroupStatusTotal(request: GetSkillGroupStatusTotalRequest): Promise<GetSkillGroupStatusTotalResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSkillGroupStatusTotalWithOptions(request, runtime);
   }
 
@@ -30677,21 +35076,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns HangUpDoubleCallResponse
    */
-  async hangUpDoubleCallWithOptions(request: HangUpDoubleCallRequest, runtime: $Util.RuntimeOptions): Promise<HangUpDoubleCallResponse> {
-    Util.validateModel(request);
+  async hangUpDoubleCallWithOptions(request: HangUpDoubleCallRequest, runtime: $dara.RuntimeOptions): Promise<HangUpDoubleCallResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.acid)) {
+    if (!$dara.isNull(request.acid)) {
       query["Acid"] = request.acid;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "HangUpDoubleCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30702,7 +35101,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<HangUpDoubleCallResponse>(await this.callApi(params, req, runtime), new HangUpDoubleCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<HangUpDoubleCallResponse>(await this.callApi(params, req, runtime), new HangUpDoubleCallResponse({}));
+    } else {
+      return $dara.cast<HangUpDoubleCallResponse>(await this.execute(params, req, runtime), new HangUpDoubleCallResponse({}));
+    }
+
   }
 
   /**
@@ -30712,7 +35116,7 @@ export default class Client extends OpenApi {
    * @returns HangUpDoubleCallResponse
    */
   async hangUpDoubleCall(request: HangUpDoubleCallRequest): Promise<HangUpDoubleCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.hangUpDoubleCallWithOptions(request, runtime);
   }
 
@@ -30721,37 +35125,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns HangupCallResponse
    */
-  async hangupCallWithOptions(request: HangupCallRequest, runtime: $Util.RuntimeOptions): Promise<HangupCallResponse> {
-    Util.validateModel(request);
+  async hangupCallWithOptions(request: HangupCallRequest, runtime: $dara.RuntimeOptions): Promise<HangupCallResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       body["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.connectionId)) {
+    if (!$dara.isNull(request.connectionId)) {
       body["ConnectionId"] = request.connectionId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.jobId)) {
       body["JobId"] = request.jobId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "HangupCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30762,7 +35166,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<HangupCallResponse>(await this.callApi(params, req, runtime), new HangupCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<HangupCallResponse>(await this.callApi(params, req, runtime), new HangupCallResponse({}));
+    } else {
+      return $dara.cast<HangupCallResponse>(await this.execute(params, req, runtime), new HangupCallResponse({}));
+    }
+
   }
 
   /**
@@ -30770,8 +35179,59 @@ export default class Client extends OpenApi {
    * @returns HangupCallResponse
    */
   async hangupCall(request: HangupCallRequest): Promise<HangupCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.hangupCallWithOptions(request, runtime);
+  }
+
+  /**
+   * 通信智能引擎中主动挂断通话
+   * 
+   * @param request - HangupOperateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HangupOperateResponse
+   */
+  async hangupOperateWithOptions(request: HangupOperateRequest, runtime: $dara.RuntimeOptions): Promise<HangupOperateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!$dara.isNull(request.immediateHangup)) {
+      query["ImmediateHangup"] = request.immediateHangup;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "HangupOperate",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<HangupOperateResponse>(await this.callApi(params, req, runtime), new HangupOperateResponse({}));
+    } else {
+      return $dara.cast<HangupOperateResponse>(await this.execute(params, req, runtime), new HangupOperateResponse({}));
+    }
+
+  }
+
+  /**
+   * 通信智能引擎中主动挂断通话
+   * 
+   * @param request - HangupOperateRequest
+   * @returns HangupOperateResponse
+   */
+  async hangupOperate(request: HangupOperateRequest): Promise<HangupOperateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.hangupOperateWithOptions(request, runtime);
   }
 
   /**
@@ -30779,37 +35239,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns HangupThirdCallResponse
    */
-  async hangupThirdCallWithOptions(request: HangupThirdCallRequest, runtime: $Util.RuntimeOptions): Promise<HangupThirdCallResponse> {
-    Util.validateModel(request);
+  async hangupThirdCallWithOptions(request: HangupThirdCallRequest, runtime: $dara.RuntimeOptions): Promise<HangupThirdCallResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       body["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.connectionId)) {
+    if (!$dara.isNull(request.connectionId)) {
       body["ConnectionId"] = request.connectionId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.jobId)) {
       body["JobId"] = request.jobId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "HangupThirdCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30820,7 +35280,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<HangupThirdCallResponse>(await this.callApi(params, req, runtime), new HangupThirdCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<HangupThirdCallResponse>(await this.callApi(params, req, runtime), new HangupThirdCallResponse({}));
+    } else {
+      return $dara.cast<HangupThirdCallResponse>(await this.execute(params, req, runtime), new HangupThirdCallResponse({}));
+    }
+
   }
 
   /**
@@ -30828,7 +35293,7 @@ export default class Client extends OpenApi {
    * @returns HangupThirdCallResponse
    */
   async hangupThirdCall(request: HangupThirdCallRequest): Promise<HangupThirdCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.hangupThirdCallWithOptions(request, runtime);
   }
 
@@ -30837,37 +35302,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns HoldCallResponse
    */
-  async holdCallWithOptions(request: HoldCallRequest, runtime: $Util.RuntimeOptions): Promise<HoldCallResponse> {
-    Util.validateModel(request);
+  async holdCallWithOptions(request: HoldCallRequest, runtime: $dara.RuntimeOptions): Promise<HoldCallResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       body["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.connectionId)) {
+    if (!$dara.isNull(request.connectionId)) {
       body["ConnectionId"] = request.connectionId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.jobId)) {
       body["JobId"] = request.jobId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "HoldCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -30878,7 +35343,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<HoldCallResponse>(await this.callApi(params, req, runtime), new HoldCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<HoldCallResponse>(await this.callApi(params, req, runtime), new HoldCallResponse({}));
+    } else {
+      return $dara.cast<HoldCallResponse>(await this.execute(params, req, runtime), new HoldCallResponse({}));
+    }
+
   }
 
   /**
@@ -30886,7 +35356,7 @@ export default class Client extends OpenApi {
    * @returns HoldCallResponse
    */
   async holdCall(request: HoldCallRequest): Promise<HoldCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.holdCallWithOptions(request, runtime);
   }
 
@@ -30895,121 +35365,121 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns HotlineSessionQueryResponse
    */
-  async hotlineSessionQueryWithOptions(request: HotlineSessionQueryRequest, runtime: $Util.RuntimeOptions): Promise<HotlineSessionQueryResponse> {
-    Util.validateModel(request);
+  async hotlineSessionQueryWithOptions(request: HotlineSessionQueryRequest, runtime: $dara.RuntimeOptions): Promise<HotlineSessionQueryResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.acid)) {
+    if (!$dara.isNull(request.acid)) {
       query["Acid"] = request.acid;
     }
 
-    if (!Util.isUnset(request.acidList)) {
+    if (!$dara.isNull(request.acidList)) {
       query["AcidList"] = request.acidList;
     }
 
-    if (!Util.isUnset(request.callResult)) {
+    if (!$dara.isNull(request.callResult)) {
       query["CallResult"] = request.callResult;
     }
 
-    if (!Util.isUnset(request.callResultList)) {
+    if (!$dara.isNull(request.callResultList)) {
       query["CallResultList"] = request.callResultList;
     }
 
-    if (!Util.isUnset(request.callType)) {
+    if (!$dara.isNull(request.callType)) {
       query["CallType"] = request.callType;
     }
 
-    if (!Util.isUnset(request.callTypeList)) {
+    if (!$dara.isNull(request.callTypeList)) {
       query["CallTypeList"] = request.callTypeList;
     }
 
-    if (!Util.isUnset(request.calledNumber)) {
+    if (!$dara.isNull(request.calledNumber)) {
       query["CalledNumber"] = request.calledNumber;
     }
 
-    if (!Util.isUnset(request.calledNumberList)) {
+    if (!$dara.isNull(request.calledNumberList)) {
       query["CalledNumberList"] = request.calledNumberList;
     }
 
-    if (!Util.isUnset(request.callingNumber)) {
+    if (!$dara.isNull(request.callingNumber)) {
       query["CallingNumber"] = request.callingNumber;
     }
 
-    if (!Util.isUnset(request.callingNumberList)) {
+    if (!$dara.isNull(request.callingNumberList)) {
       query["CallingNumberList"] = request.callingNumberList;
     }
 
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.groupIdList)) {
+    if (!$dara.isNull(request.groupIdList)) {
       query["GroupIdList"] = request.groupIdList;
     }
 
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.memberId)) {
+    if (!$dara.isNull(request.memberId)) {
       query["MemberId"] = request.memberId;
     }
 
-    if (!Util.isUnset(request.memberIdList)) {
+    if (!$dara.isNull(request.memberIdList)) {
       query["MemberIdList"] = request.memberIdList;
     }
 
-    if (!Util.isUnset(request.memberName)) {
+    if (!$dara.isNull(request.memberName)) {
       query["MemberName"] = request.memberName;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.params)) {
+    if (!$dara.isNull(request.params)) {
       query["Params"] = request.params;
     }
 
-    if (!Util.isUnset(request.queryEndTime)) {
+    if (!$dara.isNull(request.queryEndTime)) {
       query["QueryEndTime"] = request.queryEndTime;
     }
 
-    if (!Util.isUnset(request.queryStartTime)) {
+    if (!$dara.isNull(request.queryStartTime)) {
       query["QueryStartTime"] = request.queryStartTime;
     }
 
-    if (!Util.isUnset(request.requestId)) {
+    if (!$dara.isNull(request.requestId)) {
       query["RequestId"] = request.requestId;
     }
 
-    if (!Util.isUnset(request.servicerId)) {
+    if (!$dara.isNull(request.servicerId)) {
       query["ServicerId"] = request.servicerId;
     }
 
-    if (!Util.isUnset(request.servicerIdList)) {
+    if (!$dara.isNull(request.servicerIdList)) {
       query["ServicerIdList"] = request.servicerIdList;
     }
 
-    if (!Util.isUnset(request.servicerName)) {
+    if (!$dara.isNull(request.servicerName)) {
       query["ServicerName"] = request.servicerName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "HotlineSessionQuery",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31020,7 +35490,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<HotlineSessionQueryResponse>(await this.callApi(params, req, runtime), new HotlineSessionQueryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<HotlineSessionQueryResponse>(await this.callApi(params, req, runtime), new HotlineSessionQueryResponse({}));
+    } else {
+      return $dara.cast<HotlineSessionQueryResponse>(await this.execute(params, req, runtime), new HotlineSessionQueryResponse({}));
+    }
+
   }
 
   /**
@@ -31028,7 +35503,7 @@ export default class Client extends OpenApi {
    * @returns HotlineSessionQueryResponse
    */
   async hotlineSessionQuery(request: HotlineSessionQueryRequest): Promise<HotlineSessionQueryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.hotlineSessionQueryWithOptions(request, runtime);
   }
 
@@ -31039,35 +35514,35 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InsertAiOutboundPhoneNumsResponse
    */
-  async insertAiOutboundPhoneNumsWithOptions(tmpReq: InsertAiOutboundPhoneNumsRequest, runtime: $Util.RuntimeOptions): Promise<InsertAiOutboundPhoneNumsResponse> {
-    Util.validateModel(tmpReq);
+  async insertAiOutboundPhoneNumsWithOptions(tmpReq: InsertAiOutboundPhoneNumsRequest, runtime: $dara.RuntimeOptions): Promise<InsertAiOutboundPhoneNumsResponse> {
+    tmpReq.validate();
     let request = new InsertAiOutboundPhoneNumsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.details)) {
+    if (!$dara.isNull(tmpReq.details)) {
       request.detailsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.details, "Details", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.batchVersion)) {
+    if (!$dara.isNull(request.batchVersion)) {
       query["BatchVersion"] = request.batchVersion;
     }
 
-    if (!Util.isUnset(request.detailsShrink)) {
+    if (!$dara.isNull(request.detailsShrink)) {
       query["Details"] = request.detailsShrink;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "InsertAiOutboundPhoneNums",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31078,7 +35553,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<InsertAiOutboundPhoneNumsResponse>(await this.callApi(params, req, runtime), new InsertAiOutboundPhoneNumsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<InsertAiOutboundPhoneNumsResponse>(await this.callApi(params, req, runtime), new InsertAiOutboundPhoneNumsResponse({}));
+    } else {
+      return $dara.cast<InsertAiOutboundPhoneNumsResponse>(await this.execute(params, req, runtime), new InsertAiOutboundPhoneNumsResponse({}));
+    }
+
   }
 
   /**
@@ -31088,7 +35568,7 @@ export default class Client extends OpenApi {
    * @returns InsertAiOutboundPhoneNumsResponse
    */
   async insertAiOutboundPhoneNums(request: InsertAiOutboundPhoneNumsRequest): Promise<InsertAiOutboundPhoneNumsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.insertAiOutboundPhoneNumsWithOptions(request, runtime);
   }
 
@@ -31097,25 +35577,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InsertTaskDetailResponse
    */
-  async insertTaskDetailWithOptions(request: InsertTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<InsertTaskDetailResponse> {
-    Util.validateModel(request);
+  async insertTaskDetailWithOptions(request: InsertTaskDetailRequest, runtime: $dara.RuntimeOptions): Promise<InsertTaskDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callInfos)) {
+    if (!$dara.isNull(request.callInfos)) {
       query["CallInfos"] = request.callInfos;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.outboundTaskId)) {
+    if (!$dara.isNull(request.outboundTaskId)) {
       query["OutboundTaskId"] = request.outboundTaskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "InsertTaskDetail",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31126,7 +35606,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<InsertTaskDetailResponse>(await this.callApi(params, req, runtime), new InsertTaskDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<InsertTaskDetailResponse>(await this.callApi(params, req, runtime), new InsertTaskDetailResponse({}));
+    } else {
+      return $dara.cast<InsertTaskDetailResponse>(await this.execute(params, req, runtime), new InsertTaskDetailResponse({}));
+    }
+
   }
 
   /**
@@ -31134,7 +35619,7 @@ export default class Client extends OpenApi {
    * @returns InsertTaskDetailResponse
    */
   async insertTaskDetail(request: InsertTaskDetailRequest): Promise<InsertTaskDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.insertTaskDetailWithOptions(request, runtime);
   }
 
@@ -31143,41 +35628,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns JoinThirdCallResponse
    */
-  async joinThirdCallWithOptions(request: JoinThirdCallRequest, runtime: $Util.RuntimeOptions): Promise<JoinThirdCallResponse> {
-    Util.validateModel(request);
+  async joinThirdCallWithOptions(request: JoinThirdCallRequest, runtime: $dara.RuntimeOptions): Promise<JoinThirdCallResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       body["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.connectionId)) {
+    if (!$dara.isNull(request.connectionId)) {
       body["ConnectionId"] = request.connectionId;
     }
 
-    if (!Util.isUnset(request.holdConnectionId)) {
+    if (!$dara.isNull(request.holdConnectionId)) {
       body["HoldConnectionId"] = request.holdConnectionId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.jobId)) {
       body["JobId"] = request.jobId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "JoinThirdCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31188,7 +35673,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<JoinThirdCallResponse>(await this.callApi(params, req, runtime), new JoinThirdCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<JoinThirdCallResponse>(await this.callApi(params, req, runtime), new JoinThirdCallResponse({}));
+    } else {
+      return $dara.cast<JoinThirdCallResponse>(await this.execute(params, req, runtime), new JoinThirdCallResponse({}));
+    }
+
   }
 
   /**
@@ -31196,7 +35686,7 @@ export default class Client extends OpenApi {
    * @returns JoinThirdCallResponse
    */
   async joinThirdCall(request: JoinThirdCallRequest): Promise<JoinThirdCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.joinThirdCallWithOptions(request, runtime);
   }
 
@@ -31205,13 +35695,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAgentBySkillGroupIdResponse
    */
-  async listAgentBySkillGroupIdWithOptions(request: ListAgentBySkillGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentBySkillGroupIdResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listAgentBySkillGroupIdWithOptions(request: ListAgentBySkillGroupIdRequest, runtime: $dara.RuntimeOptions): Promise<ListAgentBySkillGroupIdResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAgentBySkillGroupId",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31222,7 +35712,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAgentBySkillGroupIdResponse>(await this.callApi(params, req, runtime), new ListAgentBySkillGroupIdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAgentBySkillGroupIdResponse>(await this.callApi(params, req, runtime), new ListAgentBySkillGroupIdResponse({}));
+    } else {
+      return $dara.cast<ListAgentBySkillGroupIdResponse>(await this.execute(params, req, runtime), new ListAgentBySkillGroupIdResponse({}));
+    }
+
   }
 
   /**
@@ -31230,7 +35725,7 @@ export default class Client extends OpenApi {
    * @returns ListAgentBySkillGroupIdResponse
    */
   async listAgentBySkillGroupId(request: ListAgentBySkillGroupIdRequest): Promise<ListAgentBySkillGroupIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAgentBySkillGroupIdWithOptions(request, runtime);
   }
 
@@ -31241,29 +35736,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAiccsRobotResponse
    */
-  async listAiccsRobotWithOptions(request: ListAiccsRobotRequest, runtime: $Util.RuntimeOptions): Promise<ListAiccsRobotResponse> {
-    Util.validateModel(request);
+  async listAiccsRobotWithOptions(request: ListAiccsRobotRequest, runtime: $dara.RuntimeOptions): Promise<ListAiccsRobotResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.robotName)) {
+    if (!$dara.isNull(request.robotName)) {
       query["RobotName"] = request.robotName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAiccsRobot",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31274,7 +35769,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAiccsRobotResponse>(await this.callApi(params, req, runtime), new ListAiccsRobotResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAiccsRobotResponse>(await this.callApi(params, req, runtime), new ListAiccsRobotResponse({}));
+    } else {
+      return $dara.cast<ListAiccsRobotResponse>(await this.execute(params, req, runtime), new ListAiccsRobotResponse({}));
+    }
+
   }
 
   /**
@@ -31284,7 +35784,7 @@ export default class Client extends OpenApi {
    * @returns ListAiccsRobotResponse
    */
   async listAiccsRobot(request: ListAiccsRobotRequest): Promise<ListAiccsRobotResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAiccsRobotWithOptions(request, runtime);
   }
 
@@ -31295,13 +35795,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListChatRecordDetailResponse
    */
-  async listChatRecordDetailWithOptions(request: ListChatRecordDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListChatRecordDetailResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listChatRecordDetailWithOptions(request: ListChatRecordDetailRequest, runtime: $dara.RuntimeOptions): Promise<ListChatRecordDetailResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListChatRecordDetail",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31312,7 +35812,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListChatRecordDetailResponse>(await this.callApi(params, req, runtime), new ListChatRecordDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListChatRecordDetailResponse>(await this.callApi(params, req, runtime), new ListChatRecordDetailResponse({}));
+    } else {
+      return $dara.cast<ListChatRecordDetailResponse>(await this.execute(params, req, runtime), new ListChatRecordDetailResponse({}));
+    }
+
   }
 
   /**
@@ -31322,7 +35827,7 @@ export default class Client extends OpenApi {
    * @returns ListChatRecordDetailResponse
    */
   async listChatRecordDetail(request: ListChatRecordDetailRequest): Promise<ListChatRecordDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listChatRecordDetailWithOptions(request, runtime);
   }
 
@@ -31333,33 +35838,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDialogResponse
    */
-  async listDialogWithOptions(request: ListDialogRequest, runtime: $Util.RuntimeOptions): Promise<ListDialogResponse> {
-    Util.validateModel(request);
+  async listDialogWithOptions(request: ListDialogRequest, runtime: $dara.RuntimeOptions): Promise<ListDialogResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.called)) {
+    if (!$dara.isNull(request.called)) {
       query["Called"] = request.called;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDialog",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31370,7 +35875,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDialogResponse>(await this.callApi(params, req, runtime), new ListDialogResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDialogResponse>(await this.callApi(params, req, runtime), new ListDialogResponse({}));
+    } else {
+      return $dara.cast<ListDialogResponse>(await this.execute(params, req, runtime), new ListDialogResponse({}));
+    }
+
   }
 
   /**
@@ -31380,7 +35890,7 @@ export default class Client extends OpenApi {
    * @returns ListDialogResponse
    */
   async listDialog(request: ListDialogRequest): Promise<ListDialogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDialogWithOptions(request, runtime);
   }
 
@@ -31389,13 +35899,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListHotlineRecordResponse
    */
-  async listHotlineRecordWithOptions(request: ListHotlineRecordRequest, runtime: $Util.RuntimeOptions): Promise<ListHotlineRecordResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listHotlineRecordWithOptions(request: ListHotlineRecordRequest, runtime: $dara.RuntimeOptions): Promise<ListHotlineRecordResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListHotlineRecord",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31406,7 +35916,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListHotlineRecordResponse>(await this.callApi(params, req, runtime), new ListHotlineRecordResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListHotlineRecordResponse>(await this.callApi(params, req, runtime), new ListHotlineRecordResponse({}));
+    } else {
+      return $dara.cast<ListHotlineRecordResponse>(await this.execute(params, req, runtime), new ListHotlineRecordResponse({}));
+    }
+
   }
 
   /**
@@ -31414,7 +35929,7 @@ export default class Client extends OpenApi {
    * @returns ListHotlineRecordResponse
    */
   async listHotlineRecord(request: ListHotlineRecordRequest): Promise<ListHotlineRecordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listHotlineRecordWithOptions(request, runtime);
   }
 
@@ -31425,13 +35940,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListHotlineRecordDetailResponse
    */
-  async listHotlineRecordDetailWithOptions(request: ListHotlineRecordDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListHotlineRecordDetailResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listHotlineRecordDetailWithOptions(request: ListHotlineRecordDetailRequest, runtime: $dara.RuntimeOptions): Promise<ListHotlineRecordDetailResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListHotlineRecordDetail",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31442,7 +35957,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListHotlineRecordDetailResponse>(await this.callApi(params, req, runtime), new ListHotlineRecordDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListHotlineRecordDetailResponse>(await this.callApi(params, req, runtime), new ListHotlineRecordDetailResponse({}));
+    } else {
+      return $dara.cast<ListHotlineRecordDetailResponse>(await this.execute(params, req, runtime), new ListHotlineRecordDetailResponse({}));
+    }
+
   }
 
   /**
@@ -31452,7 +35972,7 @@ export default class Client extends OpenApi {
    * @returns ListHotlineRecordDetailResponse
    */
   async listHotlineRecordDetail(request: ListHotlineRecordDetailRequest): Promise<ListHotlineRecordDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listHotlineRecordDetailWithOptions(request, runtime);
   }
 
@@ -31461,13 +35981,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListOutboundPhoneNumberResponse
    */
-  async listOutboundPhoneNumberWithOptions(request: ListOutboundPhoneNumberRequest, runtime: $Util.RuntimeOptions): Promise<ListOutboundPhoneNumberResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listOutboundPhoneNumberWithOptions(request: ListOutboundPhoneNumberRequest, runtime: $dara.RuntimeOptions): Promise<ListOutboundPhoneNumberResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListOutboundPhoneNumber",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31478,7 +35998,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListOutboundPhoneNumberResponse>(await this.callApi(params, req, runtime), new ListOutboundPhoneNumberResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListOutboundPhoneNumberResponse>(await this.callApi(params, req, runtime), new ListOutboundPhoneNumberResponse({}));
+    } else {
+      return $dara.cast<ListOutboundPhoneNumberResponse>(await this.execute(params, req, runtime), new ListOutboundPhoneNumberResponse({}));
+    }
+
   }
 
   /**
@@ -31486,7 +36011,7 @@ export default class Client extends OpenApi {
    * @returns ListOutboundPhoneNumberResponse
    */
   async listOutboundPhoneNumber(request: ListOutboundPhoneNumberRequest): Promise<ListOutboundPhoneNumberResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listOutboundPhoneNumberWithOptions(request, runtime);
   }
 
@@ -31497,33 +36022,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRobotCallDialogResponse
    */
-  async listRobotCallDialogWithOptions(request: ListRobotCallDialogRequest, runtime: $Util.RuntimeOptions): Promise<ListRobotCallDialogResponse> {
-    Util.validateModel(request);
+  async listRobotCallDialogWithOptions(request: ListRobotCallDialogRequest, runtime: $dara.RuntimeOptions): Promise<ListRobotCallDialogResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       query["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.createTime)) {
+    if (!$dara.isNull(request.createTime)) {
       query["CreateTime"] = request.createTime;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListRobotCallDialog",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31534,7 +36059,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListRobotCallDialogResponse>(await this.callApi(params, req, runtime), new ListRobotCallDialogResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListRobotCallDialogResponse>(await this.callApi(params, req, runtime), new ListRobotCallDialogResponse({}));
+    } else {
+      return $dara.cast<ListRobotCallDialogResponse>(await this.execute(params, req, runtime), new ListRobotCallDialogResponse({}));
+    }
+
   }
 
   /**
@@ -31544,7 +36074,7 @@ export default class Client extends OpenApi {
    * @returns ListRobotCallDialogResponse
    */
   async listRobotCallDialog(request: ListRobotCallDialogRequest): Promise<ListRobotCallDialogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listRobotCallDialogWithOptions(request, runtime);
   }
 
@@ -31555,29 +36085,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRobotNodeResponse
    */
-  async listRobotNodeWithOptions(request: ListRobotNodeRequest, runtime: $Util.RuntimeOptions): Promise<ListRobotNodeResponse> {
-    Util.validateModel(request);
+  async listRobotNodeWithOptions(request: ListRobotNodeRequest, runtime: $dara.RuntimeOptions): Promise<ListRobotNodeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.robotId)) {
+    if (!$dara.isNull(request.robotId)) {
       query["RobotId"] = request.robotId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListRobotNode",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31588,7 +36118,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListRobotNodeResponse>(await this.callApi(params, req, runtime), new ListRobotNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListRobotNodeResponse>(await this.callApi(params, req, runtime), new ListRobotNodeResponse({}));
+    } else {
+      return $dara.cast<ListRobotNodeResponse>(await this.execute(params, req, runtime), new ListRobotNodeResponse({}));
+    }
+
   }
 
   /**
@@ -31598,7 +36133,7 @@ export default class Client extends OpenApi {
    * @returns ListRobotNodeResponse
    */
   async listRobotNode(request: ListRobotNodeRequest): Promise<ListRobotNodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listRobotNodeWithOptions(request, runtime);
   }
 
@@ -31609,29 +36144,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRobotParamsResponse
    */
-  async listRobotParamsWithOptions(request: ListRobotParamsRequest, runtime: $Util.RuntimeOptions): Promise<ListRobotParamsResponse> {
-    Util.validateModel(request);
+  async listRobotParamsWithOptions(request: ListRobotParamsRequest, runtime: $dara.RuntimeOptions): Promise<ListRobotParamsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.robotId)) {
+    if (!$dara.isNull(request.robotId)) {
       query["RobotId"] = request.robotId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListRobotParams",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31642,7 +36177,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListRobotParamsResponse>(await this.callApi(params, req, runtime), new ListRobotParamsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListRobotParamsResponse>(await this.callApi(params, req, runtime), new ListRobotParamsResponse({}));
+    } else {
+      return $dara.cast<ListRobotParamsResponse>(await this.execute(params, req, runtime), new ListRobotParamsResponse({}));
+    }
+
   }
 
   /**
@@ -31652,7 +36192,7 @@ export default class Client extends OpenApi {
    * @returns ListRobotParamsResponse
    */
   async listRobotParams(request: ListRobotParamsRequest): Promise<ListRobotParamsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listRobotParamsWithOptions(request, runtime);
   }
 
@@ -31663,13 +36203,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRolesResponse
    */
-  async listRolesWithOptions(request: ListRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListRolesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listRolesWithOptions(request: ListRolesRequest, runtime: $dara.RuntimeOptions): Promise<ListRolesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListRoles",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31680,7 +36220,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListRolesResponse>(await this.callApi(params, req, runtime), new ListRolesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListRolesResponse>(await this.callApi(params, req, runtime), new ListRolesResponse({}));
+    } else {
+      return $dara.cast<ListRolesResponse>(await this.execute(params, req, runtime), new ListRolesResponse({}));
+    }
+
   }
 
   /**
@@ -31690,7 +36235,7 @@ export default class Client extends OpenApi {
    * @returns ListRolesResponse
    */
   async listRoles(request: ListRolesRequest): Promise<ListRolesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listRolesWithOptions(request, runtime);
   }
 
@@ -31699,13 +36244,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSkillGroupResponse
    */
-  async listSkillGroupWithOptions(request: ListSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillGroupResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listSkillGroupWithOptions(request: ListSkillGroupRequest, runtime: $dara.RuntimeOptions): Promise<ListSkillGroupResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListSkillGroup",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31716,7 +36261,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListSkillGroupResponse>(await this.callApi(params, req, runtime), new ListSkillGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSkillGroupResponse>(await this.callApi(params, req, runtime), new ListSkillGroupResponse({}));
+    } else {
+      return $dara.cast<ListSkillGroupResponse>(await this.execute(params, req, runtime), new ListSkillGroupResponse({}));
+    }
+
   }
 
   /**
@@ -31724,7 +36274,7 @@ export default class Client extends OpenApi {
    * @returns ListSkillGroupResponse
    */
   async listSkillGroup(request: ListSkillGroupRequest): Promise<ListSkillGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listSkillGroupWithOptions(request, runtime);
   }
 
@@ -31735,49 +36285,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTaskResponse
    */
-  async listTaskWithOptions(request: ListTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskResponse> {
-    Util.validateModel(request);
+  async listTaskWithOptions(request: ListTaskRequest, runtime: $dara.RuntimeOptions): Promise<ListTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.robotName)) {
+    if (!$dara.isNull(request.robotName)) {
       query["RobotName"] = request.robotName;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.taskName)) {
+    if (!$dara.isNull(request.taskName)) {
       query["TaskName"] = request.taskName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31788,7 +36338,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTaskResponse>(await this.callApi(params, req, runtime), new ListTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTaskResponse>(await this.callApi(params, req, runtime), new ListTaskResponse({}));
+    } else {
+      return $dara.cast<ListTaskResponse>(await this.execute(params, req, runtime), new ListTaskResponse({}));
+    }
+
   }
 
   /**
@@ -31798,7 +36353,7 @@ export default class Client extends OpenApi {
    * @returns ListTaskResponse
    */
   async listTask(request: ListTaskRequest): Promise<ListTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTaskWithOptions(request, runtime);
   }
 
@@ -31809,53 +36364,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTaskDetailResponse
    */
-  async listTaskDetailWithOptions(request: ListTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskDetailResponse> {
-    Util.validateModel(request);
+  async listTaskDetailWithOptions(request: ListTaskDetailRequest, runtime: $dara.RuntimeOptions): Promise<ListTaskDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.called)) {
+    if (!$dara.isNull(request.called)) {
       query["Called"] = request.called;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.statusCode)) {
+    if (!$dara.isNull(request.statusCode)) {
       query["StatusCode"] = request.statusCode;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTaskDetail",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31866,7 +36421,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTaskDetailResponse>(await this.callApi(params, req, runtime), new ListTaskDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTaskDetailResponse>(await this.callApi(params, req, runtime), new ListTaskDetailResponse({}));
+    } else {
+      return $dara.cast<ListTaskDetailResponse>(await this.execute(params, req, runtime), new ListTaskDetailResponse({}));
+    }
+
   }
 
   /**
@@ -31876,7 +36436,7 @@ export default class Client extends OpenApi {
    * @returns ListTaskDetailResponse
    */
   async listTaskDetail(request: ListTaskDetailRequest): Promise<ListTaskDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTaskDetailWithOptions(request, runtime);
   }
 
@@ -31887,47 +36447,47 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns LlmSmartCallResponse
    */
-  async llmSmartCallWithOptions(tmpReq: LlmSmartCallRequest, runtime: $Util.RuntimeOptions): Promise<LlmSmartCallResponse> {
-    Util.validateModel(tmpReq);
+  async llmSmartCallWithOptions(tmpReq: LlmSmartCallRequest, runtime: $dara.RuntimeOptions): Promise<LlmSmartCallResponse> {
+    tmpReq.validate();
     let request = new LlmSmartCallShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.promptParam)) {
+    if (!$dara.isNull(tmpReq.promptParam)) {
       request.promptParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.promptParam, "PromptParam", "json");
     }
 
-    if (!Util.isUnset(tmpReq.startWordParam)) {
+    if (!$dara.isNull(tmpReq.startWordParam)) {
       request.startWordParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.startWordParam, "StartWordParam", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.applicationCode)) {
+    if (!$dara.isNull(request.applicationCode)) {
       query["ApplicationCode"] = request.applicationCode;
     }
 
-    if (!Util.isUnset(request.calledNumber)) {
+    if (!$dara.isNull(request.calledNumber)) {
       query["CalledNumber"] = request.calledNumber;
     }
 
-    if (!Util.isUnset(request.callerNumber)) {
+    if (!$dara.isNull(request.callerNumber)) {
       query["CallerNumber"] = request.callerNumber;
     }
 
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.promptParamShrink)) {
+    if (!$dara.isNull(request.promptParamShrink)) {
       query["PromptParam"] = request.promptParamShrink;
     }
 
-    if (!Util.isUnset(request.startWordParamShrink)) {
+    if (!$dara.isNull(request.startWordParamShrink)) {
       query["StartWordParam"] = request.startWordParamShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "LlmSmartCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31938,7 +36498,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<LlmSmartCallResponse>(await this.callApi(params, req, runtime), new LlmSmartCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<LlmSmartCallResponse>(await this.callApi(params, req, runtime), new LlmSmartCallResponse({}));
+    } else {
+      return $dara.cast<LlmSmartCallResponse>(await this.execute(params, req, runtime), new LlmSmartCallResponse({}));
+    }
+
   }
 
   /**
@@ -31948,7 +36513,7 @@ export default class Client extends OpenApi {
    * @returns LlmSmartCallResponse
    */
   async llmSmartCall(request: LlmSmartCallRequest): Promise<LlmSmartCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.llmSmartCallWithOptions(request, runtime);
   }
 
@@ -31957,37 +36522,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns MakeCallResponse
    */
-  async makeCallWithOptions(request: MakeCallRequest, runtime: $Util.RuntimeOptions): Promise<MakeCallResponse> {
-    Util.validateModel(request);
+  async makeCallWithOptions(request: MakeCallRequest, runtime: $dara.RuntimeOptions): Promise<MakeCallResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.calledNumber)) {
+    if (!$dara.isNull(request.calledNumber)) {
       query["CalledNumber"] = request.calledNumber;
     }
 
-    if (!Util.isUnset(request.callingNumber)) {
+    if (!$dara.isNull(request.callingNumber)) {
       query["CallingNumber"] = request.callingNumber;
     }
 
-    if (!Util.isUnset(request.commandCode)) {
+    if (!$dara.isNull(request.commandCode)) {
       query["CommandCode"] = request.commandCode;
     }
 
-    if (!Util.isUnset(request.extInfo)) {
+    if (!$dara.isNull(request.extInfo)) {
       query["ExtInfo"] = request.extInfo;
     }
 
-    if (!Util.isUnset(request.outerAccountId)) {
+    if (!$dara.isNull(request.outerAccountId)) {
       query["OuterAccountId"] = request.outerAccountId;
     }
 
-    if (!Util.isUnset(request.outerAccountType)) {
+    if (!$dara.isNull(request.outerAccountType)) {
       query["OuterAccountType"] = request.outerAccountType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "MakeCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -31998,7 +36563,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<MakeCallResponse>(await this.callApi(params, req, runtime), new MakeCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<MakeCallResponse>(await this.callApi(params, req, runtime), new MakeCallResponse({}));
+    } else {
+      return $dara.cast<MakeCallResponse>(await this.execute(params, req, runtime), new MakeCallResponse({}));
+    }
+
   }
 
   /**
@@ -32006,7 +36576,7 @@ export default class Client extends OpenApi {
    * @returns MakeCallResponse
    */
   async makeCall(request: MakeCallRequest): Promise<MakeCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.makeCallWithOptions(request, runtime);
   }
 
@@ -32017,37 +36587,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns MakeDoubleCallResponse
    */
-  async makeDoubleCallWithOptions(request: MakeDoubleCallRequest, runtime: $Util.RuntimeOptions): Promise<MakeDoubleCallResponse> {
-    Util.validateModel(request);
+  async makeDoubleCallWithOptions(request: MakeDoubleCallRequest, runtime: $dara.RuntimeOptions): Promise<MakeDoubleCallResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.bizData)) {
+    if (!$dara.isNull(request.bizData)) {
       query["BizData"] = request.bizData;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.memberPhone)) {
+    if (!$dara.isNull(request.memberPhone)) {
       query["MemberPhone"] = request.memberPhone;
     }
 
-    if (!Util.isUnset(request.outboundCallNumber)) {
+    if (!$dara.isNull(request.outboundCallNumber)) {
       query["OutboundCallNumber"] = request.outboundCallNumber;
     }
 
-    if (!Util.isUnset(request.servicerPhone)) {
+    if (!$dara.isNull(request.servicerPhone)) {
       query["ServicerPhone"] = request.servicerPhone;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "MakeDoubleCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -32058,7 +36628,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<MakeDoubleCallResponse>(await this.callApi(params, req, runtime), new MakeDoubleCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<MakeDoubleCallResponse>(await this.callApi(params, req, runtime), new MakeDoubleCallResponse({}));
+    } else {
+      return $dara.cast<MakeDoubleCallResponse>(await this.execute(params, req, runtime), new MakeDoubleCallResponse({}));
+    }
+
   }
 
   /**
@@ -32068,7 +36643,7 @@ export default class Client extends OpenApi {
    * @returns MakeDoubleCallResponse
    */
   async makeDoubleCall(request: MakeDoubleCallRequest): Promise<MakeDoubleCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.makeDoubleCallWithOptions(request, runtime);
   }
 
@@ -32077,13 +36652,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryHotlineInQueueResponse
    */
-  async queryHotlineInQueueWithOptions(request: QueryHotlineInQueueRequest, runtime: $Util.RuntimeOptions): Promise<QueryHotlineInQueueResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async queryHotlineInQueueWithOptions(request: QueryHotlineInQueueRequest, runtime: $dara.RuntimeOptions): Promise<QueryHotlineInQueueResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryHotlineInQueue",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -32094,7 +36669,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryHotlineInQueueResponse>(await this.callApi(params, req, runtime), new QueryHotlineInQueueResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryHotlineInQueueResponse>(await this.callApi(params, req, runtime), new QueryHotlineInQueueResponse({}));
+    } else {
+      return $dara.cast<QueryHotlineInQueueResponse>(await this.execute(params, req, runtime), new QueryHotlineInQueueResponse({}));
+    }
+
   }
 
   /**
@@ -32102,7 +36682,7 @@ export default class Client extends OpenApi {
    * @returns QueryHotlineInQueueResponse
    */
   async queryHotlineInQueue(request: QueryHotlineInQueueRequest): Promise<QueryHotlineInQueueResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryHotlineInQueueWithOptions(request, runtime);
   }
 
@@ -32113,19 +36693,19 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryHotlineNumberResponse
    */
-  async queryHotlineNumberWithOptions(tmpReq: QueryHotlineNumberRequest, runtime: $Util.RuntimeOptions): Promise<QueryHotlineNumberResponse> {
-    Util.validateModel(tmpReq);
+  async queryHotlineNumberWithOptions(tmpReq: QueryHotlineNumberRequest, runtime: $dara.RuntimeOptions): Promise<QueryHotlineNumberResponse> {
+    tmpReq.validate();
     let request = new QueryHotlineNumberShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.groupIds)) {
+    if (!$dara.isNull(tmpReq.groupIds)) {
       request.groupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.groupIds, "GroupIds", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryHotlineNumber",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -32136,7 +36716,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryHotlineNumberResponse>(await this.callApi(params, req, runtime), new QueryHotlineNumberResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryHotlineNumberResponse>(await this.callApi(params, req, runtime), new QueryHotlineNumberResponse({}));
+    } else {
+      return $dara.cast<QueryHotlineNumberResponse>(await this.execute(params, req, runtime), new QueryHotlineNumberResponse({}));
+    }
+
   }
 
   /**
@@ -32146,7 +36731,7 @@ export default class Client extends OpenApi {
    * @returns QueryHotlineNumberResponse
    */
   async queryHotlineNumber(request: QueryHotlineNumberRequest): Promise<QueryHotlineNumberResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryHotlineNumberWithOptions(request, runtime);
   }
 
@@ -32155,73 +36740,73 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryOutboundTaskResponse
    */
-  async queryOutboundTaskWithOptions(request: QueryOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<QueryOutboundTaskResponse> {
-    Util.validateModel(request);
+  async queryOutboundTaskWithOptions(request: QueryOutboundTaskRequest, runtime: $dara.RuntimeOptions): Promise<QueryOutboundTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ani)) {
+    if (!$dara.isNull(request.ani)) {
       query["Ani"] = request.ani;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.departmentId)) {
+    if (!$dara.isNull(request.departmentId)) {
       query["DepartmentId"] = request.departmentId;
     }
 
-    if (!Util.isUnset(request.endDate)) {
+    if (!$dara.isNull(request.endDate)) {
       query["EndDate"] = request.endDate;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.skillGroup)) {
+    if (!$dara.isNull(request.skillGroup)) {
       query["SkillGroup"] = request.skillGroup;
     }
 
-    if (!Util.isUnset(request.startDate)) {
+    if (!$dara.isNull(request.startDate)) {
       query["StartDate"] = request.startDate;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    if (!Util.isUnset(request.taskName)) {
+    if (!$dara.isNull(request.taskName)) {
       query["TaskName"] = request.taskName;
     }
 
-    if (!Util.isUnset(request.taskType)) {
+    if (!$dara.isNull(request.taskType)) {
       query["TaskType"] = request.taskType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryOutboundTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -32232,7 +36817,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryOutboundTaskResponse>(await this.callApi(params, req, runtime), new QueryOutboundTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryOutboundTaskResponse>(await this.callApi(params, req, runtime), new QueryOutboundTaskResponse({}));
+    } else {
+      return $dara.cast<QueryOutboundTaskResponse>(await this.execute(params, req, runtime), new QueryOutboundTaskResponse({}));
+    }
+
   }
 
   /**
@@ -32240,7 +36830,7 @@ export default class Client extends OpenApi {
    * @returns QueryOutboundTaskResponse
    */
   async queryOutboundTask(request: QueryOutboundTaskRequest): Promise<QueryOutboundTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryOutboundTaskWithOptions(request, runtime);
   }
 
@@ -32249,37 +36839,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySkillGroupsResponse
    */
-  async querySkillGroupsWithOptions(request: QuerySkillGroupsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySkillGroupsResponse> {
-    Util.validateModel(request);
+  async querySkillGroupsWithOptions(request: QuerySkillGroupsRequest, runtime: $dara.RuntimeOptions): Promise<QuerySkillGroupsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.channelType)) {
+    if (!$dara.isNull(request.channelType)) {
       query["ChannelType"] = request.channelType;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.departmentId)) {
+    if (!$dara.isNull(request.departmentId)) {
       query["DepartmentId"] = request.departmentId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySkillGroups",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -32290,7 +36880,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySkillGroupsResponse>(await this.callApi(params, req, runtime), new QuerySkillGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySkillGroupsResponse>(await this.callApi(params, req, runtime), new QuerySkillGroupsResponse({}));
+    } else {
+      return $dara.cast<QuerySkillGroupsResponse>(await this.execute(params, req, runtime), new QuerySkillGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -32298,7 +36893,7 @@ export default class Client extends OpenApi {
    * @returns QuerySkillGroupsResponse
    */
   async querySkillGroups(request: QuerySkillGroupsRequest): Promise<QuerySkillGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySkillGroupsWithOptions(request, runtime);
   }
 
@@ -32307,73 +36902,73 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTaskDetailResponse
    */
-  async queryTaskDetailWithOptions(request: QueryTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskDetailResponse> {
-    Util.validateModel(request);
+  async queryTaskDetailWithOptions(request: QueryTaskDetailRequest, runtime: $dara.RuntimeOptions): Promise<QueryTaskDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ani)) {
+    if (!$dara.isNull(request.ani)) {
       query["Ani"] = request.ani;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.departmentIdList)) {
+    if (!$dara.isNull(request.departmentIdList)) {
       query["DepartmentIdList"] = request.departmentIdList;
     }
 
-    if (!Util.isUnset(request.dnis)) {
+    if (!$dara.isNull(request.dnis)) {
       query["Dnis"] = request.dnis;
     }
 
-    if (!Util.isUnset(request.endReasonList)) {
+    if (!$dara.isNull(request.endReasonList)) {
       query["EndReasonList"] = request.endReasonList;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.outboundTaskId)) {
+    if (!$dara.isNull(request.outboundTaskId)) {
       query["OutboundTaskId"] = request.outboundTaskId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.priorityList)) {
+    if (!$dara.isNull(request.priorityList)) {
       query["PriorityList"] = request.priorityList;
     }
 
-    if (!Util.isUnset(request.servicerId)) {
+    if (!$dara.isNull(request.servicerId)) {
       query["ServicerId"] = request.servicerId;
     }
 
-    if (!Util.isUnset(request.servicerName)) {
+    if (!$dara.isNull(request.servicerName)) {
       query["ServicerName"] = request.servicerName;
     }
 
-    if (!Util.isUnset(request.sid)) {
+    if (!$dara.isNull(request.sid)) {
       query["Sid"] = request.sid;
     }
 
-    if (!Util.isUnset(request.skillGroup)) {
+    if (!$dara.isNull(request.skillGroup)) {
       query["SkillGroup"] = request.skillGroup;
     }
 
-    if (!Util.isUnset(request.statusList)) {
+    if (!$dara.isNull(request.statusList)) {
       query["StatusList"] = request.statusList;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryTaskDetail",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -32384,7 +36979,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryTaskDetailResponse>(await this.callApi(params, req, runtime), new QueryTaskDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryTaskDetailResponse>(await this.callApi(params, req, runtime), new QueryTaskDetailResponse({}));
+    } else {
+      return $dara.cast<QueryTaskDetailResponse>(await this.execute(params, req, runtime), new QueryTaskDetailResponse({}));
+    }
+
   }
 
   /**
@@ -32392,7 +36992,7 @@ export default class Client extends OpenApi {
    * @returns QueryTaskDetailResponse
    */
   async queryTaskDetail(request: QueryTaskDetailRequest): Promise<QueryTaskDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTaskDetailWithOptions(request, runtime);
   }
 
@@ -32401,71 +37001,71 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTicketsResponse
    */
-  async queryTicketsWithOptions(tmpReq: QueryTicketsRequest, runtime: $Util.RuntimeOptions): Promise<QueryTicketsResponse> {
-    Util.validateModel(tmpReq);
+  async queryTicketsWithOptions(tmpReq: QueryTicketsRequest, runtime: $dara.RuntimeOptions): Promise<QueryTicketsResponse> {
+    tmpReq.validate();
     let request = new QueryTicketsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.extra)) {
+    if (!$dara.isNull(tmpReq.extra)) {
       request.extraShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extra, "Extra", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.caseId)) {
+    if (!$dara.isNull(request.caseId)) {
       body["CaseId"] = request.caseId;
     }
 
-    if (!Util.isUnset(request.caseStatus)) {
+    if (!$dara.isNull(request.caseStatus)) {
       body["CaseStatus"] = request.caseStatus;
     }
 
-    if (!Util.isUnset(request.caseType)) {
+    if (!$dara.isNull(request.caseType)) {
       body["CaseType"] = request.caseType;
     }
 
-    if (!Util.isUnset(request.channelId)) {
+    if (!$dara.isNull(request.channelId)) {
       body["ChannelId"] = request.channelId;
     }
 
-    if (!Util.isUnset(request.channelType)) {
+    if (!$dara.isNull(request.channelType)) {
       body["ChannelType"] = request.channelType;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       body["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.dealId)) {
+    if (!$dara.isNull(request.dealId)) {
       body["DealId"] = request.dealId;
     }
 
-    if (!Util.isUnset(request.extraShrink)) {
+    if (!$dara.isNull(request.extraShrink)) {
       body["Extra"] = request.extraShrink;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.srType)) {
+    if (!$dara.isNull(request.srType)) {
       body["SrType"] = request.srType;
     }
 
-    if (!Util.isUnset(request.taskStatus)) {
+    if (!$dara.isNull(request.taskStatus)) {
       body["TaskStatus"] = request.taskStatus;
     }
 
-    if (!Util.isUnset(request.touchId)) {
+    if (!$dara.isNull(request.touchId)) {
       body["TouchId"] = request.touchId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryTickets",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -32476,7 +37076,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryTicketsResponse>(await this.callApi(params, req, runtime), new QueryTicketsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryTicketsResponse>(await this.callApi(params, req, runtime), new QueryTicketsResponse({}));
+    } else {
+      return $dara.cast<QueryTicketsResponse>(await this.execute(params, req, runtime), new QueryTicketsResponse({}));
+    }
+
   }
 
   /**
@@ -32484,7 +37089,7 @@ export default class Client extends OpenApi {
    * @returns QueryTicketsResponse
    */
   async queryTickets(request: QueryTicketsRequest): Promise<QueryTicketsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTicketsWithOptions(request, runtime);
   }
 
@@ -32493,89 +37098,89 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryTouchListResponse
    */
-  async queryTouchListWithOptions(request: QueryTouchListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTouchListResponse> {
-    Util.validateModel(request);
+  async queryTouchListWithOptions(request: QueryTouchListRequest, runtime: $dara.RuntimeOptions): Promise<QueryTouchListResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.channelId)) {
+    if (!$dara.isNull(request.channelId)) {
       body["ChannelId"] = request.channelId;
     }
 
-    if (!Util.isUnset(request.channelType)) {
+    if (!$dara.isNull(request.channelType)) {
       body["ChannelType"] = request.channelType;
     }
 
-    if (!Util.isUnset(request.closeTimeEnd)) {
+    if (!$dara.isNull(request.closeTimeEnd)) {
       body["CloseTimeEnd"] = request.closeTimeEnd;
     }
 
-    if (!Util.isUnset(request.closeTimeStart)) {
+    if (!$dara.isNull(request.closeTimeStart)) {
       body["CloseTimeStart"] = request.closeTimeStart;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       body["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.evaluationLevel)) {
+    if (!$dara.isNull(request.evaluationLevel)) {
       body["EvaluationLevel"] = request.evaluationLevel;
     }
 
-    if (!Util.isUnset(request.evaluationScore)) {
+    if (!$dara.isNull(request.evaluationScore)) {
       body["EvaluationScore"] = request.evaluationScore;
     }
 
-    if (!Util.isUnset(request.evaluationStatus)) {
+    if (!$dara.isNull(request.evaluationStatus)) {
       body["EvaluationStatus"] = request.evaluationStatus;
     }
 
-    if (!Util.isUnset(request.firstTimeEnd)) {
+    if (!$dara.isNull(request.firstTimeEnd)) {
       body["FirstTimeEnd"] = request.firstTimeEnd;
     }
 
-    if (!Util.isUnset(request.firstTimeStart)) {
+    if (!$dara.isNull(request.firstTimeStart)) {
       body["FirstTimeStart"] = request.firstTimeStart;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.memberId)) {
+    if (!$dara.isNull(request.memberId)) {
       body["MemberId"] = request.memberId;
     }
 
-    if (!Util.isUnset(request.memberName)) {
+    if (!$dara.isNull(request.memberName)) {
       body["MemberName"] = request.memberName;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       body["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.queueId)) {
+    if (!$dara.isNull(request.queueId)) {
       body["QueueId"] = request.queueId;
     }
 
-    if (!Util.isUnset(request.servicerId)) {
+    if (!$dara.isNull(request.servicerId)) {
       body["ServicerId"] = request.servicerId;
     }
 
-    if (!Util.isUnset(request.servicerName)) {
+    if (!$dara.isNull(request.servicerName)) {
       body["ServicerName"] = request.servicerName;
     }
 
-    if (!Util.isUnset(request.touchId)) {
+    if (!$dara.isNull(request.touchId)) {
       body["TouchId"] = request.touchId;
     }
 
-    if (!Util.isUnset(request.touchType)) {
+    if (!$dara.isNull(request.touchType)) {
       body["TouchType"] = request.touchType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryTouchList",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -32586,7 +37191,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryTouchListResponse>(await this.callApi(params, req, runtime), new QueryTouchListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryTouchListResponse>(await this.callApi(params, req, runtime), new QueryTouchListResponse({}));
+    } else {
+      return $dara.cast<QueryTouchListResponse>(await this.execute(params, req, runtime), new QueryTouchListResponse({}));
+    }
+
   }
 
   /**
@@ -32594,7 +37204,7 @@ export default class Client extends OpenApi {
    * @returns QueryTouchListResponse
    */
   async queryTouchList(request: QueryTouchListRequest): Promise<QueryTouchListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryTouchListWithOptions(request, runtime);
   }
 
@@ -32605,31 +37215,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveAgentFromSkillGroupResponse
    */
-  async removeAgentFromSkillGroupWithOptions(tmpReq: RemoveAgentFromSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAgentFromSkillGroupResponse> {
-    Util.validateModel(tmpReq);
+  async removeAgentFromSkillGroupWithOptions(tmpReq: RemoveAgentFromSkillGroupRequest, runtime: $dara.RuntimeOptions): Promise<RemoveAgentFromSkillGroupResponse> {
+    tmpReq.validate();
     let request = new RemoveAgentFromSkillGroupShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.agentIds)) {
+    if (!$dara.isNull(tmpReq.agentIds)) {
       request.agentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentIds, "AgentIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.agentIdsShrink)) {
+    if (!$dara.isNull(request.agentIdsShrink)) {
       query["AgentIds"] = request.agentIdsShrink;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.skillGroupId)) {
+    if (!$dara.isNull(request.skillGroupId)) {
       query["SkillGroupId"] = request.skillGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RemoveAgentFromSkillGroup",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -32640,7 +37250,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RemoveAgentFromSkillGroupResponse>(await this.callApi(params, req, runtime), new RemoveAgentFromSkillGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RemoveAgentFromSkillGroupResponse>(await this.callApi(params, req, runtime), new RemoveAgentFromSkillGroupResponse({}));
+    } else {
+      return $dara.cast<RemoveAgentFromSkillGroupResponse>(await this.execute(params, req, runtime), new RemoveAgentFromSkillGroupResponse({}));
+    }
+
   }
 
   /**
@@ -32650,7 +37265,7 @@ export default class Client extends OpenApi {
    * @returns RemoveAgentFromSkillGroupResponse
    */
   async removeAgentFromSkillGroup(request: RemoveAgentFromSkillGroupRequest): Promise<RemoveAgentFromSkillGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.removeAgentFromSkillGroupWithOptions(request, runtime);
   }
 
@@ -32659,25 +37274,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveSkillGroupResponse
    */
-  async removeSkillGroupWithOptions(request: RemoveSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSkillGroupResponse> {
-    Util.validateModel(request);
+  async removeSkillGroupWithOptions(request: RemoveSkillGroupRequest, runtime: $dara.RuntimeOptions): Promise<RemoveSkillGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.skillGroupId)) {
+    if (!$dara.isNull(request.skillGroupId)) {
       body["SkillGroupId"] = request.skillGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RemoveSkillGroup",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -32688,7 +37303,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RemoveSkillGroupResponse>(await this.callApi(params, req, runtime), new RemoveSkillGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RemoveSkillGroupResponse>(await this.callApi(params, req, runtime), new RemoveSkillGroupResponse({}));
+    } else {
+      return $dara.cast<RemoveSkillGroupResponse>(await this.execute(params, req, runtime), new RemoveSkillGroupResponse({}));
+    }
+
   }
 
   /**
@@ -32696,7 +37316,7 @@ export default class Client extends OpenApi {
    * @returns RemoveSkillGroupResponse
    */
   async removeSkillGroup(request: RemoveSkillGroupRequest): Promise<RemoveSkillGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.removeSkillGroupWithOptions(request, runtime);
   }
 
@@ -32707,63 +37327,63 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResetHotlineNumberResponse
    */
-  async resetHotlineNumberWithOptions(tmpReq: ResetHotlineNumberRequest, runtime: $Util.RuntimeOptions): Promise<ResetHotlineNumberResponse> {
-    Util.validateModel(tmpReq);
+  async resetHotlineNumberWithOptions(tmpReq: ResetHotlineNumberRequest, runtime: $dara.RuntimeOptions): Promise<ResetHotlineNumberResponse> {
+    tmpReq.validate();
     let request = new ResetHotlineNumberShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.outboundRangeList)) {
+    if (!$dara.isNull(tmpReq.outboundRangeList)) {
       request.outboundRangeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outboundRangeList, "OutboundRangeList", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.enableInbound)) {
+    if (!$dara.isNull(request.enableInbound)) {
       body["EnableInbound"] = request.enableInbound;
     }
 
-    if (!Util.isUnset(request.enableInboundEvaluation)) {
+    if (!$dara.isNull(request.enableInboundEvaluation)) {
       body["EnableInboundEvaluation"] = request.enableInboundEvaluation;
     }
 
-    if (!Util.isUnset(request.enableOutbound)) {
+    if (!$dara.isNull(request.enableOutbound)) {
       body["EnableOutbound"] = request.enableOutbound;
     }
 
-    if (!Util.isUnset(request.enableOutboundEvaluation)) {
+    if (!$dara.isNull(request.enableOutboundEvaluation)) {
       body["EnableOutboundEvaluation"] = request.enableOutboundEvaluation;
     }
 
-    if (!Util.isUnset(request.evaluationLevel)) {
+    if (!$dara.isNull(request.evaluationLevel)) {
       body["EvaluationLevel"] = request.evaluationLevel;
     }
 
-    if (!Util.isUnset(request.hotlineNumber)) {
+    if (!$dara.isNull(request.hotlineNumber)) {
       body["HotlineNumber"] = request.hotlineNumber;
     }
 
-    if (!Util.isUnset(request.inboundFlowId)) {
+    if (!$dara.isNull(request.inboundFlowId)) {
       body["InboundFlowId"] = request.inboundFlowId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.outboundAllDepart)) {
+    if (!$dara.isNull(request.outboundAllDepart)) {
       body["OutboundAllDepart"] = request.outboundAllDepart;
     }
 
-    if (!Util.isUnset(request.outboundRangeListShrink)) {
+    if (!$dara.isNull(request.outboundRangeListShrink)) {
       body["OutboundRangeList"] = request.outboundRangeListShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ResetHotlineNumber",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -32774,7 +37394,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ResetHotlineNumberResponse>(await this.callApi(params, req, runtime), new ResetHotlineNumberResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ResetHotlineNumberResponse>(await this.callApi(params, req, runtime), new ResetHotlineNumberResponse({}));
+    } else {
+      return $dara.cast<ResetHotlineNumberResponse>(await this.execute(params, req, runtime), new ResetHotlineNumberResponse({}));
+    }
+
   }
 
   /**
@@ -32784,7 +37409,7 @@ export default class Client extends OpenApi {
    * @returns ResetHotlineNumberResponse
    */
   async resetHotlineNumber(request: ResetHotlineNumberRequest): Promise<ResetHotlineNumberResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.resetHotlineNumberWithOptions(request, runtime);
   }
 
@@ -32793,21 +37418,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RestartOutboundTaskResponse
    */
-  async restartOutboundTaskWithOptions(request: RestartOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<RestartOutboundTaskResponse> {
-    Util.validateModel(request);
+  async restartOutboundTaskWithOptions(request: RestartOutboundTaskRequest, runtime: $dara.RuntimeOptions): Promise<RestartOutboundTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.outboundTaskId)) {
+    if (!$dara.isNull(request.outboundTaskId)) {
       query["OutboundTaskId"] = request.outboundTaskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RestartOutboundTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -32818,7 +37443,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RestartOutboundTaskResponse>(await this.callApi(params, req, runtime), new RestartOutboundTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RestartOutboundTaskResponse>(await this.callApi(params, req, runtime), new RestartOutboundTaskResponse({}));
+    } else {
+      return $dara.cast<RestartOutboundTaskResponse>(await this.execute(params, req, runtime), new RestartOutboundTaskResponse({}));
+    }
+
   }
 
   /**
@@ -32826,7 +37456,7 @@ export default class Client extends OpenApi {
    * @returns RestartOutboundTaskResponse
    */
   async restartOutboundTask(request: RestartOutboundTaskRequest): Promise<RestartOutboundTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.restartOutboundTaskWithOptions(request, runtime);
   }
 
@@ -32835,53 +37465,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RobotCallResponse
    */
-  async robotCallWithOptions(request: RobotCallRequest, runtime: $Util.RuntimeOptions): Promise<RobotCallResponse> {
-    Util.validateModel(request);
+  async robotCallWithOptions(request: RobotCallRequest, runtime: $dara.RuntimeOptions): Promise<RobotCallResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.calledNumber)) {
+    if (!$dara.isNull(request.calledNumber)) {
       query["CalledNumber"] = request.calledNumber;
     }
 
-    if (!Util.isUnset(request.calledShowNumber)) {
+    if (!$dara.isNull(request.calledShowNumber)) {
       query["CalledShowNumber"] = request.calledShowNumber;
     }
 
-    if (!Util.isUnset(request.earlyMediaAsr)) {
+    if (!$dara.isNull(request.earlyMediaAsr)) {
       query["EarlyMediaAsr"] = request.earlyMediaAsr;
     }
 
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.params)) {
+    if (!$dara.isNull(request.params)) {
       query["Params"] = request.params;
     }
 
-    if (!Util.isUnset(request.recordFlag)) {
+    if (!$dara.isNull(request.recordFlag)) {
       query["RecordFlag"] = request.recordFlag;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.robotId)) {
+    if (!$dara.isNull(request.robotId)) {
       query["RobotId"] = request.robotId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RobotCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -32892,7 +37522,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RobotCallResponse>(await this.callApi(params, req, runtime), new RobotCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RobotCallResponse>(await this.callApi(params, req, runtime), new RobotCallResponse({}));
+    } else {
+      return $dara.cast<RobotCallResponse>(await this.execute(params, req, runtime), new RobotCallResponse({}));
+    }
+
   }
 
   /**
@@ -32900,7 +37535,7 @@ export default class Client extends OpenApi {
    * @returns RobotCallResponse
    */
   async robotCall(request: RobotCallRequest): Promise<RobotCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.robotCallWithOptions(request, runtime);
   }
 
@@ -32909,141 +37544,141 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendCcoSmartCallResponse
    */
-  async sendCcoSmartCallWithOptions(request: SendCcoSmartCallRequest, runtime: $Util.RuntimeOptions): Promise<SendCcoSmartCallResponse> {
-    Util.validateModel(request);
+  async sendCcoSmartCallWithOptions(request: SendCcoSmartCallRequest, runtime: $dara.RuntimeOptions): Promise<SendCcoSmartCallResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.actionCodeBreak)) {
+    if (!$dara.isNull(request.actionCodeBreak)) {
       query["ActionCodeBreak"] = request.actionCodeBreak;
     }
 
-    if (!Util.isUnset(request.actionCodeTimeBreak)) {
+    if (!$dara.isNull(request.actionCodeTimeBreak)) {
       query["ActionCodeTimeBreak"] = request.actionCodeTimeBreak;
     }
 
-    if (!Util.isUnset(request.asrAlsAmId)) {
+    if (!$dara.isNull(request.asrAlsAmId)) {
       query["AsrAlsAmId"] = request.asrAlsAmId;
     }
 
-    if (!Util.isUnset(request.asrBaseId)) {
+    if (!$dara.isNull(request.asrBaseId)) {
       query["AsrBaseId"] = request.asrBaseId;
     }
 
-    if (!Util.isUnset(request.asrModelId)) {
+    if (!$dara.isNull(request.asrModelId)) {
       query["AsrModelId"] = request.asrModelId;
     }
 
-    if (!Util.isUnset(request.asrVocabularyId)) {
+    if (!$dara.isNull(request.asrVocabularyId)) {
       query["AsrVocabularyId"] = request.asrVocabularyId;
     }
 
-    if (!Util.isUnset(request.backgroundFileCode)) {
+    if (!$dara.isNull(request.backgroundFileCode)) {
       query["BackgroundFileCode"] = request.backgroundFileCode;
     }
 
-    if (!Util.isUnset(request.backgroundSpeed)) {
+    if (!$dara.isNull(request.backgroundSpeed)) {
       query["BackgroundSpeed"] = request.backgroundSpeed;
     }
 
-    if (!Util.isUnset(request.backgroundVolume)) {
+    if (!$dara.isNull(request.backgroundVolume)) {
       query["BackgroundVolume"] = request.backgroundVolume;
     }
 
-    if (!Util.isUnset(request.calledNumber)) {
+    if (!$dara.isNull(request.calledNumber)) {
       query["CalledNumber"] = request.calledNumber;
     }
 
-    if (!Util.isUnset(request.calledShowNumber)) {
+    if (!$dara.isNull(request.calledShowNumber)) {
       query["CalledShowNumber"] = request.calledShowNumber;
     }
 
-    if (!Util.isUnset(request.dynamicId)) {
+    if (!$dara.isNull(request.dynamicId)) {
       query["DynamicId"] = request.dynamicId;
     }
 
-    if (!Util.isUnset(request.earlyMediaAsr)) {
+    if (!$dara.isNull(request.earlyMediaAsr)) {
       query["EarlyMediaAsr"] = request.earlyMediaAsr;
     }
 
-    if (!Util.isUnset(request.enableITN)) {
+    if (!$dara.isNull(request.enableITN)) {
       query["EnableITN"] = request.enableITN;
     }
 
-    if (!Util.isUnset(request.muteTime)) {
+    if (!$dara.isNull(request.muteTime)) {
       query["MuteTime"] = request.muteTime;
     }
 
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pauseTime)) {
+    if (!$dara.isNull(request.pauseTime)) {
       query["PauseTime"] = request.pauseTime;
     }
 
-    if (!Util.isUnset(request.playTimes)) {
+    if (!$dara.isNull(request.playTimes)) {
       query["PlayTimes"] = request.playTimes;
     }
 
-    if (!Util.isUnset(request.prodCode)) {
+    if (!$dara.isNull(request.prodCode)) {
       query["ProdCode"] = request.prodCode;
     }
 
-    if (!Util.isUnset(request.recordFlag)) {
+    if (!$dara.isNull(request.recordFlag)) {
       query["RecordFlag"] = request.recordFlag;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.sessionTimeout)) {
+    if (!$dara.isNull(request.sessionTimeout)) {
       query["SessionTimeout"] = request.sessionTimeout;
     }
 
-    if (!Util.isUnset(request.speed)) {
+    if (!$dara.isNull(request.speed)) {
       query["Speed"] = request.speed;
     }
 
-    if (!Util.isUnset(request.ttsConf)) {
+    if (!$dara.isNull(request.ttsConf)) {
       query["TtsConf"] = request.ttsConf;
     }
 
-    if (!Util.isUnset(request.ttsSpeed)) {
+    if (!$dara.isNull(request.ttsSpeed)) {
       query["TtsSpeed"] = request.ttsSpeed;
     }
 
-    if (!Util.isUnset(request.ttsStyle)) {
+    if (!$dara.isNull(request.ttsStyle)) {
       query["TtsStyle"] = request.ttsStyle;
     }
 
-    if (!Util.isUnset(request.ttsVolume)) {
+    if (!$dara.isNull(request.ttsVolume)) {
       query["TtsVolume"] = request.ttsVolume;
     }
 
-    if (!Util.isUnset(request.voiceCode)) {
+    if (!$dara.isNull(request.voiceCode)) {
       query["VoiceCode"] = request.voiceCode;
     }
 
-    if (!Util.isUnset(request.voiceCodeParam)) {
+    if (!$dara.isNull(request.voiceCodeParam)) {
       query["VoiceCodeParam"] = request.voiceCodeParam;
     }
 
-    if (!Util.isUnset(request.volume)) {
+    if (!$dara.isNull(request.volume)) {
       query["Volume"] = request.volume;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendCcoSmartCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33054,7 +37689,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendCcoSmartCallResponse>(await this.callApi(params, req, runtime), new SendCcoSmartCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SendCcoSmartCallResponse>(await this.callApi(params, req, runtime), new SendCcoSmartCallResponse({}));
+    } else {
+      return $dara.cast<SendCcoSmartCallResponse>(await this.execute(params, req, runtime), new SendCcoSmartCallResponse({}));
+    }
+
   }
 
   /**
@@ -33062,7 +37702,7 @@ export default class Client extends OpenApi {
    * @returns SendCcoSmartCallResponse
    */
   async sendCcoSmartCall(request: SendCcoSmartCallRequest): Promise<SendCcoSmartCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendCcoSmartCallWithOptions(request, runtime);
   }
 
@@ -33071,41 +37711,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendCcoSmartCallOperateResponse
    */
-  async sendCcoSmartCallOperateWithOptions(request: SendCcoSmartCallOperateRequest, runtime: $Util.RuntimeOptions): Promise<SendCcoSmartCallOperateResponse> {
-    Util.validateModel(request);
+  async sendCcoSmartCallOperateWithOptions(request: SendCcoSmartCallOperateRequest, runtime: $dara.RuntimeOptions): Promise<SendCcoSmartCallOperateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       query["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.command)) {
+    if (!$dara.isNull(request.command)) {
       query["Command"] = request.command;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.param)) {
+    if (!$dara.isNull(request.param)) {
       query["Param"] = request.param;
     }
 
-    if (!Util.isUnset(request.prodCode)) {
+    if (!$dara.isNull(request.prodCode)) {
       query["ProdCode"] = request.prodCode;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendCcoSmartCallOperate",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33116,7 +37756,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendCcoSmartCallOperateResponse>(await this.callApi(params, req, runtime), new SendCcoSmartCallOperateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SendCcoSmartCallOperateResponse>(await this.callApi(params, req, runtime), new SendCcoSmartCallOperateResponse({}));
+    } else {
+      return $dara.cast<SendCcoSmartCallOperateResponse>(await this.execute(params, req, runtime), new SendCcoSmartCallOperateResponse({}));
+    }
+
   }
 
   /**
@@ -33124,7 +37769,7 @@ export default class Client extends OpenApi {
    * @returns SendCcoSmartCallOperateResponse
    */
   async sendCcoSmartCallOperate(request: SendCcoSmartCallOperateRequest): Promise<SendCcoSmartCallOperateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendCcoSmartCallOperateWithOptions(request, runtime);
   }
 
@@ -33133,29 +37778,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendHotlineHeartBeatResponse
    */
-  async sendHotlineHeartBeatWithOptions(request: SendHotlineHeartBeatRequest, runtime: $Util.RuntimeOptions): Promise<SendHotlineHeartBeatResponse> {
-    Util.validateModel(request);
+  async sendHotlineHeartBeatWithOptions(request: SendHotlineHeartBeatRequest, runtime: $dara.RuntimeOptions): Promise<SendHotlineHeartBeatResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       body["Token"] = request.token;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SendHotlineHeartBeat",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33166,7 +37811,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SendHotlineHeartBeatResponse>(await this.callApi(params, req, runtime), new SendHotlineHeartBeatResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SendHotlineHeartBeatResponse>(await this.callApi(params, req, runtime), new SendHotlineHeartBeatResponse({}));
+    } else {
+      return $dara.cast<SendHotlineHeartBeatResponse>(await this.execute(params, req, runtime), new SendHotlineHeartBeatResponse({}));
+    }
+
   }
 
   /**
@@ -33174,7 +37824,7 @@ export default class Client extends OpenApi {
    * @returns SendHotlineHeartBeatResponse
    */
   async sendHotlineHeartBeat(request: SendHotlineHeartBeatRequest): Promise<SendHotlineHeartBeatResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.sendHotlineHeartBeatWithOptions(request, runtime);
   }
 
@@ -33185,21 +37835,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartAiOutboundTaskResponse
    */
-  async startAiOutboundTaskWithOptions(request: StartAiOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartAiOutboundTaskResponse> {
-    Util.validateModel(request);
+  async startAiOutboundTaskWithOptions(request: StartAiOutboundTaskRequest, runtime: $dara.RuntimeOptions): Promise<StartAiOutboundTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartAiOutboundTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33210,7 +37860,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new StartAiOutboundTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new StartAiOutboundTaskResponse({}));
+    } else {
+      return $dara.cast<StartAiOutboundTaskResponse>(await this.execute(params, req, runtime), new StartAiOutboundTaskResponse({}));
+    }
+
   }
 
   /**
@@ -33220,7 +37875,7 @@ export default class Client extends OpenApi {
    * @returns StartAiOutboundTaskResponse
    */
   async startAiOutboundTask(request: StartAiOutboundTaskRequest): Promise<StartAiOutboundTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startAiOutboundTaskWithOptions(request, runtime);
   }
 
@@ -33229,33 +37884,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartCallResponse
    */
-  async startCallWithOptions(request: StartCallRequest, runtime: $Util.RuntimeOptions): Promise<StartCallResponse> {
-    Util.validateModel(request);
+  async startCallWithOptions(request: StartCallRequest, runtime: $dara.RuntimeOptions): Promise<StartCallResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.callee)) {
+    if (!$dara.isNull(request.callee)) {
       body["Callee"] = request.callee;
     }
 
-    if (!Util.isUnset(request.caller)) {
+    if (!$dara.isNull(request.caller)) {
       body["Caller"] = request.caller;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartCall",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33266,7 +37921,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartCallResponse>(await this.callApi(params, req, runtime), new StartCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartCallResponse>(await this.callApi(params, req, runtime), new StartCallResponse({}));
+    } else {
+      return $dara.cast<StartCallResponse>(await this.execute(params, req, runtime), new StartCallResponse({}));
+    }
+
   }
 
   /**
@@ -33274,7 +37934,7 @@ export default class Client extends OpenApi {
    * @returns StartCallResponse
    */
   async startCall(request: StartCallRequest): Promise<StartCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startCallWithOptions(request, runtime);
   }
 
@@ -33283,37 +37943,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartCallV2Response
    */
-  async startCallV2WithOptions(request: StartCallV2Request, runtime: $Util.RuntimeOptions): Promise<StartCallV2Response> {
-    Util.validateModel(request);
+  async startCallV2WithOptions(request: StartCallV2Request, runtime: $dara.RuntimeOptions): Promise<StartCallV2Response> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.callee)) {
+    if (!$dara.isNull(request.callee)) {
       body["Callee"] = request.callee;
     }
 
-    if (!Util.isUnset(request.caller)) {
+    if (!$dara.isNull(request.caller)) {
       body["Caller"] = request.caller;
     }
 
-    if (!Util.isUnset(request.callerType)) {
+    if (!$dara.isNull(request.callerType)) {
       body["CallerType"] = request.callerType;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartCallV2",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33324,7 +37984,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartCallV2Response>(await this.callApi(params, req, runtime), new StartCallV2Response({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartCallV2Response>(await this.callApi(params, req, runtime), new StartCallV2Response({}));
+    } else {
+      return $dara.cast<StartCallV2Response>(await this.execute(params, req, runtime), new StartCallV2Response({}));
+    }
+
   }
 
   /**
@@ -33332,7 +37997,7 @@ export default class Client extends OpenApi {
    * @returns StartCallV2Response
    */
   async startCallV2(request: StartCallV2Request): Promise<StartCallV2Response> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startCallV2WithOptions(request, runtime);
   }
 
@@ -33343,21 +38008,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartChatWorkResponse
    */
-  async startChatWorkWithOptions(request: StartChatWorkRequest, runtime: $Util.RuntimeOptions): Promise<StartChatWorkResponse> {
-    Util.validateModel(request);
+  async startChatWorkWithOptions(request: StartChatWorkRequest, runtime: $dara.RuntimeOptions): Promise<StartChatWorkResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartChatWork",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33368,7 +38033,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartChatWorkResponse>(await this.callApi(params, req, runtime), new StartChatWorkResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartChatWorkResponse>(await this.callApi(params, req, runtime), new StartChatWorkResponse({}));
+    } else {
+      return $dara.cast<StartChatWorkResponse>(await this.execute(params, req, runtime), new StartChatWorkResponse({}));
+    }
+
   }
 
   /**
@@ -33378,7 +38048,7 @@ export default class Client extends OpenApi {
    * @returns StartChatWorkResponse
    */
   async startChatWork(request: StartChatWorkRequest): Promise<StartChatWorkResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startChatWorkWithOptions(request, runtime);
   }
 
@@ -33387,25 +38057,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartHotlineServiceResponse
    */
-  async startHotlineServiceWithOptions(request: StartHotlineServiceRequest, runtime: $Util.RuntimeOptions): Promise<StartHotlineServiceResponse> {
-    Util.validateModel(request);
+  async startHotlineServiceWithOptions(request: StartHotlineServiceRequest, runtime: $dara.RuntimeOptions): Promise<StartHotlineServiceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartHotlineService",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33416,7 +38086,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartHotlineServiceResponse>(await this.callApi(params, req, runtime), new StartHotlineServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartHotlineServiceResponse>(await this.callApi(params, req, runtime), new StartHotlineServiceResponse({}));
+    } else {
+      return $dara.cast<StartHotlineServiceResponse>(await this.execute(params, req, runtime), new StartHotlineServiceResponse({}));
+    }
+
   }
 
   /**
@@ -33424,7 +38099,7 @@ export default class Client extends OpenApi {
    * @returns StartHotlineServiceResponse
    */
   async startHotlineService(request: StartHotlineServiceRequest): Promise<StartHotlineServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startHotlineServiceWithOptions(request, runtime);
   }
 
@@ -33433,57 +38108,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartMicroOutboundResponse
    */
-  async startMicroOutboundWithOptions(request: StartMicroOutboundRequest, runtime: $Util.RuntimeOptions): Promise<StartMicroOutboundResponse> {
-    Util.validateModel(request);
+  async startMicroOutboundWithOptions(request: StartMicroOutboundRequest, runtime: $dara.RuntimeOptions): Promise<StartMicroOutboundResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountId)) {
+    if (!$dara.isNull(request.accountId)) {
       query["AccountId"] = request.accountId;
     }
 
-    if (!Util.isUnset(request.accountType)) {
+    if (!$dara.isNull(request.accountType)) {
       query["AccountType"] = request.accountType;
     }
 
-    if (!Util.isUnset(request.appName)) {
+    if (!$dara.isNull(request.appName)) {
       query["AppName"] = request.appName;
     }
 
-    if (!Util.isUnset(request.calledNumber)) {
+    if (!$dara.isNull(request.calledNumber)) {
       query["CalledNumber"] = request.calledNumber;
     }
 
-    if (!Util.isUnset(request.callingNumber)) {
+    if (!$dara.isNull(request.callingNumber)) {
       query["CallingNumber"] = request.callingNumber;
     }
 
-    if (!Util.isUnset(request.commandCode)) {
+    if (!$dara.isNull(request.commandCode)) {
       query["CommandCode"] = request.commandCode;
     }
 
-    if (!Util.isUnset(request.extInfo)) {
+    if (!$dara.isNull(request.extInfo)) {
       query["ExtInfo"] = request.extInfo;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.prodCode)) {
+    if (!$dara.isNull(request.prodCode)) {
       query["ProdCode"] = request.prodCode;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartMicroOutbound",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33494,7 +38169,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartMicroOutboundResponse>(await this.callApi(params, req, runtime), new StartMicroOutboundResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartMicroOutboundResponse>(await this.callApi(params, req, runtime), new StartMicroOutboundResponse({}));
+    } else {
+      return $dara.cast<StartMicroOutboundResponse>(await this.execute(params, req, runtime), new StartMicroOutboundResponse({}));
+    }
+
   }
 
   /**
@@ -33502,7 +38182,7 @@ export default class Client extends OpenApi {
    * @returns StartMicroOutboundResponse
    */
   async startMicroOutbound(request: StartMicroOutboundRequest): Promise<StartMicroOutboundResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startMicroOutboundWithOptions(request, runtime);
   }
 
@@ -33513,33 +38193,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartTaskResponse
    */
-  async startTaskWithOptions(request: StartTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartTaskResponse> {
-    Util.validateModel(request);
+  async startTaskWithOptions(request: StartTaskRequest, runtime: $dara.RuntimeOptions): Promise<StartTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.startNow)) {
+    if (!$dara.isNull(request.startNow)) {
       query["StartNow"] = request.startNow;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33550,7 +38230,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartTaskResponse>(await this.callApi(params, req, runtime), new StartTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartTaskResponse>(await this.callApi(params, req, runtime), new StartTaskResponse({}));
+    } else {
+      return $dara.cast<StartTaskResponse>(await this.execute(params, req, runtime), new StartTaskResponse({}));
+    }
+
   }
 
   /**
@@ -33560,7 +38245,7 @@ export default class Client extends OpenApi {
    * @returns StartTaskResponse
    */
   async startTask(request: StartTaskRequest): Promise<StartTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startTaskWithOptions(request, runtime);
   }
 
@@ -33571,21 +38256,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopAiOutboundTaskResponse
    */
-  async stopAiOutboundTaskWithOptions(request: StopAiOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopAiOutboundTaskResponse> {
-    Util.validateModel(request);
+  async stopAiOutboundTaskWithOptions(request: StopAiOutboundTaskRequest, runtime: $dara.RuntimeOptions): Promise<StopAiOutboundTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopAiOutboundTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33596,7 +38281,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StopAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new StopAiOutboundTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new StopAiOutboundTaskResponse({}));
+    } else {
+      return $dara.cast<StopAiOutboundTaskResponse>(await this.execute(params, req, runtime), new StopAiOutboundTaskResponse({}));
+    }
+
   }
 
   /**
@@ -33606,7 +38296,7 @@ export default class Client extends OpenApi {
    * @returns StopAiOutboundTaskResponse
    */
   async stopAiOutboundTask(request: StopAiOutboundTaskRequest): Promise<StopAiOutboundTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.stopAiOutboundTaskWithOptions(request, runtime);
   }
 
@@ -33617,29 +38307,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopTaskResponse
    */
-  async stopTaskWithOptions(request: StopTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopTaskResponse> {
-    Util.validateModel(request);
+  async stopTaskWithOptions(request: StopTaskRequest, runtime: $dara.RuntimeOptions): Promise<StopTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33650,7 +38340,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StopTaskResponse>(await this.callApi(params, req, runtime), new StopTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopTaskResponse>(await this.callApi(params, req, runtime), new StopTaskResponse({}));
+    } else {
+      return $dara.cast<StopTaskResponse>(await this.execute(params, req, runtime), new StopTaskResponse({}));
+    }
+
   }
 
   /**
@@ -33660,7 +38355,7 @@ export default class Client extends OpenApi {
    * @returns StopTaskResponse
    */
   async stopTask(request: StopTaskRequest): Promise<StopTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.stopTaskWithOptions(request, runtime);
   }
 
@@ -33669,29 +38364,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SuspendHotlineServiceResponse
    */
-  async suspendHotlineServiceWithOptions(request: SuspendHotlineServiceRequest, runtime: $Util.RuntimeOptions): Promise<SuspendHotlineServiceResponse> {
-    Util.validateModel(request);
+  async suspendHotlineServiceWithOptions(request: SuspendHotlineServiceRequest, runtime: $dara.RuntimeOptions): Promise<SuspendHotlineServiceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SuspendHotlineService",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33702,7 +38397,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SuspendHotlineServiceResponse>(await this.callApi(params, req, runtime), new SuspendHotlineServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SuspendHotlineServiceResponse>(await this.callApi(params, req, runtime), new SuspendHotlineServiceResponse({}));
+    } else {
+      return $dara.cast<SuspendHotlineServiceResponse>(await this.execute(params, req, runtime), new SuspendHotlineServiceResponse({}));
+    }
+
   }
 
   /**
@@ -33710,7 +38410,7 @@ export default class Client extends OpenApi {
    * @returns SuspendHotlineServiceResponse
    */
   async suspendHotlineService(request: SuspendHotlineServiceRequest): Promise<SuspendHotlineServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.suspendHotlineServiceWithOptions(request, runtime);
   }
 
@@ -33719,21 +38419,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SuspendOutboundTaskResponse
    */
-  async suspendOutboundTaskWithOptions(request: SuspendOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<SuspendOutboundTaskResponse> {
-    Util.validateModel(request);
+  async suspendOutboundTaskWithOptions(request: SuspendOutboundTaskRequest, runtime: $dara.RuntimeOptions): Promise<SuspendOutboundTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.outboundTaskId)) {
+    if (!$dara.isNull(request.outboundTaskId)) {
       query["OutboundTaskId"] = request.outboundTaskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SuspendOutboundTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33744,7 +38444,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SuspendOutboundTaskResponse>(await this.callApi(params, req, runtime), new SuspendOutboundTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SuspendOutboundTaskResponse>(await this.callApi(params, req, runtime), new SuspendOutboundTaskResponse({}));
+    } else {
+      return $dara.cast<SuspendOutboundTaskResponse>(await this.execute(params, req, runtime), new SuspendOutboundTaskResponse({}));
+    }
+
   }
 
   /**
@@ -33752,7 +38457,7 @@ export default class Client extends OpenApi {
    * @returns SuspendOutboundTaskResponse
    */
   async suspendOutboundTask(request: SuspendOutboundTaskRequest): Promise<SuspendOutboundTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.suspendOutboundTaskWithOptions(request, runtime);
   }
 
@@ -33763,21 +38468,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TerminateAiOutboundTaskResponse
    */
-  async terminateAiOutboundTaskWithOptions(request: TerminateAiOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<TerminateAiOutboundTaskResponse> {
-    Util.validateModel(request);
+  async terminateAiOutboundTaskWithOptions(request: TerminateAiOutboundTaskRequest, runtime: $dara.RuntimeOptions): Promise<TerminateAiOutboundTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TerminateAiOutboundTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33788,7 +38493,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TerminateAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new TerminateAiOutboundTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TerminateAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new TerminateAiOutboundTaskResponse({}));
+    } else {
+      return $dara.cast<TerminateAiOutboundTaskResponse>(await this.execute(params, req, runtime), new TerminateAiOutboundTaskResponse({}));
+    }
+
   }
 
   /**
@@ -33798,7 +38508,7 @@ export default class Client extends OpenApi {
    * @returns TerminateAiOutboundTaskResponse
    */
   async terminateAiOutboundTask(request: TerminateAiOutboundTaskRequest): Promise<TerminateAiOutboundTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.terminateAiOutboundTaskWithOptions(request, runtime);
   }
 
@@ -33807,53 +38517,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TransferCallToSkillGroupResponse
    */
-  async transferCallToSkillGroupWithOptions(request: TransferCallToSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<TransferCallToSkillGroupResponse> {
-    Util.validateModel(request);
+  async transferCallToSkillGroupWithOptions(request: TransferCallToSkillGroupRequest, runtime: $dara.RuntimeOptions): Promise<TransferCallToSkillGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       body["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.connectionId)) {
+    if (!$dara.isNull(request.connectionId)) {
       body["ConnectionId"] = request.connectionId;
     }
 
-    if (!Util.isUnset(request.holdConnectionId)) {
+    if (!$dara.isNull(request.holdConnectionId)) {
       body["HoldConnectionId"] = request.holdConnectionId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.isSingleTransfer)) {
+    if (!$dara.isNull(request.isSingleTransfer)) {
       body["IsSingleTransfer"] = request.isSingleTransfer;
     }
 
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.jobId)) {
       body["JobId"] = request.jobId;
     }
 
-    if (!Util.isUnset(request.skillGroupId)) {
+    if (!$dara.isNull(request.skillGroupId)) {
       body["SkillGroupId"] = request.skillGroupId;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TransferCallToSkillGroup",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33864,7 +38574,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TransferCallToSkillGroupResponse>(await this.callApi(params, req, runtime), new TransferCallToSkillGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TransferCallToSkillGroupResponse>(await this.callApi(params, req, runtime), new TransferCallToSkillGroupResponse({}));
+    } else {
+      return $dara.cast<TransferCallToSkillGroupResponse>(await this.execute(params, req, runtime), new TransferCallToSkillGroupResponse({}));
+    }
+
   }
 
   /**
@@ -33872,7 +38587,7 @@ export default class Client extends OpenApi {
    * @returns TransferCallToSkillGroupResponse
    */
   async transferCallToSkillGroup(request: TransferCallToSkillGroupRequest): Promise<TransferCallToSkillGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.transferCallToSkillGroupWithOptions(request, runtime);
   }
 
@@ -33881,37 +38596,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAgentResponse
    */
-  async updateAgentWithOptions(request: UpdateAgentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAgentResponse> {
-    Util.validateModel(request);
+  async updateAgentWithOptions(request: UpdateAgentRequest, runtime: $dara.RuntimeOptions): Promise<UpdateAgentResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       body["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       body["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.skillGroupId)) {
+    if (!$dara.isNull(request.skillGroupId)) {
       body["SkillGroupId"] = request.skillGroupId;
     }
 
-    if (!Util.isUnset(request.skillGroupIdList)) {
+    if (!$dara.isNull(request.skillGroupIdList)) {
       body["SkillGroupIdList"] = request.skillGroupIdList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateAgent",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -33922,7 +38637,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAgentResponse>(await this.callApi(params, req, runtime), new UpdateAgentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateAgentResponse>(await this.callApi(params, req, runtime), new UpdateAgentResponse({}));
+    } else {
+      return $dara.cast<UpdateAgentResponse>(await this.execute(params, req, runtime), new UpdateAgentResponse({}));
+    }
+
   }
 
   /**
@@ -33930,7 +38650,7 @@ export default class Client extends OpenApi {
    * @returns UpdateAgentResponse
    */
   async updateAgent(request: UpdateAgentRequest): Promise<UpdateAgentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAgentWithOptions(request, runtime);
   }
 
@@ -33941,67 +38661,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAiOutboundTaskResponse
    */
-  async updateAiOutboundTaskWithOptions(tmpReq: UpdateAiOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAiOutboundTaskResponse> {
-    Util.validateModel(tmpReq);
+  async updateAiOutboundTaskWithOptions(tmpReq: UpdateAiOutboundTaskRequest, runtime: $dara.RuntimeOptions): Promise<UpdateAiOutboundTaskResponse> {
+    tmpReq.validate();
     let request = new UpdateAiOutboundTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.outboundNums)) {
+    if (!$dara.isNull(tmpReq.outboundNums)) {
       request.outboundNumsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outboundNums, "OutboundNums", "json");
     }
 
-    if (!Util.isUnset(tmpReq.recallRule)) {
+    if (!$dara.isNull(tmpReq.recallRule)) {
       request.recallRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recallRule, "RecallRule", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.concurrentRate)) {
+    if (!$dara.isNull(request.concurrentRate)) {
       query["ConcurrentRate"] = request.concurrentRate;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.executionTime)) {
+    if (!$dara.isNull(request.executionTime)) {
       query["ExecutionTime"] = request.executionTime;
     }
 
-    if (!Util.isUnset(request.forecastCallRate)) {
+    if (!$dara.isNull(request.forecastCallRate)) {
       query["ForecastCallRate"] = request.forecastCallRate;
     }
 
-    if (!Util.isUnset(request.handlerId)) {
+    if (!$dara.isNull(request.handlerId)) {
       query["HandlerId"] = request.handlerId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.numRepeated)) {
+    if (!$dara.isNull(request.numRepeated)) {
       query["NumRepeated"] = request.numRepeated;
     }
 
-    if (!Util.isUnset(request.outboundNumsShrink)) {
+    if (!$dara.isNull(request.outboundNumsShrink)) {
       query["OutboundNums"] = request.outboundNumsShrink;
     }
 
-    if (!Util.isUnset(request.recallRuleShrink)) {
+    if (!$dara.isNull(request.recallRuleShrink)) {
       query["RecallRule"] = request.recallRuleShrink;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateAiOutboundTask",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -34012,7 +38732,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new UpdateAiOutboundTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new UpdateAiOutboundTaskResponse({}));
+    } else {
+      return $dara.cast<UpdateAiOutboundTaskResponse>(await this.execute(params, req, runtime), new UpdateAiOutboundTaskResponse({}));
+    }
+
   }
 
   /**
@@ -34022,7 +38747,7 @@ export default class Client extends OpenApi {
    * @returns UpdateAiOutboundTaskResponse
    */
   async updateAiOutboundTask(request: UpdateAiOutboundTaskRequest): Promise<UpdateAiOutboundTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAiOutboundTaskWithOptions(request, runtime);
   }
 
@@ -34033,25 +38758,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDepartmentResponse
    */
-  async updateDepartmentWithOptions(request: UpdateDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDepartmentResponse> {
-    Util.validateModel(request);
+  async updateDepartmentWithOptions(request: UpdateDepartmentRequest, runtime: $dara.RuntimeOptions): Promise<UpdateDepartmentResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.departmentId)) {
+    if (!$dara.isNull(request.departmentId)) {
       query["DepartmentId"] = request.departmentId;
     }
 
-    if (!Util.isUnset(request.departmentName)) {
+    if (!$dara.isNull(request.departmentName)) {
       query["DepartmentName"] = request.departmentName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateDepartment",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -34062,7 +38787,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDepartmentResponse>(await this.callApi(params, req, runtime), new UpdateDepartmentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDepartmentResponse>(await this.callApi(params, req, runtime), new UpdateDepartmentResponse({}));
+    } else {
+      return $dara.cast<UpdateDepartmentResponse>(await this.execute(params, req, runtime), new UpdateDepartmentResponse({}));
+    }
+
   }
 
   /**
@@ -34072,7 +38802,7 @@ export default class Client extends OpenApi {
    * @returns UpdateDepartmentResponse
    */
   async updateDepartment(request: UpdateDepartmentRequest): Promise<UpdateDepartmentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDepartmentWithOptions(request, runtime);
   }
 
@@ -34081,13 +38811,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateOuterAccountResponse
    */
-  async updateOuterAccountWithOptions(request: UpdateOuterAccountRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOuterAccountResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async updateOuterAccountWithOptions(request: UpdateOuterAccountRequest, runtime: $dara.RuntimeOptions): Promise<UpdateOuterAccountResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateOuterAccount",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -34098,7 +38828,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateOuterAccountResponse>(await this.callApi(params, req, runtime), new UpdateOuterAccountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateOuterAccountResponse>(await this.callApi(params, req, runtime), new UpdateOuterAccountResponse({}));
+    } else {
+      return $dara.cast<UpdateOuterAccountResponse>(await this.execute(params, req, runtime), new UpdateOuterAccountResponse({}));
+    }
+
   }
 
   /**
@@ -34106,7 +38841,7 @@ export default class Client extends OpenApi {
    * @returns UpdateOuterAccountResponse
    */
   async updateOuterAccount(request: UpdateOuterAccountRequest): Promise<UpdateOuterAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateOuterAccountWithOptions(request, runtime);
   }
 
@@ -34115,37 +38850,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSkillGroupResponse
    */
-  async updateSkillGroupWithOptions(request: UpdateSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSkillGroupResponse> {
-    Util.validateModel(request);
+  async updateSkillGroupWithOptions(request: UpdateSkillGroupRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSkillGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.displayName)) {
+    if (!$dara.isNull(request.displayName)) {
       query["DisplayName"] = request.displayName;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.skillGroupId)) {
+    if (!$dara.isNull(request.skillGroupId)) {
       query["SkillGroupId"] = request.skillGroupId;
     }
 
-    if (!Util.isUnset(request.skillGroupName)) {
+    if (!$dara.isNull(request.skillGroupName)) {
       query["SkillGroupName"] = request.skillGroupName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateSkillGroup",
       version: "2019-10-15",
       protocol: "HTTPS",
@@ -34156,7 +38891,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateSkillGroupResponse>(await this.callApi(params, req, runtime), new UpdateSkillGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateSkillGroupResponse>(await this.callApi(params, req, runtime), new UpdateSkillGroupResponse({}));
+    } else {
+      return $dara.cast<UpdateSkillGroupResponse>(await this.execute(params, req, runtime), new UpdateSkillGroupResponse({}));
+    }
+
   }
 
   /**
@@ -34164,7 +38904,7 @@ export default class Client extends OpenApi {
    * @returns UpdateSkillGroupResponse
    */
   async updateSkillGroup(request: UpdateSkillGroupRequest): Promise<UpdateSkillGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSkillGroupWithOptions(request, runtime);
   }
 
