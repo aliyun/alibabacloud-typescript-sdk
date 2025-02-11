@@ -1193,6 +1193,145 @@ export class GetResourcesResponseBodyData extends $dara.Model {
   }
 }
 
+export class GetServiceFuncStatusRequestParams extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mullprof
+   */
+  functionName?: string;
+  /**
+   * @example
+   * i-2zei55fwj8nnu31h3z46
+   */
+  instance?: string;
+  /**
+   * @example
+   * 1338904783509062
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      functionName: 'function_name',
+      instance: 'instance',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functionName: 'string',
+      instance: 'string',
+      uid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceFuncStatusResponseBodyDataArgs extends $dara.Model {
+  /**
+   * @example
+   * java
+   */
+  addCmd?: string;
+  /**
+   * @example
+   * true
+   */
+  cpu?: string;
+  /**
+   * @example
+   * /tmp/sysom/java-profiler
+   */
+  javaStorePath?: string;
+  /**
+   * @example
+   * true
+   */
+  locks?: string;
+  /**
+   * @example
+   * -1
+   */
+  loop?: number;
+  /**
+   * @example
+   * true
+   */
+  mem?: string;
+  /**
+   * @example
+   * true
+   */
+  systemProfiling?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addCmd: 'add_cmd',
+      cpu: 'cpu',
+      javaStorePath: 'java_store_path',
+      locks: 'locks',
+      loop: 'loop',
+      mem: 'mem',
+      systemProfiling: 'system_profiling',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addCmd: 'string',
+      cpu: 'string',
+      javaStorePath: 'string',
+      locks: 'string',
+      loop: 'number',
+      mem: 'string',
+      systemProfiling: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceFuncStatusResponseBodyData extends $dara.Model {
+  args?: GetServiceFuncStatusResponseBodyDataArgs;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'args',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: GetServiceFuncStatusResponseBodyDataArgs,
+    };
+  }
+
+  validate() {
+    if(this.args && typeof (this.args as any).validate === 'function') {
+      (this.args as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InitialSysomResponseBodyData extends $dara.Model {
   roleExist?: boolean;
   static names(): { [key: string]: string } {
@@ -1587,6 +1726,7 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
    * 2024-12-25T15:08:19
    */
   createdAt?: string;
+  grayscaleConfig?: string;
   /**
    * @example
    * 74a86327-3170-412c-8e67-da3389ec56a9
@@ -1606,6 +1746,7 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
     return {
       clusterId: 'cluster_id',
       createdAt: 'created_at',
+      grayscaleConfig: 'grayscale_config',
       pluginId: 'plugin_id',
       pluginVersion: 'plugin_version',
       updatedAt: 'updated_at',
@@ -1616,6 +1757,7 @@ export class ListClusterAgentInstallRecordsResponseBodyData extends $dara.Model 
     return {
       clusterId: 'string',
       createdAt: 'string',
+      grayscaleConfig: 'string',
       pluginId: 'string',
       pluginVersion: 'string',
       updatedAt: 'string',
@@ -2135,6 +2277,159 @@ export class UpdateEventsAttentionResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       mode: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFuncSwitchRecordRequestParamsArgs extends $dara.Model {
+  /**
+   * @example
+   * java
+   */
+  addCmd?: string;
+  /**
+   * @example
+   * true
+   */
+  cpu?: string;
+  /**
+   * @example
+   * /tmp/sysom/java-profiler
+   */
+  javaStorePath?: string;
+  /**
+   * @example
+   * true
+   */
+  locks?: string;
+  /**
+   * @example
+   * -1
+   */
+  loop?: number;
+  /**
+   * @example
+   * true
+   */
+  mem?: string;
+  /**
+   * @example
+   * true
+   */
+  systemProfiling?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addCmd: 'add_cmd',
+      cpu: 'cpu',
+      javaStorePath: 'java_store_path',
+      locks: 'locks',
+      loop: 'loop',
+      mem: 'mem',
+      systemProfiling: 'system_profiling',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addCmd: 'string',
+      cpu: 'string',
+      javaStorePath: 'string',
+      locks: 'string',
+      loop: 'number',
+      mem: 'string',
+      systemProfiling: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFuncSwitchRecordRequestParams extends $dara.Model {
+  args?: UpdateFuncSwitchRecordRequestParamsArgs;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mullprof
+   */
+  functionName?: string;
+  /**
+   * @example
+   * i-2zei55fwj8nnu31h3z46
+   */
+  instance?: string;
+  /**
+   * @example
+   * restart
+   */
+  op?: string;
+  /**
+   * @example
+   * 1664516888213680
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'args',
+      functionName: 'function_name',
+      instance: 'instance',
+      op: 'op',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: UpdateFuncSwitchRecordRequestParamsArgs,
+      functionName: 'string',
+      instance: 'string',
+      op: 'string',
+      uid: 'string',
+    };
+  }
+
+  validate() {
+    if(this.args && typeof (this.args as any).validate === 'function') {
+      (this.args as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFuncSwitchRecordResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 63fc5acb99e642d793f42912612e8001
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
     };
   }
 
@@ -5123,6 +5418,184 @@ export class GetResourcesResponse extends $dara.Model {
   }
 }
 
+export class GetServiceFuncStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ecs
+   */
+  channel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  params?: GetServiceFuncStatusRequestParams;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * livetrace
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'channel',
+      params: 'params',
+      serviceName: 'service_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: 'string',
+      params: GetServiceFuncStatusRequestParams,
+      serviceName: 'string',
+    };
+  }
+
+  validate() {
+    if(this.params && typeof (this.params as any).validate === 'function') {
+      (this.params as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceFuncStatusShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ecs
+   */
+  channel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  paramsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * livetrace
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'channel',
+      paramsShrink: 'params',
+      serviceName: 'service_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: 'string',
+      paramsShrink: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceFuncStatusResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Success
+   */
+  code?: string;
+  data?: GetServiceFuncStatusResponseBodyData;
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2D693121-C925-5154-8DF6-C09A8B369822
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetServiceFuncStatusResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceFuncStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceFuncStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceFuncStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InitialSysomRequest extends $dara.Model {
   checkOnly?: boolean;
   static names(): { [key: string]: string } {
@@ -7726,6 +8199,188 @@ export class UpdateEventsAttentionResponse extends $dara.Model {
   }
 }
 
+export class UpdateFuncSwitchRecordRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ecs
+   */
+  channel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  params?: UpdateFuncSwitchRecordRequestParams;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * livetrace
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'channel',
+      params: 'params',
+      serviceName: 'service_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: 'string',
+      params: UpdateFuncSwitchRecordRequestParams,
+      serviceName: 'string',
+    };
+  }
+
+  validate() {
+    if(this.params && typeof (this.params as any).validate === 'function') {
+      (this.params as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFuncSwitchRecordShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ecs
+   */
+  channel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  paramsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * livetrace
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'channel',
+      paramsShrink: 'params',
+      serviceName: 'service_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: 'string',
+      paramsShrink: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFuncSwitchRecordResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Success
+   */
+  code?: string;
+  data?: UpdateFuncSwitchRecordResponseBodyData;
+  /**
+   * @example
+   * result: code=1 msg=(Request failed, status_code != 200)
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2D693121-C925-5154-8DF6-C09A8B369822
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdateFuncSwitchRecordResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFuncSwitchRecordResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateFuncSwitchRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateFuncSwitchRecordResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeAgentRequest extends $dara.Model {
   /**
    * @remarks
@@ -9307,6 +9962,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取功能模块配置
+   * 
+   * @param tmpReq - GetServiceFuncStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceFuncStatusResponse
+   */
+  async getServiceFuncStatusWithOptions(tmpReq: GetServiceFuncStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetServiceFuncStatusResponse> {
+    tmpReq.validate();
+    let request = new GetServiceFuncStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "params", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channel)) {
+      query["channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      query["params"] = request.paramsShrink;
+    }
+
+    if (!$dara.isNull(request.serviceName)) {
+      query["service_name"] = request.serviceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceFuncStatus",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/func-switch/get-service-func-status`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceFuncStatusResponse>(await this.callApi(params, req, runtime), new GetServiceFuncStatusResponse({}));
+    } else {
+      return $dara.cast<GetServiceFuncStatusResponse>(await this.execute(params, req, runtime), new GetServiceFuncStatusResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取功能模块配置
+   * 
+   * @param request - GetServiceFuncStatusRequest
+   * @returns GetServiceFuncStatusResponse
+   */
+  async getServiceFuncStatus(request: GetServiceFuncStatusRequest): Promise<GetServiceFuncStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getServiceFuncStatusWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 初始化SysOM，确保角色存在
    * 
    * @param request - InitialSysomRequest
@@ -10560,6 +11279,70 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateEventsAttentionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取功能模块配置
+   * 
+   * @param tmpReq - UpdateFuncSwitchRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFuncSwitchRecordResponse
+   */
+  async updateFuncSwitchRecordWithOptions(tmpReq: UpdateFuncSwitchRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateFuncSwitchRecordResponse> {
+    tmpReq.validate();
+    let request = new UpdateFuncSwitchRecordShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "params", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channel)) {
+      query["channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      query["params"] = request.paramsShrink;
+    }
+
+    if (!$dara.isNull(request.serviceName)) {
+      query["service_name"] = request.serviceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFuncSwitchRecord",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/func-switch/update-service-func-switch`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateFuncSwitchRecordResponse>(await this.callApi(params, req, runtime), new UpdateFuncSwitchRecordResponse({}));
+    } else {
+      return $dara.cast<UpdateFuncSwitchRecordResponse>(await this.execute(params, req, runtime), new UpdateFuncSwitchRecordResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取功能模块配置
+   * 
+   * @param request - UpdateFuncSwitchRecordRequest
+   * @returns UpdateFuncSwitchRecordResponse
+   */
+  async updateFuncSwitchRecord(request: UpdateFuncSwitchRecordRequest): Promise<UpdateFuncSwitchRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateFuncSwitchRecordWithOptions(request, headers, runtime);
   }
 
   /**
