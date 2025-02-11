@@ -1,14 +1,2624 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import GatewayClient from '@alicloud/gateway-pop';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class ActivateLicenseRequest extends $tea.Model {
+export class CreateOrderResponseBodyInstanceIds extends $dara.Model {
+  instanceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceId)) {
+      $dara.Model.validateArray(this.instanceId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CrossAccountVerifyTokenResponseBodyResult extends $dara.Model {
+  authRoles?: string[];
+  /**
+   * @example
+   * 1676974108866
+   */
+  authTime?: number;
+  /**
+   * @example
+   * marketplace_wangxiao_test
+   */
+  name?: string;
+  /**
+   * @example
+   * 1744526877246715
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authRoles: 'AuthRoles',
+      authTime: 'AuthTime',
+      name: 'Name',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authRoles: { 'type': 'array', 'itemType': 'string' },
+      authTime: 'number',
+      name: 'string',
+      uid: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.authRoles)) {
+      $dara.Model.validateArray(this.authRoles);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiMeteringResponseBodyResult extends $dara.Model {
+  /**
+   * @example
+   * 102277855749****
+   */
+  aliyunPk?: number;
+  /**
+   * @example
+   * cmapi0004****
+   */
+  productCode?: string;
+  productName?: string;
+  totalCapacity?: number;
+  /**
+   * @example
+   * 98
+   */
+  totalQuota?: number;
+  /**
+   * @example
+   * 220
+   */
+  totalUsage?: number;
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunPk: 'AliyunPk',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      totalCapacity: 'TotalCapacity',
+      totalQuota: 'TotalQuota',
+      totalUsage: 'TotalUsage',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunPk: 'number',
+      productCode: 'string',
+      productName: 'string',
+      totalCapacity: 'number',
+      totalQuota: 'number',
+      totalUsage: 'number',
+      unit: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCurrentNodeInfoResponseBodyResult extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  allowRollbackNode?: boolean;
+  /**
+   * @example
+   * false
+   */
+  autoFinishNode?: boolean;
+  /**
+   * @example
+   * 4
+   */
+  finalStepNo?: number;
+  /**
+   * @example
+   * 1588920725000
+   */
+  gmtExpired?: number;
+  /**
+   * @example
+   * 1588920725000
+   */
+  gmtFinished?: number;
+  /**
+   * @example
+   * 1588834325000
+   */
+  gmtStart?: number;
+  /**
+   * @example
+   * false
+   */
+  needAttachment?: boolean;
+  /**
+   * @example
+   * 8473
+   */
+  nextNodeId?: number;
+  /**
+   * @example
+   * 8472
+   */
+  nodeId?: number;
+  nodeName?: string;
+  /**
+   * @example
+   * Starting
+   */
+  nodeStatus?: string;
+  /**
+   * @example
+   * Provider
+   */
+  operatorRole?: string;
+  /**
+   * @example
+   * 0
+   */
+  parentNodeId?: number;
+  /**
+   * @example
+   * 8471
+   */
+  previousNodeId?: number;
+  /**
+   * @example
+   * 3
+   */
+  stepNo?: number;
+  templateForm?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowRollbackNode: 'AllowRollbackNode',
+      autoFinishNode: 'AutoFinishNode',
+      finalStepNo: 'FinalStepNo',
+      gmtExpired: 'GmtExpired',
+      gmtFinished: 'GmtFinished',
+      gmtStart: 'GmtStart',
+      needAttachment: 'NeedAttachment',
+      nextNodeId: 'NextNodeId',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      nodeStatus: 'NodeStatus',
+      operatorRole: 'OperatorRole',
+      parentNodeId: 'ParentNodeId',
+      previousNodeId: 'PreviousNodeId',
+      stepNo: 'StepNo',
+      templateForm: 'TemplateForm',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowRollbackNode: 'boolean',
+      autoFinishNode: 'boolean',
+      finalStepNo: 'number',
+      gmtExpired: 'number',
+      gmtFinished: 'number',
+      gmtStart: 'number',
+      needAttachment: 'boolean',
+      nextNodeId: 'number',
+      nodeId: 'number',
+      nodeName: 'string',
+      nodeStatus: 'string',
+      operatorRole: 'string',
+      parentNodeId: 'number',
+      previousNodeId: 'number',
+      stepNo: 'number',
+      templateForm: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDistributionProductsRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * supplierName
+   */
+  key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cmj0000000
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDistributionProductsResponseBodyResults extends $dara.Model {
+  /**
+   * @example
+   * cmap*****
+   */
+  code?: string;
+  firstCategoryName?: string;
+  /**
+   * @example
+   * //photogallery.oss-cn-hangzhou.aliyuncs.com/photo/1744526877246715/09605255-87fd-44d1-8143-96ebc8019d46.jpeg
+   */
+  imageUrl?: string;
+  name?: string;
+  /**
+   * @example
+   * 100
+   */
+  price?: string;
+  /**
+   * @example
+   * 5
+   */
+  score?: string;
+  secondCategoryName?: string;
+  shortDescription?: string;
+  /**
+   * @example
+   * 30
+   */
+  submissionRadio?: string;
+  supplierName?: string;
+  /**
+   * @example
+   * 1911534921******
+   */
+  supplierUId?: string;
+  /**
+   * @example
+   * 109
+   */
+  tradeCount?: string;
+  type?: string;
+  /**
+   * @example
+   * 55
+   */
+  userCommentCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      firstCategoryName: 'FirstCategoryName',
+      imageUrl: 'ImageUrl',
+      name: 'Name',
+      price: 'Price',
+      score: 'Score',
+      secondCategoryName: 'SecondCategoryName',
+      shortDescription: 'ShortDescription',
+      submissionRadio: 'SubmissionRadio',
+      supplierName: 'SupplierName',
+      supplierUId: 'SupplierUId',
+      tradeCount: 'TradeCount',
+      type: 'Type',
+      userCommentCount: 'UserCommentCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      firstCategoryName: 'string',
+      imageUrl: 'string',
+      name: 'string',
+      price: 'string',
+      score: 'string',
+      secondCategoryName: 'string',
+      shortDescription: 'string',
+      submissionRadio: 'string',
+      supplierName: 'string',
+      supplierUId: 'string',
+      tradeCount: 'string',
+      type: 'string',
+      userCommentCount: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDistributionProductsLinkResponseBodyResult extends $dara.Model {
+  code?: string;
+  name?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageInstanceForIsvResponseBodyModulesPropertiesPropertyValues extends $dara.Model {
+  displayName?: string;
+  max?: string;
+  min?: string;
+  remark?: string;
+  step?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      max: 'Max',
+      min: 'Min',
+      remark: 'Remark',
+      step: 'Step',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      max: 'string',
+      min: 'string',
+      remark: 'string',
+      step: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageInstanceForIsvResponseBodyModulesProperties extends $dara.Model {
+  displayUnit?: string;
+  key?: string;
+  name?: string;
+  propertyValues?: DescribeImageInstanceForIsvResponseBodyModulesPropertiesPropertyValues[];
+  showType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayUnit: 'DisplayUnit',
+      key: 'Key',
+      name: 'Name',
+      propertyValues: 'PropertyValues',
+      showType: 'ShowType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayUnit: 'string',
+      key: 'string',
+      name: 'string',
+      propertyValues: { 'type': 'array', 'itemType': DescribeImageInstanceForIsvResponseBodyModulesPropertiesPropertyValues },
+      showType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.propertyValues)) {
+      $dara.Model.validateArray(this.propertyValues);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageInstanceForIsvResponseBodyModules extends $dara.Model {
+  code?: string;
+  id?: string;
+  name?: string;
+  properties?: DescribeImageInstanceForIsvResponseBodyModulesProperties[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      id: 'Id',
+      name: 'Name',
+      properties: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      id: 'string',
+      name: 'string',
+      properties: { 'type': 'array', 'itemType': DescribeImageInstanceForIsvResponseBodyModulesProperties },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.properties)) {
+      $dara.Model.validateArray(this.properties);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageInstanceForIsvResponseBodyRelationalData extends $dara.Model {
+  serviceStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceStatus: 'ServiceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue extends $dara.Model {
+  /**
+   * @example
+   * 12
+   */
+  displayName?: string;
+  /**
+   * @example
+   * 12
+   */
+  max?: string;
+  /**
+   * @example
+   * 12
+   */
+  min?: string;
+  /**
+   * @example
+   * 12
+   */
+  remark?: string;
+  /**
+   * @example
+   * 12
+   */
+  step?: string;
+  /**
+   * @example
+   * 12
+   */
+  type?: string;
+  /**
+   * @example
+   * 12
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      max: 'Max',
+      min: 'Min',
+      remark: 'Remark',
+      step: 'Step',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      max: 'string',
+      min: 'string',
+      remark: 'string',
+      step: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues extends $dara.Model {
+  propertyValue?: DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue[];
+  static names(): { [key: string]: string } {
+    return {
+      propertyValue: 'PropertyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyValue: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.propertyValue)) {
+      $dara.Model.validateArray(this.propertyValue);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyModulesModulePropertiesProperty extends $dara.Model {
+  /**
+   * @example
+   * 12
+   */
+  displayUnit?: string;
+  /**
+   * @example
+   * 12
+   */
+  key?: string;
+  /**
+   * @example
+   * 12
+   */
+  name?: string;
+  propertyValues?: DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues;
+  /**
+   * @example
+   * 12
+   */
+  showType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayUnit: 'DisplayUnit',
+      key: 'Key',
+      name: 'Name',
+      propertyValues: 'PropertyValues',
+      showType: 'ShowType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayUnit: 'string',
+      key: 'string',
+      name: 'string',
+      propertyValues: DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues,
+      showType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.propertyValues && typeof (this.propertyValues as any).validate === 'function') {
+      (this.propertyValues as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyModulesModuleProperties extends $dara.Model {
+  property?: DescribeInstanceResponseBodyModulesModulePropertiesProperty[];
+  static names(): { [key: string]: string } {
+    return {
+      property: 'Property',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      property: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyModulesModulePropertiesProperty },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.property)) {
+      $dara.Model.validateArray(this.property);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyModulesModule extends $dara.Model {
+  /**
+   * @example
+   * package_config
+   */
+  code?: string;
+  /**
+   * @example
+   * 101*********026
+   */
+  id?: string;
+  name?: string;
+  properties?: DescribeInstanceResponseBodyModulesModuleProperties;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      id: 'Id',
+      name: 'Name',
+      properties: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      id: 'string',
+      name: 'string',
+      properties: DescribeInstanceResponseBodyModulesModuleProperties,
+    };
+  }
+
+  validate() {
+    if(this.properties && typeof (this.properties as any).validate === 'function') {
+      (this.properties as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyModules extends $dara.Model {
+  module?: DescribeInstanceResponseBodyModulesModule[];
+  static names(): { [key: string]: string } {
+    return {
+      module: 'Module',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyModulesModule },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.module)) {
+      $dara.Model.validateArray(this.module);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyRelationalData extends $dara.Model {
+  /**
+   * @example
+   * STARTED
+   */
+  serviceStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceStatus: 'ServiceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceForIsvResponseBodyRelationalData extends $dara.Model {
+  /**
+   * @example
+   * STARTED
+   */
+  serviceStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceStatus: 'ServiceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstanceItemsInstanceItem extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
+  apiJson?: string;
+  /**
+   * @example
+   * {"frontEndUrl":"https://***.aliyun.com","password":"Sjtv***","adminUrl":"https://***.aiiyun.com","username":"aliyun***"}
+   */
+  appJson?: string;
+  /**
+   * @example
+   * 1570634021000
+   */
+  beganOn?: number;
+  /**
+   * @example
+   * 1570634021000
+   */
+  createdOn?: number;
+  /**
+   * @example
+   * 1570644021000
+   */
+  endOn?: number;
+  extendJson?: string;
+  /**
+   * @example
+   * {"password":"***","ip":"118.31.***.41","innerIp":"118.31.***.41","region":"","username":"***","beianInfo":""}
+   */
+  hostJson?: string;
+  /**
+   * @example
+   * {}
+   */
+  idaasJson?: string;
+  /**
+   * @example
+   * {}
+   */
+  imageJson?: string;
+  /**
+   * @example
+   * 1551111111
+   */
+  instanceId?: number;
+  /**
+   * @example
+   * 204211111111111
+   */
+  orderId?: number;
+  /**
+   * @example
+   * cmgj00**11
+   */
+  productCode?: string;
+  productName?: string;
+  /**
+   * @example
+   * cmgj00**11-prepay
+   */
+  productSkuCode?: string;
+  /**
+   * @example
+   * APP
+   */
+  productType?: string;
+  /**
+   * @example
+   * OPENED
+   */
+  status?: string;
+  supplierName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiJson: 'ApiJson',
+      appJson: 'AppJson',
+      beganOn: 'BeganOn',
+      createdOn: 'CreatedOn',
+      endOn: 'EndOn',
+      extendJson: 'ExtendJson',
+      hostJson: 'HostJson',
+      idaasJson: 'IdaasJson',
+      imageJson: 'ImageJson',
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      productSkuCode: 'ProductSkuCode',
+      productType: 'ProductType',
+      status: 'Status',
+      supplierName: 'SupplierName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiJson: 'string',
+      appJson: 'string',
+      beganOn: 'number',
+      createdOn: 'number',
+      endOn: 'number',
+      extendJson: 'string',
+      hostJson: 'string',
+      idaasJson: 'string',
+      imageJson: 'string',
+      instanceId: 'number',
+      orderId: 'number',
+      productCode: 'string',
+      productName: 'string',
+      productSkuCode: 'string',
+      productType: 'string',
+      status: 'string',
+      supplierName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstanceItems extends $dara.Model {
+  instanceItem?: DescribeInstancesResponseBodyInstanceItemsInstanceItem[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceItem: 'InstanceItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceItem: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstanceItemsInstanceItem },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceItem)) {
+      $dara.Model.validateArray(this.instanceItem);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseResponseBodyLicenseExtendArrayLicenseAttribute extends $dara.Model {
+  /**
+   * @example
+   * -
+   */
+  code?: string;
+  /**
+   * @example
+   * -
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseResponseBodyLicenseExtendArray extends $dara.Model {
+  licenseAttribute?: DescribeLicenseResponseBodyLicenseExtendArrayLicenseAttribute[];
+  static names(): { [key: string]: string } {
+    return {
+      licenseAttribute: 'LicenseAttribute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      licenseAttribute: { 'type': 'array', 'itemType': DescribeLicenseResponseBodyLicenseExtendArrayLicenseAttribute },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.licenseAttribute)) {
+      $dara.Model.validateArray(this.licenseAttribute);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseResponseBodyLicenseExtendInfo extends $dara.Model {
+  /**
+   * @example
+   * -
+   */
+  accountQuantity?: number;
+  /**
+   * @example
+   * 190311111111****
+   */
+  aliUid?: number;
+  /**
+   * @example
+   * id***@**.com
+   */
+  email?: string;
+  /**
+   * @example
+   * 129****1111
+   */
+  mobile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountQuantity: 'AccountQuantity',
+      aliUid: 'AliUid',
+      email: 'Email',
+      mobile: 'Mobile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountQuantity: 'number',
+      aliUid: 'number',
+      email: 'string',
+      mobile: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseResponseBodyLicense extends $dara.Model {
+  /**
+   * @example
+   * 2019-05-25 09:00:00
+   */
+  activateTime?: string;
+  /**
+   * @example
+   * 2019-05-25 09:00:00
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 2019-06-25 09:00:00
+   */
+  expiredTime?: string;
+  extendArray?: DescribeLicenseResponseBodyLicenseExtendArray;
+  extendInfo?: DescribeLicenseResponseBodyLicenseExtendInfo;
+  /**
+   * @example
+   * 1551111111
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * -
+   */
+  licenseCode?: string;
+  /**
+   * @example
+   * ACTIVATED
+   */
+  licenseStatus?: string;
+  /**
+   * @example
+   * cmgj02****
+   */
+  productCode?: string;
+  productName?: string;
+  /**
+   * @example
+   * cmgj02****-prepay
+   */
+  productSkuId?: string;
+  supplierName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activateTime: 'ActivateTime',
+      createTime: 'CreateTime',
+      expiredTime: 'ExpiredTime',
+      extendArray: 'ExtendArray',
+      extendInfo: 'ExtendInfo',
+      instanceId: 'InstanceId',
+      licenseCode: 'LicenseCode',
+      licenseStatus: 'LicenseStatus',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      productSkuId: 'ProductSkuId',
+      supplierName: 'SupplierName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activateTime: 'string',
+      createTime: 'string',
+      expiredTime: 'string',
+      extendArray: DescribeLicenseResponseBodyLicenseExtendArray,
+      extendInfo: DescribeLicenseResponseBodyLicenseExtendInfo,
+      instanceId: 'string',
+      licenseCode: 'string',
+      licenseStatus: 'string',
+      productCode: 'string',
+      productName: 'string',
+      productSkuId: 'string',
+      supplierName: 'string',
+    };
+  }
+
+  validate() {
+    if(this.extendArray && typeof (this.extendArray as any).validate === 'function') {
+      (this.extendArray as any).validate();
+    }
+    if(this.extendInfo && typeof (this.extendInfo as any).validate === 'function') {
+      (this.extendInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOrderResponseBodyInstanceIds extends $dara.Model {
+  instanceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceId)) {
+      $dara.Model.validateArray(this.instanceId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOrderResponseBodySupplierTelephones extends $dara.Model {
+  telephone?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      telephone: 'Telephone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      telephone: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.telephone)) {
+      $dara.Model.validateArray(this.telephone);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodyCouponsCoupon extends $dara.Model {
+  /**
+   * @example
+   * 100.00
+   */
+  canPromFee?: number;
+  couponDesc?: string;
+  couponName?: string;
+  /**
+   * @example
+   * ActiveCoupon
+   */
+  couponOptionCode?: string;
+  /**
+   * @example
+   * 3874923111
+   */
+  couponOptionNo?: string;
+  /**
+   * @example
+   * false
+   */
+  isSelected?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      canPromFee: 'CanPromFee',
+      couponDesc: 'CouponDesc',
+      couponName: 'CouponName',
+      couponOptionCode: 'CouponOptionCode',
+      couponOptionNo: 'CouponOptionNo',
+      isSelected: 'IsSelected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canPromFee: 'number',
+      couponDesc: 'string',
+      couponName: 'string',
+      couponOptionCode: 'string',
+      couponOptionNo: 'string',
+      isSelected: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodyCoupons extends $dara.Model {
+  coupon?: DescribePriceResponseBodyCouponsCoupon[];
+  static names(): { [key: string]: string } {
+    return {
+      coupon: 'Coupon',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coupon: { 'type': 'array', 'itemType': DescribePriceResponseBodyCouponsCoupon },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.coupon)) {
+      $dara.Model.validateArray(this.coupon);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodyPromotionRulesPromotionRule extends $dara.Model {
+  name?: string;
+  /**
+   * @example
+   * 102112
+   */
+  ruleId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      ruleId: 'RuleId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      ruleId: 'string',
+      title: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodyPromotionRules extends $dara.Model {
+  promotionRule?: DescribePriceResponseBodyPromotionRulesPromotionRule[];
+  static names(): { [key: string]: string } {
+    return {
+      promotionRule: 'PromotionRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      promotionRule: { 'type': 'array', 'itemType': DescribePriceResponseBodyPromotionRulesPromotionRule },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.promotionRule)) {
+      $dara.Model.validateArray(this.promotionRule);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductExtrasProductExtra extends $dara.Model {
+  /**
+   * @example
+   * product_advantage
+   */
+  key?: string;
+  label?: string;
+  /**
+   * @example
+   * 0
+   */
+  order?: number;
+  /**
+   * @example
+   * HTML
+   */
+  type?: string;
+  values?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      label: 'Label',
+      order: 'Order',
+      type: 'Type',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      label: 'string',
+      order: 'number',
+      type: 'string',
+      values: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductExtras extends $dara.Model {
+  productExtra?: DescribeProductResponseBodyProductExtrasProductExtra[];
+  static names(): { [key: string]: string } {
+    return {
+      productExtra: 'ProductExtra',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productExtra: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductExtrasProductExtra },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.productExtra)) {
+      $dara.Model.validateArray(this.productExtra);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValuesPropertyValue extends $dara.Model {
+  displayName?: string;
+  /**
+   * @example
+   * 123
+   */
+  max?: string;
+  /**
+   * @example
+   * 11
+   */
+  min?: string;
+  /**
+   * @example
+   * abc
+   */
+  remark?: string;
+  /**
+   * @example
+   * 1
+   */
+  step?: string;
+  /**
+   * @example
+   * single_string
+   */
+  type?: string;
+  /**
+   * @example
+   * m-28e213e7t
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      max: 'Max',
+      min: 'Min',
+      remark: 'Remark',
+      step: 'Step',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      max: 'string',
+      min: 'string',
+      remark: 'string',
+      step: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValues extends $dara.Model {
+  propertyValue?: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValuesPropertyValue[];
+  static names(): { [key: string]: string } {
+    return {
+      propertyValue: 'PropertyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyValue: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValuesPropertyValue },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.propertyValue)) {
+      $dara.Model.validateArray(this.propertyValue);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesProperty extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  displayUnit?: string;
+  /**
+   * @example
+   * img_id
+   */
+  key?: string;
+  name?: string;
+  propertyValues?: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValues;
+  /**
+   * @example
+   * number
+   */
+  showType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayUnit: 'DisplayUnit',
+      key: 'Key',
+      name: 'Name',
+      propertyValues: 'PropertyValues',
+      showType: 'ShowType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayUnit: 'string',
+      key: 'string',
+      name: 'string',
+      propertyValues: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValues,
+      showType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.propertyValues && typeof (this.propertyValues as any).validate === 'function') {
+      (this.propertyValues as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuModulesModuleProperties extends $dara.Model {
+  property?: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesProperty[];
+  static names(): { [key: string]: string } {
+    return {
+      property: 'Property',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      property: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesProperty },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.property)) {
+      $dara.Model.validateArray(this.property);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuModulesModule extends $dara.Model {
+  /**
+   * @example
+   * img_id
+   */
+  code?: string;
+  /**
+   * @example
+   * 248220
+   */
+  id?: string;
+  name?: string;
+  properties?: DescribeProductResponseBodyProductSkusProductSkuModulesModuleProperties;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      id: 'Id',
+      name: 'Name',
+      properties: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      id: 'string',
+      name: 'string',
+      properties: DescribeProductResponseBodyProductSkusProductSkuModulesModuleProperties,
+    };
+  }
+
+  validate() {
+    if(this.properties && typeof (this.properties as any).validate === 'function') {
+      (this.properties as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuModules extends $dara.Model {
+  module?: DescribeProductResponseBodyProductSkusProductSkuModulesModule[];
+  static names(): { [key: string]: string } {
+    return {
+      module: 'Module',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSkuModulesModule },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.module)) {
+      $dara.Model.validateArray(this.module);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuOrderPeriodsOrderPeriod extends $dara.Model {
+  name?: string;
+  /**
+   * @example
+   * HOUR
+   */
+  periodType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      periodType: 'PeriodType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      periodType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuOrderPeriods extends $dara.Model {
+  orderPeriod?: DescribeProductResponseBodyProductSkusProductSkuOrderPeriodsOrderPeriod[];
+  static names(): { [key: string]: string } {
+    return {
+      orderPeriod: 'OrderPeriod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderPeriod: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSkuOrderPeriodsOrderPeriod },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.orderPeriod)) {
+      $dara.Model.validateArray(this.orderPeriod);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSku extends $dara.Model {
+  /**
+   * @example
+   * PREPAY
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * cmjj01****-Package
+   */
+  code?: string;
+  /**
+   * @example
+   * {\\"img_id\\":{\\"img_version|img_region\\":{\\"V1.7|cn-shenzhen-st3-a01\\":[\\"m-wz9ho4hmos0lpxcldqoq\\"]}}
+   */
+  constraints?: string;
+  /**
+   * @example
+   * true
+   */
+  hidden?: boolean;
+  modules?: DescribeProductResponseBodyProductSkusProductSkuModules;
+  /**
+   * @example
+   * 21
+   */
+  name?: string;
+  orderPeriods?: DescribeProductResponseBodyProductSkusProductSkuOrderPeriods;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      code: 'Code',
+      constraints: 'Constraints',
+      hidden: 'Hidden',
+      modules: 'Modules',
+      name: 'Name',
+      orderPeriods: 'OrderPeriods',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      code: 'string',
+      constraints: 'string',
+      hidden: 'boolean',
+      modules: DescribeProductResponseBodyProductSkusProductSkuModules,
+      name: 'string',
+      orderPeriods: DescribeProductResponseBodyProductSkusProductSkuOrderPeriods,
+    };
+  }
+
+  validate() {
+    if(this.modules && typeof (this.modules as any).validate === 'function') {
+      (this.modules as any).validate();
+    }
+    if(this.orderPeriods && typeof (this.orderPeriods as any).validate === 'function') {
+      (this.orderPeriods as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkus extends $dara.Model {
+  productSku?: DescribeProductResponseBodyProductSkusProductSku[];
+  static names(): { [key: string]: string } {
+    return {
+      productSku: 'ProductSku',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productSku: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSku },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.productSku)) {
+      $dara.Model.validateArray(this.productSku);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyShopInfoTelephones extends $dara.Model {
+  telephone?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      telephone: 'Telephone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      telephone: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.telephone)) {
+      $dara.Model.validateArray(this.telephone);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyShopInfoWangWangsWangWang extends $dara.Model {
+  /**
+   * @example
+   * 123
+   */
+  remark?: string;
+  /**
+   * @example
+   * ABC
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      remark: 'Remark',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remark: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyShopInfoWangWangs extends $dara.Model {
+  wangWang?: DescribeProductResponseBodyShopInfoWangWangsWangWang[];
+  static names(): { [key: string]: string } {
+    return {
+      wangWang: 'WangWang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      wangWang: { 'type': 'array', 'itemType': DescribeProductResponseBodyShopInfoWangWangsWangWang },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.wangWang)) {
+      $dara.Model.validateArray(this.wangWang);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyShopInfo extends $dara.Model {
+  /**
+   * @example
+   * 46**41@example.com
+   */
+  emails?: string;
+  /**
+   * @example
+   * 123
+   */
+  id?: number;
+  name?: string;
+  telephones?: DescribeProductResponseBodyShopInfoTelephones;
+  wangWangs?: DescribeProductResponseBodyShopInfoWangWangs;
+  static names(): { [key: string]: string } {
+    return {
+      emails: 'Emails',
+      id: 'Id',
+      name: 'Name',
+      telephones: 'Telephones',
+      wangWangs: 'WangWangs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      emails: 'string',
+      id: 'number',
+      name: 'string',
+      telephones: DescribeProductResponseBodyShopInfoTelephones,
+      wangWangs: DescribeProductResponseBodyShopInfoWangWangs,
+    };
+  }
+
+  validate() {
+    if(this.telephones && typeof (this.telephones as any).validate === 'function') {
+      (this.telephones as any).validate();
+    }
+    if(this.wangWangs && typeof (this.wangWangs as any).validate === 'function') {
+      (this.wangWangs as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductsRequestFilter extends $dara.Model {
+  /**
+   * @example
+   * categoryId
+   */
+  key?: string;
+  /**
+   * @example
+   * 53366009
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductsResponseBodyProductItemsProductItem extends $dara.Model {
+  /**
+   * @example
+   * 53398003
+   */
+  categoryId?: number;
+  /**
+   * @example
+   * cmjj02****
+   */
+  code?: string;
+  deliveryDate?: string;
+  deliveryWay?: string;
+  /**
+   * @example
+   * https://oss.aliyuncs.com/photogallery/photo/1904996544835414/7549/767d6d07-8366-4822-b84e-61f6ea10d146.png
+   */
+  imageUrl?: string;
+  name?: string;
+  /**
+   * @example
+   * windows
+   */
+  operationSystem?: string;
+  /**
+   * @example
+   * {\\"DiscountPrice\\": 0.0, \\"TradePrice\\": 15750.0, \\"Currency\\": \\"CNY\\", \\"OriginalPrice\\": 15750.0, \\"RuleIds\\": {\\"RuleId\\": []}, \\"Coupons\\": {\\"Coupon\\": []}}
+   */
+  priceInfo?: string;
+  /**
+   * @example
+   * 5.0
+   */
+  score?: string;
+  shortDescription?: string;
+  suggestedPrice?: string;
+  /**
+   * @example
+   * 228399
+   */
+  supplierId?: number;
+  supplierName?: string;
+  tags?: string;
+  /**
+   * @example
+   * /products/53616009/cmjj02****.html
+   */
+  targetUrl?: string;
+  warrantyDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      code: 'Code',
+      deliveryDate: 'DeliveryDate',
+      deliveryWay: 'DeliveryWay',
+      imageUrl: 'ImageUrl',
+      name: 'Name',
+      operationSystem: 'OperationSystem',
+      priceInfo: 'PriceInfo',
+      score: 'Score',
+      shortDescription: 'ShortDescription',
+      suggestedPrice: 'SuggestedPrice',
+      supplierId: 'SupplierId',
+      supplierName: 'SupplierName',
+      tags: 'Tags',
+      targetUrl: 'TargetUrl',
+      warrantyDate: 'WarrantyDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'number',
+      code: 'string',
+      deliveryDate: 'string',
+      deliveryWay: 'string',
+      imageUrl: 'string',
+      name: 'string',
+      operationSystem: 'string',
+      priceInfo: 'string',
+      score: 'string',
+      shortDescription: 'string',
+      suggestedPrice: 'string',
+      supplierId: 'number',
+      supplierName: 'string',
+      tags: 'string',
+      targetUrl: 'string',
+      warrantyDate: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductsResponseBodyProductItems extends $dara.Model {
+  productItem?: DescribeProductsResponseBodyProductItemsProductItem[];
+  static names(): { [key: string]: string } {
+    return {
+      productItem: 'ProductItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productItem: { 'type': 'array', 'itemType': DescribeProductsResponseBodyProductItemsProductItem },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.productItem)) {
+      $dara.Model.validateArray(this.productItem);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectAttachmentsResponseBodyResult extends $dara.Model {
+  /**
+   * @example
+   * Mzc4NDAtODQ3MjY4MzI=
+   */
+  attachmentToken?: string;
+  /**
+   * @example
+   * File
+   */
+  attachmentType?: string;
+  content?: string;
+  /**
+   * @example
+   * http://delivery-center.oss-cn-shanghai.aliyuncs.com/6a8****0e2/e0a***f3.jpg?Expires=1589334682&OSSAccessKeyId=wI2r*********&Signature=JWB39pUxs7RCqrcw58qXPEGu6M0%3D
+   */
+  fileLink?: string;
+  /**
+   * @example
+   * 1589334682404
+   */
+  fileLinkGmtExpired?: number;
+  /**
+   * @example
+   * f8-test-perview.jpeg
+   */
+  fileName?: string;
+  /**
+   * @example
+   * 109124
+   */
+  fileSize?: number;
+  /**
+   * @example
+   * jpg
+   */
+  fileSuffix?: string;
+  /**
+   * @example
+   * 1587968858000
+   */
+  gmtCreate?: number;
+  /**
+   * @example
+   * 8472
+   */
+  nodeId?: number;
+  nodeName?: string;
+  /**
+   * @example
+   * 45261111****
+   */
+  operator?: number;
+  operatorName?: string;
+  /**
+   * @example
+   * Provider
+   */
+  operatorRole?: string;
+  /**
+   * @example
+   * 3
+   */
+  stepNo?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attachmentToken: 'AttachmentToken',
+      attachmentType: 'AttachmentType',
+      content: 'Content',
+      fileLink: 'FileLink',
+      fileLinkGmtExpired: 'FileLinkGmtExpired',
+      fileName: 'FileName',
+      fileSize: 'FileSize',
+      fileSuffix: 'FileSuffix',
+      gmtCreate: 'GmtCreate',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      operator: 'Operator',
+      operatorName: 'OperatorName',
+      operatorRole: 'OperatorRole',
+      stepNo: 'StepNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachmentToken: 'string',
+      attachmentType: 'string',
+      content: 'string',
+      fileLink: 'string',
+      fileLinkGmtExpired: 'number',
+      fileName: 'string',
+      fileSize: 'number',
+      fileSuffix: 'string',
+      gmtCreate: 'number',
+      nodeId: 'number',
+      nodeName: 'string',
+      operator: 'number',
+      operatorName: 'string',
+      operatorRole: 'string',
+      stepNo: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectInfoResponseBodyResult extends $dara.Model {
+  /**
+   * @example
+   * 3
+   */
+  currentStepNo?: number;
+  /**
+   * @example
+   * 27291111****
+   */
+  customerAliUid?: number;
+  /**
+   * @example
+   * 4
+   */
+  finalStepNo?: number;
+  /**
+   * @example
+   * null
+   */
+  finishType?: string;
+  /**
+   * @example
+   * 1588834324000
+   */
+  gmtCreate?: number;
+  /**
+   * @example
+   * 1620403200000
+   */
+  gmtExpired?: number;
+  /**
+   * @example
+   * 1620403200000
+   */
+  gmtFinished?: number;
+  /**
+   * @example
+   * 4****89
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 2059111111111
+   */
+  orderId?: number;
+  /**
+   * @example
+   * cmgj***055
+   */
+  productCode?: string;
+  productName?: string;
+  /**
+   * @example
+   * yuncode****500001
+   */
+  productSkuCode?: string;
+  productSkuName?: string;
+  /**
+   * @example
+   * Starting
+   */
+  projectStatus?: string;
+  /**
+   * @example
+   * 45121111****
+   */
+  supplierAliUid?: number;
+  /**
+   * @example
+   * 410
+   */
+  templateId?: number;
+  /**
+   * @example
+   * Public
+   */
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentStepNo: 'CurrentStepNo',
+      customerAliUid: 'CustomerAliUid',
+      finalStepNo: 'FinalStepNo',
+      finishType: 'FinishType',
+      gmtCreate: 'GmtCreate',
+      gmtExpired: 'GmtExpired',
+      gmtFinished: 'GmtFinished',
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      productSkuCode: 'ProductSkuCode',
+      productSkuName: 'ProductSkuName',
+      projectStatus: 'ProjectStatus',
+      supplierAliUid: 'SupplierAliUid',
+      templateId: 'TemplateId',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentStepNo: 'number',
+      customerAliUid: 'number',
+      finalStepNo: 'number',
+      finishType: 'string',
+      gmtCreate: 'number',
+      gmtExpired: 'number',
+      gmtFinished: 'number',
+      instanceId: 'string',
+      orderId: 'number',
+      productCode: 'string',
+      productName: 'string',
+      productSkuCode: 'string',
+      productSkuName: 'string',
+      projectStatus: 'string',
+      supplierAliUid: 'number',
+      templateId: 'number',
+      templateType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectMessagesResponseBodyResult extends $dara.Model {
+  content?: string;
+  /**
+   * @example
+   * 1589015560000
+   */
+  gmtCreate?: number;
+  /**
+   * @example
+   * 452611111****
+   */
+  operator?: number;
+  operatorName?: string;
+  /**
+   * @example
+   * Provider
+   */
+  operatorRole?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      gmtCreate: 'GmtCreate',
+      operator: 'Operator',
+      operatorName: 'OperatorName',
+      operatorRole: 'OperatorRole',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      gmtCreate: 'number',
+      operator: 'number',
+      operatorName: 'string',
+      operatorRole: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectNodesResponseBodyResult extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  allowRollbackNode?: boolean;
+  /**
+   * @example
+   * false
+   */
+  autoFinishNode?: boolean;
+  /**
+   * @example
+   * 4
+   */
+  finalStepNo?: number;
+  /**
+   * @example
+   * 1588834325000
+   */
+  gmtExpired?: number;
+  /**
+   * @example
+   * 1588834325000
+   */
+  gmtFinished?: number;
+  /**
+   * @example
+   * 1588834325000
+   */
+  gmtStart?: number;
+  /**
+   * @example
+   * false
+   */
+  needAttachment?: boolean;
+  /**
+   * @example
+   * 8472
+   */
+  nextNodeId?: number;
+  /**
+   * @example
+   * 8471
+   */
+  nodeId?: number;
+  nodeName?: string;
+  /**
+   * @example
+   * Finish
+   */
+  nodeStatus?: string;
+  /**
+   * @example
+   * System
+   */
+  operatorRole?: string;
+  /**
+   * @example
+   * 0
+   */
+  parentNodeId?: number;
+  /**
+   * @example
+   * 8470
+   */
+  previousNodeId?: number;
+  /**
+   * @example
+   * 2
+   */
+  stepNo?: number;
+  templateForm?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowRollbackNode: 'AllowRollbackNode',
+      autoFinishNode: 'AutoFinishNode',
+      finalStepNo: 'FinalStepNo',
+      gmtExpired: 'GmtExpired',
+      gmtFinished: 'GmtFinished',
+      gmtStart: 'GmtStart',
+      needAttachment: 'NeedAttachment',
+      nextNodeId: 'NextNodeId',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      nodeStatus: 'NodeStatus',
+      operatorRole: 'OperatorRole',
+      parentNodeId: 'ParentNodeId',
+      previousNodeId: 'PreviousNodeId',
+      stepNo: 'StepNo',
+      templateForm: 'TemplateForm',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowRollbackNode: 'boolean',
+      autoFinishNode: 'boolean',
+      finalStepNo: 'number',
+      gmtExpired: 'number',
+      gmtFinished: 'number',
+      gmtStart: 'number',
+      needAttachment: 'boolean',
+      nextNodeId: 'number',
+      nodeId: 'number',
+      nodeName: 'string',
+      nodeStatus: 'string',
+      operatorRole: 'string',
+      parentNodeId: 'number',
+      previousNodeId: 'number',
+      stepNo: 'number',
+      templateForm: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectOperateLogsResponseBodyResult extends $dara.Model {
+  description?: string;
+  /**
+   * @example
+   * 1587624497000
+   */
+  gmtCreate?: number;
+  /**
+   * @example
+   * 0
+   */
+  operator?: number;
+  operatorName?: string;
+  /**
+   * @example
+   * System
+   */
+  operatorRole?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      gmtCreate: 'GmtCreate',
+      operator: 'Operator',
+      operatorName: 'OperatorName',
+      operatorRole: 'OperatorRole',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      gmtCreate: 'number',
+      operator: 'number',
+      operatorName: 'string',
+      operatorRole: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ActivateLicenseRequest extends $dara.Model {
   /**
    * @example
    * 129****1111
@@ -36,12 +2646,16 @@ export class ActivateLicenseRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ActivateLicenseResponseBody extends $tea.Model {
+export class ActivateLicenseResponseBody extends $dara.Model {
   /**
    * @example
    * 6EF60BEC-0242-43AF-BB20-270359FB54A7
@@ -66,12 +2680,16 @@ export class ActivateLicenseResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ActivateLicenseResponse extends $tea.Model {
+export class ActivateLicenseResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ActivateLicenseResponseBody;
@@ -91,12 +2709,22 @@ export class ActivateLicenseResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AutoRenewInstanceRequest extends $tea.Model {
+export class AutoRenewInstanceRequest extends $dara.Model {
   autoRenewCycle?: string;
   autoRenewDuration?: number;
   /**
@@ -130,12 +2758,16 @@ export class AutoRenewInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AutoRenewInstanceResponseBody extends $tea.Model {
+export class AutoRenewInstanceResponseBody extends $dara.Model {
   data?: boolean;
   requestId?: string;
   success?: boolean;
@@ -155,12 +2787,16 @@ export class AutoRenewInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AutoRenewInstanceResponse extends $tea.Model {
+export class AutoRenewInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AutoRenewInstanceResponseBody;
@@ -180,12 +2816,22 @@ export class AutoRenewInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateOrderRequest extends $tea.Model {
+export class CreateOrderRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -247,12 +2893,16 @@ export class CreateOrderRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateOrderResponseBody extends $tea.Model {
+export class CreateOrderResponseBody extends $dara.Model {
   instanceIds?: CreateOrderResponseBodyInstanceIds;
   /**
    * @example
@@ -280,12 +2930,19 @@ export class CreateOrderResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.instanceIds && typeof (this.instanceIds as any).validate === 'function') {
+      (this.instanceIds as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateOrderResponse extends $tea.Model {
+export class CreateOrderResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateOrderResponseBody;
@@ -305,12 +2962,22 @@ export class CreateOrderResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CrossAccountVerifyTokenRequest extends $tea.Model {
+export class CrossAccountVerifyTokenRequest extends $dara.Model {
   /**
    * @example
    * C19D103FEA2D50A584410267CE9FBA56
@@ -328,12 +2995,16 @@ export class CrossAccountVerifyTokenRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CrossAccountVerifyTokenResponseBody extends $tea.Model {
+export class CrossAccountVerifyTokenResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -378,12 +3049,19 @@ export class CrossAccountVerifyTokenResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.result && typeof (this.result as any).validate === 'function') {
+      (this.result as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CrossAccountVerifyTokenResponse extends $tea.Model {
+export class CrossAccountVerifyTokenResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CrossAccountVerifyTokenResponseBody;
@@ -403,12 +3081,22 @@ export class CrossAccountVerifyTokenResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeApiMeteringRequest extends $tea.Model {
+export class DescribeApiMeteringRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -443,12 +3131,16 @@ export class DescribeApiMeteringRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeApiMeteringResponseBody extends $tea.Model {
+export class DescribeApiMeteringResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -524,12 +3216,19 @@ export class DescribeApiMeteringResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeApiMeteringResponse extends $tea.Model {
+export class DescribeApiMeteringResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeApiMeteringResponseBody;
@@ -549,12 +3248,22 @@ export class DescribeApiMeteringResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeCurrentNodeInfoRequest extends $tea.Model {
+export class DescribeCurrentNodeInfoRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -575,12 +3284,16 @@ export class DescribeCurrentNodeInfoRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeCurrentNodeInfoResponseBody extends $tea.Model {
+export class DescribeCurrentNodeInfoResponseBody extends $dara.Model {
   /**
    * @example
    * 00eb4de1-6cff-4f56-833e-7b1e070e398d
@@ -608,12 +3321,19 @@ export class DescribeCurrentNodeInfoResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.result && typeof (this.result as any).validate === 'function') {
+      (this.result as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeCurrentNodeInfoResponse extends $tea.Model {
+export class DescribeCurrentNodeInfoResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeCurrentNodeInfoResponseBody;
@@ -633,12 +3353,22 @@ export class DescribeCurrentNodeInfoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDistributionProductsRequest extends $tea.Model {
+export class DescribeDistributionProductsRequest extends $dara.Model {
   filter?: DescribeDistributionProductsRequestFilter[];
   /**
    * @remarks
@@ -672,12 +3402,19 @@ export class DescribeDistributionProductsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.filter)) {
+      $dara.Model.validateArray(this.filter);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDistributionProductsResponseBody extends $tea.Model {
+export class DescribeDistributionProductsResponseBody extends $dara.Model {
   /**
    * @example
    * 1
@@ -719,12 +3456,19 @@ export class DescribeDistributionProductsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.results)) {
+      $dara.Model.validateArray(this.results);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDistributionProductsResponse extends $tea.Model {
+export class DescribeDistributionProductsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeDistributionProductsResponseBody;
@@ -744,12 +3488,22 @@ export class DescribeDistributionProductsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDistributionProductsLinkRequest extends $tea.Model {
+export class DescribeDistributionProductsLinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -767,12 +3521,19 @@ export class DescribeDistributionProductsLinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.codes)) {
+      $dara.Model.validateArray(this.codes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDistributionProductsLinkShrinkRequest extends $tea.Model {
+export class DescribeDistributionProductsLinkShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -790,12 +3551,16 @@ export class DescribeDistributionProductsLinkShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDistributionProductsLinkResponseBody extends $tea.Model {
+export class DescribeDistributionProductsLinkResponseBody extends $dara.Model {
   /**
    * @remarks
    * Id of the request
@@ -833,12 +3598,19 @@ export class DescribeDistributionProductsLinkResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDistributionProductsLinkResponse extends $tea.Model {
+export class DescribeDistributionProductsLinkResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeDistributionProductsLinkResponseBody;
@@ -858,12 +3630,178 @@ export class DescribeDistributionProductsLinkResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstanceRequest extends $tea.Model {
+export class DescribeImageInstanceForIsvRequest extends $dara.Model {
+  customerPk?: number;
+  ecsInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customerPk: 'CustomerPk',
+      ecsInstanceId: 'EcsInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customerPk: 'number',
+      ecsInstanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageInstanceForIsvResponseBody extends $dara.Model {
+  activeAddress?: string;
+  appJson?: string;
+  autoRenewal?: string;
+  beganOn?: number;
+  componentJson?: string;
+  constraints?: string;
+  createdOn?: number;
+  endOn?: number;
+  extendJson?: string;
+  hostJson?: string;
+  instanceId?: number;
+  isTrial?: boolean;
+  licenseCode?: string;
+  modules?: DescribeImageInstanceForIsvResponseBodyModules[];
+  orderId?: number;
+  productCode?: string;
+  productName?: string;
+  productSkuCode?: string;
+  productType?: string;
+  relationalData?: DescribeImageInstanceForIsvResponseBodyRelationalData;
+  requestId?: string;
+  status?: string;
+  supplierName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeAddress: 'ActiveAddress',
+      appJson: 'AppJson',
+      autoRenewal: 'AutoRenewal',
+      beganOn: 'BeganOn',
+      componentJson: 'ComponentJson',
+      constraints: 'Constraints',
+      createdOn: 'CreatedOn',
+      endOn: 'EndOn',
+      extendJson: 'ExtendJson',
+      hostJson: 'HostJson',
+      instanceId: 'InstanceId',
+      isTrial: 'IsTrial',
+      licenseCode: 'LicenseCode',
+      modules: 'Modules',
+      orderId: 'OrderId',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      productSkuCode: 'ProductSkuCode',
+      productType: 'ProductType',
+      relationalData: 'RelationalData',
+      requestId: 'RequestId',
+      status: 'Status',
+      supplierName: 'SupplierName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeAddress: 'string',
+      appJson: 'string',
+      autoRenewal: 'string',
+      beganOn: 'number',
+      componentJson: 'string',
+      constraints: 'string',
+      createdOn: 'number',
+      endOn: 'number',
+      extendJson: 'string',
+      hostJson: 'string',
+      instanceId: 'number',
+      isTrial: 'boolean',
+      licenseCode: 'string',
+      modules: { 'type': 'array', 'itemType': DescribeImageInstanceForIsvResponseBodyModules },
+      orderId: 'number',
+      productCode: 'string',
+      productName: 'string',
+      productSkuCode: 'string',
+      productType: 'string',
+      relationalData: DescribeImageInstanceForIsvResponseBodyRelationalData,
+      requestId: 'string',
+      status: 'string',
+      supplierName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.modules)) {
+      $dara.Model.validateArray(this.modules);
+    }
+    if(this.relationalData && typeof (this.relationalData as any).validate === 'function') {
+      (this.relationalData as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageInstanceForIsvResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImageInstanceForIsvResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeImageInstanceForIsvResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -894,12 +3832,16 @@ export class DescribeInstanceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstanceResponseBody extends $tea.Model {
+export class DescribeInstanceResponseBody extends $dara.Model {
   activeAddress?: string;
   /**
    * @example
@@ -1032,12 +3974,22 @@ export class DescribeInstanceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.modules && typeof (this.modules as any).validate === 'function') {
+      (this.modules as any).validate();
+    }
+    if(this.relationalData && typeof (this.relationalData as any).validate === 'function') {
+      (this.relationalData as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstanceResponse extends $tea.Model {
+export class DescribeInstanceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeInstanceResponseBody;
@@ -1057,12 +4009,22 @@ export class DescribeInstanceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstanceForIsvRequest extends $tea.Model {
+export class DescribeInstanceForIsvRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1083,12 +4045,16 @@ export class DescribeInstanceForIsvRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstanceForIsvResponseBody extends $tea.Model {
+export class DescribeInstanceForIsvResponseBody extends $dara.Model {
   activeAddress?: string;
   appJson?: string;
   autoRenewal?: string;
@@ -1213,12 +4179,19 @@ export class DescribeInstanceForIsvResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.relationalData && typeof (this.relationalData as any).validate === 'function') {
+      (this.relationalData as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstanceForIsvResponse extends $tea.Model {
+export class DescribeInstanceForIsvResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeInstanceForIsvResponseBody;
@@ -1238,12 +4211,22 @@ export class DescribeInstanceForIsvResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesRequest extends $tea.Model {
+export class DescribeInstancesRequest extends $dara.Model {
   /**
    * @example
    * cmgj000112,cmgj000113
@@ -1295,12 +4278,16 @@ export class DescribeInstancesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBody extends $tea.Model {
+export class DescribeInstancesResponseBody extends $dara.Model {
   instanceItems?: DescribeInstancesResponseBodyInstanceItems;
   /**
    * @example
@@ -1342,12 +4329,19 @@ export class DescribeInstancesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.instanceItems && typeof (this.instanceItems as any).validate === 'function') {
+      (this.instanceItems as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponse extends $tea.Model {
+export class DescribeInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeInstancesResponseBody;
@@ -1367,12 +4361,22 @@ export class DescribeInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeLicenseRequest extends $tea.Model {
+export class DescribeLicenseRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1393,12 +4397,16 @@ export class DescribeLicenseRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeLicenseResponseBody extends $tea.Model {
+export class DescribeLicenseResponseBody extends $dara.Model {
   license?: DescribeLicenseResponseBodyLicense;
   /**
    * @example
@@ -1419,12 +4427,19 @@ export class DescribeLicenseResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.license && typeof (this.license as any).validate === 'function') {
+      (this.license as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeLicenseResponse extends $tea.Model {
+export class DescribeLicenseResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeLicenseResponseBody;
@@ -1444,12 +4459,22 @@ export class DescribeLicenseResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOrderRequest extends $tea.Model {
+export class DescribeOrderRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1470,12 +4495,16 @@ export class DescribeOrderRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOrderResponseBody extends $tea.Model {
+export class DescribeOrderResponseBody extends $dara.Model {
   /**
    * @example
    * 0
@@ -1620,12 +4649,25 @@ export class DescribeOrderResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.components) {
+      $dara.Model.validateMap(this.components);
+    }
+    if(this.instanceIds && typeof (this.instanceIds as any).validate === 'function') {
+      (this.instanceIds as any).validate();
+    }
+    if(this.supplierTelephones && typeof (this.supplierTelephones as any).validate === 'function') {
+      (this.supplierTelephones as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOrderResponse extends $tea.Model {
+export class DescribeOrderResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeOrderResponseBody;
@@ -1645,12 +4687,22 @@ export class DescribeOrderResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOrderForIsvRequest extends $tea.Model {
+export class DescribeOrderForIsvRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1671,12 +4723,16 @@ export class DescribeOrderForIsvRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOrderForIsvResponseBody extends $tea.Model {
+export class DescribeOrderForIsvResponseBody extends $dara.Model {
   /**
    * @example
    * 0
@@ -1819,12 +4875,19 @@ export class DescribeOrderForIsvResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOrderForIsvResponse extends $tea.Model {
+export class DescribeOrderForIsvResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeOrderForIsvResponseBody;
@@ -1844,12 +4907,22 @@ export class DescribeOrderForIsvResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribePriceRequest extends $tea.Model {
+export class DescribePriceRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1880,12 +4953,16 @@ export class DescribePriceRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribePriceResponseBody extends $tea.Model {
+export class DescribePriceResponseBody extends $dara.Model {
   coupons?: DescribePriceResponseBodyCoupons;
   /**
    * @example
@@ -1971,12 +5048,22 @@ export class DescribePriceResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.coupons && typeof (this.coupons as any).validate === 'function') {
+      (this.coupons as any).validate();
+    }
+    if(this.promotionRules && typeof (this.promotionRules as any).validate === 'function') {
+      (this.promotionRules as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribePriceResponse extends $tea.Model {
+export class DescribePriceResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribePriceResponseBody;
@@ -1996,12 +5083,22 @@ export class DescribePriceResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProductRequest extends $tea.Model {
+export class DescribeProductRequest extends $dara.Model {
   /**
    * @remarks
    * AliUid
@@ -2039,12 +5136,16 @@ export class DescribeProductRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProductResponseBody extends $tea.Model {
+export class DescribeProductResponseBody extends $dara.Model {
   auditFailMsg?: string;
   /**
    * @example
@@ -2167,12 +5268,25 @@ export class DescribeProductResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.productExtras && typeof (this.productExtras as any).validate === 'function') {
+      (this.productExtras as any).validate();
+    }
+    if(this.productSkus && typeof (this.productSkus as any).validate === 'function') {
+      (this.productSkus as any).validate();
+    }
+    if(this.shopInfo && typeof (this.shopInfo as any).validate === 'function') {
+      (this.shopInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProductResponse extends $tea.Model {
+export class DescribeProductResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeProductResponseBody;
@@ -2192,12 +5306,22 @@ export class DescribeProductResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProductsRequest extends $tea.Model {
+export class DescribeProductsRequest extends $dara.Model {
   filter?: DescribeProductsRequestFilter[];
   /**
    * @example
@@ -2228,12 +5352,19 @@ export class DescribeProductsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.filter)) {
+      $dara.Model.validateArray(this.filter);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProductsResponseBody extends $tea.Model {
+export class DescribeProductsResponseBody extends $dara.Model {
   /**
    * @example
    * 1
@@ -2275,12 +5406,19 @@ export class DescribeProductsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.productItems && typeof (this.productItems as any).validate === 'function') {
+      (this.productItems as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProductsResponse extends $tea.Model {
+export class DescribeProductsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeProductsResponseBody;
@@ -2300,12 +5438,22 @@ export class DescribeProductsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectAttachmentsRequest extends $tea.Model {
+export class DescribeProjectAttachmentsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2326,12 +5474,16 @@ export class DescribeProjectAttachmentsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectAttachmentsResponseBody extends $tea.Model {
+export class DescribeProjectAttachmentsResponseBody extends $dara.Model {
   /**
    * @example
    * e03a9f78-7b40-4fb3-a015-350913e37e3f
@@ -2359,12 +5511,19 @@ export class DescribeProjectAttachmentsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectAttachmentsResponse extends $tea.Model {
+export class DescribeProjectAttachmentsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeProjectAttachmentsResponseBody;
@@ -2384,12 +5543,22 @@ export class DescribeProjectAttachmentsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectInfoRequest extends $tea.Model {
+export class DescribeProjectInfoRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2410,12 +5579,16 @@ export class DescribeProjectInfoRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectInfoResponseBody extends $tea.Model {
+export class DescribeProjectInfoResponseBody extends $dara.Model {
   /**
    * @example
    * ee3e1b3b-6c38-4bcf-be40-5a946cfda761
@@ -2443,12 +5616,19 @@ export class DescribeProjectInfoResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.result && typeof (this.result as any).validate === 'function') {
+      (this.result as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectInfoResponse extends $tea.Model {
+export class DescribeProjectInfoResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeProjectInfoResponseBody;
@@ -2468,12 +5648,22 @@ export class DescribeProjectInfoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectMessagesRequest extends $tea.Model {
+export class DescribeProjectMessagesRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2501,12 +5691,16 @@ export class DescribeProjectMessagesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectMessagesResponseBody extends $tea.Model {
+export class DescribeProjectMessagesResponseBody extends $dara.Model {
   /**
    * @example
    * 00eb4de1-6cff-4f56-833e-7b1e070e398d
@@ -2541,12 +5735,19 @@ export class DescribeProjectMessagesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectMessagesResponse extends $tea.Model {
+export class DescribeProjectMessagesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeProjectMessagesResponseBody;
@@ -2566,12 +5767,22 @@ export class DescribeProjectMessagesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectNodesRequest extends $tea.Model {
+export class DescribeProjectNodesRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2592,12 +5803,16 @@ export class DescribeProjectNodesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectNodesResponseBody extends $tea.Model {
+export class DescribeProjectNodesResponseBody extends $dara.Model {
   /**
    * @example
    * 937fee1f-26bb-4b6e-8def-977a6bdaa1e5
@@ -2625,12 +5840,19 @@ export class DescribeProjectNodesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectNodesResponse extends $tea.Model {
+export class DescribeProjectNodesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeProjectNodesResponseBody;
@@ -2650,12 +5872,22 @@ export class DescribeProjectNodesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectOperateLogsRequest extends $tea.Model {
+export class DescribeProjectOperateLogsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2676,12 +5908,16 @@ export class DescribeProjectOperateLogsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectOperateLogsResponseBody extends $tea.Model {
+export class DescribeProjectOperateLogsResponseBody extends $dara.Model {
   /**
    * @example
    * e6037e86-657f-4194-bb6a-7b26973aec8d
@@ -2709,12 +5945,19 @@ export class DescribeProjectOperateLogsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeProjectOperateLogsResponse extends $tea.Model {
+export class DescribeProjectOperateLogsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeProjectOperateLogsResponseBody;
@@ -2734,12 +5977,22 @@ export class DescribeProjectOperateLogsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FinishCurrentProjectNodeRequest extends $tea.Model {
+export class FinishCurrentProjectNodeRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2776,12 +6029,16 @@ export class FinishCurrentProjectNodeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FinishCurrentProjectNodeResponseBody extends $tea.Model {
+export class FinishCurrentProjectNodeResponseBody extends $dara.Model {
   /**
    * @example
    * ee69a00f-189b-400f-9fd2-af89749fb50f
@@ -2813,12 +6070,16 @@ export class FinishCurrentProjectNodeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FinishCurrentProjectNodeResponse extends $tea.Model {
+export class FinishCurrentProjectNodeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: FinishCurrentProjectNodeResponseBody;
@@ -2838,12 +6099,22 @@ export class FinishCurrentProjectNodeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PauseProjectRequest extends $tea.Model {
+export class PauseProjectRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2877,12 +6148,16 @@ export class PauseProjectRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PauseProjectResponseBody extends $tea.Model {
+export class PauseProjectResponseBody extends $dara.Model {
   /**
    * @example
    * ee69a00f-189b-400f-9fd2-af89749fb50f
@@ -2914,12 +6189,16 @@ export class PauseProjectResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PauseProjectResponse extends $tea.Model {
+export class PauseProjectResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: PauseProjectResponseBody;
@@ -2939,12 +6218,22 @@ export class PauseProjectResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PushMeteringDataRequest extends $tea.Model {
+export class PushMeteringDataRequest extends $dara.Model {
   /**
    * @example
    * [{"InstanceId":"1000001","StartTime":"100000000","EndTime":"100000010","Entities":[{"Key":"PeriodMin","Value":"96","meteringAssit":"cmapi00060317-PeriodMin-4"}]}]
@@ -2962,12 +6251,16 @@ export class PushMeteringDataRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PushMeteringDataResponseBody extends $tea.Model {
+export class PushMeteringDataResponseBody extends $dara.Model {
   /**
    * @example
    * 6EF60BEC-0242-43AF-BB20-270359FB54A7
@@ -2992,12 +6285,16 @@ export class PushMeteringDataResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PushMeteringDataResponse extends $tea.Model {
+export class PushMeteringDataResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: PushMeteringDataResponseBody;
@@ -3017,12 +6314,22 @@ export class PushMeteringDataResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResumeProjectRequest extends $tea.Model {
+export class ResumeProjectRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3056,12 +6363,16 @@ export class ResumeProjectRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResumeProjectResponseBody extends $tea.Model {
+export class ResumeProjectResponseBody extends $dara.Model {
   /**
    * @example
    * ee69a00f-189b-400f-9fd2-af89749fb50f
@@ -3093,12 +6404,16 @@ export class ResumeProjectResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ResumeProjectResponse extends $tea.Model {
+export class ResumeProjectResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ResumeProjectResponseBody;
@@ -3118,12 +6433,22 @@ export class ResumeProjectResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RollbackCurrentProjectNodeRequest extends $tea.Model {
+export class RollbackCurrentProjectNodeRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3157,12 +6482,16 @@ export class RollbackCurrentProjectNodeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RollbackCurrentProjectNodeResponseBody extends $tea.Model {
+export class RollbackCurrentProjectNodeResponseBody extends $dara.Model {
   /**
    * @example
    * ee69a00f-189b-400f-9fd2-af89749fb50f
@@ -3194,12 +6523,16 @@ export class RollbackCurrentProjectNodeResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RollbackCurrentProjectNodeResponse extends $tea.Model {
+export class RollbackCurrentProjectNodeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: RollbackCurrentProjectNodeResponseBody;
@@ -3219,2186 +6552,14 @@ export class RollbackCurrentProjectNodeResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateOrderResponseBodyInstanceIds extends $tea.Model {
-  instanceId?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CrossAccountVerifyTokenResponseBodyResult extends $tea.Model {
-  authRoles?: string[];
-  /**
-   * @example
-   * 1676974108866
-   */
-  authTime?: number;
-  /**
-   * @example
-   * marketplace_wangxiao_test
-   */
-  name?: string;
-  /**
-   * @example
-   * 1744526877246715
-   */
-  uid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authRoles: 'AuthRoles',
-      authTime: 'AuthTime',
-      name: 'Name',
-      uid: 'Uid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authRoles: { 'type': 'array', 'itemType': 'string' },
-      authTime: 'number',
-      name: 'string',
-      uid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeApiMeteringResponseBodyResult extends $tea.Model {
-  /**
-   * @example
-   * 102277855749****
-   */
-  aliyunPk?: number;
-  /**
-   * @example
-   * cmapi0004****
-   */
-  productCode?: string;
-  productName?: string;
-  totalCapacity?: number;
-  /**
-   * @example
-   * 98
-   */
-  totalQuota?: number;
-  /**
-   * @example
-   * 220
-   */
-  totalUsage?: number;
-  unit?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliyunPk: 'AliyunPk',
-      productCode: 'ProductCode',
-      productName: 'ProductName',
-      totalCapacity: 'TotalCapacity',
-      totalQuota: 'TotalQuota',
-      totalUsage: 'TotalUsage',
-      unit: 'Unit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliyunPk: 'number',
-      productCode: 'string',
-      productName: 'string',
-      totalCapacity: 'number',
-      totalQuota: 'number',
-      totalUsage: 'number',
-      unit: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCurrentNodeInfoResponseBodyResult extends $tea.Model {
-  /**
-   * @example
-   * false
-   */
-  allowRollbackNode?: boolean;
-  /**
-   * @example
-   * false
-   */
-  autoFinishNode?: boolean;
-  /**
-   * @example
-   * 4
-   */
-  finalStepNo?: number;
-  /**
-   * @example
-   * 1588920725000
-   */
-  gmtExpired?: number;
-  /**
-   * @example
-   * 1588920725000
-   */
-  gmtFinished?: number;
-  /**
-   * @example
-   * 1588834325000
-   */
-  gmtStart?: number;
-  /**
-   * @example
-   * false
-   */
-  needAttachment?: boolean;
-  /**
-   * @example
-   * 8473
-   */
-  nextNodeId?: number;
-  /**
-   * @example
-   * 8472
-   */
-  nodeId?: number;
-  nodeName?: string;
-  /**
-   * @example
-   * Starting
-   */
-  nodeStatus?: string;
-  /**
-   * @example
-   * Provider
-   */
-  operatorRole?: string;
-  /**
-   * @example
-   * 0
-   */
-  parentNodeId?: number;
-  /**
-   * @example
-   * 8471
-   */
-  previousNodeId?: number;
-  /**
-   * @example
-   * 3
-   */
-  stepNo?: number;
-  templateForm?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowRollbackNode: 'AllowRollbackNode',
-      autoFinishNode: 'AutoFinishNode',
-      finalStepNo: 'FinalStepNo',
-      gmtExpired: 'GmtExpired',
-      gmtFinished: 'GmtFinished',
-      gmtStart: 'GmtStart',
-      needAttachment: 'NeedAttachment',
-      nextNodeId: 'NextNodeId',
-      nodeId: 'NodeId',
-      nodeName: 'NodeName',
-      nodeStatus: 'NodeStatus',
-      operatorRole: 'OperatorRole',
-      parentNodeId: 'ParentNodeId',
-      previousNodeId: 'PreviousNodeId',
-      stepNo: 'StepNo',
-      templateForm: 'TemplateForm',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowRollbackNode: 'boolean',
-      autoFinishNode: 'boolean',
-      finalStepNo: 'number',
-      gmtExpired: 'number',
-      gmtFinished: 'number',
-      gmtStart: 'number',
-      needAttachment: 'boolean',
-      nextNodeId: 'number',
-      nodeId: 'number',
-      nodeName: 'string',
-      nodeStatus: 'string',
-      operatorRole: 'string',
-      parentNodeId: 'number',
-      previousNodeId: 'number',
-      stepNo: 'number',
-      templateForm: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDistributionProductsRequestFilter extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * supplierName
-   */
-  key?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cmj0000000
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDistributionProductsResponseBodyResults extends $tea.Model {
-  /**
-   * @example
-   * cmap*****
-   */
-  code?: string;
-  firstCategoryName?: string;
-  /**
-   * @example
-   * //photogallery.oss-cn-hangzhou.aliyuncs.com/photo/1744526877246715/09605255-87fd-44d1-8143-96ebc8019d46.jpeg
-   */
-  imageUrl?: string;
-  name?: string;
-  /**
-   * @example
-   * 100
-   */
-  price?: string;
-  /**
-   * @example
-   * 5
-   */
-  score?: string;
-  secondCategoryName?: string;
-  shortDescription?: string;
-  /**
-   * @example
-   * 30
-   */
-  submissionRadio?: string;
-  supplierName?: string;
-  /**
-   * @example
-   * 1911534921******
-   */
-  supplierUId?: string;
-  /**
-   * @example
-   * 109
-   */
-  tradeCount?: string;
-  type?: string;
-  /**
-   * @example
-   * 55
-   */
-  userCommentCount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      firstCategoryName: 'FirstCategoryName',
-      imageUrl: 'ImageUrl',
-      name: 'Name',
-      price: 'Price',
-      score: 'Score',
-      secondCategoryName: 'SecondCategoryName',
-      shortDescription: 'ShortDescription',
-      submissionRadio: 'SubmissionRadio',
-      supplierName: 'SupplierName',
-      supplierUId: 'SupplierUId',
-      tradeCount: 'TradeCount',
-      type: 'Type',
-      userCommentCount: 'UserCommentCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      firstCategoryName: 'string',
-      imageUrl: 'string',
-      name: 'string',
-      price: 'string',
-      score: 'string',
-      secondCategoryName: 'string',
-      shortDescription: 'string',
-      submissionRadio: 'string',
-      supplierName: 'string',
-      supplierUId: 'string',
-      tradeCount: 'string',
-      type: 'string',
-      userCommentCount: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDistributionProductsLinkResponseBodyResult extends $tea.Model {
-  code?: string;
-  name?: string;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      name: 'Name',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      name: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue extends $tea.Model {
-  /**
-   * @example
-   * 12
-   */
-  displayName?: string;
-  /**
-   * @example
-   * 12
-   */
-  max?: string;
-  /**
-   * @example
-   * 12
-   */
-  min?: string;
-  /**
-   * @example
-   * 12
-   */
-  remark?: string;
-  /**
-   * @example
-   * 12
-   */
-  step?: string;
-  /**
-   * @example
-   * 12
-   */
-  type?: string;
-  /**
-   * @example
-   * 12
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      displayName: 'DisplayName',
-      max: 'Max',
-      min: 'Min',
-      remark: 'Remark',
-      step: 'Step',
-      type: 'Type',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      displayName: 'string',
-      max: 'string',
-      min: 'string',
-      remark: 'string',
-      step: 'string',
-      type: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues extends $tea.Model {
-  propertyValue?: DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue[];
-  static names(): { [key: string]: string } {
-    return {
-      propertyValue: 'PropertyValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      propertyValue: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyModulesModulePropertiesProperty extends $tea.Model {
-  /**
-   * @example
-   * 12
-   */
-  displayUnit?: string;
-  /**
-   * @example
-   * 12
-   */
-  key?: string;
-  /**
-   * @example
-   * 12
-   */
-  name?: string;
-  propertyValues?: DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues;
-  /**
-   * @example
-   * 12
-   */
-  showType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      displayUnit: 'DisplayUnit',
-      key: 'Key',
-      name: 'Name',
-      propertyValues: 'PropertyValues',
-      showType: 'ShowType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      displayUnit: 'string',
-      key: 'string',
-      name: 'string',
-      propertyValues: DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues,
-      showType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyModulesModuleProperties extends $tea.Model {
-  property?: DescribeInstanceResponseBodyModulesModulePropertiesProperty[];
-  static names(): { [key: string]: string } {
-    return {
-      property: 'Property',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      property: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyModulesModulePropertiesProperty },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyModulesModule extends $tea.Model {
-  /**
-   * @example
-   * package_config
-   */
-  code?: string;
-  /**
-   * @example
-   * 101*********026
-   */
-  id?: string;
-  name?: string;
-  properties?: DescribeInstanceResponseBodyModulesModuleProperties;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      id: 'Id',
-      name: 'Name',
-      properties: 'Properties',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      id: 'string',
-      name: 'string',
-      properties: DescribeInstanceResponseBodyModulesModuleProperties,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyModules extends $tea.Model {
-  module?: DescribeInstanceResponseBodyModulesModule[];
-  static names(): { [key: string]: string } {
-    return {
-      module: 'Module',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      module: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyModulesModule },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceResponseBodyRelationalData extends $tea.Model {
-  /**
-   * @example
-   * STARTED
-   */
-  serviceStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceStatus: 'ServiceStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceForIsvResponseBodyRelationalData extends $tea.Model {
-  /**
-   * @example
-   * STARTED
-   */
-  serviceStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceStatus: 'ServiceStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponseBodyInstanceItemsInstanceItem extends $tea.Model {
-  /**
-   * @example
-   * {}
-   */
-  apiJson?: string;
-  /**
-   * @example
-   * {"frontEndUrl":"https://***.aliyun.com","password":"Sjtv***","adminUrl":"https://***.aiiyun.com","username":"aliyun***"}
-   */
-  appJson?: string;
-  /**
-   * @example
-   * 1570634021000
-   */
-  beganOn?: number;
-  /**
-   * @example
-   * 1570634021000
-   */
-  createdOn?: number;
-  /**
-   * @example
-   * 1570644021000
-   */
-  endOn?: number;
-  extendJson?: string;
-  /**
-   * @example
-   * {"password":"***","ip":"118.31.***.41","innerIp":"118.31.***.41","region":"","username":"***","beianInfo":""}
-   */
-  hostJson?: string;
-  /**
-   * @example
-   * {}
-   */
-  idaasJson?: string;
-  /**
-   * @example
-   * {}
-   */
-  imageJson?: string;
-  /**
-   * @example
-   * 1551111111
-   */
-  instanceId?: number;
-  /**
-   * @example
-   * 204211111111111
-   */
-  orderId?: number;
-  /**
-   * @example
-   * cmgj00**11
-   */
-  productCode?: string;
-  productName?: string;
-  /**
-   * @example
-   * cmgj00**11-prepay
-   */
-  productSkuCode?: string;
-  /**
-   * @example
-   * APP
-   */
-  productType?: string;
-  /**
-   * @example
-   * OPENED
-   */
-  status?: string;
-  supplierName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiJson: 'ApiJson',
-      appJson: 'AppJson',
-      beganOn: 'BeganOn',
-      createdOn: 'CreatedOn',
-      endOn: 'EndOn',
-      extendJson: 'ExtendJson',
-      hostJson: 'HostJson',
-      idaasJson: 'IdaasJson',
-      imageJson: 'ImageJson',
-      instanceId: 'InstanceId',
-      orderId: 'OrderId',
-      productCode: 'ProductCode',
-      productName: 'ProductName',
-      productSkuCode: 'ProductSkuCode',
-      productType: 'ProductType',
-      status: 'Status',
-      supplierName: 'SupplierName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiJson: 'string',
-      appJson: 'string',
-      beganOn: 'number',
-      createdOn: 'number',
-      endOn: 'number',
-      extendJson: 'string',
-      hostJson: 'string',
-      idaasJson: 'string',
-      imageJson: 'string',
-      instanceId: 'number',
-      orderId: 'number',
-      productCode: 'string',
-      productName: 'string',
-      productSkuCode: 'string',
-      productType: 'string',
-      status: 'string',
-      supplierName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponseBodyInstanceItems extends $tea.Model {
-  instanceItem?: DescribeInstancesResponseBodyInstanceItemsInstanceItem[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceItem: 'InstanceItem',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceItem: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstanceItemsInstanceItem },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLicenseResponseBodyLicenseExtendArrayLicenseAttribute extends $tea.Model {
-  /**
-   * @example
-   * -
-   */
-  code?: string;
-  /**
-   * @example
-   * -
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLicenseResponseBodyLicenseExtendArray extends $tea.Model {
-  licenseAttribute?: DescribeLicenseResponseBodyLicenseExtendArrayLicenseAttribute[];
-  static names(): { [key: string]: string } {
-    return {
-      licenseAttribute: 'LicenseAttribute',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      licenseAttribute: { 'type': 'array', 'itemType': DescribeLicenseResponseBodyLicenseExtendArrayLicenseAttribute },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLicenseResponseBodyLicenseExtendInfo extends $tea.Model {
-  /**
-   * @example
-   * -
-   */
-  accountQuantity?: number;
-  /**
-   * @example
-   * 190311111111****
-   */
-  aliUid?: number;
-  /**
-   * @example
-   * id***@**.com
-   */
-  email?: string;
-  /**
-   * @example
-   * 129****1111
-   */
-  mobile?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountQuantity: 'AccountQuantity',
-      aliUid: 'AliUid',
-      email: 'Email',
-      mobile: 'Mobile',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountQuantity: 'number',
-      aliUid: 'number',
-      email: 'string',
-      mobile: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLicenseResponseBodyLicense extends $tea.Model {
-  /**
-   * @example
-   * 2019-05-25 09:00:00
-   */
-  activateTime?: string;
-  /**
-   * @example
-   * 2019-05-25 09:00:00
-   */
-  createTime?: string;
-  /**
-   * @example
-   * 2019-06-25 09:00:00
-   */
-  expiredTime?: string;
-  extendArray?: DescribeLicenseResponseBodyLicenseExtendArray;
-  extendInfo?: DescribeLicenseResponseBodyLicenseExtendInfo;
-  /**
-   * @example
-   * 1551111111
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * -
-   */
-  licenseCode?: string;
-  /**
-   * @example
-   * ACTIVATED
-   */
-  licenseStatus?: string;
-  /**
-   * @example
-   * cmgj02****
-   */
-  productCode?: string;
-  productName?: string;
-  /**
-   * @example
-   * cmgj02****-prepay
-   */
-  productSkuId?: string;
-  supplierName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      activateTime: 'ActivateTime',
-      createTime: 'CreateTime',
-      expiredTime: 'ExpiredTime',
-      extendArray: 'ExtendArray',
-      extendInfo: 'ExtendInfo',
-      instanceId: 'InstanceId',
-      licenseCode: 'LicenseCode',
-      licenseStatus: 'LicenseStatus',
-      productCode: 'ProductCode',
-      productName: 'ProductName',
-      productSkuId: 'ProductSkuId',
-      supplierName: 'SupplierName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activateTime: 'string',
-      createTime: 'string',
-      expiredTime: 'string',
-      extendArray: DescribeLicenseResponseBodyLicenseExtendArray,
-      extendInfo: DescribeLicenseResponseBodyLicenseExtendInfo,
-      instanceId: 'string',
-      licenseCode: 'string',
-      licenseStatus: 'string',
-      productCode: 'string',
-      productName: 'string',
-      productSkuId: 'string',
-      supplierName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOrderResponseBodyInstanceIds extends $tea.Model {
-  instanceId?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOrderResponseBodySupplierTelephones extends $tea.Model {
-  telephone?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      telephone: 'Telephone',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      telephone: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePriceResponseBodyCouponsCoupon extends $tea.Model {
-  /**
-   * @example
-   * 100.00
-   */
-  canPromFee?: number;
-  couponDesc?: string;
-  couponName?: string;
-  /**
-   * @example
-   * ActiveCoupon
-   */
-  couponOptionCode?: string;
-  /**
-   * @example
-   * 3874923111
-   */
-  couponOptionNo?: string;
-  /**
-   * @example
-   * false
-   */
-  isSelected?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      canPromFee: 'CanPromFee',
-      couponDesc: 'CouponDesc',
-      couponName: 'CouponName',
-      couponOptionCode: 'CouponOptionCode',
-      couponOptionNo: 'CouponOptionNo',
-      isSelected: 'IsSelected',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      canPromFee: 'number',
-      couponDesc: 'string',
-      couponName: 'string',
-      couponOptionCode: 'string',
-      couponOptionNo: 'string',
-      isSelected: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePriceResponseBodyCoupons extends $tea.Model {
-  coupon?: DescribePriceResponseBodyCouponsCoupon[];
-  static names(): { [key: string]: string } {
-    return {
-      coupon: 'Coupon',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      coupon: { 'type': 'array', 'itemType': DescribePriceResponseBodyCouponsCoupon },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePriceResponseBodyPromotionRulesPromotionRule extends $tea.Model {
-  name?: string;
-  /**
-   * @example
-   * 102112
-   */
-  ruleId?: string;
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      ruleId: 'RuleId',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      ruleId: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePriceResponseBodyPromotionRules extends $tea.Model {
-  promotionRule?: DescribePriceResponseBodyPromotionRulesPromotionRule[];
-  static names(): { [key: string]: string } {
-    return {
-      promotionRule: 'PromotionRule',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      promotionRule: { 'type': 'array', 'itemType': DescribePriceResponseBodyPromotionRulesPromotionRule },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyProductExtrasProductExtra extends $tea.Model {
-  /**
-   * @example
-   * product_advantage
-   */
-  key?: string;
-  label?: string;
-  /**
-   * @example
-   * 0
-   */
-  order?: number;
-  /**
-   * @example
-   * HTML
-   */
-  type?: string;
-  values?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      label: 'Label',
-      order: 'Order',
-      type: 'Type',
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      label: 'string',
-      order: 'number',
-      type: 'string',
-      values: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyProductExtras extends $tea.Model {
-  productExtra?: DescribeProductResponseBodyProductExtrasProductExtra[];
-  static names(): { [key: string]: string } {
-    return {
-      productExtra: 'ProductExtra',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productExtra: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductExtrasProductExtra },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValuesPropertyValue extends $tea.Model {
-  displayName?: string;
-  /**
-   * @example
-   * 123
-   */
-  max?: string;
-  /**
-   * @example
-   * 11
-   */
-  min?: string;
-  /**
-   * @example
-   * abc
-   */
-  remark?: string;
-  /**
-   * @example
-   * 1
-   */
-  step?: string;
-  /**
-   * @example
-   * single_string
-   */
-  type?: string;
-  /**
-   * @example
-   * m-28e213e7t
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      displayName: 'DisplayName',
-      max: 'Max',
-      min: 'Min',
-      remark: 'Remark',
-      step: 'Step',
-      type: 'Type',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      displayName: 'string',
-      max: 'string',
-      min: 'string',
-      remark: 'string',
-      step: 'string',
-      type: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValues extends $tea.Model {
-  propertyValue?: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValuesPropertyValue[];
-  static names(): { [key: string]: string } {
-    return {
-      propertyValue: 'PropertyValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      propertyValue: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValuesPropertyValue },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesProperty extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  displayUnit?: string;
-  /**
-   * @example
-   * img_id
-   */
-  key?: string;
-  name?: string;
-  propertyValues?: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValues;
-  /**
-   * @example
-   * number
-   */
-  showType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      displayUnit: 'DisplayUnit',
-      key: 'Key',
-      name: 'Name',
-      propertyValues: 'PropertyValues',
-      showType: 'ShowType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      displayUnit: 'string',
-      key: 'string',
-      name: 'string',
-      propertyValues: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValues,
-      showType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyProductSkusProductSkuModulesModuleProperties extends $tea.Model {
-  property?: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesProperty[];
-  static names(): { [key: string]: string } {
-    return {
-      property: 'Property',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      property: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesProperty },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyProductSkusProductSkuModulesModule extends $tea.Model {
-  /**
-   * @example
-   * img_id
-   */
-  code?: string;
-  /**
-   * @example
-   * 248220
-   */
-  id?: string;
-  name?: string;
-  properties?: DescribeProductResponseBodyProductSkusProductSkuModulesModuleProperties;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      id: 'Id',
-      name: 'Name',
-      properties: 'Properties',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      id: 'string',
-      name: 'string',
-      properties: DescribeProductResponseBodyProductSkusProductSkuModulesModuleProperties,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyProductSkusProductSkuModules extends $tea.Model {
-  module?: DescribeProductResponseBodyProductSkusProductSkuModulesModule[];
-  static names(): { [key: string]: string } {
-    return {
-      module: 'Module',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      module: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSkuModulesModule },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyProductSkusProductSkuOrderPeriodsOrderPeriod extends $tea.Model {
-  name?: string;
-  /**
-   * @example
-   * HOUR
-   */
-  periodType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      periodType: 'PeriodType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      periodType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyProductSkusProductSkuOrderPeriods extends $tea.Model {
-  orderPeriod?: DescribeProductResponseBodyProductSkusProductSkuOrderPeriodsOrderPeriod[];
-  static names(): { [key: string]: string } {
-    return {
-      orderPeriod: 'OrderPeriod',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderPeriod: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSkuOrderPeriodsOrderPeriod },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyProductSkusProductSku extends $tea.Model {
-  /**
-   * @example
-   * PREPAY
-   */
-  chargeType?: string;
-  /**
-   * @example
-   * cmjj01****-Package
-   */
-  code?: string;
-  /**
-   * @example
-   * {\\"img_id\\":{\\"img_version|img_region\\":{\\"V1.7|cn-shenzhen-st3-a01\\":[\\"m-wz9ho4hmos0lpxcldqoq\\"]}}
-   */
-  constraints?: string;
-  /**
-   * @example
-   * true
-   */
-  hidden?: boolean;
-  modules?: DescribeProductResponseBodyProductSkusProductSkuModules;
-  /**
-   * @example
-   * 21
-   */
-  name?: string;
-  orderPeriods?: DescribeProductResponseBodyProductSkusProductSkuOrderPeriods;
-  static names(): { [key: string]: string } {
-    return {
-      chargeType: 'ChargeType',
-      code: 'Code',
-      constraints: 'Constraints',
-      hidden: 'Hidden',
-      modules: 'Modules',
-      name: 'Name',
-      orderPeriods: 'OrderPeriods',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chargeType: 'string',
-      code: 'string',
-      constraints: 'string',
-      hidden: 'boolean',
-      modules: DescribeProductResponseBodyProductSkusProductSkuModules,
-      name: 'string',
-      orderPeriods: DescribeProductResponseBodyProductSkusProductSkuOrderPeriods,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyProductSkus extends $tea.Model {
-  productSku?: DescribeProductResponseBodyProductSkusProductSku[];
-  static names(): { [key: string]: string } {
-    return {
-      productSku: 'ProductSku',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productSku: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSku },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyShopInfoTelephones extends $tea.Model {
-  telephone?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      telephone: 'Telephone',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      telephone: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyShopInfoWangWangsWangWang extends $tea.Model {
-  /**
-   * @example
-   * 123
-   */
-  remark?: string;
-  /**
-   * @example
-   * ABC
-   */
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      remark: 'Remark',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      remark: 'string',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyShopInfoWangWangs extends $tea.Model {
-  wangWang?: DescribeProductResponseBodyShopInfoWangWangsWangWang[];
-  static names(): { [key: string]: string } {
-    return {
-      wangWang: 'WangWang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      wangWang: { 'type': 'array', 'itemType': DescribeProductResponseBodyShopInfoWangWangsWangWang },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductResponseBodyShopInfo extends $tea.Model {
-  /**
-   * @example
-   * 46**41@example.com
-   */
-  emails?: string;
-  /**
-   * @example
-   * 123
-   */
-  id?: number;
-  name?: string;
-  telephones?: DescribeProductResponseBodyShopInfoTelephones;
-  wangWangs?: DescribeProductResponseBodyShopInfoWangWangs;
-  static names(): { [key: string]: string } {
-    return {
-      emails: 'Emails',
-      id: 'Id',
-      name: 'Name',
-      telephones: 'Telephones',
-      wangWangs: 'WangWangs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      emails: 'string',
-      id: 'number',
-      name: 'string',
-      telephones: DescribeProductResponseBodyShopInfoTelephones,
-      wangWangs: DescribeProductResponseBodyShopInfoWangWangs,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductsRequestFilter extends $tea.Model {
-  /**
-   * @example
-   * categoryId
-   */
-  key?: string;
-  /**
-   * @example
-   * 53366009
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductsResponseBodyProductItemsProductItem extends $tea.Model {
-  /**
-   * @example
-   * 53398003
-   */
-  categoryId?: number;
-  /**
-   * @example
-   * cmjj02****
-   */
-  code?: string;
-  deliveryDate?: string;
-  deliveryWay?: string;
-  /**
-   * @example
-   * https://oss.aliyuncs.com/photogallery/photo/1904996544835414/7549/767d6d07-8366-4822-b84e-61f6ea10d146.png
-   */
-  imageUrl?: string;
-  name?: string;
-  /**
-   * @example
-   * windows
-   */
-  operationSystem?: string;
-  /**
-   * @example
-   * {\\"DiscountPrice\\": 0.0, \\"TradePrice\\": 15750.0, \\"Currency\\": \\"CNY\\", \\"OriginalPrice\\": 15750.0, \\"RuleIds\\": {\\"RuleId\\": []}, \\"Coupons\\": {\\"Coupon\\": []}}
-   */
-  priceInfo?: string;
-  /**
-   * @example
-   * 5.0
-   */
-  score?: string;
-  shortDescription?: string;
-  suggestedPrice?: string;
-  /**
-   * @example
-   * 228399
-   */
-  supplierId?: number;
-  supplierName?: string;
-  tags?: string;
-  /**
-   * @example
-   * /products/53616009/cmjj02****.html
-   */
-  targetUrl?: string;
-  warrantyDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      categoryId: 'CategoryId',
-      code: 'Code',
-      deliveryDate: 'DeliveryDate',
-      deliveryWay: 'DeliveryWay',
-      imageUrl: 'ImageUrl',
-      name: 'Name',
-      operationSystem: 'OperationSystem',
-      priceInfo: 'PriceInfo',
-      score: 'Score',
-      shortDescription: 'ShortDescription',
-      suggestedPrice: 'SuggestedPrice',
-      supplierId: 'SupplierId',
-      supplierName: 'SupplierName',
-      tags: 'Tags',
-      targetUrl: 'TargetUrl',
-      warrantyDate: 'WarrantyDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      categoryId: 'number',
-      code: 'string',
-      deliveryDate: 'string',
-      deliveryWay: 'string',
-      imageUrl: 'string',
-      name: 'string',
-      operationSystem: 'string',
-      priceInfo: 'string',
-      score: 'string',
-      shortDescription: 'string',
-      suggestedPrice: 'string',
-      supplierId: 'number',
-      supplierName: 'string',
-      tags: 'string',
-      targetUrl: 'string',
-      warrantyDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductsResponseBodyProductItems extends $tea.Model {
-  productItem?: DescribeProductsResponseBodyProductItemsProductItem[];
-  static names(): { [key: string]: string } {
-    return {
-      productItem: 'ProductItem',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productItem: { 'type': 'array', 'itemType': DescribeProductsResponseBodyProductItemsProductItem },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProjectAttachmentsResponseBodyResult extends $tea.Model {
-  /**
-   * @example
-   * Mzc4NDAtODQ3MjY4MzI=
-   */
-  attachmentToken?: string;
-  /**
-   * @example
-   * File
-   */
-  attachmentType?: string;
-  content?: string;
-  /**
-   * @example
-   * http://delivery-center.oss-cn-shanghai.aliyuncs.com/6a8****0e2/e0a***f3.jpg?Expires=1589334682&OSSAccessKeyId=wI2r*********&Signature=JWB39pUxs7RCqrcw58qXPEGu6M0%3D
-   */
-  fileLink?: string;
-  /**
-   * @example
-   * 1589334682404
-   */
-  fileLinkGmtExpired?: number;
-  /**
-   * @example
-   * f8-test-perview.jpeg
-   */
-  fileName?: string;
-  /**
-   * @example
-   * 109124
-   */
-  fileSize?: number;
-  /**
-   * @example
-   * jpg
-   */
-  fileSuffix?: string;
-  /**
-   * @example
-   * 1587968858000
-   */
-  gmtCreate?: number;
-  /**
-   * @example
-   * 8472
-   */
-  nodeId?: number;
-  nodeName?: string;
-  /**
-   * @example
-   * 45261111****
-   */
-  operator?: number;
-  operatorName?: string;
-  /**
-   * @example
-   * Provider
-   */
-  operatorRole?: string;
-  /**
-   * @example
-   * 3
-   */
-  stepNo?: number;
-  static names(): { [key: string]: string } {
-    return {
-      attachmentToken: 'AttachmentToken',
-      attachmentType: 'AttachmentType',
-      content: 'Content',
-      fileLink: 'FileLink',
-      fileLinkGmtExpired: 'FileLinkGmtExpired',
-      fileName: 'FileName',
-      fileSize: 'FileSize',
-      fileSuffix: 'FileSuffix',
-      gmtCreate: 'GmtCreate',
-      nodeId: 'NodeId',
-      nodeName: 'NodeName',
-      operator: 'Operator',
-      operatorName: 'OperatorName',
-      operatorRole: 'OperatorRole',
-      stepNo: 'StepNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      attachmentToken: 'string',
-      attachmentType: 'string',
-      content: 'string',
-      fileLink: 'string',
-      fileLinkGmtExpired: 'number',
-      fileName: 'string',
-      fileSize: 'number',
-      fileSuffix: 'string',
-      gmtCreate: 'number',
-      nodeId: 'number',
-      nodeName: 'string',
-      operator: 'number',
-      operatorName: 'string',
-      operatorRole: 'string',
-      stepNo: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProjectInfoResponseBodyResult extends $tea.Model {
-  /**
-   * @example
-   * 3
-   */
-  currentStepNo?: number;
-  /**
-   * @example
-   * 27291111****
-   */
-  customerAliUid?: number;
-  /**
-   * @example
-   * 4
-   */
-  finalStepNo?: number;
-  /**
-   * @example
-   * null
-   */
-  finishType?: string;
-  /**
-   * @example
-   * 1588834324000
-   */
-  gmtCreate?: number;
-  /**
-   * @example
-   * 1620403200000
-   */
-  gmtExpired?: number;
-  /**
-   * @example
-   * 1620403200000
-   */
-  gmtFinished?: number;
-  /**
-   * @example
-   * 4****89
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 2059111111111
-   */
-  orderId?: number;
-  /**
-   * @example
-   * cmgj***055
-   */
-  productCode?: string;
-  productName?: string;
-  /**
-   * @example
-   * yuncode****500001
-   */
-  productSkuCode?: string;
-  productSkuName?: string;
-  /**
-   * @example
-   * Starting
-   */
-  projectStatus?: string;
-  /**
-   * @example
-   * 45121111****
-   */
-  supplierAliUid?: number;
-  /**
-   * @example
-   * 410
-   */
-  templateId?: number;
-  /**
-   * @example
-   * Public
-   */
-  templateType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentStepNo: 'CurrentStepNo',
-      customerAliUid: 'CustomerAliUid',
-      finalStepNo: 'FinalStepNo',
-      finishType: 'FinishType',
-      gmtCreate: 'GmtCreate',
-      gmtExpired: 'GmtExpired',
-      gmtFinished: 'GmtFinished',
-      instanceId: 'InstanceId',
-      orderId: 'OrderId',
-      productCode: 'ProductCode',
-      productName: 'ProductName',
-      productSkuCode: 'ProductSkuCode',
-      productSkuName: 'ProductSkuName',
-      projectStatus: 'ProjectStatus',
-      supplierAliUid: 'SupplierAliUid',
-      templateId: 'TemplateId',
-      templateType: 'TemplateType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentStepNo: 'number',
-      customerAliUid: 'number',
-      finalStepNo: 'number',
-      finishType: 'string',
-      gmtCreate: 'number',
-      gmtExpired: 'number',
-      gmtFinished: 'number',
-      instanceId: 'string',
-      orderId: 'number',
-      productCode: 'string',
-      productName: 'string',
-      productSkuCode: 'string',
-      productSkuName: 'string',
-      projectStatus: 'string',
-      supplierAliUid: 'number',
-      templateId: 'number',
-      templateType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProjectMessagesResponseBodyResult extends $tea.Model {
-  content?: string;
-  /**
-   * @example
-   * 1589015560000
-   */
-  gmtCreate?: number;
-  /**
-   * @example
-   * 452611111****
-   */
-  operator?: number;
-  operatorName?: string;
-  /**
-   * @example
-   * Provider
-   */
-  operatorRole?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      gmtCreate: 'GmtCreate',
-      operator: 'Operator',
-      operatorName: 'OperatorName',
-      operatorRole: 'OperatorRole',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      gmtCreate: 'number',
-      operator: 'number',
-      operatorName: 'string',
-      operatorRole: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProjectNodesResponseBodyResult extends $tea.Model {
-  /**
-   * @example
-   * false
-   */
-  allowRollbackNode?: boolean;
-  /**
-   * @example
-   * false
-   */
-  autoFinishNode?: boolean;
-  /**
-   * @example
-   * 4
-   */
-  finalStepNo?: number;
-  /**
-   * @example
-   * 1588834325000
-   */
-  gmtExpired?: number;
-  /**
-   * @example
-   * 1588834325000
-   */
-  gmtFinished?: number;
-  /**
-   * @example
-   * 1588834325000
-   */
-  gmtStart?: number;
-  /**
-   * @example
-   * false
-   */
-  needAttachment?: boolean;
-  /**
-   * @example
-   * 8472
-   */
-  nextNodeId?: number;
-  /**
-   * @example
-   * 8471
-   */
-  nodeId?: number;
-  nodeName?: string;
-  /**
-   * @example
-   * Finish
-   */
-  nodeStatus?: string;
-  /**
-   * @example
-   * System
-   */
-  operatorRole?: string;
-  /**
-   * @example
-   * 0
-   */
-  parentNodeId?: number;
-  /**
-   * @example
-   * 8470
-   */
-  previousNodeId?: number;
-  /**
-   * @example
-   * 2
-   */
-  stepNo?: number;
-  templateForm?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowRollbackNode: 'AllowRollbackNode',
-      autoFinishNode: 'AutoFinishNode',
-      finalStepNo: 'FinalStepNo',
-      gmtExpired: 'GmtExpired',
-      gmtFinished: 'GmtFinished',
-      gmtStart: 'GmtStart',
-      needAttachment: 'NeedAttachment',
-      nextNodeId: 'NextNodeId',
-      nodeId: 'NodeId',
-      nodeName: 'NodeName',
-      nodeStatus: 'NodeStatus',
-      operatorRole: 'OperatorRole',
-      parentNodeId: 'ParentNodeId',
-      previousNodeId: 'PreviousNodeId',
-      stepNo: 'StepNo',
-      templateForm: 'TemplateForm',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowRollbackNode: 'boolean',
-      autoFinishNode: 'boolean',
-      finalStepNo: 'number',
-      gmtExpired: 'number',
-      gmtFinished: 'number',
-      gmtStart: 'number',
-      needAttachment: 'boolean',
-      nextNodeId: 'number',
-      nodeId: 'number',
-      nodeName: 'string',
-      nodeStatus: 'string',
-      operatorRole: 'string',
-      parentNodeId: 'number',
-      previousNodeId: 'number',
-      stepNo: 'number',
-      templateForm: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProjectOperateLogsResponseBodyResult extends $tea.Model {
-  description?: string;
-  /**
-   * @example
-   * 1587624497000
-   */
-  gmtCreate?: number;
-  /**
-   * @example
-   * 0
-   */
-  operator?: number;
-  operatorName?: string;
-  /**
-   * @example
-   * System
-   */
-  operatorRole?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      gmtCreate: 'GmtCreate',
-      operator: 'Operator',
-      operatorName: 'OperatorName',
-      operatorRole: 'OperatorRole',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      gmtCreate: 'number',
-      operator: 'number',
-      operatorName: 'string',
-      operatorRole: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -5409,11 +6570,8 @@ export class DescribeProjectOperateLogsResponseBodyResult extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._productId = "Market";
-    let gatewayClient = new GatewayClient();
-    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-hangzhou': "market.aliyuncs.com",
@@ -5446,15 +6604,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -5464,21 +6622,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ActivateLicenseResponse
    */
-  async activateLicenseWithOptions(request: ActivateLicenseRequest, runtime: $Util.RuntimeOptions): Promise<ActivateLicenseResponse> {
-    Util.validateModel(request);
+  async activateLicenseWithOptions(request: ActivateLicenseRequest, runtime: $dara.RuntimeOptions): Promise<ActivateLicenseResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.identification)) {
+    if (!$dara.isNull(request.identification)) {
       query["Identification"] = request.identification;
     }
 
-    if (!Util.isUnset(request.licenseCode)) {
+    if (!$dara.isNull(request.licenseCode)) {
       query["LicenseCode"] = request.licenseCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ActivateLicense",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -5489,10 +6647,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ActivateLicenseResponse>(await this.callApi(params, req, runtime), new ActivateLicenseResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ActivateLicenseResponse>(await this.callApi(params, req, runtime), new ActivateLicenseResponse({}));
     } else {
-      return $tea.cast<ActivateLicenseResponse>(await this.execute(params, req, runtime), new ActivateLicenseResponse({}));
+      return $dara.cast<ActivateLicenseResponse>(await this.execute(params, req, runtime), new ActivateLicenseResponse({}));
     }
 
   }
@@ -5504,7 +6662,7 @@ export default class Client extends OpenApi {
    * @returns ActivateLicenseResponse
    */
   async activateLicense(request: ActivateLicenseRequest): Promise<ActivateLicenseResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.activateLicenseWithOptions(request, runtime);
   }
 
@@ -5513,33 +6671,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AutoRenewInstanceResponse
    */
-  async autoRenewInstanceWithOptions(request: AutoRenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AutoRenewInstanceResponse> {
-    Util.validateModel(request);
+  async autoRenewInstanceWithOptions(request: AutoRenewInstanceRequest, runtime: $dara.RuntimeOptions): Promise<AutoRenewInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.autoRenewCycle)) {
+    if (!$dara.isNull(request.autoRenewCycle)) {
       body["AutoRenewCycle"] = request.autoRenewCycle;
     }
 
-    if (!Util.isUnset(request.autoRenewDuration)) {
+    if (!$dara.isNull(request.autoRenewDuration)) {
       body["AutoRenewDuration"] = request.autoRenewDuration;
     }
 
-    if (!Util.isUnset(request.orderBizId)) {
+    if (!$dara.isNull(request.orderBizId)) {
       body["OrderBizId"] = request.orderBizId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       body["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AutoRenewInstance",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -5550,10 +6708,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<AutoRenewInstanceResponse>(await this.callApi(params, req, runtime), new AutoRenewInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AutoRenewInstanceResponse>(await this.callApi(params, req, runtime), new AutoRenewInstanceResponse({}));
     } else {
-      return $tea.cast<AutoRenewInstanceResponse>(await this.execute(params, req, runtime), new AutoRenewInstanceResponse({}));
+      return $dara.cast<AutoRenewInstanceResponse>(await this.execute(params, req, runtime), new AutoRenewInstanceResponse({}));
     }
 
   }
@@ -5563,7 +6721,7 @@ export default class Client extends OpenApi {
    * @returns AutoRenewInstanceResponse
    */
   async autoRenewInstance(request: AutoRenewInstanceRequest): Promise<AutoRenewInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.autoRenewInstanceWithOptions(request, runtime);
   }
 
@@ -5572,37 +6730,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateOrderResponse
    */
-  async createOrderWithOptions(request: CreateOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrderResponse> {
-    Util.validateModel(request);
+  async createOrderWithOptions(request: CreateOrderRequest, runtime: $dara.RuntimeOptions): Promise<CreateOrderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.commodity)) {
+    if (!$dara.isNull(request.commodity)) {
       query["Commodity"] = request.commodity;
     }
 
-    if (!Util.isUnset(request.orderSouce)) {
+    if (!$dara.isNull(request.orderSouce)) {
       query["OrderSouce"] = request.orderSouce;
     }
 
-    if (!Util.isUnset(request.orderType)) {
+    if (!$dara.isNull(request.orderType)) {
       query["OrderType"] = request.orderType;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.paymentType)) {
+    if (!$dara.isNull(request.paymentType)) {
       query["PaymentType"] = request.paymentType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateOrder",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -5613,10 +6771,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateOrderResponse>(await this.callApi(params, req, runtime), new CreateOrderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateOrderResponse>(await this.callApi(params, req, runtime), new CreateOrderResponse({}));
     } else {
-      return $tea.cast<CreateOrderResponse>(await this.execute(params, req, runtime), new CreateOrderResponse({}));
+      return $dara.cast<CreateOrderResponse>(await this.execute(params, req, runtime), new CreateOrderResponse({}));
     }
 
   }
@@ -5626,7 +6784,7 @@ export default class Client extends OpenApi {
    * @returns CreateOrderResponse
    */
   async createOrder(request: CreateOrderRequest): Promise<CreateOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createOrderWithOptions(request, runtime);
   }
 
@@ -5635,17 +6793,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CrossAccountVerifyTokenResponse
    */
-  async crossAccountVerifyTokenWithOptions(request: CrossAccountVerifyTokenRequest, runtime: $Util.RuntimeOptions): Promise<CrossAccountVerifyTokenResponse> {
-    Util.validateModel(request);
+  async crossAccountVerifyTokenWithOptions(request: CrossAccountVerifyTokenRequest, runtime: $dara.RuntimeOptions): Promise<CrossAccountVerifyTokenResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.token)) {
+    if (!$dara.isNull(request.token)) {
       body["Token"] = request.token;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CrossAccountVerifyToken",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -5656,10 +6814,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CrossAccountVerifyTokenResponse>(await this.callApi(params, req, runtime), new CrossAccountVerifyTokenResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CrossAccountVerifyTokenResponse>(await this.callApi(params, req, runtime), new CrossAccountVerifyTokenResponse({}));
     } else {
-      return $tea.cast<CrossAccountVerifyTokenResponse>(await this.execute(params, req, runtime), new CrossAccountVerifyTokenResponse({}));
+      return $dara.cast<CrossAccountVerifyTokenResponse>(await this.execute(params, req, runtime), new CrossAccountVerifyTokenResponse({}));
     }
 
   }
@@ -5669,7 +6827,7 @@ export default class Client extends OpenApi {
    * @returns CrossAccountVerifyTokenResponse
    */
   async crossAccountVerifyToken(request: CrossAccountVerifyTokenRequest): Promise<CrossAccountVerifyTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.crossAccountVerifyTokenWithOptions(request, runtime);
   }
 
@@ -5680,13 +6838,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeApiMeteringResponse
    */
-  async describeApiMeteringWithOptions(request: DescribeApiMeteringRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiMeteringResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async describeApiMeteringWithOptions(request: DescribeApiMeteringRequest, runtime: $dara.RuntimeOptions): Promise<DescribeApiMeteringResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeApiMetering",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -5697,10 +6855,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeApiMeteringResponse>(await this.callApi(params, req, runtime), new DescribeApiMeteringResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeApiMeteringResponse>(await this.callApi(params, req, runtime), new DescribeApiMeteringResponse({}));
     } else {
-      return $tea.cast<DescribeApiMeteringResponse>(await this.execute(params, req, runtime), new DescribeApiMeteringResponse({}));
+      return $dara.cast<DescribeApiMeteringResponse>(await this.execute(params, req, runtime), new DescribeApiMeteringResponse({}));
     }
 
   }
@@ -5712,7 +6870,7 @@ export default class Client extends OpenApi {
    * @returns DescribeApiMeteringResponse
    */
   async describeApiMetering(request: DescribeApiMeteringRequest): Promise<DescribeApiMeteringResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeApiMeteringWithOptions(request, runtime);
   }
 
@@ -5721,17 +6879,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCurrentNodeInfoResponse
    */
-  async describeCurrentNodeInfoWithOptions(request: DescribeCurrentNodeInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCurrentNodeInfoResponse> {
-    Util.validateModel(request);
+  async describeCurrentNodeInfoWithOptions(request: DescribeCurrentNodeInfoRequest, runtime: $dara.RuntimeOptions): Promise<DescribeCurrentNodeInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeCurrentNodeInfo",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -5742,10 +6900,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeCurrentNodeInfoResponse>(await this.callApi(params, req, runtime), new DescribeCurrentNodeInfoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeCurrentNodeInfoResponse>(await this.callApi(params, req, runtime), new DescribeCurrentNodeInfoResponse({}));
     } else {
-      return $tea.cast<DescribeCurrentNodeInfoResponse>(await this.execute(params, req, runtime), new DescribeCurrentNodeInfoResponse({}));
+      return $dara.cast<DescribeCurrentNodeInfoResponse>(await this.execute(params, req, runtime), new DescribeCurrentNodeInfoResponse({}));
     }
 
   }
@@ -5755,7 +6913,7 @@ export default class Client extends OpenApi {
    * @returns DescribeCurrentNodeInfoResponse
    */
   async describeCurrentNodeInfo(request: DescribeCurrentNodeInfoRequest): Promise<DescribeCurrentNodeInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCurrentNodeInfoWithOptions(request, runtime);
   }
 
@@ -5766,13 +6924,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDistributionProductsResponse
    */
-  async describeDistributionProductsWithOptions(request: DescribeDistributionProductsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDistributionProductsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async describeDistributionProductsWithOptions(request: DescribeDistributionProductsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDistributionProductsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDistributionProducts",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -5783,10 +6941,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDistributionProductsResponse>(await this.callApi(params, req, runtime), new DescribeDistributionProductsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDistributionProductsResponse>(await this.callApi(params, req, runtime), new DescribeDistributionProductsResponse({}));
     } else {
-      return $tea.cast<DescribeDistributionProductsResponse>(await this.execute(params, req, runtime), new DescribeDistributionProductsResponse({}));
+      return $dara.cast<DescribeDistributionProductsResponse>(await this.execute(params, req, runtime), new DescribeDistributionProductsResponse({}));
     }
 
   }
@@ -5798,7 +6956,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDistributionProductsResponse
    */
   async describeDistributionProducts(request: DescribeDistributionProductsRequest): Promise<DescribeDistributionProductsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDistributionProductsWithOptions(request, runtime);
   }
 
@@ -5809,23 +6967,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDistributionProductsLinkResponse
    */
-  async describeDistributionProductsLinkWithOptions(tmpReq: DescribeDistributionProductsLinkRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDistributionProductsLinkResponse> {
-    Util.validateModel(tmpReq);
+  async describeDistributionProductsLinkWithOptions(tmpReq: DescribeDistributionProductsLinkRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDistributionProductsLinkResponse> {
+    tmpReq.validate();
     let request = new DescribeDistributionProductsLinkShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.codes)) {
+    if (!$dara.isNull(tmpReq.codes)) {
       request.codesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.codes, "Codes", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.codesShrink)) {
+    if (!$dara.isNull(request.codesShrink)) {
       query["Codes"] = request.codesShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDistributionProductsLink",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -5836,10 +6994,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDistributionProductsLinkResponse>(await this.callApi(params, req, runtime), new DescribeDistributionProductsLinkResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDistributionProductsLinkResponse>(await this.callApi(params, req, runtime), new DescribeDistributionProductsLinkResponse({}));
     } else {
-      return $tea.cast<DescribeDistributionProductsLinkResponse>(await this.execute(params, req, runtime), new DescribeDistributionProductsLinkResponse({}));
+      return $dara.cast<DescribeDistributionProductsLinkResponse>(await this.execute(params, req, runtime), new DescribeDistributionProductsLinkResponse({}));
     }
 
   }
@@ -5851,8 +7009,59 @@ export default class Client extends OpenApi {
    * @returns DescribeDistributionProductsLinkResponse
    */
   async describeDistributionProductsLink(request: DescribeDistributionProductsLinkRequest): Promise<DescribeDistributionProductsLinkResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDistributionProductsLinkWithOptions(request, runtime);
+  }
+
+  /**
+   * 服务商侧查询镜像实例信息
+   * 
+   * @param request - DescribeImageInstanceForIsvRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeImageInstanceForIsvResponse
+   */
+  async describeImageInstanceForIsvWithOptions(request: DescribeImageInstanceForIsvRequest, runtime: $dara.RuntimeOptions): Promise<DescribeImageInstanceForIsvResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customerPk)) {
+      query["CustomerPk"] = request.customerPk;
+    }
+
+    if (!$dara.isNull(request.ecsInstanceId)) {
+      query["EcsInstanceId"] = request.ecsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeImageInstanceForIsv",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeImageInstanceForIsvResponse>(await this.callApi(params, req, runtime), new DescribeImageInstanceForIsvResponse({}));
+    } else {
+      return $dara.cast<DescribeImageInstanceForIsvResponse>(await this.execute(params, req, runtime), new DescribeImageInstanceForIsvResponse({}));
+    }
+
+  }
+
+  /**
+   * 服务商侧查询镜像实例信息
+   * 
+   * @param request - DescribeImageInstanceForIsvRequest
+   * @returns DescribeImageInstanceForIsvResponse
+   */
+  async describeImageInstanceForIsv(request: DescribeImageInstanceForIsvRequest): Promise<DescribeImageInstanceForIsvResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeImageInstanceForIsvWithOptions(request, runtime);
   }
 
   /**
@@ -5860,25 +7069,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceResponse
    */
-  async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
-    Util.validateModel(request);
+  async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInstanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.orderType)) {
+    if (!$dara.isNull(request.orderType)) {
       query["OrderType"] = request.orderType;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeInstance",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -5889,10 +7098,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
     } else {
-      return $tea.cast<DescribeInstanceResponse>(await this.execute(params, req, runtime), new DescribeInstanceResponse({}));
+      return $dara.cast<DescribeInstanceResponse>(await this.execute(params, req, runtime), new DescribeInstanceResponse({}));
     }
 
   }
@@ -5902,7 +7111,7 @@ export default class Client extends OpenApi {
    * @returns DescribeInstanceResponse
    */
   async describeInstance(request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstanceWithOptions(request, runtime);
   }
 
@@ -5913,17 +7122,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceForIsvResponse
    */
-  async describeInstanceForIsvWithOptions(request: DescribeInstanceForIsvRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceForIsvResponse> {
-    Util.validateModel(request);
+  async describeInstanceForIsvWithOptions(request: DescribeInstanceForIsvRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInstanceForIsvResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeInstanceForIsv",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -5934,10 +7143,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeInstanceForIsvResponse>(await this.callApi(params, req, runtime), new DescribeInstanceForIsvResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeInstanceForIsvResponse>(await this.callApi(params, req, runtime), new DescribeInstanceForIsvResponse({}));
     } else {
-      return $tea.cast<DescribeInstanceForIsvResponse>(await this.execute(params, req, runtime), new DescribeInstanceForIsvResponse({}));
+      return $dara.cast<DescribeInstanceForIsvResponse>(await this.execute(params, req, runtime), new DescribeInstanceForIsvResponse({}));
     }
 
   }
@@ -5949,7 +7158,7 @@ export default class Client extends OpenApi {
    * @returns DescribeInstanceForIsvResponse
    */
   async describeInstanceForIsv(request: DescribeInstanceForIsvRequest): Promise<DescribeInstanceForIsvResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstanceForIsvWithOptions(request, runtime);
   }
 
@@ -5958,33 +7167,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstancesResponse
    */
-  async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
-    Util.validateModel(request);
+  async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInstancesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.codes)) {
+    if (!$dara.isNull(request.codes)) {
       query["Codes"] = request.codes;
     }
 
-    if (!Util.isUnset(request.exceptCodes)) {
+    if (!$dara.isNull(request.exceptCodes)) {
       query["ExceptCodes"] = request.exceptCodes;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeInstances",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -5995,10 +7204,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
     } else {
-      return $tea.cast<DescribeInstancesResponse>(await this.execute(params, req, runtime), new DescribeInstancesResponse({}));
+      return $dara.cast<DescribeInstancesResponse>(await this.execute(params, req, runtime), new DescribeInstancesResponse({}));
     }
 
   }
@@ -6008,7 +7217,7 @@ export default class Client extends OpenApi {
    * @returns DescribeInstancesResponse
    */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
@@ -6019,17 +7228,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLicenseResponse
    */
-  async describeLicenseWithOptions(request: DescribeLicenseRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLicenseResponse> {
-    Util.validateModel(request);
+  async describeLicenseWithOptions(request: DescribeLicenseRequest, runtime: $dara.RuntimeOptions): Promise<DescribeLicenseResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.licenseCode)) {
+    if (!$dara.isNull(request.licenseCode)) {
       query["LicenseCode"] = request.licenseCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeLicense",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6040,10 +7249,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeLicenseResponse>(await this.callApi(params, req, runtime), new DescribeLicenseResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeLicenseResponse>(await this.callApi(params, req, runtime), new DescribeLicenseResponse({}));
     } else {
-      return $tea.cast<DescribeLicenseResponse>(await this.execute(params, req, runtime), new DescribeLicenseResponse({}));
+      return $dara.cast<DescribeLicenseResponse>(await this.execute(params, req, runtime), new DescribeLicenseResponse({}));
     }
 
   }
@@ -6055,7 +7264,7 @@ export default class Client extends OpenApi {
    * @returns DescribeLicenseResponse
    */
   async describeLicense(request: DescribeLicenseRequest): Promise<DescribeLicenseResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeLicenseWithOptions(request, runtime);
   }
 
@@ -6064,17 +7273,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOrderResponse
    */
-  async describeOrderWithOptions(request: DescribeOrderRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOrderResponse> {
-    Util.validateModel(request);
+  async describeOrderWithOptions(request: DescribeOrderRequest, runtime: $dara.RuntimeOptions): Promise<DescribeOrderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.orderId)) {
+    if (!$dara.isNull(request.orderId)) {
       query["OrderId"] = request.orderId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeOrder",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6085,10 +7294,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeOrderResponse>(await this.callApi(params, req, runtime), new DescribeOrderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeOrderResponse>(await this.callApi(params, req, runtime), new DescribeOrderResponse({}));
     } else {
-      return $tea.cast<DescribeOrderResponse>(await this.execute(params, req, runtime), new DescribeOrderResponse({}));
+      return $dara.cast<DescribeOrderResponse>(await this.execute(params, req, runtime), new DescribeOrderResponse({}));
     }
 
   }
@@ -6098,7 +7307,7 @@ export default class Client extends OpenApi {
    * @returns DescribeOrderResponse
    */
   async describeOrder(request: DescribeOrderRequest): Promise<DescribeOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeOrderWithOptions(request, runtime);
   }
 
@@ -6109,17 +7318,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOrderForIsvResponse
    */
-  async describeOrderForIsvWithOptions(request: DescribeOrderForIsvRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOrderForIsvResponse> {
-    Util.validateModel(request);
+  async describeOrderForIsvWithOptions(request: DescribeOrderForIsvRequest, runtime: $dara.RuntimeOptions): Promise<DescribeOrderForIsvResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.orderId)) {
+    if (!$dara.isNull(request.orderId)) {
       query["OrderId"] = request.orderId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeOrderForIsv",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6130,10 +7339,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeOrderForIsvResponse>(await this.callApi(params, req, runtime), new DescribeOrderForIsvResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeOrderForIsvResponse>(await this.callApi(params, req, runtime), new DescribeOrderForIsvResponse({}));
     } else {
-      return $tea.cast<DescribeOrderForIsvResponse>(await this.execute(params, req, runtime), new DescribeOrderForIsvResponse({}));
+      return $dara.cast<DescribeOrderForIsvResponse>(await this.execute(params, req, runtime), new DescribeOrderForIsvResponse({}));
     }
 
   }
@@ -6145,7 +7354,7 @@ export default class Client extends OpenApi {
    * @returns DescribeOrderForIsvResponse
    */
   async describeOrderForIsv(request: DescribeOrderForIsvRequest): Promise<DescribeOrderForIsvResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeOrderForIsvWithOptions(request, runtime);
   }
 
@@ -6154,21 +7363,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePriceResponse
    */
-  async describePriceWithOptions(request: DescribePriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceResponse> {
-    Util.validateModel(request);
+  async describePriceWithOptions(request: DescribePriceRequest, runtime: $dara.RuntimeOptions): Promise<DescribePriceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.commodity)) {
+    if (!$dara.isNull(request.commodity)) {
       query["Commodity"] = request.commodity;
     }
 
-    if (!Util.isUnset(request.orderType)) {
+    if (!$dara.isNull(request.orderType)) {
       query["OrderType"] = request.orderType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribePrice",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6179,10 +7388,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribePriceResponse>(await this.callApi(params, req, runtime), new DescribePriceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribePriceResponse>(await this.callApi(params, req, runtime), new DescribePriceResponse({}));
     } else {
-      return $tea.cast<DescribePriceResponse>(await this.execute(params, req, runtime), new DescribePriceResponse({}));
+      return $dara.cast<DescribePriceResponse>(await this.execute(params, req, runtime), new DescribePriceResponse({}));
     }
 
   }
@@ -6192,7 +7401,7 @@ export default class Client extends OpenApi {
    * @returns DescribePriceResponse
    */
   async describePrice(request: DescribePriceRequest): Promise<DescribePriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describePriceWithOptions(request, runtime);
   }
 
@@ -6201,25 +7410,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProductResponse
    */
-  async describeProductWithOptions(request: DescribeProductRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProductResponse> {
-    Util.validateModel(request);
+  async describeProductWithOptions(request: DescribeProductRequest, runtime: $dara.RuntimeOptions): Promise<DescribeProductResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.aliUid)) {
+    if (!$dara.isNull(request.aliUid)) {
       query["AliUid"] = request.aliUid;
     }
 
-    if (!Util.isUnset(request.code)) {
+    if (!$dara.isNull(request.code)) {
       query["Code"] = request.code;
     }
 
-    if (!Util.isUnset(request.queryDraft)) {
+    if (!$dara.isNull(request.queryDraft)) {
       query["QueryDraft"] = request.queryDraft;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeProduct",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6230,10 +7439,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeProductResponse>(await this.callApi(params, req, runtime), new DescribeProductResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeProductResponse>(await this.callApi(params, req, runtime), new DescribeProductResponse({}));
     } else {
-      return $tea.cast<DescribeProductResponse>(await this.execute(params, req, runtime), new DescribeProductResponse({}));
+      return $dara.cast<DescribeProductResponse>(await this.execute(params, req, runtime), new DescribeProductResponse({}));
     }
 
   }
@@ -6243,7 +7452,7 @@ export default class Client extends OpenApi {
    * @returns DescribeProductResponse
    */
   async describeProduct(request: DescribeProductRequest): Promise<DescribeProductResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeProductWithOptions(request, runtime);
   }
 
@@ -6252,29 +7461,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProductsResponse
    */
-  async describeProductsWithOptions(request: DescribeProductsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProductsResponse> {
-    Util.validateModel(request);
+  async describeProductsWithOptions(request: DescribeProductsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeProductsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.filter)) {
+    if (!$dara.isNull(request.filter)) {
       query["Filter"] = request.filter;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.searchTerm)) {
+    if (!$dara.isNull(request.searchTerm)) {
       query["SearchTerm"] = request.searchTerm;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeProducts",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6285,10 +7494,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeProductsResponse>(await this.callApi(params, req, runtime), new DescribeProductsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeProductsResponse>(await this.callApi(params, req, runtime), new DescribeProductsResponse({}));
     } else {
-      return $tea.cast<DescribeProductsResponse>(await this.execute(params, req, runtime), new DescribeProductsResponse({}));
+      return $dara.cast<DescribeProductsResponse>(await this.execute(params, req, runtime), new DescribeProductsResponse({}));
     }
 
   }
@@ -6298,7 +7507,7 @@ export default class Client extends OpenApi {
    * @returns DescribeProductsResponse
    */
   async describeProducts(request: DescribeProductsRequest): Promise<DescribeProductsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeProductsWithOptions(request, runtime);
   }
 
@@ -6307,17 +7516,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProjectAttachmentsResponse
    */
-  async describeProjectAttachmentsWithOptions(request: DescribeProjectAttachmentsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectAttachmentsResponse> {
-    Util.validateModel(request);
+  async describeProjectAttachmentsWithOptions(request: DescribeProjectAttachmentsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeProjectAttachmentsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeProjectAttachments",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6328,10 +7537,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeProjectAttachmentsResponse>(await this.callApi(params, req, runtime), new DescribeProjectAttachmentsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeProjectAttachmentsResponse>(await this.callApi(params, req, runtime), new DescribeProjectAttachmentsResponse({}));
     } else {
-      return $tea.cast<DescribeProjectAttachmentsResponse>(await this.execute(params, req, runtime), new DescribeProjectAttachmentsResponse({}));
+      return $dara.cast<DescribeProjectAttachmentsResponse>(await this.execute(params, req, runtime), new DescribeProjectAttachmentsResponse({}));
     }
 
   }
@@ -6341,7 +7550,7 @@ export default class Client extends OpenApi {
    * @returns DescribeProjectAttachmentsResponse
    */
   async describeProjectAttachments(request: DescribeProjectAttachmentsRequest): Promise<DescribeProjectAttachmentsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeProjectAttachmentsWithOptions(request, runtime);
   }
 
@@ -6350,17 +7559,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProjectInfoResponse
    */
-  async describeProjectInfoWithOptions(request: DescribeProjectInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectInfoResponse> {
-    Util.validateModel(request);
+  async describeProjectInfoWithOptions(request: DescribeProjectInfoRequest, runtime: $dara.RuntimeOptions): Promise<DescribeProjectInfoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeProjectInfo",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6371,10 +7580,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeProjectInfoResponse>(await this.callApi(params, req, runtime), new DescribeProjectInfoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeProjectInfoResponse>(await this.callApi(params, req, runtime), new DescribeProjectInfoResponse({}));
     } else {
-      return $tea.cast<DescribeProjectInfoResponse>(await this.execute(params, req, runtime), new DescribeProjectInfoResponse({}));
+      return $dara.cast<DescribeProjectInfoResponse>(await this.execute(params, req, runtime), new DescribeProjectInfoResponse({}));
     }
 
   }
@@ -6384,7 +7593,7 @@ export default class Client extends OpenApi {
    * @returns DescribeProjectInfoResponse
    */
   async describeProjectInfo(request: DescribeProjectInfoRequest): Promise<DescribeProjectInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeProjectInfoWithOptions(request, runtime);
   }
 
@@ -6393,21 +7602,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProjectMessagesResponse
    */
-  async describeProjectMessagesWithOptions(request: DescribeProjectMessagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectMessagesResponse> {
-    Util.validateModel(request);
+  async describeProjectMessagesWithOptions(request: DescribeProjectMessagesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeProjectMessagesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pageIndex)) {
+    if (!$dara.isNull(request.pageIndex)) {
       query["PageIndex"] = request.pageIndex;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeProjectMessages",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6418,10 +7627,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeProjectMessagesResponse>(await this.callApi(params, req, runtime), new DescribeProjectMessagesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeProjectMessagesResponse>(await this.callApi(params, req, runtime), new DescribeProjectMessagesResponse({}));
     } else {
-      return $tea.cast<DescribeProjectMessagesResponse>(await this.execute(params, req, runtime), new DescribeProjectMessagesResponse({}));
+      return $dara.cast<DescribeProjectMessagesResponse>(await this.execute(params, req, runtime), new DescribeProjectMessagesResponse({}));
     }
 
   }
@@ -6431,7 +7640,7 @@ export default class Client extends OpenApi {
    * @returns DescribeProjectMessagesResponse
    */
   async describeProjectMessages(request: DescribeProjectMessagesRequest): Promise<DescribeProjectMessagesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeProjectMessagesWithOptions(request, runtime);
   }
 
@@ -6444,17 +7653,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProjectNodesResponse
    */
-  async describeProjectNodesWithOptions(request: DescribeProjectNodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectNodesResponse> {
-    Util.validateModel(request);
+  async describeProjectNodesWithOptions(request: DescribeProjectNodesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeProjectNodesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeProjectNodes",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6465,10 +7674,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeProjectNodesResponse>(await this.callApi(params, req, runtime), new DescribeProjectNodesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeProjectNodesResponse>(await this.callApi(params, req, runtime), new DescribeProjectNodesResponse({}));
     } else {
-      return $tea.cast<DescribeProjectNodesResponse>(await this.execute(params, req, runtime), new DescribeProjectNodesResponse({}));
+      return $dara.cast<DescribeProjectNodesResponse>(await this.execute(params, req, runtime), new DescribeProjectNodesResponse({}));
     }
 
   }
@@ -6482,7 +7691,7 @@ export default class Client extends OpenApi {
    * @returns DescribeProjectNodesResponse
    */
   async describeProjectNodes(request: DescribeProjectNodesRequest): Promise<DescribeProjectNodesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeProjectNodesWithOptions(request, runtime);
   }
 
@@ -6491,17 +7700,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProjectOperateLogsResponse
    */
-  async describeProjectOperateLogsWithOptions(request: DescribeProjectOperateLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectOperateLogsResponse> {
-    Util.validateModel(request);
+  async describeProjectOperateLogsWithOptions(request: DescribeProjectOperateLogsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeProjectOperateLogsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeProjectOperateLogs",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6512,10 +7721,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeProjectOperateLogsResponse>(await this.callApi(params, req, runtime), new DescribeProjectOperateLogsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeProjectOperateLogsResponse>(await this.callApi(params, req, runtime), new DescribeProjectOperateLogsResponse({}));
     } else {
-      return $tea.cast<DescribeProjectOperateLogsResponse>(await this.execute(params, req, runtime), new DescribeProjectOperateLogsResponse({}));
+      return $dara.cast<DescribeProjectOperateLogsResponse>(await this.execute(params, req, runtime), new DescribeProjectOperateLogsResponse({}));
     }
 
   }
@@ -6525,7 +7734,7 @@ export default class Client extends OpenApi {
    * @returns DescribeProjectOperateLogsResponse
    */
   async describeProjectOperateLogs(request: DescribeProjectOperateLogsRequest): Promise<DescribeProjectOperateLogsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeProjectOperateLogsWithOptions(request, runtime);
   }
 
@@ -6534,29 +7743,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FinishCurrentProjectNodeResponse
    */
-  async finishCurrentProjectNodeWithOptions(request: FinishCurrentProjectNodeRequest, runtime: $Util.RuntimeOptions): Promise<FinishCurrentProjectNodeResponse> {
-    Util.validateModel(request);
+  async finishCurrentProjectNodeWithOptions(request: FinishCurrentProjectNodeRequest, runtime: $dara.RuntimeOptions): Promise<FinishCurrentProjectNodeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       query["NodeId"] = request.nodeId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.templateForm)) {
+    if (!$dara.isNull(request.templateForm)) {
       query["TemplateForm"] = request.templateForm;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "FinishCurrentProjectNode",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6567,10 +7776,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<FinishCurrentProjectNodeResponse>(await this.callApi(params, req, runtime), new FinishCurrentProjectNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<FinishCurrentProjectNodeResponse>(await this.callApi(params, req, runtime), new FinishCurrentProjectNodeResponse({}));
     } else {
-      return $tea.cast<FinishCurrentProjectNodeResponse>(await this.execute(params, req, runtime), new FinishCurrentProjectNodeResponse({}));
+      return $dara.cast<FinishCurrentProjectNodeResponse>(await this.execute(params, req, runtime), new FinishCurrentProjectNodeResponse({}));
     }
 
   }
@@ -6580,7 +7789,7 @@ export default class Client extends OpenApi {
    * @returns FinishCurrentProjectNodeResponse
    */
   async finishCurrentProjectNode(request: FinishCurrentProjectNodeRequest): Promise<FinishCurrentProjectNodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.finishCurrentProjectNodeWithOptions(request, runtime);
   }
 
@@ -6589,25 +7798,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PauseProjectResponse
    */
-  async pauseProjectWithOptions(request: PauseProjectRequest, runtime: $Util.RuntimeOptions): Promise<PauseProjectResponse> {
-    Util.validateModel(request);
+  async pauseProjectWithOptions(request: PauseProjectRequest, runtime: $dara.RuntimeOptions): Promise<PauseProjectResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       query["NodeId"] = request.nodeId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PauseProject",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6618,10 +7827,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<PauseProjectResponse>(await this.callApi(params, req, runtime), new PauseProjectResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PauseProjectResponse>(await this.callApi(params, req, runtime), new PauseProjectResponse({}));
     } else {
-      return $tea.cast<PauseProjectResponse>(await this.execute(params, req, runtime), new PauseProjectResponse({}));
+      return $dara.cast<PauseProjectResponse>(await this.execute(params, req, runtime), new PauseProjectResponse({}));
     }
 
   }
@@ -6631,7 +7840,7 @@ export default class Client extends OpenApi {
    * @returns PauseProjectResponse
    */
   async pauseProject(request: PauseProjectRequest): Promise<PauseProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pauseProjectWithOptions(request, runtime);
   }
 
@@ -6640,17 +7849,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushMeteringDataResponse
    */
-  async pushMeteringDataWithOptions(request: PushMeteringDataRequest, runtime: $Util.RuntimeOptions): Promise<PushMeteringDataResponse> {
-    Util.validateModel(request);
+  async pushMeteringDataWithOptions(request: PushMeteringDataRequest, runtime: $dara.RuntimeOptions): Promise<PushMeteringDataResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.metering)) {
+    if (!$dara.isNull(request.metering)) {
       query["Metering"] = request.metering;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PushMeteringData",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6661,10 +7870,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<PushMeteringDataResponse>(await this.callApi(params, req, runtime), new PushMeteringDataResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PushMeteringDataResponse>(await this.callApi(params, req, runtime), new PushMeteringDataResponse({}));
     } else {
-      return $tea.cast<PushMeteringDataResponse>(await this.execute(params, req, runtime), new PushMeteringDataResponse({}));
+      return $dara.cast<PushMeteringDataResponse>(await this.execute(params, req, runtime), new PushMeteringDataResponse({}));
     }
 
   }
@@ -6674,7 +7883,7 @@ export default class Client extends OpenApi {
    * @returns PushMeteringDataResponse
    */
   async pushMeteringData(request: PushMeteringDataRequest): Promise<PushMeteringDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.pushMeteringDataWithOptions(request, runtime);
   }
 
@@ -6683,25 +7892,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResumeProjectResponse
    */
-  async resumeProjectWithOptions(request: ResumeProjectRequest, runtime: $Util.RuntimeOptions): Promise<ResumeProjectResponse> {
-    Util.validateModel(request);
+  async resumeProjectWithOptions(request: ResumeProjectRequest, runtime: $dara.RuntimeOptions): Promise<ResumeProjectResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       query["NodeId"] = request.nodeId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ResumeProject",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6712,10 +7921,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ResumeProjectResponse>(await this.callApi(params, req, runtime), new ResumeProjectResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ResumeProjectResponse>(await this.callApi(params, req, runtime), new ResumeProjectResponse({}));
     } else {
-      return $tea.cast<ResumeProjectResponse>(await this.execute(params, req, runtime), new ResumeProjectResponse({}));
+      return $dara.cast<ResumeProjectResponse>(await this.execute(params, req, runtime), new ResumeProjectResponse({}));
     }
 
   }
@@ -6725,7 +7934,7 @@ export default class Client extends OpenApi {
    * @returns ResumeProjectResponse
    */
   async resumeProject(request: ResumeProjectRequest): Promise<ResumeProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.resumeProjectWithOptions(request, runtime);
   }
 
@@ -6734,25 +7943,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RollbackCurrentProjectNodeResponse
    */
-  async rollbackCurrentProjectNodeWithOptions(request: RollbackCurrentProjectNodeRequest, runtime: $Util.RuntimeOptions): Promise<RollbackCurrentProjectNodeResponse> {
-    Util.validateModel(request);
+  async rollbackCurrentProjectNodeWithOptions(request: RollbackCurrentProjectNodeRequest, runtime: $dara.RuntimeOptions): Promise<RollbackCurrentProjectNodeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.nodeId)) {
+    if (!$dara.isNull(request.nodeId)) {
       query["NodeId"] = request.nodeId;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RollbackCurrentProjectNode",
       version: "2015-11-01",
       protocol: "HTTPS",
@@ -6763,10 +7972,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RollbackCurrentProjectNodeResponse>(await this.callApi(params, req, runtime), new RollbackCurrentProjectNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RollbackCurrentProjectNodeResponse>(await this.callApi(params, req, runtime), new RollbackCurrentProjectNodeResponse({}));
     } else {
-      return $tea.cast<RollbackCurrentProjectNodeResponse>(await this.execute(params, req, runtime), new RollbackCurrentProjectNodeResponse({}));
+      return $dara.cast<RollbackCurrentProjectNodeResponse>(await this.execute(params, req, runtime), new RollbackCurrentProjectNodeResponse({}));
     }
 
   }
@@ -6776,7 +7985,7 @@ export default class Client extends OpenApi {
    * @returns RollbackCurrentProjectNodeResponse
    */
   async rollbackCurrentProjectNode(request: RollbackCurrentProjectNodeRequest): Promise<RollbackCurrentProjectNodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.rollbackCurrentProjectNodeWithOptions(request, runtime);
   }
 
