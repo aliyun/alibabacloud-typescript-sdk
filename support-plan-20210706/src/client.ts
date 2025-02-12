@@ -1,13 +1,74 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class EnterpriseDingtalkGroupMember extends $tea.Model {
+export class ListEnterpriseDingtalkGroupCustomerMembersResponseBodyData extends $dara.Model {
+  isAdmin?: boolean;
+  name?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isAdmin: 'IsAdmin',
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isAdmin: 'boolean',
+      name: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnterpriseDingtalkGroupsResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * A公司服务群
+   */
+  groupName?: string;
+  /**
+   * @example
+   * 123
+   */
+  openGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      openGroupId: 'OpenGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      openGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnterpriseDingtalkGroupMember extends $dara.Model {
   /**
    * @remarks
    * 代表资源名称的资源属性字段
@@ -48,37 +109,48 @@ export class EnterpriseDingtalkGroupMember extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CloseTaskOrderRequest extends $tea.Model {
+export class AddEnterpriseGroupMemberToTaskGroupRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * E211129AE190Y3
+   * E240815B72K5D3
    */
-  orderId?: string;
+  taskOrderId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 操作人姓名
+   * PtWoW82DJI1zcTwsT98kLIgAj7kfASzfC6StcpV7hKs=
    */
-  userName?: string;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
-      userName: 'UserName',
+      taskOrderId: 'TaskOrderId',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
-      userName: 'string',
+      taskOrderId: 'string',
+      userId: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -86,43 +158,28 @@ export class CloseTaskOrderRequest extends $tea.Model {
   }
 }
 
-export class CloseTaskOrderResponseBody extends $tea.Model {
+export class AddEnterpriseGroupMemberToTaskGroupResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * code
-   * 
    * @example
    * 200
    */
   code?: string;
   /**
-   * @remarks
-   * data
-   * 
    * @example
-   * null
+   * true
    */
   data?: string;
   /**
-   * @remarks
-   * msg
-   * 
    * @example
-   * 请求成功
+   * ok
    */
   message?: string;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
-   * AQWFE#$#ASD
+   * 43135C31-E47A-5AD7-A693-6DC635201CE4
    */
   requestId?: string;
   /**
-   * @remarks
-   * success
-   * 
    * @example
    * true
    */
@@ -147,15 +204,19 @@ export class CloseTaskOrderResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CloseTaskOrderResponse extends $tea.Model {
+export class AddEnterpriseGroupMemberToTaskGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: CloseTaskOrderResponseBody;
+  body?: AddEnterpriseGroupMemberToTaskGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -168,8 +229,18 @@ export class CloseTaskOrderResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: CloseTaskOrderResponseBody,
+      body: AddEnterpriseGroupMemberToTaskGroupResponseBody,
     };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -177,7 +248,7 @@ export class CloseTaskOrderResponse extends $tea.Model {
   }
 }
 
-export class CreateTaskOrderRequest extends $tea.Model {
+export class CreateTaskOrderRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -238,12 +309,16 @@ export class CreateTaskOrderRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTaskOrderResponseBody extends $tea.Model {
+export class CreateTaskOrderResponseBody extends $dara.Model {
   /**
    * @remarks
    * code
@@ -301,12 +376,16 @@ export class CreateTaskOrderResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTaskOrderResponse extends $tea.Model {
+export class CreateTaskOrderResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateTaskOrderResponseBody;
@@ -326,94 +405,14 @@ export class CreateTaskOrderResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskOrderByEventReportRequest extends $tea.Model {
-  /**
-   * @example
-   * 123
-   */
-  business?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 小二
-   */
-  createRealName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1830426056957812
-   */
-  createUserId?: string;
-  eventBody?: CreateTaskOrderByEventReportRequestEventBody;
-  extinfo?: CreateTaskOrderByEventReportRequestExtinfo[];
-  /**
-   * @example
-   * 紧急性原因描述
-   */
-  importantDesc?: string;
-  /**
-   * @example
-   * 123,456
-   */
-  joinChildGroupUserIds?: string;
-  /**
-   * @example
-   * 监控集如：视频业务的质量监控 123
-   */
-  monitorCongregation?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cid+lUpHxTIXt7DYqJDcpVxlA==
-   */
-  openGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 3270
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      business: 'Business',
-      createRealName: 'CreateRealName',
-      createUserId: 'CreateUserId',
-      eventBody: 'EventBody',
-      extinfo: 'Extinfo',
-      importantDesc: 'ImportantDesc',
-      joinChildGroupUserIds: 'JoinChildGroupUserIds',
-      monitorCongregation: 'MonitorCongregation',
-      openGroupId: 'OpenGroupId',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      business: 'string',
-      createRealName: 'string',
-      createUserId: 'string',
-      eventBody: CreateTaskOrderByEventReportRequestEventBody,
-      extinfo: { 'type': 'array', 'itemType': CreateTaskOrderByEventReportRequestExtinfo },
-      importantDesc: 'string',
-      joinChildGroupUserIds: 'string',
-      monitorCongregation: 'string',
-      openGroupId: 'string',
-      productType: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -421,526 +420,7 @@ export class CreateTaskOrderByEventReportRequest extends $tea.Model {
   }
 }
 
-export class CreateTaskOrderByEventReportShrinkRequest extends $tea.Model {
-  /**
-   * @example
-   * 123
-   */
-  business?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 小二
-   */
-  createRealName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1830426056957812
-   */
-  createUserId?: string;
-  eventBodyShrink?: string;
-  extinfoShrink?: string;
-  /**
-   * @example
-   * 紧急性原因描述
-   */
-  importantDesc?: string;
-  /**
-   * @example
-   * 123,456
-   */
-  joinChildGroupUserIds?: string;
-  /**
-   * @example
-   * 监控集如：视频业务的质量监控 123
-   */
-  monitorCongregation?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cid+lUpHxTIXt7DYqJDcpVxlA==
-   */
-  openGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 3270
-   */
-  productType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      business: 'Business',
-      createRealName: 'CreateRealName',
-      createUserId: 'CreateUserId',
-      eventBodyShrink: 'EventBody',
-      extinfoShrink: 'Extinfo',
-      importantDesc: 'ImportantDesc',
-      joinChildGroupUserIds: 'JoinChildGroupUserIds',
-      monitorCongregation: 'MonitorCongregation',
-      openGroupId: 'OpenGroupId',
-      productType: 'ProductType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      business: 'string',
-      createRealName: 'string',
-      createUserId: 'string',
-      eventBodyShrink: 'string',
-      extinfoShrink: 'string',
-      importantDesc: 'string',
-      joinChildGroupUserIds: 'string',
-      monitorCongregation: 'string',
-      openGroupId: 'string',
-      productType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskOrderByEventReportResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * code
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * {  "eid": "E211129DT18M06",     "status": "dealingNode"   }
-   */
-  data?: string;
-  /**
-   * @remarks
-   * msg
-   * 
-   * @example
-   * 请求成功
-   */
-  message?: string;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 02A300AC-367E-1716-A37B-F2FB46082610
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * success
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskOrderByEventReportResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateTaskOrderByEventReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateTaskOrderByEventReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEnterpriseDingtalkGroupCustomerMemberRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  mobiles?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 12345
-   */
-  openGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mobiles: 'Mobiles',
-      openGroupId: 'OpenGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mobiles: { 'type': 'array', 'itemType': 'string' },
-      openGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEnterpriseDingtalkGroupCustomerMemberShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  mobilesShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 12345
-   */
-  openGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mobilesShrink: 'Mobiles',
-      openGroupId: 'OpenGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mobilesShrink: 'string',
-      openGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEnterpriseDingtalkGroupCustomerMemberResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * Invalid data
-   */
-  message?: string;
-  /**
-   * @example
-   * 123
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEnterpriseDingtalkGroupCustomerMemberResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteEnterpriseDingtalkGroupCustomerMemberResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteEnterpriseDingtalkGroupCustomerMemberResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEnterpriseDingtalkGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1234
-   */
-  openGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      openGroupId: 'OpenGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      openGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEnterpriseDingtalkGroupResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  data?: GetEnterpriseDingtalkGroupResponseBodyData;
-  /**
-   * @example
-   * Invalid data
-   */
-  message?: string;
-  /**
-   * @example
-   * 123
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetEnterpriseDingtalkGroupResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEnterpriseDingtalkGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetEnterpriseDingtalkGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetEnterpriseDingtalkGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEnterpriseDingtalkGroupCustomerMemberRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 13900001111
-   */
-  mobile?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 123
-   */
-  openGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mobile: 'Mobile',
-      openGroupId: 'OpenGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mobile: 'string',
-      openGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEnterpriseDingtalkGroupCustomerMemberResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  data?: EnterpriseDingtalkGroupMember;
-  /**
-   * @example
-   * Invalid data
-   */
-  message?: string;
-  /**
-   * @example
-   * 12
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: EnterpriseDingtalkGroupMember,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEnterpriseDingtalkGroupCustomerMemberResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetEnterpriseDingtalkGroupCustomerMemberResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetEnterpriseDingtalkGroupCustomerMemberResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDdTaskOrderRequest extends $tea.Model {
+export class ListDdTaskOrderRequest extends $dara.Model {
   /**
    * @remarks
    * createRealName
@@ -1026,12 +506,16 @@ export class ListDdTaskOrderRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDdTaskOrderResponseBody extends $tea.Model {
+export class ListDdTaskOrderResponseBody extends $dara.Model {
   /**
    * @remarks
    * code
@@ -1092,12 +576,16 @@ export class ListDdTaskOrderResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListDdTaskOrderResponse extends $tea.Model {
+export class ListDdTaskOrderResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListDdTaskOrderResponseBody;
@@ -1117,12 +605,22 @@ export class ListDdTaskOrderResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEnterpriseDingtalkGroupCustomerMembersRequest extends $tea.Model {
+export class ListEnterpriseDingtalkGroupCustomerMembersRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1143,12 +641,16 @@ export class ListEnterpriseDingtalkGroupCustomerMembersRequest extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEnterpriseDingtalkGroupCustomerMembersResponseBody extends $tea.Model {
+export class ListEnterpriseDingtalkGroupCustomerMembersResponseBody extends $dara.Model {
   /**
    * @example
    * 200
@@ -1190,12 +692,19 @@ export class ListEnterpriseDingtalkGroupCustomerMembersResponseBody extends $tea
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEnterpriseDingtalkGroupCustomerMembersResponse extends $tea.Model {
+export class ListEnterpriseDingtalkGroupCustomerMembersResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListEnterpriseDingtalkGroupCustomerMembersResponseBody;
@@ -1215,12 +724,22 @@ export class ListEnterpriseDingtalkGroupCustomerMembersResponse extends $tea.Mod
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEnterpriseDingtalkGroupsResponseBody extends $tea.Model {
+export class ListEnterpriseDingtalkGroupsResponseBody extends $dara.Model {
   /**
    * @example
    * true
@@ -1262,12 +781,19 @@ export class ListEnterpriseDingtalkGroupsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListEnterpriseDingtalkGroupsResponse extends $tea.Model {
+export class ListEnterpriseDingtalkGroupsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListEnterpriseDingtalkGroupsResponseBody;
@@ -1287,12 +813,22 @@ export class ListEnterpriseDingtalkGroupsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListProductByGroupRequest extends $tea.Model {
+export class ListProductByGroupRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1313,12 +849,16 @@ export class ListProductByGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListProductByGroupResponseBody extends $tea.Model {
+export class ListProductByGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * code
@@ -1379,12 +919,16 @@ export class ListProductByGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListProductByGroupResponse extends $tea.Model {
+export class ListProductByGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListProductByGroupResponseBody;
@@ -1404,621 +948,14 @@ export class ListProductByGroupResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskInfoRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the order.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * E220303AE1BYY3
-   */
-  orderId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskInfoResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The status code or error code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The data returned.
-   * 
-   * @example
-   * {"taskStatus": "dealingNode","orderId": "E21111796147LE"}
-   */
-  data?: QueryTaskInfoResponseBodyData;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * @example
-   * ok
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 43135C31-E47A-5AD7-A693-6DC635201CE4
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request is successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: QueryTaskInfoResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryTaskInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryTaskInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReplyMessageApiRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 消息内容
-   */
-  msgContent?: string;
-  /**
-   * @example
-   * text
-   */
-  msgType?: string;
-  /**
-   * @example
-   * cid+lUpHxTIXt7DYqJDcpVxlA==
-   */
-  openGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * E2012312421
-   */
-  orderId?: string;
-  /**
-   * @example
-   * 123
-   */
-  userId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 用户名
-   */
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      msgContent: 'MsgContent',
-      msgType: 'MsgType',
-      openGroupId: 'OpenGroupId',
-      orderId: 'OrderId',
-      userId: 'UserId',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      msgContent: 'string',
-      msgType: 'string',
-      openGroupId: 'string',
-      orderId: 'string',
-      userId: 'string',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReplyMessageApiResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * code
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * data
-   * 
-   * @example
-   * null
-   */
-  data?: string;
-  /**
-   * @remarks
-   * msg
-   * 
-   * @example
-   * 请求成功
-   */
-  message?: string;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 123
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * success
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReplyMessageApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReplyMessageApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReplyMessageApiResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestOpenTaskOrderRequest extends $tea.Model {
-  /**
-   * @example
-   * cidXcezGVQJjiWy2PzXylGwvg==
-   */
-  openGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * E21111796147LE
-   */
-  orderId?: string;
-  /**
-   * @example
-   * 重开补充说明
-   */
-  resetContent?: string;
-  /**
-   * @example
-   * 枚举值：6:解决方案无效；7:当前问题仍有疑问需要咨询；8:问题重复出现
-   */
-  resetType?: string;
-  /**
-   * @example
-   * 操作人姓名
-   */
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      openGroupId: 'OpenGroupId',
-      orderId: 'OrderId',
-      resetContent: 'ResetContent',
-      resetType: 'ResetType',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      openGroupId: 'string',
-      orderId: 'string',
-      resetContent: 'string',
-      resetType: 'string',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestOpenTaskOrderResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * null
-   */
-  data?: string;
-  /**
-   * @example
-   * 请求成功
-   */
-  message?: string;
-  /**
-   * @example
-   * 123
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestOpenTaskOrderResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RestOpenTaskOrderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RestOpenTaskOrderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskOrderByEventReportRequestEventBodyEventLocation extends $tea.Model {
-  /**
-   * @example
-   * flv13.bn.netease.com
-   */
-  domain?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskOrderByEventReportRequestEventBody extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 告警内容
-   */
-  eventDesc?: string;
-  /**
-   * @example
-   * j9uwe-34328987
-   */
-  eventId?: string;
-  /**
-   * @example
-   * info,warn,alarm,critical
-   */
-  eventLevel?: string;
-  eventLocation?: CreateTaskOrderByEventReportRequestEventBodyEventLocation;
-  /**
-   * @example
-   * 123456
-   */
-  eventTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventDesc: 'EventDesc',
-      eventId: 'EventId',
-      eventLevel: 'EventLevel',
-      eventLocation: 'EventLocation',
-      eventTime: 'EventTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventDesc: 'string',
-      eventId: 'string',
-      eventLevel: 'string',
-      eventLocation: CreateTaskOrderByEventReportRequestEventBodyEventLocation,
-      eventTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTaskOrderByEventReportRequestExtinfo extends $tea.Model {
-  /**
-   * @example
-   * 扩展信息名称
-   */
-  name?: string;
-  /**
-   * @example
-   * 扩展信息value值
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetEnterpriseDingtalkGroupResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * A企业服务群
-   */
-  groupName?: string;
-  /**
-   * @example
-   * 123
-   */
-  openGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      openGroupId: 'OpenGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      openGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEnterpriseDingtalkGroupCustomerMembersResponseBodyData extends $tea.Model {
-  isAdmin?: boolean;
-  name?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isAdmin: 'IsAdmin',
-      name: 'Name',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isAdmin: 'boolean',
-      name: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListEnterpriseDingtalkGroupsResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * A公司服务群
-   */
-  groupName?: string;
-  /**
-   * @example
-   * 123
-   */
-  openGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'GroupName',
-      openGroupId: 'OpenGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      openGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTaskInfoResponseBodyData extends $tea.Model {
-  orderId?: string;
-  taskStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      taskStatus: 'TaskStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'string',
-      taskStatus: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -2029,7 +966,7 @@ export class QueryTaskInfoResponseBodyData extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -2038,40 +975,40 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
-   * 关闭任务单
+   * 添加客户服务主群人员进子群
    * 
-   * @param request - CloseTaskOrderRequest
+   * @param request - AddEnterpriseGroupMemberToTaskGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CloseTaskOrderResponse
+   * @returns AddEnterpriseGroupMemberToTaskGroupResponse
    */
-  async closeTaskOrderWithOptions(request: CloseTaskOrderRequest, runtime: $Util.RuntimeOptions): Promise<CloseTaskOrderResponse> {
-    Util.validateModel(request);
+  async addEnterpriseGroupMemberToTaskGroupWithOptions(request: AddEnterpriseGroupMemberToTaskGroupRequest, runtime: $dara.RuntimeOptions): Promise<AddEnterpriseGroupMemberToTaskGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.orderId)) {
-      query["OrderId"] = request.orderId;
+    if (!$dara.isNull(request.taskOrderId)) {
+      query["TaskOrderId"] = request.taskOrderId;
     }
 
-    if (!Util.isUnset(request.userName)) {
-      query["UserName"] = request.userName;
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CloseTaskOrder",
+    let params = new $OpenApiUtil.Params({
+      action: "AddEnterpriseGroupMemberToTaskGroup",
       version: "2021-07-06",
       protocol: "HTTPS",
       pathname: "/",
@@ -2081,18 +1018,23 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CloseTaskOrderResponse>(await this.callApi(params, req, runtime), new CloseTaskOrderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddEnterpriseGroupMemberToTaskGroupResponse>(await this.callApi(params, req, runtime), new AddEnterpriseGroupMemberToTaskGroupResponse({}));
+    } else {
+      return $dara.cast<AddEnterpriseGroupMemberToTaskGroupResponse>(await this.execute(params, req, runtime), new AddEnterpriseGroupMemberToTaskGroupResponse({}));
+    }
+
   }
 
   /**
-   * 关闭任务单
+   * 添加客户服务主群人员进子群
    * 
-   * @param request - CloseTaskOrderRequest
-   * @returns CloseTaskOrderResponse
+   * @param request - AddEnterpriseGroupMemberToTaskGroupRequest
+   * @returns AddEnterpriseGroupMemberToTaskGroupResponse
    */
-  async closeTaskOrder(request: CloseTaskOrderRequest): Promise<CloseTaskOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.closeTaskOrderWithOptions(request, runtime);
+  async addEnterpriseGroupMemberToTaskGroup(request: AddEnterpriseGroupMemberToTaskGroupRequest): Promise<AddEnterpriseGroupMemberToTaskGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addEnterpriseGroupMemberToTaskGroupWithOptions(request, runtime);
   }
 
   /**
@@ -2102,37 +1044,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateTaskOrderResponse
    */
-  async createTaskOrderWithOptions(request: CreateTaskOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateTaskOrderResponse> {
-    Util.validateModel(request);
+  async createTaskOrderWithOptions(request: CreateTaskOrderRequest, runtime: $dara.RuntimeOptions): Promise<CreateTaskOrderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.createUserId)) {
+    if (!$dara.isNull(request.createUserId)) {
       query["CreateUserId"] = request.createUserId;
     }
 
-    if (!Util.isUnset(request.isUrgent)) {
+    if (!$dara.isNull(request.isUrgent)) {
       query["IsUrgent"] = request.isUrgent;
     }
 
-    if (!Util.isUnset(request.openGroupId)) {
+    if (!$dara.isNull(request.openGroupId)) {
       query["OpenGroupId"] = request.openGroupId;
     }
 
-    if (!Util.isUnset(request.overview)) {
+    if (!$dara.isNull(request.overview)) {
       query["Overview"] = request.overview;
     }
 
-    if (!Util.isUnset(request.productCode)) {
+    if (!$dara.isNull(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
 
-    if (!Util.isUnset(request.urgentDescription)) {
+    if (!$dara.isNull(request.urgentDescription)) {
       query["UrgentDescription"] = request.urgentDescription;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateTaskOrder",
       version: "2021-07-06",
       protocol: "HTTPS",
@@ -2143,7 +1085,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateTaskOrderResponse>(await this.callApi(params, req, runtime), new CreateTaskOrderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateTaskOrderResponse>(await this.callApi(params, req, runtime), new CreateTaskOrderResponse({}));
+    } else {
+      return $dara.cast<CreateTaskOrderResponse>(await this.execute(params, req, runtime), new CreateTaskOrderResponse({}));
+    }
+
   }
 
   /**
@@ -2153,236 +1100,8 @@ export default class Client extends OpenApi {
    * @returns CreateTaskOrderResponse
    */
   async createTaskOrder(request: CreateTaskOrderRequest): Promise<CreateTaskOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createTaskOrderWithOptions(request, runtime);
-  }
-
-  /**
-   * 告警建单
-   * 
-   * @param tmpReq - CreateTaskOrderByEventReportRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateTaskOrderByEventReportResponse
-   */
-  async createTaskOrderByEventReportWithOptions(tmpReq: CreateTaskOrderByEventReportRequest, runtime: $Util.RuntimeOptions): Promise<CreateTaskOrderByEventReportResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateTaskOrderByEventReportShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.eventBody)) {
-      request.eventBodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.eventBody, "EventBody", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.extinfo)) {
-      request.extinfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extinfo, "Extinfo", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.business)) {
-      query["Business"] = request.business;
-    }
-
-    if (!Util.isUnset(request.createRealName)) {
-      query["CreateRealName"] = request.createRealName;
-    }
-
-    if (!Util.isUnset(request.createUserId)) {
-      query["CreateUserId"] = request.createUserId;
-    }
-
-    if (!Util.isUnset(request.eventBodyShrink)) {
-      query["EventBody"] = request.eventBodyShrink;
-    }
-
-    if (!Util.isUnset(request.extinfoShrink)) {
-      query["Extinfo"] = request.extinfoShrink;
-    }
-
-    if (!Util.isUnset(request.importantDesc)) {
-      query["ImportantDesc"] = request.importantDesc;
-    }
-
-    if (!Util.isUnset(request.joinChildGroupUserIds)) {
-      query["JoinChildGroupUserIds"] = request.joinChildGroupUserIds;
-    }
-
-    if (!Util.isUnset(request.monitorCongregation)) {
-      query["MonitorCongregation"] = request.monitorCongregation;
-    }
-
-    if (!Util.isUnset(request.openGroupId)) {
-      query["OpenGroupId"] = request.openGroupId;
-    }
-
-    if (!Util.isUnset(request.productType)) {
-      query["ProductType"] = request.productType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateTaskOrderByEventReport",
-      version: "2021-07-06",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateTaskOrderByEventReportResponse>(await this.callApi(params, req, runtime), new CreateTaskOrderByEventReportResponse({}));
-  }
-
-  /**
-   * 告警建单
-   * 
-   * @param request - CreateTaskOrderByEventReportRequest
-   * @returns CreateTaskOrderByEventReportResponse
-   */
-  async createTaskOrderByEventReport(request: CreateTaskOrderByEventReportRequest): Promise<CreateTaskOrderByEventReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createTaskOrderByEventReportWithOptions(request, runtime);
-  }
-
-  /**
-   * 删除企业钉群客户侧成员
-   * 
-   * @param tmpReq - DeleteEnterpriseDingtalkGroupCustomerMemberRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteEnterpriseDingtalkGroupCustomerMemberResponse
-   */
-  async deleteEnterpriseDingtalkGroupCustomerMemberWithOptions(tmpReq: DeleteEnterpriseDingtalkGroupCustomerMemberRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnterpriseDingtalkGroupCustomerMemberResponse> {
-    Util.validateModel(tmpReq);
-    let request = new DeleteEnterpriseDingtalkGroupCustomerMemberShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.mobiles)) {
-      request.mobilesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.mobiles, "Mobiles", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.mobilesShrink)) {
-      body["Mobiles"] = request.mobilesShrink;
-    }
-
-    if (!Util.isUnset(request.openGroupId)) {
-      body["OpenGroupId"] = request.openGroupId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteEnterpriseDingtalkGroupCustomerMember",
-      version: "2021-07-06",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteEnterpriseDingtalkGroupCustomerMemberResponse>(await this.callApi(params, req, runtime), new DeleteEnterpriseDingtalkGroupCustomerMemberResponse({}));
-  }
-
-  /**
-   * 删除企业钉群客户侧成员
-   * 
-   * @param request - DeleteEnterpriseDingtalkGroupCustomerMemberRequest
-   * @returns DeleteEnterpriseDingtalkGroupCustomerMemberResponse
-   */
-  async deleteEnterpriseDingtalkGroupCustomerMember(request: DeleteEnterpriseDingtalkGroupCustomerMemberRequest): Promise<DeleteEnterpriseDingtalkGroupCustomerMemberResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteEnterpriseDingtalkGroupCustomerMemberWithOptions(request, runtime);
-  }
-
-  /**
-   * 查询企业钉群
-   * 
-   * @param request - GetEnterpriseDingtalkGroupRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetEnterpriseDingtalkGroupResponse
-   */
-  async getEnterpriseDingtalkGroupWithOptions(request: GetEnterpriseDingtalkGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetEnterpriseDingtalkGroupResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.openGroupId)) {
-      body["OpenGroupId"] = request.openGroupId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetEnterpriseDingtalkGroup",
-      version: "2021-07-06",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetEnterpriseDingtalkGroupResponse>(await this.callApi(params, req, runtime), new GetEnterpriseDingtalkGroupResponse({}));
-  }
-
-  /**
-   * 查询企业钉群
-   * 
-   * @param request - GetEnterpriseDingtalkGroupRequest
-   * @returns GetEnterpriseDingtalkGroupResponse
-   */
-  async getEnterpriseDingtalkGroup(request: GetEnterpriseDingtalkGroupRequest): Promise<GetEnterpriseDingtalkGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getEnterpriseDingtalkGroupWithOptions(request, runtime);
-  }
-
-  /**
-   * 获取企业钉群客户侧成员
-   * 
-   * @param request - GetEnterpriseDingtalkGroupCustomerMemberRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetEnterpriseDingtalkGroupCustomerMemberResponse
-   */
-  async getEnterpriseDingtalkGroupCustomerMemberWithOptions(request: GetEnterpriseDingtalkGroupCustomerMemberRequest, runtime: $Util.RuntimeOptions): Promise<GetEnterpriseDingtalkGroupCustomerMemberResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.mobile)) {
-      body["Mobile"] = request.mobile;
-    }
-
-    if (!Util.isUnset(request.openGroupId)) {
-      body["OpenGroupId"] = request.openGroupId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetEnterpriseDingtalkGroupCustomerMember",
-      version: "2021-07-06",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetEnterpriseDingtalkGroupCustomerMemberResponse>(await this.callApi(params, req, runtime), new GetEnterpriseDingtalkGroupCustomerMemberResponse({}));
-  }
-
-  /**
-   * 获取企业钉群客户侧成员
-   * 
-   * @param request - GetEnterpriseDingtalkGroupCustomerMemberRequest
-   * @returns GetEnterpriseDingtalkGroupCustomerMemberResponse
-   */
-  async getEnterpriseDingtalkGroupCustomerMember(request: GetEnterpriseDingtalkGroupCustomerMemberRequest): Promise<GetEnterpriseDingtalkGroupCustomerMemberResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getEnterpriseDingtalkGroupCustomerMemberWithOptions(request, runtime);
   }
 
   /**
@@ -2392,45 +1111,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDdTaskOrderResponse
    */
-  async listDdTaskOrderWithOptions(request: ListDdTaskOrderRequest, runtime: $Util.RuntimeOptions): Promise<ListDdTaskOrderResponse> {
-    Util.validateModel(request);
+  async listDdTaskOrderWithOptions(request: ListDdTaskOrderRequest, runtime: $dara.RuntimeOptions): Promise<ListDdTaskOrderResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.createRealName)) {
+    if (!$dara.isNull(request.createRealName)) {
       query["CreateRealName"] = request.createRealName;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.isUrgent)) {
+    if (!$dara.isNull(request.isUrgent)) {
       query["IsUrgent"] = request.isUrgent;
     }
 
-    if (!Util.isUnset(request.openGroupId)) {
+    if (!$dara.isNull(request.openGroupId)) {
       query["OpenGroupId"] = request.openGroupId;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.taskStatus)) {
+    if (!$dara.isNull(request.taskStatus)) {
       query["TaskStatus"] = request.taskStatus;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListDdTaskOrder",
       version: "2021-07-06",
       protocol: "HTTPS",
@@ -2441,7 +1160,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDdTaskOrderResponse>(await this.callApi(params, req, runtime), new ListDdTaskOrderResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDdTaskOrderResponse>(await this.callApi(params, req, runtime), new ListDdTaskOrderResponse({}));
+    } else {
+      return $dara.cast<ListDdTaskOrderResponse>(await this.execute(params, req, runtime), new ListDdTaskOrderResponse({}));
+    }
+
   }
 
   /**
@@ -2451,7 +1175,7 @@ export default class Client extends OpenApi {
    * @returns ListDdTaskOrderResponse
    */
   async listDdTaskOrder(request: ListDdTaskOrderRequest): Promise<ListDdTaskOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listDdTaskOrderWithOptions(request, runtime);
   }
 
@@ -2462,17 +1186,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEnterpriseDingtalkGroupCustomerMembersResponse
    */
-  async listEnterpriseDingtalkGroupCustomerMembersWithOptions(request: ListEnterpriseDingtalkGroupCustomerMembersRequest, runtime: $Util.RuntimeOptions): Promise<ListEnterpriseDingtalkGroupCustomerMembersResponse> {
-    Util.validateModel(request);
+  async listEnterpriseDingtalkGroupCustomerMembersWithOptions(request: ListEnterpriseDingtalkGroupCustomerMembersRequest, runtime: $dara.RuntimeOptions): Promise<ListEnterpriseDingtalkGroupCustomerMembersResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.openGroupId)) {
+    if (!$dara.isNull(request.openGroupId)) {
       query["OpenGroupId"] = request.openGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListEnterpriseDingtalkGroupCustomerMembers",
       version: "2021-07-06",
       protocol: "HTTPS",
@@ -2483,7 +1207,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListEnterpriseDingtalkGroupCustomerMembersResponse>(await this.callApi(params, req, runtime), new ListEnterpriseDingtalkGroupCustomerMembersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListEnterpriseDingtalkGroupCustomerMembersResponse>(await this.callApi(params, req, runtime), new ListEnterpriseDingtalkGroupCustomerMembersResponse({}));
+    } else {
+      return $dara.cast<ListEnterpriseDingtalkGroupCustomerMembersResponse>(await this.execute(params, req, runtime), new ListEnterpriseDingtalkGroupCustomerMembersResponse({}));
+    }
+
   }
 
   /**
@@ -2493,7 +1222,7 @@ export default class Client extends OpenApi {
    * @returns ListEnterpriseDingtalkGroupCustomerMembersResponse
    */
   async listEnterpriseDingtalkGroupCustomerMembers(request: ListEnterpriseDingtalkGroupCustomerMembersRequest): Promise<ListEnterpriseDingtalkGroupCustomerMembersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listEnterpriseDingtalkGroupCustomerMembersWithOptions(request, runtime);
   }
 
@@ -2504,9 +1233,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEnterpriseDingtalkGroupsResponse
    */
-  async listEnterpriseDingtalkGroupsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListEnterpriseDingtalkGroupsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async listEnterpriseDingtalkGroupsWithOptions(runtime: $dara.RuntimeOptions): Promise<ListEnterpriseDingtalkGroupsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "ListEnterpriseDingtalkGroups",
       version: "2021-07-06",
       protocol: "HTTPS",
@@ -2517,7 +1246,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListEnterpriseDingtalkGroupsResponse>(await this.callApi(params, req, runtime), new ListEnterpriseDingtalkGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListEnterpriseDingtalkGroupsResponse>(await this.callApi(params, req, runtime), new ListEnterpriseDingtalkGroupsResponse({}));
+    } else {
+      return $dara.cast<ListEnterpriseDingtalkGroupsResponse>(await this.execute(params, req, runtime), new ListEnterpriseDingtalkGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -2525,7 +1259,7 @@ export default class Client extends OpenApi {
    * @returns ListEnterpriseDingtalkGroupsResponse
    */
   async listEnterpriseDingtalkGroups(): Promise<ListEnterpriseDingtalkGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listEnterpriseDingtalkGroupsWithOptions(runtime);
   }
 
@@ -2536,17 +1270,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListProductByGroupResponse
    */
-  async listProductByGroupWithOptions(request: ListProductByGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListProductByGroupResponse> {
-    Util.validateModel(request);
+  async listProductByGroupWithOptions(request: ListProductByGroupRequest, runtime: $dara.RuntimeOptions): Promise<ListProductByGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.openGroupId)) {
+    if (!$dara.isNull(request.openGroupId)) {
       query["OpenGroupId"] = request.openGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListProductByGroup",
       version: "2021-07-06",
       protocol: "HTTPS",
@@ -2557,7 +1291,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListProductByGroupResponse>(await this.callApi(params, req, runtime), new ListProductByGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListProductByGroupResponse>(await this.callApi(params, req, runtime), new ListProductByGroupResponse({}));
+    } else {
+      return $dara.cast<ListProductByGroupResponse>(await this.execute(params, req, runtime), new ListProductByGroupResponse({}));
+    }
+
   }
 
   /**
@@ -2567,170 +1306,8 @@ export default class Client extends OpenApi {
    * @returns ListProductByGroupResponse
    */
   async listProductByGroup(request: ListProductByGroupRequest): Promise<ListProductByGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listProductByGroupWithOptions(request, runtime);
-  }
-
-  /**
-   * 获取工单状态
-   * 
-   * @param request - QueryTaskInfoRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns QueryTaskInfoResponse
-   */
-  async queryTaskInfoWithOptions(request: QueryTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskInfoResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.orderId)) {
-      query["OrderId"] = request.orderId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "QueryTaskInfo",
-      version: "2021-07-06",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<QueryTaskInfoResponse>(await this.callApi(params, req, runtime), new QueryTaskInfoResponse({}));
-  }
-
-  /**
-   * 获取工单状态
-   * 
-   * @param request - QueryTaskInfoRequest
-   * @returns QueryTaskInfoResponse
-   */
-  async queryTaskInfo(request: QueryTaskInfoRequest): Promise<QueryTaskInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryTaskInfoWithOptions(request, runtime);
-  }
-
-  /**
-   * 客户回复消息
-   * 
-   * @param request - ReplyMessageApiRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ReplyMessageApiResponse
-   */
-  async replyMessageApiWithOptions(request: ReplyMessageApiRequest, runtime: $Util.RuntimeOptions): Promise<ReplyMessageApiResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.msgContent)) {
-      query["MsgContent"] = request.msgContent;
-    }
-
-    if (!Util.isUnset(request.msgType)) {
-      query["MsgType"] = request.msgType;
-    }
-
-    if (!Util.isUnset(request.openGroupId)) {
-      query["OpenGroupId"] = request.openGroupId;
-    }
-
-    if (!Util.isUnset(request.orderId)) {
-      query["OrderId"] = request.orderId;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      query["UserId"] = request.userId;
-    }
-
-    if (!Util.isUnset(request.userName)) {
-      query["UserName"] = request.userName;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ReplyMessageApi",
-      version: "2021-07-06",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ReplyMessageApiResponse>(await this.callApi(params, req, runtime), new ReplyMessageApiResponse({}));
-  }
-
-  /**
-   * 客户回复消息
-   * 
-   * @param request - ReplyMessageApiRequest
-   * @returns ReplyMessageApiResponse
-   */
-  async replyMessageApi(request: ReplyMessageApiRequest): Promise<ReplyMessageApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.replyMessageApiWithOptions(request, runtime);
-  }
-
-  /**
-   * 重开任务单(待客户确认状态)
-   * 
-   * @param request - RestOpenTaskOrderRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns RestOpenTaskOrderResponse
-   */
-  async restOpenTaskOrderWithOptions(request: RestOpenTaskOrderRequest, runtime: $Util.RuntimeOptions): Promise<RestOpenTaskOrderResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.openGroupId)) {
-      query["OpenGroupId"] = request.openGroupId;
-    }
-
-    if (!Util.isUnset(request.orderId)) {
-      query["OrderId"] = request.orderId;
-    }
-
-    if (!Util.isUnset(request.resetContent)) {
-      query["ResetContent"] = request.resetContent;
-    }
-
-    if (!Util.isUnset(request.resetType)) {
-      query["ResetType"] = request.resetType;
-    }
-
-    if (!Util.isUnset(request.userName)) {
-      query["UserName"] = request.userName;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "RestOpenTaskOrder",
-      version: "2021-07-06",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RestOpenTaskOrderResponse>(await this.callApi(params, req, runtime), new RestOpenTaskOrderResponse({}));
-  }
-
-  /**
-   * 重开任务单(待客户确认状态)
-   * 
-   * @param request - RestOpenTaskOrderRequest
-   * @returns RestOpenTaskOrderResponse
-   */
-  async restOpenTaskOrder(request: RestOpenTaskOrderRequest): Promise<RestOpenTaskOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.restOpenTaskOrderWithOptions(request, runtime);
   }
 
 }
