@@ -406,6 +406,196 @@ export class BicyclingDirectionNovaResponseBodyData extends $dara.Model {
   }
 }
 
+export class DrivingDirectionResponseBodyDataCost extends $dara.Model {
+  /**
+   * @example
+   * 1231
+   */
+  durationSecond?: string;
+  /**
+   * @example
+   * 6
+   */
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  tollRoads?: string;
+  /**
+   * @example
+   * 23
+   */
+  tolls?: string;
+  trafficLights?: string;
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionResponseBodyDataStepsCost extends $dara.Model {
+  /**
+   * @example
+   * 27647
+   */
+  durationSecond?: string;
+  taxiFee?: string;
+  tollDistanceMeter?: string;
+  /**
+   * @example
+   * xxx
+   */
+  tollRoads?: string;
+  tolls?: string;
+  /**
+   * @example
+   * 5
+   */
+  trafficLights?: string;
+  transitFee?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecond: 'durationSecond',
+      taxiFee: 'taxiFee',
+      tollDistanceMeter: 'tollDistanceMeter',
+      tollRoads: 'tollRoads',
+      tolls: 'tolls',
+      trafficLights: 'trafficLights',
+      transitFee: 'transitFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecond: 'string',
+      taxiFee: 'string',
+      tollDistanceMeter: 'string',
+      tollRoads: 'string',
+      tolls: 'string',
+      trafficLights: 'string',
+      transitFee: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionResponseBodyDataSteps extends $dara.Model {
+  cost?: DrivingDirectionResponseBodyDataStepsCost;
+  instruction?: string;
+  orientation?: string;
+  roadName?: string;
+  /**
+   * @example
+   * 500
+   */
+  stepDistanceMeter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      instruction: 'instruction',
+      orientation: 'orientation',
+      roadName: 'roadName',
+      stepDistanceMeter: 'stepDistanceMeter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: DrivingDirectionResponseBodyDataStepsCost,
+      instruction: 'string',
+      orientation: 'string',
+      roadName: 'string',
+      stepDistanceMeter: 'string',
+    };
+  }
+
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionResponseBodyData extends $dara.Model {
+  cost?: DrivingDirectionResponseBodyDataCost;
+  /**
+   * @example
+   * 445
+   */
+  distanceMeter?: string;
+  restriction?: string;
+  steps?: DrivingDirectionResponseBodyDataSteps[];
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      distanceMeter: 'distanceMeter',
+      restriction: 'restriction',
+      steps: 'steps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: DrivingDirectionResponseBodyDataCost,
+      distanceMeter: 'string',
+      restriction: 'string',
+      steps: { 'type': 'array', 'itemType': DrivingDirectionResponseBodyDataSteps },
+    };
+  }
+
+  validate() {
+    if(this.cost && typeof (this.cost as any).validate === 'function') {
+      (this.cost as any).validate();
+    }
+    if(Array.isArray(this.steps)) {
+      $dara.Model.validateArray(this.steps);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DrivingDirectionNovaResponseBodyDataPathsCost extends $dara.Model {
   /**
    * @example
@@ -3376,6 +3566,132 @@ export class CommonQueryBySceneResponse extends $dara.Model {
   }
 }
 
+export class DrivingDirectionRequest extends $dara.Model {
+  /**
+   * @example
+   * 39.896463
+   */
+  destinationLatitude?: string;
+  /**
+   * @example
+   * 116.46424
+   */
+  destinationLongitude?: string;
+  /**
+   * @example
+   * 39.995197
+   */
+  originLatitude?: string;
+  /**
+   * @example
+   * 116.466485
+   */
+  originLongitude?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destinationLatitude: 'destinationLatitude',
+      destinationLongitude: 'destinationLongitude',
+      originLatitude: 'originLatitude',
+      originLongitude: 'originLongitude',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinationLatitude: 'string',
+      destinationLongitude: 'string',
+      originLatitude: 'string',
+      originLongitude: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionResponseBody extends $dara.Model {
+  data?: DrivingDirectionResponseBodyData[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ECB2144C-E277-5434-80E6-12D26678D364
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DrivingDirectionResponseBodyData },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DrivingDirectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DrivingDirectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DrivingDirectionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DrivingDirectionNovaRequest extends $dara.Model {
   carType?: string;
   /**
@@ -5087,6 +5403,68 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.commonQueryBySceneWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 根据起终点坐标检索符合条件的驾车路线规划方案
+   * 
+   * @param request - DrivingDirectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DrivingDirectionResponse
+   */
+  async drivingDirectionWithOptions(request: DrivingDirectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DrivingDirectionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.destinationLatitude)) {
+      query["destinationLatitude"] = request.destinationLatitude;
+    }
+
+    if (!$dara.isNull(request.destinationLongitude)) {
+      query["destinationLongitude"] = request.destinationLongitude;
+    }
+
+    if (!$dara.isNull(request.originLatitude)) {
+      query["originLatitude"] = request.originLatitude;
+    }
+
+    if (!$dara.isNull(request.originLongitude)) {
+      query["originLongitude"] = request.originLongitude;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DrivingDirection",
+      version: "2024-07-12",
+      protocol: "HTTPS",
+      pathname: `/ipaas/v1/direction/driving`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DrivingDirectionResponse>(await this.callApi(params, req, runtime), new DrivingDirectionResponse({}));
+    } else {
+      return $dara.cast<DrivingDirectionResponse>(await this.execute(params, req, runtime), new DrivingDirectionResponse({}));
+    }
+
+  }
+
+  /**
+   * 根据起终点坐标检索符合条件的驾车路线规划方案
+   * 
+   * @param request - DrivingDirectionRequest
+   * @returns DrivingDirectionResponse
+   */
+  async drivingDirection(request: DrivingDirectionRequest): Promise<DrivingDirectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.drivingDirectionWithOptions(request, headers, runtime);
   }
 
   /**
