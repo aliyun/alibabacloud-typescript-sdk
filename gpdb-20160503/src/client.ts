@@ -1336,6 +1336,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * 18:00Z
    */
   maintainStartTime?: string;
+  masterAISpec?: string;
   /**
    * @remarks
    * Master resources.
@@ -1485,6 +1486,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * 4
    */
   segNodeNum?: number;
+  segmentAISpec?: string;
   /**
    * @remarks
    * Number of compute groups.
@@ -1664,6 +1666,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       lockReason: 'LockReason',
       maintainEndTime: 'MaintainEndTime',
       maintainStartTime: 'MaintainStartTime',
+      masterAISpec: 'MasterAISpec',
       masterCU: 'MasterCU',
       masterNodeNum: 'MasterNodeNum',
       maxConnections: 'MaxConnections',
@@ -1681,6 +1684,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       securityIPList: 'SecurityIPList',
       segDiskPerformanceLevel: 'SegDiskPerformanceLevel',
       segNodeNum: 'SegNodeNum',
+      segmentAISpec: 'SegmentAISpec',
       segmentCounts: 'SegmentCounts',
       serverlessMode: 'ServerlessMode',
       serverlessResource: 'ServerlessResource',
@@ -1734,6 +1738,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       lockReason: 'string',
       maintainEndTime: 'string',
       maintainStartTime: 'string',
+      masterAISpec: 'string',
       masterCU: 'number',
       masterNodeNum: 'number',
       maxConnections: 'number',
@@ -1751,6 +1756,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       securityIPList: 'string',
       segDiskPerformanceLevel: 'string',
       segNodeNum: 'number',
+      segmentAISpec: 'string',
       segmentCounts: 'number',
       serverlessMode: 'string',
       serverlessResource: 'number',
@@ -12839,6 +12845,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * 2C16G
    */
   instanceSpec?: string;
+  masterAISpec?: string;
   /**
    * @remarks
    * Master resources, with the following values: 
@@ -13136,6 +13143,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       idleTime: 'IdleTime',
       instanceNetworkType: 'InstanceNetworkType',
       instanceSpec: 'InstanceSpec',
+      masterAISpec: 'MasterAISpec',
       masterCU: 'MasterCU',
       masterNodeNum: 'MasterNodeNum',
       ownerId: 'OwnerId',
@@ -13184,6 +13192,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
       idleTime: 'number',
       instanceNetworkType: 'string',
       instanceSpec: 'string',
+      masterAISpec: 'string',
       masterCU: 'number',
       masterNodeNum: 'string',
       ownerId: 'number',
@@ -40456,6 +40465,7 @@ export class ModifyMasterSpecRequest extends $dara.Model {
    * gp-xxxxxxxxx
    */
   DBInstanceId?: string;
+  masterAISpec?: string;
   /**
    * @remarks
    * The specifications of coordinator node resources. Valid values:
@@ -40486,6 +40496,7 @@ export class ModifyMasterSpecRequest extends $dara.Model {
     return {
       DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceId: 'DBInstanceId',
+      masterAISpec: 'MasterAISpec',
       masterCU: 'MasterCU',
       resourceGroupId: 'ResourceGroupId',
     };
@@ -40495,6 +40506,7 @@ export class ModifyMasterSpecRequest extends $dara.Model {
     return {
       DBInstanceDescription: 'string',
       DBInstanceId: 'string',
+      masterAISpec: 'string',
       masterCU: 'number',
       resourceGroupId: 'string',
     };
@@ -50576,6 +50588,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceSpec)) {
       query["InstanceSpec"] = request.instanceSpec;
+    }
+
+    if (!$dara.isNull(request.masterAISpec)) {
+      query["MasterAISpec"] = request.masterAISpec;
     }
 
     if (!$dara.isNull(request.masterCU)) {
@@ -60868,6 +60884,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.masterAISpec)) {
+      query["MasterAISpec"] = request.masterAISpec;
     }
 
     if (!$dara.isNull(request.masterCU)) {
