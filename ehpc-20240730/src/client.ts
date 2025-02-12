@@ -1,13 +1,6591 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class AddonNodeTemplate extends $tea.Model {
+export class AddonNodeTemplateDataDisks extends $dara.Model {
+  /**
+   * @example
+   * cloud_auto
+   */
+  category?: string;
+  /**
+   * @example
+   * false
+   */
+  deleteWithInstance?: boolean;
+  /**
+   * @example
+   * PL0
+   */
+  level?: string;
+  /**
+   * @example
+   * 40
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deleteWithInstance: 'DeleteWithInstance',
+      level: 'Level',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deleteWithInstance: 'boolean',
+      level: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddonNodeTemplateSystemDisk extends $dara.Model {
+  /**
+   * @example
+   * cloud_auto
+   */
+  category?: string;
+  /**
+   * @example
+   * PL0
+   */
+  level?: string;
+  /**
+   * @example
+   * 40
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      level: 'Level',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      level: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodeTemplateDataDisks extends $dara.Model {
+  /**
+   * @example
+   * cloud_auto
+   */
+  category?: string;
+  /**
+   * @example
+   * false
+   */
+  deleteWithInstance?: boolean;
+  /**
+   * @example
+   * /dev/xvdb
+   */
+  device?: string;
+  /**
+   * @example
+   * PL0
+   */
+  level?: string;
+  /**
+   * @example
+   * /data1
+   */
+  mountDir?: string;
+  /**
+   * @example
+   * 40
+   */
+  size?: number;
+  /**
+   * @example
+   * s-bp1ei2b44ripxuo46hym
+   */
+  snapshotId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deleteWithInstance: 'DeleteWithInstance',
+      device: 'Device',
+      level: 'Level',
+      mountDir: 'MountDir',
+      size: 'Size',
+      snapshotId: 'SnapshotId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deleteWithInstance: 'boolean',
+      device: 'string',
+      level: 'string',
+      mountDir: 'string',
+      size: 'number',
+      snapshotId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NodeTemplateSystemDisk extends $dara.Model {
+  /**
+   * @example
+   * cloud_auto
+   */
+  category?: string;
+  /**
+   * @example
+   * PL0
+   */
+  level?: string;
+  /**
+   * @example
+   * 40
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      level: 'Level',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      level: 'string',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachSharedStoragesRequestSharedStorages extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the file system to be attached.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0bd504b0**
+   */
+  fileSystemId?: string;
+  /**
+   * @remarks
+   * The storage location of the file system to be attached. Valid values:
+   * 
+   * *   OnPremise: The file system is deployed on a hybrid cloud.
+   * *   PublicCloud: The file system is deployed on a public cloud.
+   * 
+   * @example
+   * PublicCloud
+   */
+  location?: string;
+  /**
+   * @remarks
+   * The local mount directory of the file system that you want to attach.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /test
+   */
+  mountDirectory?: string;
+  /**
+   * @remarks
+   * The attaching options of the file system to be attached. Valid values:
+   * 
+   * *   \\-t nfs -o vers=3,nolock,proto=tcp,noresvport
+   * *   \\-t nfs -o vers=4.0,noresvport
+   * 
+   * Default value:-t nfs -o vers=3,nolock,proto=tcp,noresvport
+   * 
+   * >  The v3 version is recommended for higher performance if multiple Elastic Compute Service (ECS) instances do not edit the same file at the same time.
+   * 
+   * @example
+   * -t nfs -o vers=3,nolock,proto=tcp,noresvport
+   */
+  mountOptions?: string;
+  /**
+   * @remarks
+   * The address of the mount point of the file system to be attached.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0bd504b***-ngq26.cn-hangzhou.nas.aliyuncs.com
+   */
+  mountTarget?: string;
+  /**
+   * @remarks
+   * The protocol type of the file system to be attached. Valid values:
+   * 
+   * *   NFS
+   * *   SMB
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * NFS
+   */
+  protocolType?: string;
+  /**
+   * @remarks
+   * The storage directory of the file system. You can mount any directory in the file system to the specified cluster directory.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /testehpc
+   */
+  storageDirectory?: string;
+  /**
+   * @remarks
+   * The type of the file system to be attached. Valid values:
+   * 
+   * *   nas
+   * *   cpfs
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * nas
+   */
+  volumeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      location: 'Location',
+      mountDirectory: 'MountDirectory',
+      mountOptions: 'MountOptions',
+      mountTarget: 'MountTarget',
+      protocolType: 'ProtocolType',
+      storageDirectory: 'StorageDirectory',
+      volumeType: 'VolumeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      location: 'string',
+      mountDirectory: 'string',
+      mountOptions: 'string',
+      mountTarget: 'string',
+      protocolType: 'string',
+      storageDirectory: 'string',
+      volumeType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestAdditionalPackages extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the software that you want to install in the cluster.
+   * 
+   * @example
+   * mpich
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the software that you want to install in the cluster.
+   * 
+   * @example
+   * 4.0.3
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestAddons extends $dara.Model {
+  /**
+   * @remarks
+   * The addon name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Login
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The resource configurations of the addon.
+   * 
+   * @example
+   * "{\\\\"EipResource\\\\": {\\\\"AutoCreate\\\\": true}, \\\\"EcsResources\\\\": [{\\\\"InstanceType\\\\": \\\\"ecs.c7.xlarge\\\\", \\\\"ImageId\\\\": \\\\"centos_7_6_x64_20G_alibase_20211130.vhd\\\\", \\\\"SystemDisk\\\\": {\\\\"Category\\\\": \\\\"cloud_essd\\\\", \\\\"Size\\\\": 40, \\\\"Level\\\\": \\\\"PL0\\\\"}, \\\\"EnableHT\\\\": true, \\\\"InstanceChargeType\\\\": \\\\"PostPaid\\\\", \\\\"SpotStrategy\\\\": \\\\"NoSpot\\\\"}]}"
+   */
+  resourcesSpec?: string;
+  /**
+   * @remarks
+   * The service configurations of the addon.
+   * 
+   * @example
+   * "[{\\\\"ServiceName\\\\": \\\\"SSH\\\\", \\\\"ServiceAccessType\\\\": null, \\\\"ServiceAccessUrl\\\\": null, \\\\"NetworkACL\\\\": [{\\\\"IpProtocol\\\\": \\\\"TCP\\\\", \\\\"Port\\\\": 22, \\\\"SourceCidrIp\\\\": \\\\"0.0.0.0/0\\\\"}]}, {\\\\"ServiceName\\\\": \\\\"VNC\\\\", \\\\"ServiceAccessType\\\\": null, \\\\"ServiceAccessUrl\\\\": null, \\\\"NetworkACL\\\\": [{\\\\"IpProtocol\\\\": \\\\"TCP\\\\", \\\\"Port\\\\": 12016, \\\\"SourceCidrIp\\\\": \\\\"0.0.0.0/0\\\\"}]}, {\\\\"ServiceName\\\\": \\\\"CLIENT\\\\", \\\\"ServiceAccessType\\\\": \\\\"URL\\\\", \\\\"ServiceAccessUrl\\\\": \\\\"\\\\", \\\\"NetworkACL\\\\": [{\\\\"IpProtocol\\\\": \\\\"TCP\\\\", \\\\"Port\\\\": 12011, \\\\"SourceCidrIp\\\\": \\\\"0.0.0.0/0\\\\"}]}]"
+   */
+  servicesSpec?: string;
+  /**
+   * @remarks
+   * The addon version.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      resourcesSpec: 'ResourcesSpec',
+      servicesSpec: 'ServicesSpec',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      resourcesSpec: 'string',
+      servicesSpec: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestClusterCredentials extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the key pair. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
+   * 
+   * >  For more information, see [Create a key pair](https://help.aliyun.com/document_detail/51793.html).
+   * 
+   * @example
+   * ali0824
+   */
+  keyPairName?: string;
+  /**
+   * @remarks
+   * The password for the root user to log on to the node. The password must be 8 to 20 characters in length, and must contain at least 3 of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported: `() ~ ! @ # $ % ^ & * - = + { } [ ] : ; \\" < > , . ? /`
+   * 
+   * >  We recommend that you use HTTPS to call the API operation to prevent password leakage.
+   * 
+   * @example
+   * **********
+   */
+  password?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPairName: 'KeyPairName',
+      password: 'Password',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPairName: 'string',
+      password: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestClusterCustomConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The runtime parameters of the script after the cluster is created.
+   * 
+   * @example
+   * E-HPC cn-hangzhou
+   */
+  args?: string;
+  /**
+   * @remarks
+   * The URL that is used to download the post-processing script.
+   * 
+   * @example
+   * http://*****
+   */
+  script?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      script: 'Script',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      script: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestManagerDNS extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name resolution type.
+   * 
+   * Valid values:
+   * 
+   * *   NIS: NIS.
+   * 
+   * @example
+   * NIS
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version of the domain name resolution service.
+   * 
+   * @example
+   * 2.31
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestManagerDirectoryService extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the domain account.
+   * 
+   * Valid values:
+   * 
+   * *   NIS: NIS.
+   * 
+   * @example
+   * NIS
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version of the domain account service.
+   * 
+   * @example
+   * 2.31
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestManagerScheduler extends $dara.Model {
+  /**
+   * @remarks
+   * The scheduler type. Valid values:
+   * 
+   * *   SLURM
+   * *   PBS
+   * *   OPENGRIDSCHEDULER
+   * *   LSF_PLUGIN
+   * *   PBS_PLUGIN
+   * 
+   * @example
+   * SLURM
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The scheduler version.
+   * 
+   * @example
+   * 22.05.8
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestManager extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the domain name resolution service.
+   */
+  DNS?: CreateClusterRequestManagerDNS;
+  /**
+   * @remarks
+   * The configurations of the directory service.
+   */
+  directoryService?: CreateClusterRequestManagerDirectoryService;
+  /**
+   * @remarks
+   * The hardware configurations of the management node.
+   */
+  managerNode?: NodeTemplate;
+  /**
+   * @remarks
+   * The configurations of the scheduler service.
+   */
+  scheduler?: CreateClusterRequestManagerScheduler;
+  static names(): { [key: string]: string } {
+    return {
+      DNS: 'DNS',
+      directoryService: 'DirectoryService',
+      managerNode: 'ManagerNode',
+      scheduler: 'Scheduler',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DNS: CreateClusterRequestManagerDNS,
+      directoryService: CreateClusterRequestManagerDirectoryService,
+      managerNode: NodeTemplate,
+      scheduler: CreateClusterRequestManagerScheduler,
+    };
+  }
+
+  validate() {
+    if(this.DNS && typeof (this.DNS as any).validate === 'function') {
+      (this.DNS as any).validate();
+    }
+    if(this.directoryService && typeof (this.directoryService as any).validate === 'function') {
+      (this.directoryService as any).validate();
+    }
+    if(this.managerNode && typeof (this.managerNode as any).validate === 'function') {
+      (this.managerNode as any).validate();
+    }
+    if(this.scheduler && typeof (this.scheduler as any).validate === 'function') {
+      (this.scheduler as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClusterRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * ClusterId
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * ehpc-hz-******
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobRequestJobSpecResources extends $dara.Model {
+  /**
+   * @remarks
+   * The number of vCPUs to be allocated to each compute node.
+   * 
+   * @example
+   * 2
+   */
+  cores?: number;
+  /**
+   * @remarks
+   * The number of GPUs to be allocated to each compute node.
+   * 
+   * @example
+   * 1
+   */
+  gpus?: number;
+  /**
+   * @remarks
+   * The memory size to be allocated to each compute node. The memory size is in string format. Unit: MB or GB.
+   * 
+   * @example
+   * 4gb
+   */
+  memory?: string;
+  /**
+   * @remarks
+   * The number of compute nodes to be allocated to the job.
+   * 
+   * @example
+   * 2
+   */
+  nodes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cores: 'Cores',
+      gpus: 'Gpus',
+      memory: 'Memory',
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cores: 'number',
+      gpus: 'number',
+      memory: 'string',
+      nodes: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobRequestJobSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The jobs in the queue.
+   * 
+   * Format: X-Y:Z. X is the minimum index value. Y is the maximum index value. Z is the step size. For example, 2-7:2 indicates that three jobs need to be run and their index values are 2, 4, and 6.
+   * 
+   * @example
+   * 1-5:2
+   */
+  arrayRequest?: string;
+  /**
+   * @remarks
+   * The command or script that is used to run the job. If you want to use a command, you must specify the full path of the command, for example, /bin/ping.
+   * 
+   * If you want to use a script, you must make sure that you have the execution permissions on it. By default, the user root directory ~/ is used as the default script path on the cluster side. If your script is not in that directory, you must specify the full path in this parameter, such as /home/xxx/job.sh Note that in this mode, if requirements on resources such as CPU and memory are specified in the script, the job will be run based on the resource requirements specified in the script. In this case, do not specify resource requirements in the Resource parameter. Otherwise, the job may fail to run.
+   * 
+   * If you want to run the job directly by using the CLI, you must specify the absolute path of the command and add two hyphens and a space (-- ) before the path, such as -- /bin/ping -c 10 localhost.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /home/xxx/test.job
+   */
+  commandLine?: string;
+  /**
+   * @remarks
+   * The queue to which the job belongs.
+   * 
+   * @example
+   * comp
+   */
+  jobQueue?: string;
+  /**
+   * @remarks
+   * The post-processing command of the job.
+   * 
+   * @example
+   * /bin/sleep 10
+   */
+  postCmdLine?: string;
+  /**
+   * @remarks
+   * The job priority.
+   * 
+   * @example
+   * 1
+   */
+  priority?: string;
+  /**
+   * @remarks
+   * The resource configurations of the job.
+   */
+  resources?: CreateJobRequestJobSpecResources;
+  /**
+   * @remarks
+   * The cluster-side user as which you want to submit the job.
+   * 
+   * @example
+   * testuser
+   */
+  runasUser?: string;
+  /**
+   * @remarks
+   * The password of the user specified by the RunasUser parameter.
+   * 
+   * @example
+   * xxx
+   */
+  runasUserPassword?: string;
+  /**
+   * @remarks
+   * The path of the standard error output file of the job. You need to specify the full path.
+   * 
+   * @example
+   * /home/xxx/job.err
+   */
+  stderrPath?: string;
+  /**
+   * @remarks
+   * The path of the standard output file of the job. You need to specify the full path.
+   * 
+   * @example
+   * /home/xxx/job.out
+   */
+  stdoutPath?: string;
+  /**
+   * @remarks
+   * The environment variables of the job. The value is a string in the JSON array format. Each array member is a JSON object that contains two members: Name and Value. Name indicates the name of the environment variable, and Value indicates the value of the environment variable.
+   * 
+   * @example
+   * [{"Name":"x", "Value":"y"}]
+   */
+  variables?: string;
+  /**
+   * @remarks
+   * The maximum duration for which the job can be run. Format: `hour: minute: second`. For example, `01:00:00` indicates 1 hour.
+   * 
+   * @example
+   * 360:48:50
+   */
+  wallTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrayRequest: 'ArrayRequest',
+      commandLine: 'CommandLine',
+      jobQueue: 'JobQueue',
+      postCmdLine: 'PostCmdLine',
+      priority: 'Priority',
+      resources: 'Resources',
+      runasUser: 'RunasUser',
+      runasUserPassword: 'RunasUserPassword',
+      stderrPath: 'StderrPath',
+      stdoutPath: 'StdoutPath',
+      variables: 'Variables',
+      wallTime: 'WallTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrayRequest: 'string',
+      commandLine: 'string',
+      jobQueue: 'string',
+      postCmdLine: 'string',
+      priority: 'string',
+      resources: CreateJobRequestJobSpecResources,
+      runasUser: 'string',
+      runasUserPassword: 'string',
+      stderrPath: 'string',
+      stdoutPath: 'string',
+      variables: 'string',
+      wallTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.resources && typeof (this.resources as any).validate === 'function') {
+      (this.resources as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateUsersRequestUser extends $dara.Model {
+  /**
+   * @remarks
+   * The public key of the user.
+   * 
+   * You can add up to 20 users in a call.
+   * 
+   * Specify one of the Password and AuthKey parameters. The AuthKey parameter takes effect only when the cluster authentication method is set to Key. Key authentication is not recommended.
+   * 
+   * @example
+   * Abc****
+   */
+  authKey?: string;
+  /**
+   * @remarks
+   * The permission group to which the user belongs. Valid values:
+   * 
+   * users: ordinary permissions, which are suitable for ordinary users that need only to submit and debug jobs. wheel: sudo permissions, which are suitable for administrators who need to manage clusters. In addition to submitting and debugging jobs, you can also run sudo commands to install software and restart nodes. You can add up to 20 users in a call.
+   * 
+   * @example
+   * users
+   */
+  group?: string;
+  /**
+   * @remarks
+   * The password of the user. The password must be 6 to 30 characters in length and must contain three of the following character types:
+   * 
+   * *   Uppercase letters
+   * *   Lowercase letters
+   * *   Digits
+   * *   Special characters ()~!@#$%^&\\*-_+=|{}[]:;\\"/<>,.?/
+   * 
+   * You can add up to 20 users in a call.
+   * 
+   * Specify one of the Password and AuthKey parameters. The Password parameter takes effect only when the cluster authentication method is set to Password. Password authentication is recommended.
+   * 
+   * @example
+   * 1@a2****
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The username. The username must be 1 to 30 characters in length. It must start with a letter and can contain digits, letters, and periods (.).
+   * 
+   * You can add up to 20 users in a call.
+   * 
+   * @example
+   * testuser
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authKey: 'AuthKey',
+      group: 'Group',
+      password: 'Password',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authKey: 'string',
+      group: 'string',
+      password: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteUsersRequestUser extends $dara.Model {
+  /**
+   * @remarks
+   * The name of user N that you want to delete.
+   * 
+   * Valid values of N: 1 to 100.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testuser
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonTemplateResponseBodyAddonResourcesSpecEipResource extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the EIP is automatically created.
+   * 
+   * @example
+   * True
+   */
+  autoCreate?: boolean;
+  /**
+   * @remarks
+   * The maximum bandwidth of the EIP. Unit: Mbit/s.
+   * 
+   * @example
+   * 100
+   */
+  bandwidth?: string;
+  /**
+   * @remarks
+   * The EIP ID.
+   * 
+   * @example
+   * eip-bp1jwtsuoiif2qf90****
+   */
+  eipInstanceId?: string;
+  /**
+   * @remarks
+   * The billing method of the EIP. Valid values:
+   * 
+   * *   PostPaid: pay-as-you-go.
+   * *   PrePaid: subscription.
+   * 
+   * Default value: PostPaid
+   * 
+   * @example
+   * PostPaid
+   */
+  instanceChargeType?: string;
+  /**
+   * @remarks
+   * The metering method of the EIP. Valid values:
+   * 
+   * *   PayByBandwidth: pay by bandwidth.
+   * *   PayByTraffic: pay by data transfer.
+   * 
+   * Valid values of N: 1 to 10.
+   * 
+   * @example
+   * PayByTraffic
+   */
+  internetChargeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoCreate: 'AutoCreate',
+      bandwidth: 'Bandwidth',
+      eipInstanceId: 'EipInstanceId',
+      instanceChargeType: 'InstanceChargeType',
+      internetChargeType: 'InternetChargeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoCreate: 'boolean',
+      bandwidth: 'string',
+      eipInstanceId: 'string',
+      instanceChargeType: 'string',
+      internetChargeType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonTemplateResponseBodyAddonResourcesSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The Elastic Compute Service (ECS) resource configurations of the addon.
+   */
+  ecsResources?: AddonNodeTemplate[];
+  /**
+   * @remarks
+   * The Elastic IP Address (EIP) configurations of the service.
+   */
+  eipResource?: DescribeAddonTemplateResponseBodyAddonResourcesSpecEipResource;
+  static names(): { [key: string]: string } {
+    return {
+      ecsResources: 'EcsResources',
+      eipResource: 'EipResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsResources: { 'type': 'array', 'itemType': AddonNodeTemplate },
+      eipResource: DescribeAddonTemplateResponseBodyAddonResourcesSpecEipResource,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ecsResources)) {
+      $dara.Model.validateArray(this.ecsResources);
+    }
+    if(this.eipResource && typeof (this.eipResource as any).validate === 'function') {
+      (this.eipResource as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonTemplateResponseBodyAddonServicesSpecInputParams extends $dara.Model {
+  /**
+   * @remarks
+   * The help information of the parameter.
+   */
+  helpText?: string;
+  /**
+   * @remarks
+   * The parameter label.
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MYSQL_HOME
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The parameter type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * String
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The parameter value.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usr/local/mysql
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      helpText: 'HelpText',
+      label: 'Label',
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      helpText: 'string',
+      label: 'string',
+      name: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonTemplateResponseBodyAddonServicesSpecNetworkACL extends $dara.Model {
+  /**
+   * @remarks
+   * The protocol type. Valid values:
+   * 
+   * *   **TCP**: forwards TCP packets.
+   * *   **UDP**: forwards UDP packets.
+   * *   **Any**: forwards all packets.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TCP
+   */
+  ipProtocol?: string;
+  /**
+   * @remarks
+   * The port number.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3306
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The source CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 172.16.0.0/12
+   */
+  sourceCidrIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipProtocol: 'IpProtocol',
+      port: 'Port',
+      sourceCidrIp: 'SourceCidrIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipProtocol: 'string',
+      port: 'number',
+      sourceCidrIp: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonTemplateResponseBodyAddonServicesSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter configurations of the service.
+   */
+  inputParams?: DescribeAddonTemplateResponseBodyAddonServicesSpecInputParams[];
+  /**
+   * @remarks
+   * The security group configurations of the service.
+   */
+  networkACL?: DescribeAddonTemplateResponseBodyAddonServicesSpecNetworkACL[];
+  /**
+   * @remarks
+   * The service access type.
+   * 
+   * @example
+   * URL
+   */
+  serviceAccessType?: string;
+  /**
+   * @remarks
+   * The service access URL.
+   * 
+   * @example
+   * https://47.96.xx.xx:12008
+   */
+  serviceAccessUrl?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Web Portal
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputParams: 'InputParams',
+      networkACL: 'NetworkACL',
+      serviceAccessType: 'ServiceAccessType',
+      serviceAccessUrl: 'ServiceAccessUrl',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputParams: { 'type': 'array', 'itemType': DescribeAddonTemplateResponseBodyAddonServicesSpecInputParams },
+      networkACL: { 'type': 'array', 'itemType': DescribeAddonTemplateResponseBodyAddonServicesSpecNetworkACL },
+      serviceAccessType: 'string',
+      serviceAccessUrl: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inputParams)) {
+      $dara.Model.validateArray(this.inputParams);
+    }
+    if(Array.isArray(this.networkACL)) {
+      $dara.Model.validateArray(this.networkACL);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAddonTemplateResponseBodyAddon extends $dara.Model {
+  /**
+   * @remarks
+   * The addon description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The addon icon.
+   * 
+   * @example
+   * /assets/icons/your_icon.svg
+   */
+  icon?: string;
+  /**
+   * @remarks
+   * The addon label.
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The date when the addon template was last updated.
+   * 
+   * @example
+   * 2024-08-22 18:11:17
+   */
+  lastUpdate?: string;
+  /**
+   * @remarks
+   * The addon name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Login
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The resource configurations of the addon.
+   */
+  resourcesSpec?: DescribeAddonTemplateResponseBodyAddonResourcesSpec;
+  /**
+   * @remarks
+   * The addon configurations.
+   */
+  servicesSpec?: DescribeAddonTemplateResponseBodyAddonServicesSpec[];
+  /**
+   * @remarks
+   * The addon version.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      icon: 'Icon',
+      label: 'Label',
+      lastUpdate: 'LastUpdate',
+      name: 'Name',
+      resourcesSpec: 'ResourcesSpec',
+      servicesSpec: 'ServicesSpec',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      icon: 'string',
+      label: 'string',
+      lastUpdate: 'string',
+      name: 'string',
+      resourcesSpec: DescribeAddonTemplateResponseBodyAddonResourcesSpec,
+      servicesSpec: { 'type': 'array', 'itemType': DescribeAddonTemplateResponseBodyAddonServicesSpec },
+      version: 'string',
+    };
+  }
+
+  validate() {
+    if(this.resourcesSpec && typeof (this.resourcesSpec as any).validate === 'function') {
+      (this.resourcesSpec as any).validate();
+    }
+    if(Array.isArray(this.servicesSpec)) {
+      $dara.Model.validateArray(this.servicesSpec);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachSharedStoragesRequestSharedStorages extends $dara.Model {
+  /**
+   * @remarks
+   * The local mount directory of the mounted file system.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * /test
+   */
+  mountDirectory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountDirectory: 'MountDirectory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountDirectory: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAddonResponseBodyAddonResourcesSpecEipResource extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the EIP is automatically created.
+   * 
+   * @example
+   * True
+   */
+  autoCreate?: boolean;
+  /**
+   * @remarks
+   * The maximum bandwidth of the EIP. Unit: Mbit/s.
+   * 
+   * @example
+   * 100
+   */
+  bandwidth?: string;
+  /**
+   * @remarks
+   * The EIP.
+   * 
+   * @example
+   * 39.108.xx.xx
+   */
+  eipAddress?: string;
+  /**
+   * @remarks
+   * The EIP ID.
+   * 
+   * @example
+   * eip-bp1vi9124tbx1g3kr****
+   */
+  eipInstanceId?: string;
+  /**
+   * @remarks
+   * The billing method of the EIP.
+   * 
+   * *   PostPaid: pay-as-you-go.
+   * *   PrePaid: subscription.
+   * 
+   * Default value: PostPaid.
+   * 
+   * @example
+   * PostPaid
+   */
+  instanceChargeType?: string;
+  /**
+   * @remarks
+   * The metering method of the EIP. Valid values:
+   * 
+   * *   PayByBandwidth: pay by bandwidth.
+   * *   PayByTraffic: pay by data transfer.
+   * 
+   * Valid values of N: 1 to 10.
+   * 
+   * @example
+   * PayByTraffic
+   */
+  internetChargeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoCreate: 'AutoCreate',
+      bandwidth: 'Bandwidth',
+      eipAddress: 'EipAddress',
+      eipInstanceId: 'EipInstanceId',
+      instanceChargeType: 'InstanceChargeType',
+      internetChargeType: 'InternetChargeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoCreate: 'boolean',
+      bandwidth: 'string',
+      eipAddress: 'string',
+      eipInstanceId: 'string',
+      instanceChargeType: 'string',
+      internetChargeType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAddonResponseBodyAddonResourcesSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The Elastic Compute Service (ECS) resource configurations of the addon.
+   */
+  ecsResources?: AddonNodeTemplate[];
+  /**
+   * @remarks
+   * The Elastic IP Address (EIP) configurations.
+   */
+  eipResource?: GetAddonResponseBodyAddonResourcesSpecEipResource;
+  static names(): { [key: string]: string } {
+    return {
+      ecsResources: 'EcsResources',
+      eipResource: 'EipResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsResources: { 'type': 'array', 'itemType': AddonNodeTemplate },
+      eipResource: GetAddonResponseBodyAddonResourcesSpecEipResource,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ecsResources)) {
+      $dara.Model.validateArray(this.ecsResources);
+    }
+    if(this.eipResource && typeof (this.eipResource as any).validate === 'function') {
+      (this.eipResource as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAddonResponseBodyAddonServicesSpecInputParams extends $dara.Model {
+  /**
+   * @remarks
+   * The help information of the parameter.
+   */
+  helpText?: string;
+  /**
+   * @remarks
+   * The parameter label.
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MYSQL_HOME
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The parameter type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * String
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The parameter value.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * usr/local/mysql
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      helpText: 'HelpText',
+      label: 'Label',
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      helpText: 'string',
+      label: 'string',
+      name: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAddonResponseBodyAddonServicesSpecNetworkACL extends $dara.Model {
+  /**
+   * @remarks
+   * The protocol type. Valid values:
+   * 
+   * TCP: forwards TCP packets.
+   * 
+   * UDP: forwards UDP packets.
+   * 
+   * Any: forwards all packets.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TCP
+   */
+  ipProtocol?: string;
+  /**
+   * @remarks
+   * The port number.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3306
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The source CIDR block.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 172.16.0.0/12
+   */
+  sourceCidrIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipProtocol: 'IpProtocol',
+      port: 'Port',
+      sourceCidrIp: 'SourceCidrIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipProtocol: 'string',
+      port: 'number',
+      sourceCidrIp: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAddonResponseBodyAddonServicesSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter configurations of the service.
+   */
+  inputParams?: GetAddonResponseBodyAddonServicesSpecInputParams[];
+  /**
+   * @remarks
+   * The security group configurations of the service.
+   */
+  networkACL?: GetAddonResponseBodyAddonServicesSpecNetworkACL[];
+  /**
+   * @remarks
+   * The service access type.
+   * 
+   * @example
+   * URL
+   */
+  serviceAccessType?: string;
+  /**
+   * @remarks
+   * The service access URL.
+   * 
+   * @example
+   * https://47.96.xx.xx:12008
+   */
+  serviceAccessUrl?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Web Portal
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputParams: 'InputParams',
+      networkACL: 'NetworkACL',
+      serviceAccessType: 'ServiceAccessType',
+      serviceAccessUrl: 'ServiceAccessUrl',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputParams: { 'type': 'array', 'itemType': GetAddonResponseBodyAddonServicesSpecInputParams },
+      networkACL: { 'type': 'array', 'itemType': GetAddonResponseBodyAddonServicesSpecNetworkACL },
+      serviceAccessType: 'string',
+      serviceAccessUrl: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inputParams)) {
+      $dara.Model.validateArray(this.inputParams);
+    }
+    if(Array.isArray(this.networkACL)) {
+      $dara.Model.validateArray(this.networkACL);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAddonResponseBodyAddon extends $dara.Model {
+  /**
+   * @remarks
+   * The addon ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Login-1.0-W2g****
+   */
+  addonId?: string;
+  /**
+   * @remarks
+   * The addon description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The addon icon.
+   * 
+   * @example
+   * /assets/icons/your_icon.svg
+   */
+  icon?: string;
+  /**
+   * @remarks
+   * The time when the addon was installed.
+   * 
+   * @example
+   * 2024-08-22 18:11:17
+   */
+  installTime?: string;
+  /**
+   * @remarks
+   * The addon label.
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The addon name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Login
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The resource configurations of the addon.
+   */
+  resourcesSpec?: GetAddonResponseBodyAddonResourcesSpec;
+  /**
+   * @remarks
+   * The service configurations of the addon.
+   */
+  servicesSpec?: GetAddonResponseBodyAddonServicesSpec[];
+  /**
+   * @remarks
+   * The addon status.
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The addon version.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonId: 'AddonId',
+      description: 'Description',
+      icon: 'Icon',
+      installTime: 'InstallTime',
+      label: 'Label',
+      name: 'Name',
+      resourcesSpec: 'ResourcesSpec',
+      servicesSpec: 'ServicesSpec',
+      status: 'Status',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonId: 'string',
+      description: 'string',
+      icon: 'string',
+      installTime: 'string',
+      label: 'string',
+      name: 'string',
+      resourcesSpec: GetAddonResponseBodyAddonResourcesSpec,
+      servicesSpec: { 'type': 'array', 'itemType': GetAddonResponseBodyAddonServicesSpec },
+      status: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    if(this.resourcesSpec && typeof (this.resourcesSpec as any).validate === 'function') {
+      (this.resourcesSpec as any).validate();
+    }
+    if(Array.isArray(this.servicesSpec)) {
+      $dara.Model.validateArray(this.servicesSpec);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyClusterCustomConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The arguments that are used to run the script after the scrip is installed.
+   * 
+   * @example
+   * E-HPC cn-hangzhou
+   */
+  args?: string;
+  /**
+   * @remarks
+   * The URL that is used to download the post-processing script.
+   * 
+   * @example
+   * http://*****
+   */
+  script?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      script: 'Script',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      script: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyManagerDNS extends $dara.Model {
+  /**
+   * @remarks
+   * The state of the domain name resolution service. Valid values:
+   * 
+   * *   uninit: The service is being installed.
+   * *   initing: The service is being initialized.
+   * *   running: The service is running.
+   * *   exception: The service has run into an exception.
+   * *   releasing: The service is being released.
+   * *   stopped: The service is stopped.
+   * *   pending: The service is waiting to be configured.
+   * 
+   * @example
+   * running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The resolution type.
+   * 
+   * @example
+   * nis
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version of the resolution service.
+   * 
+   * @example
+   * 2.31
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyManagerDirectoryService extends $dara.Model {
+  /**
+   * @remarks
+   * The state of the domain account service. Valid values:
+   * 
+   * *   uninit: The service is being installed.
+   * *   initing: The service is being initialized.
+   * *   running: The service is running.
+   * *   exception: The service has run into an exception.
+   * *   releasing: The service is being released.
+   * *   stopped: The service is stopped.
+   * *   pending: The service is waiting to be configured.
+   * 
+   * @example
+   * running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The type of the domain account.
+   * 
+   * @example
+   * nis
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version of the domain account service.
+   * 
+   * @example
+   * 2.31
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyManagerManagerNode extends $dara.Model {
+  /**
+   * @remarks
+   * The expiration time of the management node.
+   * 
+   * @example
+   * 2099-12-31T15:59Z
+   */
+  expiredTime?: string;
+  /**
+   * @remarks
+   * The instance billing method of the management node. Valid values:
+   * 
+   * *   PostPaid: pay-as-you-go
+   * *   PrePaid: subscription
+   * 
+   * @example
+   * PostPaid
+   */
+  instanceChargeType?: string;
+  /**
+   * @remarks
+   * The instance ID of the management node.
+   * 
+   * @example
+   * i-bp1a170jgea1vl******
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The instance type of the management node.
+   * 
+   * @example
+   * ecs.g6.4xlarge
+   */
+  instanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expiredTime: 'ExpiredTime',
+      instanceChargeType: 'InstanceChargeType',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expiredTime: 'string',
+      instanceChargeType: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyManagerScheduler extends $dara.Model {
+  /**
+   * @remarks
+   * The scheduler state. Valid values:
+   * 
+   * *   uninit: The scheduler is being installed.
+   * *   initing: The scheduler is being initialized.
+   * *   running: The scheduler is running.
+   * *   exception: The scheduler has run into an exception.
+   * *   releasing: The scheduler is being released.
+   * *   stopped: The scheduler is stopped.
+   * *   pending: The scheduler is waiting to be configured.
+   * 
+   * @example
+   * running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The scheduler type. Valid values:
+   * 
+   * *   SLURM
+   * *   PBS
+   * *   OPENGRIDSCHEDULER
+   * *   LSF_PLUGIN
+   * *   PBS_PLUGIN
+   * 
+   * @example
+   * SLURM
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The scheduler version.
+   * 
+   * @example
+   * 22.05.8
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyManager extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the domain name resolution service.
+   */
+  DNS?: GetClusterResponseBodyManagerDNS;
+  /**
+   * @remarks
+   * The information about the domain account service.
+   */
+  directoryService?: GetClusterResponseBodyManagerDirectoryService;
+  /**
+   * @remarks
+   * The configurations of the management node.
+   */
+  managerNode?: GetClusterResponseBodyManagerManagerNode;
+  /**
+   * @remarks
+   * The information about the scheduler.
+   */
+  scheduler?: GetClusterResponseBodyManagerScheduler;
+  static names(): { [key: string]: string } {
+    return {
+      DNS: 'DNS',
+      directoryService: 'DirectoryService',
+      managerNode: 'ManagerNode',
+      scheduler: 'Scheduler',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DNS: GetClusterResponseBodyManagerDNS,
+      directoryService: GetClusterResponseBodyManagerDirectoryService,
+      managerNode: GetClusterResponseBodyManagerManagerNode,
+      scheduler: GetClusterResponseBodyManagerScheduler,
+    };
+  }
+
+  validate() {
+    if(this.DNS && typeof (this.DNS as any).validate === 'function') {
+      (this.DNS as any).validate();
+    }
+    if(this.directoryService && typeof (this.directoryService as any).validate === 'function') {
+      (this.directoryService as any).validate();
+    }
+    if(this.managerNode && typeof (this.managerNode as any).validate === 'function') {
+      (this.managerNode as any).validate();
+    }
+    if(this.scheduler && typeof (this.scheduler as any).validate === 'function') {
+      (this.scheduler as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodyMonitorSpec extends $dara.Model {
+  enableComputeLoadMonitor?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableComputeLoadMonitor: 'EnableComputeLoadMonitor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableComputeLoadMonitor: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClusterResponseBodySchedulerSpec extends $dara.Model {
+  enableTopologyAwareness?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableTopologyAwareness: 'EnableTopologyAwareness',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableTopologyAwareness: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCommonLogDetailResponseBodyLogDetailStages extends $dara.Model {
+  /**
+   * @remarks
+   * The log level.
+   * 
+   * Valid values:
+   * 
+   * *   ERROR
+   * *   INFO
+   * *   WARN
+   * 
+   * @example
+   * INFO
+   */
+  logLevel?: string;
+  /**
+   * @remarks
+   * The output message of the log.
+   * 
+   * @example
+   * Successfully created security group sg-bcd***
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The method involved in the log.
+   * 
+   * @example
+   * CreateSecurityGroup
+   */
+  method?: string;
+  /**
+   * @remarks
+   * The request ID associated with the log.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE7****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The action state involved in the log. Valid values:
+   * 
+   * *   InProgress: The action is being performed.
+   * *   Finished: The action is completed.
+   * *   Failed: The action failed.
+   * 
+   * @example
+   * Finished
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The resource involved in the log.
+   * 
+   * @example
+   * sg-bcd***
+   */
+  target?: string;
+  /**
+   * @remarks
+   * The time when the log was generated.
+   * 
+   * @example
+   * 2024-08-22 14:21:54
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logLevel: 'LogLevel',
+      message: 'Message',
+      method: 'Method',
+      requestId: 'RequestId',
+      status: 'Status',
+      target: 'Target',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logLevel: 'string',
+      message: 'string',
+      method: 'string',
+      requestId: 'string',
+      status: 'string',
+      target: 'string',
+      time: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCommonLogDetailResponseBodyLogDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The stage name of the log.
+   * 
+   * @example
+   * ConfigNetwork
+   */
+  stageName?: string;
+  /**
+   * @remarks
+   * The information about the log stages.
+   */
+  stages?: GetCommonLogDetailResponseBodyLogDetailStages[];
+  static names(): { [key: string]: string } {
+    return {
+      stageName: 'StageName',
+      stages: 'Stages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stageName: 'string',
+      stages: { 'type': 'array', 'itemType': GetCommonLogDetailResponseBodyLogDetailStages },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.stages)) {
+      $dara.Model.validateArray(this.stages);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyJobInfoResources extends $dara.Model {
+  /**
+   * @remarks
+   * The number of vCPUs used by the job on each node.
+   * 
+   * @example
+   * 2
+   */
+  cores?: string;
+  /**
+   * @remarks
+   * The number of GPUs used by the job on each node.
+   * 
+   * @example
+   * 1
+   */
+  gpus?: string;
+  /**
+   * @remarks
+   * The memory size used by the job on each node.
+   * 
+   * @example
+   * 1gb
+   */
+  memory?: string;
+  /**
+   * @remarks
+   * The number of nodes that are used to run the job.
+   * 
+   * @example
+   * 1
+   */
+  nodes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cores: 'Cores',
+      gpus: 'Gpus',
+      memory: 'Memory',
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cores: 'string',
+      gpus: 'string',
+      memory: 'string',
+      nodes: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyJobInfoResourcesUsed extends $dara.Model {
+  /**
+   * @remarks
+   * The number of vCPUs used by the job on each node.
+   * 
+   * @example
+   * 2
+   */
+  cores?: string;
+  /**
+   * @remarks
+   * The memory size used by the job on each node.
+   * 
+   * @example
+   * 512mb
+   */
+  memory?: string;
+  /**
+   * @remarks
+   * The number of nodes that are used to run the job.
+   * 
+   * @example
+   * 2
+   */
+  nodes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cores: 'Cores',
+      memory: 'Memory',
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cores: 'string',
+      memory: 'string',
+      nodes: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyJobInfoVariables extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the environment variable.
+   * 
+   * @example
+   * ProxyIP
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The value of the environment variable.
+   * 
+   * @example
+   * 10.x.x.x
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobResponseBodyJobInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The parent job ID. If the return value is a non-empty string, the job is an array job.
+   * 
+   * @example
+   * 1
+   */
+  arrayJobId?: string;
+  /**
+   * @remarks
+   * The sub-job ID. This parameter is valid when the ArrayJobId parameter is a non-empty string.
+   * 
+   * @example
+   * 3
+   */
+  arrayJobSubId?: string;
+  /**
+   * @remarks
+   * The job queue. If the job is not in a queue, the output is empty.
+   * 
+   * The format is X-Y:Z. X indicates the first index, Y indicates the final index, and Z indicates the step size. For example, 2-7:2 indicates three sub-jobs numbered 2, 4, and 6.
+   * 
+   * @example
+   * 1-5:2
+   */
+  arrayRequest?: string;
+  /**
+   * @remarks
+   * The command that is used to run the job.
+   * 
+   * @example
+   * /home/huangsf/ehpc/job_meta.pbs
+   */
+  commandLine?: string;
+  /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
+   * @example
+   * 2024-08-16T10:52:48
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The error log file of the job.
+   * 
+   * @example
+   * /home/xxx/STDIN.e1
+   */
+  errorLog?: string;
+  /**
+   * @remarks
+   * Additional information.
+   * 
+   * @example
+   * {}
+   */
+  extraInfo?: string;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * 1.manager
+   */
+  jobId?: string;
+  /**
+   * @remarks
+   * The job name.
+   * 
+   * @example
+   * testJob
+   */
+  jobName?: string;
+  /**
+   * @remarks
+   * The queue to which the job belongs.
+   * 
+   * @example
+   * workq
+   */
+  jobQueue?: string;
+  /**
+   * @remarks
+   * The time when the job was last modified.
+   * 
+   * @example
+   * 2024-08-16T10:52:48
+   */
+  lastModifyTime?: string;
+  /**
+   * @remarks
+   * The compute nodes that are used to run the job.
+   * 
+   * @example
+   * compute000
+   */
+  nodeList?: string;
+  /**
+   * @remarks
+   * The standard output log file of the job.
+   * 
+   * @example
+   * /home/xxx/STDIN.o1
+   */
+  outputLog?: string;
+  /**
+   * @remarks
+   * The priority of the job.
+   * 
+   * @example
+   * 0
+   */
+  priority?: string;
+  /**
+   * @remarks
+   * The resources that were requested when the job was submitted.
+   */
+  resources?: GetJobResponseBodyJobInfoResources;
+  /**
+   * @remarks
+   * The resources that are actually used by the job.
+   */
+  resourcesUsed?: GetJobResponseBodyJobInfoResourcesUsed;
+  /**
+   * @remarks
+   * The user to which the job belongs or that is used to submit the job. This user is a cluster-side user.
+   * 
+   * @example
+   * testuser
+   */
+  runasUser?: string;
+  /**
+   * @remarks
+   * The time when the job was started.
+   * 
+   * @example
+   * 2024-08-16T10:52:48
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * The job state.
+   * 
+   * @example
+   * Running
+   */
+  state?: string;
+  /**
+   * @remarks
+   * The variables of the job.
+   */
+  variables?: GetJobResponseBodyJobInfoVariables[];
+  static names(): { [key: string]: string } {
+    return {
+      arrayJobId: 'ArrayJobId',
+      arrayJobSubId: 'ArrayJobSubId',
+      arrayRequest: 'ArrayRequest',
+      commandLine: 'CommandLine',
+      createTime: 'CreateTime',
+      errorLog: 'ErrorLog',
+      extraInfo: 'ExtraInfo',
+      jobId: 'JobId',
+      jobName: 'JobName',
+      jobQueue: 'JobQueue',
+      lastModifyTime: 'LastModifyTime',
+      nodeList: 'NodeList',
+      outputLog: 'OutputLog',
+      priority: 'Priority',
+      resources: 'Resources',
+      resourcesUsed: 'ResourcesUsed',
+      runasUser: 'RunasUser',
+      startTime: 'StartTime',
+      state: 'State',
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrayJobId: 'string',
+      arrayJobSubId: 'string',
+      arrayRequest: 'string',
+      commandLine: 'string',
+      createTime: 'string',
+      errorLog: 'string',
+      extraInfo: 'string',
+      jobId: 'string',
+      jobName: 'string',
+      jobQueue: 'string',
+      lastModifyTime: 'string',
+      nodeList: 'string',
+      outputLog: 'string',
+      priority: 'string',
+      resources: GetJobResponseBodyJobInfoResources,
+      resourcesUsed: GetJobResponseBodyJobInfoResourcesUsed,
+      runasUser: 'string',
+      startTime: 'string',
+      state: 'string',
+      variables: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoVariables },
+    };
+  }
+
+  validate() {
+    if(this.resources && typeof (this.resources as any).validate === 'function') {
+      (this.resources as any).validate();
+    }
+    if(this.resourcesUsed && typeof (this.resourcesUsed as any).validate === 'function') {
+      (this.resourcesUsed as any).validate();
+    }
+    if(Array.isArray(this.variables)) {
+      $dara.Model.validateArray(this.variables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetQueueResponseBodyQueue extends $dara.Model {
+  /**
+   * @remarks
+   * The auto scale-out policy of the queue.
+   * 
+   * @example
+   * PriorityInstanceType
+   */
+  allocationStrategy?: string;
+  /**
+   * @remarks
+   * The hardware configurations of the compute nodes in the queue.
+   */
+  computeNodes?: NodeTemplate[];
+  /**
+   * @remarks
+   * Indicates whether auto scale-in is enabled for the queue. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  enableScaleIn?: boolean;
+  /**
+   * @remarks
+   * Indicates whether auto scale-out is enabled for the queue. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  enableScaleOut?: boolean;
+  /**
+   * @remarks
+   * The hostname prefix of the compute nodes in the queue.
+   * 
+   * @example
+   * compute
+   */
+  hostnamePrefix?: string;
+  /**
+   * @remarks
+   * The hostname suffix of the compute nodes in the queue.
+   * 
+   * @example
+   * demo
+   */
+  hostnameSuffix?: string;
+  /**
+   * @remarks
+   * The initial number of nodes in the queue.
+   * 
+   * @example
+   * 0
+   */
+  initialCount?: number;
+  /**
+   * @remarks
+   * The type of the network between compute nodes in the queue. Valid values:
+   * 
+   * *   vpc
+   * *   eRDMA
+   * 
+   * @example
+   * erdma
+   */
+  interConnect?: string;
+  /**
+   * @remarks
+   * The nodes for which deletion protection is enabled in the queue.
+   */
+  keepAliveNodes?: string[];
+  /**
+   * @remarks
+   * The maximum number of compute nodes that the queue can contain.
+   * 
+   * @example
+   * 1000
+   */
+  maxCount?: number;
+  /**
+   * @remarks
+   * The minimum number of nodes that are delivered to the queue in each scale-out cycle.
+   * 
+   * @example
+   * 99
+   */
+  maxCountPerCycle?: number;
+  /**
+   * @remarks
+   * The minimum number of compute nodes that the queue must contain.
+   * 
+   * @example
+   * 0
+   */
+  minCount?: number;
+  /**
+   * @remarks
+   * The queue name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * comp
+   */
+  queueName?: string;
+  /**
+   * @remarks
+   * The Resource Access Management (RAM) role that is assumed by compute nodes in the queue.
+   * 
+   * @example
+   * AliyunECSInstanceForEHPCRole
+   */
+  ramRole?: string;
+  reservedNodePoolId?: string;
+  /**
+   * @remarks
+   * The available vSwitches for compute nodes in the queue. Valid values of N: 1 to 5.
+   */
+  vSwitchIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allocationStrategy: 'AllocationStrategy',
+      computeNodes: 'ComputeNodes',
+      enableScaleIn: 'EnableScaleIn',
+      enableScaleOut: 'EnableScaleOut',
+      hostnamePrefix: 'HostnamePrefix',
+      hostnameSuffix: 'HostnameSuffix',
+      initialCount: 'InitialCount',
+      interConnect: 'InterConnect',
+      keepAliveNodes: 'KeepAliveNodes',
+      maxCount: 'MaxCount',
+      maxCountPerCycle: 'MaxCountPerCycle',
+      minCount: 'MinCount',
+      queueName: 'QueueName',
+      ramRole: 'RamRole',
+      reservedNodePoolId: 'ReservedNodePoolId',
+      vSwitchIds: 'VSwitchIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationStrategy: 'string',
+      computeNodes: { 'type': 'array', 'itemType': NodeTemplate },
+      enableScaleIn: 'boolean',
+      enableScaleOut: 'boolean',
+      hostnamePrefix: 'string',
+      hostnameSuffix: 'string',
+      initialCount: 'number',
+      interConnect: 'string',
+      keepAliveNodes: { 'type': 'array', 'itemType': 'string' },
+      maxCount: 'number',
+      maxCountPerCycle: 'number',
+      minCount: 'number',
+      queueName: 'string',
+      ramRole: 'string',
+      reservedNodePoolId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.computeNodes)) {
+      $dara.Model.validateArray(this.computeNodes);
+    }
+    if(Array.isArray(this.keepAliveNodes)) {
+      $dara.Model.validateArray(this.keepAliveNodes);
+    }
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InstallSoftwaresRequestAdditionalPackages extends $dara.Model {
+  /**
+   * @remarks
+   * The software name.
+   * 
+   * @example
+   * gromacs
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The software version.
+   * 
+   * @example
+   * 2024.1
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAddonTemplatesResponseBodyAddons extends $dara.Model {
+  /**
+   * @remarks
+   * The addon description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The addon label
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The addon name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Login
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The addon version.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      label: 'Label',
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      label: 'string',
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAddonsResponseBodyAddons extends $dara.Model {
+  /**
+   * @remarks
+   * The addon ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Login-1.0-W4g****
+   */
+  addonId?: string;
+  /**
+   * @remarks
+   * The addon description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The time when the addon was installed.
+   * 
+   * @example
+   * 2024-08-22 18:11:17
+   */
+  installTime?: string;
+  /**
+   * @remarks
+   * The addon label.
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The addon name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Login
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The addon state.
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The addon version.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonId: 'AddonId',
+      description: 'Description',
+      installTime: 'InstallTime',
+      label: 'Label',
+      name: 'Name',
+      status: 'Status',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonId: 'string',
+      description: 'string',
+      installTime: 'string',
+      label: 'string',
+      name: 'string',
+      status: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableFileSystemsResponseBodyFileSystemListMountTargetList extends $dara.Model {
+  /**
+   * @remarks
+   * The address of the mount target.
+   * 
+   * @example
+   * c0967****.cn-hangzhou.cpfs.nas.aliyuncs.com
+   */
+  mountTargetDomain?: string;
+  /**
+   * @remarks
+   * The network type. Valid values: Valid values:
+   * 
+   * *   vpc
+   * 
+   * @example
+   * vpc
+   */
+  networkType?: string;
+  /**
+   * @remarks
+   * The state of the mount target. Valid values:
+   * 
+   * *   Active: The mount target is available.
+   * *   Inactive: The mount target is unavailable.
+   * *   Pending: The mount target is being mounted.
+   * *   Deleting: The mount target is being deleted.
+   * 
+   * @example
+   * Active
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-2ze0c41hwu7lc29ris***
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * @example
+   * vpc-8vbvb34rtyh6xb3zrehs1****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountTargetDomain: 'MountTargetDomain',
+      networkType: 'NetworkType',
+      status: 'Status',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountTargetDomain: 'string',
+      networkType: 'string',
+      status: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableFileSystemsResponseBodyFileSystemList extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the file system was created.
+   * 
+   * @example
+   * 2024-7-29 15:43:53
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the file system.
+   * 
+   * @example
+   * 2fa0248***
+   */
+  fileSystemId?: string;
+  /**
+   * @remarks
+   * The type of the file system. Valid values:
+   * 
+   * *   standard: general-purpose network-attached storage (NAS) file system
+   * *   extreme: extreme NAS file system
+   * 
+   * @example
+   * cpfs
+   */
+  fileSystemType?: string;
+  /**
+   * @remarks
+   * The mount targets of the file system.
+   */
+  mountTargetList?: ListAvailableFileSystemsResponseBodyFileSystemListMountTargetList[];
+  /**
+   * @remarks
+   * The protocol type of the file system. Valid values:
+   * 
+   * *   nfs
+   * *   smb
+   * *   cpfs
+   * 
+   * @example
+   * cpfs
+   */
+  protocolType?: string;
+  /**
+   * @remarks
+   * The state of the file system. Valid values:
+   * 
+   * *   Pending: The file system is processing a task.
+   * *   Running: The file system is available. You can perform subsequent operations, such as creating a mount target, only when the file system is in the Running state.
+   * *   Stopped: The file system is unavailable.
+   * *   Extending: The file system is being scaled out.
+   * *   Stopping: The file system is being stopped.
+   * *   Deleting: The file system is being deleted.
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The storage type of the file system.
+   * 
+   * *   Valid values if FileSystemType is set to standard: Capacity and Performance.
+   * *   Valid values if FileSystemType is set to extreme: standard and advance.
+   * 
+   * @example
+   * Performance
+   */
+  storageType?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-bp132kgui8n0targb****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      fileSystemId: 'FileSystemId',
+      fileSystemType: 'FileSystemType',
+      mountTargetList: 'MountTargetList',
+      protocolType: 'ProtocolType',
+      status: 'Status',
+      storageType: 'StorageType',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      fileSystemId: 'string',
+      fileSystemType: 'string',
+      mountTargetList: { 'type': 'array', 'itemType': ListAvailableFileSystemsResponseBodyFileSystemListMountTargetList },
+      protocolType: 'string',
+      status: 'string',
+      storageType: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mountTargetList)) {
+      $dara.Model.validateArray(this.mountTargetList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableImagesRequestDirectoryService extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the domain account.
+   * 
+   * @example
+   * NIS
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version of the domain account service.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableImagesRequestScheduler extends $dara.Model {
+  /**
+   * @remarks
+   * The scheduler type.
+   * 
+   * @example
+   * SLURM
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The scheduler version.
+   * 
+   * @example
+   * 22.05.8
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableImagesResponseBodyImages extends $dara.Model {
+  /**
+   * @remarks
+   * The OS architecture of the image. Valid values:
+   * 
+   * *   x86_64
+   * *   arm64
+   * 
+   * @example
+   * x86_64
+   */
+  architecture?: string;
+  /**
+   * @remarks
+   * The boot mode of the image. Valid values:
+   * 
+   * *   BIOS: Basic Input/Output System (BIOS).
+   * *   UEFI: Unified Extensible Firmware Interface (UEFI).
+   * 
+   * >  When you change the OS boot mode of an instance, you must make sure that the boot mode matches the boot mode of the associated image. Otherwise, the instance fails to be booted.
+   * 
+   * @example
+   * BIOS
+   */
+  bootMode?: string;
+  /**
+   * @remarks
+   * The image description.
+   * 
+   * @example
+   * ExampleDescription
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The image ID.
+   * 
+   * @example
+   * centos_7_06_64_20G_alibase_2019071****
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * The image name.
+   * 
+   * @example
+   * CHESS5V5.0.27
+   */
+  imageName?: string;
+  /**
+   * @remarks
+   * The image source. Valid values:
+   * 
+   * *   system: system image.
+   * *   self: custom image.
+   * *   others: shared image.
+   * 
+   * @example
+   * self
+   */
+  imageOwnerAlias?: string;
+  /**
+   * @remarks
+   * The OS name in Chinese.
+   */
+  OSName?: string;
+  /**
+   * @remarks
+   * The OS name in English.
+   * 
+   * @example
+   * CentOS  7.9 64 bit
+   */
+  OSNameEn?: string;
+  /**
+   * @remarks
+   * The OS. Valid values:
+   * 
+   * *   CentOS
+   * *   windows
+   * 
+   * @example
+   * windows
+   */
+  platform?: string;
+  /**
+   * @remarks
+   * The image size. Unit: GiB
+   * 
+   * @example
+   * 40
+   */
+  size?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'Architecture',
+      bootMode: 'BootMode',
+      description: 'Description',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageOwnerAlias: 'ImageOwnerAlias',
+      OSName: 'OSName',
+      OSNameEn: 'OSNameEn',
+      platform: 'Platform',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: 'string',
+      bootMode: 'string',
+      description: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageOwnerAlias: 'string',
+      OSName: 'string',
+      OSNameEn: 'string',
+      platform: 'string',
+      size: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBodyClustersAdditionalPackages extends $dara.Model {
+  /**
+   * @remarks
+   * The software name.
+   * 
+   * @example
+   * gromacs
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The software version.
+   * 
+   * @example
+   * 2024.1
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBodyClustersAddonsResourcesSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * i-bp1bg85d2q6laic8****
+   */
+  ecsInstanceId?: string;
+  /**
+   * @remarks
+   * The Elastic IP Address (EIP) ID.
+   * 
+   * @example
+   * eip-bp1vi9124tbx1g3kr****
+   */
+  eipInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ecsInstanceId: 'EcsInstanceId',
+      eipInstanceId: 'EipInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsInstanceId: 'string',
+      eipInstanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBodyClustersAddonsServicesSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The service access type.
+   * 
+   * @example
+   * URL
+   */
+  serviceAccessType?: string;
+  /**
+   * @remarks
+   * The service access URL.
+   * 
+   * @example
+   * https://47.96.xx.xx:12008
+   */
+  serviceAccessUrl?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Web Portal
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceAccessType: 'ServiceAccessType',
+      serviceAccessUrl: 'ServiceAccessUrl',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceAccessType: 'string',
+      serviceAccessUrl: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBodyClustersAddons extends $dara.Model {
+  /**
+   * @remarks
+   * The addon ID.
+   * 
+   * @example
+   * Login-1.0-W2g****
+   */
+  addonId?: string;
+  /**
+   * @remarks
+   * The addon description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The addon label.
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The addon name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Login
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The resource configurations of the addon.
+   */
+  resourcesSpec?: ListClustersResponseBodyClustersAddonsResourcesSpec;
+  /**
+   * @remarks
+   * The information about the addon services.
+   */
+  servicesSpec?: ListClustersResponseBodyClustersAddonsServicesSpec[];
+  /**
+   * @remarks
+   * The addon state.
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The addon version.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonId: 'AddonId',
+      description: 'Description',
+      label: 'Label',
+      name: 'Name',
+      resourcesSpec: 'ResourcesSpec',
+      servicesSpec: 'ServicesSpec',
+      status: 'Status',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonId: 'string',
+      description: 'string',
+      label: 'string',
+      name: 'string',
+      resourcesSpec: ListClustersResponseBodyClustersAddonsResourcesSpec,
+      servicesSpec: { 'type': 'array', 'itemType': ListClustersResponseBodyClustersAddonsServicesSpec },
+      status: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    if(this.resourcesSpec && typeof (this.resourcesSpec as any).validate === 'function') {
+      (this.resourcesSpec as any).validate();
+    }
+    if(Array.isArray(this.servicesSpec)) {
+      $dara.Model.validateArray(this.servicesSpec);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBodyClustersClusterCustomConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The parameters of the post-processing script.
+   * 
+   * @example
+   * demo
+   */
+  args?: string;
+  /**
+   * @remarks
+   * The link to the post-processing script.
+   * 
+   * @example
+   * https://xxxxx
+   */
+  script?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      script: 'Script',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      script: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBodyClustersManagerDNS extends $dara.Model {
+  /**
+   * @remarks
+   * The resolution type.
+   * 
+   * @example
+   * NIS
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version of the domain name resolution service.
+   * 
+   * @example
+   * 2.31
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBodyClustersManagerDirectoryService extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the domain account.
+   * 
+   * @example
+   * NIS
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The version of the domain account service.
+   * 
+   * @example
+   * 2.31
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBodyClustersManagerScheduler extends $dara.Model {
+  /**
+   * @remarks
+   * The scheduler type.
+   * 
+   * @example
+   * SLURM
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The scheduler version.
+   * 
+   * @example
+   * 22.05.8
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBodyClustersManager extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations of the domain name resolution service.
+   */
+  DNS?: ListClustersResponseBodyClustersManagerDNS;
+  /**
+   * @remarks
+   * The configurations of the directory service.
+   */
+  directoryService?: ListClustersResponseBodyClustersManagerDirectoryService;
+  /**
+   * @remarks
+   * The configurations of the scheduler service.
+   */
+  scheduler?: ListClustersResponseBodyClustersManagerScheduler;
+  static names(): { [key: string]: string } {
+    return {
+      DNS: 'DNS',
+      directoryService: 'DirectoryService',
+      scheduler: 'Scheduler',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DNS: ListClustersResponseBodyClustersManagerDNS,
+      directoryService: ListClustersResponseBodyClustersManagerDirectoryService,
+      scheduler: ListClustersResponseBodyClustersManagerScheduler,
+    };
+  }
+
+  validate() {
+    if(this.DNS && typeof (this.DNS as any).validate === 'function') {
+      (this.DNS as any).validate();
+    }
+    if(this.directoryService && typeof (this.directoryService as any).validate === 'function') {
+      (this.directoryService as any).validate();
+    }
+    if(this.scheduler && typeof (this.scheduler as any).validate === 'function') {
+      (this.scheduler as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBodyClustersNodes extends $dara.Model {
+  /**
+   * @remarks
+   * The number of malfunctioning compute nodes.
+   * 
+   * @example
+   * 0
+   */
+  abnormalCounts?: number;
+  /**
+   * @remarks
+   * The number of compute nodes that are being created.
+   * 
+   * @example
+   * 0
+   */
+  creatingCounts?: number;
+  /**
+   * @remarks
+   * The number of running compute nodes.
+   * 
+   * @example
+   * 1
+   */
+  runningCounts?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abnormalCounts: 'AbnormalCounts',
+      creatingCounts: 'CreatingCounts',
+      runningCounts: 'RunningCounts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abnormalCounts: 'number',
+      creatingCounts: 'number',
+      runningCounts: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBodyClustersUsers extends $dara.Model {
+  /**
+   * @remarks
+   * The number of ordinary users.
+   * 
+   * @example
+   * 2
+   */
+  normalCounts?: number;
+  /**
+   * @remarks
+   * The number of administrators.
+   * 
+   * @example
+   * 2
+   */
+  sudoCounts?: number;
+  static names(): { [key: string]: string } {
+    return {
+      normalCounts: 'NormalCounts',
+      sudoCounts: 'SudoCounts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      normalCounts: 'number',
+      sudoCounts: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClustersResponseBodyClusters extends $dara.Model {
+  /**
+   * @remarks
+   * The information about installed software in the cluster.
+   */
+  additionalPackages?: ListClustersResponseBodyClustersAdditionalPackages[];
+  /**
+   * @remarks
+   * The information about the addons in the cluster.
+   */
+  addons?: ListClustersResponseBodyClustersAddons[];
+  /**
+   * @remarks
+   * The cluster type. Valid values:
+   * 
+   * *   Standard
+   * *   Serverless
+   * 
+   * @example
+   * Standard
+   */
+  clusterCategory?: string;
+  /**
+   * @remarks
+   * The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+   * 
+   * @example
+   * 2024-08-06T12:43:01.000Z
+   */
+  clusterCreateTime?: string;
+  /**
+   * @remarks
+   * The logon credential type of the cluster. Valid values:
+   * 
+   * *   password: requires passwords for logons.
+   * *   keypair: requires key pairs for logons.
+   */
+  clusterCredentials?: string[];
+  /**
+   * @remarks
+   * The post-processing script used by the cluster.
+   */
+  clusterCustomConfiguration?: ListClustersResponseBodyClustersClusterCustomConfiguration;
+  /**
+   * @remarks
+   * The cluster description.
+   * 
+   * @example
+   * Demo
+   */
+  clusterDescription?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * ehpc-hz-VMKe******
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The deployment type of the cluster. Valid values:
+   * 
+   * *   Integrated: public cloud
+   * *   Hybrid: hybrid cloud
+   * *   Custom: a custom cluster
+   * 
+   * @example
+   * Integrated
+   */
+  clusterMode?: string;
+  /**
+   * @remarks
+   * The time when the cluster was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+   * 
+   * @example
+   * 2024-08-06T12:43:01.000Z
+   */
+  clusterModifyTime?: string;
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * slurm22.05.8-cluster-20240227
+   */
+  clusterName?: string;
+  /**
+   * @remarks
+   * The cluster state. Valid values:
+   * 
+   * *   uninit: The cluster is being installed.
+   * *   creating: The cluster is being created.
+   * *   initing: The cluster is being initialized.
+   * *   running: The cluster is running.
+   * *   Releasing: The cluster is being released.
+   * *   stopping: The cluster is being stopped.
+   * *   stopped: The cluster is stopped.
+   * *   exception: The cluster has run into an exception.
+   * *   pending: The cluster is waiting to be configured.
+   * 
+   * @example
+   * running
+   */
+  clusterStatus?: string;
+  /**
+   * @remarks
+   * The vCPU-hour usage of the cluster.
+   * 
+   * @example
+   * 1000
+   */
+  clusterUsedCoreTime?: number;
+  /**
+   * @remarks
+   * The ID of the vSwitch used by the cluster.
+   * 
+   * @example
+   * vsw-f8za5p0mwzgdu3wgx****
+   */
+  clusterVSwitchId?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) used by the cluster.
+   * 
+   * @example
+   * vpc-m5efjevmclc0xdmys****
+   */
+  clusterVpcId?: string;
+  /**
+   * @remarks
+   * Indicates whether deletion protection is enabled for the cluster. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  deletionProtection?: boolean;
+  /**
+   * @remarks
+   * The Elastic High Performance Computing (E-HPC) version.
+   * 
+   * @example
+   * 2.0.0
+   */
+  ehpcVersion?: string;
+  /**
+   * @remarks
+   * The configurations of the cluster management node.
+   */
+  manager?: ListClustersResponseBodyClustersManager;
+  /**
+   * @remarks
+   * The maximum total number of vCPUs used by the compute nodes that can be managed by the cluster.
+   * 
+   * @example
+   * 10000
+   */
+  maxCoreCount?: number;
+  /**
+   * @remarks
+   * The maximum number of compute nodes that can be managed by the cluster.
+   * 
+   * @example
+   * 500
+   */
+  maxCount?: number;
+  /**
+   * @remarks
+   * The node statistics of the cluster.
+   */
+  nodes?: ListClustersResponseBodyClustersNodes;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxazb4ph****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the security group used by the cluster.
+   * 
+   * @example
+   * sg-bp13n61xsydodfyg****
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The user attribute information of the cluster.
+   */
+  users?: ListClustersResponseBodyClustersUsers;
+  static names(): { [key: string]: string } {
+    return {
+      additionalPackages: 'AdditionalPackages',
+      addons: 'Addons',
+      clusterCategory: 'ClusterCategory',
+      clusterCreateTime: 'ClusterCreateTime',
+      clusterCredentials: 'ClusterCredentials',
+      clusterCustomConfiguration: 'ClusterCustomConfiguration',
+      clusterDescription: 'ClusterDescription',
+      clusterId: 'ClusterId',
+      clusterMode: 'ClusterMode',
+      clusterModifyTime: 'ClusterModifyTime',
+      clusterName: 'ClusterName',
+      clusterStatus: 'ClusterStatus',
+      clusterUsedCoreTime: 'ClusterUsedCoreTime',
+      clusterVSwitchId: 'ClusterVSwitchId',
+      clusterVpcId: 'ClusterVpcId',
+      deletionProtection: 'DeletionProtection',
+      ehpcVersion: 'EhpcVersion',
+      manager: 'Manager',
+      maxCoreCount: 'MaxCoreCount',
+      maxCount: 'MaxCount',
+      nodes: 'Nodes',
+      resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalPackages: { 'type': 'array', 'itemType': ListClustersResponseBodyClustersAdditionalPackages },
+      addons: { 'type': 'array', 'itemType': ListClustersResponseBodyClustersAddons },
+      clusterCategory: 'string',
+      clusterCreateTime: 'string',
+      clusterCredentials: { 'type': 'array', 'itemType': 'string' },
+      clusterCustomConfiguration: ListClustersResponseBodyClustersClusterCustomConfiguration,
+      clusterDescription: 'string',
+      clusterId: 'string',
+      clusterMode: 'string',
+      clusterModifyTime: 'string',
+      clusterName: 'string',
+      clusterStatus: 'string',
+      clusterUsedCoreTime: 'number',
+      clusterVSwitchId: 'string',
+      clusterVpcId: 'string',
+      deletionProtection: 'boolean',
+      ehpcVersion: 'string',
+      manager: ListClustersResponseBodyClustersManager,
+      maxCoreCount: 'number',
+      maxCount: 'number',
+      nodes: ListClustersResponseBodyClustersNodes,
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      users: ListClustersResponseBodyClustersUsers,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.additionalPackages)) {
+      $dara.Model.validateArray(this.additionalPackages);
+    }
+    if(Array.isArray(this.addons)) {
+      $dara.Model.validateArray(this.addons);
+    }
+    if(Array.isArray(this.clusterCredentials)) {
+      $dara.Model.validateArray(this.clusterCredentials);
+    }
+    if(this.clusterCustomConfiguration && typeof (this.clusterCustomConfiguration as any).validate === 'function') {
+      (this.clusterCustomConfiguration as any).validate();
+    }
+    if(this.manager && typeof (this.manager as any).validate === 'function') {
+      (this.manager as any).validate();
+    }
+    if(this.nodes && typeof (this.nodes as any).validate === 'function') {
+      (this.nodes as any).validate();
+    }
+    if(this.users && typeof (this.users as any).validate === 'function') {
+      (this.users as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCommonLogsResponseBodyLogs extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the action corresponding to the log.
+   * 
+   * @example
+   * CreaterCluster
+   */
+  action?: string;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * ehpc-hz-9T3xPNezoS
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The log type.
+   * 
+   * @example
+   * Operation
+   */
+  logType?: string;
+  /**
+   * @remarks
+   * The message of the log.
+   * 
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The account ID of the operator.
+   * 
+   * @example
+   * 137***
+   */
+  operatorUid?: string;
+  /**
+   * @remarks
+   * The request ID associated with the action that generated the log.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE7****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The action state in the log. Valid values:
+   * 
+   * *   InProgress: The action is being performed.
+   * *   Finished: The action is completed.
+   * *   Failed: The action failed.
+   * 
+   * @example
+   * Finished
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The involved resource.
+   * 
+   * @example
+   * i-abc***
+   */
+  target?: string;
+  /**
+   * @remarks
+   * The time when the log was generated.
+   * 
+   * @example
+   * 2024-08-22 14:21:54
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      clusterId: 'ClusterId',
+      logType: 'LogType',
+      message: 'Message',
+      operatorUid: 'OperatorUid',
+      requestId: 'RequestId',
+      status: 'Status',
+      target: 'Target',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      clusterId: 'string',
+      logType: 'string',
+      message: 'string',
+      operatorUid: 'string',
+      requestId: 'string',
+      status: 'string',
+      target: 'string',
+      time: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstalledSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The category into which the software falls.
+   * 
+   * @example
+   * NWP
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The time when the software was installed.
+   * 
+   * @example
+   * 2024-03-05 18:24:08
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The software description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The URL of the software icon.
+   * 
+   * @example
+   * https://gw.alicdn.com/imgextra/i2/O1CN01FIkxZ81LmE0fvrAyR_!!6000000001341-55-tps-6349-1603.svg
+   */
+  icon?: string;
+  /**
+   * @remarks
+   * The software name.
+   * 
+   * @example
+   * gromacs
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The installation status of the software.
+   * 
+   * Valid values:
+   * 
+   * *   Installed
+   * *   Uninstalled
+   * *   Installing
+   * *   Exception
+   * 
+   * @example
+   * Installed
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The software version.
+   * 
+   * @example
+   * 2024.1
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      createTime: 'CreateTime',
+      description: 'Description',
+      icon: 'Icon',
+      name: 'Name',
+      status: 'Status',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      createTime: 'string',
+      description: 'string',
+      icon: 'string',
+      name: 'string',
+      status: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstalledSoftwaresResponseBodyAdditionalPackages extends $dara.Model {
+  additionalPackageInfos?: ListInstalledSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      additionalPackageInfos: 'AdditionalPackageInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalPackageInfos: { 'type': 'array', 'itemType': ListInstalledSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.additionalPackageInfos)) {
+      $dara.Model.validateArray(this.additionalPackageInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobsRequestJobFilterDiagnosis extends $dara.Model {
+  operator?: string;
+  option?: string;
+  threshold?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      option: 'Option',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      option: 'string',
+      threshold: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobsRequestJobFilterSortBy extends $dara.Model {
+  /**
+   * @remarks
+   * The order in which jobs are sorted based on their execution time. Valid values:
+   * 
+   * *   asc: in ascending order.
+   * *   desc: in descending order.
+   * 
+   * Default value: desc.
+   * 
+   * @example
+   * asc
+   */
+  executeOrder?: string;
+  /**
+   * @remarks
+   * The order in which jobs are sorted based on their queuing time. Valid values:
+   * 
+   * *   asc: in ascending order.
+   * *   desc: in descending order.
+   * 
+   * Default value: desc.
+   * 
+   * @example
+   * desc
+   */
+  pendOrder?: string;
+  /**
+   * @remarks
+   * The order in which jobs are sorted based on their submitting time. Valid values:
+   * 
+   * *   asc: in ascending order.
+   * *   desc: in descending order.
+   * 
+   * Default value: desc.
+   * 
+   * @example
+   * asc
+   */
+  submitOrder?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executeOrder: 'ExecuteOrder',
+      pendOrder: 'PendOrder',
+      submitOrder: 'SubmitOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executeOrder: 'string',
+      pendOrder: 'string',
+      submitOrder: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobsRequestJobFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the job was last updated. The value is a UNIX timestamp representing the number of seconds that have elapsed since 1970-01-01T00:00:00Z.
+   * 
+   * @example
+   * 1724123085
+   */
+  createTimeEnd?: string;
+  /**
+   * @remarks
+   * The time when the job started. The value is a UNIX timestamp representing the number of seconds that have elapsed since 1970-01-01T00:00:00Z.
+   * 
+   * @example
+   * 1724122486
+   */
+  createTimeStart?: string;
+  diagnosis?: ListJobsRequestJobFilterDiagnosis[];
+  /**
+   * @remarks
+   * The job name. Fuzzy match is supported.
+   * 
+   * @example
+   * testjob
+   */
+  jobName?: string;
+  /**
+   * @remarks
+   * The job status. Valid values:
+   * 
+   * *   all: returns all jobs.
+   * *   finished: returns completed jobs.
+   * *   notfinish: returns uncompleted jobs.
+   * 
+   * Default value: all.
+   * 
+   * @example
+   * all
+   */
+  jobStatus?: string;
+  /**
+   * @remarks
+   * The compute nodes that run the jobs.
+   */
+  nodes?: string[];
+  /**
+   * @remarks
+   * The queues to which the jobs belong.
+   */
+  queues?: string[];
+  /**
+   * @remarks
+   * The result sorting configurations.
+   */
+  sortBy?: ListJobsRequestJobFilterSortBy;
+  /**
+   * @remarks
+   * The users that run the jobs.
+   */
+  users?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
+      diagnosis: 'Diagnosis',
+      jobName: 'JobName',
+      jobStatus: 'JobStatus',
+      nodes: 'Nodes',
+      queues: 'Queues',
+      sortBy: 'SortBy',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimeEnd: 'string',
+      createTimeStart: 'string',
+      diagnosis: { 'type': 'array', 'itemType': ListJobsRequestJobFilterDiagnosis },
+      jobName: 'string',
+      jobStatus: 'string',
+      nodes: { 'type': 'array', 'itemType': 'string' },
+      queues: { 'type': 'array', 'itemType': 'string' },
+      sortBy: ListJobsRequestJobFilterSortBy,
+      users: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.diagnosis)) {
+      $dara.Model.validateArray(this.diagnosis);
+    }
+    if(Array.isArray(this.nodes)) {
+      $dara.Model.validateArray(this.nodes);
+    }
+    if(Array.isArray(this.queues)) {
+      $dara.Model.validateArray(this.queues);
+    }
+    if(this.sortBy && typeof (this.sortBy as any).validate === 'function') {
+      (this.sortBy as any).validate();
+    }
+    if(Array.isArray(this.users)) {
+      $dara.Model.validateArray(this.users);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobsResponseBodyJobsJobSpecResources extends $dara.Model {
+  /**
+   * @remarks
+   * The number of vCPUs that were used to run the job.
+   * 
+   * @example
+   * 6
+   */
+  cores?: string;
+  /**
+   * @remarks
+   * The number of GPUs that were used to run the job.
+   * 
+   * @example
+   * 0
+   */
+  gpus?: string;
+  /**
+   * @remarks
+   * The size of memory that was used to run the job.
+   * 
+   * @example
+   * 1536MB
+   */
+  memory?: string;
+  /**
+   * @remarks
+   * The number of compute nodes that were used to run the job.
+   * 
+   * @example
+   * 3
+   */
+  nodes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cores: 'Cores',
+      gpus: 'Gpus',
+      memory: 'Memory',
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cores: 'string',
+      gpus: 'string',
+      memory: 'string',
+      nodes: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobsResponseBodyJobsJobSpecResourcesActualOccupied extends $dara.Model {
+  cores?: string;
+  gpus?: string;
+  memory?: string;
+  nodes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cores: 'Cores',
+      gpus: 'Gpus',
+      memory: 'Memory',
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cores: 'string',
+      gpus: 'string',
+      memory: 'string',
+      nodes: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobsResponseBodyJobsJobSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The array job ID.
+   * 
+   * @example
+   * 4
+   */
+  arrayJobId?: string;
+  /**
+   * @remarks
+   * The ID of the job in the array.
+   * 
+   * @example
+   * 1
+   */
+  arrayJobSubId?: string;
+  /**
+   * @remarks
+   * The queue format of the job.
+   * 
+   * *   If the job is not in a queue, the output is empty.
+   * *   The format is X-Y:Z. X indicates the first index, Y indicates the final index, and Z indicates the step size. For example, 2-7:2 indicates three sub-jobs numbered 2, 4, and 6.
+   * 
+   * @example
+   * 1-5:2
+   */
+  arrayRequest?: string;
+  /**
+   * @remarks
+   * The job description.
+   * 
+   * @example
+   * jobDescription
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * 12
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The queue name.
+   * 
+   * @example
+   * comp
+   */
+  jobQueue?: string;
+  /**
+   * @remarks
+   * The time when the job was last updated.
+   * 
+   * @example
+   * 1724123085
+   */
+  lastModifyTime?: string;
+  /**
+   * @remarks
+   * The compute nodes that were used to run the job.
+   * 
+   * @example
+   * compute[002,005,003]
+   */
+  nodeList?: string;
+  /**
+   * @remarks
+   * The job priority. Valid values: 0 to 9. A larger value indicates a higher priority.
+   * 
+   * @example
+   * 0
+   */
+  priority?: string;
+  /**
+   * @remarks
+   * The information about the resources required to run the job.
+   */
+  resources?: ListJobsResponseBodyJobsJobSpecResources;
+  resourcesActualOccupied?: ListJobsResponseBodyJobsJobSpecResourcesActualOccupied;
+  /**
+   * @remarks
+   * The user that ran the job.
+   * 
+   * @example
+   * testuser1
+   */
+  runasUser?: string;
+  startTime?: string;
+  /**
+   * @remarks
+   * The job state. Valid values: (PBS cluster and Slurm cluster)
+   * 
+   * *   FINISHED/Completed
+   * *   RUNNING/Running
+   * *   QUEUED/Pending
+   * *   FAILED/Failed
+   * 
+   * @example
+   * Running
+   */
+  state?: string;
+  /**
+   * @remarks
+   * The error output path.
+   * 
+   * @example
+   * ./Temp
+   */
+  stderrPath?: string;
+  /**
+   * @remarks
+   * The standard output path.
+   * 
+   * @example
+   * ./Temp
+   */
+  stdoutPath?: string;
+  /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
+   * @example
+   * 1724122486
+   */
+  submitTime?: string;
+  /**
+   * @remarks
+   * The variables of the job.
+   * 
+   * @example
+   * {"PBS_O_SHELL":"/bin/bash", 	"PBS_O_HOST":"manager", 	"PBS_O_SYSTEM":"Linux", 	"PBS_O_LANG":"en_US.UTF-8", 	"PBS_O_QUEUE":"workq"}
+   */
+  variables?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arrayJobId: 'ArrayJobId',
+      arrayJobSubId: 'ArrayJobSubId',
+      arrayRequest: 'ArrayRequest',
+      comment: 'Comment',
+      id: 'Id',
+      jobQueue: 'JobQueue',
+      lastModifyTime: 'LastModifyTime',
+      nodeList: 'NodeList',
+      priority: 'Priority',
+      resources: 'Resources',
+      resourcesActualOccupied: 'ResourcesActualOccupied',
+      runasUser: 'RunasUser',
+      startTime: 'StartTime',
+      state: 'State',
+      stderrPath: 'StderrPath',
+      stdoutPath: 'StdoutPath',
+      submitTime: 'SubmitTime',
+      variables: 'Variables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arrayJobId: 'string',
+      arrayJobSubId: 'string',
+      arrayRequest: 'string',
+      comment: 'string',
+      id: 'string',
+      jobQueue: 'string',
+      lastModifyTime: 'string',
+      nodeList: 'string',
+      priority: 'string',
+      resources: ListJobsResponseBodyJobsJobSpecResources,
+      resourcesActualOccupied: ListJobsResponseBodyJobsJobSpecResourcesActualOccupied,
+      runasUser: 'string',
+      startTime: 'string',
+      state: 'string',
+      stderrPath: 'string',
+      stdoutPath: 'string',
+      submitTime: 'string',
+      variables: 'string',
+    };
+  }
+
+  validate() {
+    if(this.resources && typeof (this.resources as any).validate === 'function') {
+      (this.resources as any).validate();
+    }
+    if(this.resourcesActualOccupied && typeof (this.resourcesActualOccupied as any).validate === 'function') {
+      (this.resourcesActualOccupied as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobsResponseBodyJobs extends $dara.Model {
+  /**
+   * @remarks
+   * The job name.
+   * 
+   * @example
+   * testjob
+   */
+  jobName?: string;
+  /**
+   * @remarks
+   * The job configurations.
+   */
+  jobSpec?: ListJobsResponseBodyJobsJobSpec;
+  static names(): { [key: string]: string } {
+    return {
+      jobName: 'JobName',
+      jobSpec: 'JobSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobName: 'string',
+      jobSpec: ListJobsResponseBodyJobsJobSpec,
+    };
+  }
+
+  validate() {
+    if(this.jobSpec && typeof (this.jobSpec as any).validate === 'function') {
+      (this.jobSpec as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesResponseBodyNodesTotalResources extends $dara.Model {
+  /**
+   * @remarks
+   * The number of vCPUs.
+   * 
+   * @example
+   * 1
+   */
+  cpu?: number;
+  /**
+   * @remarks
+   * The number of GPUs.
+   * 
+   * @example
+   * 0
+   */
+  gpu?: number;
+  /**
+   * @remarks
+   * The amount of memory. Unit: GiB.
+   * 
+   * @example
+   * 1024
+   */
+  memory?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      gpu: 'Gpu',
+      memory: 'Memory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      gpu: 'number',
+      memory: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNodesResponseBodyNodes extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the node was created.
+   * 
+   * @example
+   * 2020-06-09T06:22:02.000Z
+   */
+  addTime?: string;
+  /**
+   * @remarks
+   * The deployment set ID.
+   * 
+   * @example
+   * ds-8vbe4av4gededlqg****
+   */
+  deploymentSetId?: string;
+  /**
+   * @remarks
+   * The time when the node expires.
+   * 
+   * @example
+   * 2020-06-09T06:22:02.000Z
+   */
+  expiredTime?: string;
+  /**
+   * @remarks
+   * The hostname of the node.
+   * 
+   * @example
+   * edas.cn-shanghai.aliyuncs.com
+   */
+  hostname?: string;
+  /**
+   * @remarks
+   * Indicates whether hyper-threading is enabled.
+   * 
+   * @example
+   * true
+   */
+  htEnabled?: boolean;
+  /**
+   * @remarks
+   * The instance ID of the node.
+   * 
+   * @example
+   * i-bp15707mys2rsy0j****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The image ID of the node.
+   * 
+   * @example
+   * centos_7_06_64_20G_alibase_20190711.vhd
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * The instance type of the node.
+   * 
+   * @example
+   * ecs.c5.large
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * The VPC IP address of the node.
+   * 
+   * @example
+   * ``172.16.**.**``
+   */
+  ipAddress?: string;
+  /**
+   * @remarks
+   * Indicates whether deletion protection is enabled for the node. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  keepAlive?: boolean;
+  /**
+   * @remarks
+   * The public IP address of the node.
+   * 
+   * @example
+   * ``172.16.**.**``
+   */
+  publicIpAddress?: string;
+  /**
+   * @remarks
+   * The name of the queue to which the node belongs.
+   * 
+   * @example
+   * autoque3
+   */
+  queueName?: string;
+  /**
+   * @remarks
+   * The bidding policy of the node. Valid values:
+   * 
+   * *   NoSpot: The instances of the compute node are pay-as-you-go instances.
+   * *   SpotWithPriceLimit: The instances are created as preemptible instances with a user-defined maximum hourly price.
+   * *   SpotAsPriceGo: The node is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+   * 
+   * @example
+   * NoSpot
+   */
+  spotStrategy?: string;
+  /**
+   * @remarks
+   * The node state in the scheduler.
+   * 
+   * @example
+   * active
+   */
+  stateInSched?: string;
+  /**
+   * @remarks
+   * The node state. Valid values:
+   * 
+   * *   uninit: The node is being installed.
+   * *   initing: The node is being initialized.
+   * *   running: The node is running.
+   * *   releasing: The node is being released.
+   * *   stopped: The node is stopped.
+   * *   exception: The node has run into an exception.
+   * *   untracking: The node is not added to the cluster.
+   * 
+   * @example
+   * running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The hardware configurations of the node.
+   */
+  totalResources?: ListNodesResponseBodyNodesTotalResources;
+  /**
+   * @remarks
+   * The vSwitch ID of the node.
+   * 
+   * @example
+   * vsw-bp1e47optm9g58zcu****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-bp1gnu8br4ay7beb2w****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * The zone ID of the node.
+   * 
+   * @example
+   * cn-hangzhou-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addTime: 'AddTime',
+      deploymentSetId: 'DeploymentSetId',
+      expiredTime: 'ExpiredTime',
+      hostname: 'Hostname',
+      htEnabled: 'HtEnabled',
+      id: 'Id',
+      imageId: 'ImageId',
+      instanceType: 'InstanceType',
+      ipAddress: 'IpAddress',
+      keepAlive: 'KeepAlive',
+      publicIpAddress: 'PublicIpAddress',
+      queueName: 'QueueName',
+      spotStrategy: 'SpotStrategy',
+      stateInSched: 'StateInSched',
+      status: 'Status',
+      totalResources: 'TotalResources',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addTime: 'string',
+      deploymentSetId: 'string',
+      expiredTime: 'string',
+      hostname: 'string',
+      htEnabled: 'boolean',
+      id: 'string',
+      imageId: 'string',
+      instanceType: 'string',
+      ipAddress: 'string',
+      keepAlive: 'boolean',
+      publicIpAddress: 'string',
+      queueName: 'string',
+      spotStrategy: 'string',
+      stateInSched: 'string',
+      status: 'string',
+      totalResources: ListNodesResponseBodyNodesTotalResources,
+      vSwitchId: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.totalResources && typeof (this.totalResources as any).validate === 'function') {
+      (this.totalResources as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQueuesResponseBodyQueuesNodes extends $dara.Model {
+  /**
+   * @remarks
+   * The number of compute nodes that are not ready.
+   * 
+   * @example
+   * 2
+   */
+  creatingCounts?: number;
+  /**
+   * @remarks
+   * The number of malfunctioning compute nodes.
+   * 
+   * @example
+   * 0
+   */
+  exceptionCounts?: number;
+  /**
+   * @remarks
+   * The number of running compute nodes.
+   * 
+   * @example
+   * 1
+   */
+  runningCounts?: number;
+  static names(): { [key: string]: string } {
+    return {
+      creatingCounts: 'CreatingCounts',
+      exceptionCounts: 'ExceptionCounts',
+      runningCounts: 'RunningCounts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creatingCounts: 'number',
+      exceptionCounts: 'number',
+      runningCounts: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQueuesResponseBodyQueues extends $dara.Model {
+  /**
+   * @remarks
+   * The hardware configurations of the compute nodes that are added in auto scale-outs. Up to five nodes are displayed.
+   */
+  computeNodes?: NodeTemplate[];
+  /**
+   * @remarks
+   * The time when the queue was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+   * 
+   * @example
+   * 2023-11-10T02:04:00Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Indicates whether auto scale-in is enabled for the queue. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  enableScaleIn?: boolean;
+  /**
+   * @remarks
+   * Indicates whether auto scale-out is enabled for the queue. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  enableScaleOut?: boolean;
+  /**
+   * @remarks
+   * The maximum number of compute nodes that the queue can contain.
+   * 
+   * @example
+   * 100
+   */
+  maxCount?: number;
+  /**
+   * @remarks
+   * The minimum number of compute nodes that are added to the queue in each auto scale-out.
+   * 
+   * @example
+   * 1
+   */
+  maxCountPerCycle?: number;
+  /**
+   * @remarks
+   * The minimum number of compute nodes that the queue must contain.
+   * 
+   * @example
+   * 0
+   */
+  minCount?: number;
+  /**
+   * @remarks
+   * The statistics about the compute nodes in the queue.
+   */
+  nodes?: ListQueuesResponseBodyQueuesNodes;
+  /**
+   * @remarks
+   * The queue name.
+   * 
+   * @example
+   * comp
+   */
+  queueName?: string;
+  /**
+   * @remarks
+   * The total number of vCPUs that are used by all compute nodes in the queue.
+   * 
+   * @example
+   * 24
+   */
+  totalCores?: number;
+  /**
+   * @remarks
+   * The time when the queue was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+   * 
+   * @example
+   * 2024-04-25T02:02:32
+   */
+  updateTime?: string;
+  /**
+   * @remarks
+   * The vSwitches that can be used for added nodes during auto scale-outs. Up to three vSwitches are displayed.
+   */
+  vSwitchIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      computeNodes: 'ComputeNodes',
+      createTime: 'CreateTime',
+      enableScaleIn: 'EnableScaleIn',
+      enableScaleOut: 'EnableScaleOut',
+      maxCount: 'MaxCount',
+      maxCountPerCycle: 'MaxCountPerCycle',
+      minCount: 'MinCount',
+      nodes: 'Nodes',
+      queueName: 'QueueName',
+      totalCores: 'TotalCores',
+      updateTime: 'UpdateTime',
+      vSwitchIds: 'VSwitchIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      computeNodes: { 'type': 'array', 'itemType': NodeTemplate },
+      createTime: 'string',
+      enableScaleIn: 'boolean',
+      enableScaleOut: 'boolean',
+      maxCount: 'number',
+      maxCountPerCycle: 'number',
+      minCount: 'number',
+      nodes: ListQueuesResponseBodyQueuesNodes,
+      queueName: 'string',
+      totalCores: 'number',
+      updateTime: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.computeNodes)) {
+      $dara.Model.validateArray(this.computeNodes);
+    }
+    if(this.nodes && typeof (this.nodes as any).validate === 'function') {
+      (this.nodes as any).validate();
+    }
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSharedStoragesResponseBodySharedStoragesMountInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The local mount directory of the attached file system.
+   * 
+   * @example
+   * /test
+   */
+  mountDirectory?: string;
+  /**
+   * @remarks
+   * The mount options for the attached file system. Valid values:
+   * 
+   * *   \\-t nfs -o vers=3,nolock,proto=tcp,noresvport
+   * *   \\-t nfs -o vers=4.0,noresvport
+   * 
+   * @example
+   * -t nfs -o vers=4.0,noresvport
+   */
+  mountOptions?: string;
+  /**
+   * @remarks
+   * The mount target of the attached file system.
+   * 
+   * @example
+   * 0bd504b***-ngq26.cn-hangzhou.nas.aliyuncs.com
+   */
+  mountTarget?: string;
+  /**
+   * @remarks
+   * The protocol used by the mount target of the attached file system. Valid values:
+   * 
+   * *   nfs3
+   * *   nfs4
+   * *   cpfs
+   * 
+   * @example
+   * nfs3
+   */
+  protocolType?: string;
+  /**
+   * @remarks
+   * The storage directory of the attached file system.
+   * 
+   * @example
+   * /testehpc
+   */
+  storageDirectory?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountDirectory: 'MountDirectory',
+      mountOptions: 'MountOptions',
+      mountTarget: 'MountTarget',
+      protocolType: 'ProtocolType',
+      storageDirectory: 'StorageDirectory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountDirectory: 'string',
+      mountOptions: 'string',
+      mountTarget: 'string',
+      protocolType: 'string',
+      storageDirectory: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSharedStoragesResponseBodySharedStorages extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the attached file system.
+   * 
+   * @example
+   * 08c7f4b***
+   */
+  fileSystemId?: string;
+  /**
+   * @remarks
+   * The protocol used by the attached file system. Valid values:
+   * 
+   * *   nfs3
+   * *   nfs4
+   * *   cpfs
+   * 
+   * @example
+   * nfs4
+   */
+  fileSystemProtocol?: string;
+  /**
+   * @remarks
+   * The type of the attached file system. Valid values:
+   * 
+   * *   nas
+   * *   cpfs
+   * 
+   * @example
+   * nas
+   */
+  fileSystemType?: string;
+  /**
+   * @remarks
+   * The mount information.
+   */
+  mountInfo?: ListSharedStoragesResponseBodySharedStoragesMountInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      fileSystemProtocol: 'FileSystemProtocol',
+      fileSystemType: 'FileSystemType',
+      mountInfo: 'MountInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      fileSystemProtocol: 'string',
+      fileSystemType: 'string',
+      mountInfo: { 'type': 'array', 'itemType': ListSharedStoragesResponseBodySharedStoragesMountInfo },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mountInfo)) {
+      $dara.Model.validateArray(this.mountInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwaresRequestOsInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The OS architecture. Valid values:
+   * 
+   * *   x86_64
+   * *   arm64
+   * 
+   * @example
+   * x86_64
+   */
+  architecture?: string;
+  /**
+   * @remarks
+   * The image tag.
+   * 
+   * @example
+   * CentOS_7.9_64
+   */
+  osTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'Architecture',
+      osTag: 'OsTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: 'string',
+      osTag: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOsSupportOsInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The OS architecture. Valid values:
+   * 
+   * *   x86_64
+   * *   arm64
+   * 
+   * @example
+   * x86_64
+   */
+  architecture?: string;
+  /**
+   * @remarks
+   * The image tag.
+   * 
+   * @example
+   * Alibaba Cloud Linux  3.2104 LTS 64 bit ARM Edition
+   */
+  osTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'Architecture',
+      osTag: 'OsTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: 'string',
+      osTag: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOs extends $dara.Model {
+  supportOsInfos?: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOsSupportOsInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      supportOsInfos: 'SupportOsInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supportOsInfos: { 'type': 'array', 'itemType': ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOsSupportOsInfos },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supportOsInfos)) {
+      $dara.Model.validateArray(this.supportOsInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfos extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the version is the latest.
+   * 
+   * @example
+   * false
+   */
+  latest?: string;
+  /**
+   * @remarks
+   * The information about the supported OSs.
+   */
+  supportOs?: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOs;
+  /**
+   * @remarks
+   * The software version.
+   * 
+   * @example
+   * 2024.1
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      latest: 'Latest',
+      supportOs: 'SupportOs',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      latest: 'string',
+      supportOs: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOs,
+      version: 'string',
+    };
+  }
+
+  validate() {
+    if(this.supportOs && typeof (this.supportOs as any).validate === 'function') {
+      (this.supportOs as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersions extends $dara.Model {
+  versionInfos?: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      versionInfos: 'VersionInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      versionInfos: { 'type': 'array', 'itemType': ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfos },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.versionInfos)) {
+      $dara.Model.validateArray(this.versionInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The application category.
+   * 
+   * @example
+   * NWP
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The software description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The URL of the software icon.
+   * 
+   * @example
+   * https://gw.alicdn.com/imgextra/i2/O1CN01FIkxZ81LmE0fvrAyR_!!6000000001341-55-tps-6349-1603.svg
+   */
+  icon?: string;
+  /**
+   * @remarks
+   * The software name.
+   * 
+   * @example
+   * gromacs
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The information about the software versions that can be installed in the cluster.
+   */
+  versions?: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersions;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      description: 'Description',
+      icon: 'Icon',
+      name: 'Name',
+      versions: 'Versions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      description: 'string',
+      icon: 'string',
+      name: 'string',
+      versions: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersions,
+    };
+  }
+
+  validate() {
+    if(this.versions && typeof (this.versions as any).validate === 'function') {
+      (this.versions as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSoftwaresResponseBodyAdditionalPackages extends $dara.Model {
+  additionalPackageInfos?: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      additionalPackageInfos: 'AdditionalPackageInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalPackageInfos: { 'type': 'array', 'itemType': ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.additionalPackageInfos)) {
+      $dara.Model.validateArray(this.additionalPackageInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersResponseBodyUsersUserInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the user was first added.
+   * 
+   * @example
+   * 2014-08-22T17:46:47
+   */
+  addTime?: string;
+  /**
+   * @remarks
+   * The name of the permission group. Valid values:
+   * 
+   * users: ordinary permissions, which are suitable for regular users that need only to submit and debug jobs.
+   * 
+   * wheel: sudo permissions, which are suitable for administrators who need to manage clusters. In addition to submitting and debugging jobs, you can also run sudo commands to install software and restart nodes.
+   * 
+   * @example
+   * users
+   */
+  group?: string;
+  /**
+   * @remarks
+   * The permission group ID.
+   * 
+   * @example
+   * 100
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 1001
+   */
+  userId?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * testuser
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addTime: 'AddTime',
+      group: 'Group',
+      groupId: 'GroupId',
+      userId: 'UserId',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addTime: 'string',
+      group: 'string',
+      groupId: 'string',
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUsersResponseBodyUsers extends $dara.Model {
+  userInfo?: ListUsersResponseBodyUsersUserInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      userInfo: 'UserInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userInfo: { 'type': 'array', 'itemType': ListUsersResponseBodyUsersUserInfo },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.userInfo)) {
+      $dara.Model.validateArray(this.userInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UninstallSoftwaresRequestAdditionalPackages extends $dara.Model {
+  /**
+   * @remarks
+   * The software name.
+   * 
+   * @example
+   * gromacs
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The software version.
+   * 
+   * @example
+   * 2024.1
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClusterRequestClusterCustomConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The arguments that are used to run the post-processing script.
+   * 
+   * @example
+   * E-HPC cn-hangzhou
+   */
+  args?: string;
+  /**
+   * @remarks
+   * The URL that is used to download the post-processing script.
+   * 
+   * @example
+   * http://*****
+   */
+  script?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      script: 'Script',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      script: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClusterRequestMonitorSpec extends $dara.Model {
+  enableComputeLoadMonitor?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableComputeLoadMonitor: 'EnableComputeLoadMonitor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableComputeLoadMonitor: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClusterRequestSchedulerSpec extends $dara.Model {
+  enableTopologyAwareness?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableTopologyAwareness: 'EnableTopologyAwareness',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableTopologyAwareness: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateNodesRequestInstances extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID of the compute node.
+   * 
+   * @example
+   * i-bp1bzqq1ddeemuddn****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable deletion protection for the compute node.
+   * 
+   * @example
+   * true
+   */
+  keepAlive?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      keepAlive: 'KeepAlive',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      keepAlive: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateQueueRequestQueue extends $dara.Model {
+  /**
+   * @remarks
+   * The policy based on which instance types are selected for compute nodes during auto scale-outs. Valid values:
+   * 
+   * *   PriorityInstanceType
+   * 
+   * @example
+   * PriorityInstanceType
+   */
+  allocationStrategy?: string;
+  /**
+   * @remarks
+   * The hardware configurations of the compute nodes in the queue. Valid values of N: 1 to 10.
+   */
+  computeNodes?: NodeTemplate[];
+  /**
+   * @remarks
+   * Specifies whether to enable auto scale-in for the queue. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  enableScaleIn?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto scale-out for the queue. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  enableScaleOut?: boolean;
+  /**
+   * @remarks
+   * The hostname prefix of the compute nodes in the queue.
+   * 
+   * @example
+   * compute
+   */
+  hostnamePrefix?: string;
+  /**
+   * @remarks
+   * The hostname suffix of the compute nodes in the queue.
+   * 
+   * @example
+   * hpc
+   */
+  hostnameSuffix?: string;
+  /**
+   * @remarks
+   * The initial number of compute nodes in the queue.
+   * 
+   * @example
+   * 0
+   */
+  initialCount?: number;
+  /**
+   * @remarks
+   * The type of the network for interconnecting compute nodes in the queue.
+   * 
+   * @example
+   * erdma
+   */
+  interConnect?: string;
+  /**
+   * @remarks
+   * The nodes for which deletion protection is enabled in the queue.
+   */
+  keepAliveNodes?: string[];
+  /**
+   * @remarks
+   * The maximum number of compute nodes that the queue can contain.
+   * 
+   * @example
+   * 1000
+   */
+  maxCount?: number;
+  /**
+   * @remarks
+   * The minimum number of compute nodes that are added to the queue during an automatic scale-out.
+   * 
+   * @example
+   * 99
+   */
+  maxCountPerCycle?: number;
+  /**
+   * @remarks
+   * The minimum number of compute nodes that the queue must contain.
+   * 
+   * @example
+   * 0
+   */
+  minCount?: number;
+  /**
+   * @remarks
+   * The queue name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * comp
+   */
+  queueName?: string;
+  /**
+   * @remarks
+   * The Resource Access Management (RAM) role that is assumed by compute nodes in the queue.
+   * 
+   * @example
+   * AliyunECSInstanceForEHPCRole
+   */
+  ramRole?: string;
+  reservedNodePoolId?: string;
+  /**
+   * @remarks
+   * The vSwitches available for use by compute nodes in the queue.
+   */
+  vSwitchIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      allocationStrategy: 'AllocationStrategy',
+      computeNodes: 'ComputeNodes',
+      enableScaleIn: 'EnableScaleIn',
+      enableScaleOut: 'EnableScaleOut',
+      hostnamePrefix: 'HostnamePrefix',
+      hostnameSuffix: 'HostnameSuffix',
+      initialCount: 'InitialCount',
+      interConnect: 'InterConnect',
+      keepAliveNodes: 'KeepAliveNodes',
+      maxCount: 'MaxCount',
+      maxCountPerCycle: 'MaxCountPerCycle',
+      minCount: 'MinCount',
+      queueName: 'QueueName',
+      ramRole: 'RamRole',
+      reservedNodePoolId: 'ReservedNodePoolId',
+      vSwitchIds: 'VSwitchIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationStrategy: 'string',
+      computeNodes: { 'type': 'array', 'itemType': NodeTemplate },
+      enableScaleIn: 'boolean',
+      enableScaleOut: 'boolean',
+      hostnamePrefix: 'string',
+      hostnameSuffix: 'string',
+      initialCount: 'number',
+      interConnect: 'string',
+      keepAliveNodes: { 'type': 'array', 'itemType': 'string' },
+      maxCount: 'number',
+      maxCountPerCycle: 'number',
+      minCount: 'number',
+      queueName: 'string',
+      ramRole: 'string',
+      reservedNodePoolId: 'string',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.computeNodes)) {
+      $dara.Model.validateArray(this.computeNodes);
+    }
+    if(Array.isArray(this.keepAliveNodes)) {
+      $dara.Model.validateArray(this.keepAliveNodes);
+    }
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddonNodeTemplate extends $dara.Model {
   /**
    * @example
    * false
@@ -133,12 +6711,22 @@ export class AddonNodeTemplate extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.dataDisks)) {
+      $dara.Model.validateArray(this.dataDisks);
+    }
+    if(this.systemDisk && typeof (this.systemDisk as any).validate === 'function') {
+      (this.systemDisk as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class NodeTemplate extends $tea.Model {
+export class NodeTemplate extends $dara.Model {
   /**
    * @example
    * false
@@ -232,12 +6820,22 @@ export class NodeTemplate extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.dataDisks)) {
+      $dara.Model.validateArray(this.dataDisks);
+    }
+    if(this.systemDisk && typeof (this.systemDisk as any).validate === 'function') {
+      (this.systemDisk as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueueTemplate extends $tea.Model {
+export class QueueTemplate extends $dara.Model {
   /**
    * @example
    * PriorityInstanceType
@@ -299,6 +6897,11 @@ export class QueueTemplate extends $tea.Model {
    * AliyunECSInstanceForEHPCRole
    */
   ramRole?: string;
+  /**
+   * @example
+   * rnp-756vlp7a
+   */
+  reservedNodePoolId?: string;
   vSwitchIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -316,6 +6919,7 @@ export class QueueTemplate extends $tea.Model {
       minCount: 'MinCount',
       queueName: 'QueueName',
       ramRole: 'RamRole',
+      reservedNodePoolId: 'ReservedNodePoolId',
       vSwitchIds: 'VSwitchIds',
     };
   }
@@ -336,8 +6940,22 @@ export class QueueTemplate extends $tea.Model {
       minCount: 'number',
       queueName: 'string',
       ramRole: 'string',
+      reservedNodePoolId: 'string',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.computeNodes)) {
+      $dara.Model.validateArray(this.computeNodes);
+    }
+    if(Array.isArray(this.keepAliveNodes)) {
+      $dara.Model.validateArray(this.keepAliveNodes);
+    }
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -345,7 +6963,7 @@ export class QueueTemplate extends $tea.Model {
   }
 }
 
-export class SharedStorageTemplate extends $tea.Model {
+export class SharedStorageTemplate extends $dara.Model {
   /**
    * @example
    * 008b63****
@@ -398,12 +7016,16 @@ export class SharedStorageTemplate extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachSharedStoragesRequest extends $tea.Model {
+export class AttachSharedStoragesRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -437,12 +7059,19 @@ export class AttachSharedStoragesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.sharedStorages)) {
+      $dara.Model.validateArray(this.sharedStorages);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachSharedStoragesShrinkRequest extends $tea.Model {
+export class AttachSharedStoragesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -476,12 +7105,16 @@ export class AttachSharedStoragesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachSharedStoragesResponseBody extends $tea.Model {
+export class AttachSharedStoragesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -525,12 +7158,16 @@ export class AttachSharedStoragesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AttachSharedStoragesResponse extends $tea.Model {
+export class AttachSharedStoragesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AttachSharedStoragesResponseBody;
@@ -550,12 +7187,22 @@ export class AttachSharedStoragesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterRequest extends $tea.Model {
+export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The list of software that you want to install in the cluster. Valid values of N: 0 to 10.
@@ -775,12 +7422,40 @@ export class CreateClusterRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.additionalPackages)) {
+      $dara.Model.validateArray(this.additionalPackages);
+    }
+    if(Array.isArray(this.addons)) {
+      $dara.Model.validateArray(this.addons);
+    }
+    if(this.clusterCredentials && typeof (this.clusterCredentials as any).validate === 'function') {
+      (this.clusterCredentials as any).validate();
+    }
+    if(this.clusterCustomConfiguration && typeof (this.clusterCustomConfiguration as any).validate === 'function') {
+      (this.clusterCustomConfiguration as any).validate();
+    }
+    if(this.manager && typeof (this.manager as any).validate === 'function') {
+      (this.manager as any).validate();
+    }
+    if(Array.isArray(this.queues)) {
+      $dara.Model.validateArray(this.queues);
+    }
+    if(Array.isArray(this.sharedStorages)) {
+      $dara.Model.validateArray(this.sharedStorages);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterShrinkRequest extends $tea.Model {
+export class CreateClusterShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The list of software that you want to install in the cluster. Valid values of N: 0 to 10.
@@ -1000,12 +7675,16 @@ export class CreateClusterShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterResponseBody extends $tea.Model {
+export class CreateClusterResponseBody extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -1059,12 +7738,16 @@ export class CreateClusterResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateClusterResponse extends $tea.Model {
+export class CreateClusterResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateClusterResponseBody;
@@ -1084,12 +7767,22 @@ export class CreateClusterResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateJobRequest extends $tea.Model {
+export class CreateJobRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -1131,12 +7824,19 @@ export class CreateJobRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.jobSpec && typeof (this.jobSpec as any).validate === 'function') {
+      (this.jobSpec as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateJobShrinkRequest extends $tea.Model {
+export class CreateJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -1178,12 +7878,16 @@ export class CreateJobShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateJobResponseBody extends $tea.Model {
+export class CreateJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The job ID.
@@ -1224,12 +7928,16 @@ export class CreateJobResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateJobResponse extends $tea.Model {
+export class CreateJobResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateJobResponseBody;
@@ -1249,12 +7957,22 @@ export class CreateJobResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateNodesRequest extends $tea.Model {
+export class CreateNodesRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -1334,6 +8052,7 @@ export class CreateNodesRequest extends $tea.Model {
    * AliyunServiceRoleForOOSBandwidthScheduler
    */
   ramRole?: string;
+  reservedNodePoolId?: string;
   /**
    * @remarks
    * The ID of the vSwitch to be used by the added nodes.
@@ -1354,6 +8073,7 @@ export class CreateNodesRequest extends $tea.Model {
       keepAlive: 'KeepAlive',
       queueName: 'QueueName',
       ramRole: 'RamRole',
+      reservedNodePoolId: 'ReservedNodePoolId',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -1370,8 +8090,16 @@ export class CreateNodesRequest extends $tea.Model {
       keepAlive: 'string',
       queueName: 'string',
       ramRole: 'string',
+      reservedNodePoolId: 'string',
       vSwitchId: 'string',
     };
+  }
+
+  validate() {
+    if(this.computeNode && typeof (this.computeNode as any).validate === 'function') {
+      (this.computeNode as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -1379,7 +8107,7 @@ export class CreateNodesRequest extends $tea.Model {
   }
 }
 
-export class CreateNodesShrinkRequest extends $tea.Model {
+export class CreateNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -1459,6 +8187,7 @@ export class CreateNodesShrinkRequest extends $tea.Model {
    * AliyunServiceRoleForOOSBandwidthScheduler
    */
   ramRole?: string;
+  reservedNodePoolId?: string;
   /**
    * @remarks
    * The ID of the vSwitch to be used by the added nodes.
@@ -1479,6 +8208,7 @@ export class CreateNodesShrinkRequest extends $tea.Model {
       keepAlive: 'KeepAlive',
       queueName: 'QueueName',
       ramRole: 'RamRole',
+      reservedNodePoolId: 'ReservedNodePoolId',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -1495,8 +8225,13 @@ export class CreateNodesShrinkRequest extends $tea.Model {
       keepAlive: 'string',
       queueName: 'string',
       ramRole: 'string',
+      reservedNodePoolId: 'string',
       vSwitchId: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -1504,7 +8239,7 @@ export class CreateNodesShrinkRequest extends $tea.Model {
   }
 }
 
-export class CreateNodesResponseBody extends $tea.Model {
+export class CreateNodesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The IDs of the compute nodes to be created.
@@ -1545,12 +8280,19 @@ export class CreateNodesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateNodesResponse extends $tea.Model {
+export class CreateNodesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateNodesResponseBody;
@@ -1570,12 +8312,22 @@ export class CreateNodesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateQueueRequest extends $tea.Model {
+export class CreateQueueRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -1603,12 +8355,19 @@ export class CreateQueueRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.queue && typeof (this.queue as any).validate === 'function') {
+      (this.queue as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateQueueShrinkRequest extends $tea.Model {
+export class CreateQueueShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -1636,12 +8395,16 @@ export class CreateQueueShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateQueueResponseBody extends $tea.Model {
+export class CreateQueueResponseBody extends $dara.Model {
   /**
    * @remarks
    * The name of the created queue.
@@ -1672,12 +8435,16 @@ export class CreateQueueResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateQueueResponse extends $tea.Model {
+export class CreateQueueResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateQueueResponseBody;
@@ -1697,12 +8464,22 @@ export class CreateQueueResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateUsersRequest extends $tea.Model {
+export class CreateUsersRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -1732,12 +8509,19 @@ export class CreateUsersRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.user)) {
+      $dara.Model.validateArray(this.user);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateUsersShrinkRequest extends $tea.Model {
+export class CreateUsersShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -1767,12 +8551,16 @@ export class CreateUsersShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateUsersResponseBody extends $tea.Model {
+export class CreateUsersResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -1793,12 +8581,16 @@ export class CreateUsersResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateUsersResponse extends $tea.Model {
+export class CreateUsersResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateUsersResponseBody;
@@ -1818,12 +8610,22 @@ export class CreateUsersResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteClusterRequest extends $tea.Model {
+export class DeleteClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the E-HPC cluster to be released.
@@ -1844,12 +8646,16 @@ export class DeleteClusterRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteClusterResponseBody extends $tea.Model {
+export class DeleteClusterResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -1893,12 +8699,16 @@ export class DeleteClusterResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteClusterResponse extends $tea.Model {
+export class DeleteClusterResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteClusterResponseBody;
@@ -1918,12 +8728,22 @@ export class DeleteClusterResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNodesRequest extends $tea.Model {
+export class DeleteNodesRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID. You can call the [listclusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
@@ -1951,12 +8771,19 @@ export class DeleteNodesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNodesShrinkRequest extends $tea.Model {
+export class DeleteNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID. You can call the [listclusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
@@ -1984,12 +8811,16 @@ export class DeleteNodesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNodesResponseBody extends $tea.Model {
+export class DeleteNodesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -2033,12 +8864,16 @@ export class DeleteNodesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteNodesResponse extends $tea.Model {
+export class DeleteNodesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteNodesResponseBody;
@@ -2058,12 +8893,22 @@ export class DeleteNodesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteQueuesRequest extends $tea.Model {
+export class DeleteQueuesRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -2091,12 +8936,19 @@ export class DeleteQueuesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.queueNames)) {
+      $dara.Model.validateArray(this.queueNames);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteQueuesShrinkRequest extends $tea.Model {
+export class DeleteQueuesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -2124,12 +8976,16 @@ export class DeleteQueuesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteQueuesResponseBody extends $tea.Model {
+export class DeleteQueuesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -2163,12 +9019,16 @@ export class DeleteQueuesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteQueuesResponse extends $tea.Model {
+export class DeleteQueuesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteQueuesResponseBody;
@@ -2188,12 +9048,22 @@ export class DeleteQueuesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteUsersRequest extends $tea.Model {
+export class DeleteUsersRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -2225,12 +9095,19 @@ export class DeleteUsersRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.user)) {
+      $dara.Model.validateArray(this.user);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteUsersShrinkRequest extends $tea.Model {
+export class DeleteUsersShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -2262,12 +9139,16 @@ export class DeleteUsersShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteUsersResponseBody extends $tea.Model {
+export class DeleteUsersResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -2288,12 +9169,16 @@ export class DeleteUsersResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteUsersResponse extends $tea.Model {
+export class DeleteUsersResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteUsersResponseBody;
@@ -2313,12 +9198,22 @@ export class DeleteUsersResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeAddonTemplateRequest extends $tea.Model {
+export class DescribeAddonTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The addon name.
@@ -2393,12 +9288,16 @@ export class DescribeAddonTemplateRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeAddonTemplateResponseBody extends $tea.Model {
+export class DescribeAddonTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of the addon template.
@@ -2456,12 +9355,19 @@ export class DescribeAddonTemplateResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.addon && typeof (this.addon as any).validate === 'function') {
+      (this.addon as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeAddonTemplateResponse extends $tea.Model {
+export class DescribeAddonTemplateResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeAddonTemplateResponseBody;
@@ -2481,12 +9387,22 @@ export class DescribeAddonTemplateResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachSharedStoragesRequest extends $tea.Model {
+export class DetachSharedStoragesRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -2520,12 +9436,19 @@ export class DetachSharedStoragesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.sharedStorages)) {
+      $dara.Model.validateArray(this.sharedStorages);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachSharedStoragesShrinkRequest extends $tea.Model {
+export class DetachSharedStoragesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -2559,12 +9482,16 @@ export class DetachSharedStoragesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachSharedStoragesResponseBody extends $tea.Model {
+export class DetachSharedStoragesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -2610,12 +9537,16 @@ export class DetachSharedStoragesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DetachSharedStoragesResponse extends $tea.Model {
+export class DetachSharedStoragesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DetachSharedStoragesResponseBody;
@@ -2635,12 +9566,22 @@ export class DetachSharedStoragesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAddonRequest extends $tea.Model {
+export class GetAddonRequest extends $dara.Model {
   /**
    * @remarks
    * The addon ID.
@@ -2675,12 +9616,16 @@ export class GetAddonRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAddonResponseBody extends $tea.Model {
+export class GetAddonResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details about the addon.
@@ -2708,12 +9653,19 @@ export class GetAddonResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.addon && typeof (this.addon as any).validate === 'function') {
+      (this.addon as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAddonResponse extends $tea.Model {
+export class GetAddonResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetAddonResponseBody;
@@ -2733,12 +9685,22 @@ export class GetAddonResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetClusterRequest extends $tea.Model {
+export class GetClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -2759,12 +9721,16 @@ export class GetClusterRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetClusterResponseBody extends $tea.Model {
+export class GetClusterResponseBody extends $dara.Model {
   /**
    * @remarks
    * The E-HPC Util version.
@@ -3031,12 +9997,28 @@ export class GetClusterResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.clusterCustomConfiguration && typeof (this.clusterCustomConfiguration as any).validate === 'function') {
+      (this.clusterCustomConfiguration as any).validate();
+    }
+    if(this.manager && typeof (this.manager as any).validate === 'function') {
+      (this.manager as any).validate();
+    }
+    if(this.monitorSpec && typeof (this.monitorSpec as any).validate === 'function') {
+      (this.monitorSpec as any).validate();
+    }
+    if(this.schedulerSpec && typeof (this.schedulerSpec as any).validate === 'function') {
+      (this.schedulerSpec as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetClusterResponse extends $tea.Model {
+export class GetClusterResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetClusterResponseBody;
@@ -3056,12 +10038,22 @@ export class GetClusterResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCommonLogDetailRequest extends $tea.Model {
+export class GetCommonLogDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The start time of the time range within which the logs that you want to query were generated. The time is a timestamp. This value is a UNIX timestamp representing the number of seconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
@@ -3123,12 +10115,16 @@ export class GetCommonLogDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCommonLogDetailResponseBody extends $tea.Model {
+export class GetCommonLogDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The action name.
@@ -3206,12 +10202,19 @@ export class GetCommonLogDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.logDetail)) {
+      $dara.Model.validateArray(this.logDetail);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCommonLogDetailResponse extends $tea.Model {
+export class GetCommonLogDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetCommonLogDetailResponseBody;
@@ -3231,12 +10234,22 @@ export class GetCommonLogDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobRequest extends $tea.Model {
+export class GetJobRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -3271,12 +10284,16 @@ export class GetJobRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobResponseBody extends $tea.Model {
+export class GetJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The job details.
@@ -3317,12 +10334,19 @@ export class GetJobResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.jobInfo && typeof (this.jobInfo as any).validate === 'function') {
+      (this.jobInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobResponse extends $tea.Model {
+export class GetJobResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetJobResponseBody;
@@ -3342,12 +10366,22 @@ export class GetJobResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobLogRequest extends $tea.Model {
+export class GetJobLogRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -3426,12 +10460,16 @@ export class GetJobLogRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobLogResponseBody extends $tea.Model {
+export class GetJobLogResponseBody extends $dara.Model {
   /**
    * @remarks
    * The job ID.
@@ -3515,12 +10553,16 @@ export class GetJobLogResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetJobLogResponse extends $tea.Model {
+export class GetJobLogResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetJobLogResponseBody;
@@ -3540,12 +10582,22 @@ export class GetJobLogResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQueueRequest extends $tea.Model {
+export class GetQueueRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -3578,12 +10630,16 @@ export class GetQueueRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQueueResponseBody extends $tea.Model {
+export class GetQueueResponseBody extends $dara.Model {
   /**
    * @remarks
    * The queue configurations.
@@ -3611,12 +10667,19 @@ export class GetQueueResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.queue && typeof (this.queue as any).validate === 'function') {
+      (this.queue as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetQueueResponse extends $tea.Model {
+export class GetQueueResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetQueueResponseBody;
@@ -3636,12 +10699,22 @@ export class GetQueueResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InstallAddonRequest extends $tea.Model {
+export class InstallAddonRequest extends $dara.Model {
   /**
    * @remarks
    * The addon name.
@@ -3712,12 +10785,16 @@ export class InstallAddonRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InstallAddonResponseBody extends $tea.Model {
+export class InstallAddonResponseBody extends $dara.Model {
   /**
    * @remarks
    * The addon ID.
@@ -3760,12 +10837,16 @@ export class InstallAddonResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InstallAddonResponse extends $tea.Model {
+export class InstallAddonResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: InstallAddonResponseBody;
@@ -3785,12 +10866,22 @@ export class InstallAddonResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InstallSoftwaresRequest extends $tea.Model {
+export class InstallSoftwaresRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the software systems that you want to install.
@@ -3818,12 +10909,19 @@ export class InstallSoftwaresRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.additionalPackages)) {
+      $dara.Model.validateArray(this.additionalPackages);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InstallSoftwaresShrinkRequest extends $tea.Model {
+export class InstallSoftwaresShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the software systems that you want to install.
@@ -3851,12 +10949,16 @@ export class InstallSoftwaresShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InstallSoftwaresResponseBody extends $tea.Model {
+export class InstallSoftwaresResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -3877,12 +10979,16 @@ export class InstallSoftwaresResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InstallSoftwaresResponse extends $tea.Model {
+export class InstallSoftwaresResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: InstallSoftwaresResponseBody;
@@ -3902,12 +11008,22 @@ export class InstallSoftwaresResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAddonTemplatesRequest extends $tea.Model {
+export class ListAddonTemplatesRequest extends $dara.Model {
   /**
    * @remarks
    * The addon names.
@@ -3968,12 +11084,19 @@ export class ListAddonTemplatesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.addonNames)) {
+      $dara.Model.validateArray(this.addonNames);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAddonTemplatesResponseBody extends $tea.Model {
+export class ListAddonTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the addon templates.
@@ -4031,12 +11154,19 @@ export class ListAddonTemplatesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.addons)) {
+      $dara.Model.validateArray(this.addons);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAddonTemplatesResponse extends $tea.Model {
+export class ListAddonTemplatesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAddonTemplatesResponseBody;
@@ -4056,12 +11186,22 @@ export class ListAddonTemplatesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAddonsRequest extends $tea.Model {
+export class ListAddonsRequest extends $dara.Model {
   /**
    * @remarks
    * The addon IDs.
@@ -4111,12 +11251,19 @@ export class ListAddonsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.addonIds)) {
+      $dara.Model.validateArray(this.addonIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAddonsShrinkRequest extends $tea.Model {
+export class ListAddonsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The addon IDs.
@@ -4166,12 +11313,16 @@ export class ListAddonsShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAddonsResponseBody extends $tea.Model {
+export class ListAddonsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the addons.
@@ -4229,12 +11380,19 @@ export class ListAddonsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.addons)) {
+      $dara.Model.validateArray(this.addons);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAddonsResponse extends $tea.Model {
+export class ListAddonsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAddonsResponseBody;
@@ -4254,12 +11412,22 @@ export class ListAddonsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAvailableFileSystemsRequest extends $tea.Model {
+export class ListAvailableFileSystemsRequest extends $dara.Model {
   /**
    * @remarks
    * The page number of the page to return. Page starts from page 1. Default value: 1
@@ -4290,12 +11458,16 @@ export class ListAvailableFileSystemsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAvailableFileSystemsResponseBody extends $tea.Model {
+export class ListAvailableFileSystemsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The file systems.
@@ -4353,12 +11525,19 @@ export class ListAvailableFileSystemsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.fileSystemList)) {
+      $dara.Model.validateArray(this.fileSystemList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAvailableFileSystemsResponse extends $tea.Model {
+export class ListAvailableFileSystemsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAvailableFileSystemsResponseBody;
@@ -4378,12 +11557,22 @@ export class ListAvailableFileSystemsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAvailableImagesRequest extends $tea.Model {
+export class ListAvailableImagesRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the domain account service.
@@ -4489,12 +11678,22 @@ export class ListAvailableImagesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.directoryService && typeof (this.directoryService as any).validate === 'function') {
+      (this.directoryService as any).validate();
+    }
+    if(this.scheduler && typeof (this.scheduler as any).validate === 'function') {
+      (this.scheduler as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAvailableImagesShrinkRequest extends $tea.Model {
+export class ListAvailableImagesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the domain account service.
@@ -4600,12 +11799,16 @@ export class ListAvailableImagesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAvailableImagesResponseBody extends $tea.Model {
+export class ListAvailableImagesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the images.
@@ -4679,12 +11882,19 @@ export class ListAvailableImagesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.images)) {
+      $dara.Model.validateArray(this.images);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAvailableImagesResponse extends $tea.Model {
+export class ListAvailableImagesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAvailableImagesResponseBody;
@@ -4704,12 +11914,22 @@ export class ListAvailableImagesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListClustersRequest extends $tea.Model {
+export class ListClustersRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster IDs. You can specify up to 20 IDs.
@@ -4754,12 +11974,22 @@ export class ListClustersRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.clusterIds)) {
+      $dara.Model.validateArray(this.clusterIds);
+    }
+    if(Array.isArray(this.clusterNames)) {
+      $dara.Model.validateArray(this.clusterNames);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListClustersShrinkRequest extends $tea.Model {
+export class ListClustersShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster IDs. You can specify up to 20 IDs.
@@ -4804,12 +12034,16 @@ export class ListClustersShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListClustersResponseBody extends $tea.Model {
+export class ListClustersResponseBody extends $dara.Model {
   /**
    * @remarks
    * The list of clusters.
@@ -4867,12 +12101,19 @@ export class ListClustersResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.clusters)) {
+      $dara.Model.validateArray(this.clusters);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListClustersResponse extends $tea.Model {
+export class ListClustersResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListClustersResponseBody;
@@ -4892,12 +12133,22 @@ export class ListClustersResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListCommonLogsRequest extends $tea.Model {
+export class ListCommonLogsRequest extends $dara.Model {
   /**
    * @remarks
    * The action types.
@@ -5043,12 +12294,19 @@ export class ListCommonLogsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.actionName)) {
+      $dara.Model.validateArray(this.actionName);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListCommonLogsShrinkRequest extends $tea.Model {
+export class ListCommonLogsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The action types.
@@ -5194,12 +12452,16 @@ export class ListCommonLogsShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListCommonLogsResponseBody extends $tea.Model {
+export class ListCommonLogsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The brief information of operation logs.
@@ -5267,12 +12529,19 @@ export class ListCommonLogsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.logs)) {
+      $dara.Model.validateArray(this.logs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListCommonLogsResponse extends $tea.Model {
+export class ListCommonLogsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListCommonLogsResponseBody;
@@ -5292,12 +12561,22 @@ export class ListCommonLogsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstalledSoftwaresRequest extends $tea.Model {
+export class ListInstalledSoftwaresRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -5338,12 +12617,16 @@ export class ListInstalledSoftwaresRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstalledSoftwaresResponseBody extends $tea.Model {
+export class ListInstalledSoftwaresResponseBody extends $dara.Model {
   /**
    * @remarks
    * The list of installed software.
@@ -5401,12 +12684,19 @@ export class ListInstalledSoftwaresResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.additionalPackages && typeof (this.additionalPackages as any).validate === 'function') {
+      (this.additionalPackages as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstalledSoftwaresResponse extends $tea.Model {
+export class ListInstalledSoftwaresResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListInstalledSoftwaresResponseBody;
@@ -5426,12 +12716,22 @@ export class ListInstalledSoftwaresResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListJobsRequest extends $tea.Model {
+export class ListJobsRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -5489,12 +12789,19 @@ export class ListJobsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.jobFilter && typeof (this.jobFilter as any).validate === 'function') {
+      (this.jobFilter as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListJobsShrinkRequest extends $tea.Model {
+export class ListJobsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -5552,12 +12859,16 @@ export class ListJobsShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListJobsResponseBody extends $tea.Model {
+export class ListJobsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The jobs.
@@ -5628,12 +12939,19 @@ export class ListJobsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.jobs)) {
+      $dara.Model.validateArray(this.jobs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListJobsResponse extends $tea.Model {
+export class ListJobsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListJobsResponseBody;
@@ -5653,12 +12971,22 @@ export class ListJobsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNodesRequest extends $tea.Model {
+export class ListNodesRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID. You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
@@ -5757,12 +13085,28 @@ export class ListNodesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.hostnames)) {
+      $dara.Model.validateArray(this.hostnames);
+    }
+    if(Array.isArray(this.privateIpAddress)) {
+      $dara.Model.validateArray(this.privateIpAddress);
+    }
+    if(Array.isArray(this.queueNames)) {
+      $dara.Model.validateArray(this.queueNames);
+    }
+    if(Array.isArray(this.status)) {
+      $dara.Model.validateArray(this.status);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNodesShrinkRequest extends $tea.Model {
+export class ListNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID. You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
@@ -5861,12 +13205,16 @@ export class ListNodesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNodesResponseBody extends $tea.Model {
+export class ListNodesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the nodes.
@@ -5924,12 +13272,19 @@ export class ListNodesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.nodes)) {
+      $dara.Model.validateArray(this.nodes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListNodesResponse extends $tea.Model {
+export class ListNodesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListNodesResponseBody;
@@ -5949,12 +13304,22 @@ export class ListNodesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListQueuesRequest extends $tea.Model {
+export class ListQueuesRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -5982,12 +13347,19 @@ export class ListQueuesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.queueNames)) {
+      $dara.Model.validateArray(this.queueNames);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListQueuesShrinkRequest extends $tea.Model {
+export class ListQueuesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -6015,12 +13387,16 @@ export class ListQueuesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListQueuesResponseBody extends $tea.Model {
+export class ListQueuesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -6090,12 +13466,19 @@ export class ListQueuesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.queues)) {
+      $dara.Model.validateArray(this.queues);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListQueuesResponse extends $tea.Model {
+export class ListQueuesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListQueuesResponseBody;
@@ -6115,12 +13498,22 @@ export class ListQueuesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSharedStoragesRequest extends $tea.Model {
+export class ListSharedStoragesRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -6168,12 +13561,16 @@ export class ListSharedStoragesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSharedStoragesResponseBody extends $tea.Model {
+export class ListSharedStoragesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -6214,12 +13611,19 @@ export class ListSharedStoragesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.sharedStorages)) {
+      $dara.Model.validateArray(this.sharedStorages);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSharedStoragesResponse extends $tea.Model {
+export class ListSharedStoragesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListSharedStoragesResponseBody;
@@ -6239,12 +13643,22 @@ export class ListSharedStoragesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSoftwaresRequest extends $tea.Model {
+export class ListSoftwaresRequest extends $dara.Model {
   /**
    * @remarks
    * The application category.
@@ -6312,12 +13726,19 @@ export class ListSoftwaresRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.osInfos)) {
+      $dara.Model.validateArray(this.osInfos);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSoftwaresResponseBody extends $tea.Model {
+export class ListSoftwaresResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the software that can be installed in the cluster.
@@ -6375,12 +13796,19 @@ export class ListSoftwaresResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.additionalPackages && typeof (this.additionalPackages as any).validate === 'function') {
+      (this.additionalPackages as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSoftwaresResponse extends $tea.Model {
+export class ListSoftwaresResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListSoftwaresResponseBody;
@@ -6400,12 +13828,22 @@ export class ListSoftwaresResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUsersRequest extends $tea.Model {
+export class ListUsersRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -6454,12 +13892,16 @@ export class ListUsersRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUsersResponseBody extends $tea.Model {
+export class ListUsersResponseBody extends $dara.Model {
   /**
    * @remarks
    * The page number.
@@ -6517,12 +13959,19 @@ export class ListUsersResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.users && typeof (this.users as any).validate === 'function') {
+      (this.users as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListUsersResponse extends $tea.Model {
+export class ListUsersResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListUsersResponseBody;
@@ -6542,12 +13991,22 @@ export class ListUsersResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopJobsRequest extends $tea.Model {
+export class StopJobsRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -6579,12 +14038,19 @@ export class StopJobsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.jobIds)) {
+      $dara.Model.validateArray(this.jobIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopJobsShrinkRequest extends $tea.Model {
+export class StopJobsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -6616,12 +14082,16 @@ export class StopJobsShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopJobsResponseBody extends $tea.Model {
+export class StopJobsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -6655,12 +14125,16 @@ export class StopJobsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopJobsResponse extends $tea.Model {
+export class StopJobsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StopJobsResponseBody;
@@ -6680,12 +14154,22 @@ export class StopJobsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnInstallAddonRequest extends $tea.Model {
+export class UnInstallAddonRequest extends $dara.Model {
   /**
    * @remarks
    * The addon ID.
@@ -6722,12 +14206,16 @@ export class UnInstallAddonRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnInstallAddonResponseBody extends $tea.Model {
+export class UnInstallAddonResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -6748,12 +14236,16 @@ export class UnInstallAddonResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnInstallAddonResponse extends $tea.Model {
+export class UnInstallAddonResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UnInstallAddonResponseBody;
@@ -6773,12 +14265,22 @@ export class UnInstallAddonResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UninstallSoftwaresRequest extends $tea.Model {
+export class UninstallSoftwaresRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the software systems that you want to uninstall.
@@ -6808,12 +14310,19 @@ export class UninstallSoftwaresRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.additionalPackages)) {
+      $dara.Model.validateArray(this.additionalPackages);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UninstallSoftwaresShrinkRequest extends $tea.Model {
+export class UninstallSoftwaresShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the software systems that you want to uninstall.
@@ -6843,12 +14352,16 @@ export class UninstallSoftwaresShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UninstallSoftwaresResponseBody extends $tea.Model {
+export class UninstallSoftwaresResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -6869,12 +14382,16 @@ export class UninstallSoftwaresResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UninstallSoftwaresResponse extends $tea.Model {
+export class UninstallSoftwaresResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UninstallSoftwaresResponseBody;
@@ -6894,12 +14411,22 @@ export class UninstallSoftwaresResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateClusterRequest extends $tea.Model {
+export class UpdateClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The client version. By default, the latest version is used.
@@ -7046,12 +14573,25 @@ export class UpdateClusterRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.clusterCustomConfiguration && typeof (this.clusterCustomConfiguration as any).validate === 'function') {
+      (this.clusterCustomConfiguration as any).validate();
+    }
+    if(this.monitorSpec && typeof (this.monitorSpec as any).validate === 'function') {
+      (this.monitorSpec as any).validate();
+    }
+    if(this.schedulerSpec && typeof (this.schedulerSpec as any).validate === 'function') {
+      (this.schedulerSpec as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateClusterShrinkRequest extends $tea.Model {
+export class UpdateClusterShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The client version. By default, the latest version is used.
@@ -7198,12 +14738,16 @@ export class UpdateClusterShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateClusterResponseBody extends $tea.Model {
+export class UpdateClusterResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -7237,12 +14781,16 @@ export class UpdateClusterResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateClusterResponse extends $tea.Model {
+export class UpdateClusterResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateClusterResponseBody;
@@ -7262,12 +14810,22 @@ export class UpdateClusterResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateNodesRequest extends $tea.Model {
+export class UpdateNodesRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -7295,12 +14853,19 @@ export class UpdateNodesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateNodesShrinkRequest extends $tea.Model {
+export class UpdateNodesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -7328,12 +14893,16 @@ export class UpdateNodesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateNodesResponseBody extends $tea.Model {
+export class UpdateNodesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -7367,12 +14936,16 @@ export class UpdateNodesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateNodesResponse extends $tea.Model {
+export class UpdateNodesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateNodesResponseBody;
@@ -7392,12 +14965,22 @@ export class UpdateNodesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateQueueRequest extends $tea.Model {
+export class UpdateQueueRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -7427,12 +15010,19 @@ export class UpdateQueueRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.queue && typeof (this.queue as any).validate === 'function') {
+      (this.queue as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateQueueShrinkRequest extends $tea.Model {
+export class UpdateQueueShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -7462,12 +15052,16 @@ export class UpdateQueueShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateQueueResponseBody extends $tea.Model {
+export class UpdateQueueResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -7501,12 +15095,16 @@ export class UpdateQueueResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateQueueResponse extends $tea.Model {
+export class UpdateQueueResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateQueueResponseBody;
@@ -7526,12 +15124,22 @@ export class UpdateQueueResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateUserRequest extends $tea.Model {
+export class UpdateUserRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
@@ -7594,12 +15202,16 @@ export class UpdateUserRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateUserResponseBody extends $tea.Model {
+export class UpdateUserResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -7633,12 +15245,16 @@ export class UpdateUserResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateUserResponse extends $tea.Model {
+export class UpdateUserResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateUserResponseBody;
@@ -7658,5977 +15274,14 @@ export class UpdateUserResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddonNodeTemplateDataDisks extends $tea.Model {
-  /**
-   * @example
-   * cloud_auto
-   */
-  category?: string;
-  /**
-   * @example
-   * false
-   */
-  deleteWithInstance?: boolean;
-  /**
-   * @example
-   * PL0
-   */
-  level?: string;
-  /**
-   * @example
-   * 40
-   */
-  size?: number;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      deleteWithInstance: 'DeleteWithInstance',
-      level: 'Level',
-      size: 'Size',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      deleteWithInstance: 'boolean',
-      level: 'string',
-      size: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddonNodeTemplateSystemDisk extends $tea.Model {
-  /**
-   * @example
-   * cloud_auto
-   */
-  category?: string;
-  /**
-   * @example
-   * PL0
-   */
-  level?: string;
-  /**
-   * @example
-   * 40
-   */
-  size?: number;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      level: 'Level',
-      size: 'Size',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      level: 'string',
-      size: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class NodeTemplateDataDisks extends $tea.Model {
-  /**
-   * @example
-   * cloud_auto
-   */
-  category?: string;
-  /**
-   * @example
-   * false
-   */
-  deleteWithInstance?: boolean;
-  /**
-   * @example
-   * PL0
-   */
-  level?: string;
-  /**
-   * @example
-   * /data1
-   */
-  mountDir?: string;
-  /**
-   * @example
-   * 40
-   */
-  size?: number;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      deleteWithInstance: 'DeleteWithInstance',
-      level: 'Level',
-      mountDir: 'MountDir',
-      size: 'Size',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      deleteWithInstance: 'boolean',
-      level: 'string',
-      mountDir: 'string',
-      size: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class NodeTemplateSystemDisk extends $tea.Model {
-  /**
-   * @example
-   * cloud_auto
-   */
-  category?: string;
-  /**
-   * @example
-   * PL0
-   */
-  level?: string;
-  /**
-   * @example
-   * 40
-   */
-  size?: number;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      level: 'Level',
-      size: 'Size',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      level: 'string',
-      size: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachSharedStoragesRequestSharedStorages extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the file system to be attached.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0bd504b0**
-   */
-  fileSystemId?: string;
-  /**
-   * @remarks
-   * The storage location of the file system to be attached. Valid values:
-   * 
-   * *   OnPremise: The file system is deployed on a hybrid cloud.
-   * *   PublicCloud: The file system is deployed on a public cloud.
-   * 
-   * @example
-   * PublicCloud
-   */
-  location?: string;
-  /**
-   * @remarks
-   * The local mount directory of the file system that you want to attach.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * /test
-   */
-  mountDirectory?: string;
-  /**
-   * @remarks
-   * The attaching options of the file system to be attached. Valid values:
-   * 
-   * *   \\-t nfs -o vers=3,nolock,proto=tcp,noresvport
-   * *   \\-t nfs -o vers=4.0,noresvport
-   * 
-   * Default value:-t nfs -o vers=3,nolock,proto=tcp,noresvport
-   * 
-   * >  The v3 version is recommended for higher performance if multiple Elastic Compute Service (ECS) instances do not edit the same file at the same time.
-   * 
-   * @example
-   * -t nfs -o vers=3,nolock,proto=tcp,noresvport
-   */
-  mountOptions?: string;
-  /**
-   * @remarks
-   * The address of the mount point of the file system to be attached.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0bd504b***-ngq26.cn-hangzhou.nas.aliyuncs.com
-   */
-  mountTarget?: string;
-  /**
-   * @remarks
-   * The protocol type of the file system to be attached. Valid values:
-   * 
-   * *   NFS
-   * *   SMB
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * NFS
-   */
-  protocolType?: string;
-  /**
-   * @remarks
-   * The storage directory of the file system. You can mount any directory in the file system to the specified cluster directory.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * /testehpc
-   */
-  storageDirectory?: string;
-  /**
-   * @remarks
-   * The type of the file system to be attached. Valid values:
-   * 
-   * *   nas
-   * *   cpfs
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * nas
-   */
-  volumeType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      location: 'Location',
-      mountDirectory: 'MountDirectory',
-      mountOptions: 'MountOptions',
-      mountTarget: 'MountTarget',
-      protocolType: 'ProtocolType',
-      storageDirectory: 'StorageDirectory',
-      volumeType: 'VolumeType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      location: 'string',
-      mountDirectory: 'string',
-      mountOptions: 'string',
-      mountTarget: 'string',
-      protocolType: 'string',
-      storageDirectory: 'string',
-      volumeType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterRequestAdditionalPackages extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the software that you want to install in the cluster.
-   * 
-   * @example
-   * mpich
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The version of the software that you want to install in the cluster.
-   * 
-   * @example
-   * 4.0.3
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterRequestAddons extends $tea.Model {
-  /**
-   * @remarks
-   * The addon name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Login
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The resource configurations of the addon.
-   * 
-   * @example
-   * "{\\\\"EipResource\\\\": {\\\\"AutoCreate\\\\": true}, \\\\"EcsResources\\\\": [{\\\\"InstanceType\\\\": \\\\"ecs.c7.xlarge\\\\", \\\\"ImageId\\\\": \\\\"centos_7_6_x64_20G_alibase_20211130.vhd\\\\", \\\\"SystemDisk\\\\": {\\\\"Category\\\\": \\\\"cloud_essd\\\\", \\\\"Size\\\\": 40, \\\\"Level\\\\": \\\\"PL0\\\\"}, \\\\"EnableHT\\\\": true, \\\\"InstanceChargeType\\\\": \\\\"PostPaid\\\\", \\\\"SpotStrategy\\\\": \\\\"NoSpot\\\\"}]}"
-   */
-  resourcesSpec?: string;
-  /**
-   * @remarks
-   * The service configurations of the addon.
-   * 
-   * @example
-   * "[{\\\\"ServiceName\\\\": \\\\"SSH\\\\", \\\\"ServiceAccessType\\\\": null, \\\\"ServiceAccessUrl\\\\": null, \\\\"NetworkACL\\\\": [{\\\\"IpProtocol\\\\": \\\\"TCP\\\\", \\\\"Port\\\\": 22, \\\\"SourceCidrIp\\\\": \\\\"0.0.0.0/0\\\\"}]}, {\\\\"ServiceName\\\\": \\\\"VNC\\\\", \\\\"ServiceAccessType\\\\": null, \\\\"ServiceAccessUrl\\\\": null, \\\\"NetworkACL\\\\": [{\\\\"IpProtocol\\\\": \\\\"TCP\\\\", \\\\"Port\\\\": 12016, \\\\"SourceCidrIp\\\\": \\\\"0.0.0.0/0\\\\"}]}, {\\\\"ServiceName\\\\": \\\\"CLIENT\\\\", \\\\"ServiceAccessType\\\\": \\\\"URL\\\\", \\\\"ServiceAccessUrl\\\\": \\\\"\\\\", \\\\"NetworkACL\\\\": [{\\\\"IpProtocol\\\\": \\\\"TCP\\\\", \\\\"Port\\\\": 12011, \\\\"SourceCidrIp\\\\": \\\\"0.0.0.0/0\\\\"}]}]"
-   */
-  servicesSpec?: string;
-  /**
-   * @remarks
-   * The addon version.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      resourcesSpec: 'ResourcesSpec',
-      servicesSpec: 'ServicesSpec',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      resourcesSpec: 'string',
-      servicesSpec: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterRequestClusterCredentials extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the key pair. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
-   * 
-   * >  For more information, see [Create a key pair](https://help.aliyun.com/document_detail/51793.html).
-   * 
-   * @example
-   * ali0824
-   */
-  keyPairName?: string;
-  /**
-   * @remarks
-   * The password for the root user to log on to the node. The password must be 8 to 20 characters in length, and must contain at least 3 of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported: `() ~ ! @ # $ % ^ & * - = + { } [ ] : ; \\" < > , . ? /`
-   * 
-   * >  We recommend that you use HTTPS to call the API operation to prevent password leakage.
-   * 
-   * @example
-   * **********
-   */
-  password?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keyPairName: 'KeyPairName',
-      password: 'Password',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyPairName: 'string',
-      password: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterRequestClusterCustomConfiguration extends $tea.Model {
-  /**
-   * @remarks
-   * The runtime parameters of the script after the cluster is created.
-   * 
-   * @example
-   * E-HPC cn-hangzhou
-   */
-  args?: string;
-  /**
-   * @remarks
-   * The URL that is used to download the post-processing script.
-   * 
-   * @example
-   * http://*****
-   */
-  script?: string;
-  static names(): { [key: string]: string } {
-    return {
-      args: 'Args',
-      script: 'Script',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      args: 'string',
-      script: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterRequestManagerDNS extends $tea.Model {
-  /**
-   * @remarks
-   * The domain name resolution type.
-   * 
-   * Valid values:
-   * 
-   * *   NIS: NIS.
-   * 
-   * @example
-   * NIS
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The version of the domain name resolution service.
-   * 
-   * @example
-   * 2.31
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterRequestManagerDirectoryService extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the domain account.
-   * 
-   * Valid values:
-   * 
-   * *   NIS: NIS.
-   * 
-   * @example
-   * NIS
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The version of the domain account service.
-   * 
-   * @example
-   * 2.31
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterRequestManagerScheduler extends $tea.Model {
-  /**
-   * @remarks
-   * The scheduler type. Valid values:
-   * 
-   * *   SLURM
-   * *   PBS
-   * *   OPENGRIDSCHEDULER
-   * *   LSF_PLUGIN
-   * *   PBS_PLUGIN
-   * 
-   * @example
-   * SLURM
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The scheduler version.
-   * 
-   * @example
-   * 22.05.8
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterRequestManager extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of the domain name resolution service.
-   */
-  DNS?: CreateClusterRequestManagerDNS;
-  /**
-   * @remarks
-   * The configurations of the directory service.
-   */
-  directoryService?: CreateClusterRequestManagerDirectoryService;
-  /**
-   * @remarks
-   * The hardware configurations of the management node.
-   */
-  managerNode?: NodeTemplate;
-  /**
-   * @remarks
-   * The configurations of the scheduler service.
-   */
-  scheduler?: CreateClusterRequestManagerScheduler;
-  static names(): { [key: string]: string } {
-    return {
-      DNS: 'DNS',
-      directoryService: 'DirectoryService',
-      managerNode: 'ManagerNode',
-      scheduler: 'Scheduler',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DNS: CreateClusterRequestManagerDNS,
-      directoryService: CreateClusterRequestManagerDirectoryService,
-      managerNode: NodeTemplate,
-      scheduler: CreateClusterRequestManagerScheduler,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterRequestTags extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
-   * 
-   * @example
-   * ClusterId
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
-   * 
-   * @example
-   * ehpc-hz-******
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateJobRequestJobSpecResources extends $tea.Model {
-  /**
-   * @remarks
-   * The number of vCPUs to be allocated to each compute node.
-   * 
-   * @example
-   * 2
-   */
-  cores?: number;
-  /**
-   * @remarks
-   * The number of GPUs to be allocated to each compute node.
-   * 
-   * @example
-   * 1
-   */
-  gpus?: number;
-  /**
-   * @remarks
-   * The memory size to be allocated to each compute node. The memory size is in string format. Unit: MB or GB.
-   * 
-   * @example
-   * 4gb
-   */
-  memory?: string;
-  /**
-   * @remarks
-   * The number of compute nodes to be allocated to the job.
-   * 
-   * @example
-   * 2
-   */
-  nodes?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cores: 'Cores',
-      gpus: 'Gpus',
-      memory: 'Memory',
-      nodes: 'Nodes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cores: 'number',
-      gpus: 'number',
-      memory: 'string',
-      nodes: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateJobRequestJobSpec extends $tea.Model {
-  /**
-   * @remarks
-   * The jobs in the queue.
-   * 
-   * Format: X-Y:Z. X is the minimum index value. Y is the maximum index value. Z is the step size. For example, 2-7:2 indicates that three jobs need to be run and their index values are 2, 4, and 6.
-   * 
-   * @example
-   * 1-5:2
-   */
-  arrayRequest?: string;
-  /**
-   * @remarks
-   * The command or script that is used to run the job. If you want to use a command, you must specify the full path of the command, for example, /bin/ping.
-   * 
-   * If you want to use a script, you must make sure that you have the execution permissions on it. By default, the user root directory ~/ is used as the default script path on the cluster side. If your script is not in that directory, you must specify the full path in this parameter, such as /home/xxx/job.sh Note that in this mode, if requirements on resources such as CPU and memory are specified in the script, the job will be run based on the resource requirements specified in the script. In this case, do not specify resource requirements in the Resource parameter. Otherwise, the job may fail to run.
-   * 
-   * If you want to run the job directly by using the CLI, you must specify the absolute path of the command and add two hyphens and a space (-- ) before the path, such as -- /bin/ping -c 10 localhost.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * /home/xxx/test.job
-   */
-  commandLine?: string;
-  /**
-   * @remarks
-   * The queue to which the job belongs.
-   * 
-   * @example
-   * comp
-   */
-  jobQueue?: string;
-  /**
-   * @remarks
-   * The post-processing command of the job.
-   * 
-   * @example
-   * /bin/sleep 10
-   */
-  postCmdLine?: string;
-  /**
-   * @remarks
-   * The job priority.
-   * 
-   * @example
-   * 1
-   */
-  priority?: string;
-  /**
-   * @remarks
-   * The resource configurations of the job.
-   */
-  resources?: CreateJobRequestJobSpecResources;
-  /**
-   * @remarks
-   * The cluster-side user as which you want to submit the job.
-   * 
-   * @example
-   * testuser
-   */
-  runasUser?: string;
-  /**
-   * @remarks
-   * The password of the user specified by the RunasUser parameter.
-   * 
-   * @example
-   * xxx
-   */
-  runasUserPassword?: string;
-  /**
-   * @remarks
-   * The path of the standard error output file of the job. You need to specify the full path.
-   * 
-   * @example
-   * /home/xxx/job.err
-   */
-  stderrPath?: string;
-  /**
-   * @remarks
-   * The path of the standard output file of the job. You need to specify the full path.
-   * 
-   * @example
-   * /home/xxx/job.out
-   */
-  stdoutPath?: string;
-  /**
-   * @remarks
-   * The environment variables of the job. The value is a string in the JSON array format. Each array member is a JSON object that contains two members: Name and Value. Name indicates the name of the environment variable, and Value indicates the value of the environment variable.
-   * 
-   * @example
-   * [{"Name":"x", "Value":"y"}]
-   */
-  variables?: string;
-  /**
-   * @remarks
-   * The maximum duration for which the job can be run. Format: `hour: minute: second`. For example, `01:00:00` indicates 1 hour.
-   * 
-   * @example
-   * 360:48:50
-   */
-  wallTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      arrayRequest: 'ArrayRequest',
-      commandLine: 'CommandLine',
-      jobQueue: 'JobQueue',
-      postCmdLine: 'PostCmdLine',
-      priority: 'Priority',
-      resources: 'Resources',
-      runasUser: 'RunasUser',
-      runasUserPassword: 'RunasUserPassword',
-      stderrPath: 'StderrPath',
-      stdoutPath: 'StdoutPath',
-      variables: 'Variables',
-      wallTime: 'WallTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      arrayRequest: 'string',
-      commandLine: 'string',
-      jobQueue: 'string',
-      postCmdLine: 'string',
-      priority: 'string',
-      resources: CreateJobRequestJobSpecResources,
-      runasUser: 'string',
-      runasUserPassword: 'string',
-      stderrPath: 'string',
-      stdoutPath: 'string',
-      variables: 'string',
-      wallTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUsersRequestUser extends $tea.Model {
-  /**
-   * @remarks
-   * The public key of the user.
-   * 
-   * You can add up to 20 users in a call.
-   * 
-   * Specify one of the Password and AuthKey parameters. The AuthKey parameter takes effect only when the cluster authentication method is set to Key. Key authentication is not recommended.
-   * 
-   * @example
-   * Abc****
-   */
-  authKey?: string;
-  /**
-   * @remarks
-   * The permission group to which the user belongs. Valid values:
-   * 
-   * users: ordinary permissions, which are suitable for ordinary users that need only to submit and debug jobs. wheel: sudo permissions, which are suitable for administrators who need to manage clusters. In addition to submitting and debugging jobs, you can also run sudo commands to install software and restart nodes. You can add up to 20 users in a call.
-   * 
-   * @example
-   * users
-   */
-  group?: string;
-  /**
-   * @remarks
-   * The password of the user. The password must be 6 to 30 characters in length and must contain three of the following character types:
-   * 
-   * *   Uppercase letters
-   * *   Lowercase letters
-   * *   Digits
-   * *   Special characters ()~!@#$%^&\\*-_+=|{}[]:;\\"/<>,.?/
-   * 
-   * You can add up to 20 users in a call.
-   * 
-   * Specify one of the Password and AuthKey parameters. The Password parameter takes effect only when the cluster authentication method is set to Password. Password authentication is recommended.
-   * 
-   * @example
-   * 1@a2****
-   */
-  password?: string;
-  /**
-   * @remarks
-   * The username. The username must be 1 to 30 characters in length. It must start with a letter and can contain digits, letters, and periods (.).
-   * 
-   * You can add up to 20 users in a call.
-   * 
-   * @example
-   * testuser
-   */
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authKey: 'AuthKey',
-      group: 'Group',
-      password: 'Password',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authKey: 'string',
-      group: 'string',
-      password: 'string',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUsersRequestUser extends $tea.Model {
-  /**
-   * @remarks
-   * The name of user N that you want to delete.
-   * 
-   * Valid values of N: 1 to 100.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * testuser
-   */
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAddonTemplateResponseBodyAddonResourcesSpecEipResource extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the EIP is automatically created.
-   * 
-   * @example
-   * True
-   */
-  autoCreate?: boolean;
-  /**
-   * @remarks
-   * The maximum bandwidth of the EIP. Unit: Mbit/s.
-   * 
-   * @example
-   * 100
-   */
-  bandwidth?: string;
-  /**
-   * @remarks
-   * The EIP ID.
-   * 
-   * @example
-   * eip-bp1jwtsuoiif2qf90****
-   */
-  eipInstanceId?: string;
-  /**
-   * @remarks
-   * The billing method of the EIP. Valid values:
-   * 
-   * *   PostPaid: pay-as-you-go.
-   * *   PrePaid: subscription.
-   * 
-   * Default value: PostPaid
-   * 
-   * @example
-   * PostPaid
-   */
-  instanceChargeType?: string;
-  /**
-   * @remarks
-   * The metering method of the EIP. Valid values:
-   * 
-   * *   PayByBandwidth: pay by bandwidth.
-   * *   PayByTraffic: pay by data transfer.
-   * 
-   * Valid values of N: 1 to 10.
-   * 
-   * @example
-   * PayByTraffic
-   */
-  internetChargeType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoCreate: 'AutoCreate',
-      bandwidth: 'Bandwidth',
-      eipInstanceId: 'EipInstanceId',
-      instanceChargeType: 'InstanceChargeType',
-      internetChargeType: 'InternetChargeType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoCreate: 'boolean',
-      bandwidth: 'string',
-      eipInstanceId: 'string',
-      instanceChargeType: 'string',
-      internetChargeType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAddonTemplateResponseBodyAddonResourcesSpec extends $tea.Model {
-  /**
-   * @remarks
-   * The Elastic Compute Service (ECS) resource configurations of the addon.
-   */
-  ecsResources?: AddonNodeTemplate[];
-  /**
-   * @remarks
-   * The Elastic IP Address (EIP) configurations of the service.
-   */
-  eipResource?: DescribeAddonTemplateResponseBodyAddonResourcesSpecEipResource;
-  static names(): { [key: string]: string } {
-    return {
-      ecsResources: 'EcsResources',
-      eipResource: 'EipResource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ecsResources: { 'type': 'array', 'itemType': AddonNodeTemplate },
-      eipResource: DescribeAddonTemplateResponseBodyAddonResourcesSpecEipResource,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAddonTemplateResponseBodyAddonServicesSpecInputParams extends $tea.Model {
-  /**
-   * @remarks
-   * The help information of the parameter.
-   */
-  helpText?: string;
-  /**
-   * @remarks
-   * The parameter label.
-   */
-  label?: string;
-  /**
-   * @remarks
-   * The parameter name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * MYSQL_HOME
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The parameter type.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * String
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The parameter value.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * usr/local/mysql
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      helpText: 'HelpText',
-      label: 'Label',
-      name: 'Name',
-      type: 'Type',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      helpText: 'string',
-      label: 'string',
-      name: 'string',
-      type: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAddonTemplateResponseBodyAddonServicesSpecNetworkACL extends $tea.Model {
-  /**
-   * @remarks
-   * The protocol type. Valid values:
-   * 
-   * *   **TCP**: forwards TCP packets.
-   * *   **UDP**: forwards UDP packets.
-   * *   **Any**: forwards all packets.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TCP
-   */
-  ipProtocol?: string;
-  /**
-   * @remarks
-   * The port number.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 3306
-   */
-  port?: number;
-  /**
-   * @remarks
-   * The source CIDR block.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 172.16.0.0/12
-   */
-  sourceCidrIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ipProtocol: 'IpProtocol',
-      port: 'Port',
-      sourceCidrIp: 'SourceCidrIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipProtocol: 'string',
-      port: 'number',
-      sourceCidrIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAddonTemplateResponseBodyAddonServicesSpec extends $tea.Model {
-  /**
-   * @remarks
-   * The parameter configurations of the service.
-   */
-  inputParams?: DescribeAddonTemplateResponseBodyAddonServicesSpecInputParams[];
-  /**
-   * @remarks
-   * The security group configurations of the service.
-   */
-  networkACL?: DescribeAddonTemplateResponseBodyAddonServicesSpecNetworkACL[];
-  /**
-   * @remarks
-   * The service access type.
-   * 
-   * @example
-   * URL
-   */
-  serviceAccessType?: string;
-  /**
-   * @remarks
-   * The service access URL.
-   * 
-   * @example
-   * https://47.96.xx.xx:12008
-   */
-  serviceAccessUrl?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Web Portal
-   */
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inputParams: 'InputParams',
-      networkACL: 'NetworkACL',
-      serviceAccessType: 'ServiceAccessType',
-      serviceAccessUrl: 'ServiceAccessUrl',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputParams: { 'type': 'array', 'itemType': DescribeAddonTemplateResponseBodyAddonServicesSpecInputParams },
-      networkACL: { 'type': 'array', 'itemType': DescribeAddonTemplateResponseBodyAddonServicesSpecNetworkACL },
-      serviceAccessType: 'string',
-      serviceAccessUrl: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAddonTemplateResponseBodyAddon extends $tea.Model {
-  /**
-   * @remarks
-   * The addon description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The addon icon.
-   * 
-   * @example
-   * /assets/icons/your_icon.svg
-   */
-  icon?: string;
-  /**
-   * @remarks
-   * The addon label.
-   */
-  label?: string;
-  /**
-   * @remarks
-   * The date when the addon template was last updated.
-   * 
-   * @example
-   * 2024-08-22 18:11:17
-   */
-  lastUpdate?: string;
-  /**
-   * @remarks
-   * The addon name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Login
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The resource configurations of the addon.
-   */
-  resourcesSpec?: DescribeAddonTemplateResponseBodyAddonResourcesSpec;
-  /**
-   * @remarks
-   * The addon configurations.
-   */
-  servicesSpec?: DescribeAddonTemplateResponseBodyAddonServicesSpec[];
-  /**
-   * @remarks
-   * The addon version.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      icon: 'Icon',
-      label: 'Label',
-      lastUpdate: 'LastUpdate',
-      name: 'Name',
-      resourcesSpec: 'ResourcesSpec',
-      servicesSpec: 'ServicesSpec',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      icon: 'string',
-      label: 'string',
-      lastUpdate: 'string',
-      name: 'string',
-      resourcesSpec: DescribeAddonTemplateResponseBodyAddonResourcesSpec,
-      servicesSpec: { 'type': 'array', 'itemType': DescribeAddonTemplateResponseBodyAddonServicesSpec },
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetachSharedStoragesRequestSharedStorages extends $tea.Model {
-  /**
-   * @remarks
-   * The local mount directory of the mounted file system.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * /test
-   */
-  mountDirectory?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mountDirectory: 'MountDirectory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountDirectory: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddonResponseBodyAddonResourcesSpecEipResource extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the EIP is automatically created.
-   * 
-   * @example
-   * True
-   */
-  autoCreate?: boolean;
-  /**
-   * @remarks
-   * The maximum bandwidth of the EIP. Unit: Mbit/s.
-   * 
-   * @example
-   * 100
-   */
-  bandwidth?: string;
-  /**
-   * @remarks
-   * The EIP.
-   * 
-   * @example
-   * 39.108.xx.xx
-   */
-  eipAddress?: string;
-  /**
-   * @remarks
-   * The EIP ID.
-   * 
-   * @example
-   * eip-bp1vi9124tbx1g3kr****
-   */
-  eipInstanceId?: string;
-  /**
-   * @remarks
-   * The billing method of the EIP.
-   * 
-   * *   PostPaid: pay-as-you-go.
-   * *   PrePaid: subscription.
-   * 
-   * Default value: PostPaid.
-   * 
-   * @example
-   * PostPaid
-   */
-  instanceChargeType?: string;
-  /**
-   * @remarks
-   * The metering method of the EIP. Valid values:
-   * 
-   * *   PayByBandwidth: pay by bandwidth.
-   * *   PayByTraffic: pay by data transfer.
-   * 
-   * Valid values of N: 1 to 10.
-   * 
-   * @example
-   * PayByTraffic
-   */
-  internetChargeType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoCreate: 'AutoCreate',
-      bandwidth: 'Bandwidth',
-      eipAddress: 'EipAddress',
-      eipInstanceId: 'EipInstanceId',
-      instanceChargeType: 'InstanceChargeType',
-      internetChargeType: 'InternetChargeType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoCreate: 'boolean',
-      bandwidth: 'string',
-      eipAddress: 'string',
-      eipInstanceId: 'string',
-      instanceChargeType: 'string',
-      internetChargeType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddonResponseBodyAddonResourcesSpec extends $tea.Model {
-  /**
-   * @remarks
-   * The Elastic Compute Service (ECS) resource configurations of the addon.
-   */
-  ecsResources?: AddonNodeTemplate[];
-  /**
-   * @remarks
-   * The Elastic IP Address (EIP) configurations.
-   */
-  eipResource?: GetAddonResponseBodyAddonResourcesSpecEipResource;
-  static names(): { [key: string]: string } {
-    return {
-      ecsResources: 'EcsResources',
-      eipResource: 'EipResource',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ecsResources: { 'type': 'array', 'itemType': AddonNodeTemplate },
-      eipResource: GetAddonResponseBodyAddonResourcesSpecEipResource,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddonResponseBodyAddonServicesSpecInputParams extends $tea.Model {
-  /**
-   * @remarks
-   * The help information of the parameter.
-   */
-  helpText?: string;
-  /**
-   * @remarks
-   * The parameter label.
-   */
-  label?: string;
-  /**
-   * @remarks
-   * The parameter name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * MYSQL_HOME
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The parameter type.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * String
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The parameter value.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * usr/local/mysql
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      helpText: 'HelpText',
-      label: 'Label',
-      name: 'Name',
-      type: 'Type',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      helpText: 'string',
-      label: 'string',
-      name: 'string',
-      type: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddonResponseBodyAddonServicesSpecNetworkACL extends $tea.Model {
-  /**
-   * @remarks
-   * The protocol type. Valid values:
-   * 
-   * TCP: forwards TCP packets.
-   * 
-   * UDP: forwards UDP packets.
-   * 
-   * Any: forwards all packets.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TCP
-   */
-  ipProtocol?: string;
-  /**
-   * @remarks
-   * The port number.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 3306
-   */
-  port?: number;
-  /**
-   * @remarks
-   * The source CIDR block.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 172.16.0.0/12
-   */
-  sourceCidrIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ipProtocol: 'IpProtocol',
-      port: 'Port',
-      sourceCidrIp: 'SourceCidrIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipProtocol: 'string',
-      port: 'number',
-      sourceCidrIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddonResponseBodyAddonServicesSpec extends $tea.Model {
-  /**
-   * @remarks
-   * The parameter configurations of the service.
-   */
-  inputParams?: GetAddonResponseBodyAddonServicesSpecInputParams[];
-  /**
-   * @remarks
-   * The security group configurations of the service.
-   */
-  networkACL?: GetAddonResponseBodyAddonServicesSpecNetworkACL[];
-  /**
-   * @remarks
-   * The service access type.
-   * 
-   * @example
-   * URL
-   */
-  serviceAccessType?: string;
-  /**
-   * @remarks
-   * The service access URL.
-   * 
-   * @example
-   * https://47.96.xx.xx:12008
-   */
-  serviceAccessUrl?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Web Portal
-   */
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inputParams: 'InputParams',
-      networkACL: 'NetworkACL',
-      serviceAccessType: 'ServiceAccessType',
-      serviceAccessUrl: 'ServiceAccessUrl',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputParams: { 'type': 'array', 'itemType': GetAddonResponseBodyAddonServicesSpecInputParams },
-      networkACL: { 'type': 'array', 'itemType': GetAddonResponseBodyAddonServicesSpecNetworkACL },
-      serviceAccessType: 'string',
-      serviceAccessUrl: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAddonResponseBodyAddon extends $tea.Model {
-  /**
-   * @remarks
-   * The addon ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Login-1.0-W2g****
-   */
-  addonId?: string;
-  /**
-   * @remarks
-   * The addon description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The addon icon.
-   * 
-   * @example
-   * /assets/icons/your_icon.svg
-   */
-  icon?: string;
-  /**
-   * @remarks
-   * The time when the addon was installed.
-   * 
-   * @example
-   * 2024-08-22 18:11:17
-   */
-  installTime?: string;
-  /**
-   * @remarks
-   * The addon label.
-   */
-  label?: string;
-  /**
-   * @remarks
-   * The addon name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Login
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The resource configurations of the addon.
-   */
-  resourcesSpec?: GetAddonResponseBodyAddonResourcesSpec;
-  /**
-   * @remarks
-   * The service configurations of the addon.
-   */
-  servicesSpec?: GetAddonResponseBodyAddonServicesSpec[];
-  /**
-   * @remarks
-   * The addon status.
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The addon version.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addonId: 'AddonId',
-      description: 'Description',
-      icon: 'Icon',
-      installTime: 'InstallTime',
-      label: 'Label',
-      name: 'Name',
-      resourcesSpec: 'ResourcesSpec',
-      servicesSpec: 'ServicesSpec',
-      status: 'Status',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addonId: 'string',
-      description: 'string',
-      icon: 'string',
-      installTime: 'string',
-      label: 'string',
-      name: 'string',
-      resourcesSpec: GetAddonResponseBodyAddonResourcesSpec,
-      servicesSpec: { 'type': 'array', 'itemType': GetAddonResponseBodyAddonServicesSpec },
-      status: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClusterResponseBodyClusterCustomConfiguration extends $tea.Model {
-  /**
-   * @remarks
-   * The arguments that are used to run the script after the scrip is installed.
-   * 
-   * @example
-   * E-HPC cn-hangzhou
-   */
-  args?: string;
-  /**
-   * @remarks
-   * The URL that is used to download the post-processing script.
-   * 
-   * @example
-   * http://*****
-   */
-  script?: string;
-  static names(): { [key: string]: string } {
-    return {
-      args: 'Args',
-      script: 'Script',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      args: 'string',
-      script: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClusterResponseBodyManagerDNS extends $tea.Model {
-  /**
-   * @remarks
-   * The state of the domain name resolution service. Valid values:
-   * 
-   * *   uninit: The service is being installed.
-   * *   initing: The service is being initialized.
-   * *   running: The service is running.
-   * *   exception: The service has run into an exception.
-   * *   releasing: The service is being released.
-   * *   stopped: The service is stopped.
-   * *   pending: The service is waiting to be configured.
-   * 
-   * @example
-   * running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The resolution type.
-   * 
-   * @example
-   * nis
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The version of the resolution service.
-   * 
-   * @example
-   * 2.31
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      type: 'Type',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClusterResponseBodyManagerDirectoryService extends $tea.Model {
-  /**
-   * @remarks
-   * The state of the domain account service. Valid values:
-   * 
-   * *   uninit: The service is being installed.
-   * *   initing: The service is being initialized.
-   * *   running: The service is running.
-   * *   exception: The service has run into an exception.
-   * *   releasing: The service is being released.
-   * *   stopped: The service is stopped.
-   * *   pending: The service is waiting to be configured.
-   * 
-   * @example
-   * running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The type of the domain account.
-   * 
-   * @example
-   * nis
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The version of the domain account service.
-   * 
-   * @example
-   * 2.31
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      type: 'Type',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClusterResponseBodyManagerManagerNode extends $tea.Model {
-  /**
-   * @remarks
-   * The expiration time of the management node.
-   * 
-   * @example
-   * 2099-12-31T15:59Z
-   */
-  expiredTime?: string;
-  /**
-   * @remarks
-   * The instance billing method of the management node. Valid values:
-   * 
-   * *   PostPaid: pay-as-you-go
-   * *   PrePaid: subscription
-   * 
-   * @example
-   * PostPaid
-   */
-  instanceChargeType?: string;
-  /**
-   * @remarks
-   * The instance ID of the management node.
-   * 
-   * @example
-   * i-bp1a170jgea1vl******
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The instance type of the management node.
-   * 
-   * @example
-   * ecs.g6.4xlarge
-   */
-  instanceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      expiredTime: 'ExpiredTime',
-      instanceChargeType: 'InstanceChargeType',
-      instanceId: 'InstanceId',
-      instanceType: 'InstanceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      expiredTime: 'string',
-      instanceChargeType: 'string',
-      instanceId: 'string',
-      instanceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClusterResponseBodyManagerScheduler extends $tea.Model {
-  /**
-   * @remarks
-   * The scheduler state. Valid values:
-   * 
-   * *   uninit: The scheduler is being installed.
-   * *   initing: The scheduler is being initialized.
-   * *   running: The scheduler is running.
-   * *   exception: The scheduler has run into an exception.
-   * *   releasing: The scheduler is being released.
-   * *   stopped: The scheduler is stopped.
-   * *   pending: The scheduler is waiting to be configured.
-   * 
-   * @example
-   * running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The scheduler type. Valid values:
-   * 
-   * *   SLURM
-   * *   PBS
-   * *   OPENGRIDSCHEDULER
-   * *   LSF_PLUGIN
-   * *   PBS_PLUGIN
-   * 
-   * @example
-   * SLURM
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The scheduler version.
-   * 
-   * @example
-   * 22.05.8
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      type: 'Type',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClusterResponseBodyManager extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of the domain name resolution service.
-   */
-  DNS?: GetClusterResponseBodyManagerDNS;
-  /**
-   * @remarks
-   * The information about the domain account service.
-   */
-  directoryService?: GetClusterResponseBodyManagerDirectoryService;
-  /**
-   * @remarks
-   * The configurations of the management node.
-   */
-  managerNode?: GetClusterResponseBodyManagerManagerNode;
-  /**
-   * @remarks
-   * The information about the scheduler.
-   */
-  scheduler?: GetClusterResponseBodyManagerScheduler;
-  static names(): { [key: string]: string } {
-    return {
-      DNS: 'DNS',
-      directoryService: 'DirectoryService',
-      managerNode: 'ManagerNode',
-      scheduler: 'Scheduler',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DNS: GetClusterResponseBodyManagerDNS,
-      directoryService: GetClusterResponseBodyManagerDirectoryService,
-      managerNode: GetClusterResponseBodyManagerManagerNode,
-      scheduler: GetClusterResponseBodyManagerScheduler,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClusterResponseBodyMonitorSpec extends $tea.Model {
-  enableComputeLoadMonitor?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enableComputeLoadMonitor: 'EnableComputeLoadMonitor',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableComputeLoadMonitor: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetClusterResponseBodySchedulerSpec extends $tea.Model {
-  enableTopologyAwareness?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enableTopologyAwareness: 'EnableTopologyAwareness',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableTopologyAwareness: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCommonLogDetailResponseBodyLogDetailStages extends $tea.Model {
-  /**
-   * @remarks
-   * The log level.
-   * 
-   * Valid values:
-   * 
-   * *   ERROR
-   * *   INFO
-   * *   WARN
-   * 
-   * @example
-   * INFO
-   */
-  logLevel?: string;
-  /**
-   * @remarks
-   * The output message of the log.
-   * 
-   * @example
-   * Successfully created security group sg-bcd***
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The method involved in the log.
-   * 
-   * @example
-   * CreateSecurityGroup
-   */
-  method?: string;
-  /**
-   * @remarks
-   * The request ID associated with the log.
-   * 
-   * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE7****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The action state involved in the log. Valid values:
-   * 
-   * *   InProgress: The action is being performed.
-   * *   Finished: The action is completed.
-   * *   Failed: The action failed.
-   * 
-   * @example
-   * Finished
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The resource involved in the log.
-   * 
-   * @example
-   * sg-bcd***
-   */
-  target?: string;
-  /**
-   * @remarks
-   * The time when the log was generated.
-   * 
-   * @example
-   * 2024-08-22 14:21:54
-   */
-  time?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logLevel: 'LogLevel',
-      message: 'Message',
-      method: 'Method',
-      requestId: 'RequestId',
-      status: 'Status',
-      target: 'Target',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logLevel: 'string',
-      message: 'string',
-      method: 'string',
-      requestId: 'string',
-      status: 'string',
-      target: 'string',
-      time: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetCommonLogDetailResponseBodyLogDetail extends $tea.Model {
-  /**
-   * @remarks
-   * The stage name of the log.
-   * 
-   * @example
-   * ConfigNetwork
-   */
-  stageName?: string;
-  /**
-   * @remarks
-   * The information about the log stages.
-   */
-  stages?: GetCommonLogDetailResponseBodyLogDetailStages[];
-  static names(): { [key: string]: string } {
-    return {
-      stageName: 'StageName',
-      stages: 'Stages',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      stageName: 'string',
-      stages: { 'type': 'array', 'itemType': GetCommonLogDetailResponseBodyLogDetailStages },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobResponseBodyJobInfoResources extends $tea.Model {
-  /**
-   * @remarks
-   * The number of vCPUs used by the job on each node.
-   * 
-   * @example
-   * 2
-   */
-  cores?: string;
-  /**
-   * @remarks
-   * The number of GPUs used by the job on each node.
-   * 
-   * @example
-   * 1
-   */
-  gpus?: string;
-  /**
-   * @remarks
-   * The memory size used by the job on each node.
-   * 
-   * @example
-   * 1gb
-   */
-  memory?: string;
-  /**
-   * @remarks
-   * The number of nodes that are used to run the job.
-   * 
-   * @example
-   * 1
-   */
-  nodes?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cores: 'Cores',
-      gpus: 'Gpus',
-      memory: 'Memory',
-      nodes: 'Nodes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cores: 'string',
-      gpus: 'string',
-      memory: 'string',
-      nodes: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobResponseBodyJobInfoResourcesUsed extends $tea.Model {
-  /**
-   * @remarks
-   * The number of vCPUs used by the job on each node.
-   * 
-   * @example
-   * 2
-   */
-  cores?: string;
-  /**
-   * @remarks
-   * The memory size used by the job on each node.
-   * 
-   * @example
-   * 512mb
-   */
-  memory?: string;
-  /**
-   * @remarks
-   * The number of nodes that are used to run the job.
-   * 
-   * @example
-   * 2
-   */
-  nodes?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cores: 'Cores',
-      memory: 'Memory',
-      nodes: 'Nodes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cores: 'string',
-      memory: 'string',
-      nodes: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobResponseBodyJobInfoVariables extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the environment variable.
-   * 
-   * @example
-   * ProxyIP
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The value of the environment variable.
-   * 
-   * @example
-   * 10.x.x.x
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetJobResponseBodyJobInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The parent job ID. If the return value is a non-empty string, the job is an array job.
-   * 
-   * @example
-   * 1
-   */
-  arrayJobId?: string;
-  /**
-   * @remarks
-   * The sub-job ID. This parameter is valid when the ArrayJobId parameter is a non-empty string.
-   * 
-   * @example
-   * 3
-   */
-  arrayJobSubId?: string;
-  /**
-   * @remarks
-   * The job queue. If the job is not in a queue, the output is empty.
-   * 
-   * The format is X-Y:Z. X indicates the first index, Y indicates the final index, and Z indicates the step size. For example, 2-7:2 indicates three sub-jobs numbered 2, 4, and 6.
-   * 
-   * @example
-   * 1-5:2
-   */
-  arrayRequest?: string;
-  /**
-   * @remarks
-   * The command that is used to run the job.
-   * 
-   * @example
-   * /home/huangsf/ehpc/job_meta.pbs
-   */
-  commandLine?: string;
-  /**
-   * @remarks
-   * The time when the job was submitted.
-   * 
-   * @example
-   * 2024-08-16T10:52:48
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The error log file of the job.
-   * 
-   * @example
-   * /home/xxx/STDIN.e1
-   */
-  errorLog?: string;
-  /**
-   * @remarks
-   * Additional information.
-   * 
-   * @example
-   * {}
-   */
-  extraInfo?: string;
-  /**
-   * @remarks
-   * The job ID.
-   * 
-   * @example
-   * 1.manager
-   */
-  jobId?: string;
-  /**
-   * @remarks
-   * The job name.
-   * 
-   * @example
-   * testJob
-   */
-  jobName?: string;
-  /**
-   * @remarks
-   * The queue to which the job belongs.
-   * 
-   * @example
-   * workq
-   */
-  jobQueue?: string;
-  /**
-   * @remarks
-   * The time when the job was last modified.
-   * 
-   * @example
-   * 2024-08-16T10:52:48
-   */
-  lastModifyTime?: string;
-  /**
-   * @remarks
-   * The compute nodes that are used to run the job.
-   * 
-   * @example
-   * compute000
-   */
-  nodeList?: string;
-  /**
-   * @remarks
-   * The standard output log file of the job.
-   * 
-   * @example
-   * /home/xxx/STDIN.o1
-   */
-  outputLog?: string;
-  /**
-   * @remarks
-   * The priority of the job.
-   * 
-   * @example
-   * 0
-   */
-  priority?: string;
-  /**
-   * @remarks
-   * The resources that were requested when the job was submitted.
-   */
-  resources?: GetJobResponseBodyJobInfoResources;
-  /**
-   * @remarks
-   * The resources that are actually used by the job.
-   */
-  resourcesUsed?: GetJobResponseBodyJobInfoResourcesUsed;
-  /**
-   * @remarks
-   * The user to which the job belongs or that is used to submit the job. This user is a cluster-side user.
-   * 
-   * @example
-   * testuser
-   */
-  runasUser?: string;
-  /**
-   * @remarks
-   * The time when the job was started.
-   * 
-   * @example
-   * 2024-08-16T10:52:48
-   */
-  startTime?: string;
-  /**
-   * @remarks
-   * The job state.
-   * 
-   * @example
-   * Running
-   */
-  state?: string;
-  /**
-   * @remarks
-   * The variables of the job.
-   */
-  variables?: GetJobResponseBodyJobInfoVariables[];
-  static names(): { [key: string]: string } {
-    return {
-      arrayJobId: 'ArrayJobId',
-      arrayJobSubId: 'ArrayJobSubId',
-      arrayRequest: 'ArrayRequest',
-      commandLine: 'CommandLine',
-      createTime: 'CreateTime',
-      errorLog: 'ErrorLog',
-      extraInfo: 'ExtraInfo',
-      jobId: 'JobId',
-      jobName: 'JobName',
-      jobQueue: 'JobQueue',
-      lastModifyTime: 'LastModifyTime',
-      nodeList: 'NodeList',
-      outputLog: 'OutputLog',
-      priority: 'Priority',
-      resources: 'Resources',
-      resourcesUsed: 'ResourcesUsed',
-      runasUser: 'RunasUser',
-      startTime: 'StartTime',
-      state: 'State',
-      variables: 'Variables',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      arrayJobId: 'string',
-      arrayJobSubId: 'string',
-      arrayRequest: 'string',
-      commandLine: 'string',
-      createTime: 'string',
-      errorLog: 'string',
-      extraInfo: 'string',
-      jobId: 'string',
-      jobName: 'string',
-      jobQueue: 'string',
-      lastModifyTime: 'string',
-      nodeList: 'string',
-      outputLog: 'string',
-      priority: 'string',
-      resources: GetJobResponseBodyJobInfoResources,
-      resourcesUsed: GetJobResponseBodyJobInfoResourcesUsed,
-      runasUser: 'string',
-      startTime: 'string',
-      state: 'string',
-      variables: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoVariables },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetQueueResponseBodyQueue extends $tea.Model {
-  /**
-   * @remarks
-   * The auto scale-out policy of the queue.
-   * 
-   * @example
-   * PriorityInstanceType
-   */
-  allocationStrategy?: string;
-  /**
-   * @remarks
-   * The hardware configurations of the compute nodes in the queue.
-   */
-  computeNodes?: NodeTemplate[];
-  /**
-   * @remarks
-   * Indicates whether auto scale-in is enabled for the queue. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  enableScaleIn?: boolean;
-  /**
-   * @remarks
-   * Indicates whether auto scale-out is enabled for the queue. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  enableScaleOut?: boolean;
-  /**
-   * @remarks
-   * The hostname prefix of the compute nodes in the queue.
-   * 
-   * @example
-   * compute
-   */
-  hostnamePrefix?: string;
-  /**
-   * @remarks
-   * The hostname suffix of the compute nodes in the queue.
-   * 
-   * @example
-   * demo
-   */
-  hostnameSuffix?: string;
-  /**
-   * @remarks
-   * The initial number of nodes in the queue.
-   * 
-   * @example
-   * 0
-   */
-  initialCount?: number;
-  /**
-   * @remarks
-   * The type of the network between compute nodes in the queue. Valid values:
-   * 
-   * *   vpc
-   * *   eRDMA
-   * 
-   * @example
-   * erdma
-   */
-  interConnect?: string;
-  /**
-   * @remarks
-   * The nodes for which deletion protection is enabled in the queue.
-   */
-  keepAliveNodes?: string[];
-  /**
-   * @remarks
-   * The maximum number of compute nodes that the queue can contain.
-   * 
-   * @example
-   * 1000
-   */
-  maxCount?: number;
-  /**
-   * @remarks
-   * The minimum number of nodes that are delivered to the queue in each scale-out cycle.
-   * 
-   * @example
-   * 99
-   */
-  maxCountPerCycle?: number;
-  /**
-   * @remarks
-   * The minimum number of compute nodes that the queue must contain.
-   * 
-   * @example
-   * 0
-   */
-  minCount?: number;
-  /**
-   * @remarks
-   * The queue name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * comp
-   */
-  queueName?: string;
-  /**
-   * @remarks
-   * The Resource Access Management (RAM) role that is assumed by compute nodes in the queue.
-   * 
-   * @example
-   * AliyunECSInstanceForEHPCRole
-   */
-  ramRole?: string;
-  /**
-   * @remarks
-   * The available vSwitches for compute nodes in the queue. Valid values of N: 1 to 5.
-   */
-  vSwitchIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      allocationStrategy: 'AllocationStrategy',
-      computeNodes: 'ComputeNodes',
-      enableScaleIn: 'EnableScaleIn',
-      enableScaleOut: 'EnableScaleOut',
-      hostnamePrefix: 'HostnamePrefix',
-      hostnameSuffix: 'HostnameSuffix',
-      initialCount: 'InitialCount',
-      interConnect: 'InterConnect',
-      keepAliveNodes: 'KeepAliveNodes',
-      maxCount: 'MaxCount',
-      maxCountPerCycle: 'MaxCountPerCycle',
-      minCount: 'MinCount',
-      queueName: 'QueueName',
-      ramRole: 'RamRole',
-      vSwitchIds: 'VSwitchIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allocationStrategy: 'string',
-      computeNodes: { 'type': 'array', 'itemType': NodeTemplate },
-      enableScaleIn: 'boolean',
-      enableScaleOut: 'boolean',
-      hostnamePrefix: 'string',
-      hostnameSuffix: 'string',
-      initialCount: 'number',
-      interConnect: 'string',
-      keepAliveNodes: { 'type': 'array', 'itemType': 'string' },
-      maxCount: 'number',
-      maxCountPerCycle: 'number',
-      minCount: 'number',
-      queueName: 'string',
-      ramRole: 'string',
-      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InstallSoftwaresRequestAdditionalPackages extends $tea.Model {
-  /**
-   * @remarks
-   * The software name.
-   * 
-   * @example
-   * gromacs
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The software version.
-   * 
-   * @example
-   * 2024.1
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAddonTemplatesResponseBodyAddons extends $tea.Model {
-  /**
-   * @remarks
-   * The addon description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The addon label
-   */
-  label?: string;
-  /**
-   * @remarks
-   * The addon name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Login
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The addon version.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      label: 'Label',
-      name: 'Name',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      label: 'string',
-      name: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAddonsResponseBodyAddons extends $tea.Model {
-  /**
-   * @remarks
-   * The addon ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Login-1.0-W4g****
-   */
-  addonId?: string;
-  /**
-   * @remarks
-   * The addon description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The time when the addon was installed.
-   * 
-   * @example
-   * 2024-08-22 18:11:17
-   */
-  installTime?: string;
-  /**
-   * @remarks
-   * The addon label.
-   */
-  label?: string;
-  /**
-   * @remarks
-   * The addon name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Login
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The addon state.
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The addon version.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addonId: 'AddonId',
-      description: 'Description',
-      installTime: 'InstallTime',
-      label: 'Label',
-      name: 'Name',
-      status: 'Status',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addonId: 'string',
-      description: 'string',
-      installTime: 'string',
-      label: 'string',
-      name: 'string',
-      status: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAvailableFileSystemsResponseBodyFileSystemListMountTargetList extends $tea.Model {
-  /**
-   * @remarks
-   * The address of the mount target.
-   * 
-   * @example
-   * c0967****.cn-hangzhou.cpfs.nas.aliyuncs.com
-   */
-  mountTargetDomain?: string;
-  /**
-   * @remarks
-   * The network type. Valid values: Valid values:
-   * 
-   * *   vpc
-   * 
-   * @example
-   * vpc
-   */
-  networkType?: string;
-  /**
-   * @remarks
-   * The state of the mount target. Valid values:
-   * 
-   * *   Active: The mount target is available.
-   * *   Inactive: The mount target is unavailable.
-   * *   Pending: The mount target is being mounted.
-   * *   Deleting: The mount target is being deleted.
-   * 
-   * @example
-   * Active
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-2ze0c41hwu7lc29ris***
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * The virtual private cloud (VPC) ID.
-   * 
-   * @example
-   * vpc-8vbvb34rtyh6xb3zrehs1****
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mountTargetDomain: 'MountTargetDomain',
-      networkType: 'NetworkType',
-      status: 'Status',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountTargetDomain: 'string',
-      networkType: 'string',
-      status: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAvailableFileSystemsResponseBodyFileSystemList extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the file system was created.
-   * 
-   * @example
-   * 2024-7-29 15:43:53
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The ID of the file system.
-   * 
-   * @example
-   * 2fa0248***
-   */
-  fileSystemId?: string;
-  /**
-   * @remarks
-   * The type of the file system. Valid values:
-   * 
-   * *   standard: general-purpose network-attached storage (NAS) file system
-   * *   extreme: extreme NAS file system
-   * 
-   * @example
-   * cpfs
-   */
-  fileSystemType?: string;
-  /**
-   * @remarks
-   * The mount targets of the file system.
-   */
-  mountTargetList?: ListAvailableFileSystemsResponseBodyFileSystemListMountTargetList[];
-  /**
-   * @remarks
-   * The protocol type of the file system. Valid values:
-   * 
-   * *   nfs
-   * *   smb
-   * *   cpfs
-   * 
-   * @example
-   * cpfs
-   */
-  protocolType?: string;
-  /**
-   * @remarks
-   * The state of the file system. Valid values:
-   * 
-   * *   Pending: The file system is processing a task.
-   * *   Running: The file system is available. You can perform subsequent operations, such as creating a mount target, only when the file system is in the Running state.
-   * *   Stopped: The file system is unavailable.
-   * *   Extending: The file system is being scaled out.
-   * *   Stopping: The file system is being stopped.
-   * *   Deleting: The file system is being deleted.
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The storage type of the file system.
-   * 
-   * *   Valid values if FileSystemType is set to standard: Capacity and Performance.
-   * *   Valid values if FileSystemType is set to extreme: standard and advance.
-   * 
-   * @example
-   * Performance
-   */
-  storageType?: string;
-  /**
-   * @remarks
-   * The VPC ID.
-   * 
-   * @example
-   * vpc-bp132kgui8n0targb****
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      fileSystemId: 'FileSystemId',
-      fileSystemType: 'FileSystemType',
-      mountTargetList: 'MountTargetList',
-      protocolType: 'ProtocolType',
-      status: 'Status',
-      storageType: 'StorageType',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      fileSystemId: 'string',
-      fileSystemType: 'string',
-      mountTargetList: { 'type': 'array', 'itemType': ListAvailableFileSystemsResponseBodyFileSystemListMountTargetList },
-      protocolType: 'string',
-      status: 'string',
-      storageType: 'string',
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAvailableImagesRequestDirectoryService extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the domain account.
-   * 
-   * @example
-   * NIS
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The version of the domain account service.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAvailableImagesRequestScheduler extends $tea.Model {
-  /**
-   * @remarks
-   * The scheduler type.
-   * 
-   * @example
-   * SLURM
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The scheduler version.
-   * 
-   * @example
-   * 22.05.8
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAvailableImagesResponseBodyImages extends $tea.Model {
-  /**
-   * @remarks
-   * The OS architecture of the image. Valid values:
-   * 
-   * *   x86_64
-   * *   arm64
-   * 
-   * @example
-   * x86_64
-   */
-  architecture?: string;
-  /**
-   * @remarks
-   * The boot mode of the image. Valid values:
-   * 
-   * *   BIOS: Basic Input/Output System (BIOS).
-   * *   UEFI: Unified Extensible Firmware Interface (UEFI).
-   * 
-   * >  When you change the OS boot mode of an instance, you must make sure that the boot mode matches the boot mode of the associated image. Otherwise, the instance fails to be booted.
-   * 
-   * @example
-   * BIOS
-   */
-  bootMode?: string;
-  /**
-   * @remarks
-   * The image description.
-   * 
-   * @example
-   * ExampleDescription
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The image ID.
-   * 
-   * @example
-   * centos_7_06_64_20G_alibase_2019071****
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The image name.
-   * 
-   * @example
-   * CHESS5V5.0.27
-   */
-  imageName?: string;
-  /**
-   * @remarks
-   * The image source. Valid values:
-   * 
-   * *   system: system image.
-   * *   self: custom image.
-   * *   others: shared image.
-   * 
-   * @example
-   * self
-   */
-  imageOwnerAlias?: string;
-  /**
-   * @remarks
-   * The OS name in Chinese.
-   */
-  OSName?: string;
-  /**
-   * @remarks
-   * The OS name in English.
-   * 
-   * @example
-   * CentOS  7.9 64 bit
-   */
-  OSNameEn?: string;
-  /**
-   * @remarks
-   * The OS. Valid values:
-   * 
-   * *   CentOS
-   * *   windows
-   * 
-   * @example
-   * windows
-   */
-  platform?: string;
-  /**
-   * @remarks
-   * The image size. Unit: GiB
-   * 
-   * @example
-   * 40
-   */
-  size?: string;
-  static names(): { [key: string]: string } {
-    return {
-      architecture: 'Architecture',
-      bootMode: 'BootMode',
-      description: 'Description',
-      imageId: 'ImageId',
-      imageName: 'ImageName',
-      imageOwnerAlias: 'ImageOwnerAlias',
-      OSName: 'OSName',
-      OSNameEn: 'OSNameEn',
-      platform: 'Platform',
-      size: 'Size',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architecture: 'string',
-      bootMode: 'string',
-      description: 'string',
-      imageId: 'string',
-      imageName: 'string',
-      imageOwnerAlias: 'string',
-      OSName: 'string',
-      OSNameEn: 'string',
-      platform: 'string',
-      size: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponseBodyClustersAdditionalPackages extends $tea.Model {
-  /**
-   * @remarks
-   * The software name.
-   * 
-   * @example
-   * gromacs
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The software version.
-   * 
-   * @example
-   * 2024.1
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponseBodyClustersAddonsResourcesSpec extends $tea.Model {
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * i-bp1bg85d2q6laic8****
-   */
-  ecsInstanceId?: string;
-  /**
-   * @remarks
-   * The Elastic IP Address (EIP) ID.
-   * 
-   * @example
-   * eip-bp1vi9124tbx1g3kr****
-   */
-  eipInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ecsInstanceId: 'EcsInstanceId',
-      eipInstanceId: 'EipInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ecsInstanceId: 'string',
-      eipInstanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponseBodyClustersAddonsServicesSpec extends $tea.Model {
-  /**
-   * @remarks
-   * The service access type.
-   * 
-   * @example
-   * URL
-   */
-  serviceAccessType?: string;
-  /**
-   * @remarks
-   * The service access URL.
-   * 
-   * @example
-   * https://47.96.xx.xx:12008
-   */
-  serviceAccessUrl?: string;
-  /**
-   * @remarks
-   * The service name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Web Portal
-   */
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceAccessType: 'ServiceAccessType',
-      serviceAccessUrl: 'ServiceAccessUrl',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceAccessType: 'string',
-      serviceAccessUrl: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponseBodyClustersAddons extends $tea.Model {
-  /**
-   * @remarks
-   * The addon ID.
-   * 
-   * @example
-   * Login-1.0-W2g****
-   */
-  addonId?: string;
-  /**
-   * @remarks
-   * The addon description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The addon label.
-   */
-  label?: string;
-  /**
-   * @remarks
-   * The addon name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Login
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The resource configurations of the addon.
-   */
-  resourcesSpec?: ListClustersResponseBodyClustersAddonsResourcesSpec;
-  /**
-   * @remarks
-   * The information about the addon services.
-   */
-  servicesSpec?: ListClustersResponseBodyClustersAddonsServicesSpec[];
-  /**
-   * @remarks
-   * The addon state.
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The addon version.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1.0
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addonId: 'AddonId',
-      description: 'Description',
-      label: 'Label',
-      name: 'Name',
-      resourcesSpec: 'ResourcesSpec',
-      servicesSpec: 'ServicesSpec',
-      status: 'Status',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addonId: 'string',
-      description: 'string',
-      label: 'string',
-      name: 'string',
-      resourcesSpec: ListClustersResponseBodyClustersAddonsResourcesSpec,
-      servicesSpec: { 'type': 'array', 'itemType': ListClustersResponseBodyClustersAddonsServicesSpec },
-      status: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponseBodyClustersClusterCustomConfiguration extends $tea.Model {
-  /**
-   * @remarks
-   * The parameters of the post-processing script.
-   * 
-   * @example
-   * demo
-   */
-  args?: string;
-  /**
-   * @remarks
-   * The link to the post-processing script.
-   * 
-   * @example
-   * https://xxxxx
-   */
-  script?: string;
-  static names(): { [key: string]: string } {
-    return {
-      args: 'Args',
-      script: 'Script',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      args: 'string',
-      script: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponseBodyClustersManagerDNS extends $tea.Model {
-  /**
-   * @remarks
-   * The resolution type.
-   * 
-   * @example
-   * NIS
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The version of the domain name resolution service.
-   * 
-   * @example
-   * 2.31
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponseBodyClustersManagerDirectoryService extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the domain account.
-   * 
-   * @example
-   * NIS
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The version of the domain account service.
-   * 
-   * @example
-   * 2.31
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponseBodyClustersManagerScheduler extends $tea.Model {
-  /**
-   * @remarks
-   * The scheduler type.
-   * 
-   * @example
-   * SLURM
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The scheduler version.
-   * 
-   * @example
-   * 22.05.8
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponseBodyClustersManager extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of the domain name resolution service.
-   */
-  DNS?: ListClustersResponseBodyClustersManagerDNS;
-  /**
-   * @remarks
-   * The configurations of the directory service.
-   */
-  directoryService?: ListClustersResponseBodyClustersManagerDirectoryService;
-  /**
-   * @remarks
-   * The configurations of the scheduler service.
-   */
-  scheduler?: ListClustersResponseBodyClustersManagerScheduler;
-  static names(): { [key: string]: string } {
-    return {
-      DNS: 'DNS',
-      directoryService: 'DirectoryService',
-      scheduler: 'Scheduler',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DNS: ListClustersResponseBodyClustersManagerDNS,
-      directoryService: ListClustersResponseBodyClustersManagerDirectoryService,
-      scheduler: ListClustersResponseBodyClustersManagerScheduler,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponseBodyClustersNodes extends $tea.Model {
-  /**
-   * @remarks
-   * The number of malfunctioning compute nodes.
-   * 
-   * @example
-   * 0
-   */
-  abnormalCounts?: number;
-  /**
-   * @remarks
-   * The number of compute nodes that are being created.
-   * 
-   * @example
-   * 0
-   */
-  creatingCounts?: number;
-  /**
-   * @remarks
-   * The number of running compute nodes.
-   * 
-   * @example
-   * 1
-   */
-  runningCounts?: number;
-  static names(): { [key: string]: string } {
-    return {
-      abnormalCounts: 'AbnormalCounts',
-      creatingCounts: 'CreatingCounts',
-      runningCounts: 'RunningCounts',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      abnormalCounts: 'number',
-      creatingCounts: 'number',
-      runningCounts: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponseBodyClustersUsers extends $tea.Model {
-  /**
-   * @remarks
-   * The number of ordinary users.
-   * 
-   * @example
-   * 2
-   */
-  normalCounts?: number;
-  /**
-   * @remarks
-   * The number of administrators.
-   * 
-   * @example
-   * 2
-   */
-  sudoCounts?: number;
-  static names(): { [key: string]: string } {
-    return {
-      normalCounts: 'NormalCounts',
-      sudoCounts: 'SudoCounts',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      normalCounts: 'number',
-      sudoCounts: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListClustersResponseBodyClusters extends $tea.Model {
-  /**
-   * @remarks
-   * The information about installed software in the cluster.
-   */
-  additionalPackages?: ListClustersResponseBodyClustersAdditionalPackages[];
-  /**
-   * @remarks
-   * The information about the addons in the cluster.
-   */
-  addons?: ListClustersResponseBodyClustersAddons[];
-  /**
-   * @remarks
-   * The cluster type. Valid values:
-   * 
-   * *   Standard
-   * *   Serverless
-   * 
-   * @example
-   * Standard
-   */
-  clusterCategory?: string;
-  /**
-   * @remarks
-   * The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
-   * 
-   * @example
-   * 2024-08-06T12:43:01.000Z
-   */
-  clusterCreateTime?: string;
-  /**
-   * @remarks
-   * The logon credential type of the cluster. Valid values:
-   * 
-   * *   password: requires passwords for logons.
-   * *   keypair: requires key pairs for logons.
-   */
-  clusterCredentials?: string[];
-  /**
-   * @remarks
-   * The post-processing script used by the cluster.
-   */
-  clusterCustomConfiguration?: ListClustersResponseBodyClustersClusterCustomConfiguration;
-  /**
-   * @remarks
-   * The cluster description.
-   * 
-   * @example
-   * Demo
-   */
-  clusterDescription?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * ehpc-hz-VMKe******
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * The deployment type of the cluster. Valid values:
-   * 
-   * *   Integrated: public cloud
-   * *   Hybrid: hybrid cloud
-   * *   Custom: a custom cluster
-   * 
-   * @example
-   * Integrated
-   */
-  clusterMode?: string;
-  /**
-   * @remarks
-   * The time when the cluster was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
-   * 
-   * @example
-   * 2024-08-06T12:43:01.000Z
-   */
-  clusterModifyTime?: string;
-  /**
-   * @remarks
-   * The cluster name.
-   * 
-   * @example
-   * slurm22.05.8-cluster-20240227
-   */
-  clusterName?: string;
-  /**
-   * @remarks
-   * The cluster state. Valid values:
-   * 
-   * *   uninit: The cluster is being installed.
-   * *   creating: The cluster is being created.
-   * *   initing: The cluster is being initialized.
-   * *   running: The cluster is running.
-   * *   Releasing: The cluster is being released.
-   * *   stopping: The cluster is being stopped.
-   * *   stopped: The cluster is stopped.
-   * *   exception: The cluster has run into an exception.
-   * *   pending: The cluster is waiting to be configured.
-   * 
-   * @example
-   * running
-   */
-  clusterStatus?: string;
-  /**
-   * @remarks
-   * The vCPU-hour usage of the cluster.
-   * 
-   * @example
-   * 1000
-   */
-  clusterUsedCoreTime?: number;
-  /**
-   * @remarks
-   * The ID of the vSwitch used by the cluster.
-   * 
-   * @example
-   * vsw-f8za5p0mwzgdu3wgx****
-   */
-  clusterVSwitchId?: string;
-  /**
-   * @remarks
-   * The ID of the virtual private cloud (VPC) used by the cluster.
-   * 
-   * @example
-   * vpc-m5efjevmclc0xdmys****
-   */
-  clusterVpcId?: string;
-  /**
-   * @remarks
-   * Indicates whether deletion protection is enabled for the cluster. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  deletionProtection?: boolean;
-  /**
-   * @remarks
-   * The Elastic High Performance Computing (E-HPC) version.
-   * 
-   * @example
-   * 2.0.0
-   */
-  ehpcVersion?: string;
-  /**
-   * @remarks
-   * The configurations of the cluster management node.
-   */
-  manager?: ListClustersResponseBodyClustersManager;
-  /**
-   * @remarks
-   * The maximum total number of vCPUs used by the compute nodes that can be managed by the cluster.
-   * 
-   * @example
-   * 10000
-   */
-  maxCoreCount?: number;
-  /**
-   * @remarks
-   * The maximum number of compute nodes that can be managed by the cluster.
-   * 
-   * @example
-   * 500
-   */
-  maxCount?: number;
-  /**
-   * @remarks
-   * The node statistics of the cluster.
-   */
-  nodes?: ListClustersResponseBodyClustersNodes;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-acfmxazb4ph****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the security group used by the cluster.
-   * 
-   * @example
-   * sg-bp13n61xsydodfyg****
-   */
-  securityGroupId?: string;
-  /**
-   * @remarks
-   * The user attribute information of the cluster.
-   */
-  users?: ListClustersResponseBodyClustersUsers;
-  static names(): { [key: string]: string } {
-    return {
-      additionalPackages: 'AdditionalPackages',
-      addons: 'Addons',
-      clusterCategory: 'ClusterCategory',
-      clusterCreateTime: 'ClusterCreateTime',
-      clusterCredentials: 'ClusterCredentials',
-      clusterCustomConfiguration: 'ClusterCustomConfiguration',
-      clusterDescription: 'ClusterDescription',
-      clusterId: 'ClusterId',
-      clusterMode: 'ClusterMode',
-      clusterModifyTime: 'ClusterModifyTime',
-      clusterName: 'ClusterName',
-      clusterStatus: 'ClusterStatus',
-      clusterUsedCoreTime: 'ClusterUsedCoreTime',
-      clusterVSwitchId: 'ClusterVSwitchId',
-      clusterVpcId: 'ClusterVpcId',
-      deletionProtection: 'DeletionProtection',
-      ehpcVersion: 'EhpcVersion',
-      manager: 'Manager',
-      maxCoreCount: 'MaxCoreCount',
-      maxCount: 'MaxCount',
-      nodes: 'Nodes',
-      resourceGroupId: 'ResourceGroupId',
-      securityGroupId: 'SecurityGroupId',
-      users: 'Users',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      additionalPackages: { 'type': 'array', 'itemType': ListClustersResponseBodyClustersAdditionalPackages },
-      addons: { 'type': 'array', 'itemType': ListClustersResponseBodyClustersAddons },
-      clusterCategory: 'string',
-      clusterCreateTime: 'string',
-      clusterCredentials: { 'type': 'array', 'itemType': 'string' },
-      clusterCustomConfiguration: ListClustersResponseBodyClustersClusterCustomConfiguration,
-      clusterDescription: 'string',
-      clusterId: 'string',
-      clusterMode: 'string',
-      clusterModifyTime: 'string',
-      clusterName: 'string',
-      clusterStatus: 'string',
-      clusterUsedCoreTime: 'number',
-      clusterVSwitchId: 'string',
-      clusterVpcId: 'string',
-      deletionProtection: 'boolean',
-      ehpcVersion: 'string',
-      manager: ListClustersResponseBodyClustersManager,
-      maxCoreCount: 'number',
-      maxCount: 'number',
-      nodes: ListClustersResponseBodyClustersNodes,
-      resourceGroupId: 'string',
-      securityGroupId: 'string',
-      users: ListClustersResponseBodyClustersUsers,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCommonLogsResponseBodyLogs extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the action corresponding to the log.
-   * 
-   * @example
-   * CreaterCluster
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * ehpc-hz-9T3xPNezoS
-   */
-  clusterId?: string;
-  /**
-   * @remarks
-   * The log type.
-   * 
-   * @example
-   * Operation
-   */
-  logType?: string;
-  /**
-   * @remarks
-   * The message of the log.
-   * 
-   * @example
-   * ok
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The account ID of the operator.
-   * 
-   * @example
-   * 137***
-   */
-  operatorUid?: string;
-  /**
-   * @remarks
-   * The request ID associated with the action that generated the log.
-   * 
-   * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE7****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The action state in the log. Valid values:
-   * 
-   * *   InProgress: The action is being performed.
-   * *   Finished: The action is completed.
-   * *   Failed: The action failed.
-   * 
-   * @example
-   * Finished
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The involved resource.
-   * 
-   * @example
-   * i-abc***
-   */
-  target?: string;
-  /**
-   * @remarks
-   * The time when the log was generated.
-   * 
-   * @example
-   * 2024-08-22 14:21:54
-   */
-  time?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      clusterId: 'ClusterId',
-      logType: 'LogType',
-      message: 'Message',
-      operatorUid: 'OperatorUid',
-      requestId: 'RequestId',
-      status: 'Status',
-      target: 'Target',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      clusterId: 'string',
-      logType: 'string',
-      message: 'string',
-      operatorUid: 'string',
-      requestId: 'string',
-      status: 'string',
-      target: 'string',
-      time: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstalledSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos extends $tea.Model {
-  /**
-   * @remarks
-   * The category into which the software falls.
-   * 
-   * @example
-   * NWP
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The time when the software was installed.
-   * 
-   * @example
-   * 2024-03-05 18:24:08
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * The software description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The URL of the software icon.
-   * 
-   * @example
-   * https://gw.alicdn.com/imgextra/i2/O1CN01FIkxZ81LmE0fvrAyR_!!6000000001341-55-tps-6349-1603.svg
-   */
-  icon?: string;
-  /**
-   * @remarks
-   * The software name.
-   * 
-   * @example
-   * gromacs
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The installation status of the software.
-   * 
-   * Valid values:
-   * 
-   * *   Installed
-   * *   Uninstalled
-   * *   Installing
-   * *   Exception
-   * 
-   * @example
-   * Installed
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The software version.
-   * 
-   * @example
-   * 2024.1
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      createTime: 'CreateTime',
-      description: 'Description',
-      icon: 'Icon',
-      name: 'Name',
-      status: 'Status',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      createTime: 'string',
-      description: 'string',
-      icon: 'string',
-      name: 'string',
-      status: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstalledSoftwaresResponseBodyAdditionalPackages extends $tea.Model {
-  additionalPackageInfos?: ListInstalledSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos[];
-  static names(): { [key: string]: string } {
-    return {
-      additionalPackageInfos: 'AdditionalPackageInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      additionalPackageInfos: { 'type': 'array', 'itemType': ListInstalledSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListJobsRequestJobFilterDiagnosis extends $tea.Model {
-  operator?: string;
-  option?: string;
-  threshold?: string;
-  static names(): { [key: string]: string } {
-    return {
-      operator: 'Operator',
-      option: 'Option',
-      threshold: 'Threshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      operator: 'string',
-      option: 'string',
-      threshold: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListJobsRequestJobFilterSortBy extends $tea.Model {
-  /**
-   * @remarks
-   * The order in which jobs are sorted based on their execution time. Valid values:
-   * 
-   * *   asc: in ascending order.
-   * *   desc: in descending order.
-   * 
-   * Default value: desc.
-   * 
-   * @example
-   * asc
-   */
-  executeOrder?: string;
-  /**
-   * @remarks
-   * The order in which jobs are sorted based on their queuing time. Valid values:
-   * 
-   * *   asc: in ascending order.
-   * *   desc: in descending order.
-   * 
-   * Default value: desc.
-   * 
-   * @example
-   * desc
-   */
-  pendOrder?: string;
-  /**
-   * @remarks
-   * The order in which jobs are sorted based on their submitting time. Valid values:
-   * 
-   * *   asc: in ascending order.
-   * *   desc: in descending order.
-   * 
-   * Default value: desc.
-   * 
-   * @example
-   * asc
-   */
-  submitOrder?: string;
-  static names(): { [key: string]: string } {
-    return {
-      executeOrder: 'ExecuteOrder',
-      pendOrder: 'PendOrder',
-      submitOrder: 'SubmitOrder',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      executeOrder: 'string',
-      pendOrder: 'string',
-      submitOrder: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListJobsRequestJobFilter extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the job was last updated. The value is a UNIX timestamp representing the number of seconds that have elapsed since 1970-01-01T00:00:00Z.
-   * 
-   * @example
-   * 1724123085
-   */
-  createTimeEnd?: string;
-  /**
-   * @remarks
-   * The time when the job started. The value is a UNIX timestamp representing the number of seconds that have elapsed since 1970-01-01T00:00:00Z.
-   * 
-   * @example
-   * 1724122486
-   */
-  createTimeStart?: string;
-  diagnosis?: ListJobsRequestJobFilterDiagnosis[];
-  /**
-   * @remarks
-   * The job name. Fuzzy match is supported.
-   * 
-   * @example
-   * testjob
-   */
-  jobName?: string;
-  /**
-   * @remarks
-   * The job state. Valid values:
-   * 
-   * *   all: returns all jobs.
-   * *   finished: returns completed jobs.
-   * *   notfinish: returns uncompleted jobs.
-   * 
-   * Default value: all.
-   * 
-   * @example
-   * all
-   */
-  jobStatus?: string;
-  /**
-   * @remarks
-   * The compute nodes that run the jobs.
-   */
-  nodes?: string[];
-  /**
-   * @remarks
-   * The queues to which the jobs belong.
-   */
-  queues?: string[];
-  /**
-   * @remarks
-   * The result sorting configurations.
-   */
-  sortBy?: ListJobsRequestJobFilterSortBy;
-  /**
-   * @remarks
-   * The users that run the jobs.
-   */
-  users?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      createTimeEnd: 'CreateTimeEnd',
-      createTimeStart: 'CreateTimeStart',
-      diagnosis: 'Diagnosis',
-      jobName: 'JobName',
-      jobStatus: 'JobStatus',
-      nodes: 'Nodes',
-      queues: 'Queues',
-      sortBy: 'SortBy',
-      users: 'Users',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTimeEnd: 'string',
-      createTimeStart: 'string',
-      diagnosis: { 'type': 'array', 'itemType': ListJobsRequestJobFilterDiagnosis },
-      jobName: 'string',
-      jobStatus: 'string',
-      nodes: { 'type': 'array', 'itemType': 'string' },
-      queues: { 'type': 'array', 'itemType': 'string' },
-      sortBy: ListJobsRequestJobFilterSortBy,
-      users: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListJobsResponseBodyJobsJobSpecResources extends $tea.Model {
-  /**
-   * @remarks
-   * The number of vCPUs that were used to run the job.
-   * 
-   * @example
-   * 6
-   */
-  cores?: string;
-  /**
-   * @remarks
-   * The number of GPUs that were used to run the job.
-   * 
-   * @example
-   * 0
-   */
-  gpus?: string;
-  /**
-   * @remarks
-   * The size of memory that was used to run the job.
-   * 
-   * @example
-   * 1536MB
-   */
-  memory?: string;
-  /**
-   * @remarks
-   * The number of compute nodes that were used to run the job.
-   * 
-   * @example
-   * 3
-   */
-  nodes?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cores: 'Cores',
-      gpus: 'Gpus',
-      memory: 'Memory',
-      nodes: 'Nodes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cores: 'string',
-      gpus: 'string',
-      memory: 'string',
-      nodes: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListJobsResponseBodyJobsJobSpecResourcesActualOccupied extends $tea.Model {
-  cores?: string;
-  gpus?: string;
-  memory?: string;
-  nodes?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cores: 'Cores',
-      gpus: 'Gpus',
-      memory: 'Memory',
-      nodes: 'Nodes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cores: 'string',
-      gpus: 'string',
-      memory: 'string',
-      nodes: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListJobsResponseBodyJobsJobSpec extends $tea.Model {
-  /**
-   * @remarks
-   * The array job ID.
-   * 
-   * @example
-   * 4
-   */
-  arrayJobId?: string;
-  /**
-   * @remarks
-   * The ID of the job in the array.
-   * 
-   * @example
-   * 1
-   */
-  arrayJobSubId?: string;
-  /**
-   * @remarks
-   * The queue format of the job.
-   * 
-   * *   If the job is not in a queue, the output is empty.
-   * *   The format is X-Y:Z. X indicates the first index, Y indicates the final index, and Z indicates the step size. For example, 2-7:2 indicates three sub-jobs numbered 2, 4, and 6.
-   * 
-   * @example
-   * 1-5:2
-   */
-  arrayRequest?: string;
-  /**
-   * @remarks
-   * The job description.
-   * 
-   * @example
-   * jobDescription
-   */
-  comment?: string;
-  /**
-   * @remarks
-   * The job ID.
-   * 
-   * @example
-   * 12
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The queue name.
-   * 
-   * @example
-   * comp
-   */
-  jobQueue?: string;
-  /**
-   * @remarks
-   * The time when the job was last updated.
-   * 
-   * @example
-   * 1724123085
-   */
-  lastModifyTime?: string;
-  /**
-   * @remarks
-   * The compute nodes that were used to run the job.
-   * 
-   * @example
-   * compute[002,005,003]
-   */
-  nodeList?: string;
-  /**
-   * @remarks
-   * The job priority. Valid values: 0 to 9. A larger value indicates a higher priority.
-   * 
-   * @example
-   * 0
-   */
-  priority?: string;
-  /**
-   * @remarks
-   * The information about the resources required to run the job.
-   */
-  resources?: ListJobsResponseBodyJobsJobSpecResources;
-  resourcesActualOccupied?: ListJobsResponseBodyJobsJobSpecResourcesActualOccupied;
-  /**
-   * @remarks
-   * The user that ran the job.
-   * 
-   * @example
-   * testuser1
-   */
-  runasUser?: string;
-  startTime?: string;
-  /**
-   * @remarks
-   * The job state. Valid values: (PBS cluster and Slurm cluster)
-   * 
-   * *   FINISHED/Completed
-   * *   RUNNING/Running
-   * *   QUEUED/Pending
-   * *   FAILED/Failed
-   * 
-   * @example
-   * Running
-   */
-  state?: string;
-  /**
-   * @remarks
-   * The error output path.
-   * 
-   * @example
-   * ./Temp
-   */
-  stderrPath?: string;
-  /**
-   * @remarks
-   * The standard output path.
-   * 
-   * @example
-   * ./Temp
-   */
-  stdoutPath?: string;
-  /**
-   * @remarks
-   * The time when the job was submitted.
-   * 
-   * @example
-   * 1724122486
-   */
-  submitTime?: string;
-  /**
-   * @remarks
-   * The variables of the job.
-   * 
-   * @example
-   * {"PBS_O_SHELL":"/bin/bash", 	"PBS_O_HOST":"manager", 	"PBS_O_SYSTEM":"Linux", 	"PBS_O_LANG":"en_US.UTF-8", 	"PBS_O_QUEUE":"workq"}
-   */
-  variables?: string;
-  static names(): { [key: string]: string } {
-    return {
-      arrayJobId: 'ArrayJobId',
-      arrayJobSubId: 'ArrayJobSubId',
-      arrayRequest: 'ArrayRequest',
-      comment: 'Comment',
-      id: 'Id',
-      jobQueue: 'JobQueue',
-      lastModifyTime: 'LastModifyTime',
-      nodeList: 'NodeList',
-      priority: 'Priority',
-      resources: 'Resources',
-      resourcesActualOccupied: 'ResourcesActualOccupied',
-      runasUser: 'RunasUser',
-      startTime: 'StartTime',
-      state: 'State',
-      stderrPath: 'StderrPath',
-      stdoutPath: 'StdoutPath',
-      submitTime: 'SubmitTime',
-      variables: 'Variables',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      arrayJobId: 'string',
-      arrayJobSubId: 'string',
-      arrayRequest: 'string',
-      comment: 'string',
-      id: 'string',
-      jobQueue: 'string',
-      lastModifyTime: 'string',
-      nodeList: 'string',
-      priority: 'string',
-      resources: ListJobsResponseBodyJobsJobSpecResources,
-      resourcesActualOccupied: ListJobsResponseBodyJobsJobSpecResourcesActualOccupied,
-      runasUser: 'string',
-      startTime: 'string',
-      state: 'string',
-      stderrPath: 'string',
-      stdoutPath: 'string',
-      submitTime: 'string',
-      variables: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListJobsResponseBodyJobs extends $tea.Model {
-  /**
-   * @remarks
-   * The job name.
-   * 
-   * @example
-   * testjob
-   */
-  jobName?: string;
-  /**
-   * @remarks
-   * The job configurations.
-   */
-  jobSpec?: ListJobsResponseBodyJobsJobSpec;
-  static names(): { [key: string]: string } {
-    return {
-      jobName: 'JobName',
-      jobSpec: 'JobSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobName: 'string',
-      jobSpec: ListJobsResponseBodyJobsJobSpec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodesResponseBodyNodesTotalResources extends $tea.Model {
-  /**
-   * @remarks
-   * The number of vCPUs.
-   * 
-   * @example
-   * 1
-   */
-  cpu?: number;
-  /**
-   * @remarks
-   * The number of GPUs.
-   * 
-   * @example
-   * 0
-   */
-  gpu?: number;
-  /**
-   * @remarks
-   * The amount of memory. Unit: GiB.
-   * 
-   * @example
-   * 1024
-   */
-  memory?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cpu: 'Cpu',
-      gpu: 'Gpu',
-      memory: 'Memory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpu: 'number',
-      gpu: 'number',
-      memory: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListNodesResponseBodyNodes extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the node was created.
-   * 
-   * @example
-   * 2020-06-09T06:22:02.000Z
-   */
-  addTime?: string;
-  deploymentSetId?: string;
-  /**
-   * @remarks
-   * The time when the node expires.
-   * 
-   * @example
-   * 2020-06-09T06:22:02.000Z
-   */
-  expiredTime?: string;
-  /**
-   * @remarks
-   * The hostname of the node.
-   * 
-   * @example
-   * edas.cn-shanghai.aliyuncs.com
-   */
-  hostname?: string;
-  /**
-   * @remarks
-   * Indicates whether hyper-threading is enabled.
-   * 
-   * @example
-   * true
-   */
-  htEnabled?: boolean;
-  /**
-   * @remarks
-   * The instance ID of the node.
-   * 
-   * @example
-   * i-bp15707mys2rsy0j****
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The image ID of the node.
-   * 
-   * @example
-   * centos_7_06_64_20G_alibase_20190711.vhd
-   */
-  imageId?: string;
-  /**
-   * @remarks
-   * The instance type of the node.
-   * 
-   * @example
-   * ecs.c5.large
-   */
-  instanceType?: string;
-  /**
-   * @remarks
-   * The VPC IP address of the node.
-   * 
-   * @example
-   * ``172.16.**.**``
-   */
-  ipAddress?: string;
-  /**
-   * @remarks
-   * Indicates whether deletion protection is enabled for the node. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  keepAlive?: boolean;
-  /**
-   * @remarks
-   * The public IP address of the node.
-   * 
-   * @example
-   * ``172.16.**.**``
-   */
-  publicIpAddress?: string;
-  /**
-   * @remarks
-   * The name of the queue to which the node belongs.
-   * 
-   * @example
-   * autoque3
-   */
-  queueName?: string;
-  /**
-   * @remarks
-   * The bidding policy of the node. Valid values:
-   * 
-   * *   NoSpot: The instances of the compute node are pay-as-you-go instances.
-   * *   SpotWithPriceLimit: The instances are created as preemptible instances with a user-defined maximum hourly price.
-   * *   SpotAsPriceGo: The node is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
-   * 
-   * @example
-   * NoSpot
-   */
-  spotStrategy?: string;
-  /**
-   * @remarks
-   * The node state in the scheduler.
-   * 
-   * @example
-   * active
-   */
-  stateInSched?: string;
-  /**
-   * @remarks
-   * The node state. Valid values:
-   * 
-   * *   uninit: The node is being installed.
-   * *   initing: The node is being initialized.
-   * *   running: The node is running.
-   * *   releasing: The node is being released.
-   * *   stopped: The node is stopped.
-   * *   exception: The node has run into an exception.
-   * *   untracking: The node is not added to the cluster.
-   * 
-   * @example
-   * running
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The hardware configurations of the node.
-   */
-  totalResources?: ListNodesResponseBodyNodesTotalResources;
-  /**
-   * @remarks
-   * The vSwitch ID of the node.
-   * 
-   * @example
-   * vsw-bp1e47optm9g58zcu****
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * The VPC ID.
-   * 
-   * @example
-   * vpc-bp1gnu8br4ay7beb2w****
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * The zone ID of the node.
-   * 
-   * @example
-   * cn-hangzhou-b
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addTime: 'AddTime',
-      deploymentSetId: 'DeploymentSetId',
-      expiredTime: 'ExpiredTime',
-      hostname: 'Hostname',
-      htEnabled: 'HtEnabled',
-      id: 'Id',
-      imageId: 'ImageId',
-      instanceType: 'InstanceType',
-      ipAddress: 'IpAddress',
-      keepAlive: 'KeepAlive',
-      publicIpAddress: 'PublicIpAddress',
-      queueName: 'QueueName',
-      spotStrategy: 'SpotStrategy',
-      stateInSched: 'StateInSched',
-      status: 'Status',
-      totalResources: 'TotalResources',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addTime: 'string',
-      deploymentSetId: 'string',
-      expiredTime: 'string',
-      hostname: 'string',
-      htEnabled: 'boolean',
-      id: 'string',
-      imageId: 'string',
-      instanceType: 'string',
-      ipAddress: 'string',
-      keepAlive: 'boolean',
-      publicIpAddress: 'string',
-      queueName: 'string',
-      spotStrategy: 'string',
-      stateInSched: 'string',
-      status: 'string',
-      totalResources: ListNodesResponseBodyNodesTotalResources,
-      vSwitchId: 'string',
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListQueuesResponseBodyQueuesNodes extends $tea.Model {
-  /**
-   * @remarks
-   * The number of compute nodes that are not ready.
-   * 
-   * @example
-   * 2
-   */
-  creatingCounts?: number;
-  /**
-   * @remarks
-   * The number of malfunctioning compute nodes.
-   * 
-   * @example
-   * 0
-   */
-  exceptionCounts?: number;
-  /**
-   * @remarks
-   * The number of running compute nodes.
-   * 
-   * @example
-   * 1
-   */
-  runningCounts?: number;
-  static names(): { [key: string]: string } {
-    return {
-      creatingCounts: 'CreatingCounts',
-      exceptionCounts: 'ExceptionCounts',
-      runningCounts: 'RunningCounts',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      creatingCounts: 'number',
-      exceptionCounts: 'number',
-      runningCounts: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListQueuesResponseBodyQueues extends $tea.Model {
-  /**
-   * @remarks
-   * The hardware configurations of the compute nodes that are added in auto scale-outs. Up to five nodes are displayed.
-   */
-  computeNodes?: NodeTemplate[];
-  /**
-   * @remarks
-   * The time when the queue was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
-   * 
-   * @example
-   * 2023-11-10T02:04:00Z
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * Indicates whether auto scale-in is enabled for the queue. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  enableScaleIn?: boolean;
-  /**
-   * @remarks
-   * Indicates whether auto scale-out is enabled for the queue. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  enableScaleOut?: boolean;
-  /**
-   * @remarks
-   * The maximum number of compute nodes that the queue can contain.
-   * 
-   * @example
-   * 100
-   */
-  maxCount?: number;
-  /**
-   * @remarks
-   * The minimum number of compute nodes that are added to the queue in each auto scale-out.
-   * 
-   * @example
-   * 1
-   */
-  maxCountPerCycle?: number;
-  /**
-   * @remarks
-   * The minimum number of compute nodes that the queue must contain.
-   * 
-   * @example
-   * 0
-   */
-  minCount?: number;
-  /**
-   * @remarks
-   * The statistics about the compute nodes in the queue.
-   */
-  nodes?: ListQueuesResponseBodyQueuesNodes;
-  /**
-   * @remarks
-   * The queue name.
-   * 
-   * @example
-   * comp
-   */
-  queueName?: string;
-  /**
-   * @remarks
-   * The total number of vCPUs that are used by all compute nodes in the queue.
-   * 
-   * @example
-   * 24
-   */
-  totalCores?: number;
-  /**
-   * @remarks
-   * The time when the queue was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
-   * 
-   * @example
-   * 2024-04-25T02:02:32
-   */
-  updateTime?: string;
-  /**
-   * @remarks
-   * The vSwitches that can be used for added nodes during auto scale-outs. Up to three vSwitches are displayed.
-   */
-  vSwitchIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      computeNodes: 'ComputeNodes',
-      createTime: 'CreateTime',
-      enableScaleIn: 'EnableScaleIn',
-      enableScaleOut: 'EnableScaleOut',
-      maxCount: 'MaxCount',
-      maxCountPerCycle: 'MaxCountPerCycle',
-      minCount: 'MinCount',
-      nodes: 'Nodes',
-      queueName: 'QueueName',
-      totalCores: 'TotalCores',
-      updateTime: 'UpdateTime',
-      vSwitchIds: 'VSwitchIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      computeNodes: { 'type': 'array', 'itemType': NodeTemplate },
-      createTime: 'string',
-      enableScaleIn: 'boolean',
-      enableScaleOut: 'boolean',
-      maxCount: 'number',
-      maxCountPerCycle: 'number',
-      minCount: 'number',
-      nodes: ListQueuesResponseBodyQueuesNodes,
-      queueName: 'string',
-      totalCores: 'number',
-      updateTime: 'string',
-      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSharedStoragesResponseBodySharedStoragesMountInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The local mount directory of the attached file system.
-   * 
-   * @example
-   * /test
-   */
-  mountDirectory?: string;
-  /**
-   * @remarks
-   * The mount options for the attached file system. Valid values:
-   * 
-   * *   \\-t nfs -o vers=3,nolock,proto=tcp,noresvport
-   * *   \\-t nfs -o vers=4.0,noresvport
-   * 
-   * @example
-   * -t nfs -o vers=4.0,noresvport
-   */
-  mountOptions?: string;
-  /**
-   * @remarks
-   * The mount target of the attached file system.
-   * 
-   * @example
-   * 0bd504b***-ngq26.cn-hangzhou.nas.aliyuncs.com
-   */
-  mountTarget?: string;
-  /**
-   * @remarks
-   * The protocol used by the mount target of the attached file system. Valid values:
-   * 
-   * *   nfs3
-   * *   nfs4
-   * *   cpfs
-   * 
-   * @example
-   * nfs3
-   */
-  protocolType?: string;
-  /**
-   * @remarks
-   * The storage directory of the attached file system.
-   * 
-   * @example
-   * /testehpc
-   */
-  storageDirectory?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mountDirectory: 'MountDirectory',
-      mountOptions: 'MountOptions',
-      mountTarget: 'MountTarget',
-      protocolType: 'ProtocolType',
-      storageDirectory: 'StorageDirectory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mountDirectory: 'string',
-      mountOptions: 'string',
-      mountTarget: 'string',
-      protocolType: 'string',
-      storageDirectory: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSharedStoragesResponseBodySharedStorages extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the attached file system.
-   * 
-   * @example
-   * 08c7f4b***
-   */
-  fileSystemId?: string;
-  /**
-   * @remarks
-   * The protocol used by the attached file system. Valid values:
-   * 
-   * *   nfs3
-   * *   nfs4
-   * *   cpfs
-   * 
-   * @example
-   * nfs4
-   */
-  fileSystemProtocol?: string;
-  /**
-   * @remarks
-   * The type of the attached file system. Valid values:
-   * 
-   * *   nas
-   * *   cpfs
-   * 
-   * @example
-   * nas
-   */
-  fileSystemType?: string;
-  /**
-   * @remarks
-   * The mount information.
-   */
-  mountInfo?: ListSharedStoragesResponseBodySharedStoragesMountInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      fileSystemId: 'FileSystemId',
-      fileSystemProtocol: 'FileSystemProtocol',
-      fileSystemType: 'FileSystemType',
-      mountInfo: 'MountInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileSystemId: 'string',
-      fileSystemProtocol: 'string',
-      fileSystemType: 'string',
-      mountInfo: { 'type': 'array', 'itemType': ListSharedStoragesResponseBodySharedStoragesMountInfo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSoftwaresRequestOsInfos extends $tea.Model {
-  /**
-   * @remarks
-   * The OS architecture. Valid values:
-   * 
-   * *   x86_64
-   * *   arm64
-   * 
-   * @example
-   * x86_64
-   */
-  architecture?: string;
-  /**
-   * @remarks
-   * The image tag.
-   * 
-   * @example
-   * CentOS_7.9_64
-   */
-  osTag?: string;
-  static names(): { [key: string]: string } {
-    return {
-      architecture: 'Architecture',
-      osTag: 'OsTag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architecture: 'string',
-      osTag: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOsSupportOsInfos extends $tea.Model {
-  /**
-   * @remarks
-   * The OS architecture. Valid values:
-   * 
-   * *   x86_64
-   * *   arm64
-   * 
-   * @example
-   * x86_64
-   */
-  architecture?: string;
-  /**
-   * @remarks
-   * The image tag.
-   * 
-   * @example
-   * Alibaba Cloud Linux  3.2104 LTS 64 bit ARM Edition
-   */
-  osTag?: string;
-  static names(): { [key: string]: string } {
-    return {
-      architecture: 'Architecture',
-      osTag: 'OsTag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architecture: 'string',
-      osTag: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOs extends $tea.Model {
-  supportOsInfos?: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOsSupportOsInfos[];
-  static names(): { [key: string]: string } {
-    return {
-      supportOsInfos: 'SupportOsInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      supportOsInfos: { 'type': 'array', 'itemType': ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOsSupportOsInfos },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfos extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the version is the latest.
-   * 
-   * @example
-   * false
-   */
-  latest?: string;
-  /**
-   * @remarks
-   * The information about the supported OSs.
-   */
-  supportOs?: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOs;
-  /**
-   * @remarks
-   * The software version.
-   * 
-   * @example
-   * 2024.1
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      latest: 'Latest',
-      supportOs: 'SupportOs',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      latest: 'string',
-      supportOs: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOs,
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersions extends $tea.Model {
-  versionInfos?: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfos[];
-  static names(): { [key: string]: string } {
-    return {
-      versionInfos: 'VersionInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      versionInfos: { 'type': 'array', 'itemType': ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfos },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos extends $tea.Model {
-  /**
-   * @remarks
-   * The application category.
-   * 
-   * @example
-   * NWP
-   */
-  category?: string;
-  /**
-   * @remarks
-   * The software description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The URL of the software icon.
-   * 
-   * @example
-   * https://gw.alicdn.com/imgextra/i2/O1CN01FIkxZ81LmE0fvrAyR_!!6000000001341-55-tps-6349-1603.svg
-   */
-  icon?: string;
-  /**
-   * @remarks
-   * The software name.
-   * 
-   * @example
-   * gromacs
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The information about the software versions that can be installed in the cluster.
-   */
-  versions?: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersions;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      description: 'Description',
-      icon: 'Icon',
-      name: 'Name',
-      versions: 'Versions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      description: 'string',
-      icon: 'string',
-      name: 'string',
-      versions: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersions,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSoftwaresResponseBodyAdditionalPackages extends $tea.Model {
-  additionalPackageInfos?: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos[];
-  static names(): { [key: string]: string } {
-    return {
-      additionalPackageInfos: 'AdditionalPackageInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      additionalPackageInfos: { 'type': 'array', 'itemType': ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUsersResponseBodyUsersUserInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the user was first added.
-   * 
-   * @example
-   * 2014-08-22T17:46:47
-   */
-  addTime?: string;
-  /**
-   * @remarks
-   * The name of the permission group. Valid values:
-   * 
-   * users: ordinary permissions, which are suitable for regular users that need only to submit and debug jobs.
-   * 
-   * wheel: sudo permissions, which are suitable for administrators who need to manage clusters. In addition to submitting and debugging jobs, you can also run sudo commands to install software and restart nodes.
-   * 
-   * @example
-   * users
-   */
-  group?: string;
-  /**
-   * @remarks
-   * The permission group ID.
-   * 
-   * @example
-   * 100
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The user ID.
-   * 
-   * @example
-   * 1001
-   */
-  userId?: string;
-  /**
-   * @remarks
-   * The username.
-   * 
-   * @example
-   * testuser
-   */
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addTime: 'AddTime',
-      group: 'Group',
-      groupId: 'GroupId',
-      userId: 'UserId',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addTime: 'string',
-      group: 'string',
-      groupId: 'string',
-      userId: 'string',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListUsersResponseBodyUsers extends $tea.Model {
-  userInfo?: ListUsersResponseBodyUsersUserInfo[];
-  static names(): { [key: string]: string } {
-    return {
-      userInfo: 'UserInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      userInfo: { 'type': 'array', 'itemType': ListUsersResponseBodyUsersUserInfo },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UninstallSoftwaresRequestAdditionalPackages extends $tea.Model {
-  /**
-   * @remarks
-   * The software name.
-   * 
-   * @example
-   * gromacs
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The software version.
-   * 
-   * @example
-   * 2024.1
-   */
-  version?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      version: 'Version',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      version: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClusterRequestClusterCustomConfiguration extends $tea.Model {
-  /**
-   * @remarks
-   * The arguments that are used to run the post-processing script.
-   * 
-   * @example
-   * E-HPC cn-hangzhou
-   */
-  args?: string;
-  /**
-   * @remarks
-   * The URL that is used to download the post-processing script.
-   * 
-   * @example
-   * http://*****
-   */
-  script?: string;
-  static names(): { [key: string]: string } {
-    return {
-      args: 'Args',
-      script: 'Script',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      args: 'string',
-      script: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClusterRequestMonitorSpec extends $tea.Model {
-  enableComputeLoadMonitor?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enableComputeLoadMonitor: 'EnableComputeLoadMonitor',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableComputeLoadMonitor: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClusterRequestSchedulerSpec extends $tea.Model {
-  enableTopologyAwareness?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      enableTopologyAwareness: 'EnableTopologyAwareness',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enableTopologyAwareness: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateNodesRequestInstances extends $tea.Model {
-  /**
-   * @remarks
-   * The instance ID of the compute node.
-   * 
-   * @example
-   * i-bp1bzqq1ddeemuddn****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable deletion protection for the compute node.
-   * 
-   * @example
-   * true
-   */
-  keepAlive?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      keepAlive: 'KeepAlive',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      keepAlive: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateQueueRequestQueue extends $tea.Model {
-  /**
-   * @remarks
-   * The policy based on which instance types are selected for compute nodes during auto scale-outs. Valid values:
-   * 
-   * *   PriorityInstanceType
-   * 
-   * @example
-   * PriorityInstanceType
-   */
-  allocationStrategy?: string;
-  /**
-   * @remarks
-   * The hardware configurations of the compute nodes in the queue. Valid values of N: 1 to 10.
-   */
-  computeNodes?: NodeTemplate[];
-  /**
-   * @remarks
-   * Specifies whether to enable auto scale-in for the queue. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  enableScaleIn?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable auto scale-out for the queue. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  enableScaleOut?: boolean;
-  /**
-   * @remarks
-   * The hostname prefix of the compute nodes in the queue.
-   * 
-   * @example
-   * compute
-   */
-  hostnamePrefix?: string;
-  /**
-   * @remarks
-   * The hostname suffix of the compute nodes in the queue.
-   * 
-   * @example
-   * hpc
-   */
-  hostnameSuffix?: string;
-  /**
-   * @remarks
-   * The initial number of compute nodes in the queue.
-   * 
-   * @example
-   * 0
-   */
-  initialCount?: number;
-  /**
-   * @remarks
-   * The type of the network for interconnecting compute nodes in the queue.
-   * 
-   * @example
-   * erdma
-   */
-  interConnect?: string;
-  /**
-   * @remarks
-   * The nodes for which deletion protection is enabled in the queue.
-   */
-  keepAliveNodes?: string[];
-  /**
-   * @remarks
-   * The maximum number of compute nodes that the queue can contain.
-   * 
-   * @example
-   * 1000
-   */
-  maxCount?: number;
-  /**
-   * @remarks
-   * The minimum number of compute nodes that are added to the queue during an automatic scale-out.
-   * 
-   * @example
-   * 99
-   */
-  maxCountPerCycle?: number;
-  /**
-   * @remarks
-   * The minimum number of compute nodes that the queue must contain.
-   * 
-   * @example
-   * 0
-   */
-  minCount?: number;
-  /**
-   * @remarks
-   * The queue name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * comp
-   */
-  queueName?: string;
-  /**
-   * @remarks
-   * The Resource Access Management (RAM) role that is assumed by compute nodes in the queue.
-   * 
-   * @example
-   * AliyunECSInstanceForEHPCRole
-   */
-  ramRole?: string;
-  /**
-   * @remarks
-   * The vSwitches available for use by compute nodes in the queue.
-   */
-  vSwitchIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      allocationStrategy: 'AllocationStrategy',
-      computeNodes: 'ComputeNodes',
-      enableScaleIn: 'EnableScaleIn',
-      enableScaleOut: 'EnableScaleOut',
-      hostnamePrefix: 'HostnamePrefix',
-      hostnameSuffix: 'HostnameSuffix',
-      initialCount: 'InitialCount',
-      interConnect: 'InterConnect',
-      keepAliveNodes: 'KeepAliveNodes',
-      maxCount: 'MaxCount',
-      maxCountPerCycle: 'MaxCountPerCycle',
-      minCount: 'MinCount',
-      queueName: 'QueueName',
-      ramRole: 'RamRole',
-      vSwitchIds: 'VSwitchIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allocationStrategy: 'string',
-      computeNodes: { 'type': 'array', 'itemType': NodeTemplate },
-      enableScaleIn: 'boolean',
-      enableScaleOut: 'boolean',
-      hostnamePrefix: 'string',
-      hostnameSuffix: 'string',
-      initialCount: 'number',
-      interConnect: 'string',
-      keepAliveNodes: { 'type': 'array', 'itemType': 'string' },
-      maxCount: 'number',
-      maxCountPerCycle: 'number',
-      minCount: 'number',
-      queueName: 'string',
-      ramRole: 'string',
-      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -13639,7 +15292,7 @@ export class UpdateQueueRequestQueue extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this.checkConfig(config);
@@ -13648,15 +15301,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -13672,27 +15325,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachSharedStoragesResponse
    */
-  async attachSharedStoragesWithOptions(tmpReq: AttachSharedStoragesRequest, runtime: $Util.RuntimeOptions): Promise<AttachSharedStoragesResponse> {
-    Util.validateModel(tmpReq);
+  async attachSharedStoragesWithOptions(tmpReq: AttachSharedStoragesRequest, runtime: $dara.RuntimeOptions): Promise<AttachSharedStoragesResponse> {
+    tmpReq.validate();
     let request = new AttachSharedStoragesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.sharedStorages)) {
+    if (!$dara.isNull(tmpReq.sharedStorages)) {
       request.sharedStoragesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sharedStorages, "SharedStorages", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.sharedStoragesShrink)) {
+    if (!$dara.isNull(request.sharedStoragesShrink)) {
       query["SharedStorages"] = request.sharedStoragesShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AttachSharedStorages",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -13703,7 +15356,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachSharedStoragesResponse>(await this.callApi(params, req, runtime), new AttachSharedStoragesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AttachSharedStoragesResponse>(await this.callApi(params, req, runtime), new AttachSharedStoragesResponse({}));
+    } else {
+      return $dara.cast<AttachSharedStoragesResponse>(await this.execute(params, req, runtime), new AttachSharedStoragesResponse({}));
+    }
+
   }
 
   /**
@@ -13719,7 +15377,7 @@ export default class Client extends OpenApi {
    * @returns AttachSharedStoragesResponse
    */
   async attachSharedStorages(request: AttachSharedStoragesRequest): Promise<AttachSharedStoragesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.attachSharedStoragesWithOptions(request, runtime);
   }
 
@@ -13734,131 +15392,131 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateClusterResponse
    */
-  async createClusterWithOptions(tmpReq: CreateClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
-    Util.validateModel(tmpReq);
+  async createClusterWithOptions(tmpReq: CreateClusterRequest, runtime: $dara.RuntimeOptions): Promise<CreateClusterResponse> {
+    tmpReq.validate();
     let request = new CreateClusterShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.additionalPackages)) {
+    if (!$dara.isNull(tmpReq.additionalPackages)) {
       request.additionalPackagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.additionalPackages, "AdditionalPackages", "json");
     }
 
-    if (!Util.isUnset(tmpReq.addons)) {
+    if (!$dara.isNull(tmpReq.addons)) {
       request.addonsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addons, "Addons", "json");
     }
 
-    if (!Util.isUnset(tmpReq.clusterCredentials)) {
+    if (!$dara.isNull(tmpReq.clusterCredentials)) {
       request.clusterCredentialsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clusterCredentials, "ClusterCredentials", "json");
     }
 
-    if (!Util.isUnset(tmpReq.clusterCustomConfiguration)) {
+    if (!$dara.isNull(tmpReq.clusterCustomConfiguration)) {
       request.clusterCustomConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clusterCustomConfiguration, "ClusterCustomConfiguration", "json");
     }
 
-    if (!Util.isUnset(tmpReq.manager)) {
+    if (!$dara.isNull(tmpReq.manager)) {
       request.managerShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.manager, "Manager", "json");
     }
 
-    if (!Util.isUnset(tmpReq.queues)) {
+    if (!$dara.isNull(tmpReq.queues)) {
       request.queuesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queues, "Queues", "json");
     }
 
-    if (!Util.isUnset(tmpReq.sharedStorages)) {
+    if (!$dara.isNull(tmpReq.sharedStorages)) {
       request.sharedStoragesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sharedStorages, "SharedStorages", "json");
     }
 
-    if (!Util.isUnset(tmpReq.tags)) {
+    if (!$dara.isNull(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.additionalPackagesShrink)) {
+    if (!$dara.isNull(request.additionalPackagesShrink)) {
       query["AdditionalPackages"] = request.additionalPackagesShrink;
     }
 
-    if (!Util.isUnset(request.addonsShrink)) {
+    if (!$dara.isNull(request.addonsShrink)) {
       query["Addons"] = request.addonsShrink;
     }
 
-    if (!Util.isUnset(request.clientVersion)) {
+    if (!$dara.isNull(request.clientVersion)) {
       query["ClientVersion"] = request.clientVersion;
     }
 
-    if (!Util.isUnset(request.clusterCategory)) {
+    if (!$dara.isNull(request.clusterCategory)) {
       query["ClusterCategory"] = request.clusterCategory;
     }
 
-    if (!Util.isUnset(request.clusterCredentialsShrink)) {
+    if (!$dara.isNull(request.clusterCredentialsShrink)) {
       query["ClusterCredentials"] = request.clusterCredentialsShrink;
     }
 
-    if (!Util.isUnset(request.clusterCustomConfigurationShrink)) {
+    if (!$dara.isNull(request.clusterCustomConfigurationShrink)) {
       query["ClusterCustomConfiguration"] = request.clusterCustomConfigurationShrink;
     }
 
-    if (!Util.isUnset(request.clusterDescription)) {
+    if (!$dara.isNull(request.clusterDescription)) {
       query["ClusterDescription"] = request.clusterDescription;
     }
 
-    if (!Util.isUnset(request.clusterMode)) {
+    if (!$dara.isNull(request.clusterMode)) {
       query["ClusterMode"] = request.clusterMode;
     }
 
-    if (!Util.isUnset(request.clusterName)) {
+    if (!$dara.isNull(request.clusterName)) {
       query["ClusterName"] = request.clusterName;
     }
 
-    if (!Util.isUnset(request.clusterVSwitchId)) {
+    if (!$dara.isNull(request.clusterVSwitchId)) {
       query["ClusterVSwitchId"] = request.clusterVSwitchId;
     }
 
-    if (!Util.isUnset(request.clusterVpcId)) {
+    if (!$dara.isNull(request.clusterVpcId)) {
       query["ClusterVpcId"] = request.clusterVpcId;
     }
 
-    if (!Util.isUnset(request.deletionProtection)) {
+    if (!$dara.isNull(request.deletionProtection)) {
       query["DeletionProtection"] = request.deletionProtection;
     }
 
-    if (!Util.isUnset(request.isEnterpriseSecurityGroup)) {
+    if (!$dara.isNull(request.isEnterpriseSecurityGroup)) {
       query["IsEnterpriseSecurityGroup"] = request.isEnterpriseSecurityGroup;
     }
 
-    if (!Util.isUnset(request.managerShrink)) {
+    if (!$dara.isNull(request.managerShrink)) {
       query["Manager"] = request.managerShrink;
     }
 
-    if (!Util.isUnset(request.maxCoreCount)) {
+    if (!$dara.isNull(request.maxCoreCount)) {
       query["MaxCoreCount"] = request.maxCoreCount;
     }
 
-    if (!Util.isUnset(request.maxCount)) {
+    if (!$dara.isNull(request.maxCount)) {
       query["MaxCount"] = request.maxCount;
     }
 
-    if (!Util.isUnset(request.queuesShrink)) {
+    if (!$dara.isNull(request.queuesShrink)) {
       query["Queues"] = request.queuesShrink;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.securityGroupId)) {
+    if (!$dara.isNull(request.securityGroupId)) {
       query["SecurityGroupId"] = request.securityGroupId;
     }
 
-    if (!Util.isUnset(request.sharedStoragesShrink)) {
+    if (!$dara.isNull(request.sharedStoragesShrink)) {
       query["SharedStorages"] = request.sharedStoragesShrink;
     }
 
-    if (!Util.isUnset(request.tagsShrink)) {
+    if (!$dara.isNull(request.tagsShrink)) {
       query["Tags"] = request.tagsShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateCluster",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -13869,7 +15527,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
+    } else {
+      return $dara.cast<CreateClusterResponse>(await this.execute(params, req, runtime), new CreateClusterResponse({}));
+    }
+
   }
 
   /**
@@ -13883,7 +15546,7 @@ export default class Client extends OpenApi {
    * @returns CreateClusterResponse
    */
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createClusterWithOptions(request, runtime);
   }
 
@@ -13897,31 +15560,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateJobResponse
    */
-  async createJobWithOptions(tmpReq: CreateJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
-    Util.validateModel(tmpReq);
+  async createJobWithOptions(tmpReq: CreateJobRequest, runtime: $dara.RuntimeOptions): Promise<CreateJobResponse> {
+    tmpReq.validate();
     let request = new CreateJobShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.jobSpec)) {
+    if (!$dara.isNull(tmpReq.jobSpec)) {
       request.jobSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobSpec, "JobSpec", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.jobName)) {
+    if (!$dara.isNull(request.jobName)) {
       query["JobName"] = request.jobName;
     }
 
-    if (!Util.isUnset(request.jobSpecShrink)) {
+    if (!$dara.isNull(request.jobSpecShrink)) {
       query["JobSpec"] = request.jobSpecShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateJob",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -13932,7 +15595,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateJobResponse>(await this.callApi(params, req, runtime), new CreateJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateJobResponse>(await this.callApi(params, req, runtime), new CreateJobResponse({}));
+    } else {
+      return $dara.cast<CreateJobResponse>(await this.execute(params, req, runtime), new CreateJobResponse({}));
+    }
+
   }
 
   /**
@@ -13945,7 +15613,7 @@ export default class Client extends OpenApi {
    * @returns CreateJobResponse
    */
   async createJob(request: CreateJobRequest): Promise<CreateJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createJobWithOptions(request, runtime);
   }
 
@@ -13959,63 +15627,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateNodesResponse
    */
-  async createNodesWithOptions(tmpReq: CreateNodesRequest, runtime: $Util.RuntimeOptions): Promise<CreateNodesResponse> {
-    Util.validateModel(tmpReq);
+  async createNodesWithOptions(tmpReq: CreateNodesRequest, runtime: $dara.RuntimeOptions): Promise<CreateNodesResponse> {
+    tmpReq.validate();
     let request = new CreateNodesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.computeNode)) {
+    if (!$dara.isNull(tmpReq.computeNode)) {
       request.computeNodeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.computeNode, "ComputeNode", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.computeNodeShrink)) {
+    if (!$dara.isNull(request.computeNodeShrink)) {
       query["ComputeNode"] = request.computeNodeShrink;
     }
 
-    if (!Util.isUnset(request.count)) {
+    if (!$dara.isNull(request.count)) {
       query["Count"] = request.count;
     }
 
-    if (!Util.isUnset(request.deploymentSetId)) {
+    if (!$dara.isNull(request.deploymentSetId)) {
       query["DeploymentSetId"] = request.deploymentSetId;
     }
 
-    if (!Util.isUnset(request.HPCInterConnect)) {
+    if (!$dara.isNull(request.HPCInterConnect)) {
       query["HPCInterConnect"] = request.HPCInterConnect;
     }
 
-    if (!Util.isUnset(request.hostnamePrefix)) {
+    if (!$dara.isNull(request.hostnamePrefix)) {
       query["HostnamePrefix"] = request.hostnamePrefix;
     }
 
-    if (!Util.isUnset(request.hostnameSuffix)) {
+    if (!$dara.isNull(request.hostnameSuffix)) {
       query["HostnameSuffix"] = request.hostnameSuffix;
     }
 
-    if (!Util.isUnset(request.keepAlive)) {
+    if (!$dara.isNull(request.keepAlive)) {
       query["KeepAlive"] = request.keepAlive;
     }
 
-    if (!Util.isUnset(request.queueName)) {
+    if (!$dara.isNull(request.queueName)) {
       query["QueueName"] = request.queueName;
     }
 
-    if (!Util.isUnset(request.ramRole)) {
+    if (!$dara.isNull(request.ramRole)) {
       query["RamRole"] = request.ramRole;
     }
 
-    if (!Util.isUnset(request.vSwitchId)) {
+    if (!$dara.isNull(request.reservedNodePoolId)) {
+      query["ReservedNodePoolId"] = request.reservedNodePoolId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateNodes",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14026,7 +15698,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateNodesResponse>(await this.callApi(params, req, runtime), new CreateNodesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateNodesResponse>(await this.callApi(params, req, runtime), new CreateNodesResponse({}));
+    } else {
+      return $dara.cast<CreateNodesResponse>(await this.execute(params, req, runtime), new CreateNodesResponse({}));
+    }
+
   }
 
   /**
@@ -14039,7 +15716,7 @@ export default class Client extends OpenApi {
    * @returns CreateNodesResponse
    */
   async createNodes(request: CreateNodesRequest): Promise<CreateNodesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createNodesWithOptions(request, runtime);
   }
 
@@ -14050,27 +15727,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateQueueResponse
    */
-  async createQueueWithOptions(tmpReq: CreateQueueRequest, runtime: $Util.RuntimeOptions): Promise<CreateQueueResponse> {
-    Util.validateModel(tmpReq);
+  async createQueueWithOptions(tmpReq: CreateQueueRequest, runtime: $dara.RuntimeOptions): Promise<CreateQueueResponse> {
+    tmpReq.validate();
     let request = new CreateQueueShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.queue)) {
+    if (!$dara.isNull(tmpReq.queue)) {
       request.queueShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queue, "Queue", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.queueShrink)) {
+    if (!$dara.isNull(request.queueShrink)) {
       query["Queue"] = request.queueShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateQueue",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14081,7 +15758,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateQueueResponse>(await this.callApi(params, req, runtime), new CreateQueueResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateQueueResponse>(await this.callApi(params, req, runtime), new CreateQueueResponse({}));
+    } else {
+      return $dara.cast<CreateQueueResponse>(await this.execute(params, req, runtime), new CreateQueueResponse({}));
+    }
+
   }
 
   /**
@@ -14091,7 +15773,7 @@ export default class Client extends OpenApi {
    * @returns CreateQueueResponse
    */
   async createQueue(request: CreateQueueRequest): Promise<CreateQueueResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createQueueWithOptions(request, runtime);
   }
 
@@ -14102,27 +15784,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateUsersResponse
    */
-  async createUsersWithOptions(tmpReq: CreateUsersRequest, runtime: $Util.RuntimeOptions): Promise<CreateUsersResponse> {
-    Util.validateModel(tmpReq);
+  async createUsersWithOptions(tmpReq: CreateUsersRequest, runtime: $dara.RuntimeOptions): Promise<CreateUsersResponse> {
+    tmpReq.validate();
     let request = new CreateUsersShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.user)) {
+    if (!$dara.isNull(tmpReq.user)) {
       request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.user, "User", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.userShrink)) {
+    if (!$dara.isNull(request.userShrink)) {
       query["User"] = request.userShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateUsers",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14133,7 +15815,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateUsersResponse>(await this.callApi(params, req, runtime), new CreateUsersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateUsersResponse>(await this.callApi(params, req, runtime), new CreateUsersResponse({}));
+    } else {
+      return $dara.cast<CreateUsersResponse>(await this.execute(params, req, runtime), new CreateUsersResponse({}));
+    }
+
   }
 
   /**
@@ -14143,7 +15830,7 @@ export default class Client extends OpenApi {
    * @returns CreateUsersResponse
    */
   async createUsers(request: CreateUsersRequest): Promise<CreateUsersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createUsersWithOptions(request, runtime);
   }
 
@@ -14159,17 +15846,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteClusterResponse
    */
-  async deleteClusterWithOptions(request: DeleteClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
-    Util.validateModel(request);
+  async deleteClusterWithOptions(request: DeleteClusterRequest, runtime: $dara.RuntimeOptions): Promise<DeleteClusterResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteCluster",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14180,7 +15867,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
+    } else {
+      return $dara.cast<DeleteClusterResponse>(await this.execute(params, req, runtime), new DeleteClusterResponse({}));
+    }
+
   }
 
   /**
@@ -14195,7 +15887,7 @@ export default class Client extends OpenApi {
    * @returns DeleteClusterResponse
    */
   async deleteCluster(request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteClusterWithOptions(request, runtime);
   }
 
@@ -14210,27 +15902,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteNodesResponse
    */
-  async deleteNodesWithOptions(tmpReq: DeleteNodesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNodesResponse> {
-    Util.validateModel(tmpReq);
+  async deleteNodesWithOptions(tmpReq: DeleteNodesRequest, runtime: $dara.RuntimeOptions): Promise<DeleteNodesResponse> {
+    tmpReq.validate();
     let request = new DeleteNodesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.instanceIds)) {
+    if (!$dara.isNull(tmpReq.instanceIds)) {
       request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.instanceIdsShrink)) {
+    if (!$dara.isNull(request.instanceIdsShrink)) {
       query["InstanceIds"] = request.instanceIdsShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteNodes",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14241,7 +15933,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteNodesResponse>(await this.callApi(params, req, runtime), new DeleteNodesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteNodesResponse>(await this.callApi(params, req, runtime), new DeleteNodesResponse({}));
+    } else {
+      return $dara.cast<DeleteNodesResponse>(await this.execute(params, req, runtime), new DeleteNodesResponse({}));
+    }
+
   }
 
   /**
@@ -14255,7 +15952,7 @@ export default class Client extends OpenApi {
    * @returns DeleteNodesResponse
    */
   async deleteNodes(request: DeleteNodesRequest): Promise<DeleteNodesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNodesWithOptions(request, runtime);
   }
 
@@ -14270,27 +15967,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteQueuesResponse
    */
-  async deleteQueuesWithOptions(tmpReq: DeleteQueuesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQueuesResponse> {
-    Util.validateModel(tmpReq);
+  async deleteQueuesWithOptions(tmpReq: DeleteQueuesRequest, runtime: $dara.RuntimeOptions): Promise<DeleteQueuesResponse> {
+    tmpReq.validate();
     let request = new DeleteQueuesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.queueNames)) {
+    if (!$dara.isNull(tmpReq.queueNames)) {
       request.queueNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queueNames, "QueueNames", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.queueNamesShrink)) {
+    if (!$dara.isNull(request.queueNamesShrink)) {
       query["QueueNames"] = request.queueNamesShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteQueues",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14301,7 +15998,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteQueuesResponse>(await this.callApi(params, req, runtime), new DeleteQueuesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteQueuesResponse>(await this.callApi(params, req, runtime), new DeleteQueuesResponse({}));
+    } else {
+      return $dara.cast<DeleteQueuesResponse>(await this.execute(params, req, runtime), new DeleteQueuesResponse({}));
+    }
+
   }
 
   /**
@@ -14315,7 +16017,7 @@ export default class Client extends OpenApi {
    * @returns DeleteQueuesResponse
    */
   async deleteQueues(request: DeleteQueuesRequest): Promise<DeleteQueuesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteQueuesWithOptions(request, runtime);
   }
 
@@ -14326,19 +16028,19 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteUsersResponse
    */
-  async deleteUsersWithOptions(tmpReq: DeleteUsersRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUsersResponse> {
-    Util.validateModel(tmpReq);
+  async deleteUsersWithOptions(tmpReq: DeleteUsersRequest, runtime: $dara.RuntimeOptions): Promise<DeleteUsersResponse> {
+    tmpReq.validate();
     let request = new DeleteUsersShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.user)) {
+    if (!$dara.isNull(tmpReq.user)) {
       request.userShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.user, "User", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteUsers",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14349,7 +16051,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteUsersResponse>(await this.callApi(params, req, runtime), new DeleteUsersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteUsersResponse>(await this.callApi(params, req, runtime), new DeleteUsersResponse({}));
+    } else {
+      return $dara.cast<DeleteUsersResponse>(await this.execute(params, req, runtime), new DeleteUsersResponse({}));
+    }
+
   }
 
   /**
@@ -14359,7 +16066,7 @@ export default class Client extends OpenApi {
    * @returns DeleteUsersResponse
    */
   async deleteUsers(request: DeleteUsersRequest): Promise<DeleteUsersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteUsersWithOptions(request, runtime);
   }
 
@@ -14370,37 +16077,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAddonTemplateResponse
    */
-  async describeAddonTemplateWithOptions(request: DescribeAddonTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAddonTemplateResponse> {
-    Util.validateModel(request);
+  async describeAddonTemplateWithOptions(request: DescribeAddonTemplateRequest, runtime: $dara.RuntimeOptions): Promise<DescribeAddonTemplateResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.addonName)) {
+    if (!$dara.isNull(request.addonName)) {
       query["AddonName"] = request.addonName;
     }
 
-    if (!Util.isUnset(request.addonVersion)) {
+    if (!$dara.isNull(request.addonVersion)) {
       query["AddonVersion"] = request.addonVersion;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       query["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeAddonTemplate",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14411,7 +16118,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeAddonTemplateResponse>(await this.callApi(params, req, runtime), new DescribeAddonTemplateResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeAddonTemplateResponse>(await this.callApi(params, req, runtime), new DescribeAddonTemplateResponse({}));
+    } else {
+      return $dara.cast<DescribeAddonTemplateResponse>(await this.execute(params, req, runtime), new DescribeAddonTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -14421,7 +16133,7 @@ export default class Client extends OpenApi {
    * @returns DescribeAddonTemplateResponse
    */
   async describeAddonTemplate(request: DescribeAddonTemplateRequest): Promise<DescribeAddonTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAddonTemplateWithOptions(request, runtime);
   }
 
@@ -14432,27 +16144,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachSharedStoragesResponse
    */
-  async detachSharedStoragesWithOptions(tmpReq: DetachSharedStoragesRequest, runtime: $Util.RuntimeOptions): Promise<DetachSharedStoragesResponse> {
-    Util.validateModel(tmpReq);
+  async detachSharedStoragesWithOptions(tmpReq: DetachSharedStoragesRequest, runtime: $dara.RuntimeOptions): Promise<DetachSharedStoragesResponse> {
+    tmpReq.validate();
     let request = new DetachSharedStoragesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.sharedStorages)) {
+    if (!$dara.isNull(tmpReq.sharedStorages)) {
       request.sharedStoragesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sharedStorages, "SharedStorages", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.sharedStoragesShrink)) {
+    if (!$dara.isNull(request.sharedStoragesShrink)) {
       query["SharedStorages"] = request.sharedStoragesShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DetachSharedStorages",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14463,7 +16175,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachSharedStoragesResponse>(await this.callApi(params, req, runtime), new DetachSharedStoragesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DetachSharedStoragesResponse>(await this.callApi(params, req, runtime), new DetachSharedStoragesResponse({}));
+    } else {
+      return $dara.cast<DetachSharedStoragesResponse>(await this.execute(params, req, runtime), new DetachSharedStoragesResponse({}));
+    }
+
   }
 
   /**
@@ -14473,7 +16190,7 @@ export default class Client extends OpenApi {
    * @returns DetachSharedStoragesResponse
    */
   async detachSharedStorages(request: DetachSharedStoragesRequest): Promise<DetachSharedStoragesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.detachSharedStoragesWithOptions(request, runtime);
   }
 
@@ -14484,21 +16201,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAddonResponse
    */
-  async getAddonWithOptions(request: GetAddonRequest, runtime: $Util.RuntimeOptions): Promise<GetAddonResponse> {
-    Util.validateModel(request);
+  async getAddonWithOptions(request: GetAddonRequest, runtime: $dara.RuntimeOptions): Promise<GetAddonResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.addonId)) {
+    if (!$dara.isNull(request.addonId)) {
       query["AddonId"] = request.addonId;
     }
 
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAddon",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14509,7 +16226,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetAddonResponse>(await this.callApi(params, req, runtime), new GetAddonResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAddonResponse>(await this.callApi(params, req, runtime), new GetAddonResponse({}));
+    } else {
+      return $dara.cast<GetAddonResponse>(await this.execute(params, req, runtime), new GetAddonResponse({}));
+    }
+
   }
 
   /**
@@ -14519,7 +16241,7 @@ export default class Client extends OpenApi {
    * @returns GetAddonResponse
    */
   async getAddon(request: GetAddonRequest): Promise<GetAddonResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getAddonWithOptions(request, runtime);
   }
 
@@ -14530,17 +16252,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetClusterResponse
    */
-  async getClusterWithOptions(request: GetClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetClusterResponse> {
-    Util.validateModel(request);
+  async getClusterWithOptions(request: GetClusterRequest, runtime: $dara.RuntimeOptions): Promise<GetClusterResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetCluster",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14551,7 +16273,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetClusterResponse>(await this.callApi(params, req, runtime), new GetClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetClusterResponse>(await this.callApi(params, req, runtime), new GetClusterResponse({}));
+    } else {
+      return $dara.cast<GetClusterResponse>(await this.execute(params, req, runtime), new GetClusterResponse({}));
+    }
+
   }
 
   /**
@@ -14561,7 +16288,7 @@ export default class Client extends OpenApi {
    * @returns GetClusterResponse
    */
   async getCluster(request: GetClusterRequest): Promise<GetClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getClusterWithOptions(request, runtime);
   }
 
@@ -14572,29 +16299,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCommonLogDetailResponse
    */
-  async getCommonLogDetailWithOptions(request: GetCommonLogDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetCommonLogDetailResponse> {
-    Util.validateModel(request);
+  async getCommonLogDetailWithOptions(request: GetCommonLogDetailRequest, runtime: $dara.RuntimeOptions): Promise<GetCommonLogDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.from)) {
+    if (!$dara.isNull(request.from)) {
       query["From"] = request.from;
     }
 
-    if (!Util.isUnset(request.hiddenProcess)) {
+    if (!$dara.isNull(request.hiddenProcess)) {
       query["HiddenProcess"] = request.hiddenProcess;
     }
 
-    if (!Util.isUnset(request.logRequestId)) {
+    if (!$dara.isNull(request.logRequestId)) {
       query["LogRequestId"] = request.logRequestId;
     }
 
-    if (!Util.isUnset(request.to)) {
+    if (!$dara.isNull(request.to)) {
       query["To"] = request.to;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetCommonLogDetail",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14605,7 +16332,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCommonLogDetailResponse>(await this.callApi(params, req, runtime), new GetCommonLogDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetCommonLogDetailResponse>(await this.callApi(params, req, runtime), new GetCommonLogDetailResponse({}));
+    } else {
+      return $dara.cast<GetCommonLogDetailResponse>(await this.execute(params, req, runtime), new GetCommonLogDetailResponse({}));
+    }
+
   }
 
   /**
@@ -14615,7 +16347,7 @@ export default class Client extends OpenApi {
    * @returns GetCommonLogDetailResponse
    */
   async getCommonLogDetail(request: GetCommonLogDetailRequest): Promise<GetCommonLogDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getCommonLogDetailWithOptions(request, runtime);
   }
 
@@ -14626,21 +16358,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetJobResponse
    */
-  async getJobWithOptions(request: GetJobRequest, runtime: $Util.RuntimeOptions): Promise<GetJobResponse> {
-    Util.validateModel(request);
+  async getJobWithOptions(request: GetJobRequest, runtime: $dara.RuntimeOptions): Promise<GetJobResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.jobId)) {
       query["JobId"] = request.jobId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetJob",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14651,7 +16383,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetJobResponse>(await this.callApi(params, req, runtime), new GetJobResponse({}));
+    } else {
+      return $dara.cast<GetJobResponse>(await this.execute(params, req, runtime), new GetJobResponse({}));
+    }
+
   }
 
   /**
@@ -14661,7 +16398,7 @@ export default class Client extends OpenApi {
    * @returns GetJobResponse
    */
   async getJob(request: GetJobRequest): Promise<GetJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getJobWithOptions(request, runtime);
   }
 
@@ -14676,33 +16413,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetJobLogResponse
    */
-  async getJobLogWithOptions(request: GetJobLogRequest, runtime: $Util.RuntimeOptions): Promise<GetJobLogResponse> {
-    Util.validateModel(request);
+  async getJobLogWithOptions(request: GetJobLogRequest, runtime: $dara.RuntimeOptions): Promise<GetJobLogResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.jobId)) {
+    if (!$dara.isNull(request.jobId)) {
       query["JobId"] = request.jobId;
     }
 
-    if (!Util.isUnset(request.logType)) {
+    if (!$dara.isNull(request.logType)) {
       query["LogType"] = request.logType;
     }
 
-    if (!Util.isUnset(request.offset)) {
+    if (!$dara.isNull(request.offset)) {
       query["Offset"] = request.offset;
     }
 
-    if (!Util.isUnset(request.size)) {
+    if (!$dara.isNull(request.size)) {
       query["Size"] = request.size;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetJobLog",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14713,7 +16450,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetJobLogResponse>(await this.callApi(params, req, runtime), new GetJobLogResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetJobLogResponse>(await this.callApi(params, req, runtime), new GetJobLogResponse({}));
+    } else {
+      return $dara.cast<GetJobLogResponse>(await this.execute(params, req, runtime), new GetJobLogResponse({}));
+    }
+
   }
 
   /**
@@ -14727,7 +16469,7 @@ export default class Client extends OpenApi {
    * @returns GetJobLogResponse
    */
   async getJobLog(request: GetJobLogRequest): Promise<GetJobLogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getJobLogWithOptions(request, runtime);
   }
 
@@ -14738,21 +16480,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetQueueResponse
    */
-  async getQueueWithOptions(request: GetQueueRequest, runtime: $Util.RuntimeOptions): Promise<GetQueueResponse> {
-    Util.validateModel(request);
+  async getQueueWithOptions(request: GetQueueRequest, runtime: $dara.RuntimeOptions): Promise<GetQueueResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.queueName)) {
+    if (!$dara.isNull(request.queueName)) {
       query["QueueName"] = request.queueName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetQueue",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14763,7 +16505,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetQueueResponse>(await this.callApi(params, req, runtime), new GetQueueResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetQueueResponse>(await this.callApi(params, req, runtime), new GetQueueResponse({}));
+    } else {
+      return $dara.cast<GetQueueResponse>(await this.execute(params, req, runtime), new GetQueueResponse({}));
+    }
+
   }
 
   /**
@@ -14773,7 +16520,7 @@ export default class Client extends OpenApi {
    * @returns GetQueueResponse
    */
   async getQueue(request: GetQueueRequest): Promise<GetQueueResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getQueueWithOptions(request, runtime);
   }
 
@@ -14792,33 +16539,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InstallAddonResponse
    */
-  async installAddonWithOptions(request: InstallAddonRequest, runtime: $Util.RuntimeOptions): Promise<InstallAddonResponse> {
-    Util.validateModel(request);
+  async installAddonWithOptions(request: InstallAddonRequest, runtime: $dara.RuntimeOptions): Promise<InstallAddonResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.addonName)) {
+    if (!$dara.isNull(request.addonName)) {
       query["AddonName"] = request.addonName;
     }
 
-    if (!Util.isUnset(request.addonVersion)) {
+    if (!$dara.isNull(request.addonVersion)) {
       query["AddonVersion"] = request.addonVersion;
     }
 
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.resourcesSpec)) {
+    if (!$dara.isNull(request.resourcesSpec)) {
       query["ResourcesSpec"] = request.resourcesSpec;
     }
 
-    if (!Util.isUnset(request.servicesSpec)) {
+    if (!$dara.isNull(request.servicesSpec)) {
       query["ServicesSpec"] = request.servicesSpec;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "InstallAddon",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14829,7 +16576,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<InstallAddonResponse>(await this.callApi(params, req, runtime), new InstallAddonResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<InstallAddonResponse>(await this.callApi(params, req, runtime), new InstallAddonResponse({}));
+    } else {
+      return $dara.cast<InstallAddonResponse>(await this.execute(params, req, runtime), new InstallAddonResponse({}));
+    }
+
   }
 
   /**
@@ -14847,7 +16599,7 @@ export default class Client extends OpenApi {
    * @returns InstallAddonResponse
    */
   async installAddon(request: InstallAddonRequest): Promise<InstallAddonResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.installAddonWithOptions(request, runtime);
   }
 
@@ -14858,19 +16610,19 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InstallSoftwaresResponse
    */
-  async installSoftwaresWithOptions(tmpReq: InstallSoftwaresRequest, runtime: $Util.RuntimeOptions): Promise<InstallSoftwaresResponse> {
-    Util.validateModel(tmpReq);
+  async installSoftwaresWithOptions(tmpReq: InstallSoftwaresRequest, runtime: $dara.RuntimeOptions): Promise<InstallSoftwaresResponse> {
+    tmpReq.validate();
     let request = new InstallSoftwaresShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.additionalPackages)) {
+    if (!$dara.isNull(tmpReq.additionalPackages)) {
       request.additionalPackagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.additionalPackages, "AdditionalPackages", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "InstallSoftwares",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14881,7 +16633,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<InstallSoftwaresResponse>(await this.callApi(params, req, runtime), new InstallSoftwaresResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<InstallSoftwaresResponse>(await this.callApi(params, req, runtime), new InstallSoftwaresResponse({}));
+    } else {
+      return $dara.cast<InstallSoftwaresResponse>(await this.execute(params, req, runtime), new InstallSoftwaresResponse({}));
+    }
+
   }
 
   /**
@@ -14891,7 +16648,7 @@ export default class Client extends OpenApi {
    * @returns InstallSoftwaresResponse
    */
   async installSoftwares(request: InstallSoftwaresRequest): Promise<InstallSoftwaresResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.installSoftwaresWithOptions(request, runtime);
   }
 
@@ -14902,33 +16659,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAddonTemplatesResponse
    */
-  async listAddonTemplatesWithOptions(request: ListAddonTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListAddonTemplatesResponse> {
-    Util.validateModel(request);
+  async listAddonTemplatesWithOptions(request: ListAddonTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<ListAddonTemplatesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.addonNames)) {
+    if (!$dara.isNull(request.addonNames)) {
       query["AddonNames"] = request.addonNames;
     }
 
-    if (!Util.isUnset(request.clusterCategory)) {
+    if (!$dara.isNull(request.clusterCategory)) {
       query["ClusterCategory"] = request.clusterCategory;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAddonTemplates",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14939,7 +16696,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAddonTemplatesResponse>(await this.callApi(params, req, runtime), new ListAddonTemplatesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAddonTemplatesResponse>(await this.callApi(params, req, runtime), new ListAddonTemplatesResponse({}));
+    } else {
+      return $dara.cast<ListAddonTemplatesResponse>(await this.execute(params, req, runtime), new ListAddonTemplatesResponse({}));
+    }
+
   }
 
   /**
@@ -14949,7 +16711,7 @@ export default class Client extends OpenApi {
    * @returns ListAddonTemplatesResponse
    */
   async listAddonTemplates(request: ListAddonTemplatesRequest): Promise<ListAddonTemplatesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAddonTemplatesWithOptions(request, runtime);
   }
 
@@ -14960,35 +16722,35 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAddonsResponse
    */
-  async listAddonsWithOptions(tmpReq: ListAddonsRequest, runtime: $Util.RuntimeOptions): Promise<ListAddonsResponse> {
-    Util.validateModel(tmpReq);
+  async listAddonsWithOptions(tmpReq: ListAddonsRequest, runtime: $dara.RuntimeOptions): Promise<ListAddonsResponse> {
+    tmpReq.validate();
     let request = new ListAddonsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.addonIds)) {
+    if (!$dara.isNull(tmpReq.addonIds)) {
       request.addonIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addonIds, "AddonIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.addonIdsShrink)) {
+    if (!$dara.isNull(request.addonIdsShrink)) {
       query["AddonIds"] = request.addonIdsShrink;
     }
 
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAddons",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -14999,7 +16761,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAddonsResponse>(await this.callApi(params, req, runtime), new ListAddonsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAddonsResponse>(await this.callApi(params, req, runtime), new ListAddonsResponse({}));
+    } else {
+      return $dara.cast<ListAddonsResponse>(await this.execute(params, req, runtime), new ListAddonsResponse({}));
+    }
+
   }
 
   /**
@@ -15009,7 +16776,7 @@ export default class Client extends OpenApi {
    * @returns ListAddonsResponse
    */
   async listAddons(request: ListAddonsRequest): Promise<ListAddonsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAddonsWithOptions(request, runtime);
   }
 
@@ -15020,21 +16787,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAvailableFileSystemsResponse
    */
-  async listAvailableFileSystemsWithOptions(request: ListAvailableFileSystemsRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableFileSystemsResponse> {
-    Util.validateModel(request);
+  async listAvailableFileSystemsWithOptions(request: ListAvailableFileSystemsRequest, runtime: $dara.RuntimeOptions): Promise<ListAvailableFileSystemsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAvailableFileSystems",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15045,7 +16812,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAvailableFileSystemsResponse>(await this.callApi(params, req, runtime), new ListAvailableFileSystemsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAvailableFileSystemsResponse>(await this.callApi(params, req, runtime), new ListAvailableFileSystemsResponse({}));
+    } else {
+      return $dara.cast<ListAvailableFileSystemsResponse>(await this.execute(params, req, runtime), new ListAvailableFileSystemsResponse({}));
+    }
+
   }
 
   /**
@@ -15055,7 +16827,7 @@ export default class Client extends OpenApi {
    * @returns ListAvailableFileSystemsResponse
    */
   async listAvailableFileSystems(request: ListAvailableFileSystemsRequest): Promise<ListAvailableFileSystemsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAvailableFileSystemsWithOptions(request, runtime);
   }
 
@@ -15066,23 +16838,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAvailableImagesResponse
    */
-  async listAvailableImagesWithOptions(tmpReq: ListAvailableImagesRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableImagesResponse> {
-    Util.validateModel(tmpReq);
+  async listAvailableImagesWithOptions(tmpReq: ListAvailableImagesRequest, runtime: $dara.RuntimeOptions): Promise<ListAvailableImagesResponse> {
+    tmpReq.validate();
     let request = new ListAvailableImagesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.directoryService)) {
+    if (!$dara.isNull(tmpReq.directoryService)) {
       request.directoryServiceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.directoryService, "DirectoryService", "json");
     }
 
-    if (!Util.isUnset(tmpReq.scheduler)) {
+    if (!$dara.isNull(tmpReq.scheduler)) {
       request.schedulerShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduler, "Scheduler", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAvailableImages",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15093,7 +16865,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAvailableImagesResponse>(await this.callApi(params, req, runtime), new ListAvailableImagesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAvailableImagesResponse>(await this.callApi(params, req, runtime), new ListAvailableImagesResponse({}));
+    } else {
+      return $dara.cast<ListAvailableImagesResponse>(await this.execute(params, req, runtime), new ListAvailableImagesResponse({}));
+    }
+
   }
 
   /**
@@ -15103,7 +16880,7 @@ export default class Client extends OpenApi {
    * @returns ListAvailableImagesResponse
    */
   async listAvailableImages(request: ListAvailableImagesRequest): Promise<ListAvailableImagesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listAvailableImagesWithOptions(request, runtime);
   }
 
@@ -15114,39 +16891,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListClustersResponse
    */
-  async listClustersWithOptions(tmpReq: ListClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListClustersResponse> {
-    Util.validateModel(tmpReq);
+  async listClustersWithOptions(tmpReq: ListClustersRequest, runtime: $dara.RuntimeOptions): Promise<ListClustersResponse> {
+    tmpReq.validate();
     let request = new ListClustersShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.clusterIds)) {
+    if (!$dara.isNull(tmpReq.clusterIds)) {
       request.clusterIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clusterIds, "ClusterIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.clusterNames)) {
+    if (!$dara.isNull(tmpReq.clusterNames)) {
       request.clusterNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clusterNames, "ClusterNames", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterIdsShrink)) {
+    if (!$dara.isNull(request.clusterIdsShrink)) {
       query["ClusterIds"] = request.clusterIdsShrink;
     }
 
-    if (!Util.isUnset(request.clusterNamesShrink)) {
+    if (!$dara.isNull(request.clusterNamesShrink)) {
       query["ClusterNames"] = request.clusterNamesShrink;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListClusters",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15157,7 +16934,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
+    } else {
+      return $dara.cast<ListClustersResponse>(await this.execute(params, req, runtime), new ListClustersResponse({}));
+    }
+
   }
 
   /**
@@ -15167,7 +16949,7 @@ export default class Client extends OpenApi {
    * @returns ListClustersResponse
    */
   async listClusters(request: ListClustersRequest): Promise<ListClustersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listClustersWithOptions(request, runtime);
   }
 
@@ -15178,67 +16960,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCommonLogsResponse
    */
-  async listCommonLogsWithOptions(tmpReq: ListCommonLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListCommonLogsResponse> {
-    Util.validateModel(tmpReq);
+  async listCommonLogsWithOptions(tmpReq: ListCommonLogsRequest, runtime: $dara.RuntimeOptions): Promise<ListCommonLogsResponse> {
+    tmpReq.validate();
     let request = new ListCommonLogsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.actionName)) {
+    if (!$dara.isNull(tmpReq.actionName)) {
       request.actionNameShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actionName, "ActionName", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.actionNameShrink)) {
+    if (!$dara.isNull(request.actionNameShrink)) {
       query["ActionName"] = request.actionNameShrink;
     }
 
-    if (!Util.isUnset(request.actionStatus)) {
+    if (!$dara.isNull(request.actionStatus)) {
       query["ActionStatus"] = request.actionStatus;
     }
 
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.from)) {
+    if (!$dara.isNull(request.from)) {
       query["From"] = request.from;
     }
 
-    if (!Util.isUnset(request.isReverse)) {
+    if (!$dara.isNull(request.isReverse)) {
       query["IsReverse"] = request.isReverse;
     }
 
-    if (!Util.isUnset(request.logRequestId)) {
+    if (!$dara.isNull(request.logRequestId)) {
       query["LogRequestId"] = request.logRequestId;
     }
 
-    if (!Util.isUnset(request.logType)) {
+    if (!$dara.isNull(request.logType)) {
       query["LogType"] = request.logType;
     }
 
-    if (!Util.isUnset(request.operatorUid)) {
+    if (!$dara.isNull(request.operatorUid)) {
       query["OperatorUid"] = request.operatorUid;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resource)) {
+    if (!$dara.isNull(request.resource)) {
       query["Resource"] = request.resource;
     }
 
-    if (!Util.isUnset(request.to)) {
+    if (!$dara.isNull(request.to)) {
       query["To"] = request.to;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListCommonLogs",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15249,7 +17031,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListCommonLogsResponse>(await this.callApi(params, req, runtime), new ListCommonLogsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListCommonLogsResponse>(await this.callApi(params, req, runtime), new ListCommonLogsResponse({}));
+    } else {
+      return $dara.cast<ListCommonLogsResponse>(await this.execute(params, req, runtime), new ListCommonLogsResponse({}));
+    }
+
   }
 
   /**
@@ -15259,7 +17046,7 @@ export default class Client extends OpenApi {
    * @returns ListCommonLogsResponse
    */
   async listCommonLogs(request: ListCommonLogsRequest): Promise<ListCommonLogsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listCommonLogsWithOptions(request, runtime);
   }
 
@@ -15270,13 +17057,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstalledSoftwaresResponse
    */
-  async listInstalledSoftwaresWithOptions(request: ListInstalledSoftwaresRequest, runtime: $Util.RuntimeOptions): Promise<ListInstalledSoftwaresResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listInstalledSoftwaresWithOptions(request: ListInstalledSoftwaresRequest, runtime: $dara.RuntimeOptions): Promise<ListInstalledSoftwaresResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListInstalledSoftwares",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15287,7 +17074,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListInstalledSoftwaresResponse>(await this.callApi(params, req, runtime), new ListInstalledSoftwaresResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstalledSoftwaresResponse>(await this.callApi(params, req, runtime), new ListInstalledSoftwaresResponse({}));
+    } else {
+      return $dara.cast<ListInstalledSoftwaresResponse>(await this.execute(params, req, runtime), new ListInstalledSoftwaresResponse({}));
+    }
+
   }
 
   /**
@@ -15297,7 +17089,7 @@ export default class Client extends OpenApi {
    * @returns ListInstalledSoftwaresResponse
    */
   async listInstalledSoftwares(request: ListInstalledSoftwaresRequest): Promise<ListInstalledSoftwaresResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listInstalledSoftwaresWithOptions(request, runtime);
   }
 
@@ -15308,35 +17100,35 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListJobsResponse
    */
-  async listJobsWithOptions(tmpReq: ListJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListJobsResponse> {
-    Util.validateModel(tmpReq);
+  async listJobsWithOptions(tmpReq: ListJobsRequest, runtime: $dara.RuntimeOptions): Promise<ListJobsResponse> {
+    tmpReq.validate();
     let request = new ListJobsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.jobFilter)) {
+    if (!$dara.isNull(tmpReq.jobFilter)) {
       request.jobFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobFilter, "JobFilter", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.jobFilterShrink)) {
+    if (!$dara.isNull(request.jobFilterShrink)) {
       query["JobFilter"] = request.jobFilterShrink;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListJobs",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15347,7 +17139,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
+    } else {
+      return $dara.cast<ListJobsResponse>(await this.execute(params, req, runtime), new ListJobsResponse({}));
+    }
+
   }
 
   /**
@@ -15357,7 +17154,7 @@ export default class Client extends OpenApi {
    * @returns ListJobsResponse
    */
   async listJobs(request: ListJobsRequest): Promise<ListJobsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listJobsWithOptions(request, runtime);
   }
 
@@ -15368,67 +17165,67 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNodesResponse
    */
-  async listNodesWithOptions(tmpReq: ListNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesResponse> {
-    Util.validateModel(tmpReq);
+  async listNodesWithOptions(tmpReq: ListNodesRequest, runtime: $dara.RuntimeOptions): Promise<ListNodesResponse> {
+    tmpReq.validate();
     let request = new ListNodesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.hostnames)) {
+    if (!$dara.isNull(tmpReq.hostnames)) {
       request.hostnamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hostnames, "Hostnames", "json");
     }
 
-    if (!Util.isUnset(tmpReq.privateIpAddress)) {
+    if (!$dara.isNull(tmpReq.privateIpAddress)) {
       request.privateIpAddressShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.privateIpAddress, "PrivateIpAddress", "json");
     }
 
-    if (!Util.isUnset(tmpReq.queueNames)) {
+    if (!$dara.isNull(tmpReq.queueNames)) {
       request.queueNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queueNames, "QueueNames", "json");
     }
 
-    if (!Util.isUnset(tmpReq.status)) {
+    if (!$dara.isNull(tmpReq.status)) {
       request.statusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.status, "Status", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.hostnamesShrink)) {
+    if (!$dara.isNull(request.hostnamesShrink)) {
       query["Hostnames"] = request.hostnamesShrink;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.privateIpAddressShrink)) {
+    if (!$dara.isNull(request.privateIpAddressShrink)) {
       query["PrivateIpAddress"] = request.privateIpAddressShrink;
     }
 
-    if (!Util.isUnset(request.queueNamesShrink)) {
+    if (!$dara.isNull(request.queueNamesShrink)) {
       query["QueueNames"] = request.queueNamesShrink;
     }
 
-    if (!Util.isUnset(request.sequence)) {
+    if (!$dara.isNull(request.sequence)) {
       query["Sequence"] = request.sequence;
     }
 
-    if (!Util.isUnset(request.sortBy)) {
+    if (!$dara.isNull(request.sortBy)) {
       query["SortBy"] = request.sortBy;
     }
 
-    if (!Util.isUnset(request.statusShrink)) {
+    if (!$dara.isNull(request.statusShrink)) {
       query["Status"] = request.statusShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListNodes",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15439,7 +17236,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
+    } else {
+      return $dara.cast<ListNodesResponse>(await this.execute(params, req, runtime), new ListNodesResponse({}));
+    }
+
   }
 
   /**
@@ -15449,7 +17251,7 @@ export default class Client extends OpenApi {
    * @returns ListNodesResponse
    */
   async listNodes(request: ListNodesRequest): Promise<ListNodesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listNodesWithOptions(request, runtime);
   }
 
@@ -15460,27 +17262,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListQueuesResponse
    */
-  async listQueuesWithOptions(tmpReq: ListQueuesRequest, runtime: $Util.RuntimeOptions): Promise<ListQueuesResponse> {
-    Util.validateModel(tmpReq);
+  async listQueuesWithOptions(tmpReq: ListQueuesRequest, runtime: $dara.RuntimeOptions): Promise<ListQueuesResponse> {
+    tmpReq.validate();
     let request = new ListQueuesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.queueNames)) {
+    if (!$dara.isNull(tmpReq.queueNames)) {
       request.queueNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queueNames, "QueueNames", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.queueNamesShrink)) {
+    if (!$dara.isNull(request.queueNamesShrink)) {
       query["QueueNames"] = request.queueNamesShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListQueues",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15491,7 +17293,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListQueuesResponse>(await this.callApi(params, req, runtime), new ListQueuesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListQueuesResponse>(await this.callApi(params, req, runtime), new ListQueuesResponse({}));
+    } else {
+      return $dara.cast<ListQueuesResponse>(await this.execute(params, req, runtime), new ListQueuesResponse({}));
+    }
+
   }
 
   /**
@@ -15501,7 +17308,7 @@ export default class Client extends OpenApi {
    * @returns ListQueuesResponse
    */
   async listQueues(request: ListQueuesRequest): Promise<ListQueuesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listQueuesWithOptions(request, runtime);
   }
 
@@ -15512,25 +17319,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSharedStoragesResponse
    */
-  async listSharedStoragesWithOptions(request: ListSharedStoragesRequest, runtime: $Util.RuntimeOptions): Promise<ListSharedStoragesResponse> {
-    Util.validateModel(request);
+  async listSharedStoragesWithOptions(request: ListSharedStoragesRequest, runtime: $dara.RuntimeOptions): Promise<ListSharedStoragesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.fileSystemId)) {
+    if (!$dara.isNull(request.fileSystemId)) {
       query["FileSystemId"] = request.fileSystemId;
     }
 
-    if (!Util.isUnset(request.fileSystemType)) {
+    if (!$dara.isNull(request.fileSystemType)) {
       query["FileSystemType"] = request.fileSystemType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListSharedStorages",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15541,7 +17348,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListSharedStoragesResponse>(await this.callApi(params, req, runtime), new ListSharedStoragesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSharedStoragesResponse>(await this.callApi(params, req, runtime), new ListSharedStoragesResponse({}));
+    } else {
+      return $dara.cast<ListSharedStoragesResponse>(await this.execute(params, req, runtime), new ListSharedStoragesResponse({}));
+    }
+
   }
 
   /**
@@ -15551,7 +17363,7 @@ export default class Client extends OpenApi {
    * @returns ListSharedStoragesResponse
    */
   async listSharedStorages(request: ListSharedStoragesRequest): Promise<ListSharedStoragesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listSharedStoragesWithOptions(request, runtime);
   }
 
@@ -15562,13 +17374,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSoftwaresResponse
    */
-  async listSoftwaresWithOptions(request: ListSoftwaresRequest, runtime: $Util.RuntimeOptions): Promise<ListSoftwaresResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listSoftwaresWithOptions(request: ListSoftwaresRequest, runtime: $dara.RuntimeOptions): Promise<ListSoftwaresResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListSoftwares",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15579,7 +17391,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListSoftwaresResponse>(await this.callApi(params, req, runtime), new ListSoftwaresResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSoftwaresResponse>(await this.callApi(params, req, runtime), new ListSoftwaresResponse({}));
+    } else {
+      return $dara.cast<ListSoftwaresResponse>(await this.execute(params, req, runtime), new ListSoftwaresResponse({}));
+    }
+
   }
 
   /**
@@ -15589,7 +17406,7 @@ export default class Client extends OpenApi {
    * @returns ListSoftwaresResponse
    */
   async listSoftwares(request: ListSoftwaresRequest): Promise<ListSoftwaresResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listSoftwaresWithOptions(request, runtime);
   }
 
@@ -15600,13 +17417,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUsersResponse
    */
-  async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listUsersWithOptions(request: ListUsersRequest, runtime: $dara.RuntimeOptions): Promise<ListUsersResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListUsers",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15617,7 +17434,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
+    } else {
+      return $dara.cast<ListUsersResponse>(await this.execute(params, req, runtime), new ListUsersResponse({}));
+    }
+
   }
 
   /**
@@ -15627,7 +17449,7 @@ export default class Client extends OpenApi {
    * @returns ListUsersResponse
    */
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listUsersWithOptions(request, runtime);
   }
 
@@ -15638,27 +17460,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopJobsResponse
    */
-  async stopJobsWithOptions(tmpReq: StopJobsRequest, runtime: $Util.RuntimeOptions): Promise<StopJobsResponse> {
-    Util.validateModel(tmpReq);
+  async stopJobsWithOptions(tmpReq: StopJobsRequest, runtime: $dara.RuntimeOptions): Promise<StopJobsResponse> {
+    tmpReq.validate();
     let request = new StopJobsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.jobIds)) {
+    if (!$dara.isNull(tmpReq.jobIds)) {
       request.jobIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobIds, "JobIds", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.jobIdsShrink)) {
+    if (!$dara.isNull(request.jobIdsShrink)) {
       query["JobIds"] = request.jobIdsShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopJobs",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15669,7 +17491,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StopJobsResponse>(await this.callApi(params, req, runtime), new StopJobsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopJobsResponse>(await this.callApi(params, req, runtime), new StopJobsResponse({}));
+    } else {
+      return $dara.cast<StopJobsResponse>(await this.execute(params, req, runtime), new StopJobsResponse({}));
+    }
+
   }
 
   /**
@@ -15679,7 +17506,7 @@ export default class Client extends OpenApi {
    * @returns StopJobsResponse
    */
   async stopJobs(request: StopJobsRequest): Promise<StopJobsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.stopJobsWithOptions(request, runtime);
   }
 
@@ -15698,21 +17525,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnInstallAddonResponse
    */
-  async unInstallAddonWithOptions(request: UnInstallAddonRequest, runtime: $Util.RuntimeOptions): Promise<UnInstallAddonResponse> {
-    Util.validateModel(request);
+  async unInstallAddonWithOptions(request: UnInstallAddonRequest, runtime: $dara.RuntimeOptions): Promise<UnInstallAddonResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.addonId)) {
+    if (!$dara.isNull(request.addonId)) {
       query["AddonId"] = request.addonId;
     }
 
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnInstallAddon",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15723,7 +17550,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnInstallAddonResponse>(await this.callApi(params, req, runtime), new UnInstallAddonResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnInstallAddonResponse>(await this.callApi(params, req, runtime), new UnInstallAddonResponse({}));
+    } else {
+      return $dara.cast<UnInstallAddonResponse>(await this.execute(params, req, runtime), new UnInstallAddonResponse({}));
+    }
+
   }
 
   /**
@@ -15741,7 +17573,7 @@ export default class Client extends OpenApi {
    * @returns UnInstallAddonResponse
    */
   async unInstallAddon(request: UnInstallAddonRequest): Promise<UnInstallAddonResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unInstallAddonWithOptions(request, runtime);
   }
 
@@ -15752,19 +17584,19 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UninstallSoftwaresResponse
    */
-  async uninstallSoftwaresWithOptions(tmpReq: UninstallSoftwaresRequest, runtime: $Util.RuntimeOptions): Promise<UninstallSoftwaresResponse> {
-    Util.validateModel(tmpReq);
+  async uninstallSoftwaresWithOptions(tmpReq: UninstallSoftwaresRequest, runtime: $dara.RuntimeOptions): Promise<UninstallSoftwaresResponse> {
+    tmpReq.validate();
     let request = new UninstallSoftwaresShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.additionalPackages)) {
+    if (!$dara.isNull(tmpReq.additionalPackages)) {
       request.additionalPackagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.additionalPackages, "AdditionalPackages", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UninstallSoftwares",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15775,7 +17607,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UninstallSoftwaresResponse>(await this.callApi(params, req, runtime), new UninstallSoftwaresResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UninstallSoftwaresResponse>(await this.callApi(params, req, runtime), new UninstallSoftwaresResponse({}));
+    } else {
+      return $dara.cast<UninstallSoftwaresResponse>(await this.execute(params, req, runtime), new UninstallSoftwaresResponse({}));
+    }
+
   }
 
   /**
@@ -15785,7 +17622,7 @@ export default class Client extends OpenApi {
    * @returns UninstallSoftwaresResponse
    */
   async uninstallSoftwares(request: UninstallSoftwaresRequest): Promise<UninstallSoftwaresResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.uninstallSoftwaresWithOptions(request, runtime);
   }
 
@@ -15796,83 +17633,83 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateClusterResponse
    */
-  async updateClusterWithOptions(tmpReq: UpdateClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClusterResponse> {
-    Util.validateModel(tmpReq);
+  async updateClusterWithOptions(tmpReq: UpdateClusterRequest, runtime: $dara.RuntimeOptions): Promise<UpdateClusterResponse> {
+    tmpReq.validate();
     let request = new UpdateClusterShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.clusterCustomConfiguration)) {
+    if (!$dara.isNull(tmpReq.clusterCustomConfiguration)) {
       request.clusterCustomConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clusterCustomConfiguration, "ClusterCustomConfiguration", "json");
     }
 
-    if (!Util.isUnset(tmpReq.monitorSpec)) {
+    if (!$dara.isNull(tmpReq.monitorSpec)) {
       request.monitorSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.monitorSpec, "MonitorSpec", "json");
     }
 
-    if (!Util.isUnset(tmpReq.schedulerSpec)) {
+    if (!$dara.isNull(tmpReq.schedulerSpec)) {
       request.schedulerSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.schedulerSpec, "SchedulerSpec", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clientVersion)) {
+    if (!$dara.isNull(request.clientVersion)) {
       query["ClientVersion"] = request.clientVersion;
     }
 
-    if (!Util.isUnset(request.clusterCustomConfigurationShrink)) {
+    if (!$dara.isNull(request.clusterCustomConfigurationShrink)) {
       query["ClusterCustomConfiguration"] = request.clusterCustomConfigurationShrink;
     }
 
-    if (!Util.isUnset(request.clusterDescription)) {
+    if (!$dara.isNull(request.clusterDescription)) {
       query["ClusterDescription"] = request.clusterDescription;
     }
 
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.clusterName)) {
+    if (!$dara.isNull(request.clusterName)) {
       query["ClusterName"] = request.clusterName;
     }
 
-    if (!Util.isUnset(request.deletionProtection)) {
+    if (!$dara.isNull(request.deletionProtection)) {
       query["DeletionProtection"] = request.deletionProtection;
     }
 
-    if (!Util.isUnset(request.enableScaleIn)) {
+    if (!$dara.isNull(request.enableScaleIn)) {
       query["EnableScaleIn"] = request.enableScaleIn;
     }
 
-    if (!Util.isUnset(request.enableScaleOut)) {
+    if (!$dara.isNull(request.enableScaleOut)) {
       query["EnableScaleOut"] = request.enableScaleOut;
     }
 
-    if (!Util.isUnset(request.growInterval)) {
+    if (!$dara.isNull(request.growInterval)) {
       query["GrowInterval"] = request.growInterval;
     }
 
-    if (!Util.isUnset(request.idleInterval)) {
+    if (!$dara.isNull(request.idleInterval)) {
       query["IdleInterval"] = request.idleInterval;
     }
 
-    if (!Util.isUnset(request.maxCoreCount)) {
+    if (!$dara.isNull(request.maxCoreCount)) {
       query["MaxCoreCount"] = request.maxCoreCount;
     }
 
-    if (!Util.isUnset(request.maxCount)) {
+    if (!$dara.isNull(request.maxCount)) {
       query["MaxCount"] = request.maxCount;
     }
 
-    if (!Util.isUnset(request.monitorSpecShrink)) {
+    if (!$dara.isNull(request.monitorSpecShrink)) {
       query["MonitorSpec"] = request.monitorSpecShrink;
     }
 
-    if (!Util.isUnset(request.schedulerSpecShrink)) {
+    if (!$dara.isNull(request.schedulerSpecShrink)) {
       query["SchedulerSpec"] = request.schedulerSpecShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateCluster",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15883,7 +17720,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateClusterResponse>(await this.callApi(params, req, runtime), new UpdateClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateClusterResponse>(await this.callApi(params, req, runtime), new UpdateClusterResponse({}));
+    } else {
+      return $dara.cast<UpdateClusterResponse>(await this.execute(params, req, runtime), new UpdateClusterResponse({}));
+    }
+
   }
 
   /**
@@ -15893,7 +17735,7 @@ export default class Client extends OpenApi {
    * @returns UpdateClusterResponse
    */
   async updateCluster(request: UpdateClusterRequest): Promise<UpdateClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateClusterWithOptions(request, runtime);
   }
 
@@ -15908,27 +17750,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateNodesResponse
    */
-  async updateNodesWithOptions(tmpReq: UpdateNodesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNodesResponse> {
-    Util.validateModel(tmpReq);
+  async updateNodesWithOptions(tmpReq: UpdateNodesRequest, runtime: $dara.RuntimeOptions): Promise<UpdateNodesResponse> {
+    tmpReq.validate();
     let request = new UpdateNodesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.instances)) {
+    if (!$dara.isNull(tmpReq.instances)) {
       request.instancesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instances, "Instances", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.instancesShrink)) {
+    if (!$dara.isNull(request.instancesShrink)) {
       query["Instances"] = request.instancesShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateNodes",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15939,7 +17781,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateNodesResponse>(await this.callApi(params, req, runtime), new UpdateNodesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateNodesResponse>(await this.callApi(params, req, runtime), new UpdateNodesResponse({}));
+    } else {
+      return $dara.cast<UpdateNodesResponse>(await this.execute(params, req, runtime), new UpdateNodesResponse({}));
+    }
+
   }
 
   /**
@@ -15953,7 +17800,7 @@ export default class Client extends OpenApi {
    * @returns UpdateNodesResponse
    */
   async updateNodes(request: UpdateNodesRequest): Promise<UpdateNodesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateNodesWithOptions(request, runtime);
   }
 
@@ -15964,27 +17811,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateQueueResponse
    */
-  async updateQueueWithOptions(tmpReq: UpdateQueueRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQueueResponse> {
-    Util.validateModel(tmpReq);
+  async updateQueueWithOptions(tmpReq: UpdateQueueRequest, runtime: $dara.RuntimeOptions): Promise<UpdateQueueResponse> {
+    tmpReq.validate();
     let request = new UpdateQueueShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.queue)) {
+    if (!$dara.isNull(tmpReq.queue)) {
       request.queueShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queue, "Queue", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.queueShrink)) {
+    if (!$dara.isNull(request.queueShrink)) {
       query["Queue"] = request.queueShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateQueue",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -15995,7 +17842,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateQueueResponse>(await this.callApi(params, req, runtime), new UpdateQueueResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateQueueResponse>(await this.callApi(params, req, runtime), new UpdateQueueResponse({}));
+    } else {
+      return $dara.cast<UpdateQueueResponse>(await this.execute(params, req, runtime), new UpdateQueueResponse({}));
+    }
+
   }
 
   /**
@@ -16005,7 +17857,7 @@ export default class Client extends OpenApi {
    * @returns UpdateQueueResponse
    */
   async updateQueue(request: UpdateQueueRequest): Promise<UpdateQueueResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateQueueWithOptions(request, runtime);
   }
 
@@ -16016,29 +17868,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateUserResponse
    */
-  async updateUserWithOptions(request: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
-    Util.validateModel(request);
+  async updateUserWithOptions(request: UpdateUserRequest, runtime: $dara.RuntimeOptions): Promise<UpdateUserResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clusterId)) {
+    if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.group)) {
+    if (!$dara.isNull(request.group)) {
       query["Group"] = request.group;
     }
 
-    if (!Util.isUnset(request.password)) {
+    if (!$dara.isNull(request.password)) {
       query["Password"] = request.password;
     }
 
-    if (!Util.isUnset(request.userName)) {
+    if (!$dara.isNull(request.userName)) {
       query["UserName"] = request.userName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateUser",
       version: "2024-07-30",
       protocol: "HTTPS",
@@ -16049,7 +17901,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
+    } else {
+      return $dara.cast<UpdateUserResponse>(await this.execute(params, req, runtime), new UpdateUserResponse({}));
+    }
+
   }
 
   /**
@@ -16059,7 +17916,7 @@ export default class Client extends OpenApi {
    * @returns UpdateUserResponse
    */
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateUserWithOptions(request, runtime);
   }
 
