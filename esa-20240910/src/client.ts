@@ -10290,6 +10290,7 @@ export class ListCompressionRulesResponseBodyConfigs extends $dara.Model {
    * 1
    */
   siteVersion?: number;
+  zstd?: string;
   static names(): { [key: string]: string } {
     return {
       brotli: 'Brotli',
@@ -10301,6 +10302,7 @@ export class ListCompressionRulesResponseBodyConfigs extends $dara.Model {
       ruleName: 'RuleName',
       sequence: 'Sequence',
       siteVersion: 'SiteVersion',
+      zstd: 'Zstd',
     };
   }
 
@@ -10315,6 +10317,7 @@ export class ListCompressionRulesResponseBodyConfigs extends $dara.Model {
       ruleName: 'string',
       sequence: 'number',
       siteVersion: 'number',
+      zstd: 'string',
     };
   }
 
@@ -15324,6 +15327,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
    * online
    */
   status?: string;
+  subscribeType?: string;
   static names(): { [key: string]: string } {
     return {
       billingMode: 'BillingMode',
@@ -15350,6 +15354,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
       smartRoutingRequest: 'SmartRoutingRequest',
       staticRequest: 'StaticRequest',
       status: 'Status',
+      subscribeType: 'SubscribeType',
     };
   }
 
@@ -15379,6 +15384,7 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
       smartRoutingRequest: 'string',
       staticRequest: 'string',
       status: 'string',
+      subscribeType: 'string',
     };
   }
 
@@ -19440,6 +19446,85 @@ export class BlockObjectResponse extends $dara.Model {
   }
 }
 
+export class CheckAssumeSlrRoleResponseBody extends $dara.Model {
+  /**
+   * @example
+   * aliuid:xxx assumeOssRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
+   */
+  errorMsg?: string;
+  /**
+   * @example
+   * true
+   */
+  isExist?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 34DCBC8A-****-****-****-6DAA11D7DDBD
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMsg: 'ErrorMsg',
+      isExist: 'IsExist',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMsg: 'string',
+      isExist: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckAssumeSlrRoleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckAssumeSlrRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckAssumeSlrRoleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckSiteNameRequest extends $dara.Model {
   /**
    * @remarks
@@ -20486,6 +20571,7 @@ export class CreateCompressionRuleRequest extends $dara.Model {
    * 0
    */
   siteVersion?: number;
+  zstd?: string;
   static names(): { [key: string]: string } {
     return {
       brotli: 'Brotli',
@@ -20495,6 +20581,7 @@ export class CreateCompressionRuleRequest extends $dara.Model {
       ruleName: 'RuleName',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
+      zstd: 'Zstd',
     };
   }
 
@@ -20507,6 +20594,7 @@ export class CreateCompressionRuleRequest extends $dara.Model {
       ruleName: 'string',
       siteId: 'number',
       siteVersion: 'number',
+      zstd: 'string',
     };
   }
 
@@ -26142,6 +26230,71 @@ export class CreateSiteDeliveryTaskResponse extends $dara.Model {
   }
 }
 
+export class CreateSlrRoleForRealtimeLogResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 156A6B-677B1A-4297B7-9187B7-2B44792
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSlrRoleForRealtimeLogResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSlrRoleForRealtimeLogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSlrRoleForRealtimeLogResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateUserDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
@@ -27021,15 +27174,18 @@ export class CreateWaitingRoomResponseBody extends $dara.Model {
    * 85H66C7B-671A-4297-9187-2C4477247A74
    */
   requestId?: string;
+  waitingRoomId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      waitingRoomId: 'WaitingRoomId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      waitingRoomId: 'string',
     };
   }
 
@@ -27356,15 +27512,18 @@ export class CreateWaitingRoomEventResponseBody extends $dara.Model {
    * 15C66C7B-671A-4297-9187-2C4477247A123425345
    */
   requestId?: string;
+  waitingRoomEventId?: number;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      waitingRoomEventId: 'WaitingRoomEventId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      waitingRoomEventId: 'number',
     };
   }
 
@@ -27504,15 +27663,18 @@ export class CreateWaitingRoomRuleResponseBody extends $dara.Model {
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
+  waitingRoomRuleId?: number;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      waitingRoomRuleId: 'WaitingRoomRuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      waitingRoomRuleId: 'number',
     };
   }
 
@@ -35174,6 +35336,7 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
    * 0
    */
   siteVersion?: number;
+  zstd?: string;
   static names(): { [key: string]: string } {
     return {
       brotli: 'Brotli',
@@ -35186,6 +35349,7 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
       ruleName: 'RuleName',
       sequence: 'Sequence',
       siteVersion: 'SiteVersion',
+      zstd: 'Zstd',
     };
   }
 
@@ -35201,6 +35365,7 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
       ruleName: 'string',
       sequence: 'number',
       siteVersion: 'number',
+      zstd: 'string',
     };
   }
 
@@ -50119,6 +50284,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
    * false
    */
   status?: string;
+  subscribeType?: string;
   static names(): { [key: string]: string } {
     return {
       checkRemainingSiteQuota: 'CheckRemainingSiteQuota',
@@ -50129,6 +50295,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
       sortBy: 'SortBy',
       sortOrder: 'SortOrder',
       status: 'Status',
+      subscribeType: 'SubscribeType',
     };
   }
 
@@ -50142,6 +50309,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
       sortBy: 'string',
       sortOrder: 'string',
       status: 'string',
+      subscribeType: 'string',
     };
   }
 
@@ -55025,6 +55193,7 @@ export class UpdateCompressionRuleRequest extends $dara.Model {
    * 5407498413****
    */
   siteId?: number;
+  zstd?: string;
   static names(): { [key: string]: string } {
     return {
       brotli: 'Brotli',
@@ -55034,6 +55203,7 @@ export class UpdateCompressionRuleRequest extends $dara.Model {
       ruleEnable: 'RuleEnable',
       ruleName: 'RuleName',
       siteId: 'SiteId',
+      zstd: 'Zstd',
     };
   }
 
@@ -55046,6 +55216,7 @@ export class UpdateCompressionRuleRequest extends $dara.Model {
       ruleEnable: 'string',
       ruleName: 'string',
       siteId: 'number',
+      zstd: 'string',
     };
   }
 
@@ -62794,6 +62965,43 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检查实时日志slr角色是否已创建
+   * 
+   * @param request - CheckAssumeSlrRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckAssumeSlrRoleResponse
+   */
+  async checkAssumeSlrRoleWithOptions(runtime: $dara.RuntimeOptions): Promise<CheckAssumeSlrRoleResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckAssumeSlrRole",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CheckAssumeSlrRoleResponse>(await this.callApi(params, req, runtime), new CheckAssumeSlrRoleResponse({}));
+    } else {
+      return $dara.cast<CheckAssumeSlrRoleResponse>(await this.execute(params, req, runtime), new CheckAssumeSlrRoleResponse({}));
+    }
+
+  }
+
+  /**
+   * 检查实时日志slr角色是否已创建
+   * @returns CheckAssumeSlrRoleResponse
+   */
+  async checkAssumeSlrRole(): Promise<CheckAssumeSlrRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkAssumeSlrRoleWithOptions(runtime);
+  }
+
+  /**
    * Checks whether a specified website name is available.
    * 
    * @param request - CheckSiteNameRequest
@@ -63217,6 +63425,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.siteVersion)) {
       query["SiteVersion"] = request.siteVersion;
+    }
+
+    if (!$dara.isNull(request.zstd)) {
+      query["Zstd"] = request.zstd;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -65350,6 +65562,43 @@ export default class Client extends OpenApi {
   async createSiteDeliveryTask(request: CreateSiteDeliveryTaskRequest): Promise<CreateSiteDeliveryTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createSiteDeliveryTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一个实时日志slr角色
+   * 
+   * @param request - CreateSlrRoleForRealtimeLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSlrRoleForRealtimeLogResponse
+   */
+  async createSlrRoleForRealtimeLogWithOptions(runtime: $dara.RuntimeOptions): Promise<CreateSlrRoleForRealtimeLogResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSlrRoleForRealtimeLog",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSlrRoleForRealtimeLogResponse>(await this.callApi(params, req, runtime), new CreateSlrRoleForRealtimeLogResponse({}));
+    } else {
+      return $dara.cast<CreateSlrRoleForRealtimeLogResponse>(await this.execute(params, req, runtime), new CreateSlrRoleForRealtimeLogResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建一个实时日志slr角色
+   * @returns CreateSlrRoleForRealtimeLogResponse
+   */
+  async createSlrRoleForRealtimeLog(): Promise<CreateSlrRoleForRealtimeLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSlrRoleForRealtimeLogWithOptions(runtime);
   }
 
   /**
@@ -74918,6 +75167,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.zstd)) {
+      query["Zstd"] = request.zstd;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
