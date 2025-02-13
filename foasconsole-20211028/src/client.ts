@@ -1,3234 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class ConvertInstanceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  duration?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * true
-   */
-  isAutoRenew?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  namespaceResourceSpecs?: ConvertInstanceRequestNamespaceResourceSpecs[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Month
-   */
-  pricingCycle?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      instanceId: 'InstanceId',
-      isAutoRenew: 'IsAutoRenew',
-      namespaceResourceSpecs: 'NamespaceResourceSpecs',
-      pricingCycle: 'PricingCycle',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      instanceId: 'string',
-      isAutoRenew: 'boolean',
-      namespaceResourceSpecs: { 'type': 'array', 'itemType': ConvertInstanceRequestNamespaceResourceSpecs },
-      pricingCycle: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConvertInstanceShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  duration?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * true
-   */
-  isAutoRenew?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  namespaceResourceSpecsShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Month
-   */
-  pricingCycle?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      instanceId: 'InstanceId',
-      isAutoRenew: 'IsAutoRenew',
-      namespaceResourceSpecsShrink: 'NamespaceResourceSpecs',
-      pricingCycle: 'PricingCycle',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      instanceId: 'string',
-      isAutoRenew: 'boolean',
-      namespaceResourceSpecsShrink: 'string',
-      pricingCycle: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConvertInstanceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 211473228320700
-   */
-  orderId?: number;
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConvertInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ConvertInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ConvertInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequest extends $tea.Model {
-  architectureType?: string;
-  /**
-   * @example
-   * true
-   */
-  autoRenew?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PRE
-   */
-  chargeType?: string;
-  /**
-   * @example
-   * 1
-   */
-  duration?: number;
-  extra?: string;
-  /**
-   * **if can be null:**
-   * true
-   */
-  ha?: boolean;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haResourceSpec?: CreateInstanceRequestHaResourceSpec;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haVSwitchIds?: string[];
-  /**
-   * **if can be null:**
-   * true
-   */
-  haZoneId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * rtc-e2e-test-pre
-   */
-  instanceName?: string;
-  monitorType?: string;
-  /**
-   * @example
-   * Month
-   */
-  pricingCycle?: string;
-  /**
-   * @example
-   * 500043499350689
-   */
-  promotionCode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  resourceGroupId?: string;
-  resourceSpec?: CreateInstanceRequestResourceSpec;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  storage?: CreateInstanceRequestStorage;
-  tag?: CreateInstanceRequestTag[];
-  usePromotionCode?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  vSwitchIds?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vpc-2ze9xoh8qyt1rnxfmfcdi
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing-g
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      architectureType: 'ArchitectureType',
-      autoRenew: 'AutoRenew',
-      chargeType: 'ChargeType',
-      duration: 'Duration',
-      extra: 'Extra',
-      ha: 'Ha',
-      haResourceSpec: 'HaResourceSpec',
-      haVSwitchIds: 'HaVSwitchIds',
-      haZoneId: 'HaZoneId',
-      instanceName: 'InstanceName',
-      monitorType: 'MonitorType',
-      pricingCycle: 'PricingCycle',
-      promotionCode: 'PromotionCode',
-      region: 'Region',
-      resourceGroupId: 'ResourceGroupId',
-      resourceSpec: 'ResourceSpec',
-      storage: 'Storage',
-      tag: 'Tag',
-      usePromotionCode: 'UsePromotionCode',
-      vSwitchIds: 'VSwitchIds',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architectureType: 'string',
-      autoRenew: 'boolean',
-      chargeType: 'string',
-      duration: 'number',
-      extra: 'string',
-      ha: 'boolean',
-      haResourceSpec: CreateInstanceRequestHaResourceSpec,
-      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      haZoneId: 'string',
-      instanceName: 'string',
-      monitorType: 'string',
-      pricingCycle: 'string',
-      promotionCode: 'string',
-      region: 'string',
-      resourceGroupId: 'string',
-      resourceSpec: CreateInstanceRequestResourceSpec,
-      storage: CreateInstanceRequestStorage,
-      tag: { 'type': 'array', 'itemType': CreateInstanceRequestTag },
-      usePromotionCode: 'boolean',
-      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceShrinkRequest extends $tea.Model {
-  architectureType?: string;
-  /**
-   * @example
-   * true
-   */
-  autoRenew?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PRE
-   */
-  chargeType?: string;
-  /**
-   * @example
-   * 1
-   */
-  duration?: number;
-  extra?: string;
-  /**
-   * **if can be null:**
-   * true
-   */
-  ha?: boolean;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haResourceSpecShrink?: string;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haVSwitchIdsShrink?: string;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haZoneId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * rtc-e2e-test-pre
-   */
-  instanceName?: string;
-  monitorType?: string;
-  /**
-   * @example
-   * Month
-   */
-  pricingCycle?: string;
-  /**
-   * @example
-   * 500043499350689
-   */
-  promotionCode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  resourceGroupId?: string;
-  resourceSpecShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  storageShrink?: string;
-  tagShrink?: string;
-  usePromotionCode?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  vSwitchIdsShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vpc-2ze9xoh8qyt1rnxfmfcdi
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing-g
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      architectureType: 'ArchitectureType',
-      autoRenew: 'AutoRenew',
-      chargeType: 'ChargeType',
-      duration: 'Duration',
-      extra: 'Extra',
-      ha: 'Ha',
-      haResourceSpecShrink: 'HaResourceSpec',
-      haVSwitchIdsShrink: 'HaVSwitchIds',
-      haZoneId: 'HaZoneId',
-      instanceName: 'InstanceName',
-      monitorType: 'MonitorType',
-      pricingCycle: 'PricingCycle',
-      promotionCode: 'PromotionCode',
-      region: 'Region',
-      resourceGroupId: 'ResourceGroupId',
-      resourceSpecShrink: 'ResourceSpec',
-      storageShrink: 'Storage',
-      tagShrink: 'Tag',
-      usePromotionCode: 'UsePromotionCode',
-      vSwitchIdsShrink: 'VSwitchIds',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architectureType: 'string',
-      autoRenew: 'boolean',
-      chargeType: 'string',
-      duration: 'number',
-      extra: 'string',
-      ha: 'boolean',
-      haResourceSpecShrink: 'string',
-      haVSwitchIdsShrink: 'string',
-      haZoneId: 'string',
-      instanceName: 'string',
-      monitorType: 'string',
-      pricingCycle: 'string',
-      promotionCode: 'string',
-      region: 'string',
-      resourceGroupId: 'string',
-      resourceSpecShrink: 'string',
-      storageShrink: 'string',
-      tagShrink: 'string',
-      usePromotionCode: 'boolean',
-      vSwitchIdsShrink: 'string',
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceResponseBody extends $tea.Model {
-  orderInfo?: CreateInstanceResponseBodyOrderInfo;
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      orderInfo: 'OrderInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderInfo: CreateInstanceResponseBodyOrderInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateNamespaceRequest extends $tea.Model {
-  /**
-   * **if can be null:**
-   * true
-   */
-  ha?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * di-593440390152545
-   */
-  namespace?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  region?: string;
-  resourceSpec?: CreateNamespaceRequestResourceSpec;
-  static names(): { [key: string]: string } {
-    return {
-      ha: 'Ha',
-      instanceId: 'InstanceId',
-      namespace: 'Namespace',
-      region: 'Region',
-      resourceSpec: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ha: 'boolean',
-      instanceId: 'string',
-      namespace: 'string',
-      region: 'string',
-      resourceSpec: CreateNamespaceRequestResourceSpec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateNamespaceShrinkRequest extends $tea.Model {
-  /**
-   * **if can be null:**
-   * true
-   */
-  ha?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * di-593440390152545
-   */
-  namespace?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  region?: string;
-  resourceSpecShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ha: 'Ha',
-      instanceId: 'InstanceId',
-      namespace: 'Namespace',
-      region: 'Region',
-      resourceSpecShrink: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ha: 'boolean',
-      instanceId: 'string',
-      namespace: 'string',
-      region: 'string',
-      resourceSpecShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateNamespaceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 是否成功
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateNamespaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateNamespaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateNamespaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteNamespaceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * di-593439443804417
-   */
-  namespace?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      namespace: 'Namespace',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      namespace: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteNamespaceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 是否成功
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteNamespaceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteNamespaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteNamespaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesRequest extends $tea.Model {
-  architectureType?: string;
-  /**
-   * @example
-   * PRE
-   */
-  chargeType?: string;
-  /**
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 2
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  region?: string;
-  resourceGroupId?: string;
-  tags?: DescribeInstancesRequestTags[];
-  static names(): { [key: string]: string } {
-    return {
-      architectureType: 'ArchitectureType',
-      chargeType: 'ChargeType',
-      instanceId: 'InstanceId',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      region: 'Region',
-      resourceGroupId: 'ResourceGroupId',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architectureType: 'string',
-      chargeType: 'string',
-      instanceId: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-      region: 'string',
-      resourceGroupId: 'string',
-      tags: { 'type': 'array', 'itemType': DescribeInstancesRequestTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesShrinkRequest extends $tea.Model {
-  architectureType?: string;
-  /**
-   * @example
-   * PRE
-   */
-  chargeType?: string;
-  /**
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 2
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  region?: string;
-  resourceGroupId?: string;
-  tagsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      architectureType: 'ArchitectureType',
-      chargeType: 'ChargeType',
-      instanceId: 'InstanceId',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      region: 'Region',
-      resourceGroupId: 'ResourceGroupId',
-      tagsShrink: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architectureType: 'string',
-      chargeType: 'string',
-      instanceId: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-      region: 'string',
-      resourceGroupId: 'string',
-      tagsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponseBody extends $tea.Model {
-  instances?: DescribeInstancesResponseBodyInstances[];
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * C8DF2A5B-6FBA-5651-A3D4-960F36640E6B
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 15
-   */
-  totalCount?: number;
-  /**
-   * @example
-   * 2
-   */
-  totalPage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instances: 'Instances',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-      totalPage: 'TotalPage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instances: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstances },
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-      totalPage: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNamespacesRequest extends $tea.Model {
-  /**
-   * **if can be null:**
-   * true
-   */
-  ha?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * di-590843445844225
-   */
-  namespace?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  tags?: DescribeNamespacesRequestTags[];
-  static names(): { [key: string]: string } {
-    return {
-      ha: 'Ha',
-      instanceId: 'InstanceId',
-      namespace: 'Namespace',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      region: 'Region',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ha: 'boolean',
-      instanceId: 'string',
-      namespace: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-      region: 'string',
-      tags: { 'type': 'array', 'itemType': DescribeNamespacesRequestTags },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNamespacesShrinkRequest extends $tea.Model {
-  /**
-   * **if can be null:**
-   * true
-   */
-  ha?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * di-590843445844225
-   */
-  namespace?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  tagsShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ha: 'Ha',
-      instanceId: 'InstanceId',
-      namespace: 'Namespace',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      region: 'Region',
-      tagsShrink: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ha: 'boolean',
-      instanceId: 'string',
-      namespace: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-      region: 'string',
-      tagsShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNamespacesResponseBody extends $tea.Model {
-  namespaces?: DescribeNamespacesResponseBodyNamespaces[];
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 5
-   */
-  totalCount?: number;
-  /**
-   * @example
-   * 2
-   */
-  totalPage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      namespaces: 'Namespaces',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-      totalPage: 'TotalPage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      namespaces: { 'type': 'array', 'itemType': DescribeNamespacesResponseBodyNamespaces },
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-      totalPage: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeNamespacesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeNamespacesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeNamespacesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSupportedRegionsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  regions?: DescribeSupportedRegionsResponseBodyRegions[];
-  /**
-   * @example
-   * B21DC47E-8928-199A-9F32-36D45E4693B4
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 10
-   */
-  totalCount?: number;
-  /**
-   * @example
-   * 2
-   */
-  totalPage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      regions: 'Regions',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-      totalPage: 'TotalPage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      pageSize: 'number',
-      regions: { 'type': 'array', 'itemType': DescribeSupportedRegionsResponseBodyRegions },
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-      totalPage: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSupportedRegionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSupportedRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSupportedRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSupportedZonesRequest extends $tea.Model {
-  architectureType?: string;
-  /**
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      architectureType: 'ArchitectureType',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architectureType: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSupportedZonesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  pageIndex?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 23A9C718-DDAB-1696-B025-18FBC830F7C5
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 8
-   */
-  totalCount?: number;
-  /**
-   * @example
-   * 1
-   */
-  totalPage?: number;
-  zoneIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      totalCount: 'TotalCount',
-      totalPage: 'TotalPage',
-      zoneIds: 'ZoneIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageIndex: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      totalCount: 'number',
-      totalPage: 'number',
-      zoneIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSupportedZonesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSupportedZonesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSupportedZonesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequest extends $tea.Model {
-  /**
-   * @example
-   * 27AE00
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  resourceId?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vvpinstance
-   */
-  resourceType?: string;
-  tag?: ListTagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 27AE00
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * 0E5D17CE-BD83-5DC9-8CD2-3C40C2F7A135
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 87AE00
-   */
-  tagReponseId?: string;
-  tagResources?: ListTagResourcesResponseBodyTagResources[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      success: 'Success',
-      tagReponseId: 'TagReponseId',
-      tagResources: 'TagResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      tagReponseId: 'string',
-      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayInstanceSpecRequest extends $tea.Model {
-  /**
-   * **if can be null:**
-   * true
-   */
-  ha?: boolean;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haResourceSpec?: ModifyPrepayInstanceSpecRequestHaResourceSpec;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haVSwitchIds?: string[];
-  /**
-   * **if can be null:**
-   * true
-   */
-  haZoneId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  resourceSpec?: ModifyPrepayInstanceSpecRequestResourceSpec;
-  static names(): { [key: string]: string } {
-    return {
-      ha: 'Ha',
-      haResourceSpec: 'HaResourceSpec',
-      haVSwitchIds: 'HaVSwitchIds',
-      haZoneId: 'HaZoneId',
-      instanceId: 'InstanceId',
-      region: 'Region',
-      resourceSpec: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ha: 'boolean',
-      haResourceSpec: ModifyPrepayInstanceSpecRequestHaResourceSpec,
-      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      haZoneId: 'string',
-      instanceId: 'string',
-      region: 'string',
-      resourceSpec: ModifyPrepayInstanceSpecRequestResourceSpec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayInstanceSpecShrinkRequest extends $tea.Model {
-  /**
-   * **if can be null:**
-   * true
-   */
-  ha?: boolean;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haResourceSpecShrink?: string;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haVSwitchIdsShrink?: string;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haZoneId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  resourceSpecShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ha: 'Ha',
-      haResourceSpecShrink: 'HaResourceSpec',
-      haVSwitchIdsShrink: 'HaVSwitchIds',
-      haZoneId: 'HaZoneId',
-      instanceId: 'InstanceId',
-      region: 'Region',
-      resourceSpecShrink: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ha: 'boolean',
-      haResourceSpecShrink: 'string',
-      haVSwitchIdsShrink: 'string',
-      haZoneId: 'string',
-      instanceId: 'string',
-      region: 'string',
-      resourceSpecShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayInstanceSpecResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 210406354690749
-   */
-  orderId?: number;
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayInstanceSpecResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyPrepayInstanceSpecResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyPrepayInstanceSpecResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayNamespaceSpecRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * di-593440219799842
-   */
-  namespace?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  region?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  resourceSpec?: ModifyPrepayNamespaceSpecRequestResourceSpec;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      namespace: 'Namespace',
-      region: 'Region',
-      resourceSpec: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      namespace: 'string',
-      region: 'string',
-      resourceSpec: ModifyPrepayNamespaceSpecRequestResourceSpec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayNamespaceSpecShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * di-593440219799842
-   */
-  namespace?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  region?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  resourceSpecShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      namespace: 'Namespace',
-      region: 'Region',
-      resourceSpecShrink: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      namespace: 'string',
-      region: 'string',
-      resourceSpecShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayNamespaceSpecResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyPrepayNamespaceSpecResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyPrepayNamespaceSpecResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyPrepayNamespaceSpecResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  duration?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * true
-   */
-  isAutoRenew?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  namespaceResourceSpecs?: QueryConvertInstancePriceRequestNamespaceResourceSpecs[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Month
-   */
-  pricingCycle?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      instanceId: 'InstanceId',
-      isAutoRenew: 'IsAutoRenew',
-      namespaceResourceSpecs: 'NamespaceResourceSpecs',
-      pricingCycle: 'PricingCycle',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      instanceId: 'string',
-      isAutoRenew: 'boolean',
-      namespaceResourceSpecs: { 'type': 'array', 'itemType': QueryConvertInstancePriceRequestNamespaceResourceSpecs },
-      pricingCycle: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  duration?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * true
-   */
-  isAutoRenew?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  namespaceResourceSpecsShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Month
-   */
-  pricingCycle?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      instanceId: 'InstanceId',
-      isAutoRenew: 'IsAutoRenew',
-      namespaceResourceSpecsShrink: 'NamespaceResourceSpecs',
-      pricingCycle: 'PricingCycle',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      instanceId: 'string',
-      isAutoRenew: 'boolean',
-      namespaceResourceSpecsShrink: 'string',
-      pricingCycle: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceResponseBody extends $tea.Model {
-  priceInfo?: QueryConvertInstancePriceResponseBodyPriceInfo;
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      priceInfo: 'PriceInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      priceInfo: QueryConvertInstancePriceResponseBodyPriceInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryConvertInstancePriceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryConvertInstancePriceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryConvertInstancePriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceRequest extends $tea.Model {
-  architectureType?: string;
-  /**
-   * @example
-   * true
-   */
-  autoRenew?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PRE
-   */
-  chargeType?: string;
-  /**
-   * @example
-   * 1
-   */
-  duration?: number;
-  extra?: string;
-  ha?: boolean;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haResourceSpec?: QueryCreateInstancePriceRequestHaResourceSpec;
-  /**
-   * @example
-   * rtc-e2e-test-post
-   */
-  instanceName?: string;
-  /**
-   * @example
-   * Month
-   */
-  pricingCycle?: string;
-  /**
-   * @example
-   * 500041860100636
-   */
-  promotionCode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  resourceSpec?: QueryCreateInstancePriceRequestResourceSpec;
-  storage?: QueryCreateInstancePriceRequestStorage;
-  usePromotionCode?: boolean;
-  vSwitchIds?: string[];
-  /**
-   * @example
-   * vpc-2ze9xoh8qyt1rnxfmfcdi
-   */
-  vpcId?: string;
-  /**
-   * @example
-   * cn-hangzhou-i
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      architectureType: 'ArchitectureType',
-      autoRenew: 'AutoRenew',
-      chargeType: 'ChargeType',
-      duration: 'Duration',
-      extra: 'Extra',
-      ha: 'Ha',
-      haResourceSpec: 'HaResourceSpec',
-      instanceName: 'InstanceName',
-      pricingCycle: 'PricingCycle',
-      promotionCode: 'PromotionCode',
-      region: 'Region',
-      resourceSpec: 'ResourceSpec',
-      storage: 'Storage',
-      usePromotionCode: 'UsePromotionCode',
-      vSwitchIds: 'VSwitchIds',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architectureType: 'string',
-      autoRenew: 'boolean',
-      chargeType: 'string',
-      duration: 'number',
-      extra: 'string',
-      ha: 'boolean',
-      haResourceSpec: QueryCreateInstancePriceRequestHaResourceSpec,
-      instanceName: 'string',
-      pricingCycle: 'string',
-      promotionCode: 'string',
-      region: 'string',
-      resourceSpec: QueryCreateInstancePriceRequestResourceSpec,
-      storage: QueryCreateInstancePriceRequestStorage,
-      usePromotionCode: 'boolean',
-      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceShrinkRequest extends $tea.Model {
-  architectureType?: string;
-  /**
-   * @example
-   * true
-   */
-  autoRenew?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PRE
-   */
-  chargeType?: string;
-  /**
-   * @example
-   * 1
-   */
-  duration?: number;
-  extra?: string;
-  ha?: boolean;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haResourceSpecShrink?: string;
-  /**
-   * @example
-   * rtc-e2e-test-post
-   */
-  instanceName?: string;
-  /**
-   * @example
-   * Month
-   */
-  pricingCycle?: string;
-  /**
-   * @example
-   * 500041860100636
-   */
-  promotionCode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  resourceSpecShrink?: string;
-  storageShrink?: string;
-  usePromotionCode?: boolean;
-  vSwitchIdsShrink?: string;
-  /**
-   * @example
-   * vpc-2ze9xoh8qyt1rnxfmfcdi
-   */
-  vpcId?: string;
-  /**
-   * @example
-   * cn-hangzhou-i
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      architectureType: 'ArchitectureType',
-      autoRenew: 'AutoRenew',
-      chargeType: 'ChargeType',
-      duration: 'Duration',
-      extra: 'Extra',
-      ha: 'Ha',
-      haResourceSpecShrink: 'HaResourceSpec',
-      instanceName: 'InstanceName',
-      pricingCycle: 'PricingCycle',
-      promotionCode: 'PromotionCode',
-      region: 'Region',
-      resourceSpecShrink: 'ResourceSpec',
-      storageShrink: 'Storage',
-      usePromotionCode: 'UsePromotionCode',
-      vSwitchIdsShrink: 'VSwitchIds',
-      vpcId: 'VpcId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      architectureType: 'string',
-      autoRenew: 'boolean',
-      chargeType: 'string',
-      duration: 'number',
-      extra: 'string',
-      ha: 'boolean',
-      haResourceSpecShrink: 'string',
-      instanceName: 'string',
-      pricingCycle: 'string',
-      promotionCode: 'string',
-      region: 'string',
-      resourceSpecShrink: 'string',
-      storageShrink: 'string',
-      usePromotionCode: 'boolean',
-      vSwitchIdsShrink: 'string',
-      vpcId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceResponseBody extends $tea.Model {
-  priceInfo?: QueryCreateInstancePriceResponseBodyPriceInfo;
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      priceInfo: 'PriceInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      priceInfo: QueryCreateInstancePriceResponseBodyPriceInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryCreateInstancePriceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryCreateInstancePriceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryCreateInstancePriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceRequest extends $tea.Model {
-  ha?: boolean;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haResourceSpec?: QueryModifyInstancePriceRequestHaResourceSpec;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haVSwitchIds?: string[];
-  /**
-   * **if can be null:**
-   * true
-   */
-  haZoneId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  resourceSpec?: QueryModifyInstancePriceRequestResourceSpec;
-  static names(): { [key: string]: string } {
-    return {
-      ha: 'Ha',
-      haResourceSpec: 'HaResourceSpec',
-      haVSwitchIds: 'HaVSwitchIds',
-      haZoneId: 'HaZoneId',
-      instanceId: 'InstanceId',
-      region: 'Region',
-      resourceSpec: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ha: 'boolean',
-      haResourceSpec: QueryModifyInstancePriceRequestHaResourceSpec,
-      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
-      haZoneId: 'string',
-      instanceId: 'string',
-      region: 'string',
-      resourceSpec: QueryModifyInstancePriceRequestResourceSpec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceShrinkRequest extends $tea.Model {
-  ha?: boolean;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haResourceSpecShrink?: string;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haVSwitchIdsShrink?: string;
-  /**
-   * **if can be null:**
-   * true
-   */
-  haZoneId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * f-cn-wwo36qj4g06
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  resourceSpecShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ha: 'Ha',
-      haResourceSpecShrink: 'HaResourceSpec',
-      haVSwitchIdsShrink: 'HaVSwitchIds',
-      haZoneId: 'HaZoneId',
-      instanceId: 'InstanceId',
-      region: 'Region',
-      resourceSpecShrink: 'ResourceSpec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ha: 'boolean',
-      haResourceSpecShrink: 'string',
-      haVSwitchIdsShrink: 'string',
-      haZoneId: 'string',
-      instanceId: 'string',
-      region: 'string',
-      resourceSpecShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceResponseBody extends $tea.Model {
-  priceInfo?: QueryModifyInstancePriceResponseBodyPriceInfo;
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      priceInfo: 'PriceInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      priceInfo: QueryModifyInstancePriceResponseBodyPriceInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryModifyInstancePriceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryModifyInstancePriceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryModifyInstancePriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRenewInstancePriceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  duration?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sc_flinkserverless_public_cn-7e22ae5sess
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Month
-   */
-  pricingCycle?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      instanceId: 'InstanceId',
-      pricingCycle: 'PricingCycle',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      instanceId: 'string',
-      pricingCycle: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRenewInstancePriceResponseBody extends $tea.Model {
-  priceInfo?: QueryRenewInstancePriceResponseBodyPriceInfo;
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      priceInfo: 'PriceInfo',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      priceInfo: QueryRenewInstancePriceResponseBodyPriceInfo,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRenewInstancePriceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryRenewInstancePriceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryRenewInstancePriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewInstanceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  duration?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sc_flinkserverless_public_cn-7e22ae5sess
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Month
-   */
-  pricingCycle?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  region?: string;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      instanceId: 'InstanceId',
-      pricingCycle: 'PricingCycle',
-      region: 'Region',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      instanceId: 'string',
-      pricingCycle: 'string',
-      region: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewInstanceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * orderId
-   * 
-   * @example
-   * 210406354690749
-   */
-  orderId?: number;
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenewInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RenewInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RenewInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vvpinstance
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  tag?: TagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * 67F33190-946B-1105-B6A1-E2DF0426DD51
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 154FT
-   */
-  tagResponseId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-      tagResponseId: 'TagResponseId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      tagResponseId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $tea.Model {
-  /**
-   * @example
-   * false
-   */
-  all?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vvpinstance
-   */
-  resourceType?: string;
-  tagKey?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      all: 'All',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tagKey: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * ""
-   */
-  message?: string;
-  /**
-   * @example
-   * F59597FC-CD05-536D-B75B-6F45B8CC8539
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  /**
-   * @example
-   * 154FT
-   */
-  tagResponseId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-      tagResponseId: 'TagResponseId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      tagResponseId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UntagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConvertInstanceRequestNamespaceResourceSpecsResourceSpec extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class ConvertInstanceRequestNamespaceResourceSpecsResourceSpec extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3259,12 +36,16 @@ export class ConvertInstanceRequestNamespaceResourceSpecsResourceSpec extends $t
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConvertInstanceRequestNamespaceResourceSpecs extends $tea.Model {
+export class ConvertInstanceRequestNamespaceResourceSpecs extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3292,12 +73,19 @@ export class ConvertInstanceRequestNamespaceResourceSpecs extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.resourceSpec && typeof (this.resourceSpec as any).validate === 'function') {
+      (this.resourceSpec as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceRequestHaResourceSpec extends $tea.Model {
+export class CreateInstanceRequestHaResourceSpec extends $dara.Model {
   cpu?: number;
   memoryGB?: number;
   static names(): { [key: string]: string } {
@@ -3314,12 +102,16 @@ export class CreateInstanceRequestHaResourceSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceRequestResourceSpec extends $tea.Model {
+export class CreateInstanceRequestResourceSpec extends $dara.Model {
   /**
    * @example
    * 30
@@ -3344,12 +136,16 @@ export class CreateInstanceRequestResourceSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceRequestStorageOss extends $tea.Model {
+export class CreateInstanceRequestStorageOss extends $dara.Model {
   /**
    * @example
    * oss-flink-cn-shanghai-260343971602724445
@@ -3367,12 +163,16 @@ export class CreateInstanceRequestStorageOss extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceRequestStorage extends $tea.Model {
+export class CreateInstanceRequestStorage extends $dara.Model {
   fullyManaged?: boolean;
   oss?: CreateInstanceRequestStorageOss;
   static names(): { [key: string]: string } {
@@ -3389,12 +189,19 @@ export class CreateInstanceRequestStorage extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.oss && typeof (this.oss as any).validate === 'function') {
+      (this.oss as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceRequestTag extends $tea.Model {
+export class CreateInstanceRequestTag extends $dara.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -3411,12 +218,16 @@ export class CreateInstanceRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceResponseBodyOrderInfo extends $tea.Model {
+export class CreateInstanceResponseBodyOrderInfo extends $dara.Model {
   /**
    * @example
    * f-cn-zvp2q0zik06
@@ -3447,12 +258,16 @@ export class CreateInstanceResponseBodyOrderInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateNamespaceRequestResourceSpec extends $tea.Model {
+export class CreateNamespaceRequestResourceSpec extends $dara.Model {
   /**
    * @example
    * 30
@@ -3477,12 +292,16 @@ export class CreateNamespaceRequestResourceSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesRequestTags extends $tea.Model {
+export class DescribeInstancesRequestTags extends $dara.Model {
   /**
    * @example
    * test
@@ -3507,12 +326,16 @@ export class DescribeInstancesRequestTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesClusterStateClusterStageTotalStageWithWeight extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesClusterStateClusterStageTotalStageWithWeight extends $dara.Model {
   stepIndex?: number;
   stepName?: string;
   weight?: number;
@@ -3532,12 +355,16 @@ export class DescribeInstancesResponseBodyInstancesClusterStateClusterStageTotal
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesClusterStateClusterStage extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesClusterStateClusterStage extends $dara.Model {
   clusterId?: string;
   currentStage?: number;
   message?: string;
@@ -3563,12 +390,19 @@ export class DescribeInstancesResponseBodyInstancesClusterStateClusterStage exte
     };
   }
 
+  validate() {
+    if(Array.isArray(this.totalStageWithWeight)) {
+      $dara.Model.validateArray(this.totalStageWithWeight);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesClusterStateUserSlbDtoUserSlbListeners extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesClusterStateUserSlbDtoUserSlbListeners extends $dara.Model {
   listenersStatus?: string;
   port?: string;
   static names(): { [key: string]: string } {
@@ -3585,12 +419,16 @@ export class DescribeInstancesResponseBodyInstancesClusterStateUserSlbDtoUserSlb
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesClusterStateUserSlbDto extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesClusterStateUserSlbDto extends $dara.Model {
   existSlb?: boolean;
   slbId?: string;
   slbIp?: string;
@@ -3616,12 +454,19 @@ export class DescribeInstancesResponseBodyInstancesClusterStateUserSlbDto extend
     };
   }
 
+  validate() {
+    if(Array.isArray(this.userSlbListeners)) {
+      $dara.Model.validateArray(this.userSlbListeners);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesClusterState extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesClusterState extends $dara.Model {
   clusterId?: string;
   clusterStage?: DescribeInstancesResponseBodyInstancesClusterStateClusterStage;
   createTimeout?: boolean;
@@ -3656,13 +501,29 @@ export class DescribeInstancesResponseBodyInstancesClusterState extends $tea.Mod
     };
   }
 
+  validate() {
+    if(this.clusterStage && typeof (this.clusterStage as any).validate === 'function') {
+      (this.clusterStage as any).validate();
+    }
+    if(this.userSlbDto && typeof (this.userSlbDto as any).validate === 'function') {
+      (this.userSlbDto as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesClusterUsedResources extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesClusterUsedResources extends $dara.Model {
   clusterId?: string;
+  elasticUsedCpu?: number;
+  elasticUsedMemory?: number;
+  elasticUsedResource?: number;
+  guaranteedUsedCpu?: number;
+  guaranteedUsedMemory?: number;
+  guaranteedUsedResource?: number;
   ha?: boolean;
   haUsedCpu?: number;
   haUsedMemory?: number;
@@ -3673,6 +534,12 @@ export class DescribeInstancesResponseBodyInstancesClusterUsedResources extends 
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
+      elasticUsedCpu: 'ElasticUsedCpu',
+      elasticUsedMemory: 'ElasticUsedMemory',
+      elasticUsedResource: 'ElasticUsedResource',
+      guaranteedUsedCpu: 'GuaranteedUsedCpu',
+      guaranteedUsedMemory: 'GuaranteedUsedMemory',
+      guaranteedUsedResource: 'GuaranteedUsedResource',
       ha: 'Ha',
       haUsedCpu: 'HaUsedCpu',
       haUsedMemory: 'HaUsedMemory',
@@ -3686,6 +553,12 @@ export class DescribeInstancesResponseBodyInstancesClusterUsedResources extends 
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      elasticUsedCpu: 'number',
+      elasticUsedMemory: 'number',
+      elasticUsedResource: 'number',
+      guaranteedUsedCpu: 'number',
+      guaranteedUsedMemory: 'number',
+      guaranteedUsedResource: 'number',
       ha: 'boolean',
       haUsedCpu: 'number',
       haUsedMemory: 'number',
@@ -3696,12 +569,16 @@ export class DescribeInstancesResponseBodyInstancesClusterUsedResources extends 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesClusterUsedStorage extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesClusterUsedStorage extends $dara.Model {
   clusterId?: string;
   usedStorage?: number;
   static names(): { [key: string]: string } {
@@ -3718,12 +595,16 @@ export class DescribeInstancesResponseBodyInstancesClusterUsedStorage extends $t
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesHaResourceSpec extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesElasticResourceSpec extends $dara.Model {
   cpu?: number;
   memoryGB?: number;
   static names(): { [key: string]: string } {
@@ -3740,12 +621,42 @@ export class DescribeInstancesResponseBodyInstancesHaResourceSpec extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesHaVSwitchInfo extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesHaResourceSpec extends $dara.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstancesHaVSwitchInfo extends $dara.Model {
   availableIpAddressCount?: number;
   description?: string;
   regionId?: string;
@@ -3780,12 +691,16 @@ export class DescribeInstancesResponseBodyInstancesHaVSwitchInfo extends $tea.Mo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesHostAliases extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesHostAliases extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3810,12 +725,19 @@ export class DescribeInstancesResponseBodyInstancesHostAliases extends $tea.Mode
     };
   }
 
+  validate() {
+    if(Array.isArray(this.hostNames)) {
+      $dara.Model.validateArray(this.hostNames);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesOssInfo extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesOssInfo extends $dara.Model {
   accessId?: string;
   accessKey?: string;
   bucket?: string;
@@ -3841,12 +763,16 @@ export class DescribeInstancesResponseBodyInstancesOssInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesResourceSpec extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesResourceSpec extends $dara.Model {
   /**
    * @example
    * 10
@@ -3871,12 +797,16 @@ export class DescribeInstancesResponseBodyInstancesResourceSpec extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesStorageOss extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesStorageOss extends $dara.Model {
   /**
    * @example
    * oss_flink
@@ -3894,12 +824,16 @@ export class DescribeInstancesResponseBodyInstancesStorageOss extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesStorage extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesStorage extends $dara.Model {
   fullyManaged?: boolean;
   orderState?: string;
   oss?: DescribeInstancesResponseBodyInstancesStorageOss;
@@ -3919,12 +853,19 @@ export class DescribeInstancesResponseBodyInstancesStorage extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.oss && typeof (this.oss as any).validate === 'function') {
+      (this.oss as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesTags extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesTags extends $dara.Model {
   /**
    * @example
    * flink
@@ -3949,12 +890,16 @@ export class DescribeInstancesResponseBodyInstancesTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesVSwitchInfo extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesVSwitchInfo extends $dara.Model {
   availableIpAddressCount?: string;
   description?: string;
   regionId?: string;
@@ -3989,12 +934,16 @@ export class DescribeInstancesResponseBodyInstancesVSwitchInfo extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstancesVpcInfo extends $tea.Model {
+export class DescribeInstancesResponseBodyInstancesVpcInfo extends $dara.Model {
   cidrBlock?: string;
   description?: string;
   regionId?: string;
@@ -4023,12 +972,17 @@ export class DescribeInstancesResponseBodyInstancesVpcInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyInstances extends $tea.Model {
+export class DescribeInstancesResponseBodyInstances extends $dara.Model {
+  ansm?: boolean;
   architectureType?: string;
   askClusterId?: string;
   /**
@@ -4042,8 +996,11 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
    * RUNNING
    */
   clusterStatus?: string;
-  clusterUsedResources?: DescribeInstancesResponseBodyInstancesClusterUsedResources[];
+  clusterUsedResources?: DescribeInstancesResponseBodyInstancesClusterUsedResources;
   clusterUsedStorage?: DescribeInstancesResponseBodyInstancesClusterUsedStorage;
+  elastic?: boolean;
+  elasticOrderState?: string;
+  elasticResourceSpec?: DescribeInstancesResponseBodyInstancesElasticResourceSpec;
   ha?: boolean;
   haResourceSpec?: DescribeInstancesResponseBodyInstancesHaResourceSpec;
   haVSwitchIds?: string[];
@@ -4115,6 +1072,7 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      ansm: 'Ansm',
       architectureType: 'ArchitectureType',
       askClusterId: 'AskClusterId',
       chargeType: 'ChargeType',
@@ -4122,6 +1080,9 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
       clusterStatus: 'ClusterStatus',
       clusterUsedResources: 'ClusterUsedResources',
       clusterUsedStorage: 'ClusterUsedStorage',
+      elastic: 'Elastic',
+      elasticOrderState: 'ElasticOrderState',
+      elasticResourceSpec: 'ElasticResourceSpec',
       ha: 'Ha',
       haResourceSpec: 'HaResourceSpec',
       haVSwitchIds: 'HaVSwitchIds',
@@ -4152,13 +1113,17 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ansm: 'boolean',
       architectureType: 'string',
       askClusterId: 'string',
       chargeType: 'string',
       clusterState: DescribeInstancesResponseBodyInstancesClusterState,
       clusterStatus: 'string',
-      clusterUsedResources: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstancesClusterUsedResources },
+      clusterUsedResources: DescribeInstancesResponseBodyInstancesClusterUsedResources,
       clusterUsedStorage: DescribeInstancesResponseBodyInstancesClusterUsedStorage,
+      elastic: 'boolean',
+      elasticOrderState: 'string',
+      elasticResourceSpec: DescribeInstancesResponseBodyInstancesElasticResourceSpec,
       ha: 'boolean',
       haResourceSpec: DescribeInstancesResponseBodyInstancesHaResourceSpec,
       haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
@@ -4187,12 +1152,61 @@ export class DescribeInstancesResponseBodyInstances extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.clusterState && typeof (this.clusterState as any).validate === 'function') {
+      (this.clusterState as any).validate();
+    }
+    if(this.clusterUsedResources && typeof (this.clusterUsedResources as any).validate === 'function') {
+      (this.clusterUsedResources as any).validate();
+    }
+    if(this.clusterUsedStorage && typeof (this.clusterUsedStorage as any).validate === 'function') {
+      (this.clusterUsedStorage as any).validate();
+    }
+    if(this.elasticResourceSpec && typeof (this.elasticResourceSpec as any).validate === 'function') {
+      (this.elasticResourceSpec as any).validate();
+    }
+    if(this.haResourceSpec && typeof (this.haResourceSpec as any).validate === 'function') {
+      (this.haResourceSpec as any).validate();
+    }
+    if(Array.isArray(this.haVSwitchIds)) {
+      $dara.Model.validateArray(this.haVSwitchIds);
+    }
+    if(Array.isArray(this.haVSwitchInfo)) {
+      $dara.Model.validateArray(this.haVSwitchInfo);
+    }
+    if(Array.isArray(this.hostAliases)) {
+      $dara.Model.validateArray(this.hostAliases);
+    }
+    if(this.ossInfo && typeof (this.ossInfo as any).validate === 'function') {
+      (this.ossInfo as any).validate();
+    }
+    if(this.resourceSpec && typeof (this.resourceSpec as any).validate === 'function') {
+      (this.resourceSpec as any).validate();
+    }
+    if(this.storage && typeof (this.storage as any).validate === 'function') {
+      (this.storage as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    if(Array.isArray(this.vSwitchInfo)) {
+      $dara.Model.validateArray(this.vSwitchInfo);
+    }
+    if(this.vpcInfo && typeof (this.vpcInfo as any).validate === 'function') {
+      (this.vpcInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNamespacesRequestTags extends $tea.Model {
+export class DescribeNamespacesRequestTags extends $dara.Model {
   /**
    * @example
    * FLink
@@ -4217,12 +1231,68 @@ export class DescribeNamespacesRequestTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNamespacesResponseBodyNamespacesResourceSpec extends $tea.Model {
+export class DescribeNamespacesResponseBodyNamespacesElasticResourceSpec extends $dara.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec extends $dara.Model {
+  cpu?: number;
+  memoryGB?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memoryGB: 'MemoryGB',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memoryGB: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNamespacesResponseBodyNamespacesResourceSpec extends $dara.Model {
   /**
    * @example
    * 10
@@ -4247,12 +1317,16 @@ export class DescribeNamespacesResponseBodyNamespacesResourceSpec extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNamespacesResponseBodyNamespacesResourceUsed extends $tea.Model {
+export class DescribeNamespacesResponseBodyNamespacesResourceUsed extends $dara.Model {
   /**
    * @example
    * 2
@@ -4280,12 +1354,16 @@ export class DescribeNamespacesResponseBodyNamespacesResourceUsed extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNamespacesResponseBodyNamespacesTags extends $tea.Model {
+export class DescribeNamespacesResponseBodyNamespacesTags extends $dara.Model {
   /**
    * @example
    * flink
@@ -4310,12 +1388,17 @@ export class DescribeNamespacesResponseBodyNamespacesTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
+export class DescribeNamespacesResponseBodyNamespaces extends $dara.Model {
+  elasticResourceSpec?: DescribeNamespacesResponseBodyNamespacesElasticResourceSpec;
   /**
    * @example
    * 1629879567394
@@ -4326,6 +1409,7 @@ export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
    * 1629879567394
    */
   gmtModified?: number;
+  guaranteedResourceSpec?: DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec;
   ha?: boolean;
   /**
    * @example
@@ -4342,8 +1426,10 @@ export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
   tags?: DescribeNamespacesResponseBodyNamespacesTags[];
   static names(): { [key: string]: string } {
     return {
+      elasticResourceSpec: 'ElasticResourceSpec',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      guaranteedResourceSpec: 'GuaranteedResourceSpec',
       ha: 'Ha',
       namespace: 'Namespace',
       resourceSpec: 'ResourceSpec',
@@ -4355,8 +1441,10 @@ export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      elasticResourceSpec: DescribeNamespacesResponseBodyNamespacesElasticResourceSpec,
       gmtCreate: 'number',
       gmtModified: 'number',
+      guaranteedResourceSpec: DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec,
       ha: 'boolean',
       namespace: 'string',
       resourceSpec: DescribeNamespacesResponseBodyNamespacesResourceSpec,
@@ -4366,12 +1454,31 @@ export class DescribeNamespacesResponseBodyNamespaces extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.elasticResourceSpec && typeof (this.elasticResourceSpec as any).validate === 'function') {
+      (this.elasticResourceSpec as any).validate();
+    }
+    if(this.guaranteedResourceSpec && typeof (this.guaranteedResourceSpec as any).validate === 'function') {
+      (this.guaranteedResourceSpec as any).validate();
+    }
+    if(this.resourceSpec && typeof (this.resourceSpec as any).validate === 'function') {
+      (this.resourceSpec as any).validate();
+    }
+    if(this.resourceUsed && typeof (this.resourceUsed as any).validate === 'function') {
+      (this.resourceUsed as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeSupportedRegionsResponseBodyRegions extends $tea.Model {
+export class DescribeSupportedRegionsResponseBodyRegions extends $dara.Model {
   description?: string;
   extra?: string;
   /**
@@ -4402,12 +1509,16 @@ export class DescribeSupportedRegionsResponseBodyRegions extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequestTag extends $tea.Model {
+export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @example
    * test
@@ -4432,12 +1543,16 @@ export class ListTagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @example
    * f-cn-tyts
@@ -4476,12 +1591,16 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPrepayInstanceSpecRequestHaResourceSpec extends $tea.Model {
+export class ModifyPrepayInstanceSpecRequestHaResourceSpec extends $dara.Model {
   cpu?: number;
   memoryGB?: number;
   static names(): { [key: string]: string } {
@@ -4498,12 +1617,16 @@ export class ModifyPrepayInstanceSpecRequestHaResourceSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPrepayInstanceSpecRequestResourceSpec extends $tea.Model {
+export class ModifyPrepayInstanceSpecRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4534,12 +1657,16 @@ export class ModifyPrepayInstanceSpecRequestResourceSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyPrepayNamespaceSpecRequestResourceSpec extends $tea.Model {
+export class ModifyPrepayNamespaceSpecRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4570,12 +1697,16 @@ export class ModifyPrepayNamespaceSpecRequestResourceSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryConvertInstancePriceRequestNamespaceResourceSpecsResourceSpec extends $tea.Model {
+export class QueryConvertInstancePriceRequestNamespaceResourceSpecsResourceSpec extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4606,12 +1737,16 @@ export class QueryConvertInstancePriceRequestNamespaceResourceSpecsResourceSpec 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryConvertInstancePriceRequestNamespaceResourceSpecs extends $tea.Model {
+export class QueryConvertInstancePriceRequestNamespaceResourceSpecs extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4639,12 +1774,19 @@ export class QueryConvertInstancePriceRequestNamespaceResourceSpecs extends $tea
     };
   }
 
+  validate() {
+    if(this.resourceSpec && typeof (this.resourceSpec as any).validate === 'function') {
+      (this.resourceSpec as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
+export class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo extends $dara.Model {
   cheapRate?: string;
   cheapStandAmount?: string;
   isShow?: boolean;
@@ -4673,12 +1815,16 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo extend
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
+export class QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions extends $dara.Model {
   /**
    * @example
    * ￥1,391.5 优惠券 (有效期至 03/23/2022)
@@ -4717,12 +1863,16 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions ex
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryConvertInstancePriceResponseBodyPriceInfoRules extends $tea.Model {
+export class QueryConvertInstancePriceResponseBodyPriceInfoRules extends $dara.Model {
   /**
    * @example
    * 买满1年，立享官网价格8.5折优惠。
@@ -4747,12 +1897,16 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoRules extends $tea.Mo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryConvertInstancePriceResponseBodyPriceInfo extends $tea.Model {
+export class QueryConvertInstancePriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @example
    * ORDER.INST_HAS_UNPAID_ORDER
@@ -4823,12 +1977,25 @@ export class QueryConvertInstancePriceResponseBodyPriceInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.depreciateInfo && typeof (this.depreciateInfo as any).validate === 'function') {
+      (this.depreciateInfo as any).validate();
+    }
+    if(Array.isArray(this.optionalPromotions)) {
+      $dara.Model.validateArray(this.optionalPromotions);
+    }
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCreateInstancePriceRequestHaResourceSpec extends $tea.Model {
+export class QueryCreateInstancePriceRequestHaResourceSpec extends $dara.Model {
   /**
    * **if can be null:**
    * false
@@ -4853,12 +2020,16 @@ export class QueryCreateInstancePriceRequestHaResourceSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCreateInstancePriceRequestResourceSpec extends $tea.Model {
+export class QueryCreateInstancePriceRequestResourceSpec extends $dara.Model {
   /**
    * @example
    * 4
@@ -4883,12 +2054,16 @@ export class QueryCreateInstancePriceRequestResourceSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCreateInstancePriceRequestStorageOss extends $tea.Model {
+export class QueryCreateInstancePriceRequestStorageOss extends $dara.Model {
   /**
    * @example
    * quicktracing
@@ -4906,12 +2081,16 @@ export class QueryCreateInstancePriceRequestStorageOss extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCreateInstancePriceRequestStorage extends $tea.Model {
+export class QueryCreateInstancePriceRequestStorage extends $dara.Model {
   oss?: QueryCreateInstancePriceRequestStorageOss;
   static names(): { [key: string]: string } {
     return {
@@ -4925,12 +2104,19 @@ export class QueryCreateInstancePriceRequestStorage extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.oss && typeof (this.oss as any).validate === 'function') {
+      (this.oss as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
+export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends $dara.Model {
   cheapRate?: string;
   cheapStandAmount?: string;
   isShow?: boolean;
@@ -4959,12 +2145,16 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
+export class QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions extends $dara.Model {
   /**
    * @example
    * ￥1,391.5 优惠券 (有效期至 03/23/2022)
@@ -5003,12 +2193,16 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCreateInstancePriceResponseBodyPriceInfoRules extends $tea.Model {
+export class QueryCreateInstancePriceResponseBodyPriceInfoRules extends $dara.Model {
   /**
    * @example
    * 买满1年，立享官网价格8.5折优惠。
@@ -5033,12 +2227,16 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoRules extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryCreateInstancePriceResponseBodyPriceInfo extends $tea.Model {
+export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @example
    * ORDER.INST_HAS_UNPAID_ORDER
@@ -5109,12 +2307,25 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.depreciateInfo && typeof (this.depreciateInfo as any).validate === 'function') {
+      (this.depreciateInfo as any).validate();
+    }
+    if(Array.isArray(this.optionalPromotions)) {
+      $dara.Model.validateArray(this.optionalPromotions);
+    }
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryModifyInstancePriceRequestHaResourceSpec extends $tea.Model {
+export class QueryModifyInstancePriceRequestHaResourceSpec extends $dara.Model {
   cpu?: number;
   memoryGB?: number;
   static names(): { [key: string]: string } {
@@ -5131,12 +2342,16 @@ export class QueryModifyInstancePriceRequestHaResourceSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryModifyInstancePriceRequestResourceSpec extends $tea.Model {
+export class QueryModifyInstancePriceRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -5167,12 +2382,16 @@ export class QueryModifyInstancePriceRequestResourceSpec extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
+export class QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo extends $dara.Model {
   cheapRate?: string;
   cheapStandAmount?: string;
   isShow?: boolean;
@@ -5201,12 +2420,16 @@ export class QueryModifyInstancePriceResponseBodyPriceInfoDepreciateInfo extends
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
+export class QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions extends $dara.Model {
   /**
    * @example
    * ￥1,391.5 优惠券 (有效期至 03/23/2022)
@@ -5245,12 +2468,16 @@ export class QueryModifyInstancePriceResponseBodyPriceInfoOptionalPromotions ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryModifyInstancePriceResponseBodyPriceInfoRules extends $tea.Model {
+export class QueryModifyInstancePriceResponseBodyPriceInfoRules extends $dara.Model {
   /**
    * @example
    * 买满1年，立享官网价格8.5折优惠。
@@ -5275,12 +2502,16 @@ export class QueryModifyInstancePriceResponseBodyPriceInfoRules extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryModifyInstancePriceResponseBodyPriceInfo extends $tea.Model {
+export class QueryModifyInstancePriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @example
    * ORDER.INST_HAS_UNPAID_ORDER
@@ -5351,12 +2582,25 @@ export class QueryModifyInstancePriceResponseBodyPriceInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.depreciateInfo && typeof (this.depreciateInfo as any).validate === 'function') {
+      (this.depreciateInfo as any).validate();
+    }
+    if(Array.isArray(this.optionalPromotions)) {
+      $dara.Model.validateArray(this.optionalPromotions);
+    }
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo extends $tea.Model {
+export class QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo extends $dara.Model {
   cheapRate?: string;
   cheapStandAmount?: string;
   isShow?: boolean;
@@ -5385,12 +2629,16 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo extends 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions extends $tea.Model {
+export class QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions extends $dara.Model {
   /**
    * @example
    * ￥1,391.5 优惠券 (有效期至 03/23/2022)
@@ -5429,12 +2677,16 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions exte
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryRenewInstancePriceResponseBodyPriceInfoRules extends $tea.Model {
+export class QueryRenewInstancePriceResponseBodyPriceInfoRules extends $dara.Model {
   /**
    * @example
    * 买满1年，立享官网价格8.5折优惠。
@@ -5459,12 +2711,16 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoRules extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryRenewInstancePriceResponseBodyPriceInfo extends $tea.Model {
+export class QueryRenewInstancePriceResponseBodyPriceInfo extends $dara.Model {
   /**
    * @example
    * ORDER.INST_HAS_UNPAID_ORDER
@@ -5535,12 +2791,25 @@ export class QueryRenewInstancePriceResponseBodyPriceInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.depreciateInfo && typeof (this.depreciateInfo as any).validate === 'function') {
+      (this.depreciateInfo as any).validate();
+    }
+    if(Array.isArray(this.optionalPromotions)) {
+      $dara.Model.validateArray(this.optionalPromotions);
+    }
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequestTag extends $tea.Model {
+export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @example
    * test
@@ -5565,6 +2834,3673 @@ export class TagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConvertInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  isAutoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  namespaceResourceSpecs?: ConvertInstanceRequestNamespaceResourceSpecs[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Month
+   */
+  pricingCycle?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      instanceId: 'InstanceId',
+      isAutoRenew: 'IsAutoRenew',
+      namespaceResourceSpecs: 'NamespaceResourceSpecs',
+      pricingCycle: 'PricingCycle',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      instanceId: 'string',
+      isAutoRenew: 'boolean',
+      namespaceResourceSpecs: { 'type': 'array', 'itemType': ConvertInstanceRequestNamespaceResourceSpecs },
+      pricingCycle: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.namespaceResourceSpecs)) {
+      $dara.Model.validateArray(this.namespaceResourceSpecs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConvertInstanceShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  isAutoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  namespaceResourceSpecsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Month
+   */
+  pricingCycle?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      instanceId: 'InstanceId',
+      isAutoRenew: 'IsAutoRenew',
+      namespaceResourceSpecsShrink: 'NamespaceResourceSpecs',
+      pricingCycle: 'PricingCycle',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      instanceId: 'string',
+      isAutoRenew: 'boolean',
+      namespaceResourceSpecsShrink: 'string',
+      pricingCycle: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConvertInstanceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 211473228320700
+   */
+  orderId?: number;
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConvertInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ConvertInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ConvertInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequest extends $dara.Model {
+  architectureType?: string;
+  /**
+   * @example
+   * true
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PRE
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * 1
+   */
+  duration?: number;
+  extra?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  ha?: boolean;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haResourceSpec?: CreateInstanceRequestHaResourceSpec;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haVSwitchIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtc-e2e-test-pre
+   */
+  instanceName?: string;
+  monitorType?: string;
+  /**
+   * @example
+   * Month
+   */
+  pricingCycle?: string;
+  /**
+   * @example
+   * 500043499350689
+   */
+  promotionCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  resourceGroupId?: string;
+  resourceSpec?: CreateInstanceRequestResourceSpec;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  storage?: CreateInstanceRequestStorage;
+  tag?: CreateInstanceRequestTag[];
+  usePromotionCode?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  vSwitchIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-2ze9xoh8qyt1rnxfmfcdi
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architectureType: 'ArchitectureType',
+      autoRenew: 'AutoRenew',
+      chargeType: 'ChargeType',
+      duration: 'Duration',
+      extra: 'Extra',
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
+      haVSwitchIds: 'HaVSwitchIds',
+      instanceName: 'InstanceName',
+      monitorType: 'MonitorType',
+      pricingCycle: 'PricingCycle',
+      promotionCode: 'PromotionCode',
+      region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
+      resourceSpec: 'ResourceSpec',
+      storage: 'Storage',
+      tag: 'Tag',
+      usePromotionCode: 'UsePromotionCode',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architectureType: 'string',
+      autoRenew: 'boolean',
+      chargeType: 'string',
+      duration: 'number',
+      extra: 'string',
+      ha: 'boolean',
+      haResourceSpec: CreateInstanceRequestHaResourceSpec,
+      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      instanceName: 'string',
+      monitorType: 'string',
+      pricingCycle: 'string',
+      promotionCode: 'string',
+      region: 'string',
+      resourceGroupId: 'string',
+      resourceSpec: CreateInstanceRequestResourceSpec,
+      storage: CreateInstanceRequestStorage,
+      tag: { 'type': 'array', 'itemType': CreateInstanceRequestTag },
+      usePromotionCode: 'boolean',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.haResourceSpec && typeof (this.haResourceSpec as any).validate === 'function') {
+      (this.haResourceSpec as any).validate();
+    }
+    if(Array.isArray(this.haVSwitchIds)) {
+      $dara.Model.validateArray(this.haVSwitchIds);
+    }
+    if(this.resourceSpec && typeof (this.resourceSpec as any).validate === 'function') {
+      (this.resourceSpec as any).validate();
+    }
+    if(this.storage && typeof (this.storage as any).validate === 'function') {
+      (this.storage as any).validate();
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceShrinkRequest extends $dara.Model {
+  architectureType?: string;
+  /**
+   * @example
+   * true
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PRE
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * 1
+   */
+  duration?: number;
+  extra?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  ha?: boolean;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haResourceSpecShrink?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haVSwitchIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtc-e2e-test-pre
+   */
+  instanceName?: string;
+  monitorType?: string;
+  /**
+   * @example
+   * Month
+   */
+  pricingCycle?: string;
+  /**
+   * @example
+   * 500043499350689
+   */
+  promotionCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  resourceGroupId?: string;
+  resourceSpecShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  storageShrink?: string;
+  tagShrink?: string;
+  usePromotionCode?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  vSwitchIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-2ze9xoh8qyt1rnxfmfcdi
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architectureType: 'ArchitectureType',
+      autoRenew: 'AutoRenew',
+      chargeType: 'ChargeType',
+      duration: 'Duration',
+      extra: 'Extra',
+      ha: 'Ha',
+      haResourceSpecShrink: 'HaResourceSpec',
+      haVSwitchIdsShrink: 'HaVSwitchIds',
+      instanceName: 'InstanceName',
+      monitorType: 'MonitorType',
+      pricingCycle: 'PricingCycle',
+      promotionCode: 'PromotionCode',
+      region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
+      resourceSpecShrink: 'ResourceSpec',
+      storageShrink: 'Storage',
+      tagShrink: 'Tag',
+      usePromotionCode: 'UsePromotionCode',
+      vSwitchIdsShrink: 'VSwitchIds',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architectureType: 'string',
+      autoRenew: 'boolean',
+      chargeType: 'string',
+      duration: 'number',
+      extra: 'string',
+      ha: 'boolean',
+      haResourceSpecShrink: 'string',
+      haVSwitchIdsShrink: 'string',
+      instanceName: 'string',
+      monitorType: 'string',
+      pricingCycle: 'string',
+      promotionCode: 'string',
+      region: 'string',
+      resourceGroupId: 'string',
+      resourceSpecShrink: 'string',
+      storageShrink: 'string',
+      tagShrink: 'string',
+      usePromotionCode: 'boolean',
+      vSwitchIdsShrink: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceResponseBody extends $dara.Model {
+  orderInfo?: CreateInstanceResponseBodyOrderInfo;
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      orderInfo: 'OrderInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderInfo: CreateInstanceResponseBodyOrderInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.orderInfo && typeof (this.orderInfo as any).validate === 'function') {
+      (this.orderInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNamespaceRequest extends $dara.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
+  ha?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * di-593440390152545
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  region?: string;
+  resourceSpec?: CreateNamespaceRequestResourceSpec;
+  static names(): { [key: string]: string } {
+    return {
+      ha: 'Ha',
+      instanceId: 'InstanceId',
+      namespace: 'Namespace',
+      region: 'Region',
+      resourceSpec: 'ResourceSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ha: 'boolean',
+      instanceId: 'string',
+      namespace: 'string',
+      region: 'string',
+      resourceSpec: CreateNamespaceRequestResourceSpec,
+    };
+  }
+
+  validate() {
+    if(this.resourceSpec && typeof (this.resourceSpec as any).validate === 'function') {
+      (this.resourceSpec as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNamespaceShrinkRequest extends $dara.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
+  ha?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * di-593440390152545
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  region?: string;
+  resourceSpecShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ha: 'Ha',
+      instanceId: 'InstanceId',
+      namespace: 'Namespace',
+      region: 'Region',
+      resourceSpecShrink: 'ResourceSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ha: 'boolean',
+      instanceId: 'string',
+      namespace: 'string',
+      region: 'string',
+      resourceSpecShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNamespaceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 是否成功
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNamespaceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNamespaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateNamespaceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNamespaceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * di-593439443804417
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      namespace: 'Namespace',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      namespace: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNamespaceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 是否成功
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNamespaceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNamespaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteNamespaceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesRequest extends $dara.Model {
+  architectureType?: string;
+  /**
+   * @example
+   * PRE
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 2
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  region?: string;
+  resourceGroupId?: string;
+  tags?: DescribeInstancesRequestTags[];
+  static names(): { [key: string]: string } {
+    return {
+      architectureType: 'ArchitectureType',
+      chargeType: 'ChargeType',
+      instanceId: 'InstanceId',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architectureType: 'string',
+      chargeType: 'string',
+      instanceId: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      region: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeInstancesRequestTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesShrinkRequest extends $dara.Model {
+  architectureType?: string;
+  /**
+   * @example
+   * PRE
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 2
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  region?: string;
+  resourceGroupId?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architectureType: 'ArchitectureType',
+      chargeType: 'ChargeType',
+      instanceId: 'InstanceId',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architectureType: 'string',
+      chargeType: 'string',
+      instanceId: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      region: 'string',
+      resourceGroupId: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBody extends $dara.Model {
+  instances?: DescribeInstancesResponseBodyInstances[];
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * C8DF2A5B-6FBA-5651-A3D4-960F36640E6B
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 15
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstances },
+      pageIndex: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNamespacesRequest extends $dara.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
+  ha?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * di-590843445844225
+   */
+  namespace?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  tags?: DescribeNamespacesRequestTags[];
+  static names(): { [key: string]: string } {
+    return {
+      ha: 'Ha',
+      instanceId: 'InstanceId',
+      namespace: 'Namespace',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      region: 'Region',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ha: 'boolean',
+      instanceId: 'string',
+      namespace: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      region: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeNamespacesRequestTags },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNamespacesShrinkRequest extends $dara.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
+  ha?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * di-590843445844225
+   */
+  namespace?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ha: 'Ha',
+      instanceId: 'InstanceId',
+      namespace: 'Namespace',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      region: 'Region',
+      tagsShrink: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ha: 'boolean',
+      instanceId: 'string',
+      namespace: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      region: 'string',
+      tagsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNamespacesResponseBody extends $dara.Model {
+  namespaces?: DescribeNamespacesResponseBodyNamespaces[];
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      namespaces: 'Namespaces',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespaces: { 'type': 'array', 'itemType': DescribeNamespacesResponseBodyNamespaces },
+      pageIndex: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.namespaces)) {
+      $dara.Model.validateArray(this.namespaces);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNamespacesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNamespacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNamespacesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSupportedRegionsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  regions?: DescribeSupportedRegionsResponseBodyRegions[];
+  /**
+   * @example
+   * B21DC47E-8928-199A-9F32-36D45E4693B4
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 2
+   */
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      regions: 'Regions',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageIndex: 'number',
+      pageSize: 'number',
+      regions: { 'type': 'array', 'itemType': DescribeSupportedRegionsResponseBodyRegions },
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSupportedRegionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSupportedRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSupportedRegionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSupportedZonesRequest extends $dara.Model {
+  architectureType?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architectureType: 'ArchitectureType',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architectureType: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSupportedZonesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 23A9C718-DDAB-1696-B025-18FBC830F7C5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 8
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 1
+   */
+  totalPage?: number;
+  zoneIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+      zoneIds: 'ZoneIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageIndex: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+      totalPage: 'number',
+      zoneIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.zoneIds)) {
+      $dara.Model.validateArray(this.zoneIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSupportedZonesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSupportedZonesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSupportedZonesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $dara.Model {
+  /**
+   * @example
+   * 27AE00
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vvpinstance
+   */
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 27AE00
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 0E5D17CE-BD83-5DC9-8CD2-3C40C2F7A135
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 87AE00
+   */
+  tagReponseId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      tagReponseId: 'TagReponseId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      tagReponseId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagResources)) {
+      $dara.Model.validateArray(this.tagResources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
+  ha?: boolean;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haResourceSpec?: ModifyPrepayInstanceSpecRequestHaResourceSpec;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haVSwitchIds?: string[];
+  /**
+   * **if can be null:**
+   * true
+   */
+  haZoneId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceSpec?: ModifyPrepayInstanceSpecRequestResourceSpec;
+  static names(): { [key: string]: string } {
+    return {
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
+      haVSwitchIds: 'HaVSwitchIds',
+      haZoneId: 'HaZoneId',
+      instanceId: 'InstanceId',
+      region: 'Region',
+      resourceSpec: 'ResourceSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ha: 'boolean',
+      haResourceSpec: ModifyPrepayInstanceSpecRequestHaResourceSpec,
+      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      haZoneId: 'string',
+      instanceId: 'string',
+      region: 'string',
+      resourceSpec: ModifyPrepayInstanceSpecRequestResourceSpec,
+    };
+  }
+
+  validate() {
+    if(this.haResourceSpec && typeof (this.haResourceSpec as any).validate === 'function') {
+      (this.haResourceSpec as any).validate();
+    }
+    if(Array.isArray(this.haVSwitchIds)) {
+      $dara.Model.validateArray(this.haVSwitchIds);
+    }
+    if(this.resourceSpec && typeof (this.resourceSpec as any).validate === 'function') {
+      (this.resourceSpec as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPrepayInstanceSpecShrinkRequest extends $dara.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
+  ha?: boolean;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haResourceSpecShrink?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haVSwitchIdsShrink?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haZoneId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceSpecShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ha: 'Ha',
+      haResourceSpecShrink: 'HaResourceSpec',
+      haVSwitchIdsShrink: 'HaVSwitchIds',
+      haZoneId: 'HaZoneId',
+      instanceId: 'InstanceId',
+      region: 'Region',
+      resourceSpecShrink: 'ResourceSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ha: 'boolean',
+      haResourceSpecShrink: 'string',
+      haVSwitchIdsShrink: 'string',
+      haZoneId: 'string',
+      instanceId: 'string',
+      region: 'string',
+      resourceSpecShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPrepayInstanceSpecResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 210406354690749
+   */
+  orderId?: number;
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPrepayInstanceSpecResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPrepayInstanceSpecResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyPrepayInstanceSpecResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPrepayNamespaceSpecRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * di-593440219799842
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceSpec?: ModifyPrepayNamespaceSpecRequestResourceSpec;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      namespace: 'Namespace',
+      region: 'Region',
+      resourceSpec: 'ResourceSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      namespace: 'string',
+      region: 'string',
+      resourceSpec: ModifyPrepayNamespaceSpecRequestResourceSpec,
+    };
+  }
+
+  validate() {
+    if(this.resourceSpec && typeof (this.resourceSpec as any).validate === 'function') {
+      (this.resourceSpec as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPrepayNamespaceSpecShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * di-593440219799842
+   */
+  namespace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceSpecShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      namespace: 'Namespace',
+      region: 'Region',
+      resourceSpecShrink: 'ResourceSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      namespace: 'string',
+      region: 'string',
+      resourceSpecShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPrepayNamespaceSpecResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPrepayNamespaceSpecResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyPrepayNamespaceSpecResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyPrepayNamespaceSpecResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConvertInstancePriceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  isAutoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  namespaceResourceSpecs?: QueryConvertInstancePriceRequestNamespaceResourceSpecs[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Month
+   */
+  pricingCycle?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      instanceId: 'InstanceId',
+      isAutoRenew: 'IsAutoRenew',
+      namespaceResourceSpecs: 'NamespaceResourceSpecs',
+      pricingCycle: 'PricingCycle',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      instanceId: 'string',
+      isAutoRenew: 'boolean',
+      namespaceResourceSpecs: { 'type': 'array', 'itemType': QueryConvertInstancePriceRequestNamespaceResourceSpecs },
+      pricingCycle: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.namespaceResourceSpecs)) {
+      $dara.Model.validateArray(this.namespaceResourceSpecs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConvertInstancePriceShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  isAutoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  namespaceResourceSpecsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Month
+   */
+  pricingCycle?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      instanceId: 'InstanceId',
+      isAutoRenew: 'IsAutoRenew',
+      namespaceResourceSpecsShrink: 'NamespaceResourceSpecs',
+      pricingCycle: 'PricingCycle',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      instanceId: 'string',
+      isAutoRenew: 'boolean',
+      namespaceResourceSpecsShrink: 'string',
+      pricingCycle: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConvertInstancePriceResponseBody extends $dara.Model {
+  priceInfo?: QueryConvertInstancePriceResponseBodyPriceInfo;
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      priceInfo: 'PriceInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      priceInfo: QueryConvertInstancePriceResponseBodyPriceInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.priceInfo && typeof (this.priceInfo as any).validate === 'function') {
+      (this.priceInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConvertInstancePriceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryConvertInstancePriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryConvertInstancePriceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCreateInstancePriceRequest extends $dara.Model {
+  architectureType?: string;
+  /**
+   * @example
+   * true
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PRE
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * 1
+   */
+  duration?: number;
+  extra?: string;
+  ha?: boolean;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haResourceSpec?: QueryCreateInstancePriceRequestHaResourceSpec;
+  /**
+   * @example
+   * rtc-e2e-test-post
+   */
+  instanceName?: string;
+  /**
+   * @example
+   * Month
+   */
+  pricingCycle?: string;
+  /**
+   * @example
+   * 500041860100636
+   */
+  promotionCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  resourceSpec?: QueryCreateInstancePriceRequestResourceSpec;
+  storage?: QueryCreateInstancePriceRequestStorage;
+  usePromotionCode?: boolean;
+  vSwitchIds?: string[];
+  /**
+   * @example
+   * vpc-2ze9xoh8qyt1rnxfmfcdi
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architectureType: 'ArchitectureType',
+      autoRenew: 'AutoRenew',
+      chargeType: 'ChargeType',
+      duration: 'Duration',
+      extra: 'Extra',
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
+      instanceName: 'InstanceName',
+      pricingCycle: 'PricingCycle',
+      promotionCode: 'PromotionCode',
+      region: 'Region',
+      resourceSpec: 'ResourceSpec',
+      storage: 'Storage',
+      usePromotionCode: 'UsePromotionCode',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architectureType: 'string',
+      autoRenew: 'boolean',
+      chargeType: 'string',
+      duration: 'number',
+      extra: 'string',
+      ha: 'boolean',
+      haResourceSpec: QueryCreateInstancePriceRequestHaResourceSpec,
+      instanceName: 'string',
+      pricingCycle: 'string',
+      promotionCode: 'string',
+      region: 'string',
+      resourceSpec: QueryCreateInstancePriceRequestResourceSpec,
+      storage: QueryCreateInstancePriceRequestStorage,
+      usePromotionCode: 'boolean',
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.haResourceSpec && typeof (this.haResourceSpec as any).validate === 'function') {
+      (this.haResourceSpec as any).validate();
+    }
+    if(this.resourceSpec && typeof (this.resourceSpec as any).validate === 'function') {
+      (this.resourceSpec as any).validate();
+    }
+    if(this.storage && typeof (this.storage as any).validate === 'function') {
+      (this.storage as any).validate();
+    }
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCreateInstancePriceShrinkRequest extends $dara.Model {
+  architectureType?: string;
+  /**
+   * @example
+   * true
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PRE
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * 1
+   */
+  duration?: number;
+  extra?: string;
+  ha?: boolean;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haResourceSpecShrink?: string;
+  /**
+   * @example
+   * rtc-e2e-test-post
+   */
+  instanceName?: string;
+  /**
+   * @example
+   * Month
+   */
+  pricingCycle?: string;
+  /**
+   * @example
+   * 500041860100636
+   */
+  promotionCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  resourceSpecShrink?: string;
+  storageShrink?: string;
+  usePromotionCode?: boolean;
+  vSwitchIdsShrink?: string;
+  /**
+   * @example
+   * vpc-2ze9xoh8qyt1rnxfmfcdi
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architectureType: 'ArchitectureType',
+      autoRenew: 'AutoRenew',
+      chargeType: 'ChargeType',
+      duration: 'Duration',
+      extra: 'Extra',
+      ha: 'Ha',
+      haResourceSpecShrink: 'HaResourceSpec',
+      instanceName: 'InstanceName',
+      pricingCycle: 'PricingCycle',
+      promotionCode: 'PromotionCode',
+      region: 'Region',
+      resourceSpecShrink: 'ResourceSpec',
+      storageShrink: 'Storage',
+      usePromotionCode: 'UsePromotionCode',
+      vSwitchIdsShrink: 'VSwitchIds',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architectureType: 'string',
+      autoRenew: 'boolean',
+      chargeType: 'string',
+      duration: 'number',
+      extra: 'string',
+      ha: 'boolean',
+      haResourceSpecShrink: 'string',
+      instanceName: 'string',
+      pricingCycle: 'string',
+      promotionCode: 'string',
+      region: 'string',
+      resourceSpecShrink: 'string',
+      storageShrink: 'string',
+      usePromotionCode: 'boolean',
+      vSwitchIdsShrink: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCreateInstancePriceResponseBody extends $dara.Model {
+  priceInfo?: QueryCreateInstancePriceResponseBodyPriceInfo;
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      priceInfo: 'PriceInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      priceInfo: QueryCreateInstancePriceResponseBodyPriceInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.priceInfo && typeof (this.priceInfo as any).validate === 'function') {
+      (this.priceInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCreateInstancePriceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCreateInstancePriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCreateInstancePriceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryModifyInstancePriceRequest extends $dara.Model {
+  ha?: boolean;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haResourceSpec?: QueryModifyInstancePriceRequestHaResourceSpec;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haVSwitchIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  promotionCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceSpec?: QueryModifyInstancePriceRequestResourceSpec;
+  usePromotionCode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      ha: 'Ha',
+      haResourceSpec: 'HaResourceSpec',
+      haVSwitchIds: 'HaVSwitchIds',
+      instanceId: 'InstanceId',
+      promotionCode: 'PromotionCode',
+      region: 'Region',
+      resourceSpec: 'ResourceSpec',
+      usePromotionCode: 'UsePromotionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ha: 'boolean',
+      haResourceSpec: QueryModifyInstancePriceRequestHaResourceSpec,
+      haVSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      promotionCode: 'string',
+      region: 'string',
+      resourceSpec: QueryModifyInstancePriceRequestResourceSpec,
+      usePromotionCode: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.haResourceSpec && typeof (this.haResourceSpec as any).validate === 'function') {
+      (this.haResourceSpec as any).validate();
+    }
+    if(Array.isArray(this.haVSwitchIds)) {
+      $dara.Model.validateArray(this.haVSwitchIds);
+    }
+    if(this.resourceSpec && typeof (this.resourceSpec as any).validate === 'function') {
+      (this.resourceSpec as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryModifyInstancePriceShrinkRequest extends $dara.Model {
+  ha?: boolean;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haResourceSpecShrink?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  haVSwitchIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f-cn-wwo36qj4g06
+   */
+  instanceId?: string;
+  promotionCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceSpecShrink?: string;
+  usePromotionCode?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      ha: 'Ha',
+      haResourceSpecShrink: 'HaResourceSpec',
+      haVSwitchIdsShrink: 'HaVSwitchIds',
+      instanceId: 'InstanceId',
+      promotionCode: 'PromotionCode',
+      region: 'Region',
+      resourceSpecShrink: 'ResourceSpec',
+      usePromotionCode: 'UsePromotionCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ha: 'boolean',
+      haResourceSpecShrink: 'string',
+      haVSwitchIdsShrink: 'string',
+      instanceId: 'string',
+      promotionCode: 'string',
+      region: 'string',
+      resourceSpecShrink: 'string',
+      usePromotionCode: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryModifyInstancePriceResponseBody extends $dara.Model {
+  priceInfo?: QueryModifyInstancePriceResponseBodyPriceInfo;
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      priceInfo: 'PriceInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      priceInfo: QueryModifyInstancePriceResponseBodyPriceInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.priceInfo && typeof (this.priceInfo as any).validate === 'function') {
+      (this.priceInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryModifyInstancePriceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryModifyInstancePriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryModifyInstancePriceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRenewInstancePriceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sc_flinkserverless_public_cn-7e22ae5sess
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Month
+   */
+  pricingCycle?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      instanceId: 'InstanceId',
+      pricingCycle: 'PricingCycle',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      instanceId: 'string',
+      pricingCycle: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRenewInstancePriceResponseBody extends $dara.Model {
+  priceInfo?: QueryRenewInstancePriceResponseBodyPriceInfo;
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      priceInfo: 'PriceInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      priceInfo: QueryRenewInstancePriceResponseBodyPriceInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.priceInfo && typeof (this.priceInfo as any).validate === 'function') {
+      (this.priceInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryRenewInstancePriceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryRenewInstancePriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryRenewInstancePriceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sc_flinkserverless_public_cn-7e22ae5sess
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Month
+   */
+  pricingCycle?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      instanceId: 'InstanceId',
+      pricingCycle: 'PricingCycle',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      instanceId: 'string',
+      pricingCycle: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * orderId
+   * 
+   * @example
+   * 210406354690749
+   */
+  orderId?: number;
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RenewInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vvpinstance
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * ""
+   */
+  message?: string;
+  /**
+   * @example
+   * 67F33190-946B-1105-B6A1-E2DF0426DD51
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 154FT
+   */
+  tagResponseId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      tagResponseId: 'TagResponseId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      tagResponseId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  all?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vvpinstance
+   */
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tagKey)) {
+      $dara.Model.validateArray(this.tagKey);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * ""
+   */
+  message?: string;
+  /**
+   * @example
+   * F59597FC-CD05-536D-B75B-6F45B8CC8539
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 154FT
+   */
+  tagResponseId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      tagResponseId: 'TagResponseId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      tagResponseId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -5573,7 +6509,7 @@ export class TagResourcesRequestTag extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "central";
     this.checkConfig(config);
@@ -5582,15 +6518,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -5600,43 +6536,43 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConvertInstanceResponse
    */
-  async convertInstanceWithOptions(tmpReq: ConvertInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ConvertInstanceResponse> {
-    Util.validateModel(tmpReq);
+  async convertInstanceWithOptions(tmpReq: ConvertInstanceRequest, runtime: $dara.RuntimeOptions): Promise<ConvertInstanceResponse> {
+    tmpReq.validate();
     let request = new ConvertInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.namespaceResourceSpecs)) {
+    if (!$dara.isNull(tmpReq.namespaceResourceSpecs)) {
       request.namespaceResourceSpecsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.namespaceResourceSpecs, "NamespaceResourceSpecs", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.duration)) {
+    if (!$dara.isNull(request.duration)) {
       body["Duration"] = request.duration;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.isAutoRenew)) {
+    if (!$dara.isNull(request.isAutoRenew)) {
       body["IsAutoRenew"] = request.isAutoRenew;
     }
 
-    if (!Util.isUnset(request.namespaceResourceSpecsShrink)) {
+    if (!$dara.isNull(request.namespaceResourceSpecsShrink)) {
       body["NamespaceResourceSpecs"] = request.namespaceResourceSpecsShrink;
     }
 
-    if (!Util.isUnset(request.pricingCycle)) {
+    if (!$dara.isNull(request.pricingCycle)) {
       body["PricingCycle"] = request.pricingCycle;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ConvertInstance",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -5647,7 +6583,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ConvertInstanceResponse>(await this.callApi(params, req, runtime), new ConvertInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ConvertInstanceResponse>(await this.callApi(params, req, runtime), new ConvertInstanceResponse({}));
+    } else {
+      return $dara.cast<ConvertInstanceResponse>(await this.execute(params, req, runtime), new ConvertInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -5657,7 +6598,7 @@ export default class Client extends OpenApi {
    * @returns ConvertInstanceResponse
    */
   async convertInstance(request: ConvertInstanceRequest): Promise<ConvertInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.convertInstanceWithOptions(request, runtime);
   }
 
@@ -5668,127 +6609,119 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateInstanceResponse
    */
-  async createInstanceWithOptions(tmpReq: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
-    Util.validateModel(tmpReq);
+  async createInstanceWithOptions(tmpReq: CreateInstanceRequest, runtime: $dara.RuntimeOptions): Promise<CreateInstanceResponse> {
+    tmpReq.validate();
     let request = new CreateInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.haResourceSpec)) {
+    if (!$dara.isNull(tmpReq.haResourceSpec)) {
       request.haResourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec, "HaResourceSpec", "json");
     }
 
-    if (!Util.isUnset(tmpReq.haVSwitchIds)) {
+    if (!$dara.isNull(tmpReq.haVSwitchIds)) {
       request.haVSwitchIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haVSwitchIds, "HaVSwitchIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.resourceSpec)) {
+    if (!$dara.isNull(tmpReq.resourceSpec)) {
       request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec, "ResourceSpec", "json");
     }
 
-    if (!Util.isUnset(tmpReq.storage)) {
+    if (!$dara.isNull(tmpReq.storage)) {
       request.storageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storage, "Storage", "json");
     }
 
-    if (!Util.isUnset(tmpReq.tag)) {
+    if (!$dara.isNull(tmpReq.tag)) {
       request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
     }
 
-    if (!Util.isUnset(tmpReq.vSwitchIds)) {
+    if (!$dara.isNull(tmpReq.vSwitchIds)) {
       request.vSwitchIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vSwitchIds, "VSwitchIds", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.architectureType)) {
+    if (!$dara.isNull(request.architectureType)) {
       body["ArchitectureType"] = request.architectureType;
     }
 
-    if (!Util.isUnset(request.autoRenew)) {
+    if (!$dara.isNull(request.autoRenew)) {
       body["AutoRenew"] = request.autoRenew;
     }
 
-    if (!Util.isUnset(request.chargeType)) {
+    if (!$dara.isNull(request.chargeType)) {
       body["ChargeType"] = request.chargeType;
     }
 
-    if (!Util.isUnset(request.duration)) {
+    if (!$dara.isNull(request.duration)) {
       body["Duration"] = request.duration;
     }
 
-    if (!Util.isUnset(request.extra)) {
+    if (!$dara.isNull(request.extra)) {
       body["Extra"] = request.extra;
     }
 
-    if (!Util.isUnset(request.ha)) {
+    if (!$dara.isNull(request.ha)) {
       body["Ha"] = request.ha;
     }
 
-    if (!Util.isUnset(request.haResourceSpecShrink)) {
+    if (!$dara.isNull(request.haResourceSpecShrink)) {
       body["HaResourceSpec"] = request.haResourceSpecShrink;
     }
 
-    if (!Util.isUnset(request.haVSwitchIdsShrink)) {
+    if (!$dara.isNull(request.haVSwitchIdsShrink)) {
       body["HaVSwitchIds"] = request.haVSwitchIdsShrink;
     }
 
-    if (!Util.isUnset(request.haZoneId)) {
-      body["HaZoneId"] = request.haZoneId;
-    }
-
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.monitorType)) {
+    if (!$dara.isNull(request.monitorType)) {
       body["MonitorType"] = request.monitorType;
     }
 
-    if (!Util.isUnset(request.pricingCycle)) {
+    if (!$dara.isNull(request.pricingCycle)) {
       body["PricingCycle"] = request.pricingCycle;
     }
 
-    if (!Util.isUnset(request.promotionCode)) {
+    if (!$dara.isNull(request.promotionCode)) {
       body["PromotionCode"] = request.promotionCode;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceSpecShrink)) {
+    if (!$dara.isNull(request.resourceSpecShrink)) {
       body["ResourceSpec"] = request.resourceSpecShrink;
     }
 
-    if (!Util.isUnset(request.storageShrink)) {
+    if (!$dara.isNull(request.storageShrink)) {
       body["Storage"] = request.storageShrink;
     }
 
-    if (!Util.isUnset(request.tagShrink)) {
+    if (!$dara.isNull(request.tagShrink)) {
       body["Tag"] = request.tagShrink;
     }
 
-    if (!Util.isUnset(request.usePromotionCode)) {
+    if (!$dara.isNull(request.usePromotionCode)) {
       body["UsePromotionCode"] = request.usePromotionCode;
     }
 
-    if (!Util.isUnset(request.vSwitchIdsShrink)) {
+    if (!$dara.isNull(request.vSwitchIdsShrink)) {
       body["VSwitchIds"] = request.vSwitchIdsShrink;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       body["VpcId"] = request.vpcId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
-      body["ZoneId"] = request.zoneId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateInstance",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -5799,7 +6732,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+    } else {
+      return $dara.cast<CreateInstanceResponse>(await this.execute(params, req, runtime), new CreateInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -5809,7 +6747,7 @@ export default class Client extends OpenApi {
    * @returns CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createInstanceWithOptions(request, runtime);
   }
 
@@ -5820,39 +6758,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateNamespaceResponse
    */
-  async createNamespaceWithOptions(tmpReq: CreateNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNamespaceResponse> {
-    Util.validateModel(tmpReq);
+  async createNamespaceWithOptions(tmpReq: CreateNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<CreateNamespaceResponse> {
+    tmpReq.validate();
     let request = new CreateNamespaceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.resourceSpec)) {
+    if (!$dara.isNull(tmpReq.resourceSpec)) {
       request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec, "ResourceSpec", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ha)) {
+    if (!$dara.isNull(request.ha)) {
       body["Ha"] = request.ha;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.namespace)) {
+    if (!$dara.isNull(request.namespace)) {
       body["Namespace"] = request.namespace;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.resourceSpecShrink)) {
+    if (!$dara.isNull(request.resourceSpecShrink)) {
       body["ResourceSpec"] = request.resourceSpecShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateNamespace",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -5863,7 +6801,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
+    } else {
+      return $dara.cast<CreateNamespaceResponse>(await this.execute(params, req, runtime), new CreateNamespaceResponse({}));
+    }
+
   }
 
   /**
@@ -5873,7 +6816,7 @@ export default class Client extends OpenApi {
    * @returns CreateNamespaceResponse
    */
   async createNamespace(request: CreateNamespaceRequest): Promise<CreateNamespaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createNamespaceWithOptions(request, runtime);
   }
 
@@ -5884,21 +6827,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceResponse
    */
-  async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
-    Util.validateModel(request);
+  async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $dara.RuntimeOptions): Promise<DeleteInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteInstance",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -5909,7 +6852,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+    } else {
+      return $dara.cast<DeleteInstanceResponse>(await this.execute(params, req, runtime), new DeleteInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -5919,7 +6867,7 @@ export default class Client extends OpenApi {
    * @returns DeleteInstanceResponse
    */
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteInstanceWithOptions(request, runtime);
   }
 
@@ -5930,25 +6878,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteNamespaceResponse
    */
-  async deleteNamespaceWithOptions(request: DeleteNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNamespaceResponse> {
-    Util.validateModel(request);
+  async deleteNamespaceWithOptions(request: DeleteNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<DeleteNamespaceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.namespace)) {
+    if (!$dara.isNull(request.namespace)) {
       body["Namespace"] = request.namespace;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteNamespace",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -5959,7 +6907,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
+    } else {
+      return $dara.cast<DeleteNamespaceResponse>(await this.execute(params, req, runtime), new DeleteNamespaceResponse({}));
+    }
+
   }
 
   /**
@@ -5969,7 +6922,7 @@ export default class Client extends OpenApi {
    * @returns DeleteNamespaceResponse
    */
   async deleteNamespace(request: DeleteNamespaceRequest): Promise<DeleteNamespaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNamespaceWithOptions(request, runtime);
   }
 
@@ -5980,19 +6933,19 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstancesResponse
    */
-  async describeInstancesWithOptions(tmpReq: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
-    Util.validateModel(tmpReq);
+  async describeInstancesWithOptions(tmpReq: DescribeInstancesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInstancesResponse> {
+    tmpReq.validate();
     let request = new DescribeInstancesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.tags)) {
+    if (!$dara.isNull(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeInstances",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6003,7 +6956,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
+    } else {
+      return $dara.cast<DescribeInstancesResponse>(await this.execute(params, req, runtime), new DescribeInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -6013,7 +6971,7 @@ export default class Client extends OpenApi {
    * @returns DescribeInstancesResponse
    */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
@@ -6024,19 +6982,19 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeNamespacesResponse
    */
-  async describeNamespacesWithOptions(tmpReq: DescribeNamespacesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNamespacesResponse> {
-    Util.validateModel(tmpReq);
+  async describeNamespacesWithOptions(tmpReq: DescribeNamespacesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeNamespacesResponse> {
+    tmpReq.validate();
     let request = new DescribeNamespacesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.tags)) {
+    if (!$dara.isNull(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeNamespaces",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6047,7 +7005,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNamespacesResponse>(await this.callApi(params, req, runtime), new DescribeNamespacesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeNamespacesResponse>(await this.callApi(params, req, runtime), new DescribeNamespacesResponse({}));
+    } else {
+      return $dara.cast<DescribeNamespacesResponse>(await this.execute(params, req, runtime), new DescribeNamespacesResponse({}));
+    }
+
   }
 
   /**
@@ -6057,7 +7020,7 @@ export default class Client extends OpenApi {
    * @returns DescribeNamespacesResponse
    */
   async describeNamespaces(request: DescribeNamespacesRequest): Promise<DescribeNamespacesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeNamespacesWithOptions(request, runtime);
   }
 
@@ -6068,9 +7031,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSupportedRegionsResponse
    */
-  async describeSupportedRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeSupportedRegionsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async describeSupportedRegionsWithOptions(runtime: $dara.RuntimeOptions): Promise<DescribeSupportedRegionsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "DescribeSupportedRegions",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6081,7 +7044,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSupportedRegionsResponse>(await this.callApi(params, req, runtime), new DescribeSupportedRegionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSupportedRegionsResponse>(await this.callApi(params, req, runtime), new DescribeSupportedRegionsResponse({}));
+    } else {
+      return $dara.cast<DescribeSupportedRegionsResponse>(await this.execute(params, req, runtime), new DescribeSupportedRegionsResponse({}));
+    }
+
   }
 
   /**
@@ -6089,7 +7057,7 @@ export default class Client extends OpenApi {
    * @returns DescribeSupportedRegionsResponse
    */
   async describeSupportedRegions(): Promise<DescribeSupportedRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSupportedRegionsWithOptions(runtime);
   }
 
@@ -6100,13 +7068,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSupportedZonesResponse
    */
-  async describeSupportedZonesWithOptions(request: DescribeSupportedZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSupportedZonesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async describeSupportedZonesWithOptions(request: DescribeSupportedZonesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSupportedZonesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeSupportedZones",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6117,7 +7085,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSupportedZonesResponse>(await this.callApi(params, req, runtime), new DescribeSupportedZonesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSupportedZonesResponse>(await this.callApi(params, req, runtime), new DescribeSupportedZonesResponse({}));
+    } else {
+      return $dara.cast<DescribeSupportedZonesResponse>(await this.execute(params, req, runtime), new DescribeSupportedZonesResponse({}));
+    }
+
   }
 
   /**
@@ -6127,7 +7100,7 @@ export default class Client extends OpenApi {
    * @returns DescribeSupportedZonesResponse
    */
   async describeSupportedZones(request: DescribeSupportedZonesRequest): Promise<DescribeSupportedZonesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSupportedZonesWithOptions(request, runtime);
   }
 
@@ -6138,33 +7111,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6175,7 +7148,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -6185,7 +7163,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
@@ -6199,55 +7177,55 @@ export default class Client extends OpenApi {
    * @returns ModifyPrepayInstanceSpecResponse
    */
   // Deprecated
-  async modifyPrepayInstanceSpecWithOptions(tmpReq: ModifyPrepayInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPrepayInstanceSpecResponse> {
-    Util.validateModel(tmpReq);
+  async modifyPrepayInstanceSpecWithOptions(tmpReq: ModifyPrepayInstanceSpecRequest, runtime: $dara.RuntimeOptions): Promise<ModifyPrepayInstanceSpecResponse> {
+    tmpReq.validate();
     let request = new ModifyPrepayInstanceSpecShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.haResourceSpec)) {
+    if (!$dara.isNull(tmpReq.haResourceSpec)) {
       request.haResourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec, "HaResourceSpec", "json");
     }
 
-    if (!Util.isUnset(tmpReq.haVSwitchIds)) {
+    if (!$dara.isNull(tmpReq.haVSwitchIds)) {
       request.haVSwitchIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haVSwitchIds, "HaVSwitchIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.resourceSpec)) {
+    if (!$dara.isNull(tmpReq.resourceSpec)) {
       request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec, "ResourceSpec", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ha)) {
+    if (!$dara.isNull(request.ha)) {
       body["Ha"] = request.ha;
     }
 
-    if (!Util.isUnset(request.haResourceSpecShrink)) {
+    if (!$dara.isNull(request.haResourceSpecShrink)) {
       body["HaResourceSpec"] = request.haResourceSpecShrink;
     }
 
-    if (!Util.isUnset(request.haVSwitchIdsShrink)) {
+    if (!$dara.isNull(request.haVSwitchIdsShrink)) {
       body["HaVSwitchIds"] = request.haVSwitchIdsShrink;
     }
 
-    if (!Util.isUnset(request.haZoneId)) {
+    if (!$dara.isNull(request.haZoneId)) {
       body["HaZoneId"] = request.haZoneId;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.resourceSpecShrink)) {
+    if (!$dara.isNull(request.resourceSpecShrink)) {
       body["ResourceSpec"] = request.resourceSpecShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyPrepayInstanceSpec",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6258,7 +7236,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyPrepayInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyPrepayInstanceSpecResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyPrepayInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyPrepayInstanceSpecResponse({}));
+    } else {
+      return $dara.cast<ModifyPrepayInstanceSpecResponse>(await this.execute(params, req, runtime), new ModifyPrepayInstanceSpecResponse({}));
+    }
+
   }
 
   /**
@@ -6271,7 +7254,7 @@ export default class Client extends OpenApi {
    */
   // Deprecated
   async modifyPrepayInstanceSpec(request: ModifyPrepayInstanceSpecRequest): Promise<ModifyPrepayInstanceSpecResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPrepayInstanceSpecWithOptions(request, runtime);
   }
 
@@ -6285,35 +7268,35 @@ export default class Client extends OpenApi {
    * @returns ModifyPrepayNamespaceSpecResponse
    */
   // Deprecated
-  async modifyPrepayNamespaceSpecWithOptions(tmpReq: ModifyPrepayNamespaceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPrepayNamespaceSpecResponse> {
-    Util.validateModel(tmpReq);
+  async modifyPrepayNamespaceSpecWithOptions(tmpReq: ModifyPrepayNamespaceSpecRequest, runtime: $dara.RuntimeOptions): Promise<ModifyPrepayNamespaceSpecResponse> {
+    tmpReq.validate();
     let request = new ModifyPrepayNamespaceSpecShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.resourceSpec)) {
+    if (!$dara.isNull(tmpReq.resourceSpec)) {
       request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec, "ResourceSpec", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.namespace)) {
+    if (!$dara.isNull(request.namespace)) {
       body["Namespace"] = request.namespace;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.resourceSpecShrink)) {
+    if (!$dara.isNull(request.resourceSpecShrink)) {
       body["ResourceSpec"] = request.resourceSpecShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyPrepayNamespaceSpec",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6324,7 +7307,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyPrepayNamespaceSpecResponse>(await this.callApi(params, req, runtime), new ModifyPrepayNamespaceSpecResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyPrepayNamespaceSpecResponse>(await this.callApi(params, req, runtime), new ModifyPrepayNamespaceSpecResponse({}));
+    } else {
+      return $dara.cast<ModifyPrepayNamespaceSpecResponse>(await this.execute(params, req, runtime), new ModifyPrepayNamespaceSpecResponse({}));
+    }
+
   }
 
   /**
@@ -6337,7 +7325,7 @@ export default class Client extends OpenApi {
    */
   // Deprecated
   async modifyPrepayNamespaceSpec(request: ModifyPrepayNamespaceSpecRequest): Promise<ModifyPrepayNamespaceSpecResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPrepayNamespaceSpecWithOptions(request, runtime);
   }
 
@@ -6348,43 +7336,43 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryConvertInstancePriceResponse
    */
-  async queryConvertInstancePriceWithOptions(tmpReq: QueryConvertInstancePriceRequest, runtime: $Util.RuntimeOptions): Promise<QueryConvertInstancePriceResponse> {
-    Util.validateModel(tmpReq);
+  async queryConvertInstancePriceWithOptions(tmpReq: QueryConvertInstancePriceRequest, runtime: $dara.RuntimeOptions): Promise<QueryConvertInstancePriceResponse> {
+    tmpReq.validate();
     let request = new QueryConvertInstancePriceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.namespaceResourceSpecs)) {
+    if (!$dara.isNull(tmpReq.namespaceResourceSpecs)) {
       request.namespaceResourceSpecsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.namespaceResourceSpecs, "NamespaceResourceSpecs", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.duration)) {
+    if (!$dara.isNull(request.duration)) {
       body["Duration"] = request.duration;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.isAutoRenew)) {
+    if (!$dara.isNull(request.isAutoRenew)) {
       body["IsAutoRenew"] = request.isAutoRenew;
     }
 
-    if (!Util.isUnset(request.namespaceResourceSpecsShrink)) {
+    if (!$dara.isNull(request.namespaceResourceSpecsShrink)) {
       body["NamespaceResourceSpecs"] = request.namespaceResourceSpecsShrink;
     }
 
-    if (!Util.isUnset(request.pricingCycle)) {
+    if (!$dara.isNull(request.pricingCycle)) {
       body["PricingCycle"] = request.pricingCycle;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryConvertInstancePrice",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6395,7 +7383,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryConvertInstancePriceResponse>(await this.callApi(params, req, runtime), new QueryConvertInstancePriceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryConvertInstancePriceResponse>(await this.callApi(params, req, runtime), new QueryConvertInstancePriceResponse({}));
+    } else {
+      return $dara.cast<QueryConvertInstancePriceResponse>(await this.execute(params, req, runtime), new QueryConvertInstancePriceResponse({}));
+    }
+
   }
 
   /**
@@ -6405,7 +7398,7 @@ export default class Client extends OpenApi {
    * @returns QueryConvertInstancePriceResponse
    */
   async queryConvertInstancePrice(request: QueryConvertInstancePriceRequest): Promise<QueryConvertInstancePriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryConvertInstancePriceWithOptions(request, runtime);
   }
 
@@ -6416,99 +7409,95 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryCreateInstancePriceResponse
    */
-  async queryCreateInstancePriceWithOptions(tmpReq: QueryCreateInstancePriceRequest, runtime: $Util.RuntimeOptions): Promise<QueryCreateInstancePriceResponse> {
-    Util.validateModel(tmpReq);
+  async queryCreateInstancePriceWithOptions(tmpReq: QueryCreateInstancePriceRequest, runtime: $dara.RuntimeOptions): Promise<QueryCreateInstancePriceResponse> {
+    tmpReq.validate();
     let request = new QueryCreateInstancePriceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.haResourceSpec)) {
+    if (!$dara.isNull(tmpReq.haResourceSpec)) {
       request.haResourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec, "HaResourceSpec", "json");
     }
 
-    if (!Util.isUnset(tmpReq.resourceSpec)) {
+    if (!$dara.isNull(tmpReq.resourceSpec)) {
       request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec, "ResourceSpec", "json");
     }
 
-    if (!Util.isUnset(tmpReq.storage)) {
+    if (!$dara.isNull(tmpReq.storage)) {
       request.storageShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storage, "Storage", "json");
     }
 
-    if (!Util.isUnset(tmpReq.vSwitchIds)) {
+    if (!$dara.isNull(tmpReq.vSwitchIds)) {
       request.vSwitchIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vSwitchIds, "VSwitchIds", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.architectureType)) {
+    if (!$dara.isNull(request.architectureType)) {
       body["ArchitectureType"] = request.architectureType;
     }
 
-    if (!Util.isUnset(request.autoRenew)) {
+    if (!$dara.isNull(request.autoRenew)) {
       body["AutoRenew"] = request.autoRenew;
     }
 
-    if (!Util.isUnset(request.chargeType)) {
+    if (!$dara.isNull(request.chargeType)) {
       body["ChargeType"] = request.chargeType;
     }
 
-    if (!Util.isUnset(request.duration)) {
+    if (!$dara.isNull(request.duration)) {
       body["Duration"] = request.duration;
     }
 
-    if (!Util.isUnset(request.extra)) {
+    if (!$dara.isNull(request.extra)) {
       body["Extra"] = request.extra;
     }
 
-    if (!Util.isUnset(request.ha)) {
+    if (!$dara.isNull(request.ha)) {
       body["Ha"] = request.ha;
     }
 
-    if (!Util.isUnset(request.haResourceSpecShrink)) {
+    if (!$dara.isNull(request.haResourceSpecShrink)) {
       body["HaResourceSpec"] = request.haResourceSpecShrink;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.pricingCycle)) {
+    if (!$dara.isNull(request.pricingCycle)) {
       body["PricingCycle"] = request.pricingCycle;
     }
 
-    if (!Util.isUnset(request.promotionCode)) {
+    if (!$dara.isNull(request.promotionCode)) {
       body["PromotionCode"] = request.promotionCode;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.resourceSpecShrink)) {
+    if (!$dara.isNull(request.resourceSpecShrink)) {
       body["ResourceSpec"] = request.resourceSpecShrink;
     }
 
-    if (!Util.isUnset(request.storageShrink)) {
+    if (!$dara.isNull(request.storageShrink)) {
       body["Storage"] = request.storageShrink;
     }
 
-    if (!Util.isUnset(request.usePromotionCode)) {
+    if (!$dara.isNull(request.usePromotionCode)) {
       body["UsePromotionCode"] = request.usePromotionCode;
     }
 
-    if (!Util.isUnset(request.vSwitchIdsShrink)) {
+    if (!$dara.isNull(request.vSwitchIdsShrink)) {
       body["VSwitchIds"] = request.vSwitchIdsShrink;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       body["VpcId"] = request.vpcId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
-      body["ZoneId"] = request.zoneId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryCreateInstancePrice",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6519,7 +7508,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryCreateInstancePriceResponse>(await this.callApi(params, req, runtime), new QueryCreateInstancePriceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryCreateInstancePriceResponse>(await this.callApi(params, req, runtime), new QueryCreateInstancePriceResponse({}));
+    } else {
+      return $dara.cast<QueryCreateInstancePriceResponse>(await this.execute(params, req, runtime), new QueryCreateInstancePriceResponse({}));
+    }
+
   }
 
   /**
@@ -6529,7 +7523,7 @@ export default class Client extends OpenApi {
    * @returns QueryCreateInstancePriceResponse
    */
   async queryCreateInstancePrice(request: QueryCreateInstancePriceRequest): Promise<QueryCreateInstancePriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryCreateInstancePriceWithOptions(request, runtime);
   }
 
@@ -6540,55 +7534,59 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryModifyInstancePriceResponse
    */
-  async queryModifyInstancePriceWithOptions(tmpReq: QueryModifyInstancePriceRequest, runtime: $Util.RuntimeOptions): Promise<QueryModifyInstancePriceResponse> {
-    Util.validateModel(tmpReq);
+  async queryModifyInstancePriceWithOptions(tmpReq: QueryModifyInstancePriceRequest, runtime: $dara.RuntimeOptions): Promise<QueryModifyInstancePriceResponse> {
+    tmpReq.validate();
     let request = new QueryModifyInstancePriceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.haResourceSpec)) {
+    if (!$dara.isNull(tmpReq.haResourceSpec)) {
       request.haResourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haResourceSpec, "HaResourceSpec", "json");
     }
 
-    if (!Util.isUnset(tmpReq.haVSwitchIds)) {
+    if (!$dara.isNull(tmpReq.haVSwitchIds)) {
       request.haVSwitchIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haVSwitchIds, "HaVSwitchIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.resourceSpec)) {
+    if (!$dara.isNull(tmpReq.resourceSpec)) {
       request.resourceSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceSpec, "ResourceSpec", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ha)) {
+    if (!$dara.isNull(request.ha)) {
       body["Ha"] = request.ha;
     }
 
-    if (!Util.isUnset(request.haResourceSpecShrink)) {
+    if (!$dara.isNull(request.haResourceSpecShrink)) {
       body["HaResourceSpec"] = request.haResourceSpecShrink;
     }
 
-    if (!Util.isUnset(request.haVSwitchIdsShrink)) {
+    if (!$dara.isNull(request.haVSwitchIdsShrink)) {
       body["HaVSwitchIds"] = request.haVSwitchIdsShrink;
     }
 
-    if (!Util.isUnset(request.haZoneId)) {
-      body["HaZoneId"] = request.haZoneId;
-    }
-
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.promotionCode)) {
+      body["PromotionCode"] = request.promotionCode;
+    }
+
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    if (!Util.isUnset(request.resourceSpecShrink)) {
+    if (!$dara.isNull(request.resourceSpecShrink)) {
       body["ResourceSpec"] = request.resourceSpecShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.usePromotionCode)) {
+      body["UsePromotionCode"] = request.usePromotionCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryModifyInstancePrice",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6599,7 +7597,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryModifyInstancePriceResponse>(await this.callApi(params, req, runtime), new QueryModifyInstancePriceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryModifyInstancePriceResponse>(await this.callApi(params, req, runtime), new QueryModifyInstancePriceResponse({}));
+    } else {
+      return $dara.cast<QueryModifyInstancePriceResponse>(await this.execute(params, req, runtime), new QueryModifyInstancePriceResponse({}));
+    }
+
   }
 
   /**
@@ -6609,7 +7612,7 @@ export default class Client extends OpenApi {
    * @returns QueryModifyInstancePriceResponse
    */
   async queryModifyInstancePrice(request: QueryModifyInstancePriceRequest): Promise<QueryModifyInstancePriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryModifyInstancePriceWithOptions(request, runtime);
   }
 
@@ -6620,29 +7623,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryRenewInstancePriceResponse
    */
-  async queryRenewInstancePriceWithOptions(request: QueryRenewInstancePriceRequest, runtime: $Util.RuntimeOptions): Promise<QueryRenewInstancePriceResponse> {
-    Util.validateModel(request);
+  async queryRenewInstancePriceWithOptions(request: QueryRenewInstancePriceRequest, runtime: $dara.RuntimeOptions): Promise<QueryRenewInstancePriceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.duration)) {
+    if (!$dara.isNull(request.duration)) {
       body["Duration"] = request.duration;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pricingCycle)) {
+    if (!$dara.isNull(request.pricingCycle)) {
       body["PricingCycle"] = request.pricingCycle;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryRenewInstancePrice",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6653,7 +7656,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryRenewInstancePriceResponse>(await this.callApi(params, req, runtime), new QueryRenewInstancePriceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryRenewInstancePriceResponse>(await this.callApi(params, req, runtime), new QueryRenewInstancePriceResponse({}));
+    } else {
+      return $dara.cast<QueryRenewInstancePriceResponse>(await this.execute(params, req, runtime), new QueryRenewInstancePriceResponse({}));
+    }
+
   }
 
   /**
@@ -6663,7 +7671,7 @@ export default class Client extends OpenApi {
    * @returns QueryRenewInstancePriceResponse
    */
   async queryRenewInstancePrice(request: QueryRenewInstancePriceRequest): Promise<QueryRenewInstancePriceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryRenewInstancePriceWithOptions(request, runtime);
   }
 
@@ -6674,29 +7682,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RenewInstanceResponse
    */
-  async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
-    Util.validateModel(request);
+  async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $dara.RuntimeOptions): Promise<RenewInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.duration)) {
+    if (!$dara.isNull(request.duration)) {
       body["Duration"] = request.duration;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       body["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.pricingCycle)) {
+    if (!$dara.isNull(request.pricingCycle)) {
       body["PricingCycle"] = request.pricingCycle;
     }
 
-    if (!Util.isUnset(request.region)) {
+    if (!$dara.isNull(request.region)) {
       body["Region"] = request.region;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RenewInstance",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6707,7 +7715,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
+    } else {
+      return $dara.cast<RenewInstanceResponse>(await this.execute(params, req, runtime), new RenewInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -6717,7 +7730,7 @@ export default class Client extends OpenApi {
    * @returns RenewInstanceResponse
    */
   async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.renewInstanceWithOptions(request, runtime);
   }
 
@@ -6728,29 +7741,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6761,7 +7774,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -6771,7 +7789,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
@@ -6782,33 +7800,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2021-10-28",
       protocol: "HTTPS",
@@ -6819,7 +7837,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -6829,7 +7852,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
