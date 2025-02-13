@@ -24407,6 +24407,112 @@ export class DLDatabase extends $dara.Model {
   }
 }
 
+export class DLFunction extends $dara.Model {
+  catalogName?: string;
+  className?: string;
+  createTime?: number;
+  creatorId?: number;
+  dbName?: string;
+  functionName?: string;
+  functionType?: string;
+  modifierId?: number;
+  ownerName?: string;
+  ownerType?: string;
+  resourceUris?: DLResourceUri[];
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      className: 'ClassName',
+      createTime: 'CreateTime',
+      creatorId: 'CreatorId',
+      dbName: 'DbName',
+      functionName: 'FunctionName',
+      functionType: 'FunctionType',
+      modifierId: 'ModifierId',
+      ownerName: 'OwnerName',
+      ownerType: 'OwnerType',
+      resourceUris: 'ResourceUris',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      className: 'string',
+      createTime: 'number',
+      creatorId: 'number',
+      dbName: 'string',
+      functionName: 'string',
+      functionType: 'string',
+      modifierId: 'number',
+      ownerName: 'string',
+      ownerType: 'string',
+      resourceUris: { 'type': 'array', 'itemType': DLResourceUri },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceUris)) {
+      $dara.Model.validateArray(this.resourceUris);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DLFunctionInput extends $dara.Model {
+  className?: string;
+  createTime?: number;
+  creatorId?: number;
+  functionName?: string;
+  functionType?: string;
+  modifierId?: number;
+  ownerName?: string;
+  ownerType?: string;
+  resourceUris?: DLResourceUri[];
+  static names(): { [key: string]: string } {
+    return {
+      className: 'ClassName',
+      createTime: 'CreateTime',
+      creatorId: 'CreatorId',
+      functionName: 'FunctionName',
+      functionType: 'FunctionType',
+      modifierId: 'ModifierId',
+      ownerName: 'OwnerName',
+      ownerType: 'OwnerType',
+      resourceUris: 'ResourceUris',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      className: 'string',
+      createTime: 'number',
+      creatorId: 'number',
+      functionName: 'string',
+      functionType: 'string',
+      modifierId: 'number',
+      ownerName: 'string',
+      ownerType: 'string',
+      resourceUris: { 'type': 'array', 'itemType': DLResourceUri },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceUris)) {
+      $dara.Model.validateArray(this.resourceUris);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DLOrder extends $dara.Model {
   col?: string;
   order?: number;
@@ -24522,6 +24628,32 @@ export class DLPartitionInput extends $dara.Model {
     if(Array.isArray(this.values)) {
       $dara.Model.validateArray(this.values);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DLResourceUri extends $dara.Model {
+  resourceType?: string;
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceType: 'ResourceType',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceType: 'string',
+      uri: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -70454,6 +70586,7 @@ export class UpdateDataLakeTableRequest extends $dara.Model {
    * This parameter is required.
    */
   tableInput?: OpenStructDLTableInput;
+  tableName?: string;
   /**
    * @example
    * 3***
@@ -70465,6 +70598,7 @@ export class UpdateDataLakeTableRequest extends $dara.Model {
       dataRegion: 'DataRegion',
       dbName: 'DbName',
       tableInput: 'TableInput',
+      tableName: 'TableName',
       tid: 'Tid',
     };
   }
@@ -70475,6 +70609,7 @@ export class UpdateDataLakeTableRequest extends $dara.Model {
       dataRegion: 'string',
       dbName: 'string',
       tableInput: OpenStructDLTableInput,
+      tableName: 'string',
       tid: 'number',
     };
   }
@@ -70521,6 +70656,7 @@ export class UpdateDataLakeTableShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   tableInputShrink?: string;
+  tableName?: string;
   /**
    * @example
    * 3***
@@ -70532,6 +70668,7 @@ export class UpdateDataLakeTableShrinkRequest extends $dara.Model {
       dataRegion: 'DataRegion',
       dbName: 'DbName',
       tableInputShrink: 'TableInput',
+      tableName: 'TableName',
       tid: 'Tid',
     };
   }
@@ -70542,6 +70679,7 @@ export class UpdateDataLakeTableShrinkRequest extends $dara.Model {
       dataRegion: 'string',
       dbName: 'string',
       tableInputShrink: 'string',
+      tableName: 'string',
       tid: 'number',
     };
   }
@@ -74144,6 +74282,7 @@ export class UpdateUserRequest extends $dara.Model {
    * 123456789
    */
   uid?: number;
+  uidString?: string;
   /**
    * @remarks
    * The nickname of the user.
@@ -74160,6 +74299,7 @@ export class UpdateUserRequest extends $dara.Model {
       roleNames: 'RoleNames',
       tid: 'Tid',
       uid: 'Uid',
+      uidString: 'UidString',
       userNick: 'UserNick',
     };
   }
@@ -74172,6 +74312,7 @@ export class UpdateUserRequest extends $dara.Model {
       roleNames: 'string',
       tid: 'number',
       uid: 'number',
+      uidString: 'string',
       userNick: 'string',
     };
   }
@@ -90287,6 +90428,10 @@ export default class Client extends OpenApi {
       query["DbName"] = request.dbName;
     }
 
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
     if (!$dara.isNull(request.tid)) {
       query["Tid"] = request.tid;
     }
@@ -91582,6 +91727,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.uid)) {
       query["Uid"] = request.uid;
+    }
+
+    if (!$dara.isNull(request.uidString)) {
+      query["UidString"] = request.uidString;
     }
 
     if (!$dara.isNull(request.userNick)) {
