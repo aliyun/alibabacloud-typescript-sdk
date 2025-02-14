@@ -31220,6 +31220,240 @@ export class CreateDataLakeDatabaseResponse extends $dara.Model {
   }
 }
 
+export class CreateDataLakeFunctionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  functionInput?: DLFunctionInput;
+  /**
+   * @example
+   * 3****
+   */
+  tid?: number;
+  /**
+   * @example
+   * 12****
+   */
+  workspaceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      functionInput: 'FunctionInput',
+      tid: 'Tid',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      functionInput: DLFunctionInput,
+      tid: 'number',
+      workspaceId: 'number',
+    };
+  }
+
+  validate() {
+    if(this.functionInput && typeof (this.functionInput as any).validate === 'function') {
+      (this.functionInput as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakeFunctionShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  functionInputShrink?: string;
+  /**
+   * @example
+   * 3****
+   */
+  tid?: number;
+  /**
+   * @example
+   * 12****
+   */
+  workspaceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      functionInputShrink: 'FunctionInput',
+      tid: 'Tid',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      functionInputShrink: 'string',
+      tid: 'number',
+      workspaceId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakeFunctionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  function?: DLFunction;
+  /**
+   * @example
+   * EE214ECD-4330-503A-82F0-FFB039757DC8
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      function: 'Function',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      function: DLFunction,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.function && typeof (this.function as any).validate === 'function') {
+      (this.function as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLakeFunctionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataLakeFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataLakeFunctionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDataLakePartitionRequest extends $dara.Model {
   /**
    * @remarks
@@ -36372,6 +36606,163 @@ export class DeleteDataLakeDatabaseResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteDataLakeDatabaseResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLakeFunctionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my_funciton
+   */
+  functionName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  /**
+   * @example
+   * 12****
+   */
+  workspaceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      functionName: 'FunctionName',
+      tid: 'Tid',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      functionName: 'string',
+      tid: 'number',
+      workspaceId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLakeFunctionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * B4B07137-F6AE-4756-8474-7F92BB6C4E04
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLakeFunctionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDataLakeFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataLakeFunctionResponseBody,
     };
   }
 
@@ -43862,6 +44253,169 @@ export class GetDataLakeDatabaseResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDataLakeDatabaseResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakeFunctionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my_funciton
+   */
+  functionName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  /**
+   * @example
+   * 12****
+   */
+  workspaceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      functionName: 'FunctionName',
+      tid: 'Tid',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      functionName: 'string',
+      tid: 'number',
+      workspaceId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakeFunctionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  function?: DLFunction;
+  /**
+   * @example
+   * D911009F-3E95-5AFD-8CF1-73F7B4F15D6E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      function: 'Function',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      function: DLFunction,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.function && typeof (this.function as any).validate === 'function') {
+      (this.function as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakeFunctionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataLakeFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataLakeFunctionResponseBody,
     };
   }
 
@@ -54342,6 +54896,371 @@ export class ListDataLakeDatabaseResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDataLakeDatabaseResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeFunctionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * **if can be null:**
+   * false
+   */
+  dataRegion?: string;
+  /**
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * .*
+   */
+  functionNamePattern?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * f056501ada12c1cc
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      functionNamePattern: 'FunctionNamePattern',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      functionNamePattern: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      tid: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeFunctionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  functionList?: DLFunction[];
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * f056501ada12c1cc
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      functionList: 'FunctionList',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      functionList: { 'type': 'array', 'itemType': DLFunction },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.functionList)) {
+      $dara.Model.validateArray(this.functionList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeFunctionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataLakeFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataLakeFunctionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeFunctionNameRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * **if can be null:**
+   * false
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * .*
+   */
+  functionNamePattern?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * f056501ada12c1cc
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      functionNamePattern: 'FunctionNamePattern',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      functionNamePattern: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      tid: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeFunctionNameResponseBody extends $dara.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  functionNameList?: string[];
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * f056501ada12c1cc
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * F1C78D32-1AFD-58AD-9DD2-C8A0896969DD
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      functionNameList: 'FunctionNameList',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      functionNameList: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.functionNameList)) {
+      $dara.Model.validateArray(this.functionNameList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeFunctionNameResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataLakeFunctionNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataLakeFunctionNameResponseBody,
     };
   }
 
@@ -70322,6 +71241,260 @@ export class UpdateDataLakeDatabaseResponse extends $dara.Model {
   }
 }
 
+export class UpdateDataLakeFunctionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  functionInput?: DLFunctionInput;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my_funciton
+   */
+  functionName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  /**
+   * @example
+   * 12****
+   */
+  workspaceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      functionInput: 'FunctionInput',
+      functionName: 'FunctionName',
+      tid: 'Tid',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      functionInput: DLFunctionInput,
+      functionName: 'string',
+      tid: 'number',
+      workspaceId: 'number',
+    };
+  }
+
+  validate() {
+    if(this.functionInput && typeof (this.functionInput as any).validate === 'function') {
+      (this.functionInput as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakeFunctionShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  functionInputShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * my_funciton
+   */
+  functionName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  /**
+   * @example
+   * 12****
+   */
+  workspaceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      functionInputShrink: 'FunctionInput',
+      functionName: 'FunctionName',
+      tid: 'Tid',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      functionInputShrink: 'string',
+      functionName: 'string',
+      tid: 'number',
+      workspaceId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakeFunctionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  function?: DLFunction;
+  /**
+   * @example
+   * C1D39814-9808-47F8-AFE0-AF167239AC9B
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      function: 'Function',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      function: DLFunction,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.function && typeof (this.function as any).validate === 'function') {
+      (this.function as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataLakeFunctionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDataLakeFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDataLakeFunctionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDataLakePartitionRequest extends $dara.Model {
   /**
    * @remarks
@@ -76416,6 +77589,81 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新建湖仓自定义函数
+   * 
+   * @param tmpReq - CreateDataLakeFunctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataLakeFunctionResponse
+   */
+  async createDataLakeFunctionWithOptions(tmpReq: CreateDataLakeFunctionRequest, runtime: $dara.RuntimeOptions): Promise<CreateDataLakeFunctionResponse> {
+    tmpReq.validate();
+    let request = new CreateDataLakeFunctionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.functionInput)) {
+      request.functionInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.functionInput, "FunctionInput", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!$dara.isNull(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!$dara.isNull(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.functionInputShrink)) {
+      body["FunctionInput"] = request.functionInputShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataLakeFunction",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDataLakeFunctionResponse>(await this.callApi(params, req, runtime), new CreateDataLakeFunctionResponse({}));
+    } else {
+      return $dara.cast<CreateDataLakeFunctionResponse>(await this.execute(params, req, runtime), new CreateDataLakeFunctionResponse({}));
+    }
+
+  }
+
+  /**
+   * 新建湖仓自定义函数
+   * 
+   * @param request - CreateDataLakeFunctionRequest
+   * @returns CreateDataLakeFunctionResponse
+   */
+  async createDataLakeFunction(request: CreateDataLakeFunctionRequest): Promise<CreateDataLakeFunctionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataLakeFunctionWithOptions(request, runtime);
+  }
+
+  /**
    * 新建湖仓表分区
    * 
    * @param tmpReq - CreateDataLakePartitionRequest
@@ -78318,6 +79566,73 @@ export default class Client extends OpenApi {
   async deleteDataLakeDatabase(request: DeleteDataLakeDatabaseRequest): Promise<DeleteDataLakeDatabaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDataLakeDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除湖仓自定义函数
+   * 
+   * @param request - DeleteDataLakeFunctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataLakeFunctionResponse
+   */
+  async deleteDataLakeFunctionWithOptions(request: DeleteDataLakeFunctionRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDataLakeFunctionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!$dara.isNull(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!$dara.isNull(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!$dara.isNull(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataLakeFunction",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDataLakeFunctionResponse>(await this.callApi(params, req, runtime), new DeleteDataLakeFunctionResponse({}));
+    } else {
+      return $dara.cast<DeleteDataLakeFunctionResponse>(await this.execute(params, req, runtime), new DeleteDataLakeFunctionResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除湖仓自定义函数
+   * 
+   * @param request - DeleteDataLakeFunctionRequest
+   * @returns DeleteDataLakeFunctionResponse
+   */
+  async deleteDataLakeFunction(request: DeleteDataLakeFunctionRequest): Promise<DeleteDataLakeFunctionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataLakeFunctionWithOptions(request, runtime);
   }
 
   /**
@@ -81006,6 +82321,73 @@ export default class Client extends OpenApi {
   async getDataLakeDatabase(request: GetDataLakeDatabaseRequest): Promise<GetDataLakeDatabaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDataLakeDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取湖仓自定义函数详细信息
+   * 
+   * @param request - GetDataLakeFunctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataLakeFunctionResponse
+   */
+  async getDataLakeFunctionWithOptions(request: GetDataLakeFunctionRequest, runtime: $dara.RuntimeOptions): Promise<GetDataLakeFunctionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!$dara.isNull(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!$dara.isNull(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!$dara.isNull(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataLakeFunction",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDataLakeFunctionResponse>(await this.callApi(params, req, runtime), new GetDataLakeFunctionResponse({}));
+    } else {
+      return $dara.cast<GetDataLakeFunctionResponse>(await this.execute(params, req, runtime), new GetDataLakeFunctionResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取湖仓自定义函数详细信息
+   * 
+   * @param request - GetDataLakeFunctionRequest
+   * @returns GetDataLakeFunctionResponse
+   */
+  async getDataLakeFunction(request: GetDataLakeFunctionRequest): Promise<GetDataLakeFunctionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataLakeFunctionWithOptions(request, runtime);
   }
 
   /**
@@ -84725,6 +86107,148 @@ export default class Client extends OpenApi {
   async listDataLakeDatabase(request: ListDataLakeDatabaseRequest): Promise<ListDataLakeDatabaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDataLakeDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据湖函数列表
+   * 
+   * @param request - ListDataLakeFunctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataLakeFunctionResponse
+   */
+  async listDataLakeFunctionWithOptions(request: ListDataLakeFunctionRequest, runtime: $dara.RuntimeOptions): Promise<ListDataLakeFunctionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!$dara.isNull(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!$dara.isNull(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!$dara.isNull(request.functionNamePattern)) {
+      query["FunctionNamePattern"] = request.functionNamePattern;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataLakeFunction",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDataLakeFunctionResponse>(await this.callApi(params, req, runtime), new ListDataLakeFunctionResponse({}));
+    } else {
+      return $dara.cast<ListDataLakeFunctionResponse>(await this.execute(params, req, runtime), new ListDataLakeFunctionResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取数据湖函数列表
+   * 
+   * @param request - ListDataLakeFunctionRequest
+   * @returns ListDataLakeFunctionResponse
+   */
+  async listDataLakeFunction(request: ListDataLakeFunctionRequest): Promise<ListDataLakeFunctionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataLakeFunctionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据湖函数名列表
+   * 
+   * @param request - ListDataLakeFunctionNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataLakeFunctionNameResponse
+   */
+  async listDataLakeFunctionNameWithOptions(request: ListDataLakeFunctionNameRequest, runtime: $dara.RuntimeOptions): Promise<ListDataLakeFunctionNameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!$dara.isNull(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!$dara.isNull(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!$dara.isNull(request.functionNamePattern)) {
+      query["FunctionNamePattern"] = request.functionNamePattern;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataLakeFunctionName",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDataLakeFunctionNameResponse>(await this.callApi(params, req, runtime), new ListDataLakeFunctionNameResponse({}));
+    } else {
+      return $dara.cast<ListDataLakeFunctionNameResponse>(await this.execute(params, req, runtime), new ListDataLakeFunctionNameResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取数据湖函数名列表
+   * 
+   * @param request - ListDataLakeFunctionNameRequest
+   * @returns ListDataLakeFunctionNameResponse
+   */
+  async listDataLakeFunctionName(request: ListDataLakeFunctionNameRequest): Promise<ListDataLakeFunctionNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataLakeFunctionNameWithOptions(request, runtime);
   }
 
   /**
@@ -90323,6 +91847,85 @@ export default class Client extends OpenApi {
   async updateDataLakeDatabase(request: UpdateDataLakeDatabaseRequest): Promise<UpdateDataLakeDatabaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataLakeDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新湖仓自定义函数
+   * 
+   * @param tmpReq - UpdateDataLakeFunctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataLakeFunctionResponse
+   */
+  async updateDataLakeFunctionWithOptions(tmpReq: UpdateDataLakeFunctionRequest, runtime: $dara.RuntimeOptions): Promise<UpdateDataLakeFunctionResponse> {
+    tmpReq.validate();
+    let request = new UpdateDataLakeFunctionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.functionInput)) {
+      request.functionInputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.functionInput, "FunctionInput", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!$dara.isNull(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!$dara.isNull(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!$dara.isNull(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.functionInputShrink)) {
+      body["FunctionInput"] = request.functionInputShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataLakeFunction",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDataLakeFunctionResponse>(await this.callApi(params, req, runtime), new UpdateDataLakeFunctionResponse({}));
+    } else {
+      return $dara.cast<UpdateDataLakeFunctionResponse>(await this.execute(params, req, runtime), new UpdateDataLakeFunctionResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新湖仓自定义函数
+   * 
+   * @param request - UpdateDataLakeFunctionRequest
+   * @returns UpdateDataLakeFunctionResponse
+   */
+  async updateDataLakeFunction(request: UpdateDataLakeFunctionRequest): Promise<UpdateDataLakeFunctionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataLakeFunctionWithOptions(request, runtime);
   }
 
   /**
