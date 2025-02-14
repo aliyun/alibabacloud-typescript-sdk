@@ -3387,12 +3387,14 @@ export class BicyclingDirectionNovaRequest extends $dara.Model {
    * 117.466485
    */
   originLongitude?: string;
+  showPolyline?: boolean;
   static names(): { [key: string]: string } {
     return {
       destinationLatitude: 'destinationLatitude',
       destinationLongitude: 'destinationLongitude',
       originLatitude: 'originLatitude',
       originLongitude: 'originLongitude',
+      showPolyline: 'showPolyline',
     };
   }
 
@@ -3402,6 +3404,7 @@ export class BicyclingDirectionNovaRequest extends $dara.Model {
       destinationLongitude: 'string',
       originLatitude: 'string',
       originLongitude: 'string',
+      showPolyline: 'boolean',
     };
   }
 
@@ -3695,6 +3698,7 @@ export class DrivingDirectionNovaRequest extends $dara.Model {
    */
   originLongitude?: string;
   plate?: string;
+  showPolyline?: boolean;
   static names(): { [key: string]: string } {
     return {
       carType: 'carType',
@@ -3703,6 +3707,7 @@ export class DrivingDirectionNovaRequest extends $dara.Model {
       originLatitude: 'originLatitude',
       originLongitude: 'originLongitude',
       plate: 'plate',
+      showPolyline: 'showPolyline',
     };
   }
 
@@ -3714,6 +3719,7 @@ export class DrivingDirectionNovaRequest extends $dara.Model {
       originLatitude: 'string',
       originLongitude: 'string',
       plate: 'string',
+      showPolyline: 'boolean',
     };
   }
 
@@ -3818,12 +3824,14 @@ export class ElectrobikeDirectionNovaRequest extends $dara.Model {
    * 116.345456
    */
   originLongitude?: string;
+  showPolyline?: boolean;
   static names(): { [key: string]: string } {
     return {
       destinationLatitude: 'destinationLatitude',
       destinationLongitude: 'destinationLongitude',
       originLatitude: 'originLatitude',
       originLongitude: 'originLongitude',
+      showPolyline: 'showPolyline',
     };
   }
 
@@ -3833,6 +3841,7 @@ export class ElectrobikeDirectionNovaRequest extends $dara.Model {
       destinationLongitude: 'string',
       originLatitude: 'string',
       originLongitude: 'string',
+      showPolyline: 'boolean',
     };
   }
 
@@ -4878,6 +4887,7 @@ export class TransitIntegratedDirectionRequest extends $dara.Model {
    * 116.466485
    */
   originLongitude?: string;
+  showPolyline?: boolean;
   static names(): { [key: string]: string } {
     return {
       destinationCity: 'destinationCity',
@@ -4886,6 +4896,7 @@ export class TransitIntegratedDirectionRequest extends $dara.Model {
       originCity: 'originCity',
       originLatitude: 'originLatitude',
       originLongitude: 'originLongitude',
+      showPolyline: 'showPolyline',
     };
   }
 
@@ -4897,6 +4908,7 @@ export class TransitIntegratedDirectionRequest extends $dara.Model {
       originCity: 'string',
       originLatitude: 'string',
       originLongitude: 'string',
+      showPolyline: 'boolean',
     };
   }
 
@@ -5001,12 +5013,14 @@ export class WalkingDirectionNovaRequest extends $dara.Model {
    * 116.466485
    */
   originLongitude?: string;
+  showPolyline?: boolean;
   static names(): { [key: string]: string } {
     return {
       destinationLatitude: 'destinationLatitude',
       destinationLongitude: 'destinationLongitude',
       originLatitude: 'originLatitude',
       originLongitude: 'originLongitude',
+      showPolyline: 'showPolyline',
     };
   }
 
@@ -5016,6 +5030,7 @@ export class WalkingDirectionNovaRequest extends $dara.Model {
       destinationLongitude: 'string',
       originLatitude: 'string',
       originLongitude: 'string',
+      showPolyline: 'boolean',
     };
   }
 
@@ -5147,6 +5162,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.originLongitude)) {
       query["originLongitude"] = request.originLongitude;
+    }
+
+    if (!$dara.isNull(request.showPolyline)) {
+      query["showPolyline"] = request.showPolyline;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -5326,6 +5345,10 @@ export default class Client extends OpenApi {
       query["plate"] = request.plate;
     }
 
+    if (!$dara.isNull(request.showPolyline)) {
+      query["showPolyline"] = request.showPolyline;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -5386,6 +5409,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.originLongitude)) {
       query["originLongitude"] = request.originLongitude;
+    }
+
+    if (!$dara.isNull(request.showPolyline)) {
+      query["showPolyline"] = request.showPolyline;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -5988,6 +6015,10 @@ export default class Client extends OpenApi {
       query["originLongitude"] = request.originLongitude;
     }
 
+    if (!$dara.isNull(request.showPolyline)) {
+      query["showPolyline"] = request.showPolyline;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -6048,6 +6079,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.originLongitude)) {
       query["originLongitude"] = request.originLongitude;
+    }
+
+    if (!$dara.isNull(request.showPolyline)) {
+      query["showPolyline"] = request.showPolyline;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
