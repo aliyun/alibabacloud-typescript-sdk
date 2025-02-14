@@ -1,8315 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import GatewayClient from '@alicloud/gateway-pop';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class CreateConfigRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The code of the common configuration item. Valid values:
-   * 
-   * *   **access_failed_cnt**: the maximum number of access attempts allowed when Data Security Center (DSC) fails to access an unauthorized resource.
-   * *   **access_permission_exprie_max_days**: the maximum idle period allowed for access permissions before an alert is triggered.
-   * *   **log_datasize_avg_days**: the minimum percentage of the volume of logs of a specific type generated on the current day to the average volume of logs generated in the previous 10 days before an alert is triggered.
-   * 
-   * @example
-   * access_failed_cnt
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The description of the common configuration item.
-   * 
-   * @example
-   * Maximum number of access attempts allowed when DSC fails to access an unauthorized resource: 10
-   */
-  description?: string;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 1
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 39.170.XX.XX
-   */
-  sourceIp?: string;
-  /**
-   * @remarks
-   * The value of the common configuration item. The meaning of this parameter varies with the value of the Code parameter.
-   * 
-   * *   If you set the Code parameter to **access_failed_cnt**, the Value parameter specifies the maximum number of access attempts allowed when DSC fails to access an unauthorized resource.
-   * *   If you set the Code parameter to **access_permission_exprie_max_days**, the Value parameter specifies the maximum idle period allowed for access permissions before an alert is triggered.
-   * *   If you set the Code parameter to **log_datasize_avg_days**, the Value parameter specifies the minimum percentage of the volume of logs of a specific type generated on the current day to the average amount of logs generated in the previous 10 days before an alert is triggered.
-   * 
-   * @example
-   * 30
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      description: 'Description',
-      featureType: 'FeatureType',
-      lang: 'Lang',
-      sourceIp: 'SourceIp',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      description: 'string',
-      featureType: 'number',
-      lang: 'string',
-      sourceIp: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConfigResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the common alert configuration.
-   * 
-   * @example
-   * 12300
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDataLimitRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the security audit feature. Valid values:
-   * 
-   * *   **0**: no
-   * *   **1**: yes
-   * 
-   * @example
-   * 1
-   */
-  auditStatus?: number;
-  /**
-   * @remarks
-   * Specifies whether to automatically trigger a re-scan after a rule is modified. Valid values:
-   * 
-   * *   **0**: no
-   * *   **1**: yes
-   * 
-   * > When a re-scan is triggered, DSC scans all data in your data asset.
-   * 
-   * @example
-   * 1
-   */
-  autoScan?: number;
-  /**
-   * @remarks
-   * The permissions. Valid values:
-   * 
-   * *   **ReadOnly**: read-only permissions
-   * *   **ReadWrite**: read and write permissions
-   * 
-   * @example
-   * ReadOnly
-   */
-  certificatePermission?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable sensitive data detection. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
-   * 
-   * > If this is your first time to authorize DSC to access the data asset, the default value is 1. If this is not your first time to authorize DSC to access the data asset, the default value is the same as that used in the last authorization operation. Both 1 and 0 are possible.
-   * 
-   * @example
-   * 1
-   */
-  enable?: number;
-  /**
-   * @remarks
-   * The database engine that is run by the instance. Valid values:
-   * 
-   * *   **MySQL**
-   * *   **SQLServer**
-   * 
-   * @example
-   * MySQL
-   */
-  engineType?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable anomalous event detection. Valid values:
-   * 
-   * *   **0**: no
-   * *   **1**: yes (default)
-   * 
-   * @example
-   * 1
-   */
-  eventStatus?: number;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 2
-   */
-  featureType?: number;
-  instantlyScan?: boolean;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The retention period of raw logs after you enable the security audit feature. Unit: days. Valid values:
-   * 
-   * *   **30**
-   * *   **90**
-   * *   **180**
-   * *   **365**
-   * 
-   * @example
-   * 30
-   */
-  logStoreDay?: number;
-  /**
-   * @remarks
-   * Specifies whether to enable optical character recognition (OCR). Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
-   * 
-   * @example
-   * 0
-   */
-  ocrStatus?: number;
-  /**
-   * @remarks
-   * The name of the data asset.
-   * 
-   * @example
-   * test-11**
-   */
-  parentId?: string;
-  /**
-   * @remarks
-   * The password that is used to access the database.
-   * 
-   * @example
-   * passwd
-   */
-  password?: string;
-  /**
-   * @remarks
-   * The port that is used to connect to the database.
-   * 
-   * @example
-   * 3306
-   */
-  port?: number;
-  /**
-   * @remarks
-   * The type of service to which the data asset belongs. Valid values:
-   * 
-   * *   **1** :MaxCompute
-   * *   **2**: Object Storage Service (OSS)
-   * *   **3**: AnalyticDB for MySQL
-   * *   **4** :Tablestore
-   * *   **5**: ApsaraDB RDS
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  resourceType?: number;
-  /**
-   * @remarks
-   * The number of sensitive data samples that are collected after sensitive data detection is enabled. Valid values:
-   * 
-   * *   **0**
-   * *   **5**
-   * *   **10**
-   * 
-   * @example
-   * 0
-   */
-  samplingSize?: number;
-  /**
-   * @remarks
-   * The region in which the data asset resides. Valid values:
-   * 
-   * *   **cn-beijing**: China (Beijing).
-   * *   **cn-zhangjiakou**: China (Zhangjiakou)
-   * *   **cn-huhehaote**: China (Hohhot)
-   * *   **cn-hangzhou**: China (Hangzhou)
-   * *   **cn-shanghai**: China (Shanghai)
-   * *   **cn-shenzhen**: China (Shenzhen)
-   * *   **cn-hongkong**: China (Hong Kong)
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  serviceRegionId?: string;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 39.170.XX.XX
-   */
-  sourceIp?: string;
-  /**
-   * @remarks
-   * The username that is used to access the database.
-   * 
-   * @example
-   * yhm
-   */
-  userName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      autoScan: 'AutoScan',
-      certificatePermission: 'CertificatePermission',
-      enable: 'Enable',
-      engineType: 'EngineType',
-      eventStatus: 'EventStatus',
-      featureType: 'FeatureType',
-      instantlyScan: 'InstantlyScan',
-      lang: 'Lang',
-      logStoreDay: 'LogStoreDay',
-      ocrStatus: 'OcrStatus',
-      parentId: 'ParentId',
-      password: 'Password',
-      port: 'Port',
-      resourceType: 'ResourceType',
-      samplingSize: 'SamplingSize',
-      serviceRegionId: 'ServiceRegionId',
-      sourceIp: 'SourceIp',
-      userName: 'UserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'number',
-      autoScan: 'number',
-      certificatePermission: 'string',
-      enable: 'number',
-      engineType: 'string',
-      eventStatus: 'number',
-      featureType: 'number',
-      instantlyScan: 'boolean',
-      lang: 'string',
-      logStoreDay: 'number',
-      ocrStatus: 'number',
-      parentId: 'string',
-      password: 'string',
-      port: 'number',
-      resourceType: 'number',
-      samplingSize: 'number',
-      serviceRegionId: 'string',
-      sourceIp: 'string',
-      userName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDataLimitResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the data asset.
-   * 
-   * @example
-   * 1
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDataLimitResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDataLimitResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDataLimitResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRuleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The content type of the sensitive data detection rule. Valid values:
-   * 
-   * *   **0**: keyword
-   * *   **2**: regular expression
-   * 
-   * @example
-   * 0
-   */
-  category?: number;
-  /**
-   * @remarks
-   * The content of the sensitive data detection rule. You can specify a regular expression or keywords that are used to match sensitive fields or text.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * (?:\\\\D|^)((?:(?:25[0-4]|2[0-4]\\\\d|1\\\\d{2}|[1-9]\\\\d{1})\\\\.)(?:(?:25[0-5]|2[0-4]\\\\d|[01]?\\\\d?\\\\d)\\\\.){2}(?:25[0-5]|2[0-4]\\\\d|1[0-9]\\\\d|[1-9]\\\\d|[1-9]))(?:\\\\D|$)
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The type of the content in the sensitive data detection rule. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates attempts to exploit SQL injections. The value 2 indicates bypass by using SQL injections. The value 3 indicates abuse of stored procedures. The value 4 indicates buffer overflow. The value 5 indicates SQL injections based on errors.
-   * 
-   * @example
-   * 1
-   */
-  contentCategory?: number;
-  /**
-   * @remarks
-   * The description of the rule.
-   * 
-   * @example
-   * ID card
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The match type. Valid values:
-   * 
-   * *   **1**: rule-based match
-   * *   **2**: dictionary-based match
-   * 
-   * @example
-   * 1
-   */
-  matchType?: number;
-  /**
-   * @remarks
-   * The name of the sensitive data detection rule.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rule-tst
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The name of the service to which data in the column of the table belongs. Valid values include **MaxCompute**, **OSS**, **ADS**, **OTS**, and **RDS**.
-   * 
-   * @example
-   * RDS
-   */
-  productCode?: string;
-  /**
-   * @remarks
-   * The ID of the service to which the data asset belongs. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
-   * 
-   * @example
-   * 2
-   */
-  productId?: number;
-  /**
-   * @remarks
-   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
-   * 
-   * *   **1**: N/A, which indicates that no sensitive data is detected.
-   * *   **2**: S1, which indicates the low sensitivity level.
-   * *   **3**: S2, which indicates the medium sensitivity level.
-   * *   **4**: S3, which indicates the high sensitivity level.
-   * *   **5**: S4, which indicates the highest sensitivity level.
-   * 
-   * @example
-   * 2
-   */
-  riskLevelId?: number;
-  /**
-   * @remarks
-   * The type of the sensitive data detection rule. Valid values:
-   * 
-   * *   **1**: sensitive data detection rule
-   * *   **2**: audit rule
-   * *   **3**: anomalous event detection rule
-   * *   **99**: custom rule
-   * 
-   * @example
-   * 1
-   */
-  ruleType?: number;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 39.170.XX.XX
-   */
-  sourceIp?: string;
-  /**
-   * @remarks
-   * The statistical expression.
-   * 
-   * @example
-   * 1
-   */
-  statExpress?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the sensitive data detection rule. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
-   * 
-   * @example
-   * 1
-   */
-  status?: number;
-  /**
-   * @remarks
-   * The type of the data asset. Valid values:
-   * 
-   * *   **0**: all data assets
-   * *   **1**: structured data asset
-   * *   **2**: unstructured data asset
-   * 
-   * > If you set the parameter to 1 or 2, rules that support all data assets and rules that support the queried data asset type are returned.
-   * 
-   * @example
-   * 1
-   */
-  supportForm?: number;
-  /**
-   * @remarks
-   * The code of the service to which the sensitive data detection rule is applied. Valid values include **MaxCompute**, **OSS**, **ADS**, **OTS**, and **RDS**.
-   * 
-   * @example
-   * MaxCompute
-   */
-  target?: string;
-  /**
-   * @remarks
-   * The risk level of the alert that is triggered. Valid values:
-   * 
-   * *   **1**: low
-   * *   **2**: medium
-   * *   **3**: high
-   * 
-   * @example
-   * 2
-   */
-  warnLevel?: number;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      content: 'Content',
-      contentCategory: 'ContentCategory',
-      description: 'Description',
-      lang: 'Lang',
-      matchType: 'MatchType',
-      name: 'Name',
-      productCode: 'ProductCode',
-      productId: 'ProductId',
-      riskLevelId: 'RiskLevelId',
-      ruleType: 'RuleType',
-      sourceIp: 'SourceIp',
-      statExpress: 'StatExpress',
-      status: 'Status',
-      supportForm: 'SupportForm',
-      target: 'Target',
-      warnLevel: 'WarnLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'number',
-      content: 'string',
-      contentCategory: 'number',
-      description: 'string',
-      lang: 'string',
-      matchType: 'number',
-      name: 'string',
-      productCode: 'string',
-      productId: 'number',
-      riskLevelId: 'number',
-      ruleType: 'number',
-      sourceIp: 'string',
-      statExpress: 'string',
-      status: 'number',
-      supportForm: 'number',
-      target: 'string',
-      warnLevel: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRuleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The unique ID of the sensitive data detection rule.
-   * 
-   * @example
-   * 1
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScanTaskRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The unique ID of the data asset, such as an instance, a database, and a bucket. You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the unique ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  dataLimitId?: number;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 1
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The interval between two consecutive custom scan tasks. Unit: days. Valid values: 1 to 2147483648.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  intervalDay?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response.
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The data to be scanned in the Object Storage Service (OSS) bucket. Prefix match, suffix match, and regular expression match are supported.
-   * 
-   * @example
-   * /test/test
-   */
-  ossScanPath?: string;
-  /**
-   * @remarks
-   * The type of the service to which the data assets to be scanned belong. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2
-   */
-  resourceType?: number;
-  /**
-   * @remarks
-   * The time when the scan task is executed next time. Unit: hours.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12
-   */
-  runHour?: number;
-  /**
-   * @remarks
-   * The time when the scan task is executed next time. Unit: minutes.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 30
-   */
-  runMinute?: number;
-  /**
-   * @remarks
-   * The matching rule that specifies the scan scope of the custom scan task. This parameter takes effect only if you set the **ScanRangeContent** parameter. Valid values:
-   * 
-   * *   **0**: exact match
-   * *   **1**: prefix match
-   * *   **2**: suffix match
-   * *   **3**: regular expression match
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  scanRange?: number;
-  /**
-   * @remarks
-   * The data to be scanned in a structured data asset. Prefix match, suffix match, and regular expression match are supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * datamask/
-   */
-  scanRangeContent?: string;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 39.170.XX.XX
-   */
-  sourceIp?: string;
-  /**
-   * @remarks
-   * The name of the scan task.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * scan-test-sample****
-   */
-  taskName?: string;
-  /**
-   * @remarks
-   * The account that is used to create the scan task.
-   * 
-   * @example
-   * demo
-   */
-  taskUserName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataLimitId: 'DataLimitId',
-      featureType: 'FeatureType',
-      intervalDay: 'IntervalDay',
-      lang: 'Lang',
-      ossScanPath: 'OssScanPath',
-      resourceType: 'ResourceType',
-      runHour: 'RunHour',
-      runMinute: 'RunMinute',
-      scanRange: 'ScanRange',
-      scanRangeContent: 'ScanRangeContent',
-      sourceIp: 'SourceIp',
-      taskName: 'TaskName',
-      taskUserName: 'TaskUserName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataLimitId: 'number',
-      featureType: 'number',
-      intervalDay: 'number',
-      lang: 'string',
-      ossScanPath: 'string',
-      resourceType: 'number',
-      runHour: 'number',
-      runMinute: 'number',
-      scanRange: 'number',
-      scanRangeContent: 'string',
-      sourceIp: 'string',
-      taskName: 'string',
-      taskUserName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScanTaskResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the custom scan task.
-   * 
-   * @example
-   * 100
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * B1F2BB1F-04EC-5D36-B136-B4DE17FD8DE0
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScanTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateScanTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateScanTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSlrRoleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 2
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Simplified Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 39.170.XX.XX
-   */
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      featureType: 'FeatureType',
-      lang: 'Lang',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      featureType: 'number',
-      lang: 'string',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSlrRoleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the service-linked role was created. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * @example
-   * true
-   */
-  hasPermission?: boolean;
-  /**
-   * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      hasPermission: 'HasPermission',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      hasPermission: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSlrRoleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateSlrRoleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateSlrRoleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDataLimitRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 1
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The ID of the data asset.
-   * 
-   * You can call the DescribeDataLimits operation to query the IDs of data assets. The value of the Id response parameter indicates the ID of a data asset.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12033
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 39.170.XX.XX
-   */
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      featureType: 'FeatureType',
-      id: 'Id',
-      lang: 'Lang',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      featureType: 'number',
-      id: 'number',
-      lang: 'string',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDataLimitResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDataLimitResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDataLimitResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDataLimitResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRuleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 1
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The ID of the sensitive data detection rule.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 122300
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values: **zh** and **en**. The value zh indicates Chinese, and the value en indicates English.
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 39.170.XX.XX
-   */
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      featureType: 'FeatureType',
-      id: 'Id',
-      lang: 'Lang',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      featureType: 'number',
-      id: 'number',
-      lang: 'string',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRuleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7C3AC882-E5A8-4855-BE77-B6837B6*****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCategoryTemplateListRequest extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  featureType?: number;
-  /**
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 1
-   */
-  usageScenario?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      featureType: 'FeatureType',
-      lang: 'Lang',
-      pageSize: 'PageSize',
-      usageScenario: 'UsageScenario',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      featureType: 'number',
-      lang: 'string',
-      pageSize: 'number',
-      usageScenario: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCategoryTemplateListResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  items?: DescribeCategoryTemplateListResponseBodyItems[];
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 8491DBFD-48C0-4E11-B6FC-6F38921244A9
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 12
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeCategoryTemplateListResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCategoryTemplateListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeCategoryTemplateListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeCategoryTemplateListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCategoryTemplateRuleListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The number of the page to return. Default value: **1**.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 1
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Simplified Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Default value: **10**.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The sensitivity level of the data that is not compliant with the rule. Valid values: **1** to **11**. Default value: **null**.
-   * 
-   * *   **1**: No sensitive data is detected.
-   * *   **2**: specifies the S1 sensitivity level.
-   * *   **3**: specifies the S2 sensitivity level.
-   * *   **4**: specifies the S3 sensitivity level.
-   * *   **5**: specifies the S4 sensitivity level.
-   * *   **6**: specifies the S5 sensitivity level.
-   * *   **7**: specifies the S6 sensitivity level.
-   * *   **8**: specifies the S7 sensitivity level.
-   * *   **9**: specifies the S8 sensitivity level.
-   * *   **10**: specifies the S9 sensitivity level.
-   * *   **11**: specifies the S10 sensitivity level.
-   * *   **null**: specifies all preceding sensitivity levels.
-   * 
-   * @example
-   * 2
-   */
-  riskLevelId?: number;
-  /**
-   * @remarks
-   * The status of the rule. Default value: **null**. Valid values:
-   * 
-   * *   **0**: disabled
-   * *   **1**: enabled
-   * *   **null**: all states
-   * 
-   * @example
-   * 1
-   */
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      featureType: 'FeatureType',
-      lang: 'Lang',
-      pageSize: 'PageSize',
-      riskLevelId: 'RiskLevelId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      featureType: 'number',
-      lang: 'string',
-      pageSize: 'number',
-      riskLevelId: 'number',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCategoryTemplateRuleListResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The list of rules.
-   */
-  items?: DescribeCategoryTemplateRuleListResponseBodyItems[];
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 136082B3-B21F-5E9D-B68E-991FFD205D24
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of rules in the template.
-   * 
-   * @example
-   * 10
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeCategoryTemplateRuleListResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCategoryTemplateRuleListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeCategoryTemplateRuleListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeCategoryTemplateRuleListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeColumnsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the page to return.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  engineType?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which data in the column of the table belongs.
-   * 
-   * > You can call the [DescribeInstances](~~DescribeRules~~) operation to query the IDs of instances.
-   * 
-   * @example
-   * 1
-   */
-  instanceId?: number;
-  /**
-   * @remarks
-   * The name of the instance to which data in the column of the table belongs.
-   * 
-   * @example
-   * rm-bp17t1htja573l5i8****
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  modelTagId?: string;
-  /**
-   * @remarks
-   * The search keyword. Fuzzy match is supported.
-   * 
-   * For example, if you enter **test**, all columns whose names contain **test** are retrieved.
-   * 
-   * @example
-   * test
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The name of the service to which data in the column of the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
-   * 
-   * @example
-   * MaxCompute
-   */
-  productCode?: string;
-  productId?: string;
-  /**
-   * @remarks
-   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
-   * 
-   * *   **1**: N/A
-   * *   **2**: S1
-   * *   **3**: S2
-   * *   **4**: S3
-   * *   **5**: S4
-   * 
-   * @example
-   * 2
-   */
-  riskLevelId?: number;
-  /**
-   * @remarks
-   * The ID of the sensitive data detection rule that data in the column of the table hits.
-   * 
-   * > You can call the [DescribeRules](~~DescribeRules~~) operation to query the IDs of sensitive data detection rules.
-   * 
-   * @example
-   * 11111
-   */
-  ruleId?: number;
-  /**
-   * @remarks
-   * The name of the sensitive data detection rule that data in the column of the table hits.
-   * 
-   * @example
-   * ID card number (the Chinese mainland)
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * The name of the sensitivity level of the data that hits the sensitive data detection rule. Valid values:
-   * 
-   * *   **N/A**: No sensitive data is detected.
-   * *   **S1**: indicates the low sensitivity level.
-   * *   **S2**: indicates the medium sensitivity level.
-   * *   **S3**: indicates the high sensitivity level.
-   * *   **S4**: indicates the highest sensitivity level.
-   * 
-   * @example
-   * S2
-   */
-  sensLevelName?: string;
-  /**
-   * @remarks
-   * The ID of the table to which the column belongs.
-   * 
-   * > You can call the [DescribeTables](~~DescribeTables~~) operation to query the IDs of tables.
-   * 
-   * @example
-   * 11132334
-   */
-  tableId?: number;
-  /**
-   * @remarks
-   * The name of the table.
-   * 
-   * @example
-   * it_table
-   */
-  tableName?: string;
-  templateId?: string;
-  templateRuleId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      engineType: 'EngineType',
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      lang: 'Lang',
-      modelTagId: 'ModelTagId',
-      name: 'Name',
-      pageSize: 'PageSize',
-      productCode: 'ProductCode',
-      productId: 'ProductId',
-      riskLevelId: 'RiskLevelId',
-      ruleId: 'RuleId',
-      ruleName: 'RuleName',
-      sensLevelName: 'SensLevelName',
-      tableId: 'TableId',
-      tableName: 'TableName',
-      templateId: 'TemplateId',
-      templateRuleId: 'TemplateRuleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      engineType: 'string',
-      instanceId: 'number',
-      instanceName: 'string',
-      lang: 'string',
-      modelTagId: 'string',
-      name: 'string',
-      pageSize: 'number',
-      productCode: 'string',
-      productId: 'string',
-      riskLevelId: 'number',
-      ruleId: 'number',
-      ruleName: 'string',
-      sensLevelName: 'string',
-      tableId: 'number',
-      tableName: 'string',
-      templateId: 'string',
-      templateRuleId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeColumnsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * A list of columns.
-   */
-  items?: DescribeColumnsResponseBodyItems[];
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-4******
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 12
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeColumnsResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeColumnsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeColumnsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeColumnsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeColumnsV2Request extends $tea.Model {
-  /**
-   * @remarks
-   * The page number. Default value: **1**.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The ID of the instance to which data in the column of the table belongs.
-   * 
-   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/141708.html) operation to obtain the ID of the instance to which the data in the column of the table belongs.
-   * 
-   * @example
-   * 1
-   */
-  instanceId?: number;
-  /**
-   * @remarks
-   * The name of the instance to which data in the column of the table belongs.
-   * 
-   * @example
-   * rm-bp17t1htja573l5i8****
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: simplified Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The search keyword. Fuzzy match is supported.
-   * 
-   * For example, if you enter **test**, all columns whose names contain **test** are retrieved.
-   * 
-   * @example
-   * test
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The number of entries per page. Default value: **10**.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The name of the service to which data in the column of the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
-   * 
-   * @example
-   * MaxCompute
-   */
-  productCode?: string;
-  /**
-   * @remarks
-   * The ID of the sensitivity level of the data that hits the sensitive data detection rule. Valid values:
-   * 
-   * *   **1**: N/A
-   * *   **2**: S1
-   * *   **3**: S2
-   * *   **4**: S3
-   * *   **5**: S4
-   * 
-   * @example
-   * 2
-   */
-  riskLevelId?: number;
-  /**
-   * @remarks
-   * The ID of the sensitive data detection rule that data in the column of the table hits.
-   * 
-   * >  You can call the [DescribeRules](https://help.aliyun.com/document_detail/141389.html) operation to obtain the ID of the sensitive data detection rule.
-   * 
-   * @example
-   * 11122200
-   */
-  ruleId?: number;
-  /**
-   * @remarks
-   * The name of the sensitive data detection rule that data in the column of the table hits.
-   * 
-   * @example
-   * name
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * The name of the sensitivity level. Valid values:
-   * 
-   * *   **N/A**: indicates that no sensitive data is detected.
-   * *   **S1**: indicates the low sensitivity level.
-   * *   **S2**: indicates the medium sensitivity level.
-   * *   **S3**: indicates the high sensitivity level.
-   * *   **S4**: indicates the highest sensitivity level.
-   * 
-   * @example
-   * S2
-   */
-  sensLevelName?: string;
-  /**
-   * @remarks
-   * The ID of the table to which the column belongs.
-   * 
-   * >  You can call the [DescribeTables](https://help.aliyun.com/document_detail/141709.html) operation to obtain the ID of the table.
-   * 
-   * @example
-   * 11132334
-   */
-  tableId?: string;
-  /**
-   * @remarks
-   * The name of the table.
-   * 
-   * @example
-   * it_table
-   */
-  tableName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      lang: 'Lang',
-      name: 'Name',
-      pageSize: 'PageSize',
-      productCode: 'ProductCode',
-      riskLevelId: 'RiskLevelId',
-      ruleId: 'RuleId',
-      ruleName: 'RuleName',
-      sensLevelName: 'SensLevelName',
-      tableId: 'TableId',
-      tableName: 'TableName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      instanceId: 'number',
-      instanceName: 'string',
-      lang: 'string',
-      name: 'string',
-      pageSize: 'number',
-      productCode: 'string',
-      riskLevelId: 'number',
-      ruleId: 'number',
-      ruleName: 'string',
-      sensLevelName: 'string',
-      tableId: 'string',
-      tableName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeColumnsV2ResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number. Default value: **1**.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * A list of column recognition results of the data table.
-   */
-  items?: DescribeColumnsV2ResponseBodyItems[];
-  /**
-   * @remarks
-   * The number of entries per page. Default value: **10**.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * B1F2BB1F-04EC-5D36-B136-B4DE17FD8DE0
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 12
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeColumnsV2ResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeColumnsV2Response extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeColumnsV2ResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeColumnsV2ResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * An array that consists of common configuration items for alerts.
-   */
-  configList?: DescribeConfigsResponseBodyConfigList[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configList: 'ConfigList',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configList: { 'type': 'array', 'itemType': DescribeConfigsResponseBodyConfigList },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeConfigsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeConfigsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeConfigsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataAssetsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Simplified Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The keyword that is used to search for data assets. Fuzzy search is supported.
-   * 
-   * @example
-   * test
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Default value: **20**.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The type of the data asset that you want to query. Valid values:
-   * 
-   * *   **1**: MaxCompute project
-   * *   **2**: MaxCompute table
-   * *   **3**: MaxCompute package
-   * *   **11**: AnalyticDB for MySQL database
-   * *   **12**: AnalyticDB for MySQL table
-   * *   **21**: Object Storage Service (OSS) bucket
-   * *   **22**: OSS object
-   * *   **31**: Tablestore instance
-   * *   **32**: Tablestore table
-   * *   **51**: ApsaraDB RDS database
-   * *   **52**: ApsaraDB RDS table
-   * *   **61**: self-managed database hosted on an Elastic Compute Service (ECS) instance
-   * *   **62**: self-managed table hosted on an ECS instance
-   * *   **71**: PolarDB-X database
-   * *   **72**: PolarDB-X table
-   * *   **81**: PolarDB database
-   * *   **82**: PolarDB table
-   * *   **91**: AnalyticDB for PostgreSQL database
-   * *   **92**: AnalyticDB for PostgreSQL table
-   * 
-   * @example
-   * 1
-   */
-  rangeId?: number;
-  /**
-   * @remarks
-   * The sensitivity level of the data asset. Separate multiple sensitivity levels with commas (,). Valid values:
-   * 
-   * *   **2**: S1, indicating the low sensitivity level
-   * *   **3**: S2, indicating the medium sensitivity level
-   * *   **4**: S3, indicating the high sensitivity level
-   * *   **5**: S4, indicating the highest sensitivity level
-   * 
-   * @example
-   * 2
-   */
-  riskLevels?: string;
-  /**
-   * @remarks
-   * The unique ID of the sensitive data detection rule that the data assets to be queried hit.
-   * 
-   * > If you query sensitive data detection results based on the sensitive data detection rule that the data assets hit, you can call the [DescribeRules](~~DescribeRules~~) operation to query the ID of the sensitive data detection rule.
-   * 
-   * @example
-   * 11122200
-   */
-  ruleId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      lang: 'Lang',
-      name: 'Name',
-      pageSize: 'PageSize',
-      rangeId: 'RangeId',
-      riskLevels: 'RiskLevels',
-      ruleId: 'RuleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      lang: 'string',
-      name: 'string',
-      pageSize: 'number',
-      rangeId: 'number',
-      riskLevels: 'string',
-      ruleId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataAssetsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * An array that consists of data assets.
-   */
-  items?: DescribeDataAssetsResponseBodyItems[];
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 71064826-726F-4ADA-B879-05D8055476FB
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of queried data assets that contain sensitive data.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeDataAssetsResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataAssetsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDataAssetsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDataAssetsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataLimitDetailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 1
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The unique ID of the data asset that you want to query.
-   * 
-   * > You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12300
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Simplified Chinese.
-   * *   **en**: English
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The network type of the data asset that you want to query. Valid values:
-   * 
-   * *   **1**: virtual private cloud (VPC)
-   * *   **2**: classic network
-   * 
-   * @example
-   * 1
-   */
-  networkType?: number;
-  static names(): { [key: string]: string } {
-    return {
-      featureType: 'FeatureType',
-      id: 'Id',
-      lang: 'Lang',
-      networkType: 'NetworkType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      featureType: 'number',
-      id: 'number',
-      lang: 'string',
-      networkType: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataLimitDetailResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details of the data asset.
-   */
-  dataLimit?: DescribeDataLimitDetailResponseBodyDataLimit;
-  /**
-   * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataLimit: 'DataLimit',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataLimit: DescribeDataLimitDetailResponseBodyDataLimit,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataLimitDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDataLimitDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDataLimitDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataLimitSetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 2
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh_cn**: Simplified Chinese (default)
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The parent asset ID of the data asset.
-   * 
-   * You can call the [DescribeDataLimitDetail](~~DescribeDataLimitDetail~~) or [DescribeDataLimits](~~DescribeDataLimits~~) operation to obtain the parent asset ID of the data asset from the value of the **ParentId** parameter.
-   * 
-   * @example
-   * db
-   */
-  parentId?: string;
-  /**
-   * @remarks
-   * The type of service to which the data asset belongs. Valid values:
-   * 
-   * *   **1**: MaxCompute
-   * *   **2**: OSS
-   * *   **3**: AnalyticDB for MySQL
-   * *   **4**: Tablestore
-   * *   **5**: ApsaraDB RDS
-   * 
-   * @example
-   * 2
-   */
-  resourceType?: number;
-  static names(): { [key: string]: string } {
-    return {
-      featureType: 'FeatureType',
-      lang: 'Lang',
-      parentId: 'ParentId',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      featureType: 'number',
-      lang: 'string',
-      parentId: 'string',
-      resourceType: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataLimitSetResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information about the data asset.
-   */
-  dataLimitSet?: DescribeDataLimitSetResponseBodyDataLimitSet;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataLimitSet: 'DataLimitSet',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataLimitSet: DescribeDataLimitSetResponseBodyDataLimitSet,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataLimitSetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDataLimitSetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDataLimitSetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataLimitsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the security audit feature. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
-   * 
-   * @example
-   * 1
-   */
-  auditStatus?: number;
-  /**
-   * @remarks
-   * The data detection status. Valid values:
-   * 
-   * *   **0**: The data detection is ready.
-   * *   **1**: The data detection is running.
-   * *   **2**: The connectivity test is in progress.
-   * *   **3**: The connectivity test passed.
-   * *   **4**: The connectivity test failed.
-   * 
-   * @example
-   * 3
-   */
-  checkStatus?: number;
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * Specifies whether DSC has the data de-identification permissions on the data asset. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
-   * 
-   * @example
-   * 1
-   */
-  datamaskStatus?: number;
-  /**
-   * @remarks
-   * Specifies whether DSC has the data detection permissions on the data asset. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
-   * 
-   * @example
-   * 1
-   */
-  enable?: number;
-  /**
-   * @remarks
-   * The end of the time range to query The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1616068534877
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The type of the database engine. Valid values include **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
-   * 
-   * @example
-   * MySQL
-   */
-  engineType?: string;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 2
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The ID of the member.
-   * 
-   * @example
-   * **********8103
-   */
-  memberAccount?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The parent ID of the data asset to be queried. Valid values:
-   * 
-   * *   The name or ID of the MaxCompute project.
-   * *   The name or ID of the OSS bucket.
-   * *   The name or ID of the ApsaraDB RDS instance or database.
-   * 
-   * @example
-   * 1112
-   */
-  parentId?: string;
-  /**
-   * @remarks
-   * The type of the service to which the data asset belongs. This parameter is required. Valid values:
-   * 
-   * *   **1**: MaxCompute
-   * *   **2**: Object Storage Service (OSS)
-   * *   **3**: AnalyticDB for MySQL
-   * *   **4**: Tablestore
-   * *   **5**: ApsaraDB RDS
-   * *   **6**: self-managed database
-   * 
-   * @example
-   * 1
-   */
-  resourceType?: number;
-  /**
-   * @remarks
-   * The region in which the data asset resides.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  serviceRegionId?: string;
-  /**
-   * @remarks
-   * The beginning of the time range to query The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1616068534877
-   */
-  startTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      checkStatus: 'CheckStatus',
-      currentPage: 'CurrentPage',
-      datamaskStatus: 'DatamaskStatus',
-      enable: 'Enable',
-      endTime: 'EndTime',
-      engineType: 'EngineType',
-      featureType: 'FeatureType',
-      lang: 'Lang',
-      memberAccount: 'MemberAccount',
-      pageSize: 'PageSize',
-      parentId: 'ParentId',
-      resourceType: 'ResourceType',
-      serviceRegionId: 'ServiceRegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'number',
-      checkStatus: 'number',
-      currentPage: 'number',
-      datamaskStatus: 'number',
-      enable: 'number',
-      endTime: 'number',
-      engineType: 'string',
-      featureType: 'number',
-      lang: 'string',
-      memberAccount: 'number',
-      pageSize: 'number',
-      parentId: 'string',
-      resourceType: 'number',
-      serviceRegionId: 'string',
-      startTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataLimitsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * A list of data assets.
-   */
-  items?: DescribeDataLimitsResponseBodyItems[];
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989***
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 200
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeDataLimitsResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataLimitsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDataLimitsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDataLimitsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataMaskingRunHistoryRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The type of the service to which the de-identified data belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
-   * 
-   * @example
-   * 2
-   */
-  dstType?: number;
-  /**
-   * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1583856000000
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The ID of the task.
-   * 
-   * > If a task has one or more subtasks, the value of the parameter must be the ID of the task. Otherwise, leave this parameter empty.
-   * 
-   * @example
-   * 366731
-   */
-  mainProcessId?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The name of the source table.
-   * 
-   * @example
-   * add
-   */
-  srcTableName?: string;
-  /**
-   * @remarks
-   * The type of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
-   * 
-   * @example
-   * 2
-   */
-  srcType?: number;
-  /**
-   * @remarks
-   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1582992000000
-   */
-  startTime?: number;
-  /**
-   * @remarks
-   * The status of the de-identification task. Valid values:
-   * 
-   * *   **-1**: waiting
-   * *   **0**: being executed
-   * *   **1**: executed
-   * *   **2**: failed to be executed
-   * *   **3**: terminated
-   * *   **4**: partially failed
-   * 
-   * @example
-   * 0
-   */
-  status?: number;
-  /**
-   * @remarks
-   * The ID of the de-identification task.
-   * 
-   * @example
-   * mt4HBgtw1B******
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      dstType: 'DstType',
-      endTime: 'EndTime',
-      lang: 'Lang',
-      mainProcessId: 'MainProcessId',
-      pageSize: 'PageSize',
-      srcTableName: 'SrcTableName',
-      srcType: 'SrcType',
-      startTime: 'StartTime',
-      status: 'Status',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      dstType: 'number',
-      endTime: 'number',
-      lang: 'string',
-      mainProcessId: 'number',
-      pageSize: 'number',
-      srcTableName: 'string',
-      srcType: 'number',
-      startTime: 'number',
-      status: 'number',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataMaskingRunHistoryResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The execution information about the de-identification task.
-   */
-  items?: DescribeDataMaskingRunHistoryResponseBodyItems[];
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-4******
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 100
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeDataMaskingRunHistoryResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataMaskingRunHistoryResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDataMaskingRunHistoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDataMaskingRunHistoryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataMaskingTasksRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the page to return.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The service to which the data to be de-identified belongs. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
-   * 
-   * @example
-   * 2
-   */
-  dstType?: number;
-  /**
-   * @remarks
-   * The end of the time range during which the de-identification tasks to be queried are created. The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1583856000000
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The keyword used to query the de-identification tasks, which can be the task name or ID.
-   * 
-   * @example
-   * test
-   */
-  searchKey?: string;
-  /**
-   * @remarks
-   * The beginning of the time range during which the de-identification tasks to be queried are created. The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1582992000000
-   */
-  startTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      dstType: 'DstType',
-      endTime: 'EndTime',
-      lang: 'Lang',
-      pageSize: 'PageSize',
-      searchKey: 'SearchKey',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      dstType: 'number',
-      endTime: 'number',
-      lang: 'string',
-      pageSize: 'number',
-      searchKey: 'string',
-      startTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataMaskingTasksResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * A list of de-identification tasks.
-   */
-  items?: DescribeDataMaskingTasksResponseBodyItems[];
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-4******
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 100
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeDataMaskingTasksResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataMaskingTasksResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDataMaskingTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDataMaskingTasksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataObjectColumnDetailRequest extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  featureType?: number;
-  /**
-   * @example
-   * 318248
-   */
-  id?: number;
-  /**
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 5
-   */
-  productId?: number;
-  /**
-   * @example
-   * 1
-   */
-  templateId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      featureType: 'FeatureType',
-      id: 'Id',
-      lang: 'Lang',
-      pageSize: 'PageSize',
-      productId: 'ProductId',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      featureType: 'number',
-      id: 'number',
-      lang: 'string',
-      pageSize: 'number',
-      productId: 'number',
-      templateId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataObjectColumnDetailResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  items?: DescribeDataObjectColumnDetailResponseBodyItems[];
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 8C8036CC-961D-514E-88E8-3088B5A50CA9
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 61
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeDataObjectColumnDetailResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataObjectColumnDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDataObjectColumnDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDataObjectColumnDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataObjectColumnDetailV2Request extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  featureType?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 13456723343
-   */
-  id?: string;
-  /**
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 5
-   */
-  productId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  templateId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      featureType: 'FeatureType',
-      id: 'Id',
-      lang: 'Lang',
-      pageSize: 'PageSize',
-      productId: 'ProductId',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      featureType: 'number',
-      id: 'string',
-      lang: 'string',
-      pageSize: 'number',
-      productId: 'number',
-      templateId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataObjectColumnDetailV2ResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  items?: DescribeDataObjectColumnDetailV2ResponseBodyItems[];
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 231
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeDataObjectColumnDetailV2ResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataObjectColumnDetailV2Response extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDataObjectColumnDetailV2ResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDataObjectColumnDetailV2ResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataObjectsRequest extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * 2
-   */
-  domainId?: number;
-  featureType?: number;
-  fileCategoryCode?: number;
-  fileType?: number;
-  instanceId?: string;
-  /**
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  memberAccount?: number;
-  modelIds?: string;
-  /**
-   * @example
-   * 101,102
-   */
-  modelTagIds?: string;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 234,236,238
-   */
-  parentCategoryIds?: string;
-  /**
-   * @example
-   * 1,5
-   */
-  productIds?: string;
-  /**
-   * @example
-   * t_sddp_selfmysql_pers0
-   */
-  queryName?: string;
-  /**
-   * @example
-   * 2
-   */
-  riskLevels?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  serviceRegionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  templateId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      domainId: 'DomainId',
-      featureType: 'FeatureType',
-      fileCategoryCode: 'FileCategoryCode',
-      fileType: 'FileType',
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      memberAccount: 'MemberAccount',
-      modelIds: 'ModelIds',
-      modelTagIds: 'ModelTagIds',
-      pageSize: 'PageSize',
-      parentCategoryIds: 'ParentCategoryIds',
-      productIds: 'ProductIds',
-      queryName: 'QueryName',
-      riskLevels: 'RiskLevels',
-      serviceRegionId: 'ServiceRegionId',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      domainId: 'number',
-      featureType: 'number',
-      fileCategoryCode: 'number',
-      fileType: 'number',
-      instanceId: 'string',
-      lang: 'string',
-      memberAccount: 'number',
-      modelIds: 'string',
-      modelTagIds: 'string',
-      pageSize: 'number',
-      parentCategoryIds: 'string',
-      productIds: 'string',
-      queryName: 'string',
-      riskLevels: 'string',
-      serviceRegionId: 'string',
-      templateId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataObjectsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  items?: DescribeDataObjectsResponseBodyItems[];
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * E6F6460E-4330-549A-BD89-C183FB17571E
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 21
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeDataObjectsResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDataObjectsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDataObjectsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDataObjectsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDocTypesRequest extends $tea.Model {
-  /**
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDocTypesResponseBody extends $tea.Model {
-  docTypeList?: DescribeDocTypesResponseBodyDocTypeList[];
-  /**
-   * @example
-   * 769FB3C1-F4C9-4******
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      docTypeList: 'DocTypeList',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      docTypeList: { 'type': 'array', 'itemType': DescribeDocTypesResponseBodyDocTypeList },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDocTypesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDocTypesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDocTypesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventDetailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the anomalous event.
-   * 
-   * > You can call the **DescribeEvents** operation to query the ID of the anomalous event.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 13456723343
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventDetailResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details of the anomalous event.
-   */
-  event?: DescribeEventDetailResponseBodyEvent;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 69FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      event: 'Event',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      event: DescribeEventDetailResponseBodyEvent,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeEventDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeEventDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventTypesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 2
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The type of anomalous event for which you want to query the anomalous events of subtypes. Valid values:
-   * 
-   * *   **01**: anomalous permission usage
-   * *   **02**: anomalous data flow
-   * *   **03**: anomalous data operation
-   * 
-   * @example
-   * 01
-   */
-  parentTypeId?: number;
-  /**
-   * @remarks
-   * The type of the resource. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
-   * 
-   * @example
-   * 5
-   */
-  resourceId?: number;
-  /**
-   * @remarks
-   * The status of the anomalous event. Valid values:
-   * 
-   * *   **1**: enabled
-   * *   **2**: disabled
-   * 
-   * @example
-   * 1
-   */
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      featureType: 'FeatureType',
-      lang: 'Lang',
-      parentTypeId: 'ParentTypeId',
-      resourceId: 'ResourceId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      featureType: 'number',
-      lang: 'string',
-      parentTypeId: 'number',
-      resourceId: 'number',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventTypesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * An array that consists of the types of anomalous events.
-   * 
-   * > If you leave the ParentTypeId parameter empty, anomalous event types are returned. If you set the ParentTypeId parameter, anomalous event subtypes under the specified anomalous event type are returned.
-   */
-  eventTypeList?: DescribeEventTypesResponseBodyEventTypeList[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventTypeList: 'EventTypeList',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventTypeList: { 'type': 'array', 'itemType': DescribeEventTypesResponseBodyEventTypeList },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventTypesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeEventTypesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeEventTypesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the page to return.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The ID of the account that handles the anomalous event.
-   * 
-   * @example
-   * yundun-***
-   */
-  dealUserId?: string;
-  /**
-   * @remarks
-   * The end of the time range during which the anomalous events are detected. The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1698700000
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The unique ID of the anomalous event.
-   * 
-   * @example
-   * 789026
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The name of the data asset.
-   * 
-   * @example
-   * rm-uf6yzvbc2tg90iuxk.l****
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * @example
-   * 12
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The name of the service to which the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
-   * 
-   * @example
-   * OSS
-   */
-  productCode?: string;
-  /**
-   * @remarks
-   * The beginning of the time range during which the anomalous events are detected. The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1657900000
-   */
-  startTime?: string;
-  /**
-   * @remarks
-   * The handling status of the anomalous event. Valid values:
-   * 
-   * *   0: unhandled
-   * *   1: confirmed
-   * *   2: marked as false positive
-   * 
-   * @example
-   * 1
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The name of the anomalous event subtype.
-   * 
-   * > You can call the **DescribeEventTypes** operation to query the name of the anomalous event subtype.
-   * 
-   * @example
-   * Anomalous volume of downloaded data
-   */
-  subTypeCode?: string;
-  /**
-   * @remarks
-   * The name of the destination service in an anomalous data flow. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**
-   * 
-   * @example
-   * RDS
-   */
-  targetProductCode?: string;
-  /**
-   * @remarks
-   * The name of the anomalous event type. Valid values:
-   * 
-   * *   01: anomalous permission usage
-   * *   02: anomalous data flow
-   * *   03: anomalous data operation
-   * 
-   * @example
-   * 02
-   */
-  typeCode?: string;
-  /**
-   * @remarks
-   * The ID of the account that triggered the anomalous event.
-   * 
-   * @example
-   * 1978132506596***
-   */
-  userId?: number;
-  /**
-   * @remarks
-   * The username of the RAM user.
-   * 
-   * @example
-   * name
-   */
-  userName?: string;
-  /**
-   * @remarks
-   * The risk level of the alert that is triggered. Valid values:
-   * 
-   * *   **1**: low
-   * *   **2**: medium
-   * *   **3**: high
-   * 
-   * @example
-   * 1
-   */
-  warnLevel?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      dealUserId: 'DealUserId',
-      endTime: 'EndTime',
-      id: 'Id',
-      instanceName: 'InstanceName',
-      lang: 'Lang',
-      pageSize: 'PageSize',
-      productCode: 'ProductCode',
-      startTime: 'StartTime',
-      status: 'Status',
-      subTypeCode: 'SubTypeCode',
-      targetProductCode: 'TargetProductCode',
-      typeCode: 'TypeCode',
-      userId: 'UserId',
-      userName: 'UserName',
-      warnLevel: 'WarnLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      dealUserId: 'string',
-      endTime: 'string',
-      id: 'number',
-      instanceName: 'string',
-      lang: 'string',
-      pageSize: 'number',
-      productCode: 'string',
-      startTime: 'string',
-      status: 'string',
-      subTypeCode: 'string',
-      targetProductCode: 'string',
-      typeCode: 'string',
-      userId: 'number',
-      userName: 'string',
-      warnLevel: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * An array that consists of the anomalous events.
-   */
-  items?: DescribeEventsResponseBodyItems[];
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 12
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeEventsResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeEventsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeEventsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeIdentifyTaskStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 268
-   */
-  id?: number;
-  /**
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeIdentifyTaskStatusResponseBody extends $tea.Model {
-  content?: DescribeIdentifyTaskStatusResponseBodyContent;
-  /**
-   * @example
-   * 71064826-726F-4ADA-B879-05D8055476FB
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: DescribeIdentifyTaskStatusResponseBodyContent,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeIdentifyTaskStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeIdentifyTaskStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeIdentifyTaskStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceSourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the security audit feature. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
-   * 
-   * @example
-   * 1
-   */
-  auditStatus?: number;
-  /**
-   * @remarks
-   * Specifies whether DSC is authorized to access the data asset.
-   * 
-   * *   **0**: no
-   * *   **1**: yes
-   * 
-   * @example
-   * 0
-   */
-  authStatus?: number;
-  /**
-   * @remarks
-   * The number of the page to return. Default value: **1**.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The type of the database engine. Valid values: **MySQL, MariaDB, Oracle, PostgreSQL, and SQLServer**.
-   * 
-   * @example
-   * MySQL
-   */
-  engineType?: string;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 2
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * instance-demo-****
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh_cn**: Simplified Chinese (default)
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Default value: **10**.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The name of the service to which the data asset to query belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
-   * 
-   * @example
-   * MaxCompute
-   */
-  productCode?: string;
-  /**
-   * @remarks
-   * The ID of the service to which the data asset to query belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
-   * 
-   * @example
-   * 1
-   */
-  productId?: number;
-  /**
-   * @remarks
-   * The content based on which a fuzzy search is performed.
-   * 
-   * @example
-   * 1
-   */
-  searchKey?: string;
-  /**
-   * @remarks
-   * The data asset type based on which a fuzzy search is performed.
-   * 
-   * *   **InstanceId**: the ID of the instance.
-   * *   **InstanceName**: the name of the instance.
-   * *   **DatabaseName**: the name of the database.
-   * 
-   * @example
-   * InstanceId
-   */
-  searchType?: string;
-  /**
-   * @remarks
-   * The region in which the data asset resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  serviceRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      authStatus: 'AuthStatus',
-      currentPage: 'CurrentPage',
-      engineType: 'EngineType',
-      featureType: 'FeatureType',
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      pageSize: 'PageSize',
-      productCode: 'ProductCode',
-      productId: 'ProductId',
-      searchKey: 'SearchKey',
-      searchType: 'SearchType',
-      serviceRegionId: 'ServiceRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'number',
-      authStatus: 'number',
-      currentPage: 'number',
-      engineType: 'string',
-      featureType: 'number',
-      instanceId: 'string',
-      lang: 'string',
-      pageSize: 'number',
-      productCode: 'string',
-      productId: 'number',
-      searchKey: 'string',
-      searchType: 'string',
-      serviceRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceSourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * An array that consists of the queried data assets.
-   */
-  items?: DescribeInstanceSourcesResponseBodyItems[];
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * 5A7E8FB9-5011-5A90-97D9-AE587047****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 2
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeInstanceSourcesResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceSourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeInstanceSourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeInstanceSourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The number of the page to return. Default value: **1**.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 1
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Simplified Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The keyword that is used to search for data assets. DSC searches for data assets based on the keyword that you specify in fuzzy match mode. For example, if you specify data, all data assets whose names contain data are queried.
-   * 
-   * @example
-   * data
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Default value: **10**.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The name of the service to which the data asset belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets from which DSC can scan for sensitive data, see [Supported data assets](https://help.aliyun.com/document_detail/212906.html).
-   * 
-   * @example
-   * RDS
-   */
-  productCode?: string;
-  /**
-   * @remarks
-   * The ID of the service to which the data asset belongs. You can call the [DescribeDataAssets](~~DescribeDataAssets~~) operation to query the ID of the service.
-   * 
-   * @example
-   * 1
-   */
-  productId?: number;
-  /**
-   * @remarks
-   * The sensitivity level ID of the data asset. A higher sensitivity level indicates that the identified data is more sensitive. Valid values:
-   * 
-   * *   **1**: No sensitive data is identified.
-   * *   **2**: sensitive data at level 1.
-   * *   **3**: sensitive data at level 2.
-   * *   **4**: sensitive data at level 3
-   * *   **5**: sensitive data at level 4.
-   * *   **6**: sensitive data at level 5.
-   * *   **7**: sensitive data at level 6.
-   * *   **8**: sensitive data at level 7.
-   * *   **9**: sensitive data at level 8.
-   * *   **10**: sensitive data at level 9.
-   * *   **11**: sensitive data at level 10.
-   * 
-   * @example
-   * 2
-   */
-  riskLevelId?: number;
-  /**
-   * @remarks
-   * The ID of the sensitive data detection rule that the data asset hits. You can call the [DescribeRules](~~DescribeRules~~) operation and obtain the ID of the sensitive data detection rule from the **Id** response parameter.
-   * 
-   * @example
-   * 1111111
-   */
-  ruleId?: number;
-  /**
-   * @remarks
-   * The region where the data asset resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  serviceRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      featureType: 'FeatureType',
-      lang: 'Lang',
-      name: 'Name',
-      pageSize: 'PageSize',
-      productCode: 'ProductCode',
-      productId: 'ProductId',
-      riskLevelId: 'RiskLevelId',
-      ruleId: 'RuleId',
-      serviceRegionId: 'ServiceRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      featureType: 'number',
-      lang: 'string',
-      name: 'string',
-      pageSize: 'number',
-      productCode: 'string',
-      productId: 'number',
-      riskLevelId: 'number',
-      ruleId: 'number',
-      serviceRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * An array that consists of the data assets.
-   */
-  items?: DescribeInstancesResponseBodyItems[];
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 71064826-726F-4ADA-B879-05D8055476FB
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of data assets.
-   * 
-   * @example
-   * 231
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstancesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOssObjectDetailRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the OSS object.
-   * 
-   * >  You can call the [DescribeOssObjects](https://help.aliyun.com/document_detail/410152.html) operation to obtain the ID of the OSS object.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12345213
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOssObjectDetailResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details of the OSS object.
-   */
-  ossObjectDetail?: DescribeOssObjectDetailResponseBodyOssObjectDetail;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ossObjectDetail: 'OssObjectDetail',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ossObjectDetail: DescribeOssObjectDetailResponseBodyOssObjectDetail,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOssObjectDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeOssObjectDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeOssObjectDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOssObjectDetailV2Request extends $tea.Model {
-  bucketName?: string;
-  /**
-   * @example
-   * 12300
-   */
-  id?: string;
-  /**
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  objectKey?: string;
-  serviceRegionId?: string;
-  templateId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bucketName: 'BucketName',
-      id: 'Id',
-      lang: 'Lang',
-      objectKey: 'ObjectKey',
-      serviceRegionId: 'ServiceRegionId',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucketName: 'string',
-      id: 'string',
-      lang: 'string',
-      objectKey: 'string',
-      serviceRegionId: 'string',
-      templateId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOssObjectDetailV2ResponseBody extends $tea.Model {
-  ossObjectDetail?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetail;
-  /**
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ossObjectDetail: 'OssObjectDetail',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ossObjectDetail: DescribeOssObjectDetailV2ResponseBodyOssObjectDetail,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOssObjectDetailV2Response extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeOssObjectDetailV2ResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeOssObjectDetailV2ResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOssObjectsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the page to return.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The code of the file type.
-   * 
-   * @example
-   * 1
-   */
-  fileCategoryCode?: number;
-  /**
-   * @remarks
-   * The ID of the instance to which the OSS object belongs.
-   * 
-   * > You can call the **DescribeInstances** operation to query the instance ID.
-   * 
-   * @example
-   * ins-2222
-   */
-  instanceId?: string;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The end time of the last scan. The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1536751124000
-   */
-  lastScanTimeEnd?: number;
-  /**
-   * @remarks
-   * The start time of the last scan. The value is a UNIX timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1536751124000
-   */
-  lastScanTimeStart?: number;
-  marker?: number;
-  /**
-   * @remarks
-   * The search keyword. Fuzzy match is supported.
-   * 
-   * @example
-   * test
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * @example
-   * 12
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The sensitivity level of the OSS object. Valid values:
-   * 
-   * *   **1**: N/A, which indicates that no sensitive data is detected.
-   * *   **2**: S1, which indicates the low sensitivity level.
-   * *   **3**: S2, which indicates the medium sensitivity level.
-   * *   **4**: S3, which indicates the high sensitivity level.
-   * *   **5**: S4, which indicates the highest sensitivity level.
-   * 
-   * @example
-   * 2
-   */
-  riskLevelId?: number;
-  /**
-   * @remarks
-   * The ID of the sensitive data detection rule that the OSS object hits.
-   * 
-   * > You can call the **DescribeRules** operation to query the ID of the sensitive data detection rule.
-   * 
-   * @example
-   * 1222
-   */
-  ruleId?: number;
-  /**
-   * @remarks
-   * The region in which the data asset resides.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  serviceRegionId?: string;
-  /**
-   * @remarks
-   * The ID of the industry-specific rule template.
-   * 
-   * @example
-   * 1
-   */
-  templateId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      fileCategoryCode: 'FileCategoryCode',
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      lastScanTimeEnd: 'LastScanTimeEnd',
-      lastScanTimeStart: 'LastScanTimeStart',
-      marker: 'Marker',
-      name: 'Name',
-      pageSize: 'PageSize',
-      riskLevelId: 'RiskLevelId',
-      ruleId: 'RuleId',
-      serviceRegionId: 'ServiceRegionId',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      fileCategoryCode: 'number',
-      instanceId: 'string',
-      lang: 'string',
-      lastScanTimeEnd: 'number',
-      lastScanTimeStart: 'number',
-      marker: 'number',
-      name: 'string',
-      pageSize: 'number',
-      riskLevelId: 'number',
-      ruleId: 'number',
-      serviceRegionId: 'string',
-      templateId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOssObjectsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * A list of OSS objects.
-   */
-  items?: DescribeOssObjectsResponseBodyItems[];
-  marker?: string;
-  nextMarker?: string;
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 12
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  truncated?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      marker: 'Marker',
-      nextMarker: 'NextMarker',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      truncated: 'Truncated',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeOssObjectsResponseBodyItems },
-      marker: 'string',
-      nextMarker: 'string',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-      truncated: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOssObjectsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeOssObjectsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeOssObjectsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePackagesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the page to return.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The ID of the instance to which the package belongs.
-   * 
-   * > You can call the **DescribeInstances** operation to query the ID of the instance.
-   * 
-   * @example
-   * 12321
-   */
-  instanceId?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The search keyword. Fuzzy match is supported.
-   * 
-   * @example
-   * test
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the service to which the package belongs.
-   * 
-   * > You can call the **DescribeDataAssets** operation to query the ID of the service.
-   * 
-   * @example
-   * 2566600
-   */
-  productId?: number;
-  /**
-   * @remarks
-   * The sensitivity level of the package. Valid values:
-   * 
-   * *   **1**: N/A, which indicates that no sensitive data is detected.
-   * *   **2**: S1, which indicates the low sensitivity level.
-   * *   **3**: S2, which indicates the medium sensitivity level.
-   * *   **4**: S3, which indicates the high sensitivity level.
-   * *   **5**: S4, which indicates the highest sensitivity level.
-   * 
-   * @example
-   * 2
-   */
-  riskLevelId?: number;
-  /**
-   * @remarks
-   * The ID of the sensitive data detection rule that the package hits.
-   * 
-   * > You can call the **DescribeRules** operation to query the ID of the sensitive data detection rule.
-   * 
-   * @example
-   * 266666
-   */
-  ruleId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      name: 'Name',
-      pageSize: 'PageSize',
-      productId: 'ProductId',
-      riskLevelId: 'RiskLevelId',
-      ruleId: 'RuleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      instanceId: 'number',
-      lang: 'string',
-      name: 'string',
-      pageSize: 'number',
-      productId: 'number',
-      riskLevelId: 'number',
-      ruleId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePackagesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * An array that consists of the information about the packages.
-   */
-  items?: DescribePackagesResponseBodyItems[];
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 12
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribePackagesResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePackagesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribePackagesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribePackagesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeParentInstanceRequest extends $tea.Model {
-  /**
-   * @example
-   * 0
-   */
-  authStatus?: number;
-  /**
-   * @example
-   * 3
-   */
-  checkStatus?: number;
-  /**
-   * @example
-   * Running
-   */
-  clusterStatus?: string;
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @example
-   * db_test
-   */
-  dbName?: string;
-  /**
-   * @example
-   * MySQL
-   */
-  engineType?: string;
-  /**
-   * @example
-   * rm-azfxx
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  memberAccount?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 5
-   */
-  resourceType?: number;
-  /**
-   * @example
-   * cn-shanghai
-   */
-  serviceRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authStatus: 'AuthStatus',
-      checkStatus: 'CheckStatus',
-      clusterStatus: 'ClusterStatus',
-      currentPage: 'CurrentPage',
-      dbName: 'DbName',
-      engineType: 'EngineType',
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      memberAccount: 'MemberAccount',
-      pageSize: 'PageSize',
-      resourceType: 'ResourceType',
-      serviceRegionId: 'ServiceRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authStatus: 'number',
-      checkStatus: 'number',
-      clusterStatus: 'string',
-      currentPage: 'number',
-      dbName: 'string',
-      engineType: 'string',
-      instanceId: 'string',
-      lang: 'string',
-      memberAccount: 'number',
-      pageSize: 'number',
-      resourceType: 'number',
-      serviceRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeParentInstanceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  items?: DescribeParentInstanceResponseBodyItems[];
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * ACEF9334-BB50-525D-8CF3-6CF504E4D1B3
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeParentInstanceResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeParentInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeParentInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeParentInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRiskLevelsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 2
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   zh_cn: Chinese (default)
-   * *   en_us: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The ID of the industry-specific rule template.
-   * 
-   * @example
-   * 1
-   */
-  templateId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      featureType: 'FeatureType',
-      lang: 'Lang',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      featureType: 'number',
-      lang: 'string',
-      templateId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRiskLevelsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 136082B3-B21F-5E9D-B68E-991FFD205D24
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * An array that consists of sensitivity levels.
-   */
-  riskLevelList?: DescribeRiskLevelsResponseBodyRiskLevelList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      riskLevelList: 'RiskLevelList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      riskLevelList: { 'type': 'array', 'itemType': DescribeRiskLevelsResponseBodyRiskLevelList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRiskLevelsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeRiskLevelsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRiskLevelsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRulesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The content type of the sensitive data detection rule. Valid values:
-   * 
-   * *   **0**: keyword
-   * *   **2**: regular expression
-   * 
-   * @example
-   * 2
-   */
-  category?: number;
-  /**
-   * @remarks
-   * The type of the content in the sensitive data detection rule. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates attempts to exploit SQL injections. The value 2 indicates bypass by using SQL injections. The value 3 indicates abuse of stored procedures. The value 4 indicates buffer overflow. The value 5 indicates SQL injections based on errors.
-   * 
-   * @example
-   * 1
-   */
-  contentCategory?: number;
-  cooperationChannel?: string;
-  /**
-   * @remarks
-   * The page number of the page to return.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The type of the sensitive data detection rule. Valid values:
-   * 
-   * *   **0**: built-in rule
-   * *   **1**: custom rule
-   * 
-   * @example
-   * 1
-   */
-  customType?: number;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 2
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The parent group type of the rule.
-   * 
-   * @example
-   * 4_1
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * Specifies whether to allow earlier versions of request parameters to support keywords that are supported in later versions of request parameters. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * > To specify keywords as the content type of the sensitive data detection rule, you can set the Category parameter to 0 for earlier versions of request parameters and set the Category parameter to 5 for later versions of request parameters. You can specify the KeywordCompatible parameter based on your business requirements.
-   * 
-   * @example
-   * true
-   */
-  keywordCompatible?: boolean;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The match type. Valid values:
-   * 
-   * *   1: rule-based match
-   * *   2: dictionary-based match
-   * 
-   * @example
-   * 1
-   */
-  matchType?: number;
-  /**
-   * @remarks
-   * The name of the sensitive data detection rule. Fuzzy match is supported.
-   * 
-   * @example
-   * \\*\\*\\* rule
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * @example
-   * 12
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The name of the service to which the data asset belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
-   * 
-   * @example
-   * MaxCompute
-   */
-  productCode?: number;
-  /**
-   * @remarks
-   * The ID of the service to which the sensitive data detection rule is applied. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
-   * 
-   * @example
-   * 1
-   */
-  productId?: number;
-  /**
-   * @remarks
-   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
-   * 
-   * *   **1**: N/A, which indicates that no sensitive data is detected.
-   * *   **2**: S1, which indicates the low sensitivity level.
-   * *   **3**: S2, which indicates the medium sensitivity level.
-   * *   **4**: S3, which indicates the high sensitivity level.
-   * *   **5**: S4, which indicates the highest sensitivity level.
-   * 
-   * @example
-   * 2
-   */
-  riskLevelId?: number;
-  /**
-   * @remarks
-   * The type of the sensitive data detection rule. Valid values:
-   * 
-   * *   **1**: sensitive data detection rule
-   * *   **2**: audit rule
-   * *   **3**: anomalous event detection rule
-   * *   **99**: custom rule
-   * 
-   * @example
-   * 1
-   */
-  ruleType?: number;
-  simplify?: boolean;
-  /**
-   * @remarks
-   * The status of the sensitive data detection rule. Valid values:
-   * 
-   * *   **1**: enabled
-   * *   **0**: disabled
-   * 
-   * @example
-   * 1
-   */
-  status?: number;
-  /**
-   * @remarks
-   * The type of the data asset. Valid values:
-   * 
-   * *   **0**: all data assets
-   * *   **1**: structured data asset
-   * *   **2**: unstructured data asset
-   * 
-   * > If you set the parameter to 1 or 2, rules that support all data assets and rules that support the queried data asset type are returned.
-   * 
-   * @example
-   * 1
-   */
-  supportForm?: number;
-  /**
-   * @remarks
-   * The severity level of the alert. Valid values:
-   * 
-   * *   **1**: low
-   * *   **2**: medium
-   * *   **3**: high
-   * 
-   * @example
-   * 2
-   */
-  warnLevel?: number;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      contentCategory: 'ContentCategory',
-      cooperationChannel: 'CooperationChannel',
-      currentPage: 'CurrentPage',
-      customType: 'CustomType',
-      featureType: 'FeatureType',
-      groupId: 'GroupId',
-      keywordCompatible: 'KeywordCompatible',
-      lang: 'Lang',
-      matchType: 'MatchType',
-      name: 'Name',
-      pageSize: 'PageSize',
-      productCode: 'ProductCode',
-      productId: 'ProductId',
-      riskLevelId: 'RiskLevelId',
-      ruleType: 'RuleType',
-      simplify: 'Simplify',
-      status: 'Status',
-      supportForm: 'SupportForm',
-      warnLevel: 'WarnLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'number',
-      contentCategory: 'number',
-      cooperationChannel: 'string',
-      currentPage: 'number',
-      customType: 'number',
-      featureType: 'number',
-      groupId: 'string',
-      keywordCompatible: 'boolean',
-      lang: 'string',
-      matchType: 'number',
-      name: 'string',
-      pageSize: 'number',
-      productCode: 'number',
-      productId: 'number',
-      riskLevelId: 'number',
-      ruleType: 'number',
-      simplify: 'boolean',
-      status: 'number',
-      supportForm: 'number',
-      warnLevel: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRulesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * An array that consists of the sensitive data detection rules.
-   */
-  items?: DescribeRulesResponseBodyItems[];
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 12
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 23
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeRulesResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRulesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeRulesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRulesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTablesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the page to return. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * The ID of the data asset to which the table belongs. You can call the [DescribeInstances](~~DescribeInstances~~) operation to obtain the ID of the data asset.
-   * 
-   * @example
-   * 1
-   */
-  instanceId?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The search keyword. Fuzzy match is supported. For example, if you specify test, all tables whose names contain test are retrieved.
-   * 
-   * @example
-   * test
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The ID of the package to which the table belongs. You can call the [DescribePackages](~~DescribePackages~~) operation to obtain the ID of the package.
-   * 
-   * @example
-   * 555555
-   */
-  packageId?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The name of the service to which the table belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets from which Data Security Center (DSC) can scan for sensitive data, see [Supported data assets](https://help.aliyun.com/document_detail/212906.html).
-   * 
-   * @example
-   * MaxCompute
-   */
-  productCode?: string;
-  /**
-   * @remarks
-   * The ID of the service to which the table belongs. You can call the [DescribeDataAssets](~~DescribeDataAssets~~) operation to obtain the ID of the service.
-   * 
-   * @example
-   * 1
-   */
-  productId?: number;
-  /**
-   * @remarks
-   * The sensitivity level of the table. Each sensitivity level ID corresponds to a sensitivity level name. Valid values:
-   * 
-   * *   **1**: N/A, which indicates that no sensitive data is detected.
-   * *   **2**: S1, which indicates the low sensitivity level.
-   * *   **3**: S2, which indicates the medium sensitivity level.
-   * *   **4**: S3, which indicates the high sensitivity level.
-   * *   **5**: S4, which indicates the highest sensitivity level.
-   * 
-   * @example
-   * 2
-   */
-  riskLevelId?: number;
-  /**
-   * @remarks
-   * The ID of the sensitive data detection rule that the table hits. You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the ID of the sensitive data detection rule.
-   * 
-   * @example
-   * 333322
-   */
-  ruleId?: number;
-  /**
-   * @remarks
-   * The region in which DSC is activated. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  serviceRegionId?: string;
-  /**
-   * @remarks
-   * The ID of the industry-specific rule template.
-   * 
-   * @example
-   * 1
-   */
-  templateId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      instanceId: 'InstanceId',
-      lang: 'Lang',
-      name: 'Name',
-      packageId: 'PackageId',
-      pageSize: 'PageSize',
-      productCode: 'ProductCode',
-      productId: 'ProductId',
-      riskLevelId: 'RiskLevelId',
-      ruleId: 'RuleId',
-      serviceRegionId: 'ServiceRegionId',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      instanceId: 'number',
-      lang: 'string',
-      name: 'string',
-      packageId: 'number',
-      pageSize: 'number',
-      productCode: 'string',
-      productId: 'number',
-      riskLevelId: 'number',
-      ruleId: 'number',
-      serviceRegionId: 'string',
-      templateId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTablesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The page number of the returned page.
-   * 
-   * @example
-   * 1
-   */
-  currentPage?: number;
-  /**
-   * @remarks
-   * An array that consists of tables.
-   */
-  items?: DescribeTablesResponseBodyItems[];
-  /**
-   * @remarks
-   * The number of entries returned per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 13
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      items: 'Items',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      items: { 'type': 'array', 'itemType': DescribeTablesResponseBodyItems },
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTablesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeTablesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeTablesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTemplateAllRulesRequest extends $tea.Model {
-  featureType?: number;
-  /**
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @example
-   * 1
-   */
-  templateId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      featureType: 'FeatureType',
-      lang: 'Lang',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      featureType: 'number',
-      lang: 'string',
-      templateId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTemplateAllRulesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 769FB3C1-F4C9-4******
-   */
-  requestId?: string;
-  ruleList?: DescribeTemplateAllRulesResponseBodyRuleList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      ruleList: 'RuleList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      ruleList: { 'type': 'array', 'itemType': DescribeTemplateAllRulesResponseBodyRuleList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTemplateAllRulesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeTemplateAllRulesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeTemplateAllRulesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 1
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh_cn**: Simplified Chinese (default)
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      featureType: 'FeatureType',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      featureType: 'number',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information about the current account.
-   */
-  userStatus?: DescribeUserStatusResponseBodyUserStatus;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      userStatus: 'UserStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      userStatus: DescribeUserStatusResponseBodyUserStatus,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeUserStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeUserStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableUserConfigRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The code of the configuration item. You can call the [DescribeConfigs](~~DescribeConfigs~~) operation to obtain the code of the configuration item.
-   * 
-   * @example
-   * access_failed_cnt
-   */
-  code?: string;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 1
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh_cn**: Chinese (default)
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      featureType: 'FeatureType',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      featureType: 'number',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableUserConfigResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * AC314611-D907-5EBF-B6D8-70425E5A8643
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableUserConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DisableUserConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DisableUserConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecDatamaskRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The sensitive data to be de-identified. The value is a JSON string that contains the following parameters:
-   * 
-   * *   **dataHeaderList**: the names of the columns in which data needs to be de-identified. Specify the column names in accordance with the order of data that needs to be de-identified.
-   * *   **dataList**: the data that needs to be de-identified.
-   * *   **ruleList**: the IDs of sensitive data detection rules used to detect data that needs to be de-identified. Specify the rule IDs in accordance with the order of data that needs to be de-identified. Each ID identifies a sensitive data detection rule that is used to detect a type of sensitive data. You can call the [DescribeRules](~~DescribeRules~~) operation to query the IDs of sensitive data detection rules.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * {"dataHeaderList":["name","age"],"dataList":[["lily",18],["lucy",17]],"ruleList":[1002,null]}
-   */
-  data?: string;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 1
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Simplified Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The ID of the de-identification template. The ID is generated after you create the de-identification template in the [Data Security Center (DSC) console](https://yundun.console.aliyun.com/?\\&p=sddpnext#/sddp/dm/template). You can choose **Data desensitization** > **Desensitization Template** in the left-side navigation pane and obtain the ID of the de-identification template from the **Desensitization Template** page.
-   * 
-   * *   If you select **Field name** as the matching mode of the template, DSC matches data based on the columns specified by the **dataHeaderList** parameter in the **Data** parameter.
-   * *   If you select **Sensitive type** as the matching mode of the template, DSC matches data based on the sensitive data detection rules specified by the **ruleList** parameter in the **Data** parameter.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  templateId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      featureType: 'FeatureType',
-      lang: 'Lang',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      featureType: 'number',
-      lang: 'string',
-      templateId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecDatamaskResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The de-identified data, which is described in a JSON string. The JSON string contains the following parameters:
-   * 
-   * *   **dataHeaderList**: the names of columns that contain the de-identified data.
-   * *   **dataList**: the de-identified data. The column order of the de-identified data is the same as that indicated by the dataHeaderList parameter.
-   * *   **ruleList**: the IDs of sensitive data detection rules.
-   * 
-   * @example
-   * {"dataHeaderList":["name","age"],"dataList":[["l***",18],["l***",17]],"ruleList":[1002,null]}
-   */
-  data?: string;
-  /**
-   * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * 813BA9FA-D062-42C4-8CD5-11A7640B96E6
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecDatamaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ExecDatamaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ExecDatamaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ManualTriggerMaskingProcessRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the de-identification task.
-   * 
-   * The ID of the de-identification task is a string. You can call the DescribeDataMaskingTasks operation to query the ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response, default value zh_cn. Valid values:
-   * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ManualTriggerMaskingProcessResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-4******
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ManualTriggerMaskingProcessResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ManualTriggerMaskingProcessResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ManualTriggerMaskingProcessResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDataLimitRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the security audit feature. Valid values:
-   * 
-   * *   **0**: no
-   * *   **1**: yes
-   * 
-   * @example
-   * 1
-   */
-  auditStatus?: number;
-  /**
-   * @remarks
-   * Specifies whether to automatically trigger a re-scan after a rule is modified. Valid values:
-   * 
-   * *   **0**: no
-   * *   **1**: yes
-   * 
-   * > When a re-scan is triggered, DSC scans all data in your data asset.
-   * 
-   * @example
-   * 1
-   */
-  autoScan?: number;
-  /**
-   * @remarks
-   * The database engine that is run by the instance. Valid values:
-   * 
-   * *   **MySQL**
-   * *   **SQLServer**
-   * 
-   * @example
-   * MySQL
-   */
-  engineType?: string;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 2
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The unique ID of the data asset for which you want to modify configuration items.
-   * 
-   * > You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 11
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese (default)
-   * *   **en**: English
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The retention period of raw logs after you enable the security audit feature. Unit: days. Valid values:
-   * 
-   * *   **30**
-   * *   **90**
-   * *   **180**
-   * *   **365**
-   * 
-   * @example
-   * 30
-   */
-  logStoreDay?: number;
-  /**
-   * @remarks
-   * Specifies whether to change the username and password that are used to log on to the ApsaraDB RDS database. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * @example
-   * true
-   */
-  modifyPassword?: boolean;
-  /**
-   * @remarks
-   * The password used to log on to the ApsaraDB RDS database that you authorize DSC to access.
-   * 
-   * @example
-   * ********
-   */
-  password?: string;
-  /**
-   * @remarks
-   * The port that is used to connect to the database.
-   * 
-   * @example
-   * 3306
-   */
-  port?: number;
-  /**
-   * @remarks
-   * The name of the service to which the data asset belongs. Valid values:
-   * 
-   * *   **1**: MaxCompute
-   * *   **2**: Object Storage Service (OSS)
-   * *   **3**: AnalyticDB for MySQL
-   * *   **4**: Tablestore
-   * *   **5**: ApsaraDB RDS
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 5
-   */
-  resourceType?: number;
-  /**
-   * @remarks
-   * The number of sensitive data samples tht are collected after sensitive data detection is enabled. Valid values:
-   * 
-   * *   **0**
-   * *   **5**
-   * *   **10**
-   * 
-   * @example
-   * 0
-   */
-  samplingSize?: number;
-  /**
-   * @remarks
-   * The security group that is used by PrivateLink when you install the DSC agent.
-   */
-  securityGroupIdList?: string[];
-  /**
-   * @remarks
-   * The region in which the data asset resides. Valid values:
-   * 
-   * *   **cn-beijing**: China (Beijing)
-   * *   **cn-zhangjiakou**: China (Zhangjiakou)
-   * *   **cn-huhehaote**: China (Hohhot)
-   * *   **cn-hangzhou**: China (Hangzhou)
-   * *   **cn-shanghai**: China (Shanghai)
-   * *   **cn-shenzhen**: China (Shenzhen)
-   * *   **cn-hongkong**: China (Hong Kong)
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  serviceRegionId?: string;
-  /**
-   * @remarks
-   * The username used to log on to the ApsaraDB RDS database that you authorize DSC to access.
-   * 
-   * @example
-   * User01
-   */
-  userName?: string;
-  /**
-   * @remarks
-   * The vSwitch that is used by PrivateLink when you install the DSC agent.
-   */
-  vSwitchIdList?: string[];
-  /**
-   * @remarks
-   * The ID of the virtual private cloud (VPC) to which the data asset belongs.
-   * 
-   * @example
-   * vpc-2zevcqke6hh09c41****
-   */
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditStatus: 'AuditStatus',
-      autoScan: 'AutoScan',
-      engineType: 'EngineType',
-      featureType: 'FeatureType',
-      id: 'Id',
-      lang: 'Lang',
-      logStoreDay: 'LogStoreDay',
-      modifyPassword: 'ModifyPassword',
-      password: 'Password',
-      port: 'Port',
-      resourceType: 'ResourceType',
-      samplingSize: 'SamplingSize',
-      securityGroupIdList: 'SecurityGroupIdList',
-      serviceRegionId: 'ServiceRegionId',
-      userName: 'UserName',
-      vSwitchIdList: 'VSwitchIdList',
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditStatus: 'number',
-      autoScan: 'number',
-      engineType: 'string',
-      featureType: 'number',
-      id: 'number',
-      lang: 'string',
-      logStoreDay: 'number',
-      modifyPassword: 'boolean',
-      password: 'string',
-      port: 'number',
-      resourceType: 'number',
-      samplingSize: 'number',
-      securityGroupIdList: { 'type': 'array', 'itemType': 'string' },
-      serviceRegionId: 'string',
-      userName: 'string',
-      vSwitchIdList: { 'type': 'array', 'itemType': 'string' },
-      vpcId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDataLimitResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDataLimitResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDataLimitResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDataLimitResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDefaultLevelRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The default sensitivity level of data that Data Security Center (DSC) cannot classify as sensitive or insensitive. Valid values:
-   * 
-   * *   **1**: N/A
-   * *   **2**: S1
-   * *   **3**: S2
-   * *   **4**: S3
-   * *   **5**: S4
-   * 
-   * @example
-   * 4
-   */
-  defaultId?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The sensitivity level ID of data that DSC classifies as sensitive. Separate multiple IDs with commas (,). Valid values:
-   * 
-   * *   **1**: N/A
-   * *   **2**: S1
-   * *   **3**: S2
-   * *   **4**: S3
-   * *   **5**: S4
-   * 
-   * @example
-   * 1,2,3,4
-   */
-  sensitiveIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      defaultId: 'DefaultId',
-      lang: 'Lang',
-      sensitiveIds: 'SensitiveIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      defaultId: 'number',
-      lang: 'string',
-      sensitiveIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDefaultLevelResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDefaultLevelResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDefaultLevelResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDefaultLevelResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyEventStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enhance the detection of anomalous events. If you enhance the detection of anomalous events, the detection accuracy and the rate of triggering alerts for anomalous events are improved. Valid values:
-   * 
-   * *   **true**: yes
-   * *   **false**: no
-   * 
-   * @example
-   * true
-   */
-  backed?: boolean;
-  /**
-   * @remarks
-   * The reason why the anomalous event is handled.
-   * 
-   * @example
-   * Anomaly confirmed
-   */
-  dealReason?: string;
-  /**
-   * @remarks
-   * The ID of the anomalous event.
-   * 
-   * > You can call the **DescribeEvents** operation to query the ID of the anomalous event.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 12345
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The method to handle the anomalous event. Valid values:
-   * 
-   * *   **1**: marks the anomalous event as a false positive.
-   * *   **2**: confirms and handles the anomalous event.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      backed: 'Backed',
-      dealReason: 'DealReason',
-      id: 'Id',
-      lang: 'Lang',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backed: 'boolean',
-      dealReason: 'string',
-      id: 'number',
-      lang: 'string',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyEventStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 8491DBFD-48C0-4E11-B6FC-6F38921244A9
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyEventStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyEventStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyEventStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyEventTypeStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 1
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values: **zh** and **en**. The value zh indicates Chinese, and the value en indicates English.
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The ID of the anomalous event subtype. Separate multiple IDs with commas (,).
-   * 
-   * > You can call the **DescribeEventTypes** operation to query the ID of anomalous event subtype.
-   * 
-   * @example
-   * 020008
-   */
-  subTypeIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      featureType: 'FeatureType',
-      lang: 'Lang',
-      subTypeIds: 'SubTypeIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      featureType: 'number',
-      lang: 'string',
-      subTypeIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyEventTypeStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 208B016D-4CB9-4A85-96A5-0B8ED1E*****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyEventTypeStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyEventTypeStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyEventTypeStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyReportTaskStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * 1
-   */
-  featureType?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Simplified Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * Specifies the status of the report task. Valid values:
-   * 
-   * *   **0**: disabled
-   * *   **1**: enabled
-   * 
-   * > This parameter is required.
-   * 
-   * @example
-   * 0
-   */
-  reportTaskStatus?: number;
-  static names(): { [key: string]: string } {
-    return {
-      featureType: 'FeatureType',
-      lang: 'Lang',
-      reportTaskStatus: 'ReportTaskStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      featureType: 'number',
-      lang: 'string',
-      reportTaskStatus: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyReportTaskStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyReportTaskStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyReportTaskStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyReportTaskStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyRuleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The content type of the sensitive data detection rule. Valid values:
-   * 
-   * *   **2**: regular expression
-   * *   **3**: algorithm
-   * *   **5**: keyword
-   * 
-   * @example
-   * 2
-   */
-  category?: number;
-  /**
-   * @remarks
-   * The content of the sensitive data detection rule. You can specify a regular expression, an algorithm, or keywords that are used to match sensitive fields or text.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * (?:\\\\D|^)((?:(?:25[0-4]|2[0-4]\\\\d|1\\\\d{2}|[1-9]\\\\d{1})\\\\.)(?:(?:25[0-5]|2[0-4]\\\\d|[01]?\\\\d?\\\\d)\\\\.){2}(?:25[0-5]|2[0-4]\\\\d|1[0-9]\\\\d|[1-9]\\\\d|[1-9]))(?:\\\\D|$)
-   */
-  content?: string;
-  /**
-   * @remarks
-   * The ID of the sensitive data detection rule.
-   * 
-   * You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the rule ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1****
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
-   * 
-   * *   **zh_cn**: Simplified Chinese
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * The match type. Valid values:
-   * 
-   * *   **1**: rule-based match
-   * *   **2**: dictionary-based match
-   * 
-   * @example
-   * 1
-   */
-  matchType?: number;
-  /**
-   * @remarks
-   * The name of the sensitive data detection rule.
-   * 
-   * You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the rule name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * esw
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The service to which the sensitive data detection rule is applied. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
-   * 
-   * @example
-   * RDS
-   */
-  productCode?: string;
-  /**
-   * @remarks
-   * The ID of the service to which the sensitive data detection rule is applied. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
-   * 
-   * @example
-   * 5
-   */
-  productId?: number;
-  /**
-   * @remarks
-   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
-   * 
-   * *   **1**: N/A, which indicates that no sensitive data is detected.
-   * *   **2**: S1, which indicates the low sensitivity level.
-   * *   **3**: S2, which indicates the medium sensitivity level.
-   * *   **4**: S3, which indicates the high sensitivity level.
-   * *   **5**: S4, which indicates the highest sensitivity level.
-   * 
-   * @example
-   * 2
-   */
-  riskLevelId?: number;
-  /**
-   * @remarks
-   * The type of the sensitive data detection rule. Valid values:
-   * 
-   * *   **1**: data detection rule
-   * *   **2**: audit rule
-   * *   **3**: anomalous event detection rule
-   * 
-   * @example
-   * 1
-   */
-  ruleType?: number;
-  /**
-   * @remarks
-   * The data assets supported by the sensitive data detection rule. Valid values:
-   * 
-   * *   **0**: all data assets
-   * *   **1**: structured data assets
-   * *   **2**: unstructured data assets
-   * 
-   * @example
-   * 1
-   */
-  supportForm?: number;
-  /**
-   * @remarks
-   * The risk level of the alert that is triggered by the sensitive data detection rule. Valid values:
-   * 
-   * *   **1**: low level
-   * *   **2**: medium level
-   * *   **3**: high level
-   * 
-   * @example
-   * 1
-   */
-  warnLevel?: number;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      content: 'Content',
-      id: 'Id',
-      lang: 'Lang',
-      matchType: 'MatchType',
-      name: 'Name',
-      productCode: 'ProductCode',
-      productId: 'ProductId',
-      riskLevelId: 'RiskLevelId',
-      ruleType: 'RuleType',
-      supportForm: 'SupportForm',
-      warnLevel: 'WarnLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'number',
-      content: 'string',
-      id: 'number',
-      lang: 'string',
-      matchType: 'number',
-      name: 'string',
-      productCode: 'string',
-      productId: 'number',
-      riskLevelId: 'number',
-      ruleType: 'number',
-      supportForm: 'number',
-      warnLevel: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyRuleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyRuleStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the sensitive data detection rule.
-   * 
-   * > You can query the ID of the sensitive data detection rule by calling the **DescribeRules** operation.
-   * 
-   * @example
-   * 12341
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The ID of the sensitive data detection rule. Separate multiple IDs with commas (,).
-   * 
-   * > You can query the ID of the sensitive data detection rule by calling the **DescribeRules** operation.
-   * 
-   * @example
-   * 1,2,3,4
-   */
-  ids?: string;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh**: Chinese
-   * *   **en**: English
-   * 
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable or disable the sensitive data detection rule. Valid values:
-   * 
-   * *   **0**: disables the sensitive data detection rule.
-   * *   **1**: enables the sensitive data detection rule.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      ids: 'Ids',
-      lang: 'Lang',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      ids: 'string',
-      lang: 'string',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyRuleStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The IDs of sensitive data detection rules whose status failed to be changed. Multiple IDs are separated with commas (,).
-   * 
-   * @example
-   * 1,2,3,4
-   */
-  failedIds?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      failedIds: 'FailedIds',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failedIds: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyRuleStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyRuleStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyRuleStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScanOssObjectV1Request extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sddp-api-demo-bucket
-   */
-  bucketName?: string;
-  /**
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  objectKeyList?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  serviceRegionId?: string;
-  /**
-   * @example
-   * 1
-   */
-  templateId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bucketName: 'BucketName',
-      lang: 'Lang',
-      objectKeyList: 'ObjectKeyList',
-      serviceRegionId: 'ServiceRegionId',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucketName: 'string',
-      lang: 'string',
-      objectKeyList: { 'type': 'array', 'itemType': 'string' },
-      serviceRegionId: 'string',
-      templateId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScanOssObjectV1ShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sddp-api-demo-bucket
-   */
-  bucketName?: string;
-  /**
-   * @example
-   * zh
-   */
-  lang?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  objectKeyListShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  serviceRegionId?: string;
-  /**
-   * @example
-   * 1
-   */
-  templateId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bucketName: 'BucketName',
-      lang: 'Lang',
-      objectKeyListShrink: 'ObjectKeyList',
-      serviceRegionId: 'ServiceRegionId',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bucketName: 'string',
-      lang: 'string',
-      objectKeyListShrink: 'string',
-      serviceRegionId: 'string',
-      templateId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScanOssObjectV1ResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 268
-   */
-  id?: number;
-  /**
-   * @example
-   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ScanOssObjectV1Response extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ScanOssObjectV1ResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ScanOssObjectV1ResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopMaskingProcessRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The unique ID of the de-identification task. You can query the task ID by calling the [DescribeDataMaskingTasks](~~DescribeDataMaskingTasks~~) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 3
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The language of the content within the request and response. Valid values:
-   * 
-   * *   **zh_cn**: Simplified Chinese (default)
-   * *   **en_us**: English
-   * 
-   * @example
-   * zh_cn
-   */
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopMaskingProcessResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopMaskingProcessResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopMaskingProcessResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopMaskingProcessResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCategoryTemplateListResponseBodyItems extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class DescribeCategoryTemplateListResponseBodyItems extends $dara.Model {
   /**
    * @example
    * 5
@@ -8397,12 +93,16 @@ export class DescribeCategoryTemplateListResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeCategoryTemplateRuleListResponseBodyItems extends $tea.Model {
+export class DescribeCategoryTemplateRuleListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The description of the rule.
@@ -8508,12 +208,16 @@ export class DescribeCategoryTemplateRuleListResponseBodyItems extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeColumnsResponseBodyItemsModelTags extends $tea.Model {
+export class DescribeColumnsResponseBodyItemsModelTags extends $dara.Model {
   /**
    * @remarks
    * The tag ID.
@@ -8552,12 +256,16 @@ export class DescribeColumnsResponseBodyItemsModelTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeColumnsResponseBodyItems extends $tea.Model {
+export class DescribeColumnsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The time when the data in the column of the table is created. Unit: milliseconds.
@@ -8574,6 +282,7 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
    * String
    */
   dataType?: string;
+  engineType?: string;
   /**
    * @remarks
    * The ID of the column of the table.
@@ -8598,6 +307,7 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
    * rm-bp17t1htja573l5i8****
    */
   instanceName?: string;
+  maskingStatus?: number;
   /**
    * @remarks
    * A list of tags for data that hits the recognition model.
@@ -8647,6 +357,14 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
    * MaxCompute
    */
   productCode?: string;
+  productId?: number;
+  /**
+   * @remarks
+   * The region in which the asset resides.
+   * 
+   * @example
+   * cn-***
+   */
   regionId?: string;
   /**
    * @remarks
@@ -8756,14 +474,17 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
     return {
       creationTime: 'CreationTime',
       dataType: 'DataType',
+      engineType: 'EngineType',
       id: 'Id',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
+      maskingStatus: 'MaskingStatus',
       modelTags: 'ModelTags',
       name: 'Name',
       odpsRiskLevelName: 'OdpsRiskLevelName',
       odpsRiskLevelValue: 'OdpsRiskLevelValue',
       productCode: 'ProductCode',
+      productId: 'ProductId',
       regionId: 'RegionId',
       revisionId: 'RevisionId',
       revisionStatus: 'RevisionStatus',
@@ -8782,14 +503,17 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
     return {
       creationTime: 'number',
       dataType: 'string',
+      engineType: 'string',
       id: 'string',
       instanceId: 'number',
       instanceName: 'string',
+      maskingStatus: 'number',
       modelTags: { 'type': 'array', 'itemType': DescribeColumnsResponseBodyItemsModelTags },
       name: 'string',
       odpsRiskLevelName: 'string',
       odpsRiskLevelValue: 'number',
       productCode: 'string',
+      productId: 'number',
       regionId: 'string',
       revisionId: 'number',
       revisionStatus: 'number',
@@ -8804,12 +528,19 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.modelTags)) {
+      $dara.Model.validateArray(this.modelTags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeColumnsV2ResponseBodyItemsModelTags extends $tea.Model {
+export class DescribeColumnsV2ResponseBodyItemsModelTags extends $dara.Model {
   /**
    * @remarks
    * The tag ID. Valid values:
@@ -8848,12 +579,16 @@ export class DescribeColumnsV2ResponseBodyItemsModelTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeColumnsV2ResponseBodyItems extends $tea.Model {
+export class DescribeColumnsV2ResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The time when the data in the column of the table is created. Unit: milliseconds.
@@ -8870,6 +605,7 @@ export class DescribeColumnsV2ResponseBodyItems extends $tea.Model {
    * varchar
    */
   dataType?: string;
+  engineType?: string;
   /**
    * @remarks
    * The ID of the column of the table.
@@ -8894,6 +630,7 @@ export class DescribeColumnsV2ResponseBodyItems extends $tea.Model {
    * rm-1234
    */
   instanceName?: string;
+  maskingStatus?: number;
   /**
    * @remarks
    * A list of data tags.
@@ -8944,6 +681,8 @@ export class DescribeColumnsV2ResponseBodyItems extends $tea.Model {
    * RDS
    */
   productCode?: string;
+  productId?: number;
+  regionId?: string;
   /**
    * @remarks
    * The ID of the revision record.
@@ -9054,14 +793,18 @@ export class DescribeColumnsV2ResponseBodyItems extends $tea.Model {
     return {
       creationTime: 'CreationTime',
       dataType: 'DataType',
+      engineType: 'EngineType',
       id: 'Id',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
+      maskingStatus: 'MaskingStatus',
       modelTags: 'ModelTags',
       name: 'Name',
       odpsRiskLevelName: 'OdpsRiskLevelName',
       odpsRiskLevelValue: 'OdpsRiskLevelValue',
       productCode: 'ProductCode',
+      productId: 'ProductId',
+      regionId: 'RegionId',
       revisionId: 'RevisionId',
       revisionStatus: 'RevisionStatus',
       riskLevelId: 'RiskLevelId',
@@ -9079,14 +822,18 @@ export class DescribeColumnsV2ResponseBodyItems extends $tea.Model {
     return {
       creationTime: 'number',
       dataType: 'string',
+      engineType: 'string',
       id: 'string',
       instanceId: 'number',
       instanceName: 'string',
+      maskingStatus: 'number',
       modelTags: { 'type': 'array', 'itemType': DescribeColumnsV2ResponseBodyItemsModelTags },
       name: 'string',
       odpsRiskLevelName: 'string',
       odpsRiskLevelValue: 'number',
       productCode: 'string',
+      productId: 'number',
+      regionId: 'string',
       revisionId: 'number',
       revisionStatus: 'number',
       riskLevelId: 'number',
@@ -9100,12 +847,19 @@ export class DescribeColumnsV2ResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.modelTags)) {
+      $dara.Model.validateArray(this.modelTags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeConfigsResponseBodyConfigList extends $tea.Model {
+export class DescribeConfigsResponseBodyConfigList extends $dara.Model {
   /**
    * @remarks
    * The code of the common configuration item.
@@ -9166,12 +920,16 @@ export class DescribeConfigsResponseBodyConfigList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataAssetsResponseBodyItems extends $tea.Model {
+export class DescribeDataAssetsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The access control list (ACL) that controls the access permissions on the OSS bucket.
@@ -9412,12 +1170,16 @@ export class DescribeDataAssetsResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataLimitDetailResponseBodyDataLimit extends $tea.Model {
+export class DescribeDataLimitDetailResponseBodyDataLimit extends $dara.Model {
   /**
    * @remarks
    * The status of the connectivity test between the data asset and DSC. Valid values:
@@ -9558,12 +1320,16 @@ export class DescribeDataLimitDetailResponseBodyDataLimit extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $tea.Model {
+export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the test of connectivity between DSC and the data asset is passed.
@@ -9700,12 +1466,16 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetDataLimitList extends $
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataLimitSetResponseBodyDataLimitSetOssBucketList extends $tea.Model {
+export class DescribeDataLimitSetResponseBodyDataLimitSetOssBucketList extends $dara.Model {
   /**
    * @remarks
    * The name of the OSS bucket to which the OSS object belongs.
@@ -9736,12 +1506,16 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetOssBucketList extends $
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataLimitSetResponseBodyDataLimitSetRegionList extends $tea.Model {
+export class DescribeDataLimitSetResponseBodyDataLimitSetRegionList extends $dara.Model {
   /**
    * @remarks
    * The name of the region.
@@ -9772,12 +1546,16 @@ export class DescribeDataLimitSetResponseBodyDataLimitSetRegionList extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataLimitSetResponseBodyDataLimitSet extends $tea.Model {
+export class DescribeDataLimitSetResponseBodyDataLimitSet extends $dara.Model {
   /**
    * @remarks
    * An array that consists of data assets that DSC is authorized to scan.
@@ -9851,12 +1629,25 @@ export class DescribeDataLimitSetResponseBodyDataLimitSet extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.dataLimitList)) {
+      $dara.Model.validateArray(this.dataLimitList);
+    }
+    if(Array.isArray(this.ossBucketList)) {
+      $dara.Model.validateArray(this.ossBucketList);
+    }
+    if(Array.isArray(this.regionList)) {
+      $dara.Model.validateArray(this.regionList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
+export class DescribeDataLimitsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the security audit feature is enabled. Valid values:
@@ -10009,6 +1800,13 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
    * 145600000
    */
   lastFinishedTime?: number;
+  /**
+   * @remarks
+   * The last scan start time of data assets, in milliseconds.
+   * 
+   * @example
+   * 145600000
+   */
   lastStartTime?: number;
   /**
    * @remarks
@@ -10319,12 +2117,22 @@ export class DescribeDataLimitsResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.securityGroupIdList)) {
+      $dara.Model.validateArray(this.securityGroupIdList);
+    }
+    if(Array.isArray(this.vSwitchIdList)) {
+      $dara.Model.validateArray(this.vSwitchIdList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataMaskingRunHistoryResponseBodyItems extends $tea.Model {
+export class DescribeDataMaskingRunHistoryResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The number of rows that are in conflict with the data to be de-identified in the destination table to which the data to be de-identified is moved.
@@ -10538,12 +2346,16 @@ export class DescribeDataMaskingRunHistoryResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataMaskingTasksResponseBodyItems extends $tea.Model {
+export class DescribeDataMaskingTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The member account to which the desensitization target belongs.
@@ -10735,12 +2547,16 @@ export class DescribeDataMaskingTasksResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataObjectColumnDetailResponseBodyItemsModelTags extends $tea.Model {
+export class DescribeDataObjectColumnDetailResponseBodyItemsModelTags extends $dara.Model {
   /**
    * @example
    * 101
@@ -10765,12 +2581,16 @@ export class DescribeDataObjectColumnDetailResponseBodyItemsModelTags extends $t
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataObjectColumnDetailResponseBodyItems extends $tea.Model {
+export class DescribeDataObjectColumnDetailResponseBodyItems extends $dara.Model {
   categories?: string[];
   /**
    * @example
@@ -10787,17 +2607,22 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $tea.Model 
    * varchar
    */
   dataType?: string;
+  engineType?: string;
   /**
    * @example
    * 1509415150052786176
    */
   id?: string;
+  instanceName?: string;
+  maskingStatus?: number;
   modelTags?: DescribeDataObjectColumnDetailResponseBodyItemsModelTags[];
   /**
    * @example
    * true
    */
   primaryKey?: boolean;
+  productId?: number;
+  regionId?: string;
   /**
    * @example
    * 2
@@ -10818,19 +2643,26 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $tea.Model 
    * name
    */
   ruleName?: string;
+  tableName?: string;
   static names(): { [key: string]: string } {
     return {
       categories: 'Categories',
       columnComment: 'ColumnComment',
       columnName: 'ColumnName',
       dataType: 'DataType',
+      engineType: 'EngineType',
       id: 'Id',
+      instanceName: 'InstanceName',
+      maskingStatus: 'MaskingStatus',
       modelTags: 'ModelTags',
       primaryKey: 'PrimaryKey',
+      productId: 'ProductId',
+      regionId: 'RegionId',
       riskLevelId: 'RiskLevelId',
       riskLevelName: 'RiskLevelName',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
+      tableName: 'TableName',
     };
   }
 
@@ -10840,14 +2672,30 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $tea.Model 
       columnComment: 'string',
       columnName: 'string',
       dataType: 'string',
+      engineType: 'string',
       id: 'string',
+      instanceName: 'string',
+      maskingStatus: 'number',
       modelTags: { 'type': 'array', 'itemType': DescribeDataObjectColumnDetailResponseBodyItemsModelTags },
       primaryKey: 'boolean',
+      productId: 'number',
+      regionId: 'string',
       riskLevelId: 'number',
       riskLevelName: 'string',
       ruleId: 'number',
       ruleName: 'string',
+      tableName: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    if(Array.isArray(this.modelTags)) {
+      $dara.Model.validateArray(this.modelTags);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -10855,7 +2703,7 @@ export class DescribeDataObjectColumnDetailResponseBodyItems extends $tea.Model 
   }
 }
 
-export class DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags extends $tea.Model {
+export class DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags extends $dara.Model {
   /**
    * @example
    * 101
@@ -10880,12 +2728,16 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags extends 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $tea.Model {
+export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $dara.Model {
   categories?: string[];
   /**
    * @example
@@ -10902,17 +2754,22 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $tea.Mode
    * varchar
    */
   dataType?: string;
+  engineType?: string;
   /**
    * @example
    * 1392973973691383808
    */
   id?: string;
+  instanceName?: string;
+  maskingStatus?: number;
   modelTags?: DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags[];
   /**
    * @example
    * true
    */
   primaryKey?: boolean;
+  productId?: number;
+  regionId?: string;
   /**
    * @example
    * 2
@@ -10933,19 +2790,26 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $tea.Mode
    * name
    */
   ruleName?: string;
+  tableName?: string;
   static names(): { [key: string]: string } {
     return {
       categories: 'Categories',
       columnComment: 'ColumnComment',
       columnName: 'ColumnName',
       dataType: 'DataType',
+      engineType: 'EngineType',
       id: 'Id',
+      instanceName: 'InstanceName',
+      maskingStatus: 'MaskingStatus',
       modelTags: 'ModelTags',
       primaryKey: 'PrimaryKey',
+      productId: 'ProductId',
+      regionId: 'RegionId',
       riskLevelId: 'RiskLevelId',
       riskLevelName: 'RiskLevelName',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
+      tableName: 'TableName',
     };
   }
 
@@ -10955,14 +2819,30 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $tea.Mode
       columnComment: 'string',
       columnName: 'string',
       dataType: 'string',
+      engineType: 'string',
       id: 'string',
+      instanceName: 'string',
+      maskingStatus: 'number',
       modelTags: { 'type': 'array', 'itemType': DescribeDataObjectColumnDetailV2ResponseBodyItemsModelTags },
       primaryKey: 'boolean',
+      productId: 'number',
+      regionId: 'string',
       riskLevelId: 'number',
       riskLevelName: 'string',
       ruleId: 'number',
       ruleName: 'string',
+      tableName: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    if(Array.isArray(this.modelTags)) {
+      $dara.Model.validateArray(this.modelTags);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -10970,7 +2850,7 @@ export class DescribeDataObjectColumnDetailV2ResponseBodyItems extends $tea.Mode
   }
 }
 
-export class DescribeDataObjectsResponseBodyItemsModelTags extends $tea.Model {
+export class DescribeDataObjectsResponseBodyItemsModelTags extends $dara.Model {
   /**
    * @example
    * 101
@@ -10995,12 +2875,16 @@ export class DescribeDataObjectsResponseBodyItemsModelTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataObjectsResponseBodyItemsRuleList extends $tea.Model {
+export class DescribeDataObjectsResponseBodyItemsRuleList extends $dara.Model {
   /**
    * @example
    * 2
@@ -11046,12 +2930,16 @@ export class DescribeDataObjectsResponseBodyItemsRuleList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
+export class DescribeDataObjectsResponseBodyItems extends $dara.Model {
   categories?: string[];
   /**
    * @example
@@ -11167,12 +3055,25 @@ export class DescribeDataObjectsResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.categories)) {
+      $dara.Model.validateArray(this.categories);
+    }
+    if(Array.isArray(this.modelTags)) {
+      $dara.Model.validateArray(this.modelTags);
+    }
+    if(Array.isArray(this.ruleList)) {
+      $dara.Model.validateArray(this.ruleList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDocTypesResponseBodyDocTypeList extends $tea.Model {
+export class DescribeDocTypesResponseBodyDocTypeList extends $dara.Model {
   /**
    * @example
    * 100001
@@ -11204,12 +3105,16 @@ export class DescribeDocTypesResponseBodyDocTypeList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEventDetailResponseBodyEventDetailChartData extends $tea.Model {
+export class DescribeEventDetailResponseBodyEventDetailChartData extends $dara.Model {
   /**
    * @remarks
    * The value of the data item on the X axis.
@@ -11247,12 +3152,25 @@ export class DescribeEventDetailResponseBodyEventDetailChartData extends $tea.Mo
     };
   }
 
+  validate() {
+    if(Array.isArray(this.x)) {
+      $dara.Model.validateArray(this.x);
+    }
+    if(Array.isArray(this.y)) {
+      $dara.Model.validateArray(this.y);
+    }
+    if(Array.isArray(this.z)) {
+      $dara.Model.validateArray(this.z);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEventDetailResponseBodyEventDetailChart extends $tea.Model {
+export class DescribeEventDetailResponseBodyEventDetailChart extends $dara.Model {
   /**
    * @remarks
    * The type of the chart. Valid values:
@@ -11352,12 +3270,19 @@ export class DescribeEventDetailResponseBodyEventDetailChart extends $tea.Model 
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEventDetailResponseBodyEventDetailContent extends $tea.Model {
+export class DescribeEventDetailResponseBodyEventDetailContent extends $dara.Model {
   /**
    * @remarks
    * The title of the content in the anomalous event.
@@ -11398,12 +3323,16 @@ export class DescribeEventDetailResponseBodyEventDetailContent extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEventDetailResponseBodyEventDetailResourceInfo extends $tea.Model {
+export class DescribeEventDetailResponseBodyEventDetailResourceInfo extends $dara.Model {
   /**
    * @remarks
    * The source title.
@@ -11434,12 +3363,16 @@ export class DescribeEventDetailResponseBodyEventDetailResourceInfo extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEventDetailResponseBodyEventDetail extends $tea.Model {
+export class DescribeEventDetailResponseBodyEventDetail extends $dara.Model {
   /**
    * @remarks
    * The baseline behavior chart of the anomalous event.
@@ -11471,12 +3404,25 @@ export class DescribeEventDetailResponseBodyEventDetail extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.chart)) {
+      $dara.Model.validateArray(this.chart);
+    }
+    if(Array.isArray(this.content)) {
+      $dara.Model.validateArray(this.content);
+    }
+    if(Array.isArray(this.resourceInfo)) {
+      $dara.Model.validateArray(this.resourceInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEventDetailResponseBodyEventHandleInfoList extends $tea.Model {
+export class DescribeEventDetailResponseBodyEventHandleInfoList extends $dara.Model {
   /**
    * @remarks
    * The account that is used to handle the anomalous event.
@@ -11572,12 +3518,16 @@ export class DescribeEventDetailResponseBodyEventHandleInfoList extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEventDetailResponseBodyEvent extends $tea.Model {
+export class DescribeEventDetailResponseBodyEvent extends $dara.Model {
   /**
    * @remarks
    * The time when the alert for the anomalous event was generated. The value is a UNIX timestamp. Unit: milliseconds.
@@ -11837,12 +3787,22 @@ export class DescribeEventDetailResponseBodyEvent extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.detail && typeof (this.detail as any).validate === 'function') {
+      (this.detail as any).validate();
+    }
+    if(Array.isArray(this.handleInfoList)) {
+      $dara.Model.validateArray(this.handleInfoList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEventTypesResponseBodyEventTypeListSubTypeList extends $tea.Model {
+export class DescribeEventTypesResponseBodyEventTypeListSubTypeList extends $dara.Model {
   /**
    * @remarks
    * The service to which the anomalous event detection rule applies. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
@@ -11969,12 +3929,16 @@ export class DescribeEventTypesResponseBodyEventTypeListSubTypeList extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEventTypesResponseBodyEventTypeList extends $tea.Model {
+export class DescribeEventTypesResponseBodyEventTypeList extends $dara.Model {
   /**
    * @remarks
    * The code of the anomalous event type.
@@ -12032,12 +3996,19 @@ export class DescribeEventTypesResponseBodyEventTypeList extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.subTypeList)) {
+      $dara.Model.validateArray(this.subTypeList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEventsResponseBodyItems extends $tea.Model {
+export class DescribeEventsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The time when an alert was triggered for the anomalous event. The value is a UNIX timestamp. Unit: milliseconds.
@@ -12259,12 +4230,16 @@ export class DescribeEventsResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeIdentifyTaskStatusResponseBodyContent extends $tea.Model {
+export class DescribeIdentifyTaskStatusResponseBodyContent extends $dara.Model {
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12278,12 +4253,16 @@ export class DescribeIdentifyTaskStatusResponseBodyContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstanceSourcesResponseBodyItems extends $tea.Model {
+export class DescribeInstanceSourcesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the security audit feature is enabled. Valid values:
@@ -12568,12 +4547,16 @@ export class DescribeInstanceSourcesResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyItemsModelTags extends $tea.Model {
+export class DescribeInstancesResponseBodyItemsModelTags extends $dara.Model {
   /**
    * @remarks
    * The ID of the tag. Valid values:
@@ -12612,12 +4595,16 @@ export class DescribeInstancesResponseBodyItemsModelTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeInstancesResponseBodyItems extends $tea.Model {
+export class DescribeInstancesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The time when the data asset was created. The value is a UNIX timestamp. Unit: milliseconds.
@@ -12669,6 +4656,13 @@ export class DescribeInstancesResponseBodyItems extends $tea.Model {
    * 1637622793000
    */
   lastFinishTime?: number;
+  /**
+   * @remarks
+   * If the management account has opened multiple accounts and the asset belongs to other member accounts, this field displays the UID of the member accounts.
+   * 
+   * @example
+   * 12567890126
+   */
   memberAliUid?: string;
   /**
    * @remarks
@@ -12849,12 +4843,19 @@ export class DescribeInstancesResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.modelTags)) {
+      $dara.Model.validateArray(this.modelTags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleListModelTags extends $tea.Model {
+export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleListModelTags extends $dara.Model {
   /**
    * @remarks
    * The tag ID.
@@ -12893,12 +4894,16 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleListModelTags
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends $tea.Model {
+export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends $dara.Model {
   /**
    * @remarks
    * The type of the OSS object.
@@ -12972,12 +4977,19 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetailRuleList extends 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.modelTags)) {
+      $dara.Model.validateArray(this.modelTags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOssObjectDetailResponseBodyOssObjectDetail extends $tea.Model {
+export class DescribeOssObjectDetailResponseBodyOssObjectDetail extends $dara.Model {
   /**
    * @remarks
    * The name of the OSS bucket to which the OSS object belongs.
@@ -13045,12 +5057,19 @@ export class DescribeOssObjectDetailResponseBodyOssObjectDetail extends $tea.Mod
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ruleList)) {
+      $dara.Model.validateArray(this.ruleList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTags extends $tea.Model {
+export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTags extends $dara.Model {
   /**
    * @example
    * 101
@@ -13075,12 +5094,16 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleListModelTa
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extends $tea.Model {
+export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extends $dara.Model {
   /**
    * @example
    * Excel
@@ -13129,12 +5152,19 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetailRuleList extend
     };
   }
 
+  validate() {
+    if(Array.isArray(this.modelTags)) {
+      $dara.Model.validateArray(this.modelTags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $tea.Model {
+export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $dara.Model {
   /**
    * @example
    * lv-demo
@@ -13201,12 +5231,19 @@ export class DescribeOssObjectDetailV2ResponseBodyOssObjectDetail extends $tea.M
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ruleList)) {
+      $dara.Model.validateArray(this.ruleList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOssObjectsResponseBodyItemsRuleList extends $tea.Model {
+export class DescribeOssObjectsResponseBodyItemsRuleList extends $dara.Model {
   /**
    * @remarks
    * The number of times that the rule is hit.
@@ -13253,12 +5290,16 @@ export class DescribeOssObjectsResponseBodyItemsRuleList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeOssObjectsResponseBodyItems extends $tea.Model {
+export class DescribeOssObjectsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The name of the bucket.
@@ -13379,7 +5420,7 @@ export class DescribeOssObjectsResponseBodyItems extends $tea.Model {
   ruleCount?: number;
   /**
    * @remarks
-   * A list of rules.
+   * The rules.
    */
   ruleList?: DescribeOssObjectsResponseBodyItemsRuleList[];
   /**
@@ -13442,12 +5483,19 @@ export class DescribeOssObjectsResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ruleList)) {
+      $dara.Model.validateArray(this.ruleList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribePackagesResponseBodyItems extends $tea.Model {
+export class DescribePackagesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The point in time when the MaxCompute package was created. The value is a UNIX timestamp. Unit: milliseconds.
@@ -13567,12 +5615,16 @@ export class DescribePackagesResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeParentInstanceResponseBodyItems extends $tea.Model {
+export class DescribeParentInstanceResponseBodyItems extends $dara.Model {
   /**
    * @example
    * 1
@@ -13711,12 +5763,16 @@ export class DescribeParentInstanceResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRiskLevelsResponseBodyRiskLevelList extends $tea.Model {
+export class DescribeRiskLevelsResponseBodyRiskLevelList extends $dara.Model {
   /**
    * @remarks
    * The description of the sensitivity level. You can enter a custom description.
@@ -13795,12 +5851,16 @@ export class DescribeRiskLevelsResponseBodyRiskLevelList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRulesResponseBodyItems extends $tea.Model {
+export class DescribeRulesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The content type of the sensitive data detection rule. Valid values:
@@ -13934,6 +5994,14 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
   matchType?: number;
   /**
    * @remarks
+   * The IDs of the models for sensitive data audit.
+   * 
+   * @example
+   * 1452
+   */
+  modelRuleIds?: string;
+  /**
+   * @remarks
    * The name of the sensitive data detection rule.
    * 
    * @example
@@ -14025,6 +6093,14 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
   target?: string;
   /**
    * @remarks
+   * The IDs of the templates that are used to audit sensitive data.
+   * 
+   * @example
+   * 1
+   */
+  templateRuleIds?: string;
+  /**
+   * @remarks
    * The ID of the account that is used to create the sensitive data detection rule.
    * 
    * @example
@@ -14060,6 +6136,7 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
       loginName: 'LoginName',
       majorKey: 'MajorKey',
       matchType: 'MatchType',
+      modelRuleIds: 'ModelRuleIds',
       name: 'Name',
       productCode: 'ProductCode',
       productId: 'ProductId',
@@ -14069,6 +6146,7 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
       status: 'Status',
       supportForm: 'SupportForm',
       target: 'Target',
+      templateRuleIds: 'TemplateRuleIds',
       userId: 'UserId',
       warnLevel: 'WarnLevel',
     };
@@ -14091,6 +6169,7 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
       loginName: 'string',
       majorKey: 'string',
       matchType: 'number',
+      modelRuleIds: 'string',
       name: 'string',
       productCode: 'string',
       productId: 'number',
@@ -14100,9 +6179,14 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
       status: 'number',
       supportForm: 'number',
       target: 'string',
+      templateRuleIds: 'string',
       userId: 'number',
       warnLevel: 'number',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -14110,7 +6194,7 @@ export class DescribeRulesResponseBodyItems extends $tea.Model {
   }
 }
 
-export class DescribeTablesResponseBodyItemsRuleList extends $tea.Model {
+export class DescribeTablesResponseBodyItemsRuleList extends $dara.Model {
   /**
    * @remarks
    * The total number of rules.
@@ -14157,12 +6241,16 @@ export class DescribeTablesResponseBodyItemsRuleList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeTablesResponseBodyItems extends $tea.Model {
+export class DescribeTablesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The point in time when the table was created. Unit: milliseconds.
@@ -14355,12 +6443,19 @@ export class DescribeTablesResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ruleList)) {
+      $dara.Model.validateArray(this.ruleList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeTemplateAllRulesResponseBodyRuleList extends $tea.Model {
+export class DescribeTemplateAllRulesResponseBodyRuleList extends $dara.Model {
   /**
    * @example
    * 376
@@ -14385,12 +6480,16 @@ export class DescribeTemplateAllRulesResponseBodyRuleList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
+export class DescribeUserStatusResponseBodyUserStatus extends $dara.Model {
   /**
    * @remarks
    * The AccessKey ID of the current account.
@@ -14628,6 +6727,9484 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the common configuration item. Valid values:
+   * 
+   * *   **access_failed_cnt**: the maximum number of access attempts allowed when Data Security Center (DSC) fails to access an unauthorized resource.
+   * *   **access_permission_exprie_max_days**: the maximum idle period allowed for access permissions before an alert is triggered.
+   * *   **log_datasize_avg_days**: the minimum percentage of the volume of logs of a specific type generated on the current day to the average volume of logs generated in the previous 10 days before an alert is triggered.
+   * 
+   * @example
+   * access_failed_cnt
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The description of the common configuration item.
+   * 
+   * @example
+   * Maximum number of access attempts allowed when DSC fails to access an unauthorized resource: 10
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
+  sourceIp?: string;
+  /**
+   * @remarks
+   * The value of the common configuration item. The meaning of this parameter varies with the value of the Code parameter.
+   * 
+   * *   If you set the Code parameter to **access_failed_cnt**, the Value parameter specifies the maximum number of access attempts allowed when DSC fails to access an unauthorized resource.
+   * *   If you set the Code parameter to **access_permission_exprie_max_days**, the Value parameter specifies the maximum idle period allowed for access permissions before an alert is triggered.
+   * *   If you set the Code parameter to **log_datasize_avg_days**, the Value parameter specifies the minimum percentage of the volume of logs of a specific type generated on the current day to the average amount of logs generated in the previous 10 days before an alert is triggered.
+   * 
+   * @example
+   * 30
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      description: 'Description',
+      featureType: 'FeatureType',
+      lang: 'Lang',
+      sourceIp: 'SourceIp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      description: 'string',
+      featureType: 'number',
+      lang: 'string',
+      sourceIp: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the common alert configuration.
+   * 
+   * @example
+   * 12300
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLimitRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the security audit feature. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * @example
+   * 1
+   */
+  auditStatus?: number;
+  /**
+   * @remarks
+   * Specifies whether to automatically trigger a re-scan after a rule is modified. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * > When a re-scan is triggered, DSC scans all data in your data asset.
+   * 
+   * @example
+   * 1
+   */
+  autoScan?: number;
+  /**
+   * @remarks
+   * The permissions. Valid values:
+   * 
+   * *   **ReadOnly**: read-only permissions
+   * *   **ReadWrite**: read and write permissions
+   * 
+   * @example
+   * ReadOnly
+   */
+  certificatePermission?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable sensitive data detection. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * > If this is your first time to authorize DSC to access the data asset, the default value is 1. If this is not your first time to authorize DSC to access the data asset, the default value is the same as that used in the last authorization operation. Both 1 and 0 are possible.
+   * 
+   * @example
+   * 1
+   */
+  enable?: number;
+  /**
+   * @remarks
+   * The database engine that is run by the instance. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
+  engineType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable anomalous event detection. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes (default)
+   * 
+   * @example
+   * 1
+   */
+  eventStatus?: number;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * Specifies whether to immediately scan the authorized asset. Valid values:
+   * 
+   * *   **false**
+   * *   **true**
+   * 
+   * @example
+   * false
+   */
+  instantlyScan?: boolean;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The retention period of raw logs after you enable the security audit feature. Unit: days. Valid values:
+   * 
+   * *   **30**
+   * *   **90**
+   * *   **180**
+   * *   **365**
+   * 
+   * @example
+   * 30
+   */
+  logStoreDay?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable optical character recognition (OCR). Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 0
+   */
+  ocrStatus?: number;
+  /**
+   * @remarks
+   * The name of the asset. The value is a connection string. It consists of an instance ID and a database name, which are separated by a comma (,). This parameter is required.
+   * 
+   * @example
+   * test-11**
+   */
+  parentId?: string;
+  /**
+   * @remarks
+   * The password that is used to access the database.
+   * 
+   * @example
+   * passwd
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The port that is used to connect to the database.
+   * 
+   * @example
+   * 3306
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The type of service to which the data asset belongs. Valid values:
+   * 
+   * *   **1** :MaxCompute
+   * *   **2**: Object Storage Service (OSS)
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4** :Tablestore
+   * *   **5**: ApsaraDB RDS
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  resourceType?: number;
+  /**
+   * @remarks
+   * The number of sensitive data samples that are collected after sensitive data detection is enabled. Valid values:
+   * 
+   * *   **0**
+   * *   **5**
+   * *   **10**
+   * 
+   * @example
+   * 0
+   */
+  samplingSize?: number;
+  /**
+   * @remarks
+   * The region in which the data asset resides. Valid values:
+   * 
+   * *   **cn-beijing**: China (Beijing).
+   * *   **cn-zhangjiakou**: China (Zhangjiakou)
+   * *   **cn-huhehaote**: China (Hohhot)
+   * *   **cn-hangzhou**: China (Hangzhou)
+   * *   **cn-shanghai**: China (Shanghai)
+   * *   **cn-shenzhen**: China (Shenzhen)
+   * *   **cn-hongkong**: China (Hong Kong)
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  serviceRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
+  sourceIp?: string;
+  /**
+   * @remarks
+   * The username that is used to access the database.
+   * 
+   * @example
+   * yhm
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      autoScan: 'AutoScan',
+      certificatePermission: 'CertificatePermission',
+      enable: 'Enable',
+      engineType: 'EngineType',
+      eventStatus: 'EventStatus',
+      featureType: 'FeatureType',
+      instantlyScan: 'InstantlyScan',
+      lang: 'Lang',
+      logStoreDay: 'LogStoreDay',
+      ocrStatus: 'OcrStatus',
+      parentId: 'ParentId',
+      password: 'Password',
+      port: 'Port',
+      resourceType: 'ResourceType',
+      samplingSize: 'SamplingSize',
+      serviceRegionId: 'ServiceRegionId',
+      sourceIp: 'SourceIp',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'number',
+      autoScan: 'number',
+      certificatePermission: 'string',
+      enable: 'number',
+      engineType: 'string',
+      eventStatus: 'number',
+      featureType: 'number',
+      instantlyScan: 'boolean',
+      lang: 'string',
+      logStoreDay: 'number',
+      ocrStatus: 'number',
+      parentId: 'string',
+      password: 'string',
+      port: 'number',
+      resourceType: 'number',
+      samplingSize: 'number',
+      serviceRegionId: 'string',
+      sourceIp: 'string',
+      userName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLimitResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the data asset.
+   * 
+   * @example
+   * 1
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataLimitResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataLimitResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataLimitResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The content type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **0**: keyword
+   * *   **2**: regular expression
+   * 
+   * @example
+   * 0
+   */
+  category?: number;
+  /**
+   * @remarks
+   * The content of the sensitive data detection rule. You can specify a regular expression or keywords that are used to match sensitive fields or text.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * (?:\\\\D|^)((?:(?:25[0-4]|2[0-4]\\\\d|1\\\\d{2}|[1-9]\\\\d{1})\\\\.)(?:(?:25[0-5]|2[0-4]\\\\d|[01]?\\\\d?\\\\d)\\\\.){2}(?:25[0-5]|2[0-4]\\\\d|1[0-9]\\\\d|[1-9]\\\\d|[1-9]))(?:\\\\D|$)
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The type of the content in the sensitive data detection rule. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates attempts to exploit SQL injections. The value 2 indicates bypass by using SQL injections. The value 3 indicates abuse of stored procedures. The value 4 indicates buffer overflow. The value 5 indicates SQL injections based on errors.
+   * 
+   * @example
+   * 1
+   */
+  contentCategory?: number;
+  /**
+   * @remarks
+   * The description of the rule.
+   * 
+   * @example
+   * ID card
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The match type. Valid values:
+   * 
+   * *   **1**: rule-based match
+   * *   **2**: dictionary-based match
+   * 
+   * @example
+   * 1
+   */
+  matchType?: number;
+  /**
+   * @remarks
+   * The IDs of the models for sensitive data audit.
+   * 
+   * @example
+   * 1452
+   */
+  modelRuleIds?: string;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rule-tst
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The name of the service to which data in the column of the table belongs. Valid values include **MaxCompute**, **OSS**, **ADS**, **OTS**, and **RDS**.
+   * 
+   * @example
+   * RDS
+   */
+  productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the data asset belongs. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 2
+   */
+  productId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
+  riskLevelId?: number;
+  /**
+   * @remarks
+   * The type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: sensitive data detection rule
+   * *   **2**: audit rule
+   * *   **3**: anomalous event detection rule
+   * *   **99**: custom rule
+   * 
+   * @example
+   * 1
+   */
+  ruleType?: number;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
+  sourceIp?: string;
+  /**
+   * @remarks
+   * The statistical expression.
+   * 
+   * @example
+   * 1
+   */
+  statExpress?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
+  status?: number;
+  /**
+   * @remarks
+   * The type of the data asset. Valid values:
+   * 
+   * *   **0**: all data assets
+   * *   **1**: structured data asset
+   * *   **2**: unstructured data asset
+   * 
+   * > If you set the parameter to 1 or 2, rules that support all data assets and rules that support the queried data asset type are returned.
+   * 
+   * @example
+   * 1
+   */
+  supportForm?: number;
+  /**
+   * @remarks
+   * The code of the service to which the sensitive data detection rule is applied. Valid values include **MaxCompute**, **OSS**, **ADS**, **OTS**, and **RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
+  target?: string;
+  /**
+   * @remarks
+   * The IDs of the templates that are used to audit sensitive data.
+   * 
+   * @example
+   * 1
+   */
+  templateRuleIds?: string;
+  /**
+   * @remarks
+   * The risk level of the alert that is triggered. Valid values:
+   * 
+   * *   **1**: low
+   * *   **2**: medium
+   * *   **3**: high
+   * 
+   * @example
+   * 2
+   */
+  warnLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      content: 'Content',
+      contentCategory: 'ContentCategory',
+      description: 'Description',
+      lang: 'Lang',
+      matchType: 'MatchType',
+      modelRuleIds: 'ModelRuleIds',
+      name: 'Name',
+      productCode: 'ProductCode',
+      productId: 'ProductId',
+      riskLevelId: 'RiskLevelId',
+      ruleType: 'RuleType',
+      sourceIp: 'SourceIp',
+      statExpress: 'StatExpress',
+      status: 'Status',
+      supportForm: 'SupportForm',
+      target: 'Target',
+      templateRuleIds: 'TemplateRuleIds',
+      warnLevel: 'WarnLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'number',
+      content: 'string',
+      contentCategory: 'number',
+      description: 'string',
+      lang: 'string',
+      matchType: 'number',
+      modelRuleIds: 'string',
+      name: 'string',
+      productCode: 'string',
+      productId: 'number',
+      riskLevelId: 'number',
+      ruleType: 'number',
+      sourceIp: 'string',
+      statExpress: 'string',
+      status: 'number',
+      supportForm: 'number',
+      target: 'string',
+      templateRuleIds: 'string',
+      warnLevel: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The unique ID of the sensitive data detection rule.
+   * 
+   * @example
+   * 1
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScanTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The unique ID of the data asset, such as an instance, a database, and a bucket. You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the unique ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  dataLimitId?: number;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The interval between two consecutive custom scan tasks. Unit: days. Valid values: 1 to 2147483648.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  intervalDay?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response.
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The data to be scanned in the Object Storage Service (OSS) bucket. Prefix match, suffix match, and regular expression match are supported.
+   * 
+   * @example
+   * /test/test
+   */
+  ossScanPath?: string;
+  /**
+   * @remarks
+   * The type of the service to which the data assets to be scanned belong. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  resourceType?: number;
+  /**
+   * @remarks
+   * The time when the scan task is executed next time. Unit: hours.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12
+   */
+  runHour?: number;
+  /**
+   * @remarks
+   * The time when the scan task is executed next time. Unit: minutes.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 30
+   */
+  runMinute?: number;
+  /**
+   * @remarks
+   * The matching rule that specifies the scan scope of the custom scan task. This parameter takes effect only if you set the **ScanRangeContent** parameter. Valid values:
+   * 
+   * *   **0**: exact match
+   * *   **1**: prefix match
+   * *   **2**: suffix match
+   * *   **3**: regular expression match
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  scanRange?: number;
+  /**
+   * @remarks
+   * The data to be scanned in a structured data asset. Prefix match, suffix match, and regular expression match are supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * datamask/
+   */
+  scanRangeContent?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
+  sourceIp?: string;
+  /**
+   * @remarks
+   * The name of the scan task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * scan-test-sample****
+   */
+  taskName?: string;
+  /**
+   * @remarks
+   * The account that is used to create the scan task.
+   * 
+   * @example
+   * demo
+   */
+  taskUserName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataLimitId: 'DataLimitId',
+      featureType: 'FeatureType',
+      intervalDay: 'IntervalDay',
+      lang: 'Lang',
+      ossScanPath: 'OssScanPath',
+      resourceType: 'ResourceType',
+      runHour: 'RunHour',
+      runMinute: 'RunMinute',
+      scanRange: 'ScanRange',
+      scanRangeContent: 'ScanRangeContent',
+      sourceIp: 'SourceIp',
+      taskName: 'TaskName',
+      taskUserName: 'TaskUserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataLimitId: 'number',
+      featureType: 'number',
+      intervalDay: 'number',
+      lang: 'string',
+      ossScanPath: 'string',
+      resourceType: 'number',
+      runHour: 'number',
+      runMinute: 'number',
+      scanRange: 'number',
+      scanRangeContent: 'string',
+      sourceIp: 'string',
+      taskName: 'string',
+      taskUserName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScanTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the custom scan task.
+   * 
+   * @example
+   * 100
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B1F2BB1F-04EC-5D36-B136-B4DE17FD8DE0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScanTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateScanTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateScanTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSlrRoleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      featureType: 'FeatureType',
+      lang: 'Lang',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureType: 'number',
+      lang: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSlrRoleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the service-linked role was created. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
+  hasPermission?: boolean;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hasPermission: 'HasPermission',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasPermission: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSlrRoleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSlrRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSlrRoleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLimitRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The ID of the data asset.
+   * 
+   * You can call the DescribeDataLimits operation to query the IDs of data assets. The value of the Id response parameter indicates the ID of a data asset.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12033
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      featureType: 'FeatureType',
+      id: 'Id',
+      lang: 'Lang',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureType: 'number',
+      id: 'number',
+      lang: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLimitResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataLimitResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDataLimitResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataLimitResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 122300
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values: **zh** and **en**. The value zh indicates Chinese, and the value en indicates English.
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 39.170.XX.XX
+   */
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      featureType: 'FeatureType',
+      id: 'Id',
+      lang: 'Lang',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureType: 'number',
+      id: 'number',
+      lang: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B6*****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCategoryTemplateListRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  featureType?: number;
+  /**
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
+  usageScenario?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      featureType: 'FeatureType',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      usageScenario: 'UsageScenario',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      featureType: 'number',
+      lang: 'string',
+      pageSize: 'number',
+      usageScenario: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCategoryTemplateListResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  items?: DescribeCategoryTemplateListResponseBodyItems[];
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 8491DBFD-48C0-4E11-B6FC-6F38921244A9
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 12
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeCategoryTemplateListResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCategoryTemplateListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCategoryTemplateListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCategoryTemplateListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCategoryTemplateRuleListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the data that is not compliant with the rule. Valid values: **1** to **11**. Default value: **null**.
+   * 
+   * *   **1**: No sensitive data is detected.
+   * *   **2**: specifies the S1 sensitivity level.
+   * *   **3**: specifies the S2 sensitivity level.
+   * *   **4**: specifies the S3 sensitivity level.
+   * *   **5**: specifies the S4 sensitivity level.
+   * *   **6**: specifies the S5 sensitivity level.
+   * *   **7**: specifies the S6 sensitivity level.
+   * *   **8**: specifies the S7 sensitivity level.
+   * *   **9**: specifies the S8 sensitivity level.
+   * *   **10**: specifies the S9 sensitivity level.
+   * *   **11**: specifies the S10 sensitivity level.
+   * *   **null**: specifies all preceding sensitivity levels.
+   * 
+   * @example
+   * 2
+   */
+  riskLevelId?: number;
+  /**
+   * @remarks
+   * The status of the rule. Default value: **null**. Valid values:
+   * 
+   * *   **0**: disabled
+   * *   **1**: enabled
+   * *   **null**: all states
+   * 
+   * @example
+   * 1
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      featureType: 'FeatureType',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      riskLevelId: 'RiskLevelId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      featureType: 'number',
+      lang: 'string',
+      pageSize: 'number',
+      riskLevelId: 'number',
+      status: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCategoryTemplateRuleListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The list of rules.
+   */
+  items?: DescribeCategoryTemplateRuleListResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 136082B3-B21F-5E9D-B68E-991FFD205D24
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of rules in the template.
+   * 
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeCategoryTemplateRuleListResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCategoryTemplateRuleListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCategoryTemplateRuleListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCategoryTemplateRuleListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The engine type. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **MariaDB**
+   * *   **Oracle**
+   * *   **PostgreSQL**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
+  engineType?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which data in the column of the table belongs.
+   * 
+   * > You can call the [DescribeInstances](~~DescribeRules~~) operation to query the IDs of instances.
+   * 
+   * @example
+   * 1
+   */
+  instanceId?: number;
+  /**
+   * @remarks
+   * The name of the instance to which data in the column of the table belongs.
+   * 
+   * @example
+   * rm-bp17t1htja573l5i8****
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The data tag.
+   * 
+   * *   101: personal sensitive information
+   * *   102: personal information
+   * 
+   * @example
+   * 101
+   */
+  modelTagId?: string;
+  /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported.
+   * 
+   * For example, if you enter **test**, all columns whose names contain **test** are retrieved.
+   * 
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which data in the column of the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
+  productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the data object belongs. Valid values:
+   * 
+   * *   **1**: MaxCompute
+   * *   **2**: Object Storage Service (OSS)
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4**: Tablestore (OTS)
+   * *   **5**: ApsaraDB RDS
+   * *   **6**: self-managed database
+   * *   **7**: PolarDB for Xscale (PolarDB-X)
+   * *   **8**: PolarDB
+   * *   **9**: AnalyticDB for PostgreSQL
+   * *   **10**: ApsaraDB for OceanBase
+   * *   **11**: ApsaraDB for MongoDB
+   * *   **25**: ApsaraDB for Redis
+   * 
+   * @example
+   * 5
+   */
+  productId?: string;
+  /**
+   * @remarks
+   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: N/A
+   * *   **2**: S1
+   * *   **3**: S2
+   * *   **4**: S3
+   * *   **5**: S4
+   * 
+   * @example
+   * 2
+   */
+  riskLevelId?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that data in the column of the table hits.
+   * 
+   * > You can call the [DescribeRules](~~DescribeRules~~) operation to query the IDs of sensitive data detection rules.
+   * 
+   * @example
+   * 11111
+   */
+  ruleId?: number;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule that data in the column of the table hits.
+   * 
+   * @example
+   * ID card number (the Chinese mainland)
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * The name of the sensitivity level of the data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **N/A**: No sensitive data is detected.
+   * *   **S1**: indicates the low sensitivity level.
+   * *   **S2**: indicates the medium sensitivity level.
+   * *   **S3**: indicates the high sensitivity level.
+   * *   **S4**: indicates the highest sensitivity level.
+   * 
+   * @example
+   * S2
+   */
+  sensLevelName?: string;
+  /**
+   * @remarks
+   * The ID of the table to which the column belongs.
+   * 
+   * > You can call the [DescribeTables](~~DescribeTables~~) operation to query the IDs of tables.
+   * 
+   * @example
+   * 11132334
+   */
+  tableId?: number;
+  /**
+   * @remarks
+   * The name of the table.
+   * 
+   * @example
+   * it_table
+   */
+  tableName?: string;
+  /**
+   * @remarks
+   * The ID of the industry-specific classification template.
+   * 
+   * >  You can call the [DescribeCategoryTemplateList](https://help.aliyun.com/document_detail/2399296.html) operation to obtain the IDs of industry-specific classification templates.
+   * 
+   * @example
+   * 5
+   */
+  templateId?: string;
+  /**
+   * @remarks
+   * The ID of the template rule that is hit.
+   * 
+   * >  You can call the [DescribeCategoryTemplateRuleList](https://help.aliyun.com/document_detail/410143.html) operation to obtain the IDs of hit template rules.
+   * 
+   * @example
+   * 1542
+   */
+  templateRuleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      engineType: 'EngineType',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      lang: 'Lang',
+      modelTagId: 'ModelTagId',
+      name: 'Name',
+      pageSize: 'PageSize',
+      productCode: 'ProductCode',
+      productId: 'ProductId',
+      riskLevelId: 'RiskLevelId',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      sensLevelName: 'SensLevelName',
+      tableId: 'TableId',
+      tableName: 'TableName',
+      templateId: 'TemplateId',
+      templateRuleId: 'TemplateRuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      engineType: 'string',
+      instanceId: 'number',
+      instanceName: 'string',
+      lang: 'string',
+      modelTagId: 'string',
+      name: 'string',
+      pageSize: 'number',
+      productCode: 'string',
+      productId: 'string',
+      riskLevelId: 'number',
+      ruleId: 'number',
+      ruleName: 'string',
+      sensLevelName: 'string',
+      tableId: 'number',
+      tableName: 'string',
+      templateId: 'string',
+      templateRuleId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The columns.
+   */
+  items?: DescribeColumnsResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-4******
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 12
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeColumnsResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeColumnsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeColumnsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsV2Request extends $dara.Model {
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  engineType?: string;
+  /**
+   * @remarks
+   * The ID of the instance to which data in the column of the table belongs.
+   * 
+   * >  You can call the [DescribeInstances](https://help.aliyun.com/document_detail/141708.html) operation to obtain the ID of the instance to which the data in the column of the table belongs.
+   * 
+   * @example
+   * 1
+   */
+  instanceId?: number;
+  /**
+   * @remarks
+   * The name of the instance to which data in the column of the table belongs.
+   * 
+   * @example
+   * rm-bp17t1htja573l5i8****
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported.
+   * 
+   * For example, if you enter **test**, all columns whose names contain **test** are retrieved.
+   * 
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which data in the column of the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
+  productCode?: string;
+  /**
+   * @remarks
+   * The ID of the sensitivity level of the data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: N/A
+   * *   **2**: S1
+   * *   **3**: S2
+   * *   **4**: S3
+   * *   **5**: S4
+   * 
+   * @example
+   * 2
+   */
+  riskLevelId?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that data in the column of the table hits.
+   * 
+   * >  You can call the [DescribeRules](https://help.aliyun.com/document_detail/141389.html) operation to obtain the ID of the sensitive data detection rule.
+   * 
+   * @example
+   * 11122200
+   */
+  ruleId?: number;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule that data in the column of the table hits.
+   * 
+   * @example
+   * name
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * The name of the sensitivity level. Valid values:
+   * 
+   * *   **N/A**: indicates that no sensitive data is detected.
+   * *   **S1**: indicates the low sensitivity level.
+   * *   **S2**: indicates the medium sensitivity level.
+   * *   **S3**: indicates the high sensitivity level.
+   * *   **S4**: indicates the highest sensitivity level.
+   * 
+   * @example
+   * S2
+   */
+  sensLevelName?: string;
+  /**
+   * @remarks
+   * The ID of the table to which the column belongs.
+   * 
+   * >  You can call the [DescribeTables](https://help.aliyun.com/document_detail/141709.html) operation to obtain the ID of the table.
+   * 
+   * @example
+   * 11132334
+   */
+  tableId?: string;
+  /**
+   * @remarks
+   * The name of the table.
+   * 
+   * @example
+   * it_table
+   */
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      engineType: 'EngineType',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      lang: 'Lang',
+      name: 'Name',
+      pageSize: 'PageSize',
+      productCode: 'ProductCode',
+      riskLevelId: 'RiskLevelId',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      sensLevelName: 'SensLevelName',
+      tableId: 'TableId',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      engineType: 'string',
+      instanceId: 'number',
+      instanceName: 'string',
+      lang: 'string',
+      name: 'string',
+      pageSize: 'number',
+      productCode: 'string',
+      riskLevelId: 'number',
+      ruleId: 'number',
+      ruleName: 'string',
+      sensLevelName: 'string',
+      tableId: 'string',
+      tableName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsV2ResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * A list of column recognition results of the data table.
+   */
+  items?: DescribeColumnsV2ResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B1F2BB1F-04EC-5D36-B136-B4DE17FD8DE0
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 12
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeColumnsV2ResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColumnsV2Response extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeColumnsV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeColumnsV2ResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array that consists of common configuration items for alerts.
+   */
+  configList?: DescribeConfigsResponseBodyConfigList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configList: 'ConfigList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configList: { 'type': 'array', 'itemType': DescribeConfigsResponseBodyConfigList },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configList)) {
+      $dara.Model.validateArray(this.configList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeConfigsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataAssetsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The keyword that is used to search for data assets. Fuzzy search is supported.
+   * 
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **20**.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The type of the data asset that you want to query. Valid values:
+   * 
+   * *   **1**: MaxCompute project
+   * *   **2**: MaxCompute table
+   * *   **3**: MaxCompute package
+   * *   **11**: AnalyticDB for MySQL database
+   * *   **12**: AnalyticDB for MySQL table
+   * *   **21**: Object Storage Service (OSS) bucket
+   * *   **22**: OSS object
+   * *   **31**: Tablestore instance
+   * *   **32**: Tablestore table
+   * *   **51**: ApsaraDB RDS database
+   * *   **52**: ApsaraDB RDS table
+   * *   **61**: self-managed database hosted on an Elastic Compute Service (ECS) instance
+   * *   **62**: self-managed table hosted on an ECS instance
+   * *   **71**: PolarDB-X database
+   * *   **72**: PolarDB-X table
+   * *   **81**: PolarDB database
+   * *   **82**: PolarDB table
+   * *   **91**: AnalyticDB for PostgreSQL database
+   * *   **92**: AnalyticDB for PostgreSQL table
+   * 
+   * @example
+   * 1
+   */
+  rangeId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the data asset. Separate multiple sensitivity levels with commas (,). Valid values:
+   * 
+   * *   **2**: S1, indicating the low sensitivity level
+   * *   **3**: S2, indicating the medium sensitivity level
+   * *   **4**: S3, indicating the high sensitivity level
+   * *   **5**: S4, indicating the highest sensitivity level
+   * 
+   * @example
+   * 2
+   */
+  riskLevels?: string;
+  /**
+   * @remarks
+   * The unique ID of the sensitive data detection rule that the data assets to be queried hit.
+   * 
+   * > If you query sensitive data detection results based on the sensitive data detection rule that the data assets hit, you can call the [DescribeRules](~~DescribeRules~~) operation to query the ID of the sensitive data detection rule.
+   * 
+   * @example
+   * 11122200
+   */
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      lang: 'Lang',
+      name: 'Name',
+      pageSize: 'PageSize',
+      rangeId: 'RangeId',
+      riskLevels: 'RiskLevels',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      lang: 'string',
+      name: 'string',
+      pageSize: 'number',
+      rangeId: 'number',
+      riskLevels: 'string',
+      ruleId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataAssetsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * An array that consists of data assets.
+   */
+  items?: DescribeDataAssetsResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 71064826-726F-4ADA-B879-05D8055476FB
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of queried data assets that contain sensitive data.
+   * 
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeDataAssetsResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataAssetsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataAssetsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataAssetsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataLimitDetailRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The unique ID of the data asset that you want to query.
+   * 
+   * > You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12300
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Simplified Chinese.
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The network type of the data asset that you want to query. Valid values:
+   * 
+   * *   **1**: virtual private cloud (VPC)
+   * *   **2**: classic network
+   * 
+   * @example
+   * 1
+   */
+  networkType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      featureType: 'FeatureType',
+      id: 'Id',
+      lang: 'Lang',
+      networkType: 'NetworkType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureType: 'number',
+      id: 'number',
+      lang: 'string',
+      networkType: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataLimitDetailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the data asset.
+   */
+  dataLimit?: DescribeDataLimitDetailResponseBodyDataLimit;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataLimit: 'DataLimit',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataLimit: DescribeDataLimitDetailResponseBodyDataLimit,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dataLimit && typeof (this.dataLimit as any).validate === 'function') {
+      (this.dataLimit as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataLimitDetailResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataLimitDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataLimitDetailResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataLimitSetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese (default)
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The parent asset ID of the data asset.
+   * 
+   * You can call the [DescribeDataLimitDetail](~~DescribeDataLimitDetail~~) or [DescribeDataLimits](~~DescribeDataLimits~~) operation to obtain the parent asset ID of the data asset from the value of the **ParentId** parameter.
+   * 
+   * @example
+   * db
+   */
+  parentId?: string;
+  /**
+   * @remarks
+   * The type of service to which the data asset belongs. Valid values:
+   * 
+   * *   **1**: MaxCompute
+   * *   **2**: OSS
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4**: Tablestore
+   * *   **5**: ApsaraDB RDS
+   * 
+   * @example
+   * 2
+   */
+  resourceType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      featureType: 'FeatureType',
+      lang: 'Lang',
+      parentId: 'ParentId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureType: 'number',
+      lang: 'string',
+      parentId: 'string',
+      resourceType: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataLimitSetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the data asset.
+   */
+  dataLimitSet?: DescribeDataLimitSetResponseBodyDataLimitSet;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataLimitSet: 'DataLimitSet',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataLimitSet: DescribeDataLimitSetResponseBodyDataLimitSet,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.dataLimitSet && typeof (this.dataLimitSet as any).validate === 'function') {
+      (this.dataLimitSet as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataLimitSetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataLimitSetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataLimitSetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataLimitsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the security audit feature. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
+  auditStatus?: number;
+  /**
+   * @remarks
+   * The data detection status. Valid values:
+   * 
+   * *   **0**: The data detection is ready.
+   * *   **1**: The data detection is running.
+   * *   **2**: The connectivity test is in progress.
+   * *   **3**: The connectivity test passed.
+   * *   **4**: The connectivity test failed.
+   * 
+   * @example
+   * 3
+   */
+  checkStatus?: number;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * Specifies whether DSC has the data de-identification permissions on the data asset. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
+  datamaskStatus?: number;
+  /**
+   * @remarks
+   * Specifies whether DSC has the data detection permissions on the data asset. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
+  enable?: number;
+  /**
+   * @remarks
+   * The end of the time range to query The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1616068534877
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The type of the database engine. Valid values include **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
+   * 
+   * @example
+   * MySQL
+   */
+  engineType?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The ID of the member.
+   * 
+   * @example
+   * **********8103
+   */
+  memberAccount?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The parent ID of the data asset to be queried. Valid values:
+   * 
+   * *   The name or ID of the MaxCompute project.
+   * *   The name or ID of the OSS bucket.
+   * *   The name or ID of the ApsaraDB RDS instance or database.
+   * 
+   * @example
+   * 1112
+   */
+  parentId?: string;
+  /**
+   * @remarks
+   * The type of the service to which the data asset belongs. This parameter is required. Valid values:
+   * 
+   * *   **1**: MaxCompute
+   * *   **2**: Object Storage Service (OSS)
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4**: Tablestore
+   * *   **5**: ApsaraDB RDS
+   * *   **6**: self-managed database
+   * 
+   * @example
+   * 1
+   */
+  resourceType?: number;
+  /**
+   * @remarks
+   * The region in which the data asset resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  serviceRegionId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1616068534877
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      checkStatus: 'CheckStatus',
+      currentPage: 'CurrentPage',
+      datamaskStatus: 'DatamaskStatus',
+      enable: 'Enable',
+      endTime: 'EndTime',
+      engineType: 'EngineType',
+      featureType: 'FeatureType',
+      lang: 'Lang',
+      memberAccount: 'MemberAccount',
+      pageSize: 'PageSize',
+      parentId: 'ParentId',
+      resourceType: 'ResourceType',
+      serviceRegionId: 'ServiceRegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'number',
+      checkStatus: 'number',
+      currentPage: 'number',
+      datamaskStatus: 'number',
+      enable: 'number',
+      endTime: 'number',
+      engineType: 'string',
+      featureType: 'number',
+      lang: 'string',
+      memberAccount: 'number',
+      pageSize: 'number',
+      parentId: 'string',
+      resourceType: 'number',
+      serviceRegionId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataLimitsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The data assets.
+   */
+  items?: DescribeDataLimitsResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989***
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeDataLimitsResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataLimitsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataLimitsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataLimitsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataMaskingRunHistoryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The type of the service to which the de-identified data belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 2
+   */
+  dstType?: number;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1583856000000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The ID of the task.
+   * 
+   * > If a task has one or more subtasks, the value of the parameter must be the ID of the task. Otherwise, leave this parameter empty.
+   * 
+   * @example
+   * 366731
+   */
+  mainProcessId?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The name of the source table.
+   * 
+   * @example
+   * add
+   */
+  srcTableName?: string;
+  /**
+   * @remarks
+   * The type of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 2
+   */
+  srcType?: number;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1582992000000
+   */
+  startTime?: number;
+  /**
+   * @remarks
+   * The status of the de-identification task. Valid values:
+   * 
+   * *   **-1**: waiting
+   * *   **0**: being executed
+   * *   **1**: executed
+   * *   **2**: failed to be executed
+   * *   **3**: terminated
+   * *   **4**: partially failed
+   * 
+   * @example
+   * 0
+   */
+  status?: number;
+  /**
+   * @remarks
+   * The ID of the de-identification task.
+   * 
+   * @example
+   * mt4HBgtw1B******
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      dstType: 'DstType',
+      endTime: 'EndTime',
+      lang: 'Lang',
+      mainProcessId: 'MainProcessId',
+      pageSize: 'PageSize',
+      srcTableName: 'SrcTableName',
+      srcType: 'SrcType',
+      startTime: 'StartTime',
+      status: 'Status',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      dstType: 'number',
+      endTime: 'number',
+      lang: 'string',
+      mainProcessId: 'number',
+      pageSize: 'number',
+      srcTableName: 'string',
+      srcType: 'number',
+      startTime: 'number',
+      status: 'number',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataMaskingRunHistoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The execution information about the de-identification task.
+   */
+  items?: DescribeDataMaskingRunHistoryResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-4******
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeDataMaskingRunHistoryResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataMaskingRunHistoryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataMaskingRunHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataMaskingRunHistoryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataMaskingTasksRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The service to which the data to be de-identified belongs. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 2
+   */
+  dstType?: number;
+  /**
+   * @remarks
+   * The end of the time range during which the de-identification tasks to be queried are created. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1583856000000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The keyword used to query the de-identification tasks, which can be the task name or ID.
+   * 
+   * @example
+   * test
+   */
+  searchKey?: string;
+  /**
+   * @remarks
+   * The beginning of the time range during which the de-identification tasks to be queried are created. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1582992000000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      dstType: 'DstType',
+      endTime: 'EndTime',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      searchKey: 'SearchKey',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      dstType: 'number',
+      endTime: 'number',
+      lang: 'string',
+      pageSize: 'number',
+      searchKey: 'string',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataMaskingTasksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * A list of de-identification tasks.
+   */
+  items?: DescribeDataMaskingTasksResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-4******
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeDataMaskingTasksResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataMaskingTasksResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataMaskingTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataMaskingTasksResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  featureType?: number;
+  /**
+   * @example
+   * 318248
+   */
+  id?: number;
+  /**
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
+  productId?: number;
+  /**
+   * @example
+   * 1
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      featureType: 'FeatureType',
+      id: 'Id',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      productId: 'ProductId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      featureType: 'number',
+      id: 'number',
+      lang: 'string',
+      pageSize: 'number',
+      productId: 'number',
+      templateId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  items?: DescribeDataObjectColumnDetailResponseBodyItems[];
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 8C8036CC-961D-514E-88E8-3088B5A50CA9
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 61
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeDataObjectColumnDetailResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataObjectColumnDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataObjectColumnDetailResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailV2Request extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  featureType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 13456723343
+   */
+  id?: string;
+  /**
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
+  productId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      featureType: 'FeatureType',
+      id: 'Id',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      productId: 'ProductId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      featureType: 'number',
+      id: 'string',
+      lang: 'string',
+      pageSize: 'number',
+      productId: 'number',
+      templateId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailV2ResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  items?: DescribeDataObjectColumnDetailV2ResponseBodyItems[];
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 231
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeDataObjectColumnDetailV2ResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectColumnDetailV2Response extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataObjectColumnDetailV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataObjectColumnDetailV2ResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectsRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * 2
+   */
+  domainId?: number;
+  featureType?: number;
+  fileCategoryCode?: number;
+  fileType?: number;
+  instanceId?: string;
+  /**
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  memberAccount?: number;
+  modelIds?: string;
+  /**
+   * @example
+   * 101,102
+   */
+  modelTagIds?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 234,236,238
+   */
+  parentCategoryIds?: string;
+  /**
+   * @example
+   * 1,5
+   */
+  productIds?: string;
+  /**
+   * @example
+   * t_sddp_selfmysql_pers0
+   */
+  queryName?: string;
+  /**
+   * @example
+   * 2
+   */
+  riskLevels?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  serviceRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      domainId: 'DomainId',
+      featureType: 'FeatureType',
+      fileCategoryCode: 'FileCategoryCode',
+      fileType: 'FileType',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      memberAccount: 'MemberAccount',
+      modelIds: 'ModelIds',
+      modelTagIds: 'ModelTagIds',
+      pageSize: 'PageSize',
+      parentCategoryIds: 'ParentCategoryIds',
+      productIds: 'ProductIds',
+      queryName: 'QueryName',
+      riskLevels: 'RiskLevels',
+      serviceRegionId: 'ServiceRegionId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      domainId: 'number',
+      featureType: 'number',
+      fileCategoryCode: 'number',
+      fileType: 'number',
+      instanceId: 'string',
+      lang: 'string',
+      memberAccount: 'number',
+      modelIds: 'string',
+      modelTagIds: 'string',
+      pageSize: 'number',
+      parentCategoryIds: 'string',
+      productIds: 'string',
+      queryName: 'string',
+      riskLevels: 'string',
+      serviceRegionId: 'string',
+      templateId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  items?: DescribeDataObjectsResponseBodyItems[];
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * E6F6460E-4330-549A-BD89-C183FB17571E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 21
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeDataObjectsResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDataObjectsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDataObjectsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDataObjectsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocTypesRequest extends $dara.Model {
+  /**
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocTypesResponseBody extends $dara.Model {
+  docTypeList?: DescribeDocTypesResponseBodyDocTypeList[];
+  /**
+   * @example
+   * 769FB3C1-F4C9-4******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docTypeList: 'DocTypeList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docTypeList: { 'type': 'array', 'itemType': DescribeDocTypesResponseBodyDocTypeList },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.docTypeList)) {
+      $dara.Model.validateArray(this.docTypeList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocTypesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDocTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDocTypesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventDetailRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the anomalous event.
+   * 
+   * > You can call the **DescribeEvents** operation to query the ID of the anomalous event.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 13456723343
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      lang: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventDetailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the anomalous event.
+   */
+  event?: DescribeEventDetailResponseBodyEvent;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 69FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'Event',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: DescribeEventDetailResponseBodyEvent,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.event && typeof (this.event as any).validate === 'function') {
+      (this.event as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventDetailResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEventDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEventDetailResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventTypesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The type of anomalous event for which you want to query the anomalous events of subtypes. Valid values:
+   * 
+   * *   **01**: anomalous permission usage
+   * *   **02**: anomalous data flow
+   * *   **03**: anomalous data operation
+   * 
+   * @example
+   * 01
+   */
+  parentTypeId?: number;
+  /**
+   * @remarks
+   * The type of the resource. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 5
+   */
+  resourceId?: number;
+  /**
+   * @remarks
+   * The status of the anomalous event. Valid values:
+   * 
+   * *   **1**: enabled
+   * *   **2**: disabled
+   * 
+   * @example
+   * 1
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      featureType: 'FeatureType',
+      lang: 'Lang',
+      parentTypeId: 'ParentTypeId',
+      resourceId: 'ResourceId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureType: 'number',
+      lang: 'string',
+      parentTypeId: 'number',
+      resourceId: 'number',
+      status: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventTypesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array that consists of the types of anomalous events.
+   * 
+   * > If you leave the ParentTypeId parameter empty, anomalous event types are returned. If you set the ParentTypeId parameter, anomalous event subtypes under the specified anomalous event type are returned.
+   */
+  eventTypeList?: DescribeEventTypesResponseBodyEventTypeList[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventTypeList: 'EventTypeList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventTypeList: { 'type': 'array', 'itemType': DescribeEventTypesResponseBodyEventTypeList },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.eventTypeList)) {
+      $dara.Model.validateArray(this.eventTypeList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventTypesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEventTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEventTypesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The ID of the account that handles the anomalous event.
+   * 
+   * @example
+   * yundun-***
+   */
+  dealUserId?: string;
+  /**
+   * @remarks
+   * The end of the time range during which the anomalous events are detected. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1698700000
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The unique ID of the anomalous event.
+   * 
+   * @example
+   * 789026
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The name of the data asset.
+   * 
+   * @example
+   * rm-uf6yzvbc2tg90iuxk.l****
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 12
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * OSS
+   */
+  productCode?: string;
+  /**
+   * @remarks
+   * The beginning of the time range during which the anomalous events are detected. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1657900000
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * The handling status of the anomalous event. Valid values:
+   * 
+   * *   0: unhandled
+   * *   1: confirmed
+   * *   2: marked as false positive
+   * 
+   * @example
+   * 1
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The name of the anomalous event subtype.
+   * 
+   * > You can call the **DescribeEventTypes** operation to query the name of the anomalous event subtype.
+   * 
+   * @example
+   * Anomalous volume of downloaded data
+   */
+  subTypeCode?: string;
+  /**
+   * @remarks
+   * The name of the destination service in an anomalous data flow. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**
+   * 
+   * @example
+   * RDS
+   */
+  targetProductCode?: string;
+  /**
+   * @remarks
+   * The name of the anomalous event type. Valid values:
+   * 
+   * *   01: anomalous permission usage
+   * *   02: anomalous data flow
+   * *   03: anomalous data operation
+   * 
+   * @example
+   * 02
+   */
+  typeCode?: string;
+  /**
+   * @remarks
+   * The ID of the account that triggered the anomalous event.
+   * 
+   * @example
+   * 1978132506596***
+   */
+  userId?: number;
+  /**
+   * @remarks
+   * The username of the RAM user.
+   * 
+   * @example
+   * name
+   */
+  userName?: string;
+  /**
+   * @remarks
+   * The risk level of the alert that is triggered. Valid values:
+   * 
+   * *   **1**: low
+   * *   **2**: medium
+   * *   **3**: high
+   * 
+   * @example
+   * 1
+   */
+  warnLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      dealUserId: 'DealUserId',
+      endTime: 'EndTime',
+      id: 'Id',
+      instanceName: 'InstanceName',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      productCode: 'ProductCode',
+      startTime: 'StartTime',
+      status: 'Status',
+      subTypeCode: 'SubTypeCode',
+      targetProductCode: 'TargetProductCode',
+      typeCode: 'TypeCode',
+      userId: 'UserId',
+      userName: 'UserName',
+      warnLevel: 'WarnLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      dealUserId: 'string',
+      endTime: 'string',
+      id: 'number',
+      instanceName: 'string',
+      lang: 'string',
+      pageSize: 'number',
+      productCode: 'string',
+      startTime: 'string',
+      status: 'string',
+      subTypeCode: 'string',
+      targetProductCode: 'string',
+      typeCode: 'string',
+      userId: 'number',
+      userName: 'string',
+      warnLevel: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * An array that consists of the anomalous events.
+   */
+  items?: DescribeEventsResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 12
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeEventsResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEventsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIdentifyTaskStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 268
+   */
+  id?: number;
+  /**
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      lang: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIdentifyTaskStatusResponseBody extends $dara.Model {
+  content?: DescribeIdentifyTaskStatusResponseBodyContent;
+  /**
+   * @example
+   * 71064826-726F-4ADA-B879-05D8055476FB
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: DescribeIdentifyTaskStatusResponseBodyContent,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeIdentifyTaskStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeIdentifyTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeIdentifyTaskStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the security audit feature. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**: no
+   * 
+   * @example
+   * 1
+   */
+  auditStatus?: number;
+  /**
+   * @remarks
+   * Specifies whether DSC is authorized to access the data asset.
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * @example
+   * 0
+   */
+  authStatus?: number;
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The type of the database engine. Valid values: **MySQL, MariaDB, Oracle, PostgreSQL, and SQLServer**.
+   * 
+   * @example
+   * MySQL
+   */
+  engineType?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * instance-demo-****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese (default)
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which the data asset to query belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
+  productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the data asset to query belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 1
+   */
+  productId?: number;
+  /**
+   * @remarks
+   * The content based on which a fuzzy search is performed.
+   * 
+   * @example
+   * 1
+   */
+  searchKey?: string;
+  /**
+   * @remarks
+   * The data asset type based on which a fuzzy search is performed.
+   * 
+   * *   **InstanceId**: the ID of the instance.
+   * *   **InstanceName**: the name of the instance.
+   * *   **DatabaseName**: the name of the database.
+   * 
+   * @example
+   * InstanceId
+   */
+  searchType?: string;
+  /**
+   * @remarks
+   * The region in which the data asset resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  serviceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      authStatus: 'AuthStatus',
+      currentPage: 'CurrentPage',
+      engineType: 'EngineType',
+      featureType: 'FeatureType',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      productCode: 'ProductCode',
+      productId: 'ProductId',
+      searchKey: 'SearchKey',
+      searchType: 'SearchType',
+      serviceRegionId: 'ServiceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'number',
+      authStatus: 'number',
+      currentPage: 'number',
+      engineType: 'string',
+      featureType: 'number',
+      instanceId: 'string',
+      lang: 'string',
+      pageSize: 'number',
+      productCode: 'string',
+      productId: 'number',
+      searchKey: 'string',
+      searchType: 'string',
+      serviceRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * An array that consists of the queried data assets.
+   */
+  items?: DescribeInstanceSourcesResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 5A7E8FB9-5011-5A90-97D9-AE587047****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeInstanceSourcesResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceSourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceSourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of the page to return. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The keyword that is used to search for data assets. DSC searches for data assets based on the keyword that you specify in fuzzy match mode. For example, if you specify data, all data assets whose names contain data are queried.
+   * 
+   * @example
+   * data
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which the data asset belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets from which DSC can scan for sensitive data, see [Supported data assets](https://help.aliyun.com/document_detail/212906.html).
+   * 
+   * @example
+   * RDS
+   */
+  productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the data asset belongs. You can call the [DescribeDataAssets](~~DescribeDataAssets~~) operation to query the ID of the service.
+   * 
+   * @example
+   * 1
+   */
+  productId?: number;
+  /**
+   * @remarks
+   * The sensitivity level ID of the data asset. A higher sensitivity level indicates that the identified data is more sensitive. Valid values:
+   * 
+   * *   **1**: No sensitive data is identified.
+   * *   **2**: sensitive data at level 1.
+   * *   **3**: sensitive data at level 2.
+   * *   **4**: sensitive data at level 3
+   * *   **5**: sensitive data at level 4.
+   * *   **6**: sensitive data at level 5.
+   * *   **7**: sensitive data at level 6.
+   * *   **8**: sensitive data at level 7.
+   * *   **9**: sensitive data at level 8.
+   * *   **10**: sensitive data at level 9.
+   * *   **11**: sensitive data at level 10.
+   * 
+   * @example
+   * 2
+   */
+  riskLevelId?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that the data asset hits. You can call the [DescribeRules](~~DescribeRules~~) operation and obtain the ID of the sensitive data detection rule from the **Id** response parameter.
+   * 
+   * @example
+   * 1111111
+   */
+  ruleId?: number;
+  /**
+   * @remarks
+   * The region where the data asset resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  serviceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      featureType: 'FeatureType',
+      lang: 'Lang',
+      name: 'Name',
+      pageSize: 'PageSize',
+      productCode: 'ProductCode',
+      productId: 'ProductId',
+      riskLevelId: 'RiskLevelId',
+      ruleId: 'RuleId',
+      serviceRegionId: 'ServiceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      featureType: 'number',
+      lang: 'string',
+      name: 'string',
+      pageSize: 'number',
+      productCode: 'string',
+      productId: 'number',
+      riskLevelId: 'number',
+      ruleId: 'number',
+      serviceRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The data assets.
+   */
+  items?: DescribeInstancesResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 71064826-726F-4ADA-B879-05D8055476FB
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of data assets.
+   * 
+   * @example
+   * 231
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectDetailRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the OSS object.
+   * 
+   * >  You can call the [DescribeOssObjects](https://help.aliyun.com/document_detail/410152.html) operation to obtain the ID of the OSS object.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12345213
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      lang: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectDetailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the OSS object.
+   */
+  ossObjectDetail?: DescribeOssObjectDetailResponseBodyOssObjectDetail;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossObjectDetail: 'OssObjectDetail',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossObjectDetail: DescribeOssObjectDetailResponseBodyOssObjectDetail,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.ossObjectDetail && typeof (this.ossObjectDetail as any).validate === 'function') {
+      (this.ossObjectDetail as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectDetailResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOssObjectDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOssObjectDetailResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectDetailV2Request extends $dara.Model {
+  bucketName?: string;
+  /**
+   * @example
+   * 12300
+   */
+  id?: string;
+  /**
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  objectKey?: string;
+  serviceRegionId?: string;
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      id: 'Id',
+      lang: 'Lang',
+      objectKey: 'ObjectKey',
+      serviceRegionId: 'ServiceRegionId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      id: 'string',
+      lang: 'string',
+      objectKey: 'string',
+      serviceRegionId: 'string',
+      templateId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectDetailV2ResponseBody extends $dara.Model {
+  ossObjectDetail?: DescribeOssObjectDetailV2ResponseBodyOssObjectDetail;
+  /**
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossObjectDetail: 'OssObjectDetail',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossObjectDetail: DescribeOssObjectDetailV2ResponseBodyOssObjectDetail,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.ossObjectDetail && typeof (this.ossObjectDetail as any).validate === 'function') {
+      (this.ossObjectDetail as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectDetailV2Response extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOssObjectDetailV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOssObjectDetailV2ResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The code of the file type.
+   * 
+   * @example
+   * 1
+   */
+  fileCategoryCode?: number;
+  /**
+   * @remarks
+   * The ID of the instance to which the OSS object belongs.
+   * 
+   * > You can call the **DescribeInstances** operation to query the instance ID.
+   * 
+   * @example
+   * ins-2222
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The end time of the last scan. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1536751124000
+   */
+  lastScanTimeEnd?: number;
+  /**
+   * @remarks
+   * The start time of the last scan. The value is a UNIX timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1536751124000
+   */
+  lastScanTimeStart?: number;
+  /**
+   * @remarks
+   * When you query data by page, use the `Marker` parameter to query the data that follows the `Marker` value.
+   * 
+   * @example
+   * 1754786235714378752
+   */
+  marker?: number;
+  /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported.
+   * 
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 12
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the OSS object. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
+  riskLevelId?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that the OSS object hits.
+   * 
+   * > You can call the **DescribeRules** operation to query the ID of the sensitive data detection rule.
+   * 
+   * @example
+   * 1222
+   */
+  ruleId?: number;
+  /**
+   * @remarks
+   * The region in which the data asset resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  serviceRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the industry-specific rule template.
+   * 
+   * @example
+   * 1
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      fileCategoryCode: 'FileCategoryCode',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      lastScanTimeEnd: 'LastScanTimeEnd',
+      lastScanTimeStart: 'LastScanTimeStart',
+      marker: 'Marker',
+      name: 'Name',
+      pageSize: 'PageSize',
+      riskLevelId: 'RiskLevelId',
+      ruleId: 'RuleId',
+      serviceRegionId: 'ServiceRegionId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      fileCategoryCode: 'number',
+      instanceId: 'string',
+      lang: 'string',
+      lastScanTimeEnd: 'number',
+      lastScanTimeStart: 'number',
+      marker: 'number',
+      name: 'string',
+      pageSize: 'number',
+      riskLevelId: 'number',
+      ruleId: 'number',
+      serviceRegionId: 'string',
+      templateId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The OSS objects.
+   */
+  items?: DescribeOssObjectsResponseBodyItems[];
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * -1
+   */
+  marker?: string;
+  /**
+   * @remarks
+   * The ID value from which the next page of results starts.
+   * 
+   * >  This parameter is returned only when the `Truncated` parameter is set to `true`.
+   * 
+   * @example
+   * 1754786235714378752
+   */
+  nextMarker?: string;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 12
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  /**
+   * @remarks
+   * Indicates whether the queried entries are truncated. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * false
+   */
+  truncated?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      marker: 'Marker',
+      nextMarker: 'NextMarker',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      truncated: 'Truncated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeOssObjectsResponseBodyItems },
+      marker: 'string',
+      nextMarker: 'string',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      truncated: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOssObjectsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOssObjectsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOssObjectsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePackagesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The ID of the instance to which the package belongs.
+   * 
+   * > You can call the **DescribeInstances** operation to query the ID of the instance.
+   * 
+   * @example
+   * 12321
+   */
+  instanceId?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported.
+   * 
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the service to which the package belongs.
+   * 
+   * > You can call the **DescribeDataAssets** operation to query the ID of the service.
+   * 
+   * @example
+   * 2566600
+   */
+  productId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the package. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
+  riskLevelId?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that the package hits.
+   * 
+   * > You can call the **DescribeRules** operation to query the ID of the sensitive data detection rule.
+   * 
+   * @example
+   * 266666
+   */
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      name: 'Name',
+      pageSize: 'PageSize',
+      productId: 'ProductId',
+      riskLevelId: 'RiskLevelId',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      instanceId: 'number',
+      lang: 'string',
+      name: 'string',
+      pageSize: 'number',
+      productId: 'number',
+      riskLevelId: 'number',
+      ruleId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePackagesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * An array that consists of the information about the packages.
+   */
+  items?: DescribePackagesResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 12
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribePackagesResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePackagesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePackagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePackagesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParentInstanceRequest extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  authStatus?: number;
+  /**
+   * @example
+   * 3
+   */
+  checkStatus?: number;
+  /**
+   * @example
+   * Running
+   */
+  clusterStatus?: string;
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * db_test
+   */
+  dbName?: string;
+  /**
+   * @example
+   * MySQL
+   */
+  engineType?: string;
+  /**
+   * @example
+   * rm-azfxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  memberAccount?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
+  resourceType?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  serviceRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authStatus: 'AuthStatus',
+      checkStatus: 'CheckStatus',
+      clusterStatus: 'ClusterStatus',
+      currentPage: 'CurrentPage',
+      dbName: 'DbName',
+      engineType: 'EngineType',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      memberAccount: 'MemberAccount',
+      pageSize: 'PageSize',
+      resourceType: 'ResourceType',
+      serviceRegionId: 'ServiceRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authStatus: 'number',
+      checkStatus: 'number',
+      clusterStatus: 'string',
+      currentPage: 'number',
+      dbName: 'string',
+      engineType: 'string',
+      instanceId: 'string',
+      lang: 'string',
+      memberAccount: 'number',
+      pageSize: 'number',
+      resourceType: 'number',
+      serviceRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParentInstanceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  items?: DescribeParentInstanceResponseBodyItems[];
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * ACEF9334-BB50-525D-8CF3-6CF504E4D1B3
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 3
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeParentInstanceResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParentInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeParentInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeParentInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRiskLevelsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   zh_cn: Chinese (default)
+   * *   en_us: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The ID of the industry-specific rule template.
+   * 
+   * @example
+   * 1
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      featureType: 'FeatureType',
+      lang: 'Lang',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureType: 'number',
+      lang: 'string',
+      templateId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRiskLevelsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 136082B3-B21F-5E9D-B68E-991FFD205D24
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * An array that consists of sensitivity levels.
+   */
+  riskLevelList?: DescribeRiskLevelsResponseBodyRiskLevelList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      riskLevelList: 'RiskLevelList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      riskLevelList: { 'type': 'array', 'itemType': DescribeRiskLevelsResponseBodyRiskLevelList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.riskLevelList)) {
+      $dara.Model.validateArray(this.riskLevelList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRiskLevelsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRiskLevelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRiskLevelsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRulesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The content type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **0**: keyword
+   * *   **2**: regular expression
+   * 
+   * @example
+   * 2
+   */
+  category?: number;
+  /**
+   * @remarks
+   * The type of the content in the sensitive data detection rule. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates attempts to exploit SQL injections. The value 2 indicates bypass by using SQL injections. The value 3 indicates abuse of stored procedures. The value 4 indicates buffer overflow. The value 5 indicates SQL injections based on errors.
+   * 
+   * @example
+   * 1
+   */
+  contentCategory?: number;
+  /**
+   * @remarks
+   * The external cooperation channel. Valid values:
+   * 
+   * *   DAS
+   * *   YAOCHI
+   * 
+   * @example
+   * DAS
+   */
+  cooperationChannel?: string;
+  /**
+   * @remarks
+   * The page number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **0**: built-in rule
+   * *   **1**: custom rule
+   * 
+   * @example
+   * 1
+   */
+  customType?: number;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The parent group type of the rule.
+   * 
+   * @example
+   * 4_1
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * Specifies whether to allow earlier versions of request parameters to support keywords that are supported in later versions of request parameters. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * > To specify keywords as the content type of the sensitive data detection rule, you can set the Category parameter to 0 for earlier versions of request parameters and set the Category parameter to 5 for later versions of request parameters. You can specify the KeywordCompatible parameter based on your business requirements.
+   * 
+   * @example
+   * true
+   */
+  keywordCompatible?: boolean;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The match type. Valid values:
+   * 
+   * *   1: rule-based match
+   * *   2: dictionary-based match
+   * 
+   * @example
+   * 1
+   */
+  matchType?: number;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule. Fuzzy match is supported.
+   * 
+   * @example
+   * \\*\\*\\* rule
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 12
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which the data asset belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * MaxCompute
+   */
+  productCode?: number;
+  /**
+   * @remarks
+   * The ID of the service to which the sensitive data detection rule is applied. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 1
+   */
+  productId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
+  riskLevelId?: number;
+  /**
+   * @remarks
+   * The type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: sensitive data detection rule
+   * *   **2**: audit rule
+   * *   **3**: anomalous event detection rule
+   * *   **99**: custom rule
+   * 
+   * @example
+   * 1
+   */
+  ruleType?: number;
+  /**
+   * @remarks
+   * Specifies whether to query a simplified rule. The simplified rule contains only the rule name. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  simplify?: boolean;
+  /**
+   * @remarks
+   * The status of the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: enabled
+   * *   **0**: disabled
+   * 
+   * @example
+   * 1
+   */
+  status?: number;
+  /**
+   * @remarks
+   * The type of the data asset. Valid values:
+   * 
+   * *   **0**: all data assets
+   * *   **1**: structured data asset
+   * *   **2**: unstructured data asset
+   * 
+   * > If you set the parameter to 1 or 2, rules that support all data assets and rules that support the queried data asset type are returned.
+   * 
+   * @example
+   * 1
+   */
+  supportForm?: number;
+  /**
+   * @remarks
+   * The severity level of the alert. Valid values:
+   * 
+   * *   **1**: low
+   * *   **2**: medium
+   * *   **3**: high
+   * 
+   * @example
+   * 2
+   */
+  warnLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      contentCategory: 'ContentCategory',
+      cooperationChannel: 'CooperationChannel',
+      currentPage: 'CurrentPage',
+      customType: 'CustomType',
+      featureType: 'FeatureType',
+      groupId: 'GroupId',
+      keywordCompatible: 'KeywordCompatible',
+      lang: 'Lang',
+      matchType: 'MatchType',
+      name: 'Name',
+      pageSize: 'PageSize',
+      productCode: 'ProductCode',
+      productId: 'ProductId',
+      riskLevelId: 'RiskLevelId',
+      ruleType: 'RuleType',
+      simplify: 'Simplify',
+      status: 'Status',
+      supportForm: 'SupportForm',
+      warnLevel: 'WarnLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'number',
+      contentCategory: 'number',
+      cooperationChannel: 'string',
+      currentPage: 'number',
+      customType: 'number',
+      featureType: 'number',
+      groupId: 'string',
+      keywordCompatible: 'boolean',
+      lang: 'string',
+      matchType: 'number',
+      name: 'string',
+      pageSize: 'number',
+      productCode: 'number',
+      productId: 'number',
+      riskLevelId: 'number',
+      ruleType: 'number',
+      simplify: 'boolean',
+      status: 'number',
+      supportForm: 'number',
+      warnLevel: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The sensitive data detection rules.
+   */
+  items?: DescribeRulesResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 12
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 23
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeRulesResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRulesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRulesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTablesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the page to return. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * The ID of the data asset to which the table belongs. You can call the [DescribeInstances](~~DescribeInstances~~) operation to obtain the ID of the data asset.
+   * 
+   * @example
+   * 1
+   */
+  instanceId?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The search keyword. Fuzzy match is supported. For example, if you specify test, all tables whose names contain test are retrieved.
+   * 
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The ID of the package to which the table belongs. You can call the [DescribePackages](~~DescribePackages~~) operation to obtain the ID of the package.
+   * 
+   * @example
+   * 555555
+   */
+  packageId?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The name of the service to which the table belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets from which Data Security Center (DSC) can scan for sensitive data, see [Supported data assets](https://help.aliyun.com/document_detail/212906.html).
+   * 
+   * @example
+   * MaxCompute
+   */
+  productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the table belongs. You can call the [DescribeDataAssets](~~DescribeDataAssets~~) operation to obtain the ID of the service.
+   * 
+   * @example
+   * 1
+   */
+  productId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the table. Each sensitivity level ID corresponds to a sensitivity level name. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
+  riskLevelId?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule that the table hits. You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the ID of the sensitive data detection rule.
+   * 
+   * @example
+   * 333322
+   */
+  ruleId?: number;
+  /**
+   * @remarks
+   * The region in which DSC is activated. For more information, see [Supported regions](https://help.aliyun.com/document_detail/214257.html).
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  serviceRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the industry-specific rule template.
+   * 
+   * @example
+   * 1
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      name: 'Name',
+      packageId: 'PackageId',
+      pageSize: 'PageSize',
+      productCode: 'ProductCode',
+      productId: 'ProductId',
+      riskLevelId: 'RiskLevelId',
+      ruleId: 'RuleId',
+      serviceRegionId: 'ServiceRegionId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      instanceId: 'number',
+      lang: 'string',
+      name: 'string',
+      packageId: 'number',
+      pageSize: 'number',
+      productCode: 'string',
+      productId: 'number',
+      riskLevelId: 'number',
+      ruleId: 'number',
+      serviceRegionId: 'string',
+      templateId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTablesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @remarks
+   * An array that consists of tables.
+   */
+  items?: DescribeTablesResponseBodyItems[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 13
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeTablesResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTablesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTablesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTablesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTemplateAllRulesRequest extends $dara.Model {
+  featureType?: number;
+  /**
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @example
+   * 1
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      featureType: 'FeatureType',
+      lang: 'Lang',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureType: 'number',
+      lang: 'string',
+      templateId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTemplateAllRulesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 769FB3C1-F4C9-4******
+   */
+  requestId?: string;
+  ruleList?: DescribeTemplateAllRulesResponseBodyRuleList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      ruleList: 'RuleList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      ruleList: { 'type': 'array', 'itemType': DescribeTemplateAllRulesResponseBodyRuleList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ruleList)) {
+      $dara.Model.validateArray(this.ruleList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTemplateAllRulesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTemplateAllRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTemplateAllRulesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese (default)
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      featureType: 'FeatureType',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureType: 'number',
+      lang: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The information about the current account.
+   */
+  userStatus?: DescribeUserStatusResponseBodyUserStatus;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      userStatus: 'UserStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      userStatus: DescribeUserStatusResponseBodyUserStatus,
+    };
+  }
+
+  validate() {
+    if(this.userStatus && typeof (this.userStatus as any).validate === 'function') {
+      (this.userStatus as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableUserConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the configuration item. You can call the [DescribeConfigs](~~DescribeConfigs~~) operation to obtain the code of the configuration item.
+   * 
+   * @example
+   * access_failed_cnt
+   */
+  code?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh_cn**: Chinese (default)
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      featureType: 'FeatureType',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      featureType: 'number',
+      lang: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableUserConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AC314611-D907-5EBF-B6D8-70425E5A8643
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableUserConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableUserConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableUserConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecDatamaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The sensitive data to be de-identified. The value is a JSON string that contains the following parameters:
+   * 
+   * *   **dataHeaderList**: the names of the columns in which data needs to be de-identified. Specify the column names in accordance with the order of data that needs to be de-identified.
+   * *   **dataList**: the data that needs to be de-identified.
+   * *   **ruleList**: the IDs of sensitive data detection rules used to detect data that needs to be de-identified. Specify the rule IDs in accordance with the order of data that needs to be de-identified. Each ID identifies a sensitive data detection rule that is used to detect a type of sensitive data. You can call the [DescribeRules](~~DescribeRules~~) operation to query the IDs of sensitive data detection rules.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * {"dataHeaderList":["name","age"],"dataList":[["lily",18],["lucy",17]],"ruleList":[1002,null]}
+   */
+  data?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The ID of the de-identification template. The ID is generated after you create the de-identification template in the [Data Security Center (DSC) console](https://yundun.console.aliyun.com/?\\&p=sddpnext#/sddp/dm/template). You can choose **Data desensitization** > **Desensitization Template** in the left-side navigation pane and obtain the ID of the de-identification template from the **Desensitization Template** page.
+   * 
+   * *   If you select **Field name** as the matching mode of the template, DSC matches data based on the columns specified by the **dataHeaderList** parameter in the **Data** parameter.
+   * *   If you select **Sensitive type** as the matching mode of the template, DSC matches data based on the sensitive data detection rules specified by the **ruleList** parameter in the **Data** parameter.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      featureType: 'FeatureType',
+      lang: 'Lang',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      featureType: 'number',
+      lang: 'string',
+      templateId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecDatamaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The de-identified data, which is described in a JSON string. The JSON string contains the following parameters:
+   * 
+   * *   **dataHeaderList**: the names of columns that contain the de-identified data.
+   * *   **dataList**: the de-identified data. The column order of the de-identified data is the same as that indicated by the dataHeaderList parameter.
+   * *   **ruleList**: the IDs of sensitive data detection rules.
+   * 
+   * @example
+   * {"dataHeaderList":["name","age"],"dataList":[["l***",18],["l***",17]],"ruleList":[1002,null]}
+   */
+  data?: string;
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 813BA9FA-D062-42C4-8CD5-11A7640B96E6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecDatamaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecDatamaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecDatamaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualTriggerMaskingProcessRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the de-identification task.
+   * 
+   * The ID of the de-identification task is a string. You can call the DescribeDataMaskingTasks operation to query the ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response, default value zh_cn. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      lang: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualTriggerMaskingProcessResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-4******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualTriggerMaskingProcessResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ManualTriggerMaskingProcessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ManualTriggerMaskingProcessResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataLimitRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the security audit feature. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * @example
+   * 1
+   */
+  auditStatus?: number;
+  /**
+   * @remarks
+   * Specifies whether to automatically trigger a re-scan after a rule is modified. Valid values:
+   * 
+   * *   **0**: no
+   * *   **1**: yes
+   * 
+   * > When a re-scan is triggered, DSC scans all data in your data asset.
+   * 
+   * @example
+   * 1
+   */
+  autoScan?: number;
+  /**
+   * @remarks
+   * The database engine that is run by the instance. Valid values:
+   * 
+   * *   **MySQL**
+   * *   **SQLServer**
+   * 
+   * @example
+   * MySQL
+   */
+  engineType?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 2
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The unique ID of the data asset for which you want to modify configuration items.
+   * 
+   * > You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 11
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese (default)
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The retention period of raw logs after you enable the security audit feature. Unit: days. Valid values:
+   * 
+   * *   **30**
+   * *   **90**
+   * *   **180**
+   * *   **365**
+   * 
+   * @example
+   * 30
+   */
+  logStoreDay?: number;
+  /**
+   * @remarks
+   * Specifies whether to change the username and password that are used to log on to the ApsaraDB RDS database. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
+  modifyPassword?: boolean;
+  /**
+   * @remarks
+   * The password used to log on to the ApsaraDB RDS database that you authorize DSC to access.
+   * 
+   * @example
+   * ********
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The port that is used to connect to the database.
+   * 
+   * @example
+   * 3306
+   */
+  port?: number;
+  /**
+   * @remarks
+   * The name of the service to which the data asset belongs. Valid values:
+   * 
+   * *   **1**: MaxCompute
+   * *   **2**: Object Storage Service (OSS)
+   * *   **3**: AnalyticDB for MySQL
+   * *   **4**: Tablestore
+   * *   **5**: ApsaraDB RDS
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 5
+   */
+  resourceType?: number;
+  /**
+   * @remarks
+   * The number of sensitive data samples tht are collected after sensitive data detection is enabled. Valid values:
+   * 
+   * *   **0**
+   * *   **5**
+   * *   **10**
+   * 
+   * @example
+   * 0
+   */
+  samplingSize?: number;
+  /**
+   * @remarks
+   * The security group that is used by PrivateLink when you install the DSC agent.
+   */
+  securityGroupIdList?: string[];
+  /**
+   * @remarks
+   * The region in which the data asset resides. Valid values:
+   * 
+   * *   **cn-beijing**: China (Beijing)
+   * *   **cn-zhangjiakou**: China (Zhangjiakou)
+   * *   **cn-huhehaote**: China (Hohhot)
+   * *   **cn-hangzhou**: China (Hangzhou)
+   * *   **cn-shanghai**: China (Shanghai)
+   * *   **cn-shenzhen**: China (Shenzhen)
+   * *   **cn-hongkong**: China (Hong Kong)
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  serviceRegionId?: string;
+  /**
+   * @remarks
+   * The username used to log on to the ApsaraDB RDS database that you authorize DSC to access.
+   * 
+   * @example
+   * User01
+   */
+  userName?: string;
+  /**
+   * @remarks
+   * The vSwitch that is used by PrivateLink when you install the DSC agent.
+   */
+  vSwitchIdList?: string[];
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) to which the data asset belongs.
+   * 
+   * @example
+   * vpc-2zevcqke6hh09c41****
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditStatus: 'AuditStatus',
+      autoScan: 'AutoScan',
+      engineType: 'EngineType',
+      featureType: 'FeatureType',
+      id: 'Id',
+      lang: 'Lang',
+      logStoreDay: 'LogStoreDay',
+      modifyPassword: 'ModifyPassword',
+      password: 'Password',
+      port: 'Port',
+      resourceType: 'ResourceType',
+      samplingSize: 'SamplingSize',
+      securityGroupIdList: 'SecurityGroupIdList',
+      serviceRegionId: 'ServiceRegionId',
+      userName: 'UserName',
+      vSwitchIdList: 'VSwitchIdList',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditStatus: 'number',
+      autoScan: 'number',
+      engineType: 'string',
+      featureType: 'number',
+      id: 'number',
+      lang: 'string',
+      logStoreDay: 'number',
+      modifyPassword: 'boolean',
+      password: 'string',
+      port: 'number',
+      resourceType: 'number',
+      samplingSize: 'number',
+      securityGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      serviceRegionId: 'string',
+      userName: 'string',
+      vSwitchIdList: { 'type': 'array', 'itemType': 'string' },
+      vpcId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.securityGroupIdList)) {
+      $dara.Model.validateArray(this.securityGroupIdList);
+    }
+    if(Array.isArray(this.vSwitchIdList)) {
+      $dara.Model.validateArray(this.vSwitchIdList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataLimitResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDataLimitResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDataLimitResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDataLimitResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDefaultLevelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The default sensitivity level of data that Data Security Center (DSC) cannot classify as sensitive or insensitive. Valid values:
+   * 
+   * *   **1**: N/A
+   * *   **2**: S1
+   * *   **3**: S2
+   * *   **4**: S3
+   * *   **5**: S4
+   * 
+   * @example
+   * 4
+   */
+  defaultId?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The sensitivity level ID of data that DSC classifies as sensitive. Separate multiple IDs with commas (,). Valid values:
+   * 
+   * *   **1**: N/A
+   * *   **2**: S1
+   * *   **3**: S2
+   * *   **4**: S3
+   * *   **5**: S4
+   * 
+   * @example
+   * 1,2,3,4
+   */
+  sensitiveIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultId: 'DefaultId',
+      lang: 'Lang',
+      sensitiveIds: 'SensitiveIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultId: 'number',
+      lang: 'string',
+      sensitiveIds: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDefaultLevelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDefaultLevelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDefaultLevelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDefaultLevelResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEventStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enhance the detection of anomalous events. If you enhance the detection of anomalous events, the detection accuracy and the rate of triggering alerts for anomalous events are improved. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no
+   * 
+   * @example
+   * true
+   */
+  backed?: boolean;
+  /**
+   * @remarks
+   * The reason why the anomalous event is handled.
+   * 
+   * @example
+   * Anomaly confirmed
+   */
+  dealReason?: string;
+  /**
+   * @remarks
+   * The ID of the anomalous event.
+   * 
+   * > You can call the **DescribeEvents** operation to query the ID of the anomalous event.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The method to handle the anomalous event. Valid values:
+   * 
+   * *   **1**: marks the anomalous event as a false positive.
+   * *   **2**: confirms and handles the anomalous event.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backed: 'Backed',
+      dealReason: 'DealReason',
+      id: 'Id',
+      lang: 'Lang',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backed: 'boolean',
+      dealReason: 'string',
+      id: 'number',
+      lang: 'string',
+      status: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEventStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 8491DBFD-48C0-4E11-B6FC-6F38921244A9
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEventStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyEventStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyEventStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEventTypeStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values: **zh** and **en**. The value zh indicates Chinese, and the value en indicates English.
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The ID of the anomalous event subtype. Separate multiple IDs with commas (,).
+   * 
+   * > You can call the **DescribeEventTypes** operation to query the ID of anomalous event subtype.
+   * 
+   * @example
+   * 020008
+   */
+  subTypeIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      featureType: 'FeatureType',
+      lang: 'Lang',
+      subTypeIds: 'SubTypeIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureType: 'number',
+      lang: 'string',
+      subTypeIds: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEventTypeStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 208B016D-4CB9-4A85-96A5-0B8ED1E*****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEventTypeStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyEventTypeStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyEventTypeStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyReportTaskStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * 1
+   */
+  featureType?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * Specifies the status of the report task. Valid values:
+   * 
+   * *   **0**: disabled
+   * *   **1**: enabled
+   * 
+   * > This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  reportTaskStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      featureType: 'FeatureType',
+      lang: 'Lang',
+      reportTaskStatus: 'ReportTaskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      featureType: 'number',
+      lang: 'string',
+      reportTaskStatus: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyReportTaskStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyReportTaskStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyReportTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyReportTaskStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The content type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **2**: regular expression
+   * *   **3**: algorithm
+   * *   **5**: keyword
+   * 
+   * @example
+   * 2
+   */
+  category?: number;
+  /**
+   * @remarks
+   * The content of the sensitive data detection rule. You can specify a regular expression, an algorithm, or keywords that are used to match sensitive fields or text.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * (?:\\\\D|^)((?:(?:25[0-4]|2[0-4]\\\\d|1\\\\d{2}|[1-9]\\\\d{1})\\\\.)(?:(?:25[0-5]|2[0-4]\\\\d|[01]?\\\\d?\\\\d)\\\\.){2}(?:25[0-5]|2[0-4]\\\\d|1[0-9]\\\\d|[1-9]\\\\d|[1-9]))(?:\\\\D|$)
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule.
+   * 
+   * You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the rule ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1****
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The match type. Valid values:
+   * 
+   * *   **1**: rule-based match
+   * *   **2**: dictionary-based match
+   * 
+   * @example
+   * 1
+   */
+  matchType?: number;
+  /**
+   * @remarks
+   * The IDs of the models for sensitive data audit.
+   * 
+   * @example
+   * 1452
+   */
+  modelRuleIds?: string;
+  /**
+   * @remarks
+   * The name of the sensitive data detection rule.
+   * 
+   * You can call the [DescribeRules](~~DescribeRules~~) operation to obtain the rule name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * esw
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The service to which the sensitive data detection rule is applied. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+   * 
+   * @example
+   * RDS
+   */
+  productCode?: string;
+  /**
+   * @remarks
+   * The ID of the service to which the sensitive data detection rule is applied. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+   * 
+   * @example
+   * 5
+   */
+  productId?: number;
+  /**
+   * @remarks
+   * The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: N/A, which indicates that no sensitive data is detected.
+   * *   **2**: S1, which indicates the low sensitivity level.
+   * *   **3**: S2, which indicates the medium sensitivity level.
+   * *   **4**: S3, which indicates the high sensitivity level.
+   * *   **5**: S4, which indicates the highest sensitivity level.
+   * 
+   * @example
+   * 2
+   */
+  riskLevelId?: number;
+  /**
+   * @remarks
+   * The type of the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: data detection rule
+   * *   **2**: audit rule
+   * *   **3**: anomalous event detection rule
+   * 
+   * @example
+   * 1
+   */
+  ruleType?: number;
+  /**
+   * @remarks
+   * The data assets supported by the sensitive data detection rule. Valid values:
+   * 
+   * *   **0**: all data assets
+   * *   **1**: structured data assets
+   * *   **2**: unstructured data assets
+   * 
+   * @example
+   * 1
+   */
+  supportForm?: number;
+  /**
+   * @remarks
+   * The IDs of the templates that are used to audit sensitive data.
+   * 
+   * @example
+   * 1
+   */
+  templateRuleIds?: string;
+  /**
+   * @remarks
+   * The risk level of the alert that is triggered by the sensitive data detection rule. Valid values:
+   * 
+   * *   **1**: low level
+   * *   **2**: medium level
+   * *   **3**: high level
+   * 
+   * @example
+   * 1
+   */
+  warnLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      content: 'Content',
+      id: 'Id',
+      lang: 'Lang',
+      matchType: 'MatchType',
+      modelRuleIds: 'ModelRuleIds',
+      name: 'Name',
+      productCode: 'ProductCode',
+      productId: 'ProductId',
+      riskLevelId: 'RiskLevelId',
+      ruleType: 'RuleType',
+      supportForm: 'SupportForm',
+      templateRuleIds: 'TemplateRuleIds',
+      warnLevel: 'WarnLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'number',
+      content: 'string',
+      id: 'number',
+      lang: 'string',
+      matchType: 'number',
+      modelRuleIds: 'string',
+      name: 'string',
+      productCode: 'string',
+      productId: 'number',
+      riskLevelId: 'number',
+      ruleType: 'number',
+      supportForm: 'number',
+      templateRuleIds: 'string',
+      warnLevel: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRuleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyRuleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRuleStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule.
+   * 
+   * > You can query the ID of the sensitive data detection rule by calling the **DescribeRules** operation.
+   * 
+   * @example
+   * 12341
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The ID of the sensitive data detection rule. Separate multiple IDs with commas (,).
+   * 
+   * > You can query the ID of the sensitive data detection rule by calling the **DescribeRules** operation.
+   * 
+   * @example
+   * 1,2,3,4
+   */
+  ids?: string;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh**: Chinese
+   * *   **en**: English
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable or disable the sensitive data detection rule. Valid values:
+   * 
+   * *   **0**: disables the sensitive data detection rule.
+   * *   **1**: enables the sensitive data detection rule.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      ids: 'Ids',
+      lang: 'Lang',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      ids: 'string',
+      lang: 'string',
+      status: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRuleStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of sensitive data detection rules whose status failed to be changed. Multiple IDs are separated with commas (,).
+   * 
+   * @example
+   * 1,2,3,4
+   */
+  failedIds?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failedIds: 'FailedIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedIds: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRuleStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRuleStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyRuleStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanOssObjectV1Request extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sddp-api-demo-bucket
+   */
+  bucketName?: string;
+  /**
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  objectKeyList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  serviceRegionId?: string;
+  /**
+   * @example
+   * 1
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      lang: 'Lang',
+      objectKeyList: 'ObjectKeyList',
+      serviceRegionId: 'ServiceRegionId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      lang: 'string',
+      objectKeyList: { 'type': 'array', 'itemType': 'string' },
+      serviceRegionId: 'string',
+      templateId: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.objectKeyList)) {
+      $dara.Model.validateArray(this.objectKeyList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanOssObjectV1ShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sddp-api-demo-bucket
+   */
+  bucketName?: string;
+  /**
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  objectKeyListShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  serviceRegionId?: string;
+  /**
+   * @example
+   * 1
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      lang: 'Lang',
+      objectKeyListShrink: 'ObjectKeyList',
+      serviceRegionId: 'ServiceRegionId',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      lang: 'string',
+      objectKeyListShrink: 'string',
+      serviceRegionId: 'string',
+      templateId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanOssObjectV1ResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 268
+   */
+  id?: number;
+  /**
+   * @example
+   * 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ScanOssObjectV1Response extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ScanOssObjectV1ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ScanOssObjectV1ResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopMaskingProcessRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The unique ID of the de-identification task. You can query the task ID by calling the [DescribeDataMaskingTasks](~~DescribeDataMaskingTasks~~) operation.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The language of the content within the request and response. Valid values:
+   * 
+   * *   **zh_cn**: Simplified Chinese (default)
+   * *   **en_us**: English
+   * 
+   * @example
+   * zh_cn
+   */
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      lang: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopMaskingProcessResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopMaskingProcessResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopMaskingProcessResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopMaskingProcessResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -14636,11 +16213,8 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._productId = "Sddp";
-    let gatewayClient = new GatewayClient();
-    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-hongkong': "sddp-api.cn-hongkong.aliyuncs.com",
@@ -14651,15 +16225,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -14674,37 +16248,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateConfigResponse
    */
-  async createConfigWithOptions(request: CreateConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateConfigResponse> {
-    Util.validateModel(request);
+  async createConfigWithOptions(request: CreateConfigRequest, runtime: $dara.RuntimeOptions): Promise<CreateConfigResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.code)) {
+    if (!$dara.isNull(request.code)) {
       query["Code"] = request.code;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.sourceIp)) {
+    if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
 
-    if (!Util.isUnset(request.value)) {
+    if (!$dara.isNull(request.value)) {
       query["Value"] = request.value;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateConfig",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -14715,10 +16289,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateConfigResponse>(await this.callApi(params, req, runtime), new CreateConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateConfigResponse>(await this.callApi(params, req, runtime), new CreateConfigResponse({}));
     } else {
-      return $tea.cast<CreateConfigResponse>(await this.execute(params, req, runtime), new CreateConfigResponse({}));
+      return $dara.cast<CreateConfigResponse>(await this.execute(params, req, runtime), new CreateConfigResponse({}));
     }
 
   }
@@ -14735,7 +16309,7 @@ export default class Client extends OpenApi {
    * @returns CreateConfigResponse
    */
   async createConfig(request: CreateConfigRequest): Promise<CreateConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createConfigWithOptions(request, runtime);
   }
 
@@ -14744,96 +16318,96 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
-   * # Limits
+   * ## [](#qps-)Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - CreateDataLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDataLimitResponse
    */
-  async createDataLimitWithOptions(request: CreateDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataLimitResponse> {
-    Util.validateModel(request);
+  async createDataLimitWithOptions(request: CreateDataLimitRequest, runtime: $dara.RuntimeOptions): Promise<CreateDataLimitResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.auditStatus)) {
+    if (!$dara.isNull(request.auditStatus)) {
       query["AuditStatus"] = request.auditStatus;
     }
 
-    if (!Util.isUnset(request.autoScan)) {
+    if (!$dara.isNull(request.autoScan)) {
       query["AutoScan"] = request.autoScan;
     }
 
-    if (!Util.isUnset(request.certificatePermission)) {
+    if (!$dara.isNull(request.certificatePermission)) {
       query["CertificatePermission"] = request.certificatePermission;
     }
 
-    if (!Util.isUnset(request.enable)) {
+    if (!$dara.isNull(request.enable)) {
       query["Enable"] = request.enable;
     }
 
-    if (!Util.isUnset(request.engineType)) {
+    if (!$dara.isNull(request.engineType)) {
       query["EngineType"] = request.engineType;
     }
 
-    if (!Util.isUnset(request.eventStatus)) {
+    if (!$dara.isNull(request.eventStatus)) {
       query["EventStatus"] = request.eventStatus;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.instantlyScan)) {
+    if (!$dara.isNull(request.instantlyScan)) {
       query["InstantlyScan"] = request.instantlyScan;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.logStoreDay)) {
+    if (!$dara.isNull(request.logStoreDay)) {
       query["LogStoreDay"] = request.logStoreDay;
     }
 
-    if (!Util.isUnset(request.ocrStatus)) {
+    if (!$dara.isNull(request.ocrStatus)) {
       query["OcrStatus"] = request.ocrStatus;
     }
 
-    if (!Util.isUnset(request.parentId)) {
+    if (!$dara.isNull(request.parentId)) {
       query["ParentId"] = request.parentId;
     }
 
-    if (!Util.isUnset(request.password)) {
+    if (!$dara.isNull(request.password)) {
       query["Password"] = request.password;
     }
 
-    if (!Util.isUnset(request.port)) {
+    if (!$dara.isNull(request.port)) {
       query["Port"] = request.port;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.samplingSize)) {
+    if (!$dara.isNull(request.samplingSize)) {
       query["SamplingSize"] = request.samplingSize;
     }
 
-    if (!Util.isUnset(request.serviceRegionId)) {
+    if (!$dara.isNull(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
-    if (!Util.isUnset(request.sourceIp)) {
+    if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
 
-    if (!Util.isUnset(request.userName)) {
+    if (!$dara.isNull(request.userName)) {
       query["UserName"] = request.userName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateDataLimit",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -14844,10 +16418,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateDataLimitResponse>(await this.callApi(params, req, runtime), new CreateDataLimitResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDataLimitResponse>(await this.callApi(params, req, runtime), new CreateDataLimitResponse({}));
     } else {
-      return $tea.cast<CreateDataLimitResponse>(await this.execute(params, req, runtime), new CreateDataLimitResponse({}));
+      return $dara.cast<CreateDataLimitResponse>(await this.execute(params, req, runtime), new CreateDataLimitResponse({}));
     }
 
   }
@@ -14857,14 +16431,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
-   * # Limits
+   * ## [](#qps-)Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - CreateDataLimitRequest
    * @returns CreateDataLimitResponse
    */
   async createDataLimit(request: CreateDataLimitRequest): Promise<CreateDataLimitResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createDataLimitWithOptions(request, runtime);
   }
 
@@ -14875,81 +16449,89 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateRuleResponse
    */
-  async createRuleWithOptions(request: CreateRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRuleResponse> {
-    Util.validateModel(request);
+  async createRuleWithOptions(request: CreateRuleRequest, runtime: $dara.RuntimeOptions): Promise<CreateRuleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.category)) {
+    if (!$dara.isNull(request.category)) {
       query["Category"] = request.category;
     }
 
-    if (!Util.isUnset(request.content)) {
+    if (!$dara.isNull(request.content)) {
       query["Content"] = request.content;
     }
 
-    if (!Util.isUnset(request.contentCategory)) {
+    if (!$dara.isNull(request.contentCategory)) {
       query["ContentCategory"] = request.contentCategory;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.matchType)) {
+    if (!$dara.isNull(request.matchType)) {
       query["MatchType"] = request.matchType;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.modelRuleIds)) {
+      query["ModelRuleIds"] = request.modelRuleIds;
+    }
+
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.productCode)) {
+    if (!$dara.isNull(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
 
-    if (!Util.isUnset(request.productId)) {
+    if (!$dara.isNull(request.productId)) {
       query["ProductId"] = request.productId;
     }
 
-    if (!Util.isUnset(request.riskLevelId)) {
+    if (!$dara.isNull(request.riskLevelId)) {
       query["RiskLevelId"] = request.riskLevelId;
     }
 
-    if (!Util.isUnset(request.ruleType)) {
+    if (!$dara.isNull(request.ruleType)) {
       query["RuleType"] = request.ruleType;
     }
 
-    if (!Util.isUnset(request.sourceIp)) {
+    if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
 
-    if (!Util.isUnset(request.statExpress)) {
+    if (!$dara.isNull(request.statExpress)) {
       query["StatExpress"] = request.statExpress;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.supportForm)) {
+    if (!$dara.isNull(request.supportForm)) {
       query["SupportForm"] = request.supportForm;
     }
 
-    if (!Util.isUnset(request.target)) {
+    if (!$dara.isNull(request.target)) {
       query["Target"] = request.target;
     }
 
-    if (!Util.isUnset(request.warnLevel)) {
+    if (!$dara.isNull(request.templateRuleIds)) {
+      query["TemplateRuleIds"] = request.templateRuleIds;
+    }
+
+    if (!$dara.isNull(request.warnLevel)) {
       query["WarnLevel"] = request.warnLevel;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateRule",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -14960,10 +16542,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateRuleResponse>(await this.callApi(params, req, runtime), new CreateRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateRuleResponse>(await this.callApi(params, req, runtime), new CreateRuleResponse({}));
     } else {
-      return $tea.cast<CreateRuleResponse>(await this.execute(params, req, runtime), new CreateRuleResponse({}));
+      return $dara.cast<CreateRuleResponse>(await this.execute(params, req, runtime), new CreateRuleResponse({}));
     }
 
   }
@@ -14975,7 +16557,7 @@ export default class Client extends OpenApi {
    * @returns CreateRuleResponse
    */
   async createRule(request: CreateRuleRequest): Promise<CreateRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createRuleWithOptions(request, runtime);
   }
 
@@ -14991,65 +16573,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateScanTaskResponse
    */
-  async createScanTaskWithOptions(request: CreateScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateScanTaskResponse> {
-    Util.validateModel(request);
+  async createScanTaskWithOptions(request: CreateScanTaskRequest, runtime: $dara.RuntimeOptions): Promise<CreateScanTaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dataLimitId)) {
+    if (!$dara.isNull(request.dataLimitId)) {
       query["DataLimitId"] = request.dataLimitId;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.intervalDay)) {
+    if (!$dara.isNull(request.intervalDay)) {
       query["IntervalDay"] = request.intervalDay;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.ossScanPath)) {
+    if (!$dara.isNull(request.ossScanPath)) {
       query["OssScanPath"] = request.ossScanPath;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.runHour)) {
+    if (!$dara.isNull(request.runHour)) {
       query["RunHour"] = request.runHour;
     }
 
-    if (!Util.isUnset(request.runMinute)) {
+    if (!$dara.isNull(request.runMinute)) {
       query["RunMinute"] = request.runMinute;
     }
 
-    if (!Util.isUnset(request.scanRange)) {
+    if (!$dara.isNull(request.scanRange)) {
       query["ScanRange"] = request.scanRange;
     }
 
-    if (!Util.isUnset(request.scanRangeContent)) {
+    if (!$dara.isNull(request.scanRangeContent)) {
       query["ScanRangeContent"] = request.scanRangeContent;
     }
 
-    if (!Util.isUnset(request.sourceIp)) {
+    if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
 
-    if (!Util.isUnset(request.taskName)) {
+    if (!$dara.isNull(request.taskName)) {
       query["TaskName"] = request.taskName;
     }
 
-    if (!Util.isUnset(request.taskUserName)) {
+    if (!$dara.isNull(request.taskUserName)) {
       query["TaskUserName"] = request.taskUserName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateScanTask",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -15060,10 +16642,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateScanTaskResponse>(await this.callApi(params, req, runtime), new CreateScanTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateScanTaskResponse>(await this.callApi(params, req, runtime), new CreateScanTaskResponse({}));
     } else {
-      return $tea.cast<CreateScanTaskResponse>(await this.execute(params, req, runtime), new CreateScanTaskResponse({}));
+      return $dara.cast<CreateScanTaskResponse>(await this.execute(params, req, runtime), new CreateScanTaskResponse({}));
     }
 
   }
@@ -15080,7 +16662,7 @@ export default class Client extends OpenApi {
    * @returns CreateScanTaskResponse
    */
   async createScanTask(request: CreateScanTaskRequest): Promise<CreateScanTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createScanTaskWithOptions(request, runtime);
   }
 
@@ -15096,25 +16678,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSlrRoleResponse
    */
-  async createSlrRoleWithOptions(request: CreateSlrRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateSlrRoleResponse> {
-    Util.validateModel(request);
+  async createSlrRoleWithOptions(request: CreateSlrRoleRequest, runtime: $dara.RuntimeOptions): Promise<CreateSlrRoleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.sourceIp)) {
+    if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateSlrRole",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -15125,10 +16707,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateSlrRoleResponse>(await this.callApi(params, req, runtime), new CreateSlrRoleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSlrRoleResponse>(await this.callApi(params, req, runtime), new CreateSlrRoleResponse({}));
     } else {
-      return $tea.cast<CreateSlrRoleResponse>(await this.execute(params, req, runtime), new CreateSlrRoleResponse({}));
+      return $dara.cast<CreateSlrRoleResponse>(await this.execute(params, req, runtime), new CreateSlrRoleResponse({}));
     }
 
   }
@@ -15145,7 +16727,7 @@ export default class Client extends OpenApi {
    * @returns CreateSlrRoleResponse
    */
   async createSlrRole(request: CreateSlrRoleRequest): Promise<CreateSlrRoleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createSlrRoleWithOptions(request, runtime);
   }
 
@@ -15161,29 +16743,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDataLimitResponse
    */
-  async deleteDataLimitWithOptions(request: DeleteDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataLimitResponse> {
-    Util.validateModel(request);
+  async deleteDataLimitWithOptions(request: DeleteDataLimitRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDataLimitResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.sourceIp)) {
+    if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDataLimit",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -15194,10 +16776,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteDataLimitResponse>(await this.callApi(params, req, runtime), new DeleteDataLimitResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDataLimitResponse>(await this.callApi(params, req, runtime), new DeleteDataLimitResponse({}));
     } else {
-      return $tea.cast<DeleteDataLimitResponse>(await this.execute(params, req, runtime), new DeleteDataLimitResponse({}));
+      return $dara.cast<DeleteDataLimitResponse>(await this.execute(params, req, runtime), new DeleteDataLimitResponse({}));
     }
 
   }
@@ -15214,7 +16796,7 @@ export default class Client extends OpenApi {
    * @returns DeleteDataLimitResponse
    */
   async deleteDataLimit(request: DeleteDataLimitRequest): Promise<DeleteDataLimitResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDataLimitWithOptions(request, runtime);
   }
 
@@ -15225,29 +16807,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteRuleResponse
    */
-  async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleResponse> {
-    Util.validateModel(request);
+  async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $dara.RuntimeOptions): Promise<DeleteRuleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.sourceIp)) {
+    if (!$dara.isNull(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteRule",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -15258,10 +16840,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteRuleResponse>(await this.callApi(params, req, runtime), new DeleteRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteRuleResponse>(await this.callApi(params, req, runtime), new DeleteRuleResponse({}));
     } else {
-      return $tea.cast<DeleteRuleResponse>(await this.execute(params, req, runtime), new DeleteRuleResponse({}));
+      return $dara.cast<DeleteRuleResponse>(await this.execute(params, req, runtime), new DeleteRuleResponse({}));
     }
 
   }
@@ -15273,7 +16855,7 @@ export default class Client extends OpenApi {
    * @returns DeleteRuleResponse
    */
   async deleteRule(request: DeleteRuleRequest): Promise<DeleteRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRuleWithOptions(request, runtime);
   }
 
@@ -15282,33 +16864,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCategoryTemplateListResponse
    */
-  async describeCategoryTemplateListWithOptions(request: DescribeCategoryTemplateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCategoryTemplateListResponse> {
-    Util.validateModel(request);
+  async describeCategoryTemplateListWithOptions(request: DescribeCategoryTemplateListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeCategoryTemplateListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.usageScenario)) {
+    if (!$dara.isNull(request.usageScenario)) {
       query["UsageScenario"] = request.usageScenario;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeCategoryTemplateList",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -15319,10 +16901,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeCategoryTemplateListResponse>(await this.callApi(params, req, runtime), new DescribeCategoryTemplateListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeCategoryTemplateListResponse>(await this.callApi(params, req, runtime), new DescribeCategoryTemplateListResponse({}));
     } else {
-      return $tea.cast<DescribeCategoryTemplateListResponse>(await this.execute(params, req, runtime), new DescribeCategoryTemplateListResponse({}));
+      return $dara.cast<DescribeCategoryTemplateListResponse>(await this.execute(params, req, runtime), new DescribeCategoryTemplateListResponse({}));
     }
 
   }
@@ -15332,7 +16914,7 @@ export default class Client extends OpenApi {
    * @returns DescribeCategoryTemplateListResponse
    */
   async describeCategoryTemplateList(request: DescribeCategoryTemplateListRequest): Promise<DescribeCategoryTemplateListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCategoryTemplateListWithOptions(request, runtime);
   }
 
@@ -15348,37 +16930,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCategoryTemplateRuleListResponse
    */
-  async describeCategoryTemplateRuleListWithOptions(request: DescribeCategoryTemplateRuleListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCategoryTemplateRuleListResponse> {
-    Util.validateModel(request);
+  async describeCategoryTemplateRuleListWithOptions(request: DescribeCategoryTemplateRuleListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeCategoryTemplateRuleListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.riskLevelId)) {
+    if (!$dara.isNull(request.riskLevelId)) {
       query["RiskLevelId"] = request.riskLevelId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeCategoryTemplateRuleList",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -15389,10 +16971,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeCategoryTemplateRuleListResponse>(await this.callApi(params, req, runtime), new DescribeCategoryTemplateRuleListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeCategoryTemplateRuleListResponse>(await this.callApi(params, req, runtime), new DescribeCategoryTemplateRuleListResponse({}));
     } else {
-      return $tea.cast<DescribeCategoryTemplateRuleListResponse>(await this.execute(params, req, runtime), new DescribeCategoryTemplateRuleListResponse({}));
+      return $dara.cast<DescribeCategoryTemplateRuleListResponse>(await this.execute(params, req, runtime), new DescribeCategoryTemplateRuleListResponse({}));
     }
 
   }
@@ -15409,7 +16991,7 @@ export default class Client extends OpenApi {
    * @returns DescribeCategoryTemplateRuleListResponse
    */
   async describeCategoryTemplateRuleList(request: DescribeCategoryTemplateRuleListRequest): Promise<DescribeCategoryTemplateRuleListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCategoryTemplateRuleListWithOptions(request, runtime);
   }
 
@@ -15427,85 +17009,85 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeColumnsResponse
    */
-  async describeColumnsWithOptions(request: DescribeColumnsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeColumnsResponse> {
-    Util.validateModel(request);
+  async describeColumnsWithOptions(request: DescribeColumnsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeColumnsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.engineType)) {
+    if (!$dara.isNull(request.engineType)) {
       query["EngineType"] = request.engineType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.modelTagId)) {
+    if (!$dara.isNull(request.modelTagId)) {
       query["ModelTagId"] = request.modelTagId;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productCode)) {
+    if (!$dara.isNull(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
 
-    if (!Util.isUnset(request.productId)) {
+    if (!$dara.isNull(request.productId)) {
       query["ProductId"] = request.productId;
     }
 
-    if (!Util.isUnset(request.riskLevelId)) {
+    if (!$dara.isNull(request.riskLevelId)) {
       query["RiskLevelId"] = request.riskLevelId;
     }
 
-    if (!Util.isUnset(request.ruleId)) {
+    if (!$dara.isNull(request.ruleId)) {
       query["RuleId"] = request.ruleId;
     }
 
-    if (!Util.isUnset(request.ruleName)) {
+    if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
     }
 
-    if (!Util.isUnset(request.sensLevelName)) {
+    if (!$dara.isNull(request.sensLevelName)) {
       query["SensLevelName"] = request.sensLevelName;
     }
 
-    if (!Util.isUnset(request.tableId)) {
+    if (!$dara.isNull(request.tableId)) {
       query["TableId"] = request.tableId;
     }
 
-    if (!Util.isUnset(request.tableName)) {
+    if (!$dara.isNull(request.tableName)) {
       query["TableName"] = request.tableName;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    if (!Util.isUnset(request.templateRuleId)) {
+    if (!$dara.isNull(request.templateRuleId)) {
       query["TemplateRuleId"] = request.templateRuleId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeColumns",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -15516,10 +17098,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeColumnsResponse>(await this.callApi(params, req, runtime), new DescribeColumnsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeColumnsResponse>(await this.callApi(params, req, runtime), new DescribeColumnsResponse({}));
     } else {
-      return $tea.cast<DescribeColumnsResponse>(await this.execute(params, req, runtime), new DescribeColumnsResponse({}));
+      return $dara.cast<DescribeColumnsResponse>(await this.execute(params, req, runtime), new DescribeColumnsResponse({}));
     }
 
   }
@@ -15538,7 +17120,7 @@ export default class Client extends OpenApi {
    * @returns DescribeColumnsResponse
    */
   async describeColumns(request: DescribeColumnsRequest): Promise<DescribeColumnsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeColumnsWithOptions(request, runtime);
   }
 
@@ -15549,65 +17131,69 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeColumnsV2Response
    */
-  async describeColumnsV2WithOptions(request: DescribeColumnsV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeColumnsV2Response> {
-    Util.validateModel(request);
+  async describeColumnsV2WithOptions(request: DescribeColumnsV2Request, runtime: $dara.RuntimeOptions): Promise<DescribeColumnsV2Response> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productCode)) {
+    if (!$dara.isNull(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
 
-    if (!Util.isUnset(request.riskLevelId)) {
+    if (!$dara.isNull(request.riskLevelId)) {
       query["RiskLevelId"] = request.riskLevelId;
     }
 
-    if (!Util.isUnset(request.ruleId)) {
+    if (!$dara.isNull(request.ruleId)) {
       query["RuleId"] = request.ruleId;
     }
 
-    if (!Util.isUnset(request.ruleName)) {
+    if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
     }
 
-    if (!Util.isUnset(request.sensLevelName)) {
+    if (!$dara.isNull(request.sensLevelName)) {
       query["SensLevelName"] = request.sensLevelName;
     }
 
-    if (!Util.isUnset(request.tableId)) {
+    if (!$dara.isNull(request.tableId)) {
       query["TableId"] = request.tableId;
     }
 
-    if (!Util.isUnset(request.tableName)) {
+    if (!$dara.isNull(request.tableName)) {
       query["TableName"] = request.tableName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeColumnsV2",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -15618,10 +17204,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeColumnsV2Response>(await this.callApi(params, req, runtime), new DescribeColumnsV2Response({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeColumnsV2Response>(await this.callApi(params, req, runtime), new DescribeColumnsV2Response({}));
     } else {
-      return $tea.cast<DescribeColumnsV2Response>(await this.execute(params, req, runtime), new DescribeColumnsV2Response({}));
+      return $dara.cast<DescribeColumnsV2Response>(await this.execute(params, req, runtime), new DescribeColumnsV2Response({}));
     }
 
   }
@@ -15633,7 +17219,7 @@ export default class Client extends OpenApi {
    * @returns DescribeColumnsV2Response
    */
   async describeColumnsV2(request: DescribeColumnsV2Request): Promise<DescribeColumnsV2Response> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeColumnsV2WithOptions(request, runtime);
   }
 
@@ -15644,17 +17230,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeConfigsResponse
    */
-  async describeConfigsWithOptions(request: DescribeConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigsResponse> {
-    Util.validateModel(request);
+  async describeConfigsWithOptions(request: DescribeConfigsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeConfigsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeConfigs",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -15665,10 +17251,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeConfigsResponse>(await this.callApi(params, req, runtime), new DescribeConfigsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeConfigsResponse>(await this.callApi(params, req, runtime), new DescribeConfigsResponse({}));
     } else {
-      return $tea.cast<DescribeConfigsResponse>(await this.execute(params, req, runtime), new DescribeConfigsResponse({}));
+      return $dara.cast<DescribeConfigsResponse>(await this.execute(params, req, runtime), new DescribeConfigsResponse({}));
     }
 
   }
@@ -15680,7 +17266,7 @@ export default class Client extends OpenApi {
    * @returns DescribeConfigsResponse
    */
   async describeConfigs(request: DescribeConfigsRequest): Promise<DescribeConfigsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeConfigsWithOptions(request, runtime);
   }
 
@@ -15691,41 +17277,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDataAssetsResponse
    */
-  async describeDataAssetsWithOptions(request: DescribeDataAssetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataAssetsResponse> {
-    Util.validateModel(request);
+  async describeDataAssetsWithOptions(request: DescribeDataAssetsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDataAssetsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.rangeId)) {
+    if (!$dara.isNull(request.rangeId)) {
       query["RangeId"] = request.rangeId;
     }
 
-    if (!Util.isUnset(request.riskLevels)) {
+    if (!$dara.isNull(request.riskLevels)) {
       query["RiskLevels"] = request.riskLevels;
     }
 
-    if (!Util.isUnset(request.ruleId)) {
+    if (!$dara.isNull(request.ruleId)) {
       query["RuleId"] = request.ruleId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDataAssets",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -15736,10 +17322,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDataAssetsResponse>(await this.callApi(params, req, runtime), new DescribeDataAssetsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDataAssetsResponse>(await this.callApi(params, req, runtime), new DescribeDataAssetsResponse({}));
     } else {
-      return $tea.cast<DescribeDataAssetsResponse>(await this.execute(params, req, runtime), new DescribeDataAssetsResponse({}));
+      return $dara.cast<DescribeDataAssetsResponse>(await this.execute(params, req, runtime), new DescribeDataAssetsResponse({}));
     }
 
   }
@@ -15751,7 +17337,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDataAssetsResponse
    */
   async describeDataAssets(request: DescribeDataAssetsRequest): Promise<DescribeDataAssetsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDataAssetsWithOptions(request, runtime);
   }
 
@@ -15762,29 +17348,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDataLimitDetailResponse
    */
-  async describeDataLimitDetailWithOptions(request: DescribeDataLimitDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitDetailResponse> {
-    Util.validateModel(request);
+  async describeDataLimitDetailWithOptions(request: DescribeDataLimitDetailRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDataLimitDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.networkType)) {
+    if (!$dara.isNull(request.networkType)) {
       query["NetworkType"] = request.networkType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDataLimitDetail",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -15795,10 +17381,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDataLimitDetailResponse>(await this.callApi(params, req, runtime), new DescribeDataLimitDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDataLimitDetailResponse>(await this.callApi(params, req, runtime), new DescribeDataLimitDetailResponse({}));
     } else {
-      return $tea.cast<DescribeDataLimitDetailResponse>(await this.execute(params, req, runtime), new DescribeDataLimitDetailResponse({}));
+      return $dara.cast<DescribeDataLimitDetailResponse>(await this.execute(params, req, runtime), new DescribeDataLimitDetailResponse({}));
     }
 
   }
@@ -15810,7 +17396,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDataLimitDetailResponse
    */
   async describeDataLimitDetail(request: DescribeDataLimitDetailRequest): Promise<DescribeDataLimitDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDataLimitDetailWithOptions(request, runtime);
   }
 
@@ -15826,29 +17412,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDataLimitSetResponse
    */
-  async describeDataLimitSetWithOptions(request: DescribeDataLimitSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitSetResponse> {
-    Util.validateModel(request);
+  async describeDataLimitSetWithOptions(request: DescribeDataLimitSetRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDataLimitSetResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.parentId)) {
+    if (!$dara.isNull(request.parentId)) {
       query["ParentId"] = request.parentId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDataLimitSet",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -15859,10 +17445,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDataLimitSetResponse>(await this.callApi(params, req, runtime), new DescribeDataLimitSetResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDataLimitSetResponse>(await this.callApi(params, req, runtime), new DescribeDataLimitSetResponse({}));
     } else {
-      return $tea.cast<DescribeDataLimitSetResponse>(await this.execute(params, req, runtime), new DescribeDataLimitSetResponse({}));
+      return $dara.cast<DescribeDataLimitSetResponse>(await this.execute(params, req, runtime), new DescribeDataLimitSetResponse({}));
     }
 
   }
@@ -15879,7 +17465,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDataLimitSetResponse
    */
   async describeDataLimitSet(request: DescribeDataLimitSetRequest): Promise<DescribeDataLimitSetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDataLimitSetWithOptions(request, runtime);
   }
 
@@ -15890,73 +17476,73 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDataLimitsResponse
    */
-  async describeDataLimitsWithOptions(request: DescribeDataLimitsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitsResponse> {
-    Util.validateModel(request);
+  async describeDataLimitsWithOptions(request: DescribeDataLimitsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDataLimitsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.auditStatus)) {
+    if (!$dara.isNull(request.auditStatus)) {
       query["AuditStatus"] = request.auditStatus;
     }
 
-    if (!Util.isUnset(request.checkStatus)) {
+    if (!$dara.isNull(request.checkStatus)) {
       query["CheckStatus"] = request.checkStatus;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.datamaskStatus)) {
+    if (!$dara.isNull(request.datamaskStatus)) {
       query["DatamaskStatus"] = request.datamaskStatus;
     }
 
-    if (!Util.isUnset(request.enable)) {
+    if (!$dara.isNull(request.enable)) {
       query["Enable"] = request.enable;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.engineType)) {
+    if (!$dara.isNull(request.engineType)) {
       query["EngineType"] = request.engineType;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.memberAccount)) {
+    if (!$dara.isNull(request.memberAccount)) {
       query["MemberAccount"] = request.memberAccount;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.parentId)) {
+    if (!$dara.isNull(request.parentId)) {
       query["ParentId"] = request.parentId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.serviceRegionId)) {
+    if (!$dara.isNull(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDataLimits",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -15967,10 +17553,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDataLimitsResponse>(await this.callApi(params, req, runtime), new DescribeDataLimitsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDataLimitsResponse>(await this.callApi(params, req, runtime), new DescribeDataLimitsResponse({}));
     } else {
-      return $tea.cast<DescribeDataLimitsResponse>(await this.execute(params, req, runtime), new DescribeDataLimitsResponse({}));
+      return $dara.cast<DescribeDataLimitsResponse>(await this.execute(params, req, runtime), new DescribeDataLimitsResponse({}));
     }
 
   }
@@ -15982,7 +17568,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDataLimitsResponse
    */
   async describeDataLimits(request: DescribeDataLimitsRequest): Promise<DescribeDataLimitsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDataLimitsWithOptions(request, runtime);
   }
 
@@ -15998,57 +17584,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDataMaskingRunHistoryResponse
    */
-  async describeDataMaskingRunHistoryWithOptions(request: DescribeDataMaskingRunHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataMaskingRunHistoryResponse> {
-    Util.validateModel(request);
+  async describeDataMaskingRunHistoryWithOptions(request: DescribeDataMaskingRunHistoryRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDataMaskingRunHistoryResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.dstType)) {
+    if (!$dara.isNull(request.dstType)) {
       query["DstType"] = request.dstType;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.mainProcessId)) {
+    if (!$dara.isNull(request.mainProcessId)) {
       query["MainProcessId"] = request.mainProcessId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.srcTableName)) {
+    if (!$dara.isNull(request.srcTableName)) {
       query["SrcTableName"] = request.srcTableName;
     }
 
-    if (!Util.isUnset(request.srcType)) {
+    if (!$dara.isNull(request.srcType)) {
       query["SrcType"] = request.srcType;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.taskId)) {
+    if (!$dara.isNull(request.taskId)) {
       query["TaskId"] = request.taskId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDataMaskingRunHistory",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -16059,10 +17645,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDataMaskingRunHistoryResponse>(await this.callApi(params, req, runtime), new DescribeDataMaskingRunHistoryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDataMaskingRunHistoryResponse>(await this.callApi(params, req, runtime), new DescribeDataMaskingRunHistoryResponse({}));
     } else {
-      return $tea.cast<DescribeDataMaskingRunHistoryResponse>(await this.execute(params, req, runtime), new DescribeDataMaskingRunHistoryResponse({}));
+      return $dara.cast<DescribeDataMaskingRunHistoryResponse>(await this.execute(params, req, runtime), new DescribeDataMaskingRunHistoryResponse({}));
     }
 
   }
@@ -16079,7 +17665,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDataMaskingRunHistoryResponse
    */
   async describeDataMaskingRunHistory(request: DescribeDataMaskingRunHistoryRequest): Promise<DescribeDataMaskingRunHistoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDataMaskingRunHistoryWithOptions(request, runtime);
   }
 
@@ -16095,41 +17681,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDataMaskingTasksResponse
    */
-  async describeDataMaskingTasksWithOptions(request: DescribeDataMaskingTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataMaskingTasksResponse> {
-    Util.validateModel(request);
+  async describeDataMaskingTasksWithOptions(request: DescribeDataMaskingTasksRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDataMaskingTasksResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.dstType)) {
+    if (!$dara.isNull(request.dstType)) {
       query["DstType"] = request.dstType;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.searchKey)) {
+    if (!$dara.isNull(request.searchKey)) {
       query["SearchKey"] = request.searchKey;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDataMaskingTasks",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -16140,10 +17726,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDataMaskingTasksResponse>(await this.callApi(params, req, runtime), new DescribeDataMaskingTasksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDataMaskingTasksResponse>(await this.callApi(params, req, runtime), new DescribeDataMaskingTasksResponse({}));
     } else {
-      return $tea.cast<DescribeDataMaskingTasksResponse>(await this.execute(params, req, runtime), new DescribeDataMaskingTasksResponse({}));
+      return $dara.cast<DescribeDataMaskingTasksResponse>(await this.execute(params, req, runtime), new DescribeDataMaskingTasksResponse({}));
     }
 
   }
@@ -16160,7 +17746,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDataMaskingTasksResponse
    */
   async describeDataMaskingTasks(request: DescribeDataMaskingTasksRequest): Promise<DescribeDataMaskingTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDataMaskingTasksWithOptions(request, runtime);
   }
 
@@ -16171,41 +17757,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDataObjectColumnDetailResponse
    */
-  async describeDataObjectColumnDetailWithOptions(request: DescribeDataObjectColumnDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataObjectColumnDetailResponse> {
-    Util.validateModel(request);
+  async describeDataObjectColumnDetailWithOptions(request: DescribeDataObjectColumnDetailRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDataObjectColumnDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productId)) {
+    if (!$dara.isNull(request.productId)) {
       query["ProductId"] = request.productId;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDataObjectColumnDetail",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -16216,10 +17802,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDataObjectColumnDetailResponse>(await this.callApi(params, req, runtime), new DescribeDataObjectColumnDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDataObjectColumnDetailResponse>(await this.callApi(params, req, runtime), new DescribeDataObjectColumnDetailResponse({}));
     } else {
-      return $tea.cast<DescribeDataObjectColumnDetailResponse>(await this.execute(params, req, runtime), new DescribeDataObjectColumnDetailResponse({}));
+      return $dara.cast<DescribeDataObjectColumnDetailResponse>(await this.execute(params, req, runtime), new DescribeDataObjectColumnDetailResponse({}));
     }
 
   }
@@ -16231,7 +17817,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDataObjectColumnDetailResponse
    */
   async describeDataObjectColumnDetail(request: DescribeDataObjectColumnDetailRequest): Promise<DescribeDataObjectColumnDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDataObjectColumnDetailWithOptions(request, runtime);
   }
 
@@ -16242,41 +17828,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDataObjectColumnDetailV2Response
    */
-  async describeDataObjectColumnDetailV2WithOptions(request: DescribeDataObjectColumnDetailV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeDataObjectColumnDetailV2Response> {
-    Util.validateModel(request);
+  async describeDataObjectColumnDetailV2WithOptions(request: DescribeDataObjectColumnDetailV2Request, runtime: $dara.RuntimeOptions): Promise<DescribeDataObjectColumnDetailV2Response> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productId)) {
+    if (!$dara.isNull(request.productId)) {
       query["ProductId"] = request.productId;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDataObjectColumnDetailV2",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -16287,10 +17873,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDataObjectColumnDetailV2Response>(await this.callApi(params, req, runtime), new DescribeDataObjectColumnDetailV2Response({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDataObjectColumnDetailV2Response>(await this.callApi(params, req, runtime), new DescribeDataObjectColumnDetailV2Response({}));
     } else {
-      return $tea.cast<DescribeDataObjectColumnDetailV2Response>(await this.execute(params, req, runtime), new DescribeDataObjectColumnDetailV2Response({}));
+      return $dara.cast<DescribeDataObjectColumnDetailV2Response>(await this.execute(params, req, runtime), new DescribeDataObjectColumnDetailV2Response({}));
     }
 
   }
@@ -16302,7 +17888,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDataObjectColumnDetailV2Response
    */
   async describeDataObjectColumnDetailV2(request: DescribeDataObjectColumnDetailV2Request): Promise<DescribeDataObjectColumnDetailV2Response> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDataObjectColumnDetailV2WithOptions(request, runtime);
   }
 
@@ -16313,81 +17899,81 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDataObjectsResponse
    */
-  async describeDataObjectsWithOptions(request: DescribeDataObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataObjectsResponse> {
-    Util.validateModel(request);
+  async describeDataObjectsWithOptions(request: DescribeDataObjectsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDataObjectsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.domainId)) {
+    if (!$dara.isNull(request.domainId)) {
       query["DomainId"] = request.domainId;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.fileCategoryCode)) {
+    if (!$dara.isNull(request.fileCategoryCode)) {
       query["FileCategoryCode"] = request.fileCategoryCode;
     }
 
-    if (!Util.isUnset(request.fileType)) {
+    if (!$dara.isNull(request.fileType)) {
       query["FileType"] = request.fileType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.memberAccount)) {
+    if (!$dara.isNull(request.memberAccount)) {
       query["MemberAccount"] = request.memberAccount;
     }
 
-    if (!Util.isUnset(request.modelIds)) {
+    if (!$dara.isNull(request.modelIds)) {
       query["ModelIds"] = request.modelIds;
     }
 
-    if (!Util.isUnset(request.modelTagIds)) {
+    if (!$dara.isNull(request.modelTagIds)) {
       query["ModelTagIds"] = request.modelTagIds;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.parentCategoryIds)) {
+    if (!$dara.isNull(request.parentCategoryIds)) {
       query["ParentCategoryIds"] = request.parentCategoryIds;
     }
 
-    if (!Util.isUnset(request.productIds)) {
+    if (!$dara.isNull(request.productIds)) {
       query["ProductIds"] = request.productIds;
     }
 
-    if (!Util.isUnset(request.queryName)) {
+    if (!$dara.isNull(request.queryName)) {
       query["QueryName"] = request.queryName;
     }
 
-    if (!Util.isUnset(request.riskLevels)) {
+    if (!$dara.isNull(request.riskLevels)) {
       query["RiskLevels"] = request.riskLevels;
     }
 
-    if (!Util.isUnset(request.serviceRegionId)) {
+    if (!$dara.isNull(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDataObjects",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -16398,10 +17984,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDataObjectsResponse>(await this.callApi(params, req, runtime), new DescribeDataObjectsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDataObjectsResponse>(await this.callApi(params, req, runtime), new DescribeDataObjectsResponse({}));
     } else {
-      return $tea.cast<DescribeDataObjectsResponse>(await this.execute(params, req, runtime), new DescribeDataObjectsResponse({}));
+      return $dara.cast<DescribeDataObjectsResponse>(await this.execute(params, req, runtime), new DescribeDataObjectsResponse({}));
     }
 
   }
@@ -16413,7 +17999,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDataObjectsResponse
    */
   async describeDataObjects(request: DescribeDataObjectsRequest): Promise<DescribeDataObjectsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDataObjectsWithOptions(request, runtime);
   }
 
@@ -16422,17 +18008,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDocTypesResponse
    */
-  async describeDocTypesWithOptions(request: DescribeDocTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDocTypesResponse> {
-    Util.validateModel(request);
+  async describeDocTypesWithOptions(request: DescribeDocTypesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDocTypesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDocTypes",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -16443,10 +18029,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeDocTypesResponse>(await this.callApi(params, req, runtime), new DescribeDocTypesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDocTypesResponse>(await this.callApi(params, req, runtime), new DescribeDocTypesResponse({}));
     } else {
-      return $tea.cast<DescribeDocTypesResponse>(await this.execute(params, req, runtime), new DescribeDocTypesResponse({}));
+      return $dara.cast<DescribeDocTypesResponse>(await this.execute(params, req, runtime), new DescribeDocTypesResponse({}));
     }
 
   }
@@ -16456,7 +18042,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDocTypesResponse
    */
   async describeDocTypes(request: DescribeDocTypesRequest): Promise<DescribeDocTypesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDocTypesWithOptions(request, runtime);
   }
 
@@ -16467,21 +18053,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEventDetailResponse
    */
-  async describeEventDetailWithOptions(request: DescribeEventDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventDetailResponse> {
-    Util.validateModel(request);
+  async describeEventDetailWithOptions(request: DescribeEventDetailRequest, runtime: $dara.RuntimeOptions): Promise<DescribeEventDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeEventDetail",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -16492,10 +18078,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeEventDetailResponse>(await this.callApi(params, req, runtime), new DescribeEventDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeEventDetailResponse>(await this.callApi(params, req, runtime), new DescribeEventDetailResponse({}));
     } else {
-      return $tea.cast<DescribeEventDetailResponse>(await this.execute(params, req, runtime), new DescribeEventDetailResponse({}));
+      return $dara.cast<DescribeEventDetailResponse>(await this.execute(params, req, runtime), new DescribeEventDetailResponse({}));
     }
 
   }
@@ -16507,7 +18093,7 @@ export default class Client extends OpenApi {
    * @returns DescribeEventDetailResponse
    */
   async describeEventDetail(request: DescribeEventDetailRequest): Promise<DescribeEventDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeEventDetailWithOptions(request, runtime);
   }
 
@@ -16518,33 +18104,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEventTypesResponse
    */
-  async describeEventTypesWithOptions(request: DescribeEventTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventTypesResponse> {
-    Util.validateModel(request);
+  async describeEventTypesWithOptions(request: DescribeEventTypesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeEventTypesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.parentTypeId)) {
+    if (!$dara.isNull(request.parentTypeId)) {
       query["ParentTypeId"] = request.parentTypeId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeEventTypes",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -16555,10 +18141,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeEventTypesResponse>(await this.callApi(params, req, runtime), new DescribeEventTypesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeEventTypesResponse>(await this.callApi(params, req, runtime), new DescribeEventTypesResponse({}));
     } else {
-      return $tea.cast<DescribeEventTypesResponse>(await this.execute(params, req, runtime), new DescribeEventTypesResponse({}));
+      return $dara.cast<DescribeEventTypesResponse>(await this.execute(params, req, runtime), new DescribeEventTypesResponse({}));
     }
 
   }
@@ -16570,7 +18156,7 @@ export default class Client extends OpenApi {
    * @returns DescribeEventTypesResponse
    */
   async describeEventTypes(request: DescribeEventTypesRequest): Promise<DescribeEventTypesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeEventTypesWithOptions(request, runtime);
   }
 
@@ -16586,77 +18172,77 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEventsResponse
    */
-  async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
-    Util.validateModel(request);
+  async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeEventsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.dealUserId)) {
+    if (!$dara.isNull(request.dealUserId)) {
       query["DealUserId"] = request.dealUserId;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productCode)) {
+    if (!$dara.isNull(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.subTypeCode)) {
+    if (!$dara.isNull(request.subTypeCode)) {
       query["SubTypeCode"] = request.subTypeCode;
     }
 
-    if (!Util.isUnset(request.targetProductCode)) {
+    if (!$dara.isNull(request.targetProductCode)) {
       query["TargetProductCode"] = request.targetProductCode;
     }
 
-    if (!Util.isUnset(request.typeCode)) {
+    if (!$dara.isNull(request.typeCode)) {
       query["TypeCode"] = request.typeCode;
     }
 
-    if (!Util.isUnset(request.userId)) {
+    if (!$dara.isNull(request.userId)) {
       query["UserId"] = request.userId;
     }
 
-    if (!Util.isUnset(request.userName)) {
+    if (!$dara.isNull(request.userName)) {
       query["UserName"] = request.userName;
     }
 
-    if (!Util.isUnset(request.warnLevel)) {
+    if (!$dara.isNull(request.warnLevel)) {
       query["WarnLevel"] = request.warnLevel;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeEvents",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -16667,10 +18253,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
     } else {
-      return $tea.cast<DescribeEventsResponse>(await this.execute(params, req, runtime), new DescribeEventsResponse({}));
+      return $dara.cast<DescribeEventsResponse>(await this.execute(params, req, runtime), new DescribeEventsResponse({}));
     }
 
   }
@@ -16687,7 +18273,7 @@ export default class Client extends OpenApi {
    * @returns DescribeEventsResponse
    */
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeEventsWithOptions(request, runtime);
   }
 
@@ -16698,13 +18284,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeIdentifyTaskStatusResponse
    */
-  async describeIdentifyTaskStatusWithOptions(request: DescribeIdentifyTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIdentifyTaskStatusResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async describeIdentifyTaskStatusWithOptions(request: DescribeIdentifyTaskStatusRequest, runtime: $dara.RuntimeOptions): Promise<DescribeIdentifyTaskStatusResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeIdentifyTaskStatus",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -16715,10 +18301,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeIdentifyTaskStatusResponse>(await this.callApi(params, req, runtime), new DescribeIdentifyTaskStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeIdentifyTaskStatusResponse>(await this.callApi(params, req, runtime), new DescribeIdentifyTaskStatusResponse({}));
     } else {
-      return $tea.cast<DescribeIdentifyTaskStatusResponse>(await this.execute(params, req, runtime), new DescribeIdentifyTaskStatusResponse({}));
+      return $dara.cast<DescribeIdentifyTaskStatusResponse>(await this.execute(params, req, runtime), new DescribeIdentifyTaskStatusResponse({}));
     }
 
   }
@@ -16730,7 +18316,7 @@ export default class Client extends OpenApi {
    * @returns DescribeIdentifyTaskStatusResponse
    */
   async describeIdentifyTaskStatus(request: DescribeIdentifyTaskStatusRequest): Promise<DescribeIdentifyTaskStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeIdentifyTaskStatusWithOptions(request, runtime);
   }
 
@@ -16747,65 +18333,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceSourcesResponse
    */
-  async describeInstanceSourcesWithOptions(request: DescribeInstanceSourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSourcesResponse> {
-    Util.validateModel(request);
+  async describeInstanceSourcesWithOptions(request: DescribeInstanceSourcesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInstanceSourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.auditStatus)) {
+    if (!$dara.isNull(request.auditStatus)) {
       query["AuditStatus"] = request.auditStatus;
     }
 
-    if (!Util.isUnset(request.authStatus)) {
+    if (!$dara.isNull(request.authStatus)) {
       query["AuthStatus"] = request.authStatus;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.engineType)) {
+    if (!$dara.isNull(request.engineType)) {
       query["EngineType"] = request.engineType;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productCode)) {
+    if (!$dara.isNull(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
 
-    if (!Util.isUnset(request.productId)) {
+    if (!$dara.isNull(request.productId)) {
       query["ProductId"] = request.productId;
     }
 
-    if (!Util.isUnset(request.searchKey)) {
+    if (!$dara.isNull(request.searchKey)) {
       query["SearchKey"] = request.searchKey;
     }
 
-    if (!Util.isUnset(request.searchType)) {
+    if (!$dara.isNull(request.searchType)) {
       query["SearchType"] = request.searchType;
     }
 
-    if (!Util.isUnset(request.serviceRegionId)) {
+    if (!$dara.isNull(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeInstanceSources",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -16816,10 +18402,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeInstanceSourcesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeInstanceSourcesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSourcesResponse({}));
     } else {
-      return $tea.cast<DescribeInstanceSourcesResponse>(await this.execute(params, req, runtime), new DescribeInstanceSourcesResponse({}));
+      return $dara.cast<DescribeInstanceSourcesResponse>(await this.execute(params, req, runtime), new DescribeInstanceSourcesResponse({}));
     }
 
   }
@@ -16837,7 +18423,7 @@ export default class Client extends OpenApi {
    * @returns DescribeInstanceSourcesResponse
    */
   async describeInstanceSources(request: DescribeInstanceSourcesRequest): Promise<DescribeInstanceSourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstanceSourcesWithOptions(request, runtime);
   }
 
@@ -16853,53 +18439,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstancesResponse
    */
-  async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
-    Util.validateModel(request);
+  async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeInstancesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productCode)) {
+    if (!$dara.isNull(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
 
-    if (!Util.isUnset(request.productId)) {
+    if (!$dara.isNull(request.productId)) {
       query["ProductId"] = request.productId;
     }
 
-    if (!Util.isUnset(request.riskLevelId)) {
+    if (!$dara.isNull(request.riskLevelId)) {
       query["RiskLevelId"] = request.riskLevelId;
     }
 
-    if (!Util.isUnset(request.ruleId)) {
+    if (!$dara.isNull(request.ruleId)) {
       query["RuleId"] = request.ruleId;
     }
 
-    if (!Util.isUnset(request.serviceRegionId)) {
+    if (!$dara.isNull(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeInstances",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -16910,10 +18496,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
     } else {
-      return $tea.cast<DescribeInstancesResponse>(await this.execute(params, req, runtime), new DescribeInstancesResponse({}));
+      return $dara.cast<DescribeInstancesResponse>(await this.execute(params, req, runtime), new DescribeInstancesResponse({}));
     }
 
   }
@@ -16930,7 +18516,7 @@ export default class Client extends OpenApi {
    * @returns DescribeInstancesResponse
    */
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInstancesWithOptions(request, runtime);
   }
 
@@ -16948,21 +18534,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOssObjectDetailResponse
    */
-  async describeOssObjectDetailWithOptions(request: DescribeOssObjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectDetailResponse> {
-    Util.validateModel(request);
+  async describeOssObjectDetailWithOptions(request: DescribeOssObjectDetailRequest, runtime: $dara.RuntimeOptions): Promise<DescribeOssObjectDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeOssObjectDetail",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -16973,10 +18559,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeOssObjectDetailResponse>(await this.callApi(params, req, runtime), new DescribeOssObjectDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeOssObjectDetailResponse>(await this.callApi(params, req, runtime), new DescribeOssObjectDetailResponse({}));
     } else {
-      return $tea.cast<DescribeOssObjectDetailResponse>(await this.execute(params, req, runtime), new DescribeOssObjectDetailResponse({}));
+      return $dara.cast<DescribeOssObjectDetailResponse>(await this.execute(params, req, runtime), new DescribeOssObjectDetailResponse({}));
     }
 
   }
@@ -16995,7 +18581,7 @@ export default class Client extends OpenApi {
    * @returns DescribeOssObjectDetailResponse
    */
   async describeOssObjectDetail(request: DescribeOssObjectDetailRequest): Promise<DescribeOssObjectDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeOssObjectDetailWithOptions(request, runtime);
   }
 
@@ -17006,37 +18592,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOssObjectDetailV2Response
    */
-  async describeOssObjectDetailV2WithOptions(request: DescribeOssObjectDetailV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectDetailV2Response> {
-    Util.validateModel(request);
+  async describeOssObjectDetailV2WithOptions(request: DescribeOssObjectDetailV2Request, runtime: $dara.RuntimeOptions): Promise<DescribeOssObjectDetailV2Response> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bucketName)) {
+    if (!$dara.isNull(request.bucketName)) {
       query["BucketName"] = request.bucketName;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.objectKey)) {
+    if (!$dara.isNull(request.objectKey)) {
       query["ObjectKey"] = request.objectKey;
     }
 
-    if (!Util.isUnset(request.serviceRegionId)) {
+    if (!$dara.isNull(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeOssObjectDetailV2",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -17047,10 +18633,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeOssObjectDetailV2Response>(await this.callApi(params, req, runtime), new DescribeOssObjectDetailV2Response({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeOssObjectDetailV2Response>(await this.callApi(params, req, runtime), new DescribeOssObjectDetailV2Response({}));
     } else {
-      return $tea.cast<DescribeOssObjectDetailV2Response>(await this.execute(params, req, runtime), new DescribeOssObjectDetailV2Response({}));
+      return $dara.cast<DescribeOssObjectDetailV2Response>(await this.execute(params, req, runtime), new DescribeOssObjectDetailV2Response({}));
     }
 
   }
@@ -17062,7 +18648,7 @@ export default class Client extends OpenApi {
    * @returns DescribeOssObjectDetailV2Response
    */
   async describeOssObjectDetailV2(request: DescribeOssObjectDetailV2Request): Promise<DescribeOssObjectDetailV2Response> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeOssObjectDetailV2WithOptions(request, runtime);
   }
 
@@ -17073,65 +18659,65 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOssObjectsResponse
    */
-  async describeOssObjectsWithOptions(request: DescribeOssObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectsResponse> {
-    Util.validateModel(request);
+  async describeOssObjectsWithOptions(request: DescribeOssObjectsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeOssObjectsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.fileCategoryCode)) {
+    if (!$dara.isNull(request.fileCategoryCode)) {
       query["FileCategoryCode"] = request.fileCategoryCode;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.lastScanTimeEnd)) {
+    if (!$dara.isNull(request.lastScanTimeEnd)) {
       query["LastScanTimeEnd"] = request.lastScanTimeEnd;
     }
 
-    if (!Util.isUnset(request.lastScanTimeStart)) {
+    if (!$dara.isNull(request.lastScanTimeStart)) {
       query["LastScanTimeStart"] = request.lastScanTimeStart;
     }
 
-    if (!Util.isUnset(request.marker)) {
+    if (!$dara.isNull(request.marker)) {
       query["Marker"] = request.marker;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.riskLevelId)) {
+    if (!$dara.isNull(request.riskLevelId)) {
       query["RiskLevelId"] = request.riskLevelId;
     }
 
-    if (!Util.isUnset(request.ruleId)) {
+    if (!$dara.isNull(request.ruleId)) {
       query["RuleId"] = request.ruleId;
     }
 
-    if (!Util.isUnset(request.serviceRegionId)) {
+    if (!$dara.isNull(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeOssObjects",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -17142,10 +18728,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeOssObjectsResponse>(await this.callApi(params, req, runtime), new DescribeOssObjectsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeOssObjectsResponse>(await this.callApi(params, req, runtime), new DescribeOssObjectsResponse({}));
     } else {
-      return $tea.cast<DescribeOssObjectsResponse>(await this.execute(params, req, runtime), new DescribeOssObjectsResponse({}));
+      return $dara.cast<DescribeOssObjectsResponse>(await this.execute(params, req, runtime), new DescribeOssObjectsResponse({}));
     }
 
   }
@@ -17157,7 +18743,7 @@ export default class Client extends OpenApi {
    * @returns DescribeOssObjectsResponse
    */
   async describeOssObjects(request: DescribeOssObjectsRequest): Promise<DescribeOssObjectsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeOssObjectsWithOptions(request, runtime);
   }
 
@@ -17173,45 +18759,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePackagesResponse
    */
-  async describePackagesWithOptions(request: DescribePackagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePackagesResponse> {
-    Util.validateModel(request);
+  async describePackagesWithOptions(request: DescribePackagesRequest, runtime: $dara.RuntimeOptions): Promise<DescribePackagesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productId)) {
+    if (!$dara.isNull(request.productId)) {
       query["ProductId"] = request.productId;
     }
 
-    if (!Util.isUnset(request.riskLevelId)) {
+    if (!$dara.isNull(request.riskLevelId)) {
       query["RiskLevelId"] = request.riskLevelId;
     }
 
-    if (!Util.isUnset(request.ruleId)) {
+    if (!$dara.isNull(request.ruleId)) {
       query["RuleId"] = request.ruleId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribePackages",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -17222,10 +18808,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribePackagesResponse>(await this.callApi(params, req, runtime), new DescribePackagesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribePackagesResponse>(await this.callApi(params, req, runtime), new DescribePackagesResponse({}));
     } else {
-      return $tea.cast<DescribePackagesResponse>(await this.execute(params, req, runtime), new DescribePackagesResponse({}));
+      return $dara.cast<DescribePackagesResponse>(await this.execute(params, req, runtime), new DescribePackagesResponse({}));
     }
 
   }
@@ -17242,7 +18828,7 @@ export default class Client extends OpenApi {
    * @returns DescribePackagesResponse
    */
   async describePackages(request: DescribePackagesRequest): Promise<DescribePackagesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describePackagesWithOptions(request, runtime);
   }
 
@@ -17253,61 +18839,61 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeParentInstanceResponse
    */
-  async describeParentInstanceWithOptions(request: DescribeParentInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParentInstanceResponse> {
-    Util.validateModel(request);
+  async describeParentInstanceWithOptions(request: DescribeParentInstanceRequest, runtime: $dara.RuntimeOptions): Promise<DescribeParentInstanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.authStatus)) {
+    if (!$dara.isNull(request.authStatus)) {
       query["AuthStatus"] = request.authStatus;
     }
 
-    if (!Util.isUnset(request.checkStatus)) {
+    if (!$dara.isNull(request.checkStatus)) {
       query["CheckStatus"] = request.checkStatus;
     }
 
-    if (!Util.isUnset(request.clusterStatus)) {
+    if (!$dara.isNull(request.clusterStatus)) {
       query["ClusterStatus"] = request.clusterStatus;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.engineType)) {
+    if (!$dara.isNull(request.engineType)) {
       query["EngineType"] = request.engineType;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.memberAccount)) {
+    if (!$dara.isNull(request.memberAccount)) {
       query["MemberAccount"] = request.memberAccount;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.serviceRegionId)) {
+    if (!$dara.isNull(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeParentInstance",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -17318,10 +18904,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeParentInstanceResponse>(await this.callApi(params, req, runtime), new DescribeParentInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeParentInstanceResponse>(await this.callApi(params, req, runtime), new DescribeParentInstanceResponse({}));
     } else {
-      return $tea.cast<DescribeParentInstanceResponse>(await this.execute(params, req, runtime), new DescribeParentInstanceResponse({}));
+      return $dara.cast<DescribeParentInstanceResponse>(await this.execute(params, req, runtime), new DescribeParentInstanceResponse({}));
     }
 
   }
@@ -17333,7 +18919,7 @@ export default class Client extends OpenApi {
    * @returns DescribeParentInstanceResponse
    */
   async describeParentInstance(request: DescribeParentInstanceRequest): Promise<DescribeParentInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeParentInstanceWithOptions(request, runtime);
   }
 
@@ -17349,25 +18935,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRiskLevelsResponse
    */
-  async describeRiskLevelsWithOptions(request: DescribeRiskLevelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskLevelsResponse> {
-    Util.validateModel(request);
+  async describeRiskLevelsWithOptions(request: DescribeRiskLevelsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRiskLevelsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRiskLevels",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -17378,10 +18964,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeRiskLevelsResponse>(await this.callApi(params, req, runtime), new DescribeRiskLevelsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRiskLevelsResponse>(await this.callApi(params, req, runtime), new DescribeRiskLevelsResponse({}));
     } else {
-      return $tea.cast<DescribeRiskLevelsResponse>(await this.execute(params, req, runtime), new DescribeRiskLevelsResponse({}));
+      return $dara.cast<DescribeRiskLevelsResponse>(await this.execute(params, req, runtime), new DescribeRiskLevelsResponse({}));
     }
 
   }
@@ -17398,7 +18984,7 @@ export default class Client extends OpenApi {
    * @returns DescribeRiskLevelsResponse
    */
   async describeRiskLevels(request: DescribeRiskLevelsRequest): Promise<DescribeRiskLevelsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRiskLevelsWithOptions(request, runtime);
   }
 
@@ -17409,93 +18995,93 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRulesResponse
    */
-  async describeRulesWithOptions(request: DescribeRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRulesResponse> {
-    Util.validateModel(request);
+  async describeRulesWithOptions(request: DescribeRulesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRulesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.category)) {
+    if (!$dara.isNull(request.category)) {
       query["Category"] = request.category;
     }
 
-    if (!Util.isUnset(request.contentCategory)) {
+    if (!$dara.isNull(request.contentCategory)) {
       query["ContentCategory"] = request.contentCategory;
     }
 
-    if (!Util.isUnset(request.cooperationChannel)) {
+    if (!$dara.isNull(request.cooperationChannel)) {
       query["CooperationChannel"] = request.cooperationChannel;
     }
 
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.customType)) {
+    if (!$dara.isNull(request.customType)) {
       query["CustomType"] = request.customType;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.keywordCompatible)) {
+    if (!$dara.isNull(request.keywordCompatible)) {
       query["KeywordCompatible"] = request.keywordCompatible;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.matchType)) {
+    if (!$dara.isNull(request.matchType)) {
       query["MatchType"] = request.matchType;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productCode)) {
+    if (!$dara.isNull(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
 
-    if (!Util.isUnset(request.productId)) {
+    if (!$dara.isNull(request.productId)) {
       query["ProductId"] = request.productId;
     }
 
-    if (!Util.isUnset(request.riskLevelId)) {
+    if (!$dara.isNull(request.riskLevelId)) {
       query["RiskLevelId"] = request.riskLevelId;
     }
 
-    if (!Util.isUnset(request.ruleType)) {
+    if (!$dara.isNull(request.ruleType)) {
       query["RuleType"] = request.ruleType;
     }
 
-    if (!Util.isUnset(request.simplify)) {
+    if (!$dara.isNull(request.simplify)) {
       query["Simplify"] = request.simplify;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.supportForm)) {
+    if (!$dara.isNull(request.supportForm)) {
       query["SupportForm"] = request.supportForm;
     }
 
-    if (!Util.isUnset(request.warnLevel)) {
+    if (!$dara.isNull(request.warnLevel)) {
       query["WarnLevel"] = request.warnLevel;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRules",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -17506,10 +19092,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeRulesResponse>(await this.callApi(params, req, runtime), new DescribeRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRulesResponse>(await this.callApi(params, req, runtime), new DescribeRulesResponse({}));
     } else {
-      return $tea.cast<DescribeRulesResponse>(await this.execute(params, req, runtime), new DescribeRulesResponse({}));
+      return $dara.cast<DescribeRulesResponse>(await this.execute(params, req, runtime), new DescribeRulesResponse({}));
     }
 
   }
@@ -17521,7 +19107,7 @@ export default class Client extends OpenApi {
    * @returns DescribeRulesResponse
    */
   async describeRules(request: DescribeRulesRequest): Promise<DescribeRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRulesWithOptions(request, runtime);
   }
 
@@ -17537,61 +19123,61 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTablesResponse
    */
-  async describeTablesWithOptions(request: DescribeTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTablesResponse> {
-    Util.validateModel(request);
+  async describeTablesWithOptions(request: DescribeTablesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeTablesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentPage)) {
+    if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.packageId)) {
+    if (!$dara.isNull(request.packageId)) {
       query["PackageId"] = request.packageId;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.productCode)) {
+    if (!$dara.isNull(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
 
-    if (!Util.isUnset(request.productId)) {
+    if (!$dara.isNull(request.productId)) {
       query["ProductId"] = request.productId;
     }
 
-    if (!Util.isUnset(request.riskLevelId)) {
+    if (!$dara.isNull(request.riskLevelId)) {
       query["RiskLevelId"] = request.riskLevelId;
     }
 
-    if (!Util.isUnset(request.ruleId)) {
+    if (!$dara.isNull(request.ruleId)) {
       query["RuleId"] = request.ruleId;
     }
 
-    if (!Util.isUnset(request.serviceRegionId)) {
+    if (!$dara.isNull(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeTables",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -17602,10 +19188,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeTablesResponse>(await this.callApi(params, req, runtime), new DescribeTablesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeTablesResponse>(await this.callApi(params, req, runtime), new DescribeTablesResponse({}));
     } else {
-      return $tea.cast<DescribeTablesResponse>(await this.execute(params, req, runtime), new DescribeTablesResponse({}));
+      return $dara.cast<DescribeTablesResponse>(await this.execute(params, req, runtime), new DescribeTablesResponse({}));
     }
 
   }
@@ -17622,7 +19208,7 @@ export default class Client extends OpenApi {
    * @returns DescribeTablesResponse
    */
   async describeTables(request: DescribeTablesRequest): Promise<DescribeTablesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeTablesWithOptions(request, runtime);
   }
 
@@ -17631,25 +19217,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTemplateAllRulesResponse
    */
-  async describeTemplateAllRulesWithOptions(request: DescribeTemplateAllRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTemplateAllRulesResponse> {
-    Util.validateModel(request);
+  async describeTemplateAllRulesWithOptions(request: DescribeTemplateAllRulesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeTemplateAllRulesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeTemplateAllRules",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -17660,10 +19246,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeTemplateAllRulesResponse>(await this.callApi(params, req, runtime), new DescribeTemplateAllRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeTemplateAllRulesResponse>(await this.callApi(params, req, runtime), new DescribeTemplateAllRulesResponse({}));
     } else {
-      return $tea.cast<DescribeTemplateAllRulesResponse>(await this.execute(params, req, runtime), new DescribeTemplateAllRulesResponse({}));
+      return $dara.cast<DescribeTemplateAllRulesResponse>(await this.execute(params, req, runtime), new DescribeTemplateAllRulesResponse({}));
     }
 
   }
@@ -17673,7 +19259,7 @@ export default class Client extends OpenApi {
    * @returns DescribeTemplateAllRulesResponse
    */
   async describeTemplateAllRules(request: DescribeTemplateAllRulesRequest): Promise<DescribeTemplateAllRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeTemplateAllRulesWithOptions(request, runtime);
   }
 
@@ -17689,21 +19275,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUserStatusResponse
    */
-  async describeUserStatusWithOptions(request: DescribeUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserStatusResponse> {
-    Util.validateModel(request);
+  async describeUserStatusWithOptions(request: DescribeUserStatusRequest, runtime: $dara.RuntimeOptions): Promise<DescribeUserStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeUserStatus",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -17714,10 +19300,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DescribeUserStatusResponse>(await this.callApi(params, req, runtime), new DescribeUserStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeUserStatusResponse>(await this.callApi(params, req, runtime), new DescribeUserStatusResponse({}));
     } else {
-      return $tea.cast<DescribeUserStatusResponse>(await this.execute(params, req, runtime), new DescribeUserStatusResponse({}));
+      return $dara.cast<DescribeUserStatusResponse>(await this.execute(params, req, runtime), new DescribeUserStatusResponse({}));
     }
 
   }
@@ -17734,7 +19320,7 @@ export default class Client extends OpenApi {
    * @returns DescribeUserStatusResponse
    */
   async describeUserStatus(request: DescribeUserStatusRequest): Promise<DescribeUserStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeUserStatusWithOptions(request, runtime);
   }
 
@@ -17750,25 +19336,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableUserConfigResponse
    */
-  async disableUserConfigWithOptions(request: DisableUserConfigRequest, runtime: $Util.RuntimeOptions): Promise<DisableUserConfigResponse> {
-    Util.validateModel(request);
+  async disableUserConfigWithOptions(request: DisableUserConfigRequest, runtime: $dara.RuntimeOptions): Promise<DisableUserConfigResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.code)) {
+    if (!$dara.isNull(request.code)) {
       query["Code"] = request.code;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DisableUserConfig",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -17779,10 +19365,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DisableUserConfigResponse>(await this.callApi(params, req, runtime), new DisableUserConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DisableUserConfigResponse>(await this.callApi(params, req, runtime), new DisableUserConfigResponse({}));
     } else {
-      return $tea.cast<DisableUserConfigResponse>(await this.execute(params, req, runtime), new DisableUserConfigResponse({}));
+      return $dara.cast<DisableUserConfigResponse>(await this.execute(params, req, runtime), new DisableUserConfigResponse({}));
     }
 
   }
@@ -17799,7 +19385,7 @@ export default class Client extends OpenApi {
    * @returns DisableUserConfigResponse
    */
   async disableUserConfig(request: DisableUserConfigRequest): Promise<DisableUserConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.disableUserConfigWithOptions(request, runtime);
   }
 
@@ -17810,29 +19396,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExecDatamaskResponse
    */
-  async execDatamaskWithOptions(request: ExecDatamaskRequest, runtime: $Util.RuntimeOptions): Promise<ExecDatamaskResponse> {
-    Util.validateModel(request);
+  async execDatamaskWithOptions(request: ExecDatamaskRequest, runtime: $dara.RuntimeOptions): Promise<ExecDatamaskResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.data)) {
+    if (!$dara.isNull(request.data)) {
       query["Data"] = request.data;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ExecDatamask",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -17843,10 +19429,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ExecDatamaskResponse>(await this.callApi(params, req, runtime), new ExecDatamaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ExecDatamaskResponse>(await this.callApi(params, req, runtime), new ExecDatamaskResponse({}));
     } else {
-      return $tea.cast<ExecDatamaskResponse>(await this.execute(params, req, runtime), new ExecDatamaskResponse({}));
+      return $dara.cast<ExecDatamaskResponse>(await this.execute(params, req, runtime), new ExecDatamaskResponse({}));
     }
 
   }
@@ -17858,7 +19444,7 @@ export default class Client extends OpenApi {
    * @returns ExecDatamaskResponse
    */
   async execDatamask(request: ExecDatamaskRequest): Promise<ExecDatamaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.execDatamaskWithOptions(request, runtime);
   }
 
@@ -17869,21 +19455,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ManualTriggerMaskingProcessResponse
    */
-  async manualTriggerMaskingProcessWithOptions(request: ManualTriggerMaskingProcessRequest, runtime: $Util.RuntimeOptions): Promise<ManualTriggerMaskingProcessResponse> {
-    Util.validateModel(request);
+  async manualTriggerMaskingProcessWithOptions(request: ManualTriggerMaskingProcessRequest, runtime: $dara.RuntimeOptions): Promise<ManualTriggerMaskingProcessResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ManualTriggerMaskingProcess",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -17894,10 +19480,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ManualTriggerMaskingProcessResponse>(await this.callApi(params, req, runtime), new ManualTriggerMaskingProcessResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ManualTriggerMaskingProcessResponse>(await this.callApi(params, req, runtime), new ManualTriggerMaskingProcessResponse({}));
     } else {
-      return $tea.cast<ManualTriggerMaskingProcessResponse>(await this.execute(params, req, runtime), new ManualTriggerMaskingProcessResponse({}));
+      return $dara.cast<ManualTriggerMaskingProcessResponse>(await this.execute(params, req, runtime), new ManualTriggerMaskingProcessResponse({}));
     }
 
   }
@@ -17909,7 +19495,7 @@ export default class Client extends OpenApi {
    * @returns ManualTriggerMaskingProcessResponse
    */
   async manualTriggerMaskingProcess(request: ManualTriggerMaskingProcessRequest): Promise<ManualTriggerMaskingProcessResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.manualTriggerMaskingProcessWithOptions(request, runtime);
   }
 
@@ -17920,81 +19506,81 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDataLimitResponse
    */
-  async modifyDataLimitWithOptions(request: ModifyDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDataLimitResponse> {
-    Util.validateModel(request);
+  async modifyDataLimitWithOptions(request: ModifyDataLimitRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDataLimitResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.auditStatus)) {
+    if (!$dara.isNull(request.auditStatus)) {
       query["AuditStatus"] = request.auditStatus;
     }
 
-    if (!Util.isUnset(request.autoScan)) {
+    if (!$dara.isNull(request.autoScan)) {
       query["AutoScan"] = request.autoScan;
     }
 
-    if (!Util.isUnset(request.engineType)) {
+    if (!$dara.isNull(request.engineType)) {
       query["EngineType"] = request.engineType;
     }
 
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.logStoreDay)) {
+    if (!$dara.isNull(request.logStoreDay)) {
       query["LogStoreDay"] = request.logStoreDay;
     }
 
-    if (!Util.isUnset(request.modifyPassword)) {
+    if (!$dara.isNull(request.modifyPassword)) {
       query["ModifyPassword"] = request.modifyPassword;
     }
 
-    if (!Util.isUnset(request.password)) {
+    if (!$dara.isNull(request.password)) {
       query["Password"] = request.password;
     }
 
-    if (!Util.isUnset(request.port)) {
+    if (!$dara.isNull(request.port)) {
       query["Port"] = request.port;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.samplingSize)) {
+    if (!$dara.isNull(request.samplingSize)) {
       query["SamplingSize"] = request.samplingSize;
     }
 
-    if (!Util.isUnset(request.securityGroupIdList)) {
+    if (!$dara.isNull(request.securityGroupIdList)) {
       query["SecurityGroupIdList"] = request.securityGroupIdList;
     }
 
-    if (!Util.isUnset(request.serviceRegionId)) {
+    if (!$dara.isNull(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
-    if (!Util.isUnset(request.userName)) {
+    if (!$dara.isNull(request.userName)) {
       query["UserName"] = request.userName;
     }
 
-    if (!Util.isUnset(request.vSwitchIdList)) {
+    if (!$dara.isNull(request.vSwitchIdList)) {
       query["VSwitchIdList"] = request.vSwitchIdList;
     }
 
-    if (!Util.isUnset(request.vpcId)) {
+    if (!$dara.isNull(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyDataLimit",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -18005,10 +19591,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyDataLimitResponse>(await this.callApi(params, req, runtime), new ModifyDataLimitResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyDataLimitResponse>(await this.callApi(params, req, runtime), new ModifyDataLimitResponse({}));
     } else {
-      return $tea.cast<ModifyDataLimitResponse>(await this.execute(params, req, runtime), new ModifyDataLimitResponse({}));
+      return $dara.cast<ModifyDataLimitResponse>(await this.execute(params, req, runtime), new ModifyDataLimitResponse({}));
     }
 
   }
@@ -18020,7 +19606,7 @@ export default class Client extends OpenApi {
    * @returns ModifyDataLimitResponse
    */
   async modifyDataLimit(request: ModifyDataLimitRequest): Promise<ModifyDataLimitResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDataLimitWithOptions(request, runtime);
   }
 
@@ -18036,25 +19622,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDefaultLevelResponse
    */
-  async modifyDefaultLevelWithOptions(request: ModifyDefaultLevelRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefaultLevelResponse> {
-    Util.validateModel(request);
+  async modifyDefaultLevelWithOptions(request: ModifyDefaultLevelRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDefaultLevelResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.defaultId)) {
+    if (!$dara.isNull(request.defaultId)) {
       query["DefaultId"] = request.defaultId;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.sensitiveIds)) {
+    if (!$dara.isNull(request.sensitiveIds)) {
       query["SensitiveIds"] = request.sensitiveIds;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyDefaultLevel",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -18065,10 +19651,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyDefaultLevelResponse>(await this.callApi(params, req, runtime), new ModifyDefaultLevelResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyDefaultLevelResponse>(await this.callApi(params, req, runtime), new ModifyDefaultLevelResponse({}));
     } else {
-      return $tea.cast<ModifyDefaultLevelResponse>(await this.execute(params, req, runtime), new ModifyDefaultLevelResponse({}));
+      return $dara.cast<ModifyDefaultLevelResponse>(await this.execute(params, req, runtime), new ModifyDefaultLevelResponse({}));
     }
 
   }
@@ -18085,7 +19671,7 @@ export default class Client extends OpenApi {
    * @returns ModifyDefaultLevelResponse
    */
   async modifyDefaultLevel(request: ModifyDefaultLevelRequest): Promise<ModifyDefaultLevelResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDefaultLevelWithOptions(request, runtime);
   }
 
@@ -18101,33 +19687,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyEventStatusResponse
    */
-  async modifyEventStatusWithOptions(request: ModifyEventStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEventStatusResponse> {
-    Util.validateModel(request);
+  async modifyEventStatusWithOptions(request: ModifyEventStatusRequest, runtime: $dara.RuntimeOptions): Promise<ModifyEventStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.backed)) {
+    if (!$dara.isNull(request.backed)) {
       query["Backed"] = request.backed;
     }
 
-    if (!Util.isUnset(request.dealReason)) {
+    if (!$dara.isNull(request.dealReason)) {
       query["DealReason"] = request.dealReason;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyEventStatus",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -18138,10 +19724,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyEventStatusResponse>(await this.callApi(params, req, runtime), new ModifyEventStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyEventStatusResponse>(await this.callApi(params, req, runtime), new ModifyEventStatusResponse({}));
     } else {
-      return $tea.cast<ModifyEventStatusResponse>(await this.execute(params, req, runtime), new ModifyEventStatusResponse({}));
+      return $dara.cast<ModifyEventStatusResponse>(await this.execute(params, req, runtime), new ModifyEventStatusResponse({}));
     }
 
   }
@@ -18158,7 +19744,7 @@ export default class Client extends OpenApi {
    * @returns ModifyEventStatusResponse
    */
   async modifyEventStatus(request: ModifyEventStatusRequest): Promise<ModifyEventStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyEventStatusWithOptions(request, runtime);
   }
 
@@ -18169,25 +19755,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyEventTypeStatusResponse
    */
-  async modifyEventTypeStatusWithOptions(request: ModifyEventTypeStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEventTypeStatusResponse> {
-    Util.validateModel(request);
+  async modifyEventTypeStatusWithOptions(request: ModifyEventTypeStatusRequest, runtime: $dara.RuntimeOptions): Promise<ModifyEventTypeStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.subTypeIds)) {
+    if (!$dara.isNull(request.subTypeIds)) {
       query["SubTypeIds"] = request.subTypeIds;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyEventTypeStatus",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -18198,10 +19784,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyEventTypeStatusResponse>(await this.callApi(params, req, runtime), new ModifyEventTypeStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyEventTypeStatusResponse>(await this.callApi(params, req, runtime), new ModifyEventTypeStatusResponse({}));
     } else {
-      return $tea.cast<ModifyEventTypeStatusResponse>(await this.execute(params, req, runtime), new ModifyEventTypeStatusResponse({}));
+      return $dara.cast<ModifyEventTypeStatusResponse>(await this.execute(params, req, runtime), new ModifyEventTypeStatusResponse({}));
     }
 
   }
@@ -18213,7 +19799,7 @@ export default class Client extends OpenApi {
    * @returns ModifyEventTypeStatusResponse
    */
   async modifyEventTypeStatus(request: ModifyEventTypeStatusRequest): Promise<ModifyEventTypeStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyEventTypeStatusWithOptions(request, runtime);
   }
 
@@ -18229,25 +19815,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyReportTaskStatusResponse
    */
-  async modifyReportTaskStatusWithOptions(request: ModifyReportTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReportTaskStatusResponse> {
-    Util.validateModel(request);
+  async modifyReportTaskStatusWithOptions(request: ModifyReportTaskStatusRequest, runtime: $dara.RuntimeOptions): Promise<ModifyReportTaskStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.featureType)) {
+    if (!$dara.isNull(request.featureType)) {
       query["FeatureType"] = request.featureType;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.reportTaskStatus)) {
+    if (!$dara.isNull(request.reportTaskStatus)) {
       query["ReportTaskStatus"] = request.reportTaskStatus;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyReportTaskStatus",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -18258,10 +19844,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyReportTaskStatusResponse>(await this.callApi(params, req, runtime), new ModifyReportTaskStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyReportTaskStatusResponse>(await this.callApi(params, req, runtime), new ModifyReportTaskStatusResponse({}));
     } else {
-      return $tea.cast<ModifyReportTaskStatusResponse>(await this.execute(params, req, runtime), new ModifyReportTaskStatusResponse({}));
+      return $dara.cast<ModifyReportTaskStatusResponse>(await this.execute(params, req, runtime), new ModifyReportTaskStatusResponse({}));
     }
 
   }
@@ -18278,7 +19864,7 @@ export default class Client extends OpenApi {
    * @returns ModifyReportTaskStatusResponse
    */
   async modifyReportTaskStatus(request: ModifyReportTaskStatusRequest): Promise<ModifyReportTaskStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyReportTaskStatusWithOptions(request, runtime);
   }
 
@@ -18294,61 +19880,69 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyRuleResponse
    */
-  async modifyRuleWithOptions(request: ModifyRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRuleResponse> {
-    Util.validateModel(request);
+  async modifyRuleWithOptions(request: ModifyRuleRequest, runtime: $dara.RuntimeOptions): Promise<ModifyRuleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.category)) {
+    if (!$dara.isNull(request.category)) {
       query["Category"] = request.category;
     }
 
-    if (!Util.isUnset(request.content)) {
+    if (!$dara.isNull(request.content)) {
       query["Content"] = request.content;
     }
 
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.matchType)) {
+    if (!$dara.isNull(request.matchType)) {
       query["MatchType"] = request.matchType;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.modelRuleIds)) {
+      query["ModelRuleIds"] = request.modelRuleIds;
+    }
+
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.productCode)) {
+    if (!$dara.isNull(request.productCode)) {
       query["ProductCode"] = request.productCode;
     }
 
-    if (!Util.isUnset(request.productId)) {
+    if (!$dara.isNull(request.productId)) {
       query["ProductId"] = request.productId;
     }
 
-    if (!Util.isUnset(request.riskLevelId)) {
+    if (!$dara.isNull(request.riskLevelId)) {
       query["RiskLevelId"] = request.riskLevelId;
     }
 
-    if (!Util.isUnset(request.ruleType)) {
+    if (!$dara.isNull(request.ruleType)) {
       query["RuleType"] = request.ruleType;
     }
 
-    if (!Util.isUnset(request.supportForm)) {
+    if (!$dara.isNull(request.supportForm)) {
       query["SupportForm"] = request.supportForm;
     }
 
-    if (!Util.isUnset(request.warnLevel)) {
+    if (!$dara.isNull(request.templateRuleIds)) {
+      query["TemplateRuleIds"] = request.templateRuleIds;
+    }
+
+    if (!$dara.isNull(request.warnLevel)) {
       query["WarnLevel"] = request.warnLevel;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyRule",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -18359,10 +19953,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyRuleResponse>(await this.callApi(params, req, runtime), new ModifyRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyRuleResponse>(await this.callApi(params, req, runtime), new ModifyRuleResponse({}));
     } else {
-      return $tea.cast<ModifyRuleResponse>(await this.execute(params, req, runtime), new ModifyRuleResponse({}));
+      return $dara.cast<ModifyRuleResponse>(await this.execute(params, req, runtime), new ModifyRuleResponse({}));
     }
 
   }
@@ -18379,7 +19973,7 @@ export default class Client extends OpenApi {
    * @returns ModifyRuleResponse
    */
   async modifyRule(request: ModifyRuleRequest): Promise<ModifyRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyRuleWithOptions(request, runtime);
   }
 
@@ -18390,29 +19984,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyRuleStatusResponse
    */
-  async modifyRuleStatusWithOptions(request: ModifyRuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRuleStatusResponse> {
-    Util.validateModel(request);
+  async modifyRuleStatusWithOptions(request: ModifyRuleStatusRequest, runtime: $dara.RuntimeOptions): Promise<ModifyRuleStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.ids)) {
+    if (!$dara.isNull(request.ids)) {
       query["Ids"] = request.ids;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyRuleStatus",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -18423,10 +20017,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ModifyRuleStatusResponse>(await this.callApi(params, req, runtime), new ModifyRuleStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyRuleStatusResponse>(await this.callApi(params, req, runtime), new ModifyRuleStatusResponse({}));
     } else {
-      return $tea.cast<ModifyRuleStatusResponse>(await this.execute(params, req, runtime), new ModifyRuleStatusResponse({}));
+      return $dara.cast<ModifyRuleStatusResponse>(await this.execute(params, req, runtime), new ModifyRuleStatusResponse({}));
     }
 
   }
@@ -18438,7 +20032,7 @@ export default class Client extends OpenApi {
    * @returns ModifyRuleStatusResponse
    */
   async modifyRuleStatus(request: ModifyRuleStatusRequest): Promise<ModifyRuleStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyRuleStatusWithOptions(request, runtime);
   }
 
@@ -18449,39 +20043,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ScanOssObjectV1Response
    */
-  async scanOssObjectV1WithOptions(tmpReq: ScanOssObjectV1Request, runtime: $Util.RuntimeOptions): Promise<ScanOssObjectV1Response> {
-    Util.validateModel(tmpReq);
+  async scanOssObjectV1WithOptions(tmpReq: ScanOssObjectV1Request, runtime: $dara.RuntimeOptions): Promise<ScanOssObjectV1Response> {
+    tmpReq.validate();
     let request = new ScanOssObjectV1ShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.objectKeyList)) {
+    if (!$dara.isNull(tmpReq.objectKeyList)) {
       request.objectKeyListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.objectKeyList, "ObjectKeyList", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.bucketName)) {
+    if (!$dara.isNull(request.bucketName)) {
       query["BucketName"] = request.bucketName;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    if (!Util.isUnset(request.objectKeyListShrink)) {
+    if (!$dara.isNull(request.objectKeyListShrink)) {
       query["ObjectKeyList"] = request.objectKeyListShrink;
     }
 
-    if (!Util.isUnset(request.serviceRegionId)) {
+    if (!$dara.isNull(request.serviceRegionId)) {
       query["ServiceRegionId"] = request.serviceRegionId;
     }
 
-    if (!Util.isUnset(request.templateId)) {
+    if (!$dara.isNull(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ScanOssObjectV1",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -18492,10 +20086,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ScanOssObjectV1Response>(await this.callApi(params, req, runtime), new ScanOssObjectV1Response({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ScanOssObjectV1Response>(await this.callApi(params, req, runtime), new ScanOssObjectV1Response({}));
     } else {
-      return $tea.cast<ScanOssObjectV1Response>(await this.execute(params, req, runtime), new ScanOssObjectV1Response({}));
+      return $dara.cast<ScanOssObjectV1Response>(await this.execute(params, req, runtime), new ScanOssObjectV1Response({}));
     }
 
   }
@@ -18507,7 +20101,7 @@ export default class Client extends OpenApi {
    * @returns ScanOssObjectV1Response
    */
   async scanOssObjectV1(request: ScanOssObjectV1Request): Promise<ScanOssObjectV1Response> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.scanOssObjectV1WithOptions(request, runtime);
   }
 
@@ -18523,21 +20117,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopMaskingProcessResponse
    */
-  async stopMaskingProcessWithOptions(request: StopMaskingProcessRequest, runtime: $Util.RuntimeOptions): Promise<StopMaskingProcessResponse> {
-    Util.validateModel(request);
+  async stopMaskingProcessWithOptions(request: StopMaskingProcessRequest, runtime: $dara.RuntimeOptions): Promise<StopMaskingProcessResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.id)) {
+    if (!$dara.isNull(request.id)) {
       query["Id"] = request.id;
     }
 
-    if (!Util.isUnset(request.lang)) {
+    if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopMaskingProcess",
       version: "2019-01-03",
       protocol: "HTTPS",
@@ -18548,10 +20142,10 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<StopMaskingProcessResponse>(await this.callApi(params, req, runtime), new StopMaskingProcessResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopMaskingProcessResponse>(await this.callApi(params, req, runtime), new StopMaskingProcessResponse({}));
     } else {
-      return $tea.cast<StopMaskingProcessResponse>(await this.execute(params, req, runtime), new StopMaskingProcessResponse({}));
+      return $dara.cast<StopMaskingProcessResponse>(await this.execute(params, req, runtime), new StopMaskingProcessResponse({}));
     }
 
   }
@@ -18568,7 +20162,7 @@ export default class Client extends OpenApi {
    * @returns StopMaskingProcessResponse
    */
   async stopMaskingProcess(request: StopMaskingProcessRequest): Promise<StopMaskingProcessResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.stopMaskingProcessWithOptions(request, runtime);
   }
 
