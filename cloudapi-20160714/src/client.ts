@@ -2025,6 +2025,15 @@ export class DescribeApiResponseBodyServiceConfigFunctionComputeConfig extends $
    * fcservicename
    */
   serviceName?: string;
+  /**
+   * @remarks
+   * The name of the trigger.
+   * 
+   * You can specify the TriggerName or TriggerUrl parameter. The TriggerName parameter is optional.
+   * 
+   * @example
+   * test1
+   */
   triggerName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9256,6 +9265,15 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
    * myservice
    */
   serviceName?: string;
+  /**
+   * @remarks
+   * The name of the trigger.
+   * 
+   * You can specify the TriggerName or TriggerUrl parameter. The TriggerName parameter is optional.
+   * 
+   * @example
+   * test1
+   */
   triggerName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29151,6 +29169,13 @@ export class DescribeApiGroupVpcWhitelistResponse extends $dara.Model {
 }
 
 export class DescribeApiGroupsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The root path of the API.
+   * 
+   * @example
+   * /edmdgp/service20250116management01/v1
+   */
   basePath?: string;
   /**
    * @remarks
@@ -44577,6 +44602,8 @@ export class ListPrivateDNSRequest extends $dara.Model {
    * api.demo.com
    */
   intranetDomain?: string;
+  pageNumber?: number;
+  pageSize?: number;
   securityToken?: string;
   /**
    * @remarks
@@ -44592,6 +44619,8 @@ export class ListPrivateDNSRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       intranetDomain: 'IntranetDomain',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       securityToken: 'SecurityToken',
       type: 'Type',
     };
@@ -44600,6 +44629,8 @@ export class ListPrivateDNSRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       intranetDomain: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       securityToken: 'string',
       type: 'string',
     };
@@ -64112,6 +64143,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.intranetDomain)) {
       query["IntranetDomain"] = request.intranetDomain;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!$dara.isNull(request.securityToken)) {
