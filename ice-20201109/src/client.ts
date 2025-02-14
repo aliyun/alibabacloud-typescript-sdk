@@ -119,6 +119,7 @@ export class AIAgentTemplateConfigAvatarChat3DLlmHistory extends $dara.Model {
 }
 
 export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
+  asrLanguageId?: string;
   asrMaxSilence?: number;
   avatarId?: string;
   bailianAppParams?: string;
@@ -141,6 +142,7 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
   workflowOverrideParams?: string;
   static names(): { [key: string]: string } {
     return {
+      asrLanguageId: 'AsrLanguageId',
       asrMaxSilence: 'AsrMaxSilence',
       avatarId: 'AvatarId',
       bailianAppParams: 'BailianAppParams',
@@ -166,6 +168,7 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      asrLanguageId: 'string',
       asrMaxSilence: 'number',
       avatarId: 'string',
       bailianAppParams: 'string',
@@ -231,6 +234,7 @@ export class AIAgentTemplateConfigVisionChatLlmHistory extends $dara.Model {
 }
 
 export class AIAgentTemplateConfigVisionChat extends $dara.Model {
+  asrLanguageId?: string;
   asrMaxSilence?: number;
   bailianAppParams?: string;
   enableIntelligentSegment?: boolean;
@@ -252,6 +256,7 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   workflowOverrideParams?: string;
   static names(): { [key: string]: string } {
     return {
+      asrLanguageId: 'AsrLanguageId',
       asrMaxSilence: 'AsrMaxSilence',
       bailianAppParams: 'BailianAppParams',
       enableIntelligentSegment: 'EnableIntelligentSegment',
@@ -276,6 +281,7 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      asrLanguageId: 'string',
       asrMaxSilence: 'number',
       bailianAppParams: 'string',
       enableIntelligentSegment: 'boolean',
@@ -340,6 +346,7 @@ export class AIAgentTemplateConfigVoiceChatLlmHistory extends $dara.Model {
 }
 
 export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
+  asrLanguageId?: string;
   asrMaxSilence?: number;
   avatarUrl?: string;
   avatarUrlType?: string;
@@ -363,6 +370,7 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
   workflowOverrideParams?: string;
   static names(): { [key: string]: string } {
     return {
+      asrLanguageId: 'AsrLanguageId',
       asrMaxSilence: 'AsrMaxSilence',
       avatarUrl: 'AvatarUrl',
       avatarUrlType: 'AvatarUrlType',
@@ -389,6 +397,7 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      asrLanguageId: 'string',
       asrMaxSilence: 'number',
       avatarUrl: 'string',
       avatarUrlType: 'string',
@@ -507,9 +516,130 @@ export class ChannelOutPutConfigList extends $dara.Model {
   }
 }
 
+export class ChannelAssemblyChannelOutPutConfigList extends $dara.Model {
+  channelName?: string;
+  format?: string;
+  manifestName?: string;
+  manifestSettings?: string;
+  playbackUrl?: string;
+  sourceGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+      format: 'Format',
+      manifestName: 'ManifestName',
+      manifestSettings: 'ManifestSettings',
+      playbackUrl: 'PlaybackUrl',
+      sourceGroupName: 'SourceGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+      format: 'string',
+      manifestName: 'string',
+      manifestSettings: 'string',
+      playbackUrl: 'string',
+      sourceGroupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChannelAssemblyProgramAdBreaks extends $dara.Model {
+  channelName?: string;
+  messageType?: string;
+  offsetMillis?: number;
+  programName?: string;
+  sourceLocationName?: string;
+  sourceName?: string;
+  spliceInsertSettings?: string;
+  timeSignalSettings?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+      messageType: 'MessageType',
+      offsetMillis: 'OffsetMillis',
+      programName: 'ProgramName',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      spliceInsertSettings: 'SpliceInsertSettings',
+      timeSignalSettings: 'TimeSignalSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+      messageType: 'string',
+      offsetMillis: 'number',
+      programName: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      spliceInsertSettings: 'string',
+      timeSignalSettings: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChannelAssemblyScheduleDataAdBreaks extends $dara.Model {
+  messageType?: string;
+  offsetMillis?: string;
+  sourceLocationName?: string;
+  sourceName?: string;
+  spliceInsertSettings?: string;
+  timeSignalSettings?: string;
+  static names(): { [key: string]: string } {
+    return {
+      messageType: 'MessageType',
+      offsetMillis: 'OffsetMillis',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      spliceInsertSettings: 'SpliceInsertSettings',
+      timeSignalSettings: 'TimeSignalSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messageType: 'string',
+      offsetMillis: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      spliceInsertSettings: 'string',
+      timeSignalSettings: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LicenseInstanceAppDTOLicenseConfigs extends $dara.Model {
   businessType?: string;
   featureIds?: string;
+  isTrial?: boolean;
   sdkId?: number;
   sdkName?: string;
   subscription?: string;
@@ -519,6 +649,7 @@ export class LicenseInstanceAppDTOLicenseConfigs extends $dara.Model {
     return {
       businessType: 'BusinessType',
       featureIds: 'FeatureIds',
+      isTrial: 'IsTrial',
       sdkId: 'SdkId',
       sdkName: 'SdkName',
       subscription: 'Subscription',
@@ -531,6 +662,7 @@ export class LicenseInstanceAppDTOLicenseConfigs extends $dara.Model {
     return {
       businessType: 'string',
       featureIds: 'string',
+      isTrial: 'boolean',
       sdkId: 'number',
       sdkName: 'string',
       subscription: 'string',
@@ -712,6 +844,203 @@ export class VodPackagingConfigStreamSelection extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 广告分片的CDN前缀
+   * 
+   * @example
+   * http://cdn.com/
+   */
+  adSegmentUrlPrefix?: string;
+  /**
+   * @remarks
+   * 视频内容分片的CDN前缀
+   * 
+   * @example
+   * http://cdn.com/
+   */
+  contentSegmentUrlPrefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adSegmentUrlPrefix: 'AdSegmentUrlPrefix',
+      contentSegmentUrlPrefix: 'ContentSegmentUrlPrefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adSegmentUrlPrefix: 'string',
+      contentSegmentUrlPrefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAdInsertionResponseBodyConfigManifestEndpointConfig extends $dara.Model {
+  /**
+   * @remarks
+   * HLS清单播放端点前缀
+   */
+  hlsPrefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hlsPrefix: 'HlsPrefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hlsPrefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAdInsertionResponseBodyConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 广告标记透传
+   * 
+   * @example
+   * ON
+   */
+  adMarkerPassthrough?: string;
+  /**
+   * @remarks
+   * 广告策略服务器URL
+   * 
+   * @example
+   * http://ads.com/ad1?param1=[palyer_params.p1]
+   */
+  adsUrl?: string;
+  /**
+   * @remarks
+   * CDN配置
+   */
+  cdnConfig?: AddAdInsertionResponseBodyConfigCdnConfig;
+  /**
+   * @remarks
+   * 动态配置别名
+   * 
+   * @example
+   * { "player_params.p1": { "1": "abc" } }
+   */
+  configAliases?: string;
+  /**
+   * @remarks
+   * 内容URL前缀
+   * 
+   * @example
+   * https://source.com/
+   */
+  contentUrlPrefix?: string;
+  /**
+   * @remarks
+   * 创建时间
+   * 
+   * @example
+   * 2024-06-13T08:26:09Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * 修改时间
+   * 
+   * @example
+   * 2024-06-13T08:26:09Z
+   */
+  lastModified?: string;
+  /**
+   * @remarks
+   * 清单播放端点配置
+   */
+  manifestEndpointConfig?: AddAdInsertionResponseBodyConfigManifestEndpointConfig;
+  /**
+   * @remarks
+   * 广告插入配置名称
+   * 
+   * @example
+   * my_ad
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 个性化配置阈值
+   * 
+   * @example
+   * 5
+   */
+  personalizationThreshold?: number;
+  /**
+   * @remarks
+   * slate广告URL
+   * 
+   * @example
+   * http://storage.com/slate1.mp4
+   */
+  slateAdUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adMarkerPassthrough: 'AdMarkerPassthrough',
+      adsUrl: 'AdsUrl',
+      cdnConfig: 'CdnConfig',
+      configAliases: 'ConfigAliases',
+      contentUrlPrefix: 'ContentUrlPrefix',
+      createTime: 'CreateTime',
+      lastModified: 'LastModified',
+      manifestEndpointConfig: 'ManifestEndpointConfig',
+      name: 'Name',
+      personalizationThreshold: 'PersonalizationThreshold',
+      slateAdUrl: 'SlateAdUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adMarkerPassthrough: 'string',
+      adsUrl: 'string',
+      cdnConfig: AddAdInsertionResponseBodyConfigCdnConfig,
+      configAliases: 'string',
+      contentUrlPrefix: 'string',
+      createTime: 'string',
+      lastModified: 'string',
+      manifestEndpointConfig: AddAdInsertionResponseBodyConfigManifestEndpointConfig,
+      name: 'string',
+      personalizationThreshold: 'number',
+      slateAdUrl: 'string',
+    };
+  }
+
+  validate() {
+    if(this.cdnConfig && typeof (this.cdnConfig as any).validate === 'function') {
+      (this.cdnConfig as any).validate();
+    }
+    if(this.manifestEndpointConfig && typeof (this.manifestEndpointConfig as any).validate === 'function') {
+      (this.manifestEndpointConfig as any).validate();
+    }
     super.validate();
   }
 
@@ -1280,6 +1609,9 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfos extends $dara.Mode
 
 export class AddMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   /**
+   * @remarks
+   * Input URL
+   * 
    * @example
    * rtmp://1.2.3.4:1935/live/AliTestInput_8666ec062190f00e263012666319a5be
    */
@@ -1307,6 +1639,9 @@ export class AddMediaConnectFlowInputResponseBodyContent extends $dara.Model {
 
 export class AddMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
   /**
+   * @remarks
+   * Output address
+   * 
    * @example
    * srt://1.2.3.4:1025
    */
@@ -1460,6 +1795,116 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateVodPackagingAssetRequestAssetsInput extends $dara.Model {
+  media?: string;
+  /**
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateVodPackagingAssetRequestAssets extends $dara.Model {
+  /**
+   * @example
+   * 30min_movie
+   */
+  assetName?: string;
+  /**
+   * @example
+   * movie
+   */
+  contentId?: string;
+  input?: BatchCreateVodPackagingAssetRequestAssetsInput;
+  static names(): { [key: string]: string } {
+    return {
+      assetName: 'AssetName',
+      contentId: 'ContentId',
+      input: 'Input',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetName: 'string',
+      contentId: 'string',
+      input: BatchCreateVodPackagingAssetRequestAssetsInput,
+    };
+  }
+
+  validate() {
+    if(this.input && typeof (this.input as any).validate === 'function') {
+      (this.input as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateVodPackagingAssetResponseBodyResultList extends $dara.Model {
+  asset?: VodPackagingAsset;
+  /**
+   * @example
+   * InvalidParameter.PackagingAssetAlreadyExists
+   */
+  code?: string;
+  /**
+   * @example
+   * The specified packagingAsset "inputMovie" already exists
+   */
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asset: 'Asset',
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asset: VodPackagingAsset,
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  validate() {
+    if(this.asset && typeof (this.asset as any).validate === 'function') {
+      (this.asset as any).validate();
+    }
     super.validate();
   }
 
@@ -3057,6 +3502,13 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfig extends $dara.Mode
 }
 
 export class CreateMediaConnectFlowResponseBodyContent extends $dara.Model {
+  /**
+   * @remarks
+   * Flow instance ID
+   * 
+   * @example
+   * 34900dc6-90ec-4968-af3c-fcd87f231a5f
+   */
   flowId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3172,6 +3624,170 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingAssetRequestInput extends $dara.Model {
+  media?: string;
+  /**
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingConfigurationRequestPackageConfigDrmProvider extends $dara.Model {
+  /**
+   * @example
+   * AES_128
+   */
+  encryptionMethod?: string;
+  /**
+   * @example
+   * 00001111222233334444555566667777
+   */
+  IV?: string;
+  systemIds?: string[];
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encryptionMethod: 'EncryptionMethod',
+      IV: 'IV',
+      systemIds: 'SystemIds',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encryptionMethod: 'string',
+      IV: 'string',
+      systemIds: { 'type': 'array', 'itemType': 'string' },
+      url: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.systemIds)) {
+      $dara.Model.validateArray(this.systemIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingConfigurationRequestPackageConfigStreamSelection extends $dara.Model {
+  /**
+   * @example
+   * 1000000000
+   */
+  maxVideoBitsPerSecond?: number;
+  /**
+   * @example
+   * 100000
+   */
+  minVideoBitsPerSecond?: number;
+  /**
+   * @example
+   * ORIGINAL
+   */
+  streamOrder?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxVideoBitsPerSecond: 'MaxVideoBitsPerSecond',
+      minVideoBitsPerSecond: 'MinVideoBitsPerSecond',
+      streamOrder: 'StreamOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxVideoBitsPerSecond: 'number',
+      minVideoBitsPerSecond: 'number',
+      streamOrder: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingConfigurationRequestPackageConfig extends $dara.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
+  drmProvider?: CreateVodPackagingConfigurationRequestPackageConfigDrmProvider;
+  /**
+   * @example
+   * index
+   */
+  manifestName?: string;
+  /**
+   * @example
+   * 6
+   */
+  segmentDuration?: number;
+  streamSelection?: CreateVodPackagingConfigurationRequestPackageConfigStreamSelection;
+  static names(): { [key: string]: string } {
+    return {
+      drmProvider: 'DrmProvider',
+      manifestName: 'ManifestName',
+      segmentDuration: 'SegmentDuration',
+      streamSelection: 'StreamSelection',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drmProvider: CreateVodPackagingConfigurationRequestPackageConfigDrmProvider,
+      manifestName: 'string',
+      segmentDuration: 'number',
+      streamSelection: CreateVodPackagingConfigurationRequestPackageConfigStreamSelection,
+    };
+  }
+
+  validate() {
+    if(this.drmProvider && typeof (this.drmProvider as any).validate === 'function') {
+      (this.drmProvider as any).validate();
+    }
+    if(this.streamSelection && typeof (this.streamSelection as any).validate === 'function') {
+      (this.streamSelection as any).validate();
+    }
     super.validate();
   }
 
@@ -3356,6 +3972,7 @@ export class DescribeAIAgentInstanceResponseBodyInstance extends $dara.Model {
    * {"VoiceChat":{"AgentUserId":"voice_agent_001","ChannelId":"voice_channel_001","AuthToken":"your_voice_chat_auth_token"}}
    */
   runtimeConfig?: AIAgentRuntimeConfig;
+  sessionId?: string;
   /**
    * @example
    * Finished
@@ -3375,6 +3992,7 @@ export class DescribeAIAgentInstanceResponseBodyInstance extends $dara.Model {
     return {
       callLogUrl: 'CallLogUrl',
       runtimeConfig: 'RuntimeConfig',
+      sessionId: 'SessionId',
       status: 'Status',
       templateConfig: 'TemplateConfig',
       userData: 'UserData',
@@ -3385,6 +4003,7 @@ export class DescribeAIAgentInstanceResponseBodyInstance extends $dara.Model {
     return {
       callLogUrl: 'string',
       runtimeConfig: AIAgentRuntimeConfig,
+      sessionId: 'string',
       status: 'string',
       templateConfig: AIAgentTemplateConfig,
       userData: 'string',
@@ -3912,6 +4531,207 @@ export class GenerateKMSDataKeyResponseBodyDataKey extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 广告分片的CDN前缀
+   * 
+   * @example
+   * http://cdn.com/
+   */
+  adSegmentUrlPrefix?: string;
+  /**
+   * @remarks
+   * 视频内容分片的CDN前缀
+   * 
+   * @example
+   * http://cdn.com/
+   */
+  contentSegmentUrlPrefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adSegmentUrlPrefix: 'AdSegmentUrlPrefix',
+      contentSegmentUrlPrefix: 'ContentSegmentUrlPrefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adSegmentUrlPrefix: 'string',
+      contentSegmentUrlPrefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdInsertionResponseBodyConfigManifestEndpointConfig extends $dara.Model {
+  /**
+   * @remarks
+   * HLS清单播放端点前缀
+   */
+  hlsPrefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hlsPrefix: 'HlsPrefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hlsPrefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdInsertionResponseBodyConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 广告标记透传
+   * 
+   * @example
+   * ON
+   */
+  adMarkerPassthrough?: string;
+  /**
+   * @remarks
+   * 广告策略服务器URL
+   * 
+   * @example
+   * http://ads.com/ad1?param1=[palyer_params.p1]
+   */
+  adsUrl?: string;
+  /**
+   * @remarks
+   * CDN配置
+   */
+  cdnConfig?: GetAdInsertionResponseBodyConfigCdnConfig;
+  /**
+   * @remarks
+   * 动态配置别名
+   * 
+   * @example
+   * {
+   *       "player_params.p1": {
+   *             "1": "abc"
+   *       }
+   * }
+   */
+  configAliases?: string;
+  /**
+   * @remarks
+   * 内容URL前缀
+   * 
+   * @example
+   * https://source.com/
+   */
+  contentUrlPrefix?: string;
+  /**
+   * @remarks
+   * 创建时间
+   * 
+   * @example
+   * 2024-06-13T08:26:09Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * 修改时间
+   * 
+   * @example
+   * 2024-06-13T08:26:09Z
+   */
+  lastModified?: string;
+  /**
+   * @remarks
+   * 清单播放端点配置
+   */
+  manifestEndpointConfig?: GetAdInsertionResponseBodyConfigManifestEndpointConfig;
+  /**
+   * @remarks
+   * 广告插入配置名称
+   * 
+   * @example
+   * my_ad
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 个性化配置阈值
+   * 
+   * @example
+   * 5
+   */
+  personalizationThreshold?: number;
+  /**
+   * @remarks
+   * slate广告URL
+   * 
+   * @example
+   * http://storage.com/slate1.mp4
+   */
+  slateAdUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adMarkerPassthrough: 'AdMarkerPassthrough',
+      adsUrl: 'AdsUrl',
+      cdnConfig: 'CdnConfig',
+      configAliases: 'ConfigAliases',
+      contentUrlPrefix: 'ContentUrlPrefix',
+      createTime: 'CreateTime',
+      lastModified: 'LastModified',
+      manifestEndpointConfig: 'ManifestEndpointConfig',
+      name: 'Name',
+      personalizationThreshold: 'PersonalizationThreshold',
+      slateAdUrl: 'SlateAdUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adMarkerPassthrough: 'string',
+      adsUrl: 'string',
+      cdnConfig: GetAdInsertionResponseBodyConfigCdnConfig,
+      configAliases: 'string',
+      contentUrlPrefix: 'string',
+      createTime: 'string',
+      lastModified: 'string',
+      manifestEndpointConfig: GetAdInsertionResponseBodyConfigManifestEndpointConfig,
+      name: 'string',
+      personalizationThreshold: 'number',
+      slateAdUrl: 'string',
+    };
+  }
+
+  validate() {
+    if(this.cdnConfig && typeof (this.cdnConfig as any).validate === 'function') {
+      (this.cdnConfig as any).validate();
+    }
+    if(this.manifestEndpointConfig && typeof (this.manifestEndpointConfig as any).validate === 'function') {
+      (this.manifestEndpointConfig as any).validate();
+    }
     super.validate();
   }
 
@@ -8086,28 +8906,43 @@ export class GetLiveTranscodeTemplateResponseBodyTemplateContent extends $dara.M
 
 export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   /**
+   * @remarks
+   * Flow creation time
+   * 
    * @example
    * 2024-07-18T01:29:24Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Flow instance ID
+   * 
    * @example
    * 34900dc6-90ec-4968-af3c-fcd87f231a5f
    */
   flowId?: string;
   /**
+   * @remarks
+   * Flow instance name
+   * 
    * @example
-   * WorkTypeAfterRefresh
+   * AliTestFlow
    */
   flowName?: string;
   /**
+   * @remarks
+   * Flow status
+   * 
    * @example
-   * Enabled
+   * online
    */
   flowStatus?: string;
   /**
+   * @remarks
+   * Flow start time
+   * 
    * @example
-   * 2020-05-11T02:40Z
+   * 2024-07-18T01:39:24Z
    */
   startTime?: string;
   static names(): { [key: string]: string } {
@@ -8127,6 +8962,266 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
       flowName: 'string',
       flowStatus: 'string',
       startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
+  /**
+   * @remarks
+   * IP whitelist, in CIDR format, multiple IP segments separated by commas
+   * 
+   * @example
+   * 10.211.0.0/17
+   */
+  cidrs?: string;
+  /**
+   * @remarks
+   * Flow creation time
+   * 
+   * @example
+   * 2024-07-18T01:29:24Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Input name
+   * 
+   * @example
+   * AliTestInput
+   */
+  inputName?: string;
+  /**
+   * @remarks
+   * Input type
+   * 
+   * @example
+   * RTMP-PUSH
+   */
+  inputProtocol?: string;
+  /**
+   * @remarks
+   * Input URL
+   * 
+   * @example
+   * rtmp://1.2.3.4:1935/live/AliTestInput_8666ec062190f00e263012666319a5be
+   */
+  inputUrl?: string;
+  /**
+   * @remarks
+   * Input bitrate, in bps
+   * 
+   * @example
+   * 2000000
+   */
+  maxBitrate?: number;
+  /**
+   * @remarks
+   * Peer Flow instance ID, required when the output type is Flow
+   * 
+   * @example
+   * 05c3adf4-aa0e-421d-a991-48ceae3e642e
+   */
+  pairFlowId?: string;
+  /**
+   * @remarks
+   * Peer Flow output name, required only when the input type is Flow
+   * 
+   * @example
+   * AliTestOutput
+   */
+  pairOutputName?: string;
+  /**
+   * @remarks
+   * SRT latency, in ms, required only when the input type is SRT-Listener/SRT-Caller
+   * 
+   * @example
+   * 1000
+   */
+  srtLatency?: number;
+  /**
+   * @remarks
+   * SRT encryption key, required only when the input type is SRT-Listener/SRT-Caller
+   * 
+   * @example
+   * FICUBPX4Q77DYHRF
+   */
+  srtPassphrase?: string;
+  /**
+   * @remarks
+   * SRT encryption length, required only when the input type is SRT-Listener/SRT-Caller
+   * 
+   * @example
+   * 32
+   */
+  srtPbkeyLen?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cidrs: 'Cidrs',
+      createTime: 'CreateTime',
+      inputName: 'InputName',
+      inputProtocol: 'InputProtocol',
+      inputUrl: 'InputUrl',
+      maxBitrate: 'MaxBitrate',
+      pairFlowId: 'PairFlowId',
+      pairOutputName: 'PairOutputName',
+      srtLatency: 'SrtLatency',
+      srtPassphrase: 'SrtPassphrase',
+      srtPbkeyLen: 'SrtPbkeyLen',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrs: 'string',
+      createTime: 'string',
+      inputName: 'string',
+      inputProtocol: 'string',
+      inputUrl: 'string',
+      maxBitrate: 'number',
+      pairFlowId: 'string',
+      pairOutputName: 'string',
+      srtLatency: 'number',
+      srtPassphrase: 'string',
+      srtPbkeyLen: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
+  /**
+   * @remarks
+   * IP whitelist in CIDR format, multiple IP segments separated by commas
+   * 
+   * @example
+   * 10.211.0.0/17
+   */
+  cidrs?: string;
+  /**
+   * @remarks
+   * Flow creation time
+   * 
+   * @example
+   * 2024-07-18T01:29:24Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Output name
+   * 
+   * @example
+   * AliTestInput
+   */
+  outputName?: string;
+  /**
+   * @remarks
+   * Output protocol
+   * 
+   * @example
+   * SRT-PULL
+   */
+  outputProtocol?: string;
+  /**
+   * @remarks
+   * Output URL
+   * 
+   * @example
+   * srt://1.2.3.4:1025
+   */
+  outputUrl?: string;
+  /**
+   * @remarks
+   * Peer Flow instance ID, required when the output type is Flow
+   * 
+   * @example
+   * 805fbdd0-575e-4146-b35d-ec7f63937b20
+   */
+  pairFlowId?: string;
+  /**
+   * @remarks
+   * Peer Flow\\"s input name, required when the output type is Flow
+   * 
+   * @example
+   * AliTestInput
+   */
+  pairInputName?: string;
+  /**
+   * @remarks
+   * Player limit
+   * 
+   * @example
+   * 5
+   */
+  playerLimit?: number;
+  /**
+   * @remarks
+   * SRT latency, in milliseconds, required only when the input type is SRT-Listener/SRT-Caller
+   * 
+   * @example
+   * 1000
+   */
+  srtLatency?: number;
+  /**
+   * @remarks
+   * SRT encryption key, required only when the input type is SRT-Listener/SRT-Caller
+   * 
+   * @example
+   * FICUBPX4Q77DYHRF
+   */
+  srtPassphrase?: string;
+  /**
+   * @remarks
+   * SRT encryption length, required only when the input type is SRT-Listener/SRT-Caller
+   * 
+   * @example
+   * 32
+   */
+  srtPbkeyLen?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cidrs: 'Cidrs',
+      createTime: 'CreateTime',
+      outputName: 'OutputName',
+      outputProtocol: 'OutputProtocol',
+      outputUrl: 'OutputUrl',
+      pairFlowId: 'PairFlowId',
+      pairInputName: 'PairInputName',
+      playerLimit: 'PlayerLimit',
+      srtLatency: 'SrtLatency',
+      srtPassphrase: 'SrtPassphrase',
+      srtPbkeyLen: 'SrtPbkeyLen',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrs: 'string',
+      createTime: 'string',
+      outputName: 'string',
+      outputProtocol: 'string',
+      outputUrl: 'string',
+      pairFlowId: 'string',
+      pairInputName: 'string',
+      playerLimit: 'number',
+      srtLatency: 'number',
+      srtPassphrase: 'string',
+      srtPbkeyLen: 'number',
     };
   }
 
@@ -17953,6 +19048,133 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
   }
 }
 
+export class GetVodPackagingAssetResponseBodyAssetEgressEndpoints extends $dara.Model {
+  /**
+   * @example
+   * hls_3s
+   */
+  configurationName?: string;
+  /**
+   * @example
+   * Playable
+   */
+  status?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configurationName: 'ConfigurationName',
+      status: 'Status',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configurationName: 'string',
+      status: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVodPackagingAssetResponseBodyAssetInput extends $dara.Model {
+  media?: string;
+  /**
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVodPackagingAssetResponseBodyAsset extends $dara.Model {
+  /**
+   * @example
+   * 30min_movie
+   */
+  assetName?: string;
+  /**
+   * @example
+   * movie
+   */
+  contentId?: string;
+  /**
+   * @example
+   * 2024-11-21T06:45:32Z
+   */
+  createTime?: string;
+  egressEndpoints?: GetVodPackagingAssetResponseBodyAssetEgressEndpoints[];
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  input?: GetVodPackagingAssetResponseBodyAssetInput;
+  static names(): { [key: string]: string } {
+    return {
+      assetName: 'AssetName',
+      contentId: 'ContentId',
+      createTime: 'CreateTime',
+      egressEndpoints: 'EgressEndpoints',
+      groupName: 'GroupName',
+      input: 'Input',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetName: 'string',
+      contentId: 'string',
+      createTime: 'string',
+      egressEndpoints: { 'type': 'array', 'itemType': GetVodPackagingAssetResponseBodyAssetEgressEndpoints },
+      groupName: 'string',
+      input: GetVodPackagingAssetResponseBodyAssetInput,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.egressEndpoints)) {
+      $dara.Model.validateArray(this.egressEndpoints);
+    }
+    if(this.input && typeof (this.input as any).validate === 'function') {
+      (this.input as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $dara.Model {
   /**
    * @remarks
@@ -18149,6 +19371,57 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $dara.Model {
   }
 }
 
+export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
+  /**
+   * @example
+   * 19de81b3b3d94abda22****
+   */
+  dialogueId?: string;
+  /**
+   * @example
+   * user
+   */
+  producer?: string;
+  /**
+   * @example
+   * f27f9b9be28642a88e18****
+   */
+  roundId?: string;
+  text?: string;
+  /**
+   * @example
+   * 1734511087000
+   */
+  time?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dialogueId: 'DialogueId',
+      producer: 'Producer',
+      roundId: 'RoundId',
+      text: 'Text',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogueId: 'string',
+      producer: 'string',
+      roundId: 'string',
+      text: 'string',
+      time: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAIAgentInstanceResponseBodyInstances extends $dara.Model {
   /**
    * @example
@@ -18202,6 +19475,272 @@ export class ListAIAgentInstanceResponseBodyInstances extends $dara.Model {
     if(this.templateConfig && typeof (this.templateConfig as any).validate === 'function') {
       (this.templateConfig as any).validate();
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAdInsertionsResponseBodyConfigsCdnConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 广告分片的CDN前缀
+   * 
+   * @example
+   * http://cdn.com/
+   */
+  adSegmentUrlPrefix?: string;
+  /**
+   * @remarks
+   * 视频内容分片的CDN前缀
+   * 
+   * @example
+   * http://cdn.com/
+   */
+  contentSegmentUrlPrefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adSegmentUrlPrefix: 'AdSegmentUrlPrefix',
+      contentSegmentUrlPrefix: 'ContentSegmentUrlPrefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adSegmentUrlPrefix: 'string',
+      contentSegmentUrlPrefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAdInsertionsResponseBodyConfigsManifestEndpointConfig extends $dara.Model {
+  /**
+   * @remarks
+   * HLS清单播放端点前缀
+   */
+  hlsPrefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hlsPrefix: 'HlsPrefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hlsPrefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * 广告标记透传
+   * 
+   * @example
+   * ON
+   */
+  adMarkerPassthrough?: string;
+  /**
+   * @remarks
+   * 广告策略服务器URL
+   * 
+   * @example
+   * http://ads.com/ad1?param1=[palyer_params.p1]
+   */
+  adsUrl?: string;
+  /**
+   * @remarks
+   * CDN配置
+   */
+  cdnConfig?: ListAdInsertionsResponseBodyConfigsCdnConfig;
+  /**
+   * @remarks
+   * 动态配置别名
+   * 
+   * @example
+   * {
+   *       "player_params.p1": {
+   *             "1": "abc"
+   *       }
+   * }
+   */
+  configAliases?: string;
+  /**
+   * @remarks
+   * 内容URL前缀
+   * 
+   * @example
+   * https://source.com/
+   */
+  contentUrlPrefix?: string;
+  /**
+   * @remarks
+   * 创建时间
+   * 
+   * @example
+   * 2024-06-13T08:26:09Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * 修改时间
+   * 
+   * @example
+   * 2024-06-13T08:26:09Z
+   */
+  lastModified?: string;
+  /**
+   * @remarks
+   * 清单播放端点配置
+   */
+  manifestEndpointConfig?: ListAdInsertionsResponseBodyConfigsManifestEndpointConfig;
+  /**
+   * @remarks
+   * 广告插入配置名称
+   * 
+   * @example
+   * my_ad
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 个性化配置阈值
+   * 
+   * @example
+   * 5
+   */
+  personalizationThreshold?: number;
+  /**
+   * @remarks
+   * slate广告URL
+   * 
+   * @example
+   * http://storage.com/slate1.mp4
+   */
+  slateAdUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adMarkerPassthrough: 'AdMarkerPassthrough',
+      adsUrl: 'AdsUrl',
+      cdnConfig: 'CdnConfig',
+      configAliases: 'ConfigAliases',
+      contentUrlPrefix: 'ContentUrlPrefix',
+      createTime: 'CreateTime',
+      lastModified: 'LastModified',
+      manifestEndpointConfig: 'ManifestEndpointConfig',
+      name: 'Name',
+      personalizationThreshold: 'PersonalizationThreshold',
+      slateAdUrl: 'SlateAdUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adMarkerPassthrough: 'string',
+      adsUrl: 'string',
+      cdnConfig: ListAdInsertionsResponseBodyConfigsCdnConfig,
+      configAliases: 'string',
+      contentUrlPrefix: 'string',
+      createTime: 'string',
+      lastModified: 'string',
+      manifestEndpointConfig: ListAdInsertionsResponseBodyConfigsManifestEndpointConfig,
+      name: 'string',
+      personalizationThreshold: 'number',
+      slateAdUrl: 'string',
+    };
+  }
+
+  validate() {
+    if(this.cdnConfig && typeof (this.cdnConfig as any).validate === 'function') {
+      (this.cdnConfig as any).validate();
+    }
+    if(this.manifestEndpointConfig && typeof (this.manifestEndpointConfig as any).validate === 'function') {
+      (this.manifestEndpointConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertsResponseBodyAlerts extends $dara.Model {
+  category?: string;
+  /**
+   * @example
+   * ScheduleError
+   */
+  code?: string;
+  /**
+   * @example
+   * 2024-07-16T10:03Z
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-07-16T10:03Z
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * xxxxx
+   */
+  message?: string;
+  /**
+   * @example
+   * acs:ims:mediaweaver:<regionId>:<userId>:vodSource/mySourceLocation/MySource
+   */
+  relatedResourceArns?: string;
+  /**
+   * @example
+   * acs:ims:mediaweaver:<regionId>:<userId>:vodSource/mySourceLocation/MySource
+   */
+  resourceArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      code: 'Code',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      message: 'Message',
+      relatedResourceArns: 'RelatedResourceArns',
+      resourceArn: 'ResourceArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      code: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      message: 'string',
+      relatedResourceArns: 'string',
+      resourceArn: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -18743,6 +20282,57 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
       outputConfig: 'string',
       status: 'string',
       userData: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChannelAlertsResponseBodyProgramAlerts extends $dara.Model {
+  /**
+   * @example
+   * acs:ims:mediaweaver:<regionId>:<userId>:program/myChannel/MyProgram
+   */
+  arn?: string;
+  category?: string;
+  /**
+   * @example
+   * 4
+   */
+  count?: number;
+  /**
+   * @example
+   * 2024-07-16T10:03Z
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * program_name
+   */
+  programName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      category: 'Category',
+      count: 'Count',
+      gmtModified: 'GmtModified',
+      programName: 'ProgramName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      category: 'string',
+      count: 'number',
+      gmtModified: 'string',
+      programName: 'string',
     };
   }
 
@@ -26608,6 +28198,90 @@ export class ListTranscodeJobsResponseBodyJobs extends $dara.Model {
     }
     if(this.scheduleConfig && typeof (this.scheduleConfig as any).validate === 'function') {
       (this.scheduleConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVodPackagingAssetsResponseBodyAssetsInput extends $dara.Model {
+  media?: string;
+  /**
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVodPackagingAssetsResponseBodyAssets extends $dara.Model {
+  /**
+   * @example
+   * 30min_movie
+   */
+  assetName?: string;
+  /**
+   * @example
+   * 2024-11-21T06:45:32Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * movie 30min
+   */
+  description?: string;
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  input?: ListVodPackagingAssetsResponseBodyAssetsInput;
+  static names(): { [key: string]: string } {
+    return {
+      assetName: 'AssetName',
+      createTime: 'CreateTime',
+      description: 'Description',
+      groupName: 'GroupName',
+      input: 'Input',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetName: 'string',
+      createTime: 'string',
+      description: 'string',
+      groupName: 'string',
+      input: ListVodPackagingAssetsResponseBodyAssetsInput,
+    };
+  }
+
+  validate() {
+    if(this.input && typeof (this.input as any).validate === 'function') {
+      (this.input as any).validate();
     }
     super.validate();
   }
@@ -42973,6 +44647,203 @@ export class SubmitVideoTranslationJobResponseBodyData extends $dara.Model {
   }
 }
 
+export class UpdateAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 广告分片的CDN前缀
+   * 
+   * @example
+   * http://cdn.com/
+   */
+  adSegmentUrlPrefix?: string;
+  /**
+   * @remarks
+   * 视频内容分片的CDN前缀
+   * 
+   * @example
+   * http://cdn.com/
+   */
+  contentSegmentUrlPrefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adSegmentUrlPrefix: 'AdSegmentUrlPrefix',
+      contentSegmentUrlPrefix: 'ContentSegmentUrlPrefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adSegmentUrlPrefix: 'string',
+      contentSegmentUrlPrefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAdInsertionResponseBodyConfigManifestEndpointConfig extends $dara.Model {
+  /**
+   * @remarks
+   * HLS清单播放端点前缀
+   */
+  hlsPrefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hlsPrefix: 'HlsPrefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hlsPrefix: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
+  /**
+   * @remarks
+   * 广告标记透传
+   * 
+   * @example
+   * ON
+   */
+  adMarkerPassthrough?: string;
+  /**
+   * @remarks
+   * 广告策略服务器URL
+   * 
+   * @example
+   * http://ads.com/ad1?param1=[palyer_params.p1]
+   */
+  adsUrl?: string;
+  /**
+   * @remarks
+   * CDN配置
+   */
+  cdnConfig?: UpdateAdInsertionResponseBodyConfigCdnConfig;
+  /**
+   * @remarks
+   * 动态配置别名
+   * 
+   * @example
+   * { "player_params.p1": { "1": "abc" } }
+   */
+  configAliases?: string;
+  /**
+   * @remarks
+   * 内容URL前缀
+   * 
+   * @example
+   * https://source.com/
+   */
+  contentUrlPrefix?: string;
+  /**
+   * @remarks
+   * 创建时间
+   * 
+   * @example
+   * 2024-06-13T08:26:09Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * 修改时间
+   * 
+   * @example
+   * 2024-06-13T08:26:09Z
+   */
+  lastModified?: string;
+  /**
+   * @remarks
+   * 清单播放端点配置
+   */
+  manifestEndpointConfig?: UpdateAdInsertionResponseBodyConfigManifestEndpointConfig;
+  /**
+   * @remarks
+   * 广告插入配置名称
+   * 
+   * @example
+   * my_ad
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 个性化配置阈值
+   * 
+   * @example
+   * 5
+   */
+  personalizationThreshold?: number;
+  /**
+   * @remarks
+   * slate广告URL
+   * 
+   * @example
+   * http://storage.com/slate1.mp4
+   */
+  slateAdUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adMarkerPassthrough: 'AdMarkerPassthrough',
+      adsUrl: 'AdsUrl',
+      cdnConfig: 'CdnConfig',
+      configAliases: 'ConfigAliases',
+      contentUrlPrefix: 'ContentUrlPrefix',
+      createTime: 'CreateTime',
+      lastModified: 'LastModified',
+      manifestEndpointConfig: 'ManifestEndpointConfig',
+      name: 'Name',
+      personalizationThreshold: 'PersonalizationThreshold',
+      slateAdUrl: 'SlateAdUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adMarkerPassthrough: 'string',
+      adsUrl: 'string',
+      cdnConfig: UpdateAdInsertionResponseBodyConfigCdnConfig,
+      configAliases: 'string',
+      contentUrlPrefix: 'string',
+      createTime: 'string',
+      lastModified: 'string',
+      manifestEndpointConfig: UpdateAdInsertionResponseBodyConfigManifestEndpointConfig,
+      name: 'string',
+      personalizationThreshold: 'number',
+      slateAdUrl: 'string',
+    };
+  }
+
+  validate() {
+    if(this.cdnConfig && typeof (this.cdnConfig as any).validate === 'function') {
+      (this.cdnConfig as any).validate();
+    }
+    if(this.manifestEndpointConfig && typeof (this.manifestEndpointConfig as any).validate === 'function') {
+      (this.manifestEndpointConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAvatarTrainingJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -44133,6 +46004,253 @@ export class Channel extends $dara.Model {
   }
 }
 
+export class ChannelAssemblyChannel extends $dara.Model {
+  accessPolicy?: boolean;
+  accessToken?: string;
+  arn?: string;
+  channelName?: string;
+  channelTier?: string;
+  fillerSourceLocationName?: string;
+  fillerSourceName?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  outPutConfigList?: ChannelAssemblyChannelOutPutConfigList[];
+  playbackMode?: string;
+  state?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessPolicy: 'AccessPolicy',
+      accessToken: 'AccessToken',
+      arn: 'Arn',
+      channelName: 'ChannelName',
+      channelTier: 'ChannelTier',
+      fillerSourceLocationName: 'FillerSourceLocationName',
+      fillerSourceName: 'FillerSourceName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      outPutConfigList: 'OutPutConfigList',
+      playbackMode: 'PlaybackMode',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPolicy: 'boolean',
+      accessToken: 'string',
+      arn: 'string',
+      channelName: 'string',
+      channelTier: 'string',
+      fillerSourceLocationName: 'string',
+      fillerSourceName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      outPutConfigList: { 'type': 'array', 'itemType': ChannelAssemblyChannelOutPutConfigList },
+      playbackMode: 'string',
+      state: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.outPutConfigList)) {
+      $dara.Model.validateArray(this.outPutConfigList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChannelAssemblyProgram extends $dara.Model {
+  adBreaks?: ChannelAssemblyProgramAdBreaks[];
+  arn?: string;
+  channelName?: string;
+  clipRange?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  programName?: string;
+  sourceLocationName?: string;
+  sourceName?: string;
+  sourceType?: string;
+  transition?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adBreaks: 'AdBreaks',
+      arn: 'Arn',
+      channelName: 'ChannelName',
+      clipRange: 'ClipRange',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      programName: 'ProgramName',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+      transition: 'Transition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adBreaks: { 'type': 'array', 'itemType': ChannelAssemblyProgramAdBreaks },
+      arn: 'string',
+      channelName: 'string',
+      clipRange: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      programName: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+      transition: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.adBreaks)) {
+      $dara.Model.validateArray(this.adBreaks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChannelAssemblyScheduleData extends $dara.Model {
+  adBreaks?: ChannelAssemblyScheduleDataAdBreaks[];
+  approximateDurationSeconds?: number;
+  approximateStartTime?: string;
+  entryType?: string;
+  programName?: string;
+  sourceLocationName?: string;
+  sourceName?: string;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adBreaks: 'AdBreaks',
+      approximateDurationSeconds: 'ApproximateDurationSeconds',
+      approximateStartTime: 'ApproximateStartTime',
+      entryType: 'EntryType',
+      programName: 'ProgramName',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adBreaks: { 'type': 'array', 'itemType': ChannelAssemblyScheduleDataAdBreaks },
+      approximateDurationSeconds: 'number',
+      approximateStartTime: 'string',
+      entryType: 'string',
+      programName: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.adBreaks)) {
+      $dara.Model.validateArray(this.adBreaks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChannelAssemblySource extends $dara.Model {
+  arn?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  httpPackageConfigurations?: string;
+  sourceLocationName?: string;
+  sourceName?: string;
+  sourceType?: string;
+  state?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      httpPackageConfigurations: 'HttpPackageConfigurations',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      httpPackageConfigurations: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+      state: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChannelAssemblySourceLocation extends $dara.Model {
+  arn?: string;
+  baseUrl?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  segmentDeliveryConfigurations?: string;
+  sourceLocationName?: string;
+  state?: number;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'Arn',
+      baseUrl: 'BaseUrl',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      segmentDeliveryConfigurations: 'SegmentDeliveryConfigurations',
+      sourceLocationName: 'SourceLocationName',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      baseUrl: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      segmentDeliveryConfigurations: 'string',
+      sourceLocationName: 'string',
+      state: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LicenseInstanceAppDTO extends $dara.Model {
   appId?: string;
   beginOn?: string;
@@ -45052,6 +47170,197 @@ export class VodPackagingGroup extends $dara.Model {
   }
 }
 
+export class AddAdInsertionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 内容URL前缀
+   * 
+   * @example
+   * ON
+   */
+  adMarkerPassthrough?: string;
+  /**
+   * @remarks
+   * 广告策略服务器URL
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http://ads.com/ad1?param1=[palyer_params.p1]
+   */
+  adsUrl?: string;
+  /**
+   * @remarks
+   * 广告分片的CDN前缀
+   * 
+   * @example
+   * http://cdn.com/
+   */
+  cdnAdSegmentUrlPrefix?: string;
+  /**
+   * @remarks
+   * 视频内容分片的CDN前缀
+   * 
+   * @example
+   * http://cdn.com/
+   */
+  cdnContentSegmentUrlPrefix?: string;
+  /**
+   * @example
+   * ****0311a423d11a5f7dee713535****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * 动态配置别名
+   * 
+   * @example
+   * { "player_params.p1": { "1": "abc" } }
+   */
+  configAliases?: string;
+  /**
+   * @remarks
+   * 内容URL前缀
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * https://source.com/
+   */
+  contentUrlPrefix?: string;
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * my_ad
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 个性化配置阈值
+   * 
+   * @example
+   * 5
+   */
+  personalizationThreshold?: number;
+  /**
+   * @remarks
+   * slate广告URL
+   * 
+   * @example
+   * http://storage.com/slate1.mp4
+   */
+  slateAdUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adMarkerPassthrough: 'AdMarkerPassthrough',
+      adsUrl: 'AdsUrl',
+      cdnAdSegmentUrlPrefix: 'CdnAdSegmentUrlPrefix',
+      cdnContentSegmentUrlPrefix: 'CdnContentSegmentUrlPrefix',
+      clientToken: 'ClientToken',
+      configAliases: 'ConfigAliases',
+      contentUrlPrefix: 'ContentUrlPrefix',
+      name: 'Name',
+      personalizationThreshold: 'PersonalizationThreshold',
+      slateAdUrl: 'SlateAdUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adMarkerPassthrough: 'string',
+      adsUrl: 'string',
+      cdnAdSegmentUrlPrefix: 'string',
+      cdnContentSegmentUrlPrefix: 'string',
+      clientToken: 'string',
+      configAliases: 'string',
+      contentUrlPrefix: 'string',
+      name: 'string',
+      personalizationThreshold: 'number',
+      slateAdUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAdInsertionResponseBody extends $dara.Model {
+  config?: AddAdInsertionResponseBodyConfig;
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: AddAdInsertionResponseBodyConfig,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAdInsertionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddAdInsertionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddAdInsertionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddCategoryRequest extends $dara.Model {
   /**
    * @remarks
@@ -45437,70 +47746,99 @@ export class AddFavoritePublicMediaResponse extends $dara.Model {
 
 export class AddMediaConnectFlowInputRequest extends $dara.Model {
   /**
+   * @remarks
+   * IP whitelist, in CIDR format, separated by commas if multiple IP ranges are specified
+   * 
    * @example
    * 19.168.1.1/32,18.168.1.1/16
    */
   cidrs?: string;
   /**
+   * @remarks
+   * Flow instance ID
+   * 
+   * This parameter is required.
+   * 
    * @example
    * 34900dc6-90ec-4968-af3c-fcd87f231a5f
    */
   flowId?: string;
   /**
+   * @remarks
+   * Input URL, required when the input type is RTMP-PULL/SRT-Listener
+   * 
    * @example
    * rtmp://pull.test.alivecdn.com/live/alitest
    */
   inputFromUrl?: string;
   /**
+   * @remarks
+   * Input name
+   * 
+   * This parameter is required.
+   * 
    * @example
    * AliTestInput
    */
   inputName?: string;
   /**
+   * @remarks
+   * Input type
+   * 
+   * This parameter is required.
+   * 
    * @example
    * RTMP-PUSH
    */
   inputProtocol?: string;
   /**
+   * @remarks
+   * Input bitrate, in bps
+   * 
    * @example
    * 2000000
    */
   maxBitrate?: number;
   /**
+   * @remarks
+   * Paired Flow ID, required when the input type is Flow
+   * 
    * @example
    * 805fbdd0-575e-4146-b35d-ec7f63937b20
    */
   pairFlowId?: string;
   /**
+   * @remarks
+   * Output name of the paired Flow, required when the input type is Flow
+   * 
    * @example
    * AliTestOutput
    */
   pairOutputName?: string;
   /**
+   * @remarks
+   * SRT latency, required when the input type is SRT-Listener/SRT-Caller
+   * 
    * @example
    * 1000
    */
   srtLatency?: number;
   /**
+   * @remarks
+   * SRT encryption key, required when the input type is SRT-Listener/SRT-Caller
+   * 
    * @example
    * BETTERG08S01
    */
   srtPassphrase?: string;
   /**
+   * @remarks
+   * SRT encryption length, required when the input type is SRT-Listener/SRT-Caller
+   * 
    * @example
    * 32
    */
   srtPbkeyLen?: string;
-  /**
-   * @example
-   * 32
-   */
-  srtPbkeylen?: string;
-  /**
-   * @example
-   * BETTERG08S01
-   */
-  srtPbkeyssen?: string;
   static names(): { [key: string]: string } {
     return {
       cidrs: 'Cidrs',
@@ -45514,8 +47852,6 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
       srtLatency: 'SrtLatency',
       srtPassphrase: 'SrtPassphrase',
       srtPbkeyLen: 'SrtPbkeyLen',
-      srtPbkeylen: 'SrtPbkeylen',
-      srtPbkeyssen: 'SrtPbkeyssen',
     };
   }
 
@@ -45532,8 +47868,6 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
       srtLatency: 'number',
       srtPassphrase: 'string',
       srtPbkeyLen: 'string',
-      srtPbkeylen: 'string',
-      srtPbkeyssen: 'string',
     };
   }
 
@@ -45547,18 +47881,31 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
 }
 
 export class AddMediaConnectFlowInputResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response body
+   */
   content?: AddMediaConnectFlowInputResponseBodyContent;
   /**
+   * @remarks
+   * Description of the API call
+   * 
    * @example
-   * ok
+   * OK
    */
   description?: string;
   /**
+   * @remarks
+   * 请求ID
+   * 
    * @example
    * 11357BE8-4C54-58EA-890A-5AB646EDE4B2
    */
   requestId?: string;
   /**
+   * @remarks
+   * Returned error code, 0 indicates success
+   * 
    * @example
    * 0
    */
@@ -45630,61 +47977,95 @@ export class AddMediaConnectFlowInputResponse extends $dara.Model {
 
 export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   /**
+   * @remarks
+   * IP whitelist, in CIDR format, separated by commas if multiple IP segments are provided
+   * 
    * @example
    * 83.17.231.31/32
    */
   cidrs?: string;
   /**
+   * @remarks
+   * Flow instance ID
+   * 
+   * This parameter is required.
+   * 
    * @example
    * 34900dc6-90ec-4968-af3c-fcd87f231a5f
    */
   flowId?: string;
   /**
+   * @remarks
+   * Output name
+   * 
+   * This parameter is required.
+   * 
    * @example
    * AliTestOutput
    */
   outputName?: string;
   /**
+   * @remarks
+   * Output protocol
+   * 
+   * This parameter is required.
+   * 
    * @example
    * RTMP-PULL
    */
   outputProtocol?: string;
   /**
+   * @remarks
+   * Output address, required when the output type is RTMP-PUSH/SRT-Caller mode
+   * 
    * @example
    * rtmp://push.test.alivecdn.com/live/alitest
    */
   outputToUrl?: string;
   /**
-   * @example
-   * 8666ec062190f00e263012666319a5be
-   */
-  pairChannelId?: string;
-  /**
+   * @remarks
+   * Paired Flow instance ID, required when the output type is Flow
+   * 
    * @example
    * 8666ec062190f00e263012666319a5be
    */
   pairFlowId?: string;
   /**
+   * @remarks
+   * Input name of the paired Flow, required when the output type is Flow
+   * 
    * @example
    * AliTestInput
    */
   pairInputName?: string;
   /**
+   * @remarks
+   * Maximum number of players
+   * 
    * @example
    * 5
    */
   playerLimit?: number;
   /**
+   * @remarks
+   * SRT latency, required only when the input type is SRT-Listener/SRT-Caller
+   * 
    * @example
    * 1000
    */
   srtLatency?: number;
   /**
+   * @remarks
+   * SRT passphrase, required only when the input type is SRT-Listener/SRT-Caller
+   * 
    * @example
    * BETTERG08S01
    */
   srtPassphrase?: string;
   /**
+   * @remarks
+   * SRT encryption length, required only when the input type is SRT-Listener/SRT-Caller
+   * 
    * @example
    * 32
    */
@@ -45696,7 +48077,6 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
       outputName: 'OutputName',
       outputProtocol: 'OutputProtocol',
       outputToUrl: 'OutputToUrl',
-      pairChannelId: 'PairChannelId',
       pairFlowId: 'PairFlowId',
       pairInputName: 'PairInputName',
       playerLimit: 'PlayerLimit',
@@ -45713,7 +48093,6 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
       outputName: 'string',
       outputProtocol: 'string',
       outputToUrl: 'string',
-      pairChannelId: 'string',
       pairFlowId: 'string',
       pairInputName: 'string',
       playerLimit: 'number',
@@ -45733,22 +48112,35 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
 }
 
 export class AddMediaConnectFlowOutputResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response body
+   */
   content?: AddMediaConnectFlowOutputResponseBodyContent;
   /**
+   * @remarks
+   * Description of the API call
+   * 
    * @example
    * ok
    */
   description?: string;
   /**
+   * @remarks
+   * 请求ID
+   * 
    * @example
    * 11AA9E73-FBA0-58DC-97BA-D606D847BCB6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Returned error code, 0 indicates success
+   * 
    * @example
    * 0
    */
-  retCode?: string;
+  retCode?: number;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
@@ -45763,7 +48155,7 @@ export class AddMediaConnectFlowOutputResponseBody extends $dara.Model {
       content: AddMediaConnectFlowOutputResponseBodyContent,
       description: 'string',
       requestId: 'string',
-      retCode: 'string',
+      retCode: 'number',
     };
   }
 
@@ -46278,6 +48670,144 @@ export class AlterSearchIndexResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AlterSearchIndexResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateVodPackagingAssetRequest extends $dara.Model {
+  assets?: BatchCreateVodPackagingAssetRequestAssets[];
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assets: 'Assets',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assets: { 'type': 'array', 'itemType': BatchCreateVodPackagingAssetRequestAssets },
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.assets)) {
+      $dara.Model.validateArray(this.assets);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateVodPackagingAssetShrinkRequest extends $dara.Model {
+  assetsShrink?: string;
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetsShrink: 'Assets',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetsShrink: 'string',
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateVodPackagingAssetResponseBody extends $dara.Model {
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
+  requestId?: string;
+  resultList?: BatchCreateVodPackagingAssetResponseBodyResultList[];
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      requestId: 'RequestId',
+      resultList: 'ResultList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      requestId: 'string',
+      resultList: { 'type': 'array', 'itemType': BatchCreateVodPackagingAssetResponseBodyResultList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resultList)) {
+      $dara.Model.validateArray(this.resultList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchCreateVodPackagingAssetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchCreateVodPackagingAssetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchCreateVodPackagingAssetResponseBody,
     };
   }
 
@@ -46904,6 +49434,170 @@ export class CreateAvatarTrainingJobResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateAvatarTrainingJobResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChannelRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
+  accessPolicy?: boolean;
+  /**
+   * @example
+   * xxxxx
+   */
+  accessToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyChannel
+   */
+  channelName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * basic
+   */
+  channelTier?: string;
+  /**
+   * @example
+   * MySourceLocation
+   */
+  fillerSourceLocationName?: string;
+  /**
+   * @example
+   * FillerSource
+   */
+  fillerSourceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{
+   * 	"ManifestName": "manifest-1",
+   * 	"Format": "HLS",
+   * 	"SourceGroupName": "source-group-1",
+   * 	"ManifestSettings": {
+   * 		"WindowDuration": 60,
+   * 		"AdMarkType": "Daterange"
+   * 	}
+   * }]
+   */
+  outPutConfigList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * loop
+   */
+  playbackMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPolicy: 'AccessPolicy',
+      accessToken: 'AccessToken',
+      channelName: 'ChannelName',
+      channelTier: 'ChannelTier',
+      fillerSourceLocationName: 'FillerSourceLocationName',
+      fillerSourceName: 'FillerSourceName',
+      outPutConfigList: 'OutPutConfigList',
+      playbackMode: 'PlaybackMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPolicy: 'boolean',
+      accessToken: 'string',
+      channelName: 'string',
+      channelTier: 'string',
+      fillerSourceLocationName: 'string',
+      fillerSourceName: 'string',
+      outPutConfigList: 'string',
+      playbackMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChannelResponseBody extends $dara.Model {
+  channel?: ChannelAssemblyChannel;
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'Channel',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: ChannelAssemblyChannel,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.channel && typeof (this.channel as any).validate === 'function') {
+      (this.channel as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChannelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateChannelResponseBody,
     };
   }
 
@@ -48566,7 +51260,25 @@ export class CreateLiveTranscodeTemplateResponse extends $dara.Model {
 }
 
 export class CreateMediaConnectFlowRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Flow instance name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AliTestFlow
+   */
   flowName?: string;
+  /**
+   * @remarks
+   * Region to which the Flow instance belongs
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ap-southeast-1
+   */
   flowRegion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -48592,9 +51304,34 @@ export class CreateMediaConnectFlowRequest extends $dara.Model {
 }
 
 export class CreateMediaConnectFlowResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response body
+   */
   content?: CreateMediaConnectFlowResponseBodyContent;
+  /**
+   * @remarks
+   * Description information returned by the interface
+   * 
+   * @example
+   * OK
+   */
   description?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 86D92F9D-65E8-58A2-85D1-9DEEECC172E8
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Returned error code, 0 indicates success
+   * 
+   * @example
+   * 0
+   */
   retCode?: number;
   static names(): { [key: string]: string } {
     return {
@@ -48776,6 +51513,168 @@ export class CreatePipelineResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreatePipelineResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProgramRequest extends $dara.Model {
+  /**
+   * @example
+   * [{"MessageType":"SPLICE_INSERT","OffsetMillis":1000,"SourceLocationName":"MySourceLocation","SourceName":"MyAdSource","SpliceInsertSettings":{"AvailNumber":0,"AvailExpected":0,"SpliceEventID":1,"UniqueProgramID":0}}]
+   */
+  adBreaks?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyChannel
+   */
+  channelName?: string;
+  /**
+   * @example
+   * {StartOffsetMillis: 213123, EndOffsetMillis: 213134}
+   */
+  clipRange?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * program1
+   */
+  programName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySourceLcation
+   */
+  sourceLocationName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySource
+   */
+  sourceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vodSource
+   */
+  sourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"Type": "RELATIVE", "RelativePosition": "AFTER_PROGRAM", "RelativeProgram": "program2"}
+   */
+  transition?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adBreaks: 'AdBreaks',
+      channelName: 'ChannelName',
+      clipRange: 'ClipRange',
+      programName: 'ProgramName',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+      transition: 'Transition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adBreaks: 'string',
+      channelName: 'string',
+      clipRange: 'string',
+      programName: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+      transition: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProgramResponseBody extends $dara.Model {
+  program?: ChannelAssemblyProgram;
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      program: 'Program',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      program: ChannelAssemblyProgram,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.program && typeof (this.program as any).validate === 'function') {
+      (this.program as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProgramResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateProgramResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateProgramResponseBody,
     };
   }
 
@@ -49042,6 +51941,260 @@ export class CreateSearchLibResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateSearchLibResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSourceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * “[{
+   * 	"sourceGroupName": "mySourceGroup-1",
+   * 	"relativePath": "group1/hls.m3u8",
+   * 	"type": "hls"
+   * }]”
+   */
+  httpPackageConfigurations?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySourceLocation
+   */
+  sourceLocationName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyVodSource
+   */
+  sourceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vodSource
+   */
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpPackageConfigurations: 'HttpPackageConfigurations',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpPackageConfigurations: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSourceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  source?: ChannelAssemblySource;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      source: ChannelAssemblySource,
+    };
+  }
+
+  validate() {
+    if(this.source && typeof (this.source as any).validate === 'function') {
+      (this.source as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSourceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSourceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSourceLocationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * http://xxx.com
+   */
+  baseUrl?: string;
+  /**
+   * @example
+   * true
+   */
+  enableSegmentDelivery?: boolean;
+  /**
+   * @example
+   * http://xxxxx.com
+   */
+  segmentDeliveryUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySourcelocation
+   */
+  sourceLocationName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseUrl: 'BaseUrl',
+      enableSegmentDelivery: 'EnableSegmentDelivery',
+      segmentDeliveryUrl: 'SegmentDeliveryUrl',
+      sourceLocationName: 'SourceLocationName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseUrl: 'string',
+      enableSegmentDelivery: 'boolean',
+      segmentDeliveryUrl: 'string',
+      sourceLocationName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSourceLocationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  sourceLocation?: ChannelAssemblySourceLocation;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      sourceLocation: 'SourceLocation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      sourceLocation: ChannelAssemblySourceLocation,
+    };
+  }
+
+  validate() {
+    if(this.sourceLocation && typeof (this.sourceLocation as any).validate === 'function') {
+      (this.sourceLocation as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSourceLocationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSourceLocationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSourceLocationResponseBody,
     };
   }
 
@@ -49508,6 +52661,454 @@ export class CreateUploadStreamResponse extends $dara.Model {
   }
 }
 
+export class CreateVodPackagingAssetRequest extends $dara.Model {
+  /**
+   * @example
+   * hls_3s
+   */
+  assetName?: string;
+  /**
+   * @example
+   * movie
+   */
+  contentId?: string;
+  /**
+   * @example
+   * HLS 3 second packaging
+   */
+  description?: string;
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  input?: CreateVodPackagingAssetRequestInput;
+  static names(): { [key: string]: string } {
+    return {
+      assetName: 'AssetName',
+      contentId: 'ContentId',
+      description: 'Description',
+      groupName: 'GroupName',
+      input: 'Input',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetName: 'string',
+      contentId: 'string',
+      description: 'string',
+      groupName: 'string',
+      input: CreateVodPackagingAssetRequestInput,
+    };
+  }
+
+  validate() {
+    if(this.input && typeof (this.input as any).validate === 'function') {
+      (this.input as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingAssetShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * hls_3s
+   */
+  assetName?: string;
+  /**
+   * @example
+   * movie
+   */
+  contentId?: string;
+  /**
+   * @example
+   * HLS 3 second packaging
+   */
+  description?: string;
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  inputShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetName: 'AssetName',
+      contentId: 'ContentId',
+      description: 'Description',
+      groupName: 'GroupName',
+      inputShrink: 'Input',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetName: 'string',
+      contentId: 'string',
+      description: 'string',
+      groupName: 'string',
+      inputShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingAssetResponseBody extends $dara.Model {
+  asset?: VodPackagingAsset;
+  /**
+   * @example
+   * 25818875-5F78-4A13-BEF6-D7393642CA58
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asset: 'Asset',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asset: VodPackagingAsset,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.asset && typeof (this.asset as any).validate === 'function') {
+      (this.asset as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingAssetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVodPackagingAssetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVodPackagingAssetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingConfigurationRequest extends $dara.Model {
+  /**
+   * @example
+   * hls_3s
+   */
+  configurationName?: string;
+  /**
+   * @example
+   * HLS 3s vod packaging
+   */
+  description?: string;
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  packageConfig?: CreateVodPackagingConfigurationRequestPackageConfig;
+  /**
+   * @example
+   * HLS
+   */
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configurationName: 'ConfigurationName',
+      description: 'Description',
+      groupName: 'GroupName',
+      packageConfig: 'PackageConfig',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configurationName: 'string',
+      description: 'string',
+      groupName: 'string',
+      packageConfig: CreateVodPackagingConfigurationRequestPackageConfig,
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    if(this.packageConfig && typeof (this.packageConfig as any).validate === 'function') {
+      (this.packageConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingConfigurationShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * hls_3s
+   */
+  configurationName?: string;
+  /**
+   * @example
+   * HLS 3s vod packaging
+   */
+  description?: string;
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  packageConfigShrink?: string;
+  /**
+   * @example
+   * HLS
+   */
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configurationName: 'ConfigurationName',
+      description: 'Description',
+      groupName: 'GroupName',
+      packageConfigShrink: 'PackageConfig',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configurationName: 'string',
+      description: 'string',
+      groupName: 'string',
+      packageConfigShrink: 'string',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingConfigurationResponseBody extends $dara.Model {
+  packagingConfiguration?: VodPackagingConfiguration;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      packagingConfiguration: 'PackagingConfiguration',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      packagingConfiguration: VodPackagingConfiguration,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.packagingConfiguration && typeof (this.packagingConfiguration as any).validate === 'function') {
+      (this.packagingConfiguration as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingConfigurationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVodPackagingConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVodPackagingConfigurationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingGroupRequest extends $dara.Model {
+  /**
+   * @example
+   * vod hls packaging
+   */
+  description?: string;
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingGroupResponseBody extends $dara.Model {
+  packagingGroup?: VodPackagingGroup;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      packagingGroup: 'PackagingGroup',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      packagingGroup: VodPackagingGroup,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.packagingGroup && typeof (this.packagingGroup as any).validate === 'function') {
+      (this.packagingGroup as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVodPackagingGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVodPackagingGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVodPackagingGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DecryptKMSDataKeyRequest extends $dara.Model {
   /**
    * @remarks
@@ -49597,6 +53198,202 @@ export class DecryptKMSDataKeyResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DecryptKMSDataKeyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAIAgentDialogueRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f27f9b9be28642a88e18*******
+   */
+  dialogueId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6d594e7f55624c47a48789******
+   */
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dialogueId: 'DialogueId',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogueId: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAIAgentDialogueResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 7B117AF5-2A1******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAIAgentDialogueResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAIAgentDialogueResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAIAgentDialogueResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAdInsertionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * my_ad
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAdInsertionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAdInsertionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAdInsertionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAdInsertionResponseBody,
     };
   }
 
@@ -49818,6 +53615,105 @@ export class DeleteCategoryResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteCategoryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyChannel
+   */
+  channelName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteChannelResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteChannelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteChannelResponseBody,
     };
   }
 
@@ -51513,6 +55409,11 @@ export class DeleteLiveTranscodeTemplateResponse extends $dara.Model {
 
 export class DeleteMediaConnectFlowRequest extends $dara.Model {
   /**
+   * @remarks
+   * Flow instance ID
+   * 
+   * This parameter is required.
+   * 
    * @example
    * 0381f478-7d53-4076-9d5f-27680a6f73e7
    */
@@ -51540,21 +55441,33 @@ export class DeleteMediaConnectFlowRequest extends $dara.Model {
 
 export class DeleteMediaConnectFlowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response body
+   * 
    * @example
    * ""
    */
   content?: string;
   /**
+   * @remarks
+   * Description of the API call
+   * 
    * @example
-   * ok
+   * OK
    */
   description?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 5AEC17BD-D80B-5F78-BE1B-F07DFA0C8622
    */
   requestId?: string;
   /**
+   * @remarks
+   * Returned error code, where `0` indicates success
+   * 
    * @example
    * 0
    */
@@ -51603,6 +55516,272 @@ export class DeleteMediaConnectFlowResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteMediaConnectFlowResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaConnectFlowInputRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Flow instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0381f478-7d53-4076-9d5f-27680a6f73e7
+   */
+  flowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaConnectFlowInputResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * ""
+   */
+  content?: string;
+  /**
+   * @remarks
+   * Description of the API call
+   * 
+   * @example
+   * OK
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 请求ID
+   * 
+   * @example
+   * C0C02296-113C-5838-8FE9-8F3A32998DDC
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Returned error code, 0 indicates success
+   * 
+   * @example
+   * 0
+   */
+  retCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      description: 'Description',
+      requestId: 'RequestId',
+      retCode: 'RetCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      description: 'string',
+      requestId: 'string',
+      retCode: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaConnectFlowInputResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMediaConnectFlowInputResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMediaConnectFlowInputResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaConnectFlowOutputRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Flow instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 34900dc6-90ec-4968-af3c-fcd87f231a5f
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * Output name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AliTestOutput
+   */
+  outputName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+      outputName: 'OutputName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+      outputName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaConnectFlowOutputResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * ""
+   */
+  content?: string;
+  /**
+   * @remarks
+   * Description of the API call
+   * 
+   * @example
+   * OK
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * DF73E08E-F807-50F5-A2BD-B76391EAE8FF
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Returned error code, 0 indicates success
+   * 
+   * @example
+   * 0
+   */
+  retCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      description: 'Description',
+      requestId: 'RequestId',
+      retCode: 'RetCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      description: 'string',
+      requestId: 'string',
+      retCode: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaConnectFlowOutputResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMediaConnectFlowOutputResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMediaConnectFlowOutputResponseBody,
     };
   }
 
@@ -52286,6 +56465,115 @@ export class DeletePlayInfoResponse extends $dara.Model {
   }
 }
 
+export class DeleteProgramRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyChannel
+   */
+  channelName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * program_name
+   */
+  programName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+      programName: 'ProgramName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+      programName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProgramResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteProgramResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteProgramResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteProgramResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteSmartJobRequest extends $dara.Model {
   /**
    * @remarks
@@ -52381,6 +56669,238 @@ export class DeleteSmartJobResponse extends $dara.Model {
   }
 }
 
+export class DeleteSourceRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  softDelete?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySourceLocation
+   */
+  sourceLocationName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyVodSource
+   */
+  sourceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vodSource
+   */
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      softDelete: 'SoftDelete',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      softDelete: 'boolean',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSourceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSourceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSourceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSourceLocationRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  softDelete?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySourceLocation
+   */
+  sourceLocationName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      softDelete: 'SoftDelete',
+      sourceLocationName: 'SourceLocationName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      softDelete: 'boolean',
+      sourceLocationName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSourceLocationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSourceLocationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSourceLocationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSourceLocationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteTemplateRequest extends $dara.Model {
   /**
    * @remarks
@@ -52458,6 +56978,273 @@ export class DeleteTemplateResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteTemplateResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVodPackagingAssetRequest extends $dara.Model {
+  /**
+   * @example
+   * 30min_movie
+   */
+  assetName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetName: 'AssetName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVodPackagingAssetResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVodPackagingAssetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVodPackagingAssetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVodPackagingAssetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVodPackagingConfigurationRequest extends $dara.Model {
+  /**
+   * @example
+   * hls_3s
+   */
+  configurationName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configurationName: 'ConfigurationName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configurationName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVodPackagingConfigurationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVodPackagingConfigurationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVodPackagingConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVodPackagingConfigurationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVodPackagingGroupRequest extends $dara.Model {
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVodPackagingGroupResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 13cbb83e-043c-4728-ac35-*****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVodPackagingGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVodPackagingGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVodPackagingGroupResponseBody,
     };
   }
 
@@ -54123,6 +58910,7 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
    * 3600
    */
   expire?: number;
+  sessionId?: string;
   templateConfig?: AIAgentTemplateConfig;
   userData?: string;
   /**
@@ -54134,6 +58922,7 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
     return {
       AIAgentId: 'AIAgentId',
       expire: 'Expire',
+      sessionId: 'SessionId',
       templateConfig: 'TemplateConfig',
       userData: 'UserData',
       userId: 'UserId',
@@ -54144,6 +58933,7 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
     return {
       AIAgentId: 'string',
       expire: 'number',
+      sessionId: 'string',
       templateConfig: AIAgentTemplateConfig,
       userData: 'string',
       userId: 'string',
@@ -54176,6 +58966,7 @@ export class GenerateAIAgentCallShrinkRequest extends $dara.Model {
    * 3600
    */
   expire?: number;
+  sessionId?: string;
   templateConfigShrink?: string;
   userData?: string;
   /**
@@ -54187,6 +58978,7 @@ export class GenerateAIAgentCallShrinkRequest extends $dara.Model {
     return {
       AIAgentId: 'AIAgentId',
       expire: 'Expire',
+      sessionId: 'SessionId',
       templateConfigShrink: 'TemplateConfig',
       userData: 'UserData',
       userId: 'UserId',
@@ -54197,6 +58989,7 @@ export class GenerateAIAgentCallShrinkRequest extends $dara.Model {
     return {
       AIAgentId: 'string',
       expire: 'number',
+      sessionId: 'string',
       templateConfigShrink: 'string',
       userData: 'string',
       userId: 'string',
@@ -54366,6 +59159,271 @@ export class GenerateKMSDataKeyResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GenerateKMSDataKeyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateMessageChatTokenRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 19de81b3b3d94abda22******
+   */
+  AIAgentId?: string;
+  /**
+   * @example
+   * 3600
+   */
+  expire?: number;
+  /**
+   * @example
+   * user
+   */
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * YOURUSERID
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AIAgentId: 'AIAgentId',
+      expire: 'Expire',
+      role: 'Role',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIAgentId: 'string',
+      expire: 'number',
+      role: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateMessageChatTokenResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ***********
+   */
+  appId?: string;
+  /**
+   * @example
+   * H4sIAAAAAAAE******************
+   */
+  appSign?: string;
+  /**
+   * @example
+   * AK-***********
+   */
+  nonce?: string;
+  /**
+   * @example
+   * req_1234567890abcdef
+   */
+  requestId?: string;
+  /**
+   * @example
+   * admin
+   */
+  role?: string;
+  /**
+   * @example
+   * 1700000000
+   */
+  timeStamp?: number;
+  /**
+   * @example
+   * acet**********
+   */
+  token?: string;
+  /**
+   * @example
+   * YOURUSERID
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appSign: 'AppSign',
+      nonce: 'Nonce',
+      requestId: 'RequestId',
+      role: 'Role',
+      timeStamp: 'TimeStamp',
+      token: 'Token',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appSign: 'string',
+      nonce: 'string',
+      requestId: 'string',
+      role: 'string',
+      timeStamp: 'number',
+      token: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateMessageChatTokenResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateMessageChatTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateMessageChatTokenResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdInsertionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * my_ad
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdInsertionResponseBody extends $dara.Model {
+  config?: GetAdInsertionResponseBodyConfig;
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: GetAdInsertionResponseBodyConfig,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAdInsertionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAdInsertionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAdInsertionResponseBody,
     };
   }
 
@@ -54881,6 +59939,104 @@ export class GetCategoriesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetCategoriesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyChannel
+   */
+  channelName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChannelResponseBody extends $dara.Model {
+  channel?: ChannelAssemblyChannel;
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'Channel',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: ChannelAssemblyChannel,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.channel && typeof (this.channel as any).validate === 'function') {
+      (this.channel as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChannelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetChannelResponseBody,
     };
   }
 
@@ -57462,6 +62618,11 @@ export class GetLiveTranscodeTemplateResponse extends $dara.Model {
 
 export class GetMediaConnectFlowRequest extends $dara.Model {
   /**
+   * @remarks
+   * Flow instance ID
+   * 
+   * This parameter is required.
+   * 
    * @example
    * 34900dc6-90ec-4968-af3c-fcd87f231a5f
    */
@@ -57488,18 +62649,31 @@ export class GetMediaConnectFlowRequest extends $dara.Model {
 }
 
 export class GetMediaConnectFlowResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response body
+   */
   content?: GetMediaConnectFlowResponseBodyContent;
   /**
+   * @remarks
+   * Interface call description information
+   * 
    * @example
-   * ok
+   * OK
    */
   description?: string;
   /**
+   * @remarks
+   * 请求ID
+   * 
    * @example
    * FB503AEF-118E-1516-89E2-7B227EA1AC20
    */
   requestId?: string;
   /**
+   * @remarks
+   * Return status code, 0 indicates success
+   * 
    * @example
    * 0
    */
@@ -57551,6 +62725,272 @@ export class GetMediaConnectFlowResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetMediaConnectFlowResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaConnectFlowInputRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Flow instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 34900dc6-90ec-4968-af3c-fcd87f231a5f
+   */
+  flowId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaConnectFlowInputResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response body
+   */
+  content?: GetMediaConnectFlowInputResponseBodyContent;
+  /**
+   * @remarks
+   * Interface call description
+   * 
+   * @example
+   * OK
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 请求ID
+   * 
+   * @example
+   * D4C231DF-103A-55FF-8D09-E699552457DE
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Returned error code, 0 indicates success
+   * 
+   * @example
+   * 0
+   */
+  retCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      description: 'Description',
+      requestId: 'RequestId',
+      retCode: 'RetCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: GetMediaConnectFlowInputResponseBodyContent,
+      description: 'string',
+      requestId: 'string',
+      retCode: 'number',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaConnectFlowInputResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMediaConnectFlowInputResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMediaConnectFlowInputResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaConnectFlowOutputRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Flow instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0381f478-7d53-4076-9d5f-27680a6f73e7
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * Output name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AliTestOutput
+   */
+  outputName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+      outputName: 'OutputName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+      outputName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaConnectFlowOutputResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response body
+   */
+  content?: GetMediaConnectFlowOutputResponseBodyContent;
+  /**
+   * @remarks
+   * API call description
+   * 
+   * @example
+   * OK
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 0DB23DCE-0D69-598B-AA7C-7268D55E2F89
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Returned error code, 0 indicates success
+   * 
+   * @example
+   * 0
+   */
+  retCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      description: 'Description',
+      requestId: 'RequestId',
+      retCode: 'RetCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: GetMediaConnectFlowOutputResponseBodyContent,
+      description: 'string',
+      requestId: 'string',
+      retCode: 'number',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaConnectFlowOutputResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMediaConnectFlowOutputResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMediaConnectFlowOutputResponseBody,
     };
   }
 
@@ -58485,6 +63925,114 @@ export class GetPlayInfoResponse extends $dara.Model {
   }
 }
 
+export class GetProgramRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyChannel
+   */
+  channelName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * program1
+   */
+  programName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+      programName: 'ProgramName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+      programName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProgramResponseBody extends $dara.Model {
+  program?: ChannelAssemblyProgram;
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      program: 'Program',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      program: ChannelAssemblyProgram,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.program && typeof (this.program as any).validate === 'function') {
+      (this.program as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProgramResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetProgramResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetProgramResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetProjectExportJobRequest extends $dara.Model {
   /**
    * @remarks
@@ -59101,6 +64649,222 @@ export class GetSnapshotUrlsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetSnapshotUrlsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSourceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySourceLocation
+   */
+  sourceLocationName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyVodSource
+   */
+  sourceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vodSource
+   */
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSourceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  source?: ChannelAssemblySource;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      source: ChannelAssemblySource,
+    };
+  }
+
+  validate() {
+    if(this.source && typeof (this.source as any).validate === 'function') {
+      (this.source as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSourceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSourceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSourceLocationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySourceLocation
+   */
+  sourceLocationName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceLocationName: 'SourceLocationName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceLocationName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSourceLocationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  sourceLocation?: ChannelAssemblySourceLocation;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      sourceLocation: 'SourceLocation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      sourceLocation: ChannelAssemblySourceLocation,
+    };
+  }
+
+  validate() {
+    if(this.sourceLocation && typeof (this.sourceLocation as any).validate === 'function') {
+      (this.sourceLocation as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSourceLocationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSourceLocationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSourceLocationResponseBody,
     };
   }
 
@@ -60143,6 +65907,291 @@ export class GetVideoListResponse extends $dara.Model {
   }
 }
 
+export class GetVodPackagingAssetRequest extends $dara.Model {
+  /**
+   * @example
+   * 30min_movie
+   */
+  assetName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assetName: 'AssetName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVodPackagingAssetResponseBody extends $dara.Model {
+  asset?: GetVodPackagingAssetResponseBodyAsset;
+  /**
+   * @example
+   * 0622C702-41BE-467E-AF2E-883D4517962E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asset: 'Asset',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asset: GetVodPackagingAssetResponseBodyAsset,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.asset && typeof (this.asset as any).validate === 'function') {
+      (this.asset as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVodPackagingAssetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVodPackagingAssetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVodPackagingAssetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVodPackagingConfigurationRequest extends $dara.Model {
+  /**
+   * @example
+   * hls_3s
+   */
+  configurationName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configurationName: 'ConfigurationName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configurationName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVodPackagingConfigurationResponseBody extends $dara.Model {
+  packagingConfiguration?: VodPackagingConfiguration;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      packagingConfiguration: 'PackagingConfiguration',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      packagingConfiguration: VodPackagingConfiguration,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.packagingConfiguration && typeof (this.packagingConfiguration as any).validate === 'function') {
+      (this.packagingConfiguration as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVodPackagingConfigurationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVodPackagingConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVodPackagingConfigurationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVodPackagingGroupRequest extends $dara.Model {
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVodPackagingGroupResponseBody extends $dara.Model {
+  packagingGroup?: VodPackagingGroup;
+  /**
+   * @example
+   * ****36-3C1E-4417-BDB2-1E034F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      packagingGroup: 'PackagingGroup',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      packagingGroup: VodPackagingGroup,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.packagingGroup && typeof (this.packagingGroup as any).validate === 'function') {
+      (this.packagingGroup as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVodPackagingGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVodPackagingGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVodPackagingGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkflowTaskRequest extends $dara.Model {
   /**
    * @remarks
@@ -60428,6 +66477,145 @@ export class InsertMediaToSearchLibResponse extends $dara.Model {
   }
 }
 
+export class ListAIAgentDialoguesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 17358082464030
+   */
+  endTime?: number;
+  /**
+   * @example
+   * DESC
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f27f9b9be28642a88e18****
+   */
+  sessionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      sessionId: 'SessionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      sessionId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAIAgentDialoguesResponseBody extends $dara.Model {
+  dialogues?: ListAIAgentDialoguesResponseBodyDialogues[];
+  /**
+   * @example
+   * 7B117AF5-***************
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dialogues: 'Dialogues',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogues: { 'type': 'array', 'itemType': ListAIAgentDialoguesResponseBodyDialogues },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dialogues)) {
+      $dara.Model.validateArray(this.dialogues);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAIAgentDialoguesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAIAgentDialoguesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAIAgentDialoguesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAIAgentInstanceRequest extends $dara.Model {
   /**
    * @remarks
@@ -60536,6 +66724,381 @@ export class ListAIAgentInstanceResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAIAgentInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAdInsertionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 按广告名称查询，支持模糊匹配
+   * 
+   * @example
+   * ad
+   */
+  keyword?: string;
+  /**
+   * @remarks
+   * 获取后续数据的最大记录数，使用此方式获取数据时分页参数将无效
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * 获取后续数据的Token，使用此方式获取数据时分页参数将无效
+   * 
+   * @example
+   * ******8EqYpQbZ6Eh7+Zz8DxVYoQ*****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * 分页参数，页码
+   * 
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @remarks
+   * 分页参数，页宽
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * 分页参数，排序方式，asc:按创建时间升序，desc:按创建时间降序
+   * 
+   * @example
+   * asc
+   */
+  sortBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAdInsertionsResponseBody extends $dara.Model {
+  configs?: ListAdInsertionsResponseBodyConfigs[];
+  /**
+   * @remarks
+   * 获取后续数据的最大记录数，使用此方式获取数据时分页参数将无效
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * 获取后续数据的Token，使用此方式获取数据时分页参数将无效
+   * 
+   * @example
+   * ******8EqYpQbZ6Eh7+Zz8DxVYoQ*****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * 分页参数，页码
+   * 
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @remarks
+   * 分页参数，页宽
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * 分页参数，排序方式，asc:按创建时间升序，desc:按创建时间降序
+   * 
+   * @example
+   * asc
+   */
+  sortBy?: string;
+  /**
+   * @remarks
+   * 总记录数
+   * 
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      sortBy: 'SortBy',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': ListAdInsertionsResponseBodyConfigs },
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      sortBy: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.configs)) {
+      $dara.Model.validateArray(this.configs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAdInsertionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAdInsertionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAdInsertionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertsRequest extends $dara.Model {
+  category?: string;
+  /**
+   * @example
+   * 2024-11-22T16:10:45Z
+   */
+  gmtEnd?: string;
+  /**
+   * @example
+   * 2024-11-21T16:10:45Z
+   */
+  gmtStart?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * acs:ims:mediaweaver:<regionId>:<userId>:vodSource/mySourceLocation/MySource
+   */
+  resourceArn?: string;
+  /**
+   * @example
+   * asc
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * asc
+   */
+  sortByModifiedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      gmtEnd: 'GmtEnd',
+      gmtStart: 'GmtStart',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      resourceArn: 'ResourceArn',
+      sortBy: 'SortBy',
+      sortByModifiedTime: 'SortByModifiedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      gmtEnd: 'string',
+      gmtStart: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      resourceArn: 'string',
+      sortBy: 'string',
+      sortByModifiedTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertsResponseBody extends $dara.Model {
+  alerts?: ListAlertsResponseBodyAlerts[];
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alerts: 'Alerts',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alerts: { 'type': 'array', 'itemType': ListAlertsResponseBodyAlerts },
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.alerts)) {
+      $dara.Model.validateArray(this.alerts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAlertsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAlertsResponseBody,
     };
   }
 
@@ -61150,6 +67713,328 @@ export class ListBatchMediaProducingJobsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListBatchMediaProducingJobsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChannelAlertsRequest extends $dara.Model {
+  category?: string;
+  /**
+   * @example
+   * 2024-11-21T16:10:45Z
+   */
+  gmtEnd?: string;
+  /**
+   * @example
+   * 2024-11-21T16:10:45Z
+   */
+  gmtStart?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * acs:ims:mediaweaver:<regionId>:<userId>:channel/myChannel
+   */
+  resourceArn?: string;
+  /**
+   * @example
+   * desc
+   */
+  sortByModifiedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      gmtEnd: 'GmtEnd',
+      gmtStart: 'GmtStart',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      resourceArn: 'ResourceArn',
+      sortByModifiedTime: 'SortByModifiedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      gmtEnd: 'string',
+      gmtStart: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      resourceArn: 'string',
+      sortByModifiedTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChannelAlertsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  programAlerts?: ListChannelAlertsResponseBodyProgramAlerts[];
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 4
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      programAlerts: 'ProgramAlerts',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      programAlerts: { 'type': 'array', 'itemType': ListChannelAlertsResponseBodyProgramAlerts },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.programAlerts)) {
+      $dara.Model.validateArray(this.programAlerts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChannelAlertsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListChannelAlertsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListChannelAlertsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChannelsRequest extends $dara.Model {
+  /**
+   * @example
+   * MyChannel
+   */
+  channelName?: string;
+  /**
+   * @example
+   * basic
+   */
+  channelTier?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * loop
+   */
+  playbackMode?: string;
+  /**
+   * @example
+   * asc
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * desc
+   */
+  sortByModifiedTime?: string;
+  /**
+   * @example
+   * 0
+   */
+  state?: number;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+      channelTier: 'ChannelTier',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      playbackMode: 'PlaybackMode',
+      sortBy: 'SortBy',
+      sortByModifiedTime: 'SortByModifiedTime',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+      channelTier: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      playbackMode: 'string',
+      sortBy: 'string',
+      sortByModifiedTime: 'string',
+      state: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChannelsResponseBody extends $dara.Model {
+  channelList?: ChannelAssemblyChannel[];
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 180
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      channelList: 'ChannelList',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelList: { 'type': 'array', 'itemType': ChannelAssemblyChannel },
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.channelList)) {
+      $dara.Model.validateArray(this.channelList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChannelsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListChannelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListChannelsResponseBody,
     };
   }
 
@@ -65536,6 +72421,153 @@ export class ListPipelinesResponse extends $dara.Model {
   }
 }
 
+export class ListProgramsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyChannel
+   */
+  channelName?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * program1
+   */
+  programName?: string;
+  /**
+   * @example
+   * desc
+   */
+  sortBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      programName: 'ProgramName',
+      sortBy: 'SortBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+      pageNo: 'string',
+      pageSize: 'string',
+      programName: 'string',
+      sortBy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProgramsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  programs?: ChannelAssemblyProgram[];
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      programs: 'Programs',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      programs: { 'type': 'array', 'itemType': ChannelAssemblyProgram },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.programs)) {
+      $dara.Model.validateArray(this.programs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProgramsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListProgramsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListProgramsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPublicMediaBasicInfosRequest extends $dara.Model {
   /**
    * @remarks
@@ -65745,6 +72777,149 @@ export class ListPublicMediaBasicInfosResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListPublicMediaBasicInfosResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSchedulesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyChannel
+   */
+  channelName?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 14400
+   */
+  windowDurationSeconds?: number;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      windowDurationSeconds: 'WindowDurationSeconds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      windowDurationSeconds: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSchedulesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  programs?: ChannelAssemblyScheduleData[];
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      programs: 'Programs',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      programs: { 'type': 'array', 'itemType': ChannelAssemblyScheduleData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.programs)) {
+      $dara.Model.validateArray(this.programs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSchedulesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSchedulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSchedulesResponseBody,
     };
   }
 
@@ -66516,6 +73691,322 @@ export class ListSnapshotJobsResponse extends $dara.Model {
   }
 }
 
+export class ListSourceLocationsRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  filterState?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * desc
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * desc
+   */
+  sortByModifiedTime?: string;
+  /**
+   * @example
+   * MySourceLocation
+   */
+  sourceLocationName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterState: 'FilterState',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      sortByModifiedTime: 'SortByModifiedTime',
+      sourceLocationName: 'SourceLocationName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterState: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+      sortByModifiedTime: 'string',
+      sourceLocationName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSourceLocationsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  sourceLocationList?: ChannelAssemblySourceLocation[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      sourceLocationList: 'SourceLocationList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      sourceLocationList: { 'type': 'array', 'itemType': ChannelAssemblySourceLocation },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sourceLocationList)) {
+      $dara.Model.validateArray(this.sourceLocationList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSourceLocationsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSourceLocationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSourceLocationsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSourcesRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  filterState?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * asc
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * desc
+   */
+  sortByModifiedTime?: string;
+  /**
+   * @example
+   * MySourceLocation
+   */
+  sourceLocationName?: string;
+  /**
+   * @example
+   * MyVodSource
+   */
+  sourceName?: string;
+  /**
+   * @example
+   * vodSource
+   */
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterState: 'FilterState',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+      sortByModifiedTime: 'SortByModifiedTime',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterState: 'boolean',
+      pageNo: 'string',
+      pageSize: 'string',
+      sortBy: 'string',
+      sortByModifiedTime: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSourcesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  sourceList?: ChannelAssemblySource[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      sourceList: 'SourceList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      sourceList: { 'type': 'array', 'itemType': ChannelAssemblySource },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sourceList)) {
+      $dara.Model.validateArray(this.sourceList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSystemTemplatesRequest extends $dara.Model {
   /**
    * @remarks
@@ -67057,6 +74548,452 @@ export class ListTranscodeJobsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTranscodeJobsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVodPackagingAssetsRequest extends $dara.Model {
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  /**
+   * @example
+   * movie
+   */
+  keyword?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * desc
+   */
+  sortBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      keyword: 'Keyword',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      keyword: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVodPackagingAssetsResponseBody extends $dara.Model {
+  assets?: ListVodPackagingAssetsResponseBodyAssets[];
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * desc
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      assets: 'Assets',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      sortBy: 'SortBy',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assets: { 'type': 'array', 'itemType': ListVodPackagingAssetsResponseBodyAssets },
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      sortBy: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.assets)) {
+      $dara.Model.validateArray(this.assets);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVodPackagingAssetsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVodPackagingAssetsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVodPackagingAssetsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVodPackagingConfigurationsRequest extends $dara.Model {
+  /**
+   * @example
+   * vod_hls
+   */
+  groupName?: string;
+  /**
+   * @example
+   * hls
+   */
+  keyword?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * desc
+   */
+  sortBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      keyword: 'Keyword',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupName: 'string',
+      keyword: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVodPackagingConfigurationsResponseBody extends $dara.Model {
+  packagingConfigurations?: VodPackagingConfiguration[];
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * desc
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      packagingConfigurations: 'PackagingConfigurations',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      sortBy: 'SortBy',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      packagingConfigurations: { 'type': 'array', 'itemType': VodPackagingConfiguration },
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      sortBy: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.packagingConfigurations)) {
+      $dara.Model.validateArray(this.packagingConfigurations);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVodPackagingConfigurationsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVodPackagingConfigurationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVodPackagingConfigurationsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVodPackagingGroupsRequest extends $dara.Model {
+  /**
+   * @example
+   * hls
+   */
+  keyword?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * desc
+   */
+  sortBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVodPackagingGroupsResponseBody extends $dara.Model {
+  packagingGroups?: VodPackagingGroup[];
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * desc
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      packagingGroups: 'PackagingGroups',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      sortBy: 'SortBy',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      packagingGroups: { 'type': 'array', 'itemType': VodPackagingGroup },
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      sortBy: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.packagingGroups)) {
+      $dara.Model.validateArray(this.packagingGroups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVodPackagingGroupsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVodPackagingGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVodPackagingGroupsResponseBody,
     };
   }
 
@@ -71567,6 +79504,105 @@ export class SendAIAgentSpeechResponse extends $dara.Model {
   }
 }
 
+export class SendAIAgentTextRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f27f9b9be28642a88e18****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendAIAgentTextResponseBody extends $dara.Model {
+  /**
+   * @example
+   * DB488837-3****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendAIAgentTextResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendAIAgentTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendAIAgentTextResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendLiveSnapshotJobCommandRequest extends $dara.Model {
   /**
    * @remarks
@@ -72416,6 +80452,7 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
    * This parameter is required.
    */
   runtimeConfig?: AIAgentRuntimeConfig;
+  sessionId?: string;
   templateConfig?: AIAgentTemplateConfig;
   /**
    * @example
@@ -72426,6 +80463,7 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
     return {
       AIAgentId: 'AIAgentId',
       runtimeConfig: 'RuntimeConfig',
+      sessionId: 'SessionId',
       templateConfig: 'TemplateConfig',
       userData: 'UserData',
     };
@@ -72435,6 +80473,7 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
     return {
       AIAgentId: 'string',
       runtimeConfig: AIAgentRuntimeConfig,
+      sessionId: 'string',
       templateConfig: AIAgentTemplateConfig,
       userData: 'string',
     };
@@ -72469,6 +80508,7 @@ export class StartAIAgentInstanceShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   runtimeConfigShrink?: string;
+  sessionId?: string;
   templateConfigShrink?: string;
   /**
    * @example
@@ -72479,6 +80519,7 @@ export class StartAIAgentInstanceShrinkRequest extends $dara.Model {
     return {
       AIAgentId: 'AIAgentId',
       runtimeConfigShrink: 'RuntimeConfig',
+      sessionId: 'SessionId',
       templateConfigShrink: 'TemplateConfig',
       userData: 'UserData',
     };
@@ -72488,6 +80529,7 @@ export class StartAIAgentInstanceShrinkRequest extends $dara.Model {
     return {
       AIAgentId: 'string',
       runtimeConfigShrink: 'string',
+      sessionId: 'string',
       templateConfigShrink: 'string',
       userData: 'string',
     };
@@ -72553,6 +80595,105 @@ export class StartAIAgentInstanceResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartAIAgentInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyChannel
+   */
+  channelName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartChannelResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartChannelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartChannelResponseBody,
     };
   }
 
@@ -73003,6 +81144,105 @@ export class StopAIAgentInstanceResponse extends $dara.Model {
   }
 }
 
+export class StopChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyChannel
+   */
+  channelName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopChannelResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopChannelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopChannelResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopRtcRobotInstanceRequest extends $dara.Model {
   /**
    * @remarks
@@ -73115,6 +81355,7 @@ export class SubmitASRJobRequest extends $dara.Model {
    * 00:00:10
    */
   duration?: string;
+  editingConfig?: string;
   /**
    * @remarks
    * The input file. You can specify an Object Storage Service (OSS) URL or the ID of a media asset in the media asset library.
@@ -73154,6 +81395,7 @@ export class SubmitASRJobRequest extends $dara.Model {
     return {
       description: 'Description',
       duration: 'Duration',
+      editingConfig: 'EditingConfig',
       inputFile: 'InputFile',
       startTime: 'StartTime',
       title: 'Title',
@@ -73165,6 +81407,7 @@ export class SubmitASRJobRequest extends $dara.Model {
     return {
       description: 'string',
       duration: 'string',
+      editingConfig: 'string',
       inputFile: 'string',
       startTime: 'string',
       title: 'string',
@@ -75191,6 +83434,146 @@ export class SubmitDynamicImageJobResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitDynamicImageJobResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitHighlightExtractionJobRequest extends $dara.Model {
+  /**
+   * @example
+   * ****12e8864746a0a398****
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * {
+   * 	"MediaArray": [{
+   * 		"MediaId": "ceb72f00e****1ef8216e7e6c64a6302"
+   * 	}, {
+   * 		"MediaId": "ce450c40e****1ef8216e7e6c64a6302"
+   * 	}, {
+   * 		"MediaId": "ce49a020e****1ef81c1e6f6d5686302"
+   * 	}, {
+   * 		"MediaId": "d047e120e****1ef81c1e6f6d5686302"
+   * 	}, {
+   * 		"MediaId": "cfe2ddc0e****1ef81c1e6f6d5686302"
+   * 	}],
+   * 	"Strategy": {
+   * 		"Count": 5,
+   * 		"ClipDuration": 15
+   * 	}
+   * }
+   */
+  inputConfig?: string;
+  /**
+   * @example
+   * {
+   * 	"NeedExport": true,
+   * 	"OutputMediaTarget": "oss-object",
+   * 	"Bucket": "test-bucket",
+   * 	"ObjectKey": "path/to/test_{index}.mp4",
+   * 	"Width": 1920,
+   * 	"Height": 1080,
+   * 	"ExportAsNewMedia": false
+   * }
+   */
+  outputConfig?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      inputConfig: 'InputConfig',
+      outputConfig: 'OutputConfig',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      inputConfig: 'string',
+      outputConfig: 'string',
+      userData: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitHighlightExtractionJobResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
+  jobId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitHighlightExtractionJobResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitHighlightExtractionJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitHighlightExtractionJobResponseBody,
     };
   }
 
@@ -80002,6 +88385,11 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
    * {"MediaURL": "https://your-bucket.oss-cn-shanghai.aliyuncs.com/your-object.mp4"}
    */
   outputConfig?: string;
+  signature?: string;
+  signatureMehtod?: string;
+  signatureNonce?: string;
+  signatureType?: string;
+  signatureVersion?: string;
   /**
    * @remarks
    * *   The job title.
@@ -80023,6 +88411,11 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
       editingConfig: 'EditingConfig',
       inputConfig: 'InputConfig',
       outputConfig: 'OutputConfig',
+      signature: 'Signature',
+      signatureMehtod: 'SignatureMehtod',
+      signatureNonce: 'SignatureNonce',
+      signatureType: 'SignatureType',
+      signatureVersion: 'SignatureVersion',
       title: 'Title',
       userData: 'UserData',
     };
@@ -80035,6 +88428,11 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
       editingConfig: 'string',
       inputConfig: 'string',
       outputConfig: 'string',
+      signature: 'string',
+      signatureMehtod: 'string',
+      signatureNonce: 'string',
+      signatureType: 'string',
+      signatureVersion: 'string',
       title: 'string',
       userData: 'string',
     };
@@ -80400,6 +88798,190 @@ export class UpdateAIAgentInstanceResponse extends $dara.Model {
   }
 }
 
+export class UpdateAdInsertionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 内容URL前缀
+   * 
+   * @example
+   * ON
+   */
+  adMarkerPassthrough?: string;
+  /**
+   * @remarks
+   * 广告策略服务器URL
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http://ads.com/ad1?param1=[palyer_params.p1]
+   */
+  adsUrl?: string;
+  /**
+   * @remarks
+   * 广告分片的CDN前缀
+   * 
+   * @example
+   * http://cdn.com/
+   */
+  cdnAdSegmentUrlPrefix?: string;
+  /**
+   * @remarks
+   * 视频内容分片的CDN前缀
+   * 
+   * @example
+   * http://cdn.com/
+   */
+  cdnContentSegmentUrlPrefix?: string;
+  /**
+   * @remarks
+   * 动态配置别名
+   * 
+   * @example
+   * { "player_params.p1": { "1": "abc" } }
+   */
+  configAliases?: string;
+  /**
+   * @remarks
+   * 内容URL前缀
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * https://source.com/
+   */
+  contentUrlPrefix?: string;
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * my_ad
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 个性化配置阈值
+   * 
+   * @example
+   * 5
+   */
+  personalizationThreshold?: number;
+  /**
+   * @remarks
+   * slate广告URL
+   * 
+   * @example
+   * http://storage.com/slate1.mp4
+   */
+  slateAdUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adMarkerPassthrough: 'AdMarkerPassthrough',
+      adsUrl: 'AdsUrl',
+      cdnAdSegmentUrlPrefix: 'CdnAdSegmentUrlPrefix',
+      cdnContentSegmentUrlPrefix: 'CdnContentSegmentUrlPrefix',
+      configAliases: 'ConfigAliases',
+      contentUrlPrefix: 'ContentUrlPrefix',
+      name: 'Name',
+      personalizationThreshold: 'PersonalizationThreshold',
+      slateAdUrl: 'SlateAdUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adMarkerPassthrough: 'string',
+      adsUrl: 'string',
+      cdnAdSegmentUrlPrefix: 'string',
+      cdnContentSegmentUrlPrefix: 'string',
+      configAliases: 'string',
+      contentUrlPrefix: 'string',
+      name: 'string',
+      personalizationThreshold: 'number',
+      slateAdUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAdInsertionResponseBody extends $dara.Model {
+  config?: UpdateAdInsertionResponseBodyConfig;
+  /**
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: UpdateAdInsertionResponseBodyConfig,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAdInsertionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAdInsertionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAdInsertionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAvatarTrainingJobRequest extends $dara.Model {
   /**
    * @remarks
@@ -80683,6 +89265,150 @@ export class UpdateCategoryResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateCategoryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateChannelRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  accessPolicy?: boolean;
+  /**
+   * @example
+   * xxxxx
+   */
+  accessToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyChannel
+   */
+  channelName?: string;
+  /**
+   * @example
+   * MySourceLocation
+   */
+  fillerSourceLocationName?: string;
+  /**
+   * @example
+   * MySource
+   */
+  fillerSourceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{
+   * 	"ManifestName": "manifest-1",
+   * 	"Format": "HLS",
+   * 	"SourceGroupName": "source-group-1",
+   * 	"ManifestSettings": {
+   * 		"WindowDuration": 60,
+   * 		"AdMarkType": "Daterange"
+   * 	}
+   * }]
+   */
+  outPutConfigList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessPolicy: 'AccessPolicy',
+      accessToken: 'AccessToken',
+      channelName: 'ChannelName',
+      fillerSourceLocationName: 'FillerSourceLocationName',
+      fillerSourceName: 'FillerSourceName',
+      outPutConfigList: 'OutPutConfigList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessPolicy: 'boolean',
+      accessToken: 'string',
+      channelName: 'string',
+      fillerSourceLocationName: 'string',
+      fillerSourceName: 'string',
+      outPutConfigList: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateChannelResponseBody extends $dara.Model {
+  channel?: ChannelAssemblyChannel;
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'Channel',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: ChannelAssemblyChannel,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.channel && typeof (this.channel as any).validate === 'function') {
+      (this.channel as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateChannelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateChannelResponseBody,
     };
   }
 
@@ -82369,13 +91095,411 @@ export class UpdateLiveTranscodeTemplateResponse extends $dara.Model {
   }
 }
 
-export class UpdateMediaConnectFlowStatusRequest extends $dara.Model {
+export class UpdateMediaConnectFlowInputRequest extends $dara.Model {
   /**
+   * @remarks
+   * IP whitelist
+   * 
+   * @example
+   * 19.168.1.1/32,18.168.1.1/16
+   */
+  cidrs?: string;
+  /**
+   * @remarks
+   * Flow instance ID
+   * 
+   * This parameter is required.
+   * 
    * @example
    * 34900dc6-90ec-4968-af3c-fcd87f231a5f
    */
   flowId?: string;
   /**
+   * @remarks
+   * Input URL, modifiable when the input type is RTMP-PULL/SRT-Listener
+   * 
+   * @example
+   * rtmp://pull.test.alivecdn.com/live/alitest
+   */
+  inputFromUrl?: string;
+  /**
+   * @remarks
+   * Input bitrate
+   * 
+   * @example
+   * 2000000
+   */
+  maxBitrate?: number;
+  /**
+   * @remarks
+   * SRT latency, modifiable when the input type is SRT-Listener/SRT-Caller
+   * 
+   * @example
+   * 1000
+   */
+  srtLatency?: number;
+  /**
+   * @remarks
+   * SRT encryption key, modifiable when the input type is SRT-Listener/SRT-Caller
+   * 
+   * @example
+   * FICUBPX4Q77DYHRF
+   */
+  srtPassphrase?: string;
+  /**
+   * @remarks
+   * SRT encryption length, modifiable when the input type is SRT-Listener/SRT-Caller
+   * 
+   * @example
+   * 32
+   */
+  srtPbkeyLen?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cidrs: 'Cidrs',
+      flowId: 'FlowId',
+      inputFromUrl: 'InputFromUrl',
+      maxBitrate: 'MaxBitrate',
+      srtLatency: 'SrtLatency',
+      srtPassphrase: 'SrtPassphrase',
+      srtPbkeyLen: 'SrtPbkeyLen',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrs: 'string',
+      flowId: 'string',
+      inputFromUrl: 'string',
+      maxBitrate: 'number',
+      srtLatency: 'number',
+      srtPassphrase: 'string',
+      srtPbkeyLen: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaConnectFlowInputResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * ""
+   */
+  content?: string;
+  /**
+   * @remarks
+   * Description of the API call
+   * 
+   * @example
+   * OK
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 请求 ID
+   * 
+   * @example
+   * 52451256-FFEA-5D2E-AA60-EE7053000F22
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Returned error code, 0 indicates success
+   * 
+   * @example
+   * 0
+   */
+  retCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      description: 'Description',
+      requestId: 'RequestId',
+      retCode: 'RetCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      description: 'string',
+      requestId: 'string',
+      retCode: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaConnectFlowInputResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMediaConnectFlowInputResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMediaConnectFlowInputResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaConnectFlowOutputRequest extends $dara.Model {
+  /**
+   * @remarks
+   * IP whitelist
+   * 
+   * @example
+   * 19.168.1.1/32,18.168.1.1/16
+   */
+  cidrs?: string;
+  /**
+   * @remarks
+   * Flow instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 34900dc6-90ec-4968-af3c-fcd87f231a5f
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * Output name
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * AliTestOutput
+   */
+  outputName?: string;
+  /**
+   * @remarks
+   * Output address, modifiable when the output type is RTMP-PUSH/SRT-Caller mode
+   * 
+   * @example
+   * rtmp://push.test.alivecdn.com/live/alitest
+   */
+  outputToUrl?: string;
+  /**
+   * @remarks
+   * Player limit
+   * 
+   * @example
+   * 5
+   */
+  playerLimit?: string;
+  /**
+   * @remarks
+   * SRT latency, modifiable when the input type is SRT-Listener/SRT-Caller
+   * 
+   * @example
+   * 1000
+   */
+  srtLatency?: string;
+  /**
+   * @remarks
+   * SRT encryption key, modifiable when the input type is SRT-Listener/SRT-Caller
+   * 
+   * @example
+   * FICUBPX4Q77DYHRF
+   */
+  srtPassphrase?: string;
+  /**
+   * @remarks
+   * SRT encryption length, modifiable when the input type is SRT-Listener/SRT-Caller
+   * 
+   * @example
+   * 32
+   */
+  srtPbkeyLen?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrs: 'Cidrs',
+      flowId: 'FlowId',
+      outputName: 'OutputName',
+      outputToUrl: 'OutputToUrl',
+      playerLimit: 'PlayerLimit',
+      srtLatency: 'SrtLatency',
+      srtPassphrase: 'SrtPassphrase',
+      srtPbkeyLen: 'SrtPbkeyLen',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrs: 'string',
+      flowId: 'string',
+      outputName: 'string',
+      outputToUrl: 'string',
+      playerLimit: 'string',
+      srtLatency: 'string',
+      srtPassphrase: 'string',
+      srtPbkeyLen: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaConnectFlowOutputResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Response body
+   * 
+   * @example
+   * ""
+   */
+  content?: string;
+  /**
+   * @remarks
+   * Description of the API call
+   * 
+   * @example
+   * OK
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * D737D0BC-4CB5-55AA-8119-B540C95DFE6A
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Returned error code, 0 indicates success
+   * 
+   * @example
+   * 0
+   */
+  retCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      description: 'Description',
+      requestId: 'RequestId',
+      retCode: 'RetCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      description: 'string',
+      requestId: 'string',
+      retCode: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaConnectFlowOutputResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMediaConnectFlowOutputResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMediaConnectFlowOutputResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaConnectFlowStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Flow instance ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 34900dc6-90ec-4968-af3c-fcd87f231a5f
+   */
+  flowId?: string;
+  /**
+   * @remarks
+   * Flow status:
+   * - online: Start Flow
+   * - offline: Stop Flow
+   * 
+   * This parameter is required.
+   * 
    * @example
    * online
    */
@@ -82405,25 +91529,37 @@ export class UpdateMediaConnectFlowStatusRequest extends $dara.Model {
 
 export class UpdateMediaConnectFlowStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response body
+   * 
    * @example
    * ""
    */
   content?: string;
   /**
+   * @remarks
+   * Description of the API call
+   * 
    * @example
    * ok
    */
   description?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 20B3A1B6-4BD2-5DE6-BCBC-098C9B4F4E91
    */
   requestId?: string;
   /**
+   * @remarks
+   * 返回的错误码，0表示成功
+   * 
    * @example
    * 0
    */
-  retCode?: string;
+  retCode?: number;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
@@ -82438,7 +91574,7 @@ export class UpdateMediaConnectFlowStatusResponseBody extends $dara.Model {
       content: 'string',
       description: 'string',
       requestId: 'string',
-      retCode: 'string',
+      retCode: 'number',
     };
   }
 
@@ -83153,6 +92289,156 @@ export class UpdatePipelineResponse extends $dara.Model {
   }
 }
 
+export class UpdateProgramRequest extends $dara.Model {
+  /**
+   * @example
+   * [{"MessageType":"SPLICE_INSERT","OffsetMillis":1000,"SourceLocationName":"MySourceLocation","SourceName":"MyAdSource","SpliceInsertSettings":{"AvailNumber":0,"AvailExpected":0,"SpliceEventID":1,"UniqueProgramID":0}}]
+   */
+  adBreaks?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MyChannel
+   */
+  channelName?: string;
+  /**
+   * @example
+   * {StartOffsetMillis: 213123, EndOffsetMillis: 213134}
+   */
+  clipRange?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * program1
+   */
+  programName?: string;
+  /**
+   * @example
+   * MySourceLcation
+   */
+  sourceLocationName?: string;
+  /**
+   * @example
+   * MySource
+   */
+  sourceName?: string;
+  /**
+   * @example
+   * vodSource
+   */
+  sourceType?: string;
+  /**
+   * @example
+   * {"Type": "RELATIVE", "RelativePosition": "AFTER_PROGRAM", "RelativeProgram": "program2"}
+   */
+  transition?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adBreaks: 'AdBreaks',
+      channelName: 'ChannelName',
+      clipRange: 'ClipRange',
+      programName: 'ProgramName',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+      transition: 'Transition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adBreaks: 'string',
+      channelName: 'string',
+      clipRange: 'string',
+      programName: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+      transition: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProgramResponseBody extends $dara.Model {
+  program?: ChannelAssemblyProgram;
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      program: 'Program',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      program: ChannelAssemblyProgram,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.program && typeof (this.program as any).validate === 'function') {
+      (this.program as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProgramResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateProgramResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateProgramResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateRtcRobotInstanceRequest extends $dara.Model {
   config?: UpdateRtcRobotInstanceRequestConfig;
   /**
@@ -83269,6 +92555,257 @@ export class UpdateRtcRobotInstanceResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateRtcRobotInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSourceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [{
+   * 	"sourceGroupName": "mySourceGroup-1",
+   * 	"relativePath": "group1/hls.m3u8",
+   * 	"packageType": "hls"
+   * }]
+   */
+  httpPackageConfigurations?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySourcelocation
+   */
+  sourceLocationName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySource
+   */
+  sourceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vodSource
+   */
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpPackageConfigurations: 'HttpPackageConfigurations',
+      sourceLocationName: 'SourceLocationName',
+      sourceName: 'SourceName',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpPackageConfigurations: 'string',
+      sourceLocationName: 'string',
+      sourceName: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSourceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  source?: ChannelAssemblySource;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      source: ChannelAssemblySource,
+    };
+  }
+
+  validate() {
+    if(this.source && typeof (this.source as any).validate === 'function') {
+      (this.source as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSourceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSourceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSourceLocationRequest extends $dara.Model {
+  /**
+   * @example
+   * http://xxx.com
+   */
+  baseUrl?: string;
+  /**
+   * @example
+   * true
+   */
+  enableSegmentDelivery?: boolean;
+  /**
+   * @example
+   * http://xxxx.com
+   */
+  segmentDeliveryUrl?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MySourceLocation
+   */
+  sourceLocationName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseUrl: 'BaseUrl',
+      enableSegmentDelivery: 'EnableSegmentDelivery',
+      segmentDeliveryUrl: 'SegmentDeliveryUrl',
+      sourceLocationName: 'SourceLocationName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseUrl: 'string',
+      enableSegmentDelivery: 'boolean',
+      segmentDeliveryUrl: 'string',
+      sourceLocationName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSourceLocationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxx-xxxx-xxxxx-xxxx
+   */
+  requestId?: string;
+  sourceLocation?: ChannelAssemblySourceLocation;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      sourceLocation: 'SourceLocation',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      sourceLocation: ChannelAssemblySourceLocation,
+    };
+  }
+
+  validate() {
+    if(this.sourceLocation && typeof (this.sourceLocation as any).validate === 'function') {
+      (this.sourceLocation as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSourceLocationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSourceLocationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSourceLocationResponseBody,
     };
   }
 
@@ -83939,6 +93476,89 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加广告插入配置
+   * 
+   * @param request - AddAdInsertionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAdInsertionResponse
+   */
+  async addAdInsertionWithOptions(request: AddAdInsertionRequest, runtime: $dara.RuntimeOptions): Promise<AddAdInsertionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.adMarkerPassthrough)) {
+      body["AdMarkerPassthrough"] = request.adMarkerPassthrough;
+    }
+
+    if (!$dara.isNull(request.adsUrl)) {
+      body["AdsUrl"] = request.adsUrl;
+    }
+
+    if (!$dara.isNull(request.cdnAdSegmentUrlPrefix)) {
+      body["CdnAdSegmentUrlPrefix"] = request.cdnAdSegmentUrlPrefix;
+    }
+
+    if (!$dara.isNull(request.cdnContentSegmentUrlPrefix)) {
+      body["CdnContentSegmentUrlPrefix"] = request.cdnContentSegmentUrlPrefix;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.configAliases)) {
+      body["ConfigAliases"] = request.configAliases;
+    }
+
+    if (!$dara.isNull(request.contentUrlPrefix)) {
+      body["ContentUrlPrefix"] = request.contentUrlPrefix;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.personalizationThreshold)) {
+      body["PersonalizationThreshold"] = request.personalizationThreshold;
+    }
+
+    if (!$dara.isNull(request.slateAdUrl)) {
+      body["SlateAdUrl"] = request.slateAdUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddAdInsertion",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddAdInsertionResponse>(await this.callApi(params, req, runtime), new AddAdInsertionResponse({}));
+    } else {
+      return $dara.cast<AddAdInsertionResponse>(await this.execute(params, req, runtime), new AddAdInsertionResponse({}));
+    }
+
+  }
+
+  /**
+   * 添加广告插入配置
+   * 
+   * @param request - AddAdInsertionRequest
+   * @returns AddAdInsertionResponse
+   */
+  async addAdInsertion(request: AddAdInsertionRequest): Promise<AddAdInsertionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addAdInsertionWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a category.
    * 
    * @remarks
@@ -84098,7 +93718,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为MediaConnect实例添加input
+   * Add input for MediaConnect instance
+   * 
+   * @remarks
+   * - If the provided Flow instance ID does not exist, the interface will return an error.
+   * - A Flow instance can only have one Input.
+   * ### Description of Input Types
+   * - RTMP-PUSH: Creates an input of the RTMP listening type. You can push to the URL returned by the interface using the RTMP protocol.
+   * - RTMP-PULL: Creates an input of the RTMP origin-pull type. The Flow will pull the RTMP live stream from the source you specify.
+   * - SRT-Listener: Creates an input of the SRT listening type. You can push to the URL returned by the interface using the SRT protocol.
+   * - SRT-Caller: Creates an input of the SRT origin-pull type. The Flow will pull the SRT live stream from the source you specify.
+   * - Flow: Uses the output of another upstream Flow instance as the input. You need to specify both the instance ID and the output name of the paired Flow. The output of the upstream Flow instance must be of the SRT-Listener/RTMP-PULL type. When cascading between Flow instances, a dedicated line is used by default, which can be utilized for cross-regional distribution among multiple Flows.
    * 
    * @param request - AddMediaConnectFlowInputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -84151,14 +93781,6 @@ export default class Client extends OpenApi {
       query["SrtPbkeyLen"] = request.srtPbkeyLen;
     }
 
-    if (!$dara.isNull(request.srtPbkeylen)) {
-      query["SrtPbkeylen"] = request.srtPbkeylen;
-    }
-
-    if (!$dara.isNull(request.srtPbkeyssen)) {
-      query["SrtPbkeyssen"] = request.srtPbkeyssen;
-    }
-
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -84182,7 +93804,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为MediaConnect实例添加input
+   * Add input for MediaConnect instance
+   * 
+   * @remarks
+   * - If the provided Flow instance ID does not exist, the interface will return an error.
+   * - A Flow instance can only have one Input.
+   * ### Description of Input Types
+   * - RTMP-PUSH: Creates an input of the RTMP listening type. You can push to the URL returned by the interface using the RTMP protocol.
+   * - RTMP-PULL: Creates an input of the RTMP origin-pull type. The Flow will pull the RTMP live stream from the source you specify.
+   * - SRT-Listener: Creates an input of the SRT listening type. You can push to the URL returned by the interface using the SRT protocol.
+   * - SRT-Caller: Creates an input of the SRT origin-pull type. The Flow will pull the SRT live stream from the source you specify.
+   * - Flow: Uses the output of another upstream Flow instance as the input. You need to specify both the instance ID and the output name of the paired Flow. The output of the upstream Flow instance must be of the SRT-Listener/RTMP-PULL type. When cascading between Flow instances, a dedicated line is used by default, which can be utilized for cross-regional distribution among multiple Flows.
    * 
    * @param request - AddMediaConnectFlowInputRequest
    * @returns AddMediaConnectFlowInputResponse
@@ -84193,7 +93825,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为MediaConnect实例添加output
+   * Add output for MediaConnect instance
+   * 
+   * @remarks
+   * - If the provided Flow instance ID does not exist, the interface will return an error.
+   * - A Flow instance can have up to 4 outputs.
+   * - The output names under the same Flow instance cannot be duplicated.
+   * - You can set a maximum number of simultaneous players for each output. New plays will fail once this limit is exceeded. Each output supports up to 5 streams.
+   * ### Description of Output Types
+   * - RTMP-PUSH: Creates an output of the RTMP push type. The Flow will use the RTMP protocol to push the live stream to the origin you set.
+   * - RTMP-PULL: Creates an output of the RTMP pull type. You can use the RTMP protocol to pull the stream from the URL returned by the interface.
+   * - SRT-Caller: Creates an output of the SRT push type. The Flow will use the SRT protocol to push the live stream to the origin you set.
+   * - SRT-Listener: Creates an output of the SRT pull type. You can use the SRT protocol to pull the stream from the URL returned by the interface.
+   * - Flow: Uses the input of another downstream Flow instance as the output. You need to specify both the instance ID and the input name of the paired Flow. The input type of the downstream Flow instance must be a listening type, i.e., SRT-Listener/RTMP-PUSH. This instance will push the live stream to the downstream Flow. When cascading between Flow instances, a dedicated line is used by default, which can be used for cross-regional distribution among multiple Flows.
    * 
    * @param request - AddMediaConnectFlowOutputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -84220,10 +93864,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.outputToUrl)) {
       query["OutputToUrl"] = request.outputToUrl;
-    }
-
-    if (!$dara.isNull(request.pairChannelId)) {
-      query["PairChannelId"] = request.pairChannelId;
     }
 
     if (!$dara.isNull(request.pairFlowId)) {
@@ -84273,7 +93913,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为MediaConnect实例添加output
+   * Add output for MediaConnect instance
+   * 
+   * @remarks
+   * - If the provided Flow instance ID does not exist, the interface will return an error.
+   * - A Flow instance can have up to 4 outputs.
+   * - The output names under the same Flow instance cannot be duplicated.
+   * - You can set a maximum number of simultaneous players for each output. New plays will fail once this limit is exceeded. Each output supports up to 5 streams.
+   * ### Description of Output Types
+   * - RTMP-PUSH: Creates an output of the RTMP push type. The Flow will use the RTMP protocol to push the live stream to the origin you set.
+   * - RTMP-PULL: Creates an output of the RTMP pull type. You can use the RTMP protocol to pull the stream from the URL returned by the interface.
+   * - SRT-Caller: Creates an output of the SRT push type. The Flow will use the SRT protocol to push the live stream to the origin you set.
+   * - SRT-Listener: Creates an output of the SRT pull type. You can use the SRT protocol to pull the stream from the URL returned by the interface.
+   * - Flow: Uses the input of another downstream Flow instance as the output. You need to specify both the instance ID and the input name of the paired Flow. The input type of the downstream Flow instance must be a listening type, i.e., SRT-Listener/RTMP-PUSH. This instance will push the live stream to the downstream Flow. When cascading between Flow instances, a dedicated line is used by default, which can be used for cross-regional distribution among multiple Flows.
    * 
    * @param request - AddMediaConnectFlowOutputRequest
    * @returns AddMediaConnectFlowOutputResponse
@@ -84478,6 +94130,63 @@ export default class Client extends OpenApi {
   async alterSearchIndex(request: AlterSearchIndexRequest): Promise<AlterSearchIndexResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.alterSearchIndexWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量创建vod打包资产
+   * 
+   * @param tmpReq - BatchCreateVodPackagingAssetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchCreateVodPackagingAssetResponse
+   */
+  async batchCreateVodPackagingAssetWithOptions(tmpReq: BatchCreateVodPackagingAssetRequest, runtime: $dara.RuntimeOptions): Promise<BatchCreateVodPackagingAssetResponse> {
+    tmpReq.validate();
+    let request = new BatchCreateVodPackagingAssetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.assets)) {
+      request.assetsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.assets, "Assets", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.assetsShrink)) {
+      query["Assets"] = request.assetsShrink;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchCreateVodPackagingAsset",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BatchCreateVodPackagingAssetResponse>(await this.callApi(params, req, runtime), new BatchCreateVodPackagingAssetResponse({}));
+    } else {
+      return $dara.cast<BatchCreateVodPackagingAssetResponse>(await this.execute(params, req, runtime), new BatchCreateVodPackagingAssetResponse({}));
+    }
+
+  }
+
+  /**
+   * 批量创建vod打包资产
+   * 
+   * @param request - BatchCreateVodPackagingAssetRequest
+   * @returns BatchCreateVodPackagingAssetResponse
+   */
+  async batchCreateVodPackagingAsset(request: BatchCreateVodPackagingAssetRequest): Promise<BatchCreateVodPackagingAssetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchCreateVodPackagingAssetWithOptions(request, runtime);
   }
 
   /**
@@ -84765,6 +94474,81 @@ export default class Client extends OpenApi {
   async createAvatarTrainingJob(request: CreateAvatarTrainingJobRequest): Promise<CreateAvatarTrainingJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAvatarTrainingJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一个新的频道
+   * 
+   * @param request - CreateChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateChannelResponse
+   */
+  async createChannelWithOptions(request: CreateChannelRequest, runtime: $dara.RuntimeOptions): Promise<CreateChannelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessPolicy)) {
+      query["AccessPolicy"] = request.accessPolicy;
+    }
+
+    if (!$dara.isNull(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.channelTier)) {
+      query["ChannelTier"] = request.channelTier;
+    }
+
+    if (!$dara.isNull(request.fillerSourceLocationName)) {
+      query["FillerSourceLocationName"] = request.fillerSourceLocationName;
+    }
+
+    if (!$dara.isNull(request.fillerSourceName)) {
+      query["FillerSourceName"] = request.fillerSourceName;
+    }
+
+    if (!$dara.isNull(request.outPutConfigList)) {
+      query["OutPutConfigList"] = request.outPutConfigList;
+    }
+
+    if (!$dara.isNull(request.playbackMode)) {
+      query["PlaybackMode"] = request.playbackMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateChannel",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateChannelResponse>(await this.callApi(params, req, runtime), new CreateChannelResponse({}));
+    } else {
+      return $dara.cast<CreateChannelResponse>(await this.execute(params, req, runtime), new CreateChannelResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建一个新的频道
+   * 
+   * @param request - CreateChannelRequest
+   * @returns CreateChannelResponse
+   */
+  async createChannel(request: CreateChannelRequest): Promise<CreateChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createChannelWithOptions(request, runtime);
   }
 
   /**
@@ -85454,7 +95238,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建MediaConnect Flow
+   * Create MediaConnect Flow
+   * 
+   * @remarks
+   * - The name of the Flow cannot be duplicated within the same region.
+   * - When the interface responds normally, it will return the Flow instance ID. Please keep it properly.
    * 
    * @param request - CreateMediaConnectFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -85494,7 +95282,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建MediaConnect Flow
+   * Create MediaConnect Flow
+   * 
+   * @remarks
+   * - The name of the Flow cannot be duplicated within the same region.
+   * - When the interface responds normally, it will return the Flow instance ID. Please keep it properly.
    * 
    * @param request - CreateMediaConnectFlowRequest
    * @returns CreateMediaConnectFlowResponse
@@ -85557,6 +95349,81 @@ export default class Client extends OpenApi {
   async createPipeline(request: CreatePipelineRequest): Promise<CreatePipelineResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createPipelineWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一个新的节目
+   * 
+   * @param request - CreateProgramRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProgramResponse
+   */
+  async createProgramWithOptions(request: CreateProgramRequest, runtime: $dara.RuntimeOptions): Promise<CreateProgramResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.adBreaks)) {
+      query["AdBreaks"] = request.adBreaks;
+    }
+
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.clipRange)) {
+      query["ClipRange"] = request.clipRange;
+    }
+
+    if (!$dara.isNull(request.programName)) {
+      query["ProgramName"] = request.programName;
+    }
+
+    if (!$dara.isNull(request.sourceLocationName)) {
+      query["SourceLocationName"] = request.sourceLocationName;
+    }
+
+    if (!$dara.isNull(request.sourceName)) {
+      query["SourceName"] = request.sourceName;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    if (!$dara.isNull(request.transition)) {
+      query["Transition"] = request.transition;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProgram",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateProgramResponse>(await this.callApi(params, req, runtime), new CreateProgramResponse({}));
+    } else {
+      return $dara.cast<CreateProgramResponse>(await this.execute(params, req, runtime), new CreateProgramResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建一个新的节目
+   * 
+   * @param request - CreateProgramRequest
+   * @returns CreateProgramResponse
+   */
+  async createProgram(request: CreateProgramRequest): Promise<CreateProgramResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createProgramWithOptions(request, runtime);
   }
 
   /**
@@ -85669,6 +95536,124 @@ export default class Client extends OpenApi {
   async createSearchLib(request: CreateSearchLibRequest): Promise<CreateSearchLibResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createSearchLibWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一个新的源
+   * 
+   * @param request - CreateSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSourceResponse
+   */
+  async createSourceWithOptions(request: CreateSourceRequest, runtime: $dara.RuntimeOptions): Promise<CreateSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.httpPackageConfigurations)) {
+      query["HttpPackageConfigurations"] = request.httpPackageConfigurations;
+    }
+
+    if (!$dara.isNull(request.sourceLocationName)) {
+      query["SourceLocationName"] = request.sourceLocationName;
+    }
+
+    if (!$dara.isNull(request.sourceName)) {
+      query["SourceName"] = request.sourceName;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSource",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSourceResponse>(await this.callApi(params, req, runtime), new CreateSourceResponse({}));
+    } else {
+      return $dara.cast<CreateSourceResponse>(await this.execute(params, req, runtime), new CreateSourceResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建一个新的源
+   * 
+   * @param request - CreateSourceRequest
+   * @returns CreateSourceResponse
+   */
+  async createSource(request: CreateSourceRequest): Promise<CreateSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一个新的源位置
+   * 
+   * @param request - CreateSourceLocationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSourceLocationResponse
+   */
+  async createSourceLocationWithOptions(request: CreateSourceLocationRequest, runtime: $dara.RuntimeOptions): Promise<CreateSourceLocationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseUrl)) {
+      query["BaseUrl"] = request.baseUrl;
+    }
+
+    if (!$dara.isNull(request.enableSegmentDelivery)) {
+      query["EnableSegmentDelivery"] = request.enableSegmentDelivery;
+    }
+
+    if (!$dara.isNull(request.segmentDeliveryUrl)) {
+      query["SegmentDeliveryUrl"] = request.segmentDeliveryUrl;
+    }
+
+    if (!$dara.isNull(request.sourceLocationName)) {
+      query["SourceLocationName"] = request.sourceLocationName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSourceLocation",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSourceLocationResponse>(await this.callApi(params, req, runtime), new CreateSourceLocationResponse({}));
+    } else {
+      return $dara.cast<CreateSourceLocationResponse>(await this.execute(params, req, runtime), new CreateSourceLocationResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建一个新的源位置
+   * 
+   * @param request - CreateSourceLocationRequest
+   * @returns CreateSourceLocationResponse
+   */
+  async createSourceLocation(request: CreateSourceLocationRequest): Promise<CreateSourceLocationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSourceLocationWithOptions(request, runtime);
   }
 
   /**
@@ -85834,6 +95819,195 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建vod打包资产
+   * 
+   * @param tmpReq - CreateVodPackagingAssetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVodPackagingAssetResponse
+   */
+  async createVodPackagingAssetWithOptions(tmpReq: CreateVodPackagingAssetRequest, runtime: $dara.RuntimeOptions): Promise<CreateVodPackagingAssetResponse> {
+    tmpReq.validate();
+    let request = new CreateVodPackagingAssetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.assetName)) {
+      query["AssetName"] = request.assetName;
+    }
+
+    if (!$dara.isNull(request.contentId)) {
+      query["ContentId"] = request.contentId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.inputShrink)) {
+      query["Input"] = request.inputShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVodPackagingAsset",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateVodPackagingAssetResponse>(await this.callApi(params, req, runtime), new CreateVodPackagingAssetResponse({}));
+    } else {
+      return $dara.cast<CreateVodPackagingAssetResponse>(await this.execute(params, req, runtime), new CreateVodPackagingAssetResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建vod打包资产
+   * 
+   * @param request - CreateVodPackagingAssetRequest
+   * @returns CreateVodPackagingAssetResponse
+   */
+  async createVodPackagingAsset(request: CreateVodPackagingAssetRequest): Promise<CreateVodPackagingAssetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVodPackagingAssetWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建点播打包配置
+   * 
+   * @param tmpReq - CreateVodPackagingConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVodPackagingConfigurationResponse
+   */
+  async createVodPackagingConfigurationWithOptions(tmpReq: CreateVodPackagingConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<CreateVodPackagingConfigurationResponse> {
+    tmpReq.validate();
+    let request = new CreateVodPackagingConfigurationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.packageConfig)) {
+      request.packageConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.packageConfig, "PackageConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.configurationName)) {
+      query["ConfigurationName"] = request.configurationName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.packageConfigShrink)) {
+      query["PackageConfig"] = request.packageConfigShrink;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVodPackagingConfiguration",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateVodPackagingConfigurationResponse>(await this.callApi(params, req, runtime), new CreateVodPackagingConfigurationResponse({}));
+    } else {
+      return $dara.cast<CreateVodPackagingConfigurationResponse>(await this.execute(params, req, runtime), new CreateVodPackagingConfigurationResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建点播打包配置
+   * 
+   * @param request - CreateVodPackagingConfigurationRequest
+   * @returns CreateVodPackagingConfigurationResponse
+   */
+  async createVodPackagingConfiguration(request: CreateVodPackagingConfigurationRequest): Promise<CreateVodPackagingConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVodPackagingConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建点播打包组
+   * 
+   * @param request - CreateVodPackagingGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVodPackagingGroupResponse
+   */
+  async createVodPackagingGroupWithOptions(request: CreateVodPackagingGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreateVodPackagingGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVodPackagingGroup",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateVodPackagingGroupResponse>(await this.callApi(params, req, runtime), new CreateVodPackagingGroupResponse({}));
+    } else {
+      return $dara.cast<CreateVodPackagingGroupResponse>(await this.execute(params, req, runtime), new CreateVodPackagingGroupResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建点播打包组
+   * 
+   * @param request - CreateVodPackagingGroupRequest
+   * @returns CreateVodPackagingGroupResponse
+   */
+  async createVodPackagingGroup(request: CreateVodPackagingGroupRequest): Promise<CreateVodPackagingGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVodPackagingGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
    * 
    * @param request - DecryptKMSDataKeyRequest
@@ -85878,6 +96052,104 @@ export default class Client extends OpenApi {
   async decryptKMSDataKey(request: DecryptKMSDataKeyRequest): Promise<DecryptKMSDataKeyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.decryptKMSDataKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除智能体的对话历史记录。
+   * 
+   * @param request - DeleteAIAgentDialogueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAIAgentDialogueResponse
+   */
+  async deleteAIAgentDialogueWithOptions(request: DeleteAIAgentDialogueRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAIAgentDialogueResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dialogueId)) {
+      query["DialogueId"] = request.dialogueId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAIAgentDialogue",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAIAgentDialogueResponse>(await this.callApi(params, req, runtime), new DeleteAIAgentDialogueResponse({}));
+    } else {
+      return $dara.cast<DeleteAIAgentDialogueResponse>(await this.execute(params, req, runtime), new DeleteAIAgentDialogueResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除智能体的对话历史记录。
+   * 
+   * @param request - DeleteAIAgentDialogueRequest
+   * @returns DeleteAIAgentDialogueResponse
+   */
+  async deleteAIAgentDialogue(request: DeleteAIAgentDialogueRequest): Promise<DeleteAIAgentDialogueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAIAgentDialogueWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除广告插入配置
+   * 
+   * @param request - DeleteAdInsertionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAdInsertionResponse
+   */
+  async deleteAdInsertionWithOptions(request: DeleteAdInsertionRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAdInsertionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAdInsertion",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAdInsertionResponse>(await this.callApi(params, req, runtime), new DeleteAdInsertionResponse({}));
+    } else {
+      return $dara.cast<DeleteAdInsertionResponse>(await this.execute(params, req, runtime), new DeleteAdInsertionResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除广告插入配置
+   * 
+   * @param request - DeleteAdInsertionRequest
+   * @returns DeleteAdInsertionResponse
+   */
+  async deleteAdInsertion(request: DeleteAdInsertionRequest): Promise<DeleteAdInsertionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAdInsertionWithOptions(request, runtime);
   }
 
   /**
@@ -85978,6 +96250,53 @@ export default class Client extends OpenApi {
   async deleteCategory(request: DeleteCategoryRequest): Promise<DeleteCategoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCategoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除频道
+   * 
+   * @param request - DeleteChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteChannelResponse
+   */
+  async deleteChannelWithOptions(request: DeleteChannelRequest, runtime: $dara.RuntimeOptions): Promise<DeleteChannelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteChannel",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteChannelResponse>(await this.callApi(params, req, runtime), new DeleteChannelResponse({}));
+    } else {
+      return $dara.cast<DeleteChannelResponse>(await this.execute(params, req, runtime), new DeleteChannelResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除频道
+   * 
+   * @param request - DeleteChannelRequest
+   * @returns DeleteChannelResponse
+   */
+  async deleteChannel(request: DeleteChannelRequest): Promise<DeleteChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteChannelWithOptions(request, runtime);
   }
 
   /**
@@ -86760,7 +97079,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据实例id删除MediaConnect实例
+   * Delete MediaConnect instance by instance ID
+   * 
+   * @remarks
+   * - When the input Flow instance ID does not exist, the interface will return an error.
+   * - When deleting a Flow instance, all Inputs and Outputs bound to this Flow will also be deleted.
+   * - You cannot delete a Flow instance that is in the online state.
    * 
    * @param request - DeleteMediaConnectFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -86796,7 +97120,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据实例id删除MediaConnect实例
+   * Delete MediaConnect instance by instance ID
+   * 
+   * @remarks
+   * - When the input Flow instance ID does not exist, the interface will return an error.
+   * - When deleting a Flow instance, all Inputs and Outputs bound to this Flow will also be deleted.
+   * - You cannot delete a Flow instance that is in the online state.
    * 
    * @param request - DeleteMediaConnectFlowRequest
    * @returns DeleteMediaConnectFlowResponse
@@ -86804,6 +97133,122 @@ export default class Client extends OpenApi {
   async deleteMediaConnectFlow(request: DeleteMediaConnectFlowRequest): Promise<DeleteMediaConnectFlowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMediaConnectFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete the input of a specific MediaConnect instance
+   * 
+   * @remarks
+   * - If the provided Flow instance ID does not exist, the interface will return an error.
+   * - When the Flow instance status is online, the input cannot be deleted.
+   * - Only after all outputs under the Flow instance have been deleted can the input be deleted.
+   * 
+   * @param request - DeleteMediaConnectFlowInputRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMediaConnectFlowInputResponse
+   */
+  async deleteMediaConnectFlowInputWithOptions(request: DeleteMediaConnectFlowInputRequest, runtime: $dara.RuntimeOptions): Promise<DeleteMediaConnectFlowInputResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMediaConnectFlowInput",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteMediaConnectFlowInputResponse>(await this.callApi(params, req, runtime), new DeleteMediaConnectFlowInputResponse({}));
+    } else {
+      return $dara.cast<DeleteMediaConnectFlowInputResponse>(await this.execute(params, req, runtime), new DeleteMediaConnectFlowInputResponse({}));
+    }
+
+  }
+
+  /**
+   * Delete the input of a specific MediaConnect instance
+   * 
+   * @remarks
+   * - If the provided Flow instance ID does not exist, the interface will return an error.
+   * - When the Flow instance status is online, the input cannot be deleted.
+   * - Only after all outputs under the Flow instance have been deleted can the input be deleted.
+   * 
+   * @param request - DeleteMediaConnectFlowInputRequest
+   * @returns DeleteMediaConnectFlowInputResponse
+   */
+  async deleteMediaConnectFlowInput(request: DeleteMediaConnectFlowInputRequest): Promise<DeleteMediaConnectFlowInputResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMediaConnectFlowInputWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete a specific MediaConnect output
+   * 
+   * @remarks
+   * - When the provided Flow instance ID does not exist, the interface will return an error.
+   * - When the Flow instance status is online, the output cannot be deleted.
+   * 
+   * @param request - DeleteMediaConnectFlowOutputRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMediaConnectFlowOutputResponse
+   */
+  async deleteMediaConnectFlowOutputWithOptions(request: DeleteMediaConnectFlowOutputRequest, runtime: $dara.RuntimeOptions): Promise<DeleteMediaConnectFlowOutputResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.outputName)) {
+      query["OutputName"] = request.outputName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMediaConnectFlowOutput",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteMediaConnectFlowOutputResponse>(await this.callApi(params, req, runtime), new DeleteMediaConnectFlowOutputResponse({}));
+    } else {
+      return $dara.cast<DeleteMediaConnectFlowOutputResponse>(await this.execute(params, req, runtime), new DeleteMediaConnectFlowOutputResponse({}));
+    }
+
+  }
+
+  /**
+   * Delete a specific MediaConnect output
+   * 
+   * @remarks
+   * - When the provided Flow instance ID does not exist, the interface will return an error.
+   * - When the Flow instance status is online, the output cannot be deleted.
+   * 
+   * @param request - DeleteMediaConnectFlowOutputRequest
+   * @returns DeleteMediaConnectFlowOutputResponse
+   */
+  async deleteMediaConnectFlowOutput(request: DeleteMediaConnectFlowOutputRequest): Promise<DeleteMediaConnectFlowOutputResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMediaConnectFlowOutputWithOptions(request, runtime);
   }
 
   /**
@@ -87076,6 +97521,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除节目
+   * 
+   * @param request - DeleteProgramRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProgramResponse
+   */
+  async deleteProgramWithOptions(request: DeleteProgramRequest, runtime: $dara.RuntimeOptions): Promise<DeleteProgramResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.programName)) {
+      query["ProgramName"] = request.programName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProgram",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteProgramResponse>(await this.callApi(params, req, runtime), new DeleteProgramResponse({}));
+    } else {
+      return $dara.cast<DeleteProgramResponse>(await this.execute(params, req, runtime), new DeleteProgramResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除节目
+   * 
+   * @param request - DeleteProgramRequest
+   * @returns DeleteProgramResponse
+   */
+  async deleteProgram(request: DeleteProgramRequest): Promise<DeleteProgramResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteProgramWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes intelligent jobs based on job IDs.
    * 
    * @param request - DeleteSmartJobRequest
@@ -87120,6 +97616,116 @@ export default class Client extends OpenApi {
   async deleteSmartJob(request: DeleteSmartJobRequest): Promise<DeleteSmartJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSmartJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除源
+   * 
+   * @param request - DeleteSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSourceResponse
+   */
+  async deleteSourceWithOptions(request: DeleteSourceRequest, runtime: $dara.RuntimeOptions): Promise<DeleteSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.softDelete)) {
+      query["SoftDelete"] = request.softDelete;
+    }
+
+    if (!$dara.isNull(request.sourceLocationName)) {
+      query["SourceLocationName"] = request.sourceLocationName;
+    }
+
+    if (!$dara.isNull(request.sourceName)) {
+      query["SourceName"] = request.sourceName;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSource",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteSourceResponse>(await this.callApi(params, req, runtime), new DeleteSourceResponse({}));
+    } else {
+      return $dara.cast<DeleteSourceResponse>(await this.execute(params, req, runtime), new DeleteSourceResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除源
+   * 
+   * @param request - DeleteSourceRequest
+   * @returns DeleteSourceResponse
+   */
+  async deleteSource(request: DeleteSourceRequest): Promise<DeleteSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除源位置
+   * 
+   * @param request - DeleteSourceLocationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSourceLocationResponse
+   */
+  async deleteSourceLocationWithOptions(request: DeleteSourceLocationRequest, runtime: $dara.RuntimeOptions): Promise<DeleteSourceLocationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.softDelete)) {
+      query["SoftDelete"] = request.softDelete;
+    }
+
+    if (!$dara.isNull(request.sourceLocationName)) {
+      query["SourceLocationName"] = request.sourceLocationName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSourceLocation",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteSourceLocationResponse>(await this.callApi(params, req, runtime), new DeleteSourceLocationResponse({}));
+    } else {
+      return $dara.cast<DeleteSourceLocationResponse>(await this.execute(params, req, runtime), new DeleteSourceLocationResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除源位置
+   * 
+   * @param request - DeleteSourceLocationRequest
+   * @returns DeleteSourceLocationResponse
+   */
+  async deleteSourceLocation(request: DeleteSourceLocationRequest): Promise<DeleteSourceLocationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSourceLocationWithOptions(request, runtime);
   }
 
   /**
@@ -87173,6 +97779,147 @@ export default class Client extends OpenApi {
   async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除点播打包资产
+   * 
+   * @param request - DeleteVodPackagingAssetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVodPackagingAssetResponse
+   */
+  async deleteVodPackagingAssetWithOptions(request: DeleteVodPackagingAssetRequest, runtime: $dara.RuntimeOptions): Promise<DeleteVodPackagingAssetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.assetName)) {
+      query["AssetName"] = request.assetName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVodPackagingAsset",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteVodPackagingAssetResponse>(await this.callApi(params, req, runtime), new DeleteVodPackagingAssetResponse({}));
+    } else {
+      return $dara.cast<DeleteVodPackagingAssetResponse>(await this.execute(params, req, runtime), new DeleteVodPackagingAssetResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除点播打包资产
+   * 
+   * @param request - DeleteVodPackagingAssetRequest
+   * @returns DeleteVodPackagingAssetResponse
+   */
+  async deleteVodPackagingAsset(request: DeleteVodPackagingAssetRequest): Promise<DeleteVodPackagingAssetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVodPackagingAssetWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除点播打包配置
+   * 
+   * @param request - DeleteVodPackagingConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVodPackagingConfigurationResponse
+   */
+  async deleteVodPackagingConfigurationWithOptions(request: DeleteVodPackagingConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<DeleteVodPackagingConfigurationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configurationName)) {
+      query["ConfigurationName"] = request.configurationName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVodPackagingConfiguration",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteVodPackagingConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteVodPackagingConfigurationResponse({}));
+    } else {
+      return $dara.cast<DeleteVodPackagingConfigurationResponse>(await this.execute(params, req, runtime), new DeleteVodPackagingConfigurationResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除点播打包配置
+   * 
+   * @param request - DeleteVodPackagingConfigurationRequest
+   * @returns DeleteVodPackagingConfigurationResponse
+   */
+  async deleteVodPackagingConfiguration(request: DeleteVodPackagingConfigurationRequest): Promise<DeleteVodPackagingConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVodPackagingConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除点播打包组
+   * 
+   * @param request - DeleteVodPackagingGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVodPackagingGroupResponse
+   */
+  async deleteVodPackagingGroupWithOptions(request: DeleteVodPackagingGroupRequest, runtime: $dara.RuntimeOptions): Promise<DeleteVodPackagingGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVodPackagingGroup",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteVodPackagingGroupResponse>(await this.callApi(params, req, runtime), new DeleteVodPackagingGroupResponse({}));
+    } else {
+      return $dara.cast<DeleteVodPackagingGroupResponse>(await this.execute(params, req, runtime), new DeleteVodPackagingGroupResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除点播打包组
+   * 
+   * @param request - DeleteVodPackagingGroupRequest
+   * @returns DeleteVodPackagingGroupResponse
+   */
+  async deleteVodPackagingGroup(request: DeleteVodPackagingGroupRequest): Promise<DeleteVodPackagingGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVodPackagingGroupWithOptions(request, runtime);
   }
 
   /**
@@ -87859,6 +98606,10 @@ export default class Client extends OpenApi {
       query["Expire"] = request.expire;
     }
 
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
     if (!$dara.isNull(request.templateConfigShrink)) {
       query["TemplateConfig"] = request.templateConfigShrink;
     }
@@ -87939,6 +98690,112 @@ export default class Client extends OpenApi {
   async generateKMSDataKey(): Promise<GenerateKMSDataKeyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.generateKMSDataKeyWithOptions(runtime);
+  }
+
+  /**
+   * 生成直播互动消息所需的token
+   * 
+   * @param request - GenerateMessageChatTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateMessageChatTokenResponse
+   */
+  async generateMessageChatTokenWithOptions(request: GenerateMessageChatTokenRequest, runtime: $dara.RuntimeOptions): Promise<GenerateMessageChatTokenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.AIAgentId)) {
+      query["AIAgentId"] = request.AIAgentId;
+    }
+
+    if (!$dara.isNull(request.expire)) {
+      query["Expire"] = request.expire;
+    }
+
+    if (!$dara.isNull(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateMessageChatToken",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GenerateMessageChatTokenResponse>(await this.callApi(params, req, runtime), new GenerateMessageChatTokenResponse({}));
+    } else {
+      return $dara.cast<GenerateMessageChatTokenResponse>(await this.execute(params, req, runtime), new GenerateMessageChatTokenResponse({}));
+    }
+
+  }
+
+  /**
+   * 生成直播互动消息所需的token
+   * 
+   * @param request - GenerateMessageChatTokenRequest
+   * @returns GenerateMessageChatTokenResponse
+   */
+  async generateMessageChatToken(request: GenerateMessageChatTokenRequest): Promise<GenerateMessageChatTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateMessageChatTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取广告插入配置
+   * 
+   * @param request - GetAdInsertionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAdInsertionResponse
+   */
+  async getAdInsertionWithOptions(request: GetAdInsertionRequest, runtime: $dara.RuntimeOptions): Promise<GetAdInsertionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAdInsertion",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAdInsertionResponse>(await this.callApi(params, req, runtime), new GetAdInsertionResponse({}));
+    } else {
+      return $dara.cast<GetAdInsertionResponse>(await this.execute(params, req, runtime), new GetAdInsertionResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取广告插入配置
+   * 
+   * @param request - GetAdInsertionRequest
+   * @returns GetAdInsertionResponse
+   */
+  async getAdInsertion(request: GetAdInsertionRequest): Promise<GetAdInsertionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAdInsertionWithOptions(request, runtime);
   }
 
   /**
@@ -88149,6 +99006,53 @@ export default class Client extends OpenApi {
   async getCategories(request: GetCategoriesRequest): Promise<GetCategoriesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getCategoriesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取频道
+   * 
+   * @param request - GetChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChannelResponse
+   */
+  async getChannelWithOptions(request: GetChannelRequest, runtime: $dara.RuntimeOptions): Promise<GetChannelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetChannel",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetChannelResponse>(await this.callApi(params, req, runtime), new GetChannelResponse({}));
+    } else {
+      return $dara.cast<GetChannelResponse>(await this.execute(params, req, runtime), new GetChannelResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取频道
+   * 
+   * @param request - GetChannelRequest
+   * @returns GetChannelResponse
+   */
+  async getChannel(request: GetChannelRequest): Promise<GetChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getChannelWithOptions(request, runtime);
   }
 
   /**
@@ -89189,7 +100093,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据实例Id获取对应MediaConnect的详细信息
+   * Retrieve detailed information of the corresponding MediaConnect based on the instance ID
+   * 
+   * @remarks
+   * - When the input Flow instance ID does not exist, the interface will return an error.
+   * - The StartTime returned by the interface is only valid when the Flow status is online.
    * 
    * @param request - GetMediaConnectFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -89225,7 +100133,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据实例Id获取对应MediaConnect的详细信息
+   * Retrieve detailed information of the corresponding MediaConnect based on the instance ID
+   * 
+   * @remarks
+   * - When the input Flow instance ID does not exist, the interface will return an error.
+   * - The StartTime returned by the interface is only valid when the Flow status is online.
    * 
    * @param request - GetMediaConnectFlowRequest
    * @returns GetMediaConnectFlowResponse
@@ -89233,6 +100145,116 @@ export default class Client extends OpenApi {
   async getMediaConnectFlow(request: GetMediaConnectFlowRequest): Promise<GetMediaConnectFlowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getMediaConnectFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * Get input information under a MediaConnect instance
+   * 
+   * @remarks
+   * - When the provided Flow instance ID does not exist, the interface will return an error.
+   * 
+   * @param request - GetMediaConnectFlowInputRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaConnectFlowInputResponse
+   */
+  async getMediaConnectFlowInputWithOptions(request: GetMediaConnectFlowInputRequest, runtime: $dara.RuntimeOptions): Promise<GetMediaConnectFlowInputResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMediaConnectFlowInput",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMediaConnectFlowInputResponse>(await this.callApi(params, req, runtime), new GetMediaConnectFlowInputResponse({}));
+    } else {
+      return $dara.cast<GetMediaConnectFlowInputResponse>(await this.execute(params, req, runtime), new GetMediaConnectFlowInputResponse({}));
+    }
+
+  }
+
+  /**
+   * Get input information under a MediaConnect instance
+   * 
+   * @remarks
+   * - When the provided Flow instance ID does not exist, the interface will return an error.
+   * 
+   * @param request - GetMediaConnectFlowInputRequest
+   * @returns GetMediaConnectFlowInputResponse
+   */
+  async getMediaConnectFlowInput(request: GetMediaConnectFlowInputRequest): Promise<GetMediaConnectFlowInputResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMediaConnectFlowInputWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieve detailed information of a specific output based on outputName
+   * 
+   * @remarks
+   * - When the provided Flow instance ID does not exist, the interface will return an error.
+   * 
+   * @param request - GetMediaConnectFlowOutputRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaConnectFlowOutputResponse
+   */
+  async getMediaConnectFlowOutputWithOptions(request: GetMediaConnectFlowOutputRequest, runtime: $dara.RuntimeOptions): Promise<GetMediaConnectFlowOutputResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.outputName)) {
+      query["OutputName"] = request.outputName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMediaConnectFlowOutput",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMediaConnectFlowOutputResponse>(await this.callApi(params, req, runtime), new GetMediaConnectFlowOutputResponse({}));
+    } else {
+      return $dara.cast<GetMediaConnectFlowOutputResponse>(await this.execute(params, req, runtime), new GetMediaConnectFlowOutputResponse({}));
+    }
+
+  }
+
+  /**
+   * Retrieve detailed information of a specific output based on outputName
+   * 
+   * @remarks
+   * - When the provided Flow instance ID does not exist, the interface will return an error.
+   * 
+   * @param request - GetMediaConnectFlowOutputRequest
+   * @returns GetMediaConnectFlowOutputResponse
+   */
+  async getMediaConnectFlowOutput(request: GetMediaConnectFlowOutputRequest): Promise<GetMediaConnectFlowOutputResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMediaConnectFlowOutputWithOptions(request, runtime);
   }
 
   /**
@@ -89640,6 +100662,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取节目
+   * 
+   * @param request - GetProgramRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProgramResponse
+   */
+  async getProgramWithOptions(request: GetProgramRequest, runtime: $dara.RuntimeOptions): Promise<GetProgramResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.programName)) {
+      query["ProgramName"] = request.programName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProgram",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetProgramResponse>(await this.callApi(params, req, runtime), new GetProgramResponse({}));
+    } else {
+      return $dara.cast<GetProgramResponse>(await this.execute(params, req, runtime), new GetProgramResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取节目
+   * 
+   * @param request - GetProgramRequest
+   * @returns GetProgramResponse
+   */
+  async getProgram(request: GetProgramRequest): Promise<GetProgramResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getProgramWithOptions(request, runtime);
+  }
+
+  /**
    * 查询工程导出任务
    * 
    * @param request - GetProjectExportJobRequest
@@ -89888,6 +100961,108 @@ export default class Client extends OpenApi {
   async getSnapshotUrls(request: GetSnapshotUrlsRequest): Promise<GetSnapshotUrlsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSnapshotUrlsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取源
+   * 
+   * @param request - GetSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSourceResponse
+   */
+  async getSourceWithOptions(request: GetSourceRequest, runtime: $dara.RuntimeOptions): Promise<GetSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sourceLocationName)) {
+      query["SourceLocationName"] = request.sourceLocationName;
+    }
+
+    if (!$dara.isNull(request.sourceName)) {
+      query["SourceName"] = request.sourceName;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSource",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSourceResponse>(await this.callApi(params, req, runtime), new GetSourceResponse({}));
+    } else {
+      return $dara.cast<GetSourceResponse>(await this.execute(params, req, runtime), new GetSourceResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取源
+   * 
+   * @param request - GetSourceRequest
+   * @returns GetSourceResponse
+   */
+  async getSource(request: GetSourceRequest): Promise<GetSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取源位置
+   * 
+   * @param request - GetSourceLocationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSourceLocationResponse
+   */
+  async getSourceLocationWithOptions(request: GetSourceLocationRequest, runtime: $dara.RuntimeOptions): Promise<GetSourceLocationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.sourceLocationName)) {
+      query["SourceLocationName"] = request.sourceLocationName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSourceLocation",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSourceLocationResponse>(await this.callApi(params, req, runtime), new GetSourceLocationResponse({}));
+    } else {
+      return $dara.cast<GetSourceLocationResponse>(await this.execute(params, req, runtime), new GetSourceLocationResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取源位置
+   * 
+   * @param request - GetSourceLocationRequest
+   * @returns GetSourceLocationResponse
+   */
+  async getSourceLocation(request: GetSourceLocationRequest): Promise<GetSourceLocationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSourceLocationWithOptions(request, runtime);
   }
 
   /**
@@ -90331,6 +101506,147 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询点播打包资产
+   * 
+   * @param request - GetVodPackagingAssetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVodPackagingAssetResponse
+   */
+  async getVodPackagingAssetWithOptions(request: GetVodPackagingAssetRequest, runtime: $dara.RuntimeOptions): Promise<GetVodPackagingAssetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.assetName)) {
+      query["AssetName"] = request.assetName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVodPackagingAsset",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetVodPackagingAssetResponse>(await this.callApi(params, req, runtime), new GetVodPackagingAssetResponse({}));
+    } else {
+      return $dara.cast<GetVodPackagingAssetResponse>(await this.execute(params, req, runtime), new GetVodPackagingAssetResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询点播打包资产
+   * 
+   * @param request - GetVodPackagingAssetRequest
+   * @returns GetVodPackagingAssetResponse
+   */
+  async getVodPackagingAsset(request: GetVodPackagingAssetRequest): Promise<GetVodPackagingAssetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVodPackagingAssetWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询打包模板配置
+   * 
+   * @param request - GetVodPackagingConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVodPackagingConfigurationResponse
+   */
+  async getVodPackagingConfigurationWithOptions(request: GetVodPackagingConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<GetVodPackagingConfigurationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configurationName)) {
+      query["ConfigurationName"] = request.configurationName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVodPackagingConfiguration",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetVodPackagingConfigurationResponse>(await this.callApi(params, req, runtime), new GetVodPackagingConfigurationResponse({}));
+    } else {
+      return $dara.cast<GetVodPackagingConfigurationResponse>(await this.execute(params, req, runtime), new GetVodPackagingConfigurationResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询打包模板配置
+   * 
+   * @param request - GetVodPackagingConfigurationRequest
+   * @returns GetVodPackagingConfigurationResponse
+   */
+  async getVodPackagingConfiguration(request: GetVodPackagingConfigurationRequest): Promise<GetVodPackagingConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVodPackagingConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取点播打包组
+   * 
+   * @param request - GetVodPackagingGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVodPackagingGroupResponse
+   */
+  async getVodPackagingGroupWithOptions(request: GetVodPackagingGroupRequest, runtime: $dara.RuntimeOptions): Promise<GetVodPackagingGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVodPackagingGroup",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetVodPackagingGroupResponse>(await this.callApi(params, req, runtime), new GetVodPackagingGroupResponse({}));
+    } else {
+      return $dara.cast<GetVodPackagingGroupResponse>(await this.execute(params, req, runtime), new GetVodPackagingGroupResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取点播打包组
+   * 
+   * @param request - GetVodPackagingGroupRequest
+   * @returns GetVodPackagingGroupResponse
+   */
+  async getVodPackagingGroup(request: GetVodPackagingGroupRequest): Promise<GetVodPackagingGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVodPackagingGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a workflow task by task ID, including the workflow ID and the status and result of the task. You can query only the workflow task data of the last year.
    * 
    * @param request - GetWorkflowTaskRequest
@@ -90441,6 +101757,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出智能体的对话历史记录。
+   * 
+   * @param request - ListAIAgentDialoguesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAIAgentDialoguesResponse
+   */
+  async listAIAgentDialoguesWithOptions(request: ListAIAgentDialoguesRequest, runtime: $dara.RuntimeOptions): Promise<ListAIAgentDialoguesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAIAgentDialogues",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAIAgentDialoguesResponse>(await this.callApi(params, req, runtime), new ListAIAgentDialoguesResponse({}));
+    } else {
+      return $dara.cast<ListAIAgentDialoguesResponse>(await this.execute(params, req, runtime), new ListAIAgentDialoguesResponse({}));
+    }
+
+  }
+
+  /**
+   * 列出智能体的对话历史记录。
+   * 
+   * @param request - ListAIAgentDialoguesRequest
+   * @returns ListAIAgentDialoguesResponse
+   */
+  async listAIAgentDialogues(request: ListAIAgentDialoguesRequest): Promise<ListAIAgentDialoguesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAIAgentDialoguesWithOptions(request, runtime);
+  }
+
+  /**
    * 列出实例
    * 
    * @param request - ListAIAgentInstanceRequest
@@ -90501,6 +101884,148 @@ export default class Client extends OpenApi {
   async listAIAgentInstance(request: ListAIAgentInstanceRequest): Promise<ListAIAgentInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAIAgentInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取广告插入配置列表
+   * 
+   * @param request - ListAdInsertionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAdInsertionsResponse
+   */
+  async listAdInsertionsWithOptions(request: ListAdInsertionsRequest, runtime: $dara.RuntimeOptions): Promise<ListAdInsertionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAdInsertions",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAdInsertionsResponse>(await this.callApi(params, req, runtime), new ListAdInsertionsResponse({}));
+    } else {
+      return $dara.cast<ListAdInsertionsResponse>(await this.execute(params, req, runtime), new ListAdInsertionsResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取广告插入配置列表
+   * 
+   * @param request - ListAdInsertionsRequest
+   * @returns ListAdInsertionsResponse
+   */
+  async listAdInsertions(request: ListAdInsertionsRequest): Promise<ListAdInsertionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAdInsertionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取警告
+   * 
+   * @param request - ListAlertsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAlertsResponse
+   */
+  async listAlertsWithOptions(request: ListAlertsRequest, runtime: $dara.RuntimeOptions): Promise<ListAlertsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.gmtEnd)) {
+      query["GmtEnd"] = request.gmtEnd;
+    }
+
+    if (!$dara.isNull(request.gmtStart)) {
+      query["GmtStart"] = request.gmtStart;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceArn)) {
+      query["ResourceArn"] = request.resourceArn;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortByModifiedTime)) {
+      query["SortByModifiedTime"] = request.sortByModifiedTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAlerts",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAlertsResponse>(await this.callApi(params, req, runtime), new ListAlertsResponse({}));
+    } else {
+      return $dara.cast<ListAlertsResponse>(await this.execute(params, req, runtime), new ListAlertsResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取警告
+   * 
+   * @param request - ListAlertsRequest
+   * @returns ListAlertsResponse
+   */
+  async listAlerts(request: ListAlertsRequest): Promise<ListAlertsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAlertsWithOptions(request, runtime);
   }
 
   /**
@@ -90737,6 +102262,152 @@ export default class Client extends OpenApi {
   async listBatchMediaProducingJobs(request: ListBatchMediaProducingJobsRequest): Promise<ListBatchMediaProducingJobsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listBatchMediaProducingJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取频道警告
+   * 
+   * @param request - ListChannelAlertsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChannelAlertsResponse
+   */
+  async listChannelAlertsWithOptions(request: ListChannelAlertsRequest, runtime: $dara.RuntimeOptions): Promise<ListChannelAlertsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.gmtEnd)) {
+      query["GmtEnd"] = request.gmtEnd;
+    }
+
+    if (!$dara.isNull(request.gmtStart)) {
+      query["GmtStart"] = request.gmtStart;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceArn)) {
+      query["ResourceArn"] = request.resourceArn;
+    }
+
+    if (!$dara.isNull(request.sortByModifiedTime)) {
+      query["SortByModifiedTime"] = request.sortByModifiedTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChannelAlerts",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListChannelAlertsResponse>(await this.callApi(params, req, runtime), new ListChannelAlertsResponse({}));
+    } else {
+      return $dara.cast<ListChannelAlertsResponse>(await this.execute(params, req, runtime), new ListChannelAlertsResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取频道警告
+   * 
+   * @param request - ListChannelAlertsRequest
+   * @returns ListChannelAlertsResponse
+   */
+  async listChannelAlerts(request: ListChannelAlertsRequest): Promise<ListChannelAlertsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listChannelAlertsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取频道列表
+   * 
+   * @param request - ListChannelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChannelsResponse
+   */
+  async listChannelsWithOptions(request: ListChannelsRequest, runtime: $dara.RuntimeOptions): Promise<ListChannelsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.channelTier)) {
+      query["ChannelTier"] = request.channelTier;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.playbackMode)) {
+      query["PlaybackMode"] = request.playbackMode;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortByModifiedTime)) {
+      query["SortByModifiedTime"] = request.sortByModifiedTime;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      query["State"] = request.state;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChannels",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListChannelsResponse>(await this.callApi(params, req, runtime), new ListChannelsResponse({}));
+    } else {
+      return $dara.cast<ListChannelsResponse>(await this.execute(params, req, runtime), new ListChannelsResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取频道列表
+   * 
+   * @param request - ListChannelsRequest
+   * @returns ListChannelsResponse
+   */
+  async listChannels(request: ListChannelsRequest): Promise<ListChannelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listChannelsWithOptions(request, runtime);
   }
 
   /**
@@ -92220,6 +103891,69 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取节目列表
+   * 
+   * @param request - ListProgramsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProgramsResponse
+   */
+  async listProgramsWithOptions(request: ListProgramsRequest, runtime: $dara.RuntimeOptions): Promise<ListProgramsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.programName)) {
+      query["ProgramName"] = request.programName;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPrograms",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListProgramsResponse>(await this.callApi(params, req, runtime), new ListProgramsResponse({}));
+    } else {
+      return $dara.cast<ListProgramsResponse>(await this.execute(params, req, runtime), new ListProgramsResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取节目列表
+   * 
+   * @param request - ListProgramsRequest
+   * @returns ListProgramsResponse
+   */
+  async listPrograms(request: ListProgramsRequest): Promise<ListProgramsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProgramsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of media assets in the public media library that meet the specified conditions. A maximum of 100 media assets can be returned.
    * 
    * @param request - ListPublicMediaBasicInfosRequest
@@ -92288,6 +104022,65 @@ export default class Client extends OpenApi {
   async listPublicMediaBasicInfos(request: ListPublicMediaBasicInfosRequest): Promise<ListPublicMediaBasicInfosResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listPublicMediaBasicInfosWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取节目单
+   * 
+   * @param request - ListSchedulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSchedulesResponse
+   */
+  async listSchedulesWithOptions(request: ListSchedulesRequest, runtime: $dara.RuntimeOptions): Promise<ListSchedulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.windowDurationSeconds)) {
+      query["WindowDurationSeconds"] = request.windowDurationSeconds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSchedules",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSchedulesResponse>(await this.callApi(params, req, runtime), new ListSchedulesResponse({}));
+    } else {
+      return $dara.cast<ListSchedulesResponse>(await this.execute(params, req, runtime), new ListSchedulesResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取节目单
+   * 
+   * @param request - ListSchedulesRequest
+   * @returns ListSchedulesResponse
+   */
+  async listSchedules(request: ListSchedulesRequest): Promise<ListSchedulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSchedulesWithOptions(request, runtime);
   }
 
   /**
@@ -92545,6 +104338,148 @@ export default class Client extends OpenApi {
   async listSnapshotJobs(request: ListSnapshotJobsRequest): Promise<ListSnapshotJobsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listSnapshotJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * 列举源位置
+   * 
+   * @param request - ListSourceLocationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSourceLocationsResponse
+   */
+  async listSourceLocationsWithOptions(request: ListSourceLocationsRequest, runtime: $dara.RuntimeOptions): Promise<ListSourceLocationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filterState)) {
+      query["FilterState"] = request.filterState;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortByModifiedTime)) {
+      query["SortByModifiedTime"] = request.sortByModifiedTime;
+    }
+
+    if (!$dara.isNull(request.sourceLocationName)) {
+      query["SourceLocationName"] = request.sourceLocationName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSourceLocations",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSourceLocationsResponse>(await this.callApi(params, req, runtime), new ListSourceLocationsResponse({}));
+    } else {
+      return $dara.cast<ListSourceLocationsResponse>(await this.execute(params, req, runtime), new ListSourceLocationsResponse({}));
+    }
+
+  }
+
+  /**
+   * 列举源位置
+   * 
+   * @param request - ListSourceLocationsRequest
+   * @returns ListSourceLocationsResponse
+   */
+  async listSourceLocations(request: ListSourceLocationsRequest): Promise<ListSourceLocationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSourceLocationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 列举源
+   * 
+   * @param request - ListSourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSourcesResponse
+   */
+  async listSourcesWithOptions(request: ListSourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListSourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filterState)) {
+      query["FilterState"] = request.filterState;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortByModifiedTime)) {
+      query["SortByModifiedTime"] = request.sortByModifiedTime;
+    }
+
+    if (!$dara.isNull(request.sourceLocationName)) {
+      query["SourceLocationName"] = request.sourceLocationName;
+    }
+
+    if (!$dara.isNull(request.sourceName)) {
+      query["SourceName"] = request.sourceName;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSources",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSourcesResponse>(await this.callApi(params, req, runtime), new ListSourcesResponse({}));
+    } else {
+      return $dara.cast<ListSourcesResponse>(await this.execute(params, req, runtime), new ListSourcesResponse({}));
+    }
+
+  }
+
+  /**
+   * 列举源
+   * 
+   * @param request - ListSourcesRequest
+   * @returns ListSourcesResponse
+   */
+  async listSources(request: ListSourcesRequest): Promise<ListSourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSourcesWithOptions(request, runtime);
   }
 
   /**
@@ -92826,6 +104761,191 @@ export default class Client extends OpenApi {
   async listTranscodeJobs(request: ListTranscodeJobsRequest): Promise<ListTranscodeJobsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTranscodeJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * 列举点播打包资产
+   * 
+   * @param request - ListVodPackagingAssetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVodPackagingAssetsResponse
+   */
+  async listVodPackagingAssetsWithOptions(request: ListVodPackagingAssetsRequest, runtime: $dara.RuntimeOptions): Promise<ListVodPackagingAssetsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVodPackagingAssets",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVodPackagingAssetsResponse>(await this.callApi(params, req, runtime), new ListVodPackagingAssetsResponse({}));
+    } else {
+      return $dara.cast<ListVodPackagingAssetsResponse>(await this.execute(params, req, runtime), new ListVodPackagingAssetsResponse({}));
+    }
+
+  }
+
+  /**
+   * 列举点播打包资产
+   * 
+   * @param request - ListVodPackagingAssetsRequest
+   * @returns ListVodPackagingAssetsResponse
+   */
+  async listVodPackagingAssets(request: ListVodPackagingAssetsRequest): Promise<ListVodPackagingAssetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVodPackagingAssetsWithOptions(request, runtime);
+  }
+
+  /**
+   * 列举点播打包配置列表
+   * 
+   * @param request - ListVodPackagingConfigurationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVodPackagingConfigurationsResponse
+   */
+  async listVodPackagingConfigurationsWithOptions(request: ListVodPackagingConfigurationsRequest, runtime: $dara.RuntimeOptions): Promise<ListVodPackagingConfigurationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVodPackagingConfigurations",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVodPackagingConfigurationsResponse>(await this.callApi(params, req, runtime), new ListVodPackagingConfigurationsResponse({}));
+    } else {
+      return $dara.cast<ListVodPackagingConfigurationsResponse>(await this.execute(params, req, runtime), new ListVodPackagingConfigurationsResponse({}));
+    }
+
+  }
+
+  /**
+   * 列举点播打包配置列表
+   * 
+   * @param request - ListVodPackagingConfigurationsRequest
+   * @returns ListVodPackagingConfigurationsResponse
+   */
+  async listVodPackagingConfigurations(request: ListVodPackagingConfigurationsRequest): Promise<ListVodPackagingConfigurationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVodPackagingConfigurationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 列举点播打包组
+   * 
+   * @param request - ListVodPackagingGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVodPackagingGroupsResponse
+   */
+  async listVodPackagingGroupsWithOptions(request: ListVodPackagingGroupsRequest, runtime: $dara.RuntimeOptions): Promise<ListVodPackagingGroupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVodPackagingGroups",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVodPackagingGroupsResponse>(await this.callApi(params, req, runtime), new ListVodPackagingGroupsResponse({}));
+    } else {
+      return $dara.cast<ListVodPackagingGroupsResponse>(await this.execute(params, req, runtime), new ListVodPackagingGroupsResponse({}));
+    }
+
+  }
+
+  /**
+   * 列举点播打包组
+   * 
+   * @param request - ListVodPackagingGroupsRequest
+   * @returns ListVodPackagingGroupsResponse
+   */
+  async listVodPackagingGroups(request: ListVodPackagingGroupsRequest): Promise<ListVodPackagingGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVodPackagingGroupsWithOptions(request, runtime);
   }
 
   /**
@@ -94594,6 +106714,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 传入消息作为LLM输入。
+   * 
+   * @param request - SendAIAgentTextRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendAIAgentTextResponse
+   */
+  async sendAIAgentTextWithOptions(request: SendAIAgentTextRequest, runtime: $dara.RuntimeOptions): Promise<SendAIAgentTextResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.text)) {
+      query["Text"] = request.text;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendAIAgentText",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SendAIAgentTextResponse>(await this.callApi(params, req, runtime), new SendAIAgentTextResponse({}));
+    } else {
+      return $dara.cast<SendAIAgentTextResponse>(await this.execute(params, req, runtime), new SendAIAgentTextResponse({}));
+    }
+
+  }
+
+  /**
+   * 传入消息作为LLM输入。
+   * 
+   * @param request - SendAIAgentTextRequest
+   * @returns SendAIAgentTextResponse
+   */
+  async sendAIAgentText(request: SendAIAgentTextRequest): Promise<SendAIAgentTextResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.sendAIAgentTextWithOptions(request, runtime);
+  }
+
+  /**
    * Sends a command to process a live stream snapshot job.
    * 
    * @param request - SendLiveSnapshotJobCommandRequest
@@ -95010,6 +107181,10 @@ export default class Client extends OpenApi {
       query["RuntimeConfig"] = request.runtimeConfigShrink;
     }
 
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
     if (!$dara.isNull(request.templateConfigShrink)) {
       query["TemplateConfig"] = request.templateConfigShrink;
     }
@@ -95049,6 +107224,53 @@ export default class Client extends OpenApi {
   async startAIAgentInstance(request: StartAIAgentInstanceRequest): Promise<StartAIAgentInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startAIAgentInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 启动频道
+   * 
+   * @param request - StartChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartChannelResponse
+   */
+  async startChannelWithOptions(request: StartChannelRequest, runtime: $dara.RuntimeOptions): Promise<StartChannelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartChannel",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartChannelResponse>(await this.callApi(params, req, runtime), new StartChannelResponse({}));
+    } else {
+      return $dara.cast<StartChannelResponse>(await this.execute(params, req, runtime), new StartChannelResponse({}));
+    }
+
+  }
+
+  /**
+   * 启动频道
+   * 
+   * @param request - StartChannelRequest
+   * @returns StartChannelResponse
+   */
+  async startChannel(request: StartChannelRequest): Promise<StartChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startChannelWithOptions(request, runtime);
   }
 
   /**
@@ -95235,6 +107457,53 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 停止频道
+   * 
+   * @param request - StopChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopChannelResponse
+   */
+  async stopChannelWithOptions(request: StopChannelRequest, runtime: $dara.RuntimeOptions): Promise<StopChannelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopChannel",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopChannelResponse>(await this.callApi(params, req, runtime), new StopChannelResponse({}));
+    } else {
+      return $dara.cast<StopChannelResponse>(await this.execute(params, req, runtime), new StopChannelResponse({}));
+    }
+
+  }
+
+  /**
+   * 停止频道
+   * 
+   * @param request - StopChannelRequest
+   * @returns StopChannelResponse
+   */
+  async stopChannel(request: StopChannelRequest): Promise<StopChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopChannelWithOptions(request, runtime);
+  }
+
+  /**
    * 停止一个机器人实例
    * 
    * @param request - StopRtcRobotInstanceRequest
@@ -95297,6 +107566,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.duration)) {
       query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.editingConfig)) {
+      query["EditingConfig"] = request.editingConfig;
     }
 
     if (!$dara.isNull(request.inputFile)) {
@@ -96112,6 +108385,67 @@ export default class Client extends OpenApi {
   async submitDynamicImageJob(request: SubmitDynamicImageJobRequest): Promise<SubmitDynamicImageJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitDynamicImageJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交高光提取任务
+   * 
+   * @param request - SubmitHighlightExtractionJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitHighlightExtractionJobResponse
+   */
+  async submitHighlightExtractionJobWithOptions(request: SubmitHighlightExtractionJobRequest, runtime: $dara.RuntimeOptions): Promise<SubmitHighlightExtractionJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.inputConfig)) {
+      body["InputConfig"] = request.inputConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitHighlightExtractionJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SubmitHighlightExtractionJobResponse>(await this.callApi(params, req, runtime), new SubmitHighlightExtractionJobResponse({}));
+    } else {
+      return $dara.cast<SubmitHighlightExtractionJobResponse>(await this.execute(params, req, runtime), new SubmitHighlightExtractionJobResponse({}));
+    }
+
+  }
+
+  /**
+   * 提交高光提取任务
+   * 
+   * @param request - SubmitHighlightExtractionJobRequest
+   * @returns SubmitHighlightExtractionJobResponse
+   */
+  async submitHighlightExtractionJob(request: SubmitHighlightExtractionJobRequest): Promise<SubmitHighlightExtractionJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitHighlightExtractionJobWithOptions(request, runtime);
   }
 
   /**
@@ -97916,6 +110250,26 @@ export default class Client extends OpenApi {
       query["OutputConfig"] = request.outputConfig;
     }
 
+    if (!$dara.isNull(request.signature)) {
+      query["Signature"] = request.signature;
+    }
+
+    if (!$dara.isNull(request.signatureMehtod)) {
+      query["SignatureMehtod"] = request.signatureMehtod;
+    }
+
+    if (!$dara.isNull(request.signatureNonce)) {
+      query["SignatureNonce"] = request.signatureNonce;
+    }
+
+    if (!$dara.isNull(request.signatureType)) {
+      query["SignatureType"] = request.signatureType;
+    }
+
+    if (!$dara.isNull(request.signatureVersion)) {
+      query["SignatureVersion"] = request.signatureVersion;
+    }
+
     if (!$dara.isNull(request.title)) {
       query["Title"] = request.title;
     }
@@ -98077,6 +110431,85 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新广告插入配置
+   * 
+   * @param request - UpdateAdInsertionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAdInsertionResponse
+   */
+  async updateAdInsertionWithOptions(request: UpdateAdInsertionRequest, runtime: $dara.RuntimeOptions): Promise<UpdateAdInsertionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.adMarkerPassthrough)) {
+      body["AdMarkerPassthrough"] = request.adMarkerPassthrough;
+    }
+
+    if (!$dara.isNull(request.adsUrl)) {
+      body["AdsUrl"] = request.adsUrl;
+    }
+
+    if (!$dara.isNull(request.cdnAdSegmentUrlPrefix)) {
+      body["CdnAdSegmentUrlPrefix"] = request.cdnAdSegmentUrlPrefix;
+    }
+
+    if (!$dara.isNull(request.cdnContentSegmentUrlPrefix)) {
+      body["CdnContentSegmentUrlPrefix"] = request.cdnContentSegmentUrlPrefix;
+    }
+
+    if (!$dara.isNull(request.configAliases)) {
+      body["ConfigAliases"] = request.configAliases;
+    }
+
+    if (!$dara.isNull(request.contentUrlPrefix)) {
+      body["ContentUrlPrefix"] = request.contentUrlPrefix;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.personalizationThreshold)) {
+      body["PersonalizationThreshold"] = request.personalizationThreshold;
+    }
+
+    if (!$dara.isNull(request.slateAdUrl)) {
+      body["SlateAdUrl"] = request.slateAdUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAdInsertion",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateAdInsertionResponse>(await this.callApi(params, req, runtime), new UpdateAdInsertionResponse({}));
+    } else {
+      return $dara.cast<UpdateAdInsertionResponse>(await this.execute(params, req, runtime), new UpdateAdInsertionResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新广告插入配置
+   * 
+   * @param request - UpdateAdInsertionRequest
+   * @returns UpdateAdInsertionResponse
+   */
+  async updateAdInsertion(request: UpdateAdInsertionRequest): Promise<UpdateAdInsertionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAdInsertionWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies a digital human training job. You can modify the basic information or update parameters such as Video and Transparent for retraining if the training failed.
    * 
    * @param request - UpdateAvatarTrainingJobRequest
@@ -98202,6 +110635,73 @@ export default class Client extends OpenApi {
   async updateCategory(request: UpdateCategoryRequest): Promise<UpdateCategoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCategoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新频道
+   * 
+   * @param request - UpdateChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateChannelResponse
+   */
+  async updateChannelWithOptions(request: UpdateChannelRequest, runtime: $dara.RuntimeOptions): Promise<UpdateChannelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessPolicy)) {
+      query["AccessPolicy"] = request.accessPolicy;
+    }
+
+    if (!$dara.isNull(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.fillerSourceLocationName)) {
+      query["FillerSourceLocationName"] = request.fillerSourceLocationName;
+    }
+
+    if (!$dara.isNull(request.fillerSourceName)) {
+      query["FillerSourceName"] = request.fillerSourceName;
+    }
+
+    if (!$dara.isNull(request.outPutConfigList)) {
+      query["OutPutConfigList"] = request.outPutConfigList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateChannel",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateChannelResponse>(await this.callApi(params, req, runtime), new UpdateChannelResponse({}));
+    } else {
+      return $dara.cast<UpdateChannelResponse>(await this.execute(params, req, runtime), new UpdateChannelResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新频道
+   * 
+   * @param request - UpdateChannelRequest
+   * @returns UpdateChannelResponse
+   */
+  async updateChannel(request: UpdateChannelRequest): Promise<UpdateChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateChannelWithOptions(request, runtime);
   }
 
   /**
@@ -98920,7 +111420,169 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改MediaConnect实例状态
+   * Modify the input information of a specific MediaConnect flow
+   * 
+   * @remarks
+   * - The input can only be modified when the Flow instance status is offline.
+   * - The input type cannot be modified.
+   * 
+   * @param request - UpdateMediaConnectFlowInputRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaConnectFlowInputResponse
+   */
+  async updateMediaConnectFlowInputWithOptions(request: UpdateMediaConnectFlowInputRequest, runtime: $dara.RuntimeOptions): Promise<UpdateMediaConnectFlowInputResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cidrs)) {
+      query["Cidrs"] = request.cidrs;
+    }
+
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.inputFromUrl)) {
+      query["InputFromUrl"] = request.inputFromUrl;
+    }
+
+    if (!$dara.isNull(request.maxBitrate)) {
+      query["MaxBitrate"] = request.maxBitrate;
+    }
+
+    if (!$dara.isNull(request.srtLatency)) {
+      query["SrtLatency"] = request.srtLatency;
+    }
+
+    if (!$dara.isNull(request.srtPassphrase)) {
+      query["SrtPassphrase"] = request.srtPassphrase;
+    }
+
+    if (!$dara.isNull(request.srtPbkeyLen)) {
+      query["SrtPbkeyLen"] = request.srtPbkeyLen;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMediaConnectFlowInput",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateMediaConnectFlowInputResponse>(await this.callApi(params, req, runtime), new UpdateMediaConnectFlowInputResponse({}));
+    } else {
+      return $dara.cast<UpdateMediaConnectFlowInputResponse>(await this.execute(params, req, runtime), new UpdateMediaConnectFlowInputResponse({}));
+    }
+
+  }
+
+  /**
+   * Modify the input information of a specific MediaConnect flow
+   * 
+   * @remarks
+   * - The input can only be modified when the Flow instance status is offline.
+   * - The input type cannot be modified.
+   * 
+   * @param request - UpdateMediaConnectFlowInputRequest
+   * @returns UpdateMediaConnectFlowInputResponse
+   */
+  async updateMediaConnectFlowInput(request: UpdateMediaConnectFlowInputRequest): Promise<UpdateMediaConnectFlowInputResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMediaConnectFlowInputWithOptions(request, runtime);
+  }
+
+  /**
+   * Modify information of a specific output in MediaConnect
+   * 
+   * @remarks
+   * - The output can only be modified when the Flow instance status is offline.
+   * - The output type cannot be modified.
+   * 
+   * @param request - UpdateMediaConnectFlowOutputRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaConnectFlowOutputResponse
+   */
+  async updateMediaConnectFlowOutputWithOptions(request: UpdateMediaConnectFlowOutputRequest, runtime: $dara.RuntimeOptions): Promise<UpdateMediaConnectFlowOutputResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cidrs)) {
+      query["Cidrs"] = request.cidrs;
+    }
+
+    if (!$dara.isNull(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!$dara.isNull(request.outputName)) {
+      query["OutputName"] = request.outputName;
+    }
+
+    if (!$dara.isNull(request.outputToUrl)) {
+      query["OutputToUrl"] = request.outputToUrl;
+    }
+
+    if (!$dara.isNull(request.playerLimit)) {
+      query["PlayerLimit"] = request.playerLimit;
+    }
+
+    if (!$dara.isNull(request.srtLatency)) {
+      query["SrtLatency"] = request.srtLatency;
+    }
+
+    if (!$dara.isNull(request.srtPassphrase)) {
+      query["SrtPassphrase"] = request.srtPassphrase;
+    }
+
+    if (!$dara.isNull(request.srtPbkeyLen)) {
+      query["SrtPbkeyLen"] = request.srtPbkeyLen;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMediaConnectFlowOutput",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateMediaConnectFlowOutputResponse>(await this.callApi(params, req, runtime), new UpdateMediaConnectFlowOutputResponse({}));
+    } else {
+      return $dara.cast<UpdateMediaConnectFlowOutputResponse>(await this.execute(params, req, runtime), new UpdateMediaConnectFlowOutputResponse({}));
+    }
+
+  }
+
+  /**
+   * Modify information of a specific output in MediaConnect
+   * 
+   * @remarks
+   * - The output can only be modified when the Flow instance status is offline.
+   * - The output type cannot be modified.
+   * 
+   * @param request - UpdateMediaConnectFlowOutputRequest
+   * @returns UpdateMediaConnectFlowOutputResponse
+   */
+  async updateMediaConnectFlowOutput(request: UpdateMediaConnectFlowOutputRequest): Promise<UpdateMediaConnectFlowOutputResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMediaConnectFlowOutputWithOptions(request, runtime);
+  }
+
+  /**
+   * Modify MediaConnect Instance Status
    * 
    * @param request - UpdateMediaConnectFlowStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -98960,7 +111622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改MediaConnect实例状态
+   * Modify MediaConnect Instance Status
    * 
    * @param request - UpdateMediaConnectFlowStatusRequest
    * @returns UpdateMediaConnectFlowStatusResponse
@@ -99233,6 +111895,81 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新节目
+   * 
+   * @param request - UpdateProgramRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProgramResponse
+   */
+  async updateProgramWithOptions(request: UpdateProgramRequest, runtime: $dara.RuntimeOptions): Promise<UpdateProgramResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.adBreaks)) {
+      query["AdBreaks"] = request.adBreaks;
+    }
+
+    if (!$dara.isNull(request.channelName)) {
+      query["ChannelName"] = request.channelName;
+    }
+
+    if (!$dara.isNull(request.clipRange)) {
+      query["ClipRange"] = request.clipRange;
+    }
+
+    if (!$dara.isNull(request.programName)) {
+      query["ProgramName"] = request.programName;
+    }
+
+    if (!$dara.isNull(request.sourceLocationName)) {
+      query["SourceLocationName"] = request.sourceLocationName;
+    }
+
+    if (!$dara.isNull(request.sourceName)) {
+      query["SourceName"] = request.sourceName;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    if (!$dara.isNull(request.transition)) {
+      query["Transition"] = request.transition;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateProgram",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateProgramResponse>(await this.callApi(params, req, runtime), new UpdateProgramResponse({}));
+    } else {
+      return $dara.cast<UpdateProgramResponse>(await this.execute(params, req, runtime), new UpdateProgramResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新节目
+   * 
+   * @param request - UpdateProgramRequest
+   * @returns UpdateProgramResponse
+   */
+  async updateProgram(request: UpdateProgramRequest): Promise<UpdateProgramResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateProgramWithOptions(request, runtime);
+  }
+
+  /**
    * 修改实例的配置
    * 
    * @param tmpReq - UpdateRtcRobotInstanceRequest
@@ -99287,6 +112024,124 @@ export default class Client extends OpenApi {
   async updateRtcRobotInstance(request: UpdateRtcRobotInstanceRequest): Promise<UpdateRtcRobotInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRtcRobotInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新源
+   * 
+   * @param request - UpdateSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSourceResponse
+   */
+  async updateSourceWithOptions(request: UpdateSourceRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.httpPackageConfigurations)) {
+      query["HttpPackageConfigurations"] = request.httpPackageConfigurations;
+    }
+
+    if (!$dara.isNull(request.sourceLocationName)) {
+      query["SourceLocationName"] = request.sourceLocationName;
+    }
+
+    if (!$dara.isNull(request.sourceName)) {
+      query["SourceName"] = request.sourceName;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSource",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateSourceResponse>(await this.callApi(params, req, runtime), new UpdateSourceResponse({}));
+    } else {
+      return $dara.cast<UpdateSourceResponse>(await this.execute(params, req, runtime), new UpdateSourceResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新源
+   * 
+   * @param request - UpdateSourceRequest
+   * @returns UpdateSourceResponse
+   */
+  async updateSource(request: UpdateSourceRequest): Promise<UpdateSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新源位置
+   * 
+   * @param request - UpdateSourceLocationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSourceLocationResponse
+   */
+  async updateSourceLocationWithOptions(request: UpdateSourceLocationRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSourceLocationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.baseUrl)) {
+      query["BaseUrl"] = request.baseUrl;
+    }
+
+    if (!$dara.isNull(request.enableSegmentDelivery)) {
+      query["EnableSegmentDelivery"] = request.enableSegmentDelivery;
+    }
+
+    if (!$dara.isNull(request.segmentDeliveryUrl)) {
+      query["SegmentDeliveryUrl"] = request.segmentDeliveryUrl;
+    }
+
+    if (!$dara.isNull(request.sourceLocationName)) {
+      query["SourceLocationName"] = request.sourceLocationName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSourceLocation",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateSourceLocationResponse>(await this.callApi(params, req, runtime), new UpdateSourceLocationResponse({}));
+    } else {
+      return $dara.cast<UpdateSourceLocationResponse>(await this.execute(params, req, runtime), new UpdateSourceLocationResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新源位置
+   * 
+   * @param request - UpdateSourceLocationRequest
+   * @returns UpdateSourceLocationResponse
+   */
+  async updateSourceLocation(request: UpdateSourceLocationRequest): Promise<UpdateSourceLocationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSourceLocationWithOptions(request, runtime);
   }
 
   /**
