@@ -3415,19 +3415,7 @@ export class BicyclingDirectionNovaRequest extends $dara.Model {
 }
 
 export class BicyclingDirectionNovaResponseBody extends $dara.Model {
-  code?: string;
   data?: BicyclingDirectionNovaResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * <title>502 Bad Gateway</title>
-   */
-  errorMessage?: string;
-  message?: string;
   requestId?: string;
   /**
    * @example
@@ -3436,11 +3424,7 @@ export class BicyclingDirectionNovaResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
       data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      message: 'message',
       requestId: 'requestId',
       success: 'success',
     };
@@ -3448,11 +3432,7 @@ export class BicyclingDirectionNovaResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       data: BicyclingDirectionNovaResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -3747,19 +3727,7 @@ export class DrivingDirectionNovaRequest extends $dara.Model {
 }
 
 export class DrivingDirectionNovaResponseBody extends $dara.Model {
-  code?: string;
   data?: DrivingDirectionNovaResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * Access was denied, message: No such namespace namespaces/general-perf-cn-shenzhen-e-default.
-   */
-  errorMessage?: string;
-  message?: string;
   requestId?: string;
   /**
    * @example
@@ -3768,11 +3736,7 @@ export class DrivingDirectionNovaResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
       data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      message: 'message',
       requestId: 'requestId',
       success: 'success',
     };
@@ -3780,11 +3744,7 @@ export class DrivingDirectionNovaResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       data: DrivingDirectionNovaResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -3886,19 +3846,7 @@ export class ElectrobikeDirectionNovaRequest extends $dara.Model {
 }
 
 export class ElectrobikeDirectionNovaResponseBody extends $dara.Model {
-  code?: string;
   data?: ElectrobikeDirectionNovaResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * <title>502 Bad Gateway</title>
-   */
-  errorMessage?: string;
-  message?: string;
   requestId?: string;
   /**
    * @example
@@ -3907,11 +3855,7 @@ export class ElectrobikeDirectionNovaResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
       data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      message: 'message',
       requestId: 'requestId',
       success: 'success',
     };
@@ -3919,11 +3863,7 @@ export class ElectrobikeDirectionNovaResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       data: ElectrobikeDirectionNovaResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -4003,19 +3943,7 @@ export class GeoCodeRequest extends $dara.Model {
 }
 
 export class GeoCodeResponseBody extends $dara.Model {
-  code?: string;
   data?: GeoCodeResponseBodyData[];
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * Pop sign mismatch, please check log.
-   */
-  errorMessage?: string;
-  message?: string;
   requestId?: string;
   /**
    * @example
@@ -4024,11 +3952,7 @@ export class GeoCodeResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
       data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      message: 'message',
       requestId: 'requestId',
       success: 'success',
     };
@@ -4036,11 +3960,7 @@ export class GeoCodeResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       data: { 'type': 'array', 'itemType': GeoCodeResponseBodyData },
-      errorCode: 'number',
-      errorMessage: 'string',
-      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -4165,19 +4085,7 @@ export class NearbySearchNovaRequest extends $dara.Model {
 }
 
 export class NearbySearchNovaResponseBody extends $dara.Model {
-  code?: string;
   data?: NearbySearchNovaResponseBodyData[];
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * <title>502 Bad Gateway</title>
-   */
-  errorMessage?: string;
-  message?: string;
   requestId?: string;
   /**
    * @example
@@ -4186,11 +4094,7 @@ export class NearbySearchNovaResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
       data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      message: 'message',
       requestId: 'requestId',
       success: 'success',
     };
@@ -4198,11 +4102,7 @@ export class NearbySearchNovaResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       data: { 'type': 'array', 'itemType': NearbySearchNovaResponseBodyData },
-      errorCode: 'number',
-      errorMessage: 'string',
-      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -4306,19 +4206,7 @@ export class PlaceSearchNovaRequest extends $dara.Model {
 }
 
 export class PlaceSearchNovaResponseBody extends $dara.Model {
-  code?: string;
   data?: PlaceSearchNovaResponseBodyData[];
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * Access was denied, message: Unauthorized.
-   */
-  errorMessage?: string;
-  message?: string;
   requestId?: string;
   /**
    * @example
@@ -4327,11 +4215,7 @@ export class PlaceSearchNovaResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
       data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      message: 'message',
       requestId: 'requestId',
       success: 'success',
     };
@@ -4339,11 +4223,7 @@ export class PlaceSearchNovaResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       data: { 'type': 'array', 'itemType': PlaceSearchNovaResponseBodyData },
-      errorCode: 'number',
-      errorMessage: 'string',
-      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -4905,15 +4785,7 @@ export class RgeoCodeRequest extends $dara.Model {
 }
 
 export class RgeoCodeResponseBody extends $dara.Model {
-  code?: string;
   data?: RgeoCodeResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  errorMessage?: string;
-  message?: string;
   requestId?: string;
   /**
    * @example
@@ -4922,11 +4794,7 @@ export class RgeoCodeResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
       data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      message: 'message',
       requestId: 'requestId',
       success: 'success',
     };
@@ -4934,11 +4802,7 @@ export class RgeoCodeResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       data: RgeoCodeResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -5046,19 +4910,7 @@ export class TransitIntegratedDirectionRequest extends $dara.Model {
 }
 
 export class TransitIntegratedDirectionResponseBody extends $dara.Model {
-  code?: string;
   data?: TransitIntegratedDirectionResponseBodyData;
-  /**
-   * @example
-   * 400
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * <title>502 Bad Gateway</title>
-   */
-  errorMessage?: string;
-  message?: string;
   requestId?: string;
   /**
    * @example
@@ -5067,11 +4919,7 @@ export class TransitIntegratedDirectionResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
       data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      message: 'message',
       requestId: 'requestId',
       success: 'success',
     };
@@ -5079,11 +4927,7 @@ export class TransitIntegratedDirectionResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       data: TransitIntegratedDirectionResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -5185,19 +5029,7 @@ export class WalkingDirectionNovaRequest extends $dara.Model {
 }
 
 export class WalkingDirectionNovaResponseBody extends $dara.Model {
-  code?: string;
   data?: WalkingDirectionNovaResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * Access was denied
-   */
-  errorMessage?: string;
-  message?: string;
   requestId?: string;
   /**
    * @example
@@ -5206,11 +5038,7 @@ export class WalkingDirectionNovaResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
       data: 'data',
-      errorCode: 'errorCode',
-      errorMessage: 'errorMessage',
-      message: 'message',
       requestId: 'requestId',
       success: 'success',
     };
@@ -5218,11 +5046,7 @@ export class WalkingDirectionNovaResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
       data: WalkingDirectionNovaResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      message: 'string',
       requestId: 'string',
       success: 'boolean',
     };
