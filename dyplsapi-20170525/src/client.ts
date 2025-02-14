@@ -1,13 +1,2990 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class AddAxnTrackNoRequest extends $tea.Model {
+export class BindAXBCallResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 绑定关系ID
+   * 
+   * @example
+   * 476567566
+   */
+  bindId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bindId: 'BindId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindAxbResponseBodySecretBindDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The extension of the phone number.
+   * 
+   * >  The BindAxb operation does not involve an extension. Ignore this parameter.
+   * 
+   * @example
+   * 130
+   */
+  extension?: string;
+  /**
+   * @remarks
+   * The private number, that is, phone number X.
+   * 
+   * @example
+   * 139****0000
+   */
+  secretNo?: string;
+  /**
+   * @remarks
+   * The binding ID.
+   * 
+   * @example
+   * 1**************3
+   */
+  subsId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      secretNo: 'SecretNo',
+      subsId: 'SubsId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      secretNo: 'string',
+      subsId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindAxgResponseBodySecretBindDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The extension of the phone number.
+   * 
+   * >  The BindAxg operation does not involve an extension. Ignore this parameter.
+   * 
+   * @example
+   * 139****0000
+   */
+  extension?: string;
+  /**
+   * @remarks
+   * The private number, that is, phone number X.
+   * 
+   * @example
+   * 139****0000
+   */
+  secretNo?: string;
+  /**
+   * @remarks
+   * The binding ID.
+   * 
+   * @example
+   * 1************3
+   */
+  subsId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      secretNo: 'SecretNo',
+      subsId: 'SubsId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      secretNo: 'string',
+      subsId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindAxnResponseBodySecretBindDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The extension of the phone number.
+   * 
+   * >  The BindAxn operation does not involve an extension. Ignore this parameter.
+   * 
+   * @example
+   * 130
+   */
+  extension?: string;
+  /**
+   * @remarks
+   * The private number, that is, phone number X.
+   * 
+   * @example
+   * 139****0000
+   */
+  secretNo?: string;
+  /**
+   * @remarks
+   * The binding ID.
+   * 
+   * @example
+   * 1***************3
+   */
+  subsId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      secretNo: 'SecretNo',
+      subsId: 'SubsId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      secretNo: 'string',
+      subsId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindAxnExtensionResponseBodySecretBindDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The extension of the phone number.
+   * 
+   * @example
+   * 130
+   */
+  extension?: string;
+  /**
+   * @remarks
+   * The private number, that is, phone number X.
+   * 
+   * @example
+   * 139*****0000
+   */
+  secretNo?: string;
+  /**
+   * @remarks
+   * The binding ID.
+   * 
+   * @example
+   * 1***************3
+   */
+  subsId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      secretNo: 'SecretNo',
+      subsId: 'SubsId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      secretNo: 'string',
+      subsId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindBatchAxgRequestAxgBindList extends $dara.Model {
+  /**
+   * @example
+   * 7ee372834d2f4cc7ac0d0ab2d0ae1aac
+   */
+  ASRModelId?: string;
+  /**
+   * @example
+   * true
+   */
+  ASRStatus?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  callDisplayType?: number;
+  /**
+   * @example
+   * CONTROL_AX_DISABLE
+   */
+  callRestrict?: string;
+  expectCity?: string;
+  /**
+   * @example
+   * 2022-07-11 01:05:15
+   */
+  expiration?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234
+   */
+  groupId?: string;
+  /**
+   * @example
+   * False
+   */
+  isRecordingEnabled?: boolean;
+  /**
+   * @example
+   * 18223ad447910fd
+   */
+  outId?: string;
+  /**
+   * @example
+   * 20220824021816883677
+   */
+  outOrderId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 13333333333
+   */
+  phoneNoA?: string;
+  /**
+   * @example
+   * 13333333333
+   */
+  phoneNoB?: string;
+  /**
+   * @example
+   * 13333333333
+   */
+  phoneNoX?: string;
+  /**
+   * @example
+   * {\\"AXBRing_B\\":\\"100000002\\",\\"AXBRing_A\\":\\"100000001\\"}
+   */
+  ringConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ASRModelId: 'ASRModelId',
+      ASRStatus: 'ASRStatus',
+      callDisplayType: 'CallDisplayType',
+      callRestrict: 'CallRestrict',
+      expectCity: 'ExpectCity',
+      expiration: 'Expiration',
+      groupId: 'GroupId',
+      isRecordingEnabled: 'IsRecordingEnabled',
+      outId: 'OutId',
+      outOrderId: 'OutOrderId',
+      phoneNoA: 'PhoneNoA',
+      phoneNoB: 'PhoneNoB',
+      phoneNoX: 'PhoneNoX',
+      ringConfig: 'RingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ASRModelId: 'string',
+      ASRStatus: 'boolean',
+      callDisplayType: 'number',
+      callRestrict: 'string',
+      expectCity: 'string',
+      expiration: 'string',
+      groupId: 'string',
+      isRecordingEnabled: 'boolean',
+      outId: 'string',
+      outOrderId: 'string',
+      phoneNoA: 'string',
+      phoneNoB: 'string',
+      phoneNoX: 'string',
+      ringConfig: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindBatchAxgResponseBodySecretBindListSecretBind extends $dara.Model {
+  /**
+   * @example
+   * isv.INVALID_PARAMETERS
+   */
+  code?: string;
+  /**
+   * @example
+   * 257
+   */
+  extension?: string;
+  /**
+   * @example
+   * 1234
+   */
+  groupId?: string;
+  /**
+   * @example
+   * ringConfig invalid
+   */
+  message?: string;
+  /**
+   * @example
+   * 13333333333
+   */
+  phoneNoA?: string;
+  /**
+   * @example
+   * 13333333333
+   */
+  secretNo?: string;
+  /**
+   * @example
+   * 1000085060515673
+   */
+  subsId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      extension: 'Extension',
+      groupId: 'GroupId',
+      message: 'Message',
+      phoneNoA: 'PhoneNoA',
+      secretNo: 'SecretNo',
+      subsId: 'SubsId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      extension: 'string',
+      groupId: 'string',
+      message: 'string',
+      phoneNoA: 'string',
+      secretNo: 'string',
+      subsId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindBatchAxgResponseBodySecretBindList extends $dara.Model {
+  secretBind?: BindBatchAxgResponseBodySecretBindListSecretBind[];
+  static names(): { [key: string]: string } {
+    return {
+      secretBind: 'SecretBind',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      secretBind: { 'type': 'array', 'itemType': BindBatchAxgResponseBodySecretBindListSecretBind },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.secretBind)) {
+      $dara.Model.validateArray(this.secretBind);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindXBResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 工作号关系绑定的唯一标识
+   * 
+   * @example
+   * 4353453456
+   */
+  authId?: string;
+  /**
+   * @remarks
+   * X号码
+   * 
+   * @example
+   * 18640577897
+   */
+  telX?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authId: 'AuthId',
+      telX: 'TelX',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authId: 'string',
+      telX: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BuySecretNoResponseBodySecretBuyInfoDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The private number, that is, phone number X.
+   * 
+   * @example
+   * 1390000****
+   */
+  secretNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      secretNo: 'SecretNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      secretNo: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelPickUpWaybillResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * none
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * none
+   */
+  errorMsg?: string;
+  /**
+   * @remarks
+   * The cancellation result.
+   * 
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Indicates whether the cancellation was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigXRequestSequenceCalls extends $dara.Model {
+  /**
+   * @remarks
+   * 顺振提示音放音编号，格式如callNoPlayCode
+   * 
+   * @example
+   * 01
+   */
+  sequenceCallNoPlayCode?: string;
+  /**
+   * @remarks
+   * 顺振被叫号码
+   * 
+   * @example
+   * 18*******33
+   */
+  sequenceCalledNo?: string;
+  /**
+   * @remarks
+   * 接通后主被叫放音编号，格式如calledPlayCode
+   * 
+   * @example
+   * 02
+   */
+  sequenceCalledPlayCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sequenceCallNoPlayCode: 'SequenceCallNoPlayCode',
+      sequenceCalledNo: 'SequenceCalledNo',
+      sequenceCalledPlayCode: 'SequenceCalledPlayCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sequenceCallNoPlayCode: 'string',
+      sequenceCalledNo: 'string',
+      sequenceCalledPlayCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ConfigXResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 返回状态码 0000表示成功 其他表示失败
+   * 
+   * @example
+   * 0000
+   */
+  code?: string;
+  /**
+   * @remarks
+   * 返回信息
+   * 
+   * @example
+   * 成功
+   */
+  message?: string;
+  /**
+   * @remarks
+   * 返回是否成功 true  表示成功 false表示失败
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillRequestConsigneeAddress extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed address of the consignee.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * XX community
+   */
+  addressDetail?: string;
+  /**
+   * @remarks
+   * The district where the consignee is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xihu
+   */
+  areaName?: string;
+  /**
+   * @remarks
+   * The city where the consignee is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * hangzhou
+   */
+  cityName?: string;
+  /**
+   * @remarks
+   * The province where the consignee is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * zhejiang
+   */
+  provinceName?: string;
+  /**
+   * @remarks
+   * The street where the consignee is located.
+   * 
+   * @example
+   * XX Street
+   */
+  townName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressDetail: 'AddressDetail',
+      areaName: 'AreaName',
+      cityName: 'CityName',
+      provinceName: 'ProvinceName',
+      townName: 'TownName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressDetail: 'string',
+      areaName: 'string',
+      cityName: 'string',
+      provinceName: 'string',
+      townName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillRequestGoodsInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The item name.
+   * 
+   * @example
+   * zhang
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The item quantity.
+   * 
+   * @example
+   * 1
+   */
+  quantity?: string;
+  /**
+   * @remarks
+   * The item weight. Unit: gram.
+   * 
+   * @example
+   * 1000
+   */
+  weight?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      quantity: 'Quantity',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      quantity: 'string',
+      weight: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillRequestSendAddress extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed address of the sender.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * XX community
+   */
+  addressDetail?: string;
+  /**
+   * @remarks
+   * The district where the sender is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * wenjiang
+   */
+  areaName?: string;
+  /**
+   * @remarks
+   * The city where the sender is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * chengdu
+   */
+  cityName?: string;
+  /**
+   * @remarks
+   * The province where the sender is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Sichuan
+   */
+  provinceName?: string;
+  /**
+   * @remarks
+   * The street where the sender is located.
+   * 
+   * @example
+   * XX Street
+   */
+  townName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressDetail: 'AddressDetail',
+      areaName: 'AreaName',
+      cityName: 'CityName',
+      provinceName: 'ProvinceName',
+      townName: 'TownName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressDetail: 'string',
+      areaName: 'string',
+      cityName: 'string',
+      provinceName: 'string',
+      townName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the courier company.
+   * 
+   * @example
+   * YTO
+   */
+  cpCode?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * 200
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * none
+   */
+  errorMsg?: string;
+  /**
+   * @remarks
+   * The pickup code.
+   * 
+   * @example
+   * 3524
+   */
+  gotCode?: string;
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 77312345629****
+   */
+  mailNo?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpCode: 'CpCode',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      gotCode: 'GotCode',
+      mailNo: 'MailNo',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpCode: 'string',
+      errorCode: 'string',
+      errorMsg: 'string',
+      gotCode: 'string',
+      mailNo: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed address of the consignee.
+   * 
+   * @example
+   * XX community
+   */
+  addressDetail?: string;
+  /**
+   * @remarks
+   * The district where the consignee is located.
+   * 
+   * @example
+   * chang,an
+   */
+  areaName?: string;
+  /**
+   * @remarks
+   * The city where the consignee is located.
+   * 
+   * @example
+   * Xi,an
+   */
+  cityName?: string;
+  /**
+   * @remarks
+   * The province where the consignee is located.
+   * 
+   * @example
+   * Shanxi
+   */
+  provinceName?: string;
+  /**
+   * @remarks
+   * The street where the consignee is located.
+   * 
+   * @example
+   * XX Street
+   */
+  townName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressDetail: 'AddressDetail',
+      areaName: 'AreaName',
+      cityName: 'CityName',
+      provinceName: 'ProvinceName',
+      townName: 'TownName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressDetail: 'string',
+      areaName: 'string',
+      cityName: 'string',
+      provinceName: 'string',
+      townName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryRequestConsigneeInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The address of the consignee.
+   */
+  addressInfo?: CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo;
+  /**
+   * @remarks
+   * The mobile phone number of the consignee.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1390000****
+   */
+  mobile?: string;
+  /**
+   * @remarks
+   * The name of the consignee.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Li
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressInfo: 'AddressInfo',
+      mobile: 'Mobile',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressInfo: CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo,
+      mobile: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(this.addressInfo && typeof (this.addressInfo as any).validate === 'function') {
+      (this.addressInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed address of the sender.
+   * 
+   * @example
+   * XX community
+   */
+  addressDetail?: string;
+  /**
+   * @remarks
+   * The district where the sender is located.
+   * 
+   * @example
+   * xihu
+   */
+  areaName?: string;
+  /**
+   * @remarks
+   * The city where the sender is located.
+   * 
+   * @example
+   * hangzhou
+   */
+  cityName?: string;
+  /**
+   * @remarks
+   * The province where the sender is located.
+   * 
+   * @example
+   * zhejiang
+   */
+  provinceName?: string;
+  /**
+   * @remarks
+   * The street where the sender is located.
+   * 
+   * @example
+   * XX Street
+   */
+  townName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressDetail: 'AddressDetail',
+      areaName: 'AreaName',
+      cityName: 'CityName',
+      provinceName: 'ProvinceName',
+      townName: 'TownName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressDetail: 'string',
+      areaName: 'string',
+      cityName: 'string',
+      provinceName: 'string',
+      townName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryRequestSenderInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The address of the sender.
+   */
+  addressInfo?: CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo;
+  /**
+   * @remarks
+   * The mobile phone number of the sender.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1390000****
+   */
+  mobile?: string;
+  /**
+   * @remarks
+   * The name of the sender.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Wang
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressInfo: 'AddressInfo',
+      mobile: 'Mobile',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressInfo: CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo,
+      mobile: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(this.addressInfo && typeof (this.addressInfo as any).validate === 'function') {
+      (this.addressInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range.
+   * 
+   * @example
+   * 12:00:00
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The tip displayed when the scheduled pickup is not available.
+   * 
+   * @example
+   * Appointment Full
+   */
+  selectDisableTip?: string;
+  /**
+   * @remarks
+   * Indicates whether the time range can be selected for the scheduled pickup.
+   * 
+   * @example
+   * true
+   */
+  selectable?: boolean;
+  /**
+   * @remarks
+   * The beginning of the time range.
+   * 
+   * @example
+   * 10:00:00
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      selectDisableTip: 'SelectDisableTip',
+      selectable: 'Selectable',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      selectDisableTip: 'string',
+      selectable: 'boolean',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes extends $dara.Model {
+  /**
+   * @remarks
+   * The date in the YYYY-MM-DD format.
+   * 
+   * @example
+   * 2022-04-28
+   */
+  date?: string;
+  /**
+   * @remarks
+   * Indicates whether the date is selectable.
+   * 
+   * @example
+   * true
+   */
+  dateSelectable?: boolean;
+  /**
+   * @remarks
+   * The time range for the scheduled pickup for this date.
+   */
+  timeList?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList[];
+  static names(): { [key: string]: string } {
+    return {
+      date: 'Date',
+      dateSelectable: 'DateSelectable',
+      timeList: 'TimeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      date: 'string',
+      dateSelectable: 'boolean',
+      timeList: { 'type': 'array', 'itemType': CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.timeList)) {
+      $dara.Model.validateArray(this.timeList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the real-time order type.
+   * 
+   * @example
+   * Aliyun
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The tip displayed when the real-time order cannot be placed.
+   * 
+   * @example
+   * Exceeding the real-time ordering time range.
+   */
+  selectDisableTip?: string;
+  /**
+   * @remarks
+   * Indicates whether the real-time order can be placed after the deadline for placing a real-time order is reached.
+   * 
+   * @example
+   * false
+   */
+  selectable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      selectDisableTip: 'SelectDisableTip',
+      selectable: 'Selectable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      selectDisableTip: 'string',
+      selectable: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList extends $dara.Model {
+  /**
+   * @remarks
+   * The available time for the scheduled pickup. If the current courier company cannot accept the scheduled pickup, this field is left empty.
+   */
+  appointTimes?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes[];
+  /**
+   * @remarks
+   * The estimated price. Unit: CNY. The value is accurate to two decimal places. The value of this parameter is displayed if an estimated weight is specified.
+   * 
+   * @example
+   * 12.50
+   */
+  prePrice?: string;
+  /**
+   * @remarks
+   * The information about whether the real-time order can be selected.
+   */
+  realTime?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime;
+  static names(): { [key: string]: string } {
+    return {
+      appointTimes: 'AppointTimes',
+      prePrice: 'PrePrice',
+      realTime: 'RealTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appointTimes: { 'type': 'array', 'itemType': CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes },
+      prePrice: 'string',
+      realTime: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.appointTimes)) {
+      $dara.Model.validateArray(this.appointTimes);
+    }
+    if(this.realTime && typeof (this.realTime as any).validate === 'function') {
+      (this.realTime as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePickUpWaybillPreQueryResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 0
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The information about whether the courier company can accept the order.
+   */
+  cpTimeSelectList?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList[];
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Success
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * none
+   */
+  errorMsg?: string;
+  /**
+   * @remarks
+   * The response content.
+   * 
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      cpTimeSelectList: 'CpTimeSelectList',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      cpTimeSelectList: { 'type': 'array', 'itemType': CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList },
+      errorCode: 'string',
+      errorMsg: 'string',
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cpTimeSelectList)) {
+      $dara.Model.validateArray(this.cpTimeSelectList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSmsSignResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 短信接收者号码签名串(加到短信内容中供解析真实被叫号码)
+   * 
+   * @example
+   * sign23343466
+   */
+  calledNoSign?: string;
+  static names(): { [key: string]: string } {
+    return {
+      calledNoSign: 'CalledNoSign',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      calledNoSign: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSecretAsrDetailResponseBodyDataSentences extends $dara.Model {
+  /**
+   * @remarks
+   * The start time offset of the sentence. Unit: milliseconds.
+   * 
+   * @example
+   * 1020
+   */
+  beginTime?: number;
+  /**
+   * @remarks
+   * The ID of the audio track to which the sentence belongs.
+   * 
+   * @example
+   * 0
+   */
+  channelId?: number;
+  /**
+   * @remarks
+   * The emotion value. Value range: 1 to 10. The higher the value, the stronger the emotion.
+   * 
+   * @example
+   * 5.7
+   */
+  emotionValue?: string;
+  /**
+   * @remarks
+   * The end time offset of the sentence. Unit: milliseconds.
+   * 
+   * @example
+   * 1770
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The silence duration between the current sentence and the previous sentence. Unit: seconds.
+   * 
+   * @example
+   * 0
+   */
+  silenceDuration?: number;
+  /**
+   * @remarks
+   * The average speech rate of the sentence. Unit: number of words per minute.
+   * 
+   * @example
+   * 80
+   */
+  speechRate?: number;
+  /**
+   * @remarks
+   * The recognition result of the sentence.
+   * 
+   * @example
+   * Hello
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      channelId: 'ChannelId',
+      emotionValue: 'EmotionValue',
+      endTime: 'EndTime',
+      silenceDuration: 'SilenceDuration',
+      speechRate: 'SpeechRate',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      channelId: 'number',
+      emotionValue: 'string',
+      endTime: 'number',
+      silenceDuration: 'number',
+      speechRate: 'number',
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSecretAsrDetailResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The total duration of the audio file that was recognized. Unit: milliseconds.
+   * 
+   * @example
+   * 10944
+   */
+  bizDuration?: number;
+  /**
+   * @remarks
+   * The ID of the business process.
+   * 
+   * @example
+   * 435ee78c7a019650@!FC100000074672458@!2020061522****
+   */
+  businessId?: string;
+  /**
+   * @remarks
+   * The business keyword.
+   * 
+   * @example
+   * JCGTncltuNao****
+   */
+  businessKey?: string;
+  /**
+   * @remarks
+   * The status code. The status code 21050000 indicates that the request was successful.
+   * 
+   * @example
+   * 21050000
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * SUCCESS
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8d2329d407a83447a83be441681f4872ac74nE
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The ASR result.
+   */
+  sentences?: GetSecretAsrDetailResponseBodyDataSentences[];
+  /**
+   * @remarks
+   * The type.
+   * 
+   * @example
+   * asrResult
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizDuration: 'BizDuration',
+      businessId: 'BusinessId',
+      businessKey: 'BusinessKey',
+      code: 'Code',
+      msg: 'Msg',
+      requestId: 'RequestId',
+      sentences: 'Sentences',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizDuration: 'number',
+      businessId: 'string',
+      businessKey: 'string',
+      code: 'string',
+      msg: 'string',
+      requestId: 'string',
+      sentences: { 'type': 'array', 'itemType': GetSecretAsrDetailResponseBodyDataSentences },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.sentences)) {
+      $dara.Model.validateArray(this.sentences);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTotalPublicUrlResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The download URL of the recorded call.
+   * 
+   * >  The download URL of the recorded call is valid for 30 days.
+   * 
+   * @example
+   * http://secret-axb-reco****cn-shanghai.aliyuncs.com/1000000820257625_66647243838006067251551752068865.mp3?Expires=1551****07&OSSAccessKeyId=LTAIP00vvvv****v&Signature=tK6Yq9KusU4n%2BZQWX****4/WmEA%3D
+   */
+  phonePublicUrl?: string;
+  /**
+   * @remarks
+   * The download URL of the recorded ringing tone.
+   * 
+   * >  The download URL of the recorded ringing tone is valid for 30 days.
+   * 
+   * @example
+   * http://secret-ab-reco****cn-shanghai.aliyuncs.com/1000000820257625_66647243838006067251551752068865.mp3?Expires=155175****&OSSAccessKeyId=LTAIP00vvv****vv&Signature=tK6Yq9KusU4n%2BZQW****g4/WmEA%3D
+   */
+  ringPublicUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phonePublicUrl: 'PhonePublicUrl',
+      ringPublicUrl: 'RingPublicUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phonePublicUrl: 'string',
+      ringPublicUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetXConfigResponseBodyDataReachJsons extends $dara.Model {
+  /**
+   * @remarks
+   * 呼叫方向 1:员工B呼叫客户A 2:客户A呼叫员工B
+   * 
+   * @example
+   * 1
+   */
+  callDir?: string;
+  /**
+   * @remarks
+   * 通话状态 1:通话振铃 2:接通前 3:接通后 4:通话结束 5:已接通6:未接通
+   * 
+   * @example
+   * 1
+   */
+  callStatus?: string;
+  /**
+   * @remarks
+   * 接收方向 1:主叫 2:被叫
+   * 
+   * @example
+   * 1
+   */
+  receiveDir?: string;
+  /**
+   * @remarks
+   * 规则ID
+   * 
+   * @example
+   * 345
+   */
+  ruleId?: string;
+  /**
+   * @remarks
+   * 规则名称
+   * 
+   * @example
+   * 企业名片-短信规则
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * 规则类型： 1：企业名片-短信 2：企业名片-闪信 3：企业名片-视频 4：企业名片-音频
+   * 
+   * @example
+   * 1
+   */
+  ruleType?: string;
+  /**
+   * @remarks
+   * 模板ID
+   * 
+   * @example
+   * 12345
+   */
+  tempId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callDir: 'CallDir',
+      callStatus: 'CallStatus',
+      receiveDir: 'ReceiveDir',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      ruleType: 'RuleType',
+      tempId: 'TempId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callDir: 'string',
+      callStatus: 'string',
+      receiveDir: 'string',
+      ruleId: 'string',
+      ruleName: 'string',
+      ruleType: 'string',
+      tempId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetXConfigResponseBodyDataSequenceCalls extends $dara.Model {
+  /**
+   * @remarks
+   * 顺振提示音放音编号，格式如callNoPlayCode
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  sequenceCallNoPlayCode?: string;
+  /**
+   * @remarks
+   * 顺振被叫号码
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  sequenceCalledNo?: string;
+  /**
+   * @remarks
+   * 接通后主被叫放音编号，格式如calledPlayCode
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  sequenceCalledPlayCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sequenceCallNoPlayCode: 'SequenceCallNoPlayCode',
+      sequenceCalledNo: 'SequenceCalledNo',
+      sequenceCalledPlayCode: 'SequenceCalledPlayCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sequenceCallNoPlayCode: 'string',
+      sequenceCalledNo: 'string',
+      sequenceCalledPlayCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetXConfigResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 开/关呼叫能力状态： ‘0’：禁用； ‘1’：开启；
+   * 
+   * @example
+   * 0
+   */
+  callAbility?: string;
+  /**
+   * @remarks
+   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
+   * 
+   * @example
+   * 00
+   */
+  GNFlag?: string;
+  /**
+   * @remarks
+   * 企业名片规则控制参数
+   */
+  reachJsons?: GetXConfigResponseBodyDataReachJsons[];
+  /**
+   * @remarks
+   * 顺振控制参数
+   */
+  sequenceCalls?: GetXConfigResponseBodyDataSequenceCalls[];
+  /**
+   * @remarks
+   * 顺振结束时间 格式：HH:mm:ss 18:00:00
+   * 
+   * @example
+   * 09:00:00
+   */
+  sequenceEndTime?: string;
+  /**
+   * @remarks
+   * 顺振开启时间 格式：HH:mm:ss 09:00:00
+   * 
+   * @example
+   * 09:00:00
+   */
+  sequenceStartTime?: string;
+  /**
+   * @remarks
+   * 开/关短信功能状态： ‘0’：禁用； ‘1’：开启；
+   * 
+   * @example
+   * 0
+   */
+  smsAbility?: string;
+  /**
+   * @remarks
+   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
+   * 
+   * @example
+   * 0
+   */
+  smsSignMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callAbility: 'CallAbility',
+      GNFlag: 'GNFlag',
+      reachJsons: 'ReachJsons',
+      sequenceCalls: 'SequenceCalls',
+      sequenceEndTime: 'SequenceEndTime',
+      sequenceStartTime: 'SequenceStartTime',
+      smsAbility: 'SmsAbility',
+      smsSignMode: 'SmsSignMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callAbility: 'string',
+      GNFlag: 'string',
+      reachJsons: { 'type': 'array', 'itemType': GetXConfigResponseBodyDataReachJsons },
+      sequenceCalls: { 'type': 'array', 'itemType': GetXConfigResponseBodyDataSequenceCalls },
+      sequenceEndTime: 'string',
+      sequenceStartTime: 'string',
+      smsAbility: 'string',
+      smsSignMode: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.reachJsons)) {
+      $dara.Model.validateArray(this.reachJsons);
+    }
+    if(Array.isArray(this.sequenceCalls)) {
+      $dara.Model.validateArray(this.sequenceCalls);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetXDefaultConfigResponseBodyDataReachJson extends $dara.Model {
+  /**
+   * @remarks
+   * 呼叫方向 1:员工B呼叫客户A 2:客户A呼叫员工B
+   * 
+   * @example
+   * 1
+   */
+  callDir?: string;
+  /**
+   * @remarks
+   * 通话状态 1:通话振铃 2:接通前 3:接通后 4:通话结束 5:已接通6:未接通
+   * 
+   * @example
+   * 1
+   */
+  callStatus?: string;
+  /**
+   * @remarks
+   * 接收方向 1:主叫 2:被叫
+   * 
+   * @example
+   * 1
+   */
+  receiveDir?: string;
+  /**
+   * @remarks
+   * 规则ID
+   * 
+   * @example
+   * 345
+   */
+  ruleId?: string;
+  /**
+   * @remarks
+   * 规则名称
+   * 
+   * @example
+   * 企业名片-短信规则
+   */
+  ruleName?: string;
+  /**
+   * @remarks
+   * 规则类型： 1：企业名片-短信 2：企业名片-闪信 3：企业名片-视频 4：企业名片-音频
+   * 
+   * @example
+   * 1
+   */
+  ruleType?: string;
+  /**
+   * @remarks
+   * 模板ID
+   * 
+   * @example
+   * 12345
+   */
+  tempId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callDir: 'CallDir',
+      callStatus: 'CallStatus',
+      receiveDir: 'ReceiveDir',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      ruleType: 'RuleType',
+      tempId: 'TempId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callDir: 'string',
+      callStatus: 'string',
+      receiveDir: 'string',
+      ruleId: 'string',
+      ruleName: 'string',
+      ruleType: 'string',
+      tempId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetXDefaultConfigResponseBodyDataSequenceCall extends $dara.Model {
+  /**
+   * @remarks
+   * 顺振提示音放音编号，格式如callNoPlayCode
+   * 
+   * @example
+   * 示例值
+   */
+  sequenceCallNoPlayCode?: string;
+  /**
+   * @remarks
+   * 顺振被叫号码
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  sequenceCalledNo?: string;
+  /**
+   * @remarks
+   * 接通后主被叫放音编号，格式如calledPlayCode
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  sequenceCalledPlayCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sequenceCallNoPlayCode: 'SequenceCallNoPlayCode',
+      sequenceCalledNo: 'SequenceCalledNo',
+      sequenceCalledPlayCode: 'SequenceCalledPlayCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sequenceCallNoPlayCode: 'string',
+      sequenceCalledNo: 'string',
+      sequenceCalledPlayCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetXDefaultConfigResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 开/关呼叫能力状态： ‘0’：禁用； ‘1’：开启；
+   * 
+   * @example
+   * 0
+   */
+  callAbility?: string;
+  /**
+   * @remarks
+   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
+   * 
+   * @example
+   * 00
+   */
+  GNFlag?: string;
+  /**
+   * @remarks
+   * 企业名片规则控制参数
+   */
+  reachJson?: GetXDefaultConfigResponseBodyDataReachJson[];
+  /**
+   * @remarks
+   * 顺振控制参数
+   */
+  sequenceCall?: GetXDefaultConfigResponseBodyDataSequenceCall[];
+  /**
+   * @remarks
+   * 顺振结束时间 格式：HH:mm:ss 18:00:00
+   * 
+   * @example
+   * 09:00:00
+   */
+  sequenceEndTime?: string;
+  /**
+   * @remarks
+   * 顺振开启时间 格式：HH:mm:ss 09:00:00
+   * 
+   * @example
+   * 09:00:00
+   */
+  sequenceStartTime?: string;
+  /**
+   * @remarks
+   * 开/关短信功能状态： ‘0’：禁用； ‘1’：开启；
+   * 
+   * @example
+   * 0
+   */
+  smsAbility?: string;
+  /**
+   * @remarks
+   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
+   * 
+   * @example
+   * 0
+   */
+  smsSignMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callAbility: 'CallAbility',
+      GNFlag: 'GNFlag',
+      reachJson: 'ReachJson',
+      sequenceCall: 'SequenceCall',
+      sequenceEndTime: 'SequenceEndTime',
+      sequenceStartTime: 'SequenceStartTime',
+      smsAbility: 'SmsAbility',
+      smsSignMode: 'SmsSignMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callAbility: 'string',
+      GNFlag: 'string',
+      reachJson: { 'type': 'array', 'itemType': GetXDefaultConfigResponseBodyDataReachJson },
+      sequenceCall: { 'type': 'array', 'itemType': GetXDefaultConfigResponseBodyDataSequenceCall },
+      sequenceEndTime: 'string',
+      sequenceStartTime: 'string',
+      smsAbility: 'string',
+      smsSignMode: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.reachJson)) {
+      $dara.Model.validateArray(this.reachJson);
+    }
+    if(Array.isArray(this.sequenceCall)) {
+      $dara.Model.validateArray(this.sequenceCall);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListXTelephonesResponseBodyDataList extends $dara.Model {
+  /**
+   * @remarks
+   * 绑定失败原因
+   * 
+   * @example
+   * 绑定失败用户身份证黑名单
+   */
+  authMsg?: string;
+  /**
+   * @remarks
+   * 绑定时间
+   * 
+   * @example
+   * 2024-08-29 17:23:58
+   */
+  bindTime?: string;
+  /**
+   * @remarks
+   * 购买时间
+   * 
+   * @example
+   * 2024-08-29 17:23:58
+   */
+  buyTime?: string;
+  /**
+   * @remarks
+   * 客户号码池key
+   * 
+   * @example
+   * FC533e6eeb81f4400c87ef3745a21a1a
+   */
+  customerPoolKey?: string;
+  /**
+   * @remarks
+   * 号码池名称
+   * 
+   * @example
+   * 测试号码池
+   */
+  customerPoolName?: string;
+  /**
+   * @remarks
+   * 释放时间
+   * 
+   * @example
+   * 2024-08-29 17:23:58
+   */
+  releaseTime?: string;
+  /**
+   * @remarks
+   * 短信开通状态：0 未开通 1已开通
+   * 
+   * @example
+   * 0
+   */
+  smsStatus?: string;
+  /**
+   * @remarks
+   * X号码
+   * 
+   * @example
+   * 17816876546
+   */
+  telephone?: string;
+  /**
+   * @remarks
+   * 号码状态：0 空闲中 1 调拨完成待购买 2购买完成待认证  3 实名认证中  4 实名认证成功  5 认证失败  6 解绑中 7 解绑失败 8已释放 99 超时释放
+   * 
+   * @example
+   * 0
+   */
+  telephoneStatus?: string;
+  /**
+   * @remarks
+   * 解绑时间
+   * 
+   * @example
+   * 2024-08-29 17:23:58
+   */
+  unbindTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authMsg: 'AuthMsg',
+      bindTime: 'BindTime',
+      buyTime: 'BuyTime',
+      customerPoolKey: 'CustomerPoolKey',
+      customerPoolName: 'CustomerPoolName',
+      releaseTime: 'ReleaseTime',
+      smsStatus: 'SmsStatus',
+      telephone: 'Telephone',
+      telephoneStatus: 'TelephoneStatus',
+      unbindTime: 'UnbindTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authMsg: 'string',
+      bindTime: 'string',
+      buyTime: 'string',
+      customerPoolKey: 'string',
+      customerPoolName: 'string',
+      releaseTime: 'string',
+      smsStatus: 'string',
+      telephone: 'string',
+      telephoneStatus: 'string',
+      unbindTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListXTelephonesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 数据集合
+   */
+  list?: ListXTelephonesResponseBodyDataList[];
+  /**
+   * @remarks
+   * 页码
+   * 
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @remarks
+   * 每页条数
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * 符合查询条件的总数量
+   * 
+   * @example
+   * 50
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListXTelephonesResponseBodyDataList },
+      pageNo: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryPhoneNoAByTrackNoResponseBodyModule extends $dara.Model {
+  /**
+   * @remarks
+   * The extension of phone number X.
+   * 
+   * @example
+   * 130
+   */
+  extension?: string;
+  /**
+   * @remarks
+   * Phone number A.
+   * 
+   * @example
+   * 1310000****
+   */
+  phoneNoA?: string;
+  /**
+   * @remarks
+   * The private number, that is, phone number X.
+   * 
+   * @example
+   * 1710000****
+   */
+  phoneNoX?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      phoneNoA: 'PhoneNoA',
+      phoneNoX: 'PhoneNoX',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      phoneNoA: 'string',
+      phoneNoX: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySecretNoDetailResponseBodySecretNoInfoDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The verification status of the phone number. Valid values:
+   * 
+   * *   **0**: The phone number is not verified.
+   * *   **1**: The phone number is verified.
+   * 
+   * @example
+   * 0
+   */
+  certifyStatus?: number;
+  /**
+   * @remarks
+   * The city.
+   * 
+   * @example
+   * chengdu
+   */
+  city?: string;
+  /**
+   * @remarks
+   * The province.
+   * 
+   * @example
+   * sichuan
+   */
+  province?: string;
+  /**
+   * @remarks
+   * The time when the phone number was purchased.
+   * 
+   * @example
+   * 2021-12-03 15:19:27
+   */
+  purchaseTime?: string;
+  /**
+   * @remarks
+   * The status of the phone number. Valid values:
+   * 
+   * *   **0**: The phone number is not bound to other phone numbers.
+   * *   **1**: The phone number is bound to other phone numbers.
+   * *   **2**: The phone number is locked.
+   * *   **3**: The phone number is frozen.
+   * 
+   * @example
+   * 0
+   */
+  secretStatus?: number;
+  /**
+   * @remarks
+   * The carrier to which the phone number belongs. Valid values:
+   * 
+   * *   **1**: China Mobile
+   * *   **2**: China Unicom
+   * *   **3**: China Telecom
+   * 
+   * @example
+   * 1
+   */
+  vendor?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certifyStatus: 'CertifyStatus',
+      city: 'City',
+      province: 'Province',
+      purchaseTime: 'PurchaseTime',
+      secretStatus: 'SecretStatus',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certifyStatus: 'number',
+      city: 'string',
+      province: 'string',
+      purchaseTime: 'string',
+      secretStatus: 'number',
+      vendor: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOListRemainDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The quantity of remaining phone numbers available for online purchase for the city.
+   * 
+   * @example
+   * 120
+   */
+  amount?: number;
+  /**
+   * @remarks
+   * The home location of the phone numbers.
+   * 
+   * @example
+   * Wuhan
+   */
+  city?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      city: 'City',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      city: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOList extends $dara.Model {
+  remainDTO?: QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOListRemainDTO[];
+  static names(): { [key: string]: string } {
+    return {
+      remainDTO: 'remainDTO',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remainDTO: { 'type': 'array', 'itemType': QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOListRemainDTO },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.remainDTO)) {
+      $dara.Model.validateArray(this.remainDTO);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySecretNoRemainResponseBodySecretRemainDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The quantity of remaining phone numbers available for online purchase.
+   * 
+   * @example
+   * 0
+   */
+  amount?: number;
+  /**
+   * @remarks
+   * The home location of the phone numbers.
+   * 
+   * @example
+   * hangzhou
+   */
+  city?: string;
+  /**
+   * @remarks
+   * The information about remaining phone numbers available for online purchase.
+   */
+  remainDTOList?: QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOList;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      city: 'City',
+      remainDTOList: 'RemainDTOList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      city: 'string',
+      remainDTOList: QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOList,
+    };
+  }
+
+  validate() {
+    if(this.remainDTOList && typeof (this.remainDTOList as any).validate === 'function') {
+      (this.remainDTOList as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundRecordResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 通话录音url路径，最大长度1000，有效期1小时
+   * 
+   * @example
+   * http://www.oss.com/temepl/a.mp3
+   */
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySubscriptionDetailResponseBodySecretBindDetailDTO extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the ASR model.
+   * 
+   * @example
+   * 123456
+   */
+  ASRModelId?: string;
+  /**
+   * @remarks
+   * Indicates whether automatic speech recognition (ASR) is enabled. Valid values:
+   * 
+   * *   **false**: ASR is disabled.
+   * *   **true**: ASR is enabled.
+   * 
+   * @example
+   * true
+   */
+  ASRStatus?: boolean;
+  /**
+   * @remarks
+   * The status of one-way call restrictions. No value is returned for this parameter if one-way call restrictions are not set. Valid values:
+   * 
+   * *   **CONTROL_AX_DISABLE**: Phone number A cannot be used to call phone number X.
+   * *   **CONTROL_BX_DISABLE**: Phone number B cannot be used to call phone number X.
+   * 
+   * @example
+   * CONTROL_BX_DISABLE
+   */
+  callRestrict?: string;
+  /**
+   * @remarks
+   * The expiration time of the binding.
+   * 
+   * @example
+   * 2019-09-05 12:00:00
+   */
+  expireDate?: string;
+  /**
+   * @remarks
+   * The extension in the AXG extension binding.
+   * 
+   * @example
+   * 130
+   */
+  extension?: string;
+  /**
+   * @remarks
+   * The creation time of the binding.
+   * 
+   * @example
+   * 2019-03-05 12:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @remarks
+   * The ID of number group G in the binding.
+   * 
+   * @example
+   * 2000000130001
+   */
+  groupId?: number;
+  /**
+   * @remarks
+   * Indicates whether all calls made by the bound phone numbers are recorded. Valid values:
+   * 
+   * *   **false**
+   * *   **true**
+   * 
+   * @example
+   * true
+   */
+  needRecord?: boolean;
+  /**
+   * @remarks
+   * Phone number A in the binding.
+   * 
+   * @example
+   * 13900001111
+   */
+  phoneNoA?: string;
+  /**
+   * @remarks
+   * Phone number B in the binding.
+   * 
+   * @example
+   * 13900002222
+   */
+  phoneNoB?: string;
+  /**
+   * @remarks
+   * The private number in the binding, that is, phone number X.
+   * 
+   * @example
+   * 13900001234
+   */
+  phoneNoX?: string;
+  /**
+   * @remarks
+   * The binding status. Valid values:
+   * 
+   * *   **0**: The binding expired.
+   * *   **1**: The binding is in effect.
+   * 
+   * @example
+   * 1
+   */
+  status?: number;
+  /**
+   * @remarks
+   * The binding ID.
+   * 
+   * @example
+   * 100000076879****
+   */
+  subsId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ASRModelId: 'ASRModelId',
+      ASRStatus: 'ASRStatus',
+      callRestrict: 'CallRestrict',
+      expireDate: 'ExpireDate',
+      extension: 'Extension',
+      gmtCreate: 'GmtCreate',
+      groupId: 'GroupId',
+      needRecord: 'NeedRecord',
+      phoneNoA: 'PhoneNoA',
+      phoneNoB: 'PhoneNoB',
+      phoneNoX: 'PhoneNoX',
+      status: 'Status',
+      subsId: 'SubsId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ASRModelId: 'string',
+      ASRStatus: 'boolean',
+      callRestrict: 'string',
+      expireDate: 'string',
+      extension: 'string',
+      gmtCreate: 'string',
+      groupId: 'number',
+      needRecord: 'boolean',
+      phoneNoA: 'string',
+      phoneNoB: 'string',
+      phoneNoX: 'string',
+      status: 'number',
+      subsId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnBindAXBResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 返回状态码 0000表示成功 其他表示失败
+   * 
+   * @example
+   * 0000
+   */
+  code?: string;
+  /**
+   * @remarks
+   * 返回信息
+   * 
+   * @example
+   * 成功
+   */
+  message?: string;
+  /**
+   * @remarks
+   * 返回是否成功 true  表示成功 false表示失败
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnBindXBResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * 返回状态码 0000表示成功 其他表示失败
+   * 
+   * @example
+   * 0000
+   */
+  code?: string;
+  /**
+   * @remarks
+   * 返回信息
+   * 
+   * @example
+   * 成功
+   */
+  message?: string;
+  /**
+   * @remarks
+   * 返回是否成功 true  表示成功 false表示失败
+   * 
+   * @example
+   * false
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAxnTrackNoRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -79,12 +3056,16 @@ export class AddAxnTrackNoRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddAxnTrackNoResponseBody extends $tea.Model {
+export class AddAxnTrackNoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -128,12 +3109,16 @@ export class AddAxnTrackNoResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddAxnTrackNoResponse extends $tea.Model {
+export class AddAxnTrackNoResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddAxnTrackNoResponseBody;
@@ -153,12 +3138,22 @@ export class AddAxnTrackNoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddSecretBlacklistRequest extends $tea.Model {
+export class AddSecretBlacklistRequest extends $dara.Model {
   /**
    * @remarks
    * The numbers in the blacklist. A point-to-point blacklist has a pair of numbers separated by a colon (:). A number pool blacklist has only one single number.
@@ -244,12 +3239,16 @@ export class AddSecretBlacklistRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddSecretBlacklistResponseBody extends $tea.Model {
+export class AddSecretBlacklistResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -293,12 +3292,16 @@ export class AddSecretBlacklistResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AddSecretBlacklistResponse extends $tea.Model {
+export class AddSecretBlacklistResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AddSecretBlacklistResponseBody;
@@ -318,12 +3321,22 @@ export class AddSecretBlacklistResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAXBCallRequest extends $tea.Model {
+export class BindAXBCallRequest extends $dara.Model {
   /**
    * @remarks
    * authId绑定关系BX唯一id
@@ -423,12 +3436,16 @@ export class BindAXBCallRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAXBCallResponseBody extends $tea.Model {
+export class BindAXBCallResponseBody extends $dara.Model {
   /**
    * @example
    * 0
@@ -479,12 +3496,19 @@ export class BindAXBCallResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAXBCallResponse extends $tea.Model {
+export class BindAXBCallResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BindAXBCallResponseBody;
@@ -504,12 +3528,22 @@ export class BindAXBCallResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAxbRequest extends $tea.Model {
+export class BindAxbRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ASR model. On the [Automatic Speech Recognition (ASR) Model Management](https://dyplsnext.console.aliyun.com/?spm=5176.12818093.categories-n-products.ddypls.22e616d0a0tEFC#/asr) page, you can view the ID of the ASR model.
@@ -742,12 +3776,16 @@ export class BindAxbRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAxbResponseBody extends $tea.Model {
+export class BindAxbResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -798,12 +3836,19 @@ export class BindAxbResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.secretBindDTO && typeof (this.secretBindDTO as any).validate === 'function') {
+      (this.secretBindDTO as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAxbResponse extends $tea.Model {
+export class BindAxbResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BindAxbResponseBody;
@@ -823,12 +3868,22 @@ export class BindAxbResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAxgRequest extends $tea.Model {
+export class BindAxgRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ASR model.
@@ -1033,12 +4088,16 @@ export class BindAxgRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAxgResponseBody extends $tea.Model {
+export class BindAxgResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -1089,12 +4148,19 @@ export class BindAxgResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.secretBindDTO && typeof (this.secretBindDTO as any).validate === 'function') {
+      (this.secretBindDTO as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAxgResponse extends $tea.Model {
+export class BindAxgResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BindAxgResponseBody;
@@ -1114,12 +4180,22 @@ export class BindAxgResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAxnRequest extends $tea.Model {
+export class BindAxnRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ASR model. On the [Automatic Speech Recognition (ASR) Model Management](https://dyplsnext.console.aliyun.com/?spm=5176.12818093.categories-n-products.ddypls.22e616d0a0tEFC#/asr) page, you can view the ID of the ASR model.
@@ -1336,12 +4412,16 @@ export class BindAxnRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAxnResponseBody extends $tea.Model {
+export class BindAxnResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -1392,12 +4472,19 @@ export class BindAxnResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.secretBindDTO && typeof (this.secretBindDTO as any).validate === 'function') {
+      (this.secretBindDTO as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAxnResponse extends $tea.Model {
+export class BindAxnResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BindAxnResponseBody;
@@ -1417,12 +4504,22 @@ export class BindAxnResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAxnExtensionRequest extends $tea.Model {
+export class BindAxnExtensionRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ASR model. On the [Automatic Speech Recognition (ASR) Model Management](https://dyplsnext.console.aliyun.com/?spm=5176.12818093.categories-n-products.ddypls.22e616d0a0tEFC#/asr) page, you can view the ID of the ASR model.
@@ -1629,12 +4726,16 @@ export class BindAxnExtensionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAxnExtensionResponseBody extends $tea.Model {
+export class BindAxnExtensionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -1685,12 +4786,19 @@ export class BindAxnExtensionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.secretBindDTO && typeof (this.secretBindDTO as any).validate === 'function') {
+      (this.secretBindDTO as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindAxnExtensionResponse extends $tea.Model {
+export class BindAxnExtensionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BindAxnExtensionResponseBody;
@@ -1710,12 +4818,22 @@ export class BindAxnExtensionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindBatchAxgRequest extends $tea.Model {
+export class BindBatchAxgRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1749,12 +4867,19 @@ export class BindBatchAxgRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.axgBindList)) {
+      $dara.Model.validateArray(this.axgBindList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindBatchAxgShrinkRequest extends $tea.Model {
+export class BindBatchAxgShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1788,12 +4913,16 @@ export class BindBatchAxgShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindBatchAxgResponseBody extends $tea.Model {
+export class BindBatchAxgResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -1828,12 +4957,19 @@ export class BindBatchAxgResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.secretBindList && typeof (this.secretBindList as any).validate === 'function') {
+      (this.secretBindList as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindBatchAxgResponse extends $tea.Model {
+export class BindBatchAxgResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BindBatchAxgResponseBody;
@@ -1853,12 +4989,22 @@ export class BindBatchAxgResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindXBRequest extends $tea.Model {
+export class BindXBRequest extends $dara.Model {
   /**
    * @remarks
    * 客户uid
@@ -1946,12 +5092,16 @@ export class BindXBRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindXBResponseBody extends $tea.Model {
+export class BindXBResponseBody extends $dara.Model {
   /**
    * @example
    * 0
@@ -2002,12 +5152,19 @@ export class BindXBResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BindXBResponse extends $tea.Model {
+export class BindXBResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BindXBResponseBody;
@@ -2027,12 +5184,22 @@ export class BindXBResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BuySecretNoRequest extends $tea.Model {
+export class BuySecretNoRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies the home location of the phone number.
@@ -2122,12 +5289,16 @@ export class BuySecretNoRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BuySecretNoResponseBody extends $tea.Model {
+export class BuySecretNoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -2178,12 +5349,19 @@ export class BuySecretNoResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.secretBuyInfoDTO && typeof (this.secretBuyInfoDTO as any).validate === 'function') {
+      (this.secretBuyInfoDTO as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BuySecretNoResponse extends $tea.Model {
+export class BuySecretNoResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: BuySecretNoResponseBody;
@@ -2203,12 +5381,22 @@ export class BuySecretNoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelPickUpWaybillRequest extends $tea.Model {
+export class CancelPickUpWaybillRequest extends $dara.Model {
   /**
    * @remarks
    * The cancellation reason.
@@ -2252,12 +5440,16 @@ export class CancelPickUpWaybillRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelPickUpWaybillResponseBody extends $tea.Model {
+export class CancelPickUpWaybillResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -2308,12 +5500,19 @@ export class CancelPickUpWaybillResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CancelPickUpWaybillResponse extends $tea.Model {
+export class CancelPickUpWaybillResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CancelPickUpWaybillResponseBody;
@@ -2333,12 +5532,22 @@ export class CancelPickUpWaybillResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConfigXRequest extends $tea.Model {
+export class ConfigXRequest extends $dara.Model {
   /**
    * @remarks
    * 开/关呼叫能力状态‘0’：禁用‘1’：开启
@@ -2461,12 +5670,19 @@ export class ConfigXRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.sequenceCalls)) {
+      $dara.Model.validateArray(this.sequenceCalls);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConfigXShrinkRequest extends $tea.Model {
+export class ConfigXShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * 开/关呼叫能力状态‘0’：禁用‘1’：开启
@@ -2589,12 +5805,16 @@ export class ConfigXShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConfigXResponseBody extends $tea.Model {
+export class ConfigXResponseBody extends $dara.Model {
   /**
    * @example
    * 0
@@ -2635,12 +5855,19 @@ export class ConfigXResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConfigXResponse extends $tea.Model {
+export class ConfigXResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ConfigXResponseBody;
@@ -2660,12 +5887,22 @@ export class ConfigXResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAxgGroupRequest extends $tea.Model {
+export class CreateAxgGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The name of number group G. If the name of number group G is not specified, the ID of number group G is used as the name of number group G.
@@ -2729,12 +5966,16 @@ export class CreateAxgGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAxgGroupResponseBody extends $tea.Model {
+export class CreateAxgGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -2788,12 +6029,16 @@ export class CreateAxgGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAxgGroupResponse extends $tea.Model {
+export class CreateAxgGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateAxgGroupResponseBody;
@@ -2813,12 +6058,22 @@ export class CreateAxgGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePickUpWaybillRequest extends $tea.Model {
+export class CreatePickUpWaybillRequest extends $dara.Model {
   /**
    * @remarks
    * The end time of the door-to-door pickup in the appointment. The value of **AppointGotEndTime** is the value of **EndTime** of **AppointTimes** in **CpTimeSelectList** returned by the [CreatePickUpWaybillPreQuery](~~CreatePickUpWaybillPreQuery~~#resultMapping) operation.
@@ -3007,12 +6262,25 @@ export class CreatePickUpWaybillRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.consigneeAddress && typeof (this.consigneeAddress as any).validate === 'function') {
+      (this.consigneeAddress as any).validate();
+    }
+    if(Array.isArray(this.goodsInfos)) {
+      $dara.Model.validateArray(this.goodsInfos);
+    }
+    if(this.sendAddress && typeof (this.sendAddress as any).validate === 'function') {
+      (this.sendAddress as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePickUpWaybillShrinkRequest extends $tea.Model {
+export class CreatePickUpWaybillShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The end time of the door-to-door pickup in the appointment. The value of **AppointGotEndTime** is the value of **EndTime** of **AppointTimes** in **CpTimeSelectList** returned by the [CreatePickUpWaybillPreQuery](~~CreatePickUpWaybillPreQuery~~#resultMapping) operation.
@@ -3201,12 +6469,16 @@ export class CreatePickUpWaybillShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePickUpWaybillResponseBody extends $tea.Model {
+export class CreatePickUpWaybillResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned data.
@@ -3254,12 +6526,19 @@ export class CreatePickUpWaybillResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePickUpWaybillResponse extends $tea.Model {
+export class CreatePickUpWaybillResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreatePickUpWaybillResponseBody;
@@ -3279,12 +6558,22 @@ export class CreatePickUpWaybillResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePickUpWaybillPreQueryRequest extends $tea.Model {
+export class CreatePickUpWaybillPreQueryRequest extends $dara.Model {
   /**
    * @remarks
    * The consignee information.
@@ -3357,12 +6646,22 @@ export class CreatePickUpWaybillPreQueryRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.consigneeInfo && typeof (this.consigneeInfo as any).validate === 'function') {
+      (this.consigneeInfo as any).validate();
+    }
+    if(this.senderInfo && typeof (this.senderInfo as any).validate === 'function') {
+      (this.senderInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePickUpWaybillPreQueryShrinkRequest extends $tea.Model {
+export class CreatePickUpWaybillPreQueryShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The consignee information.
@@ -3435,12 +6734,16 @@ export class CreatePickUpWaybillPreQueryShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePickUpWaybillPreQueryResponseBody extends $tea.Model {
+export class CreatePickUpWaybillPreQueryResponseBody extends $dara.Model {
   /**
    * @remarks
    * The result set.
@@ -3488,12 +6791,19 @@ export class CreatePickUpWaybillPreQueryResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreatePickUpWaybillPreQueryResponse extends $tea.Model {
+export class CreatePickUpWaybillPreQueryResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreatePickUpWaybillPreQueryResponseBody;
@@ -3513,12 +6823,22 @@ export class CreatePickUpWaybillPreQueryResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmsSignRequest extends $tea.Model {
+export class CreateSmsSignRequest extends $dara.Model {
   /**
    * @remarks
    * 收信人号码
@@ -3596,12 +6916,16 @@ export class CreateSmsSignRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmsSignResponseBody extends $tea.Model {
+export class CreateSmsSignResponseBody extends $dara.Model {
   /**
    * @example
    * 0
@@ -3652,12 +6976,19 @@ export class CreateSmsSignResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateSmsSignResponse extends $tea.Model {
+export class CreateSmsSignResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateSmsSignResponseBody;
@@ -3677,12 +7008,22 @@ export class CreateSmsSignResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAxgGroupRequest extends $tea.Model {
+export class DeleteAxgGroupRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3722,12 +7063,16 @@ export class DeleteAxgGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAxgGroupResponseBody extends $tea.Model {
+export class DeleteAxgGroupResponseBody extends $dara.Model {
   /**
    * @example
    * OK
@@ -3759,12 +7104,16 @@ export class DeleteAxgGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAxgGroupResponse extends $tea.Model {
+export class DeleteAxgGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteAxgGroupResponseBody;
@@ -3784,12 +7133,22 @@ export class DeleteAxgGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSecretBlacklistRequest extends $tea.Model {
+export class DeleteSecretBlacklistRequest extends $dara.Model {
   /**
    * @remarks
    * The phone numbers in the blacklist. A point-to-point blacklist has a pair of numbers separated by a colon (":"). A number pool blacklist or a platform blacklist has only one single number.
@@ -3869,12 +7228,16 @@ export class DeleteSecretBlacklistRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSecretBlacklistResponseBody extends $tea.Model {
+export class DeleteSecretBlacklistResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -3918,12 +7281,16 @@ export class DeleteSecretBlacklistResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteSecretBlacklistResponse extends $tea.Model {
+export class DeleteSecretBlacklistResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteSecretBlacklistResponseBody;
@@ -3943,12 +7310,22 @@ export class DeleteSecretBlacklistResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSecretAsrDetailRequest extends $tea.Model {
+export class GetSecretAsrDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the call record.
@@ -4001,12 +7378,16 @@ export class GetSecretAsrDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSecretAsrDetailResponseBody extends $tea.Model {
+export class GetSecretAsrDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -4054,12 +7435,19 @@ export class GetSecretAsrDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetSecretAsrDetailResponse extends $tea.Model {
+export class GetSecretAsrDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetSecretAsrDetailResponseBody;
@@ -4079,12 +7467,22 @@ export class GetSecretAsrDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTotalPublicUrlRequest extends $tea.Model {
+export class GetTotalPublicUrlRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the call record.
@@ -4156,12 +7554,16 @@ export class GetTotalPublicUrlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTotalPublicUrlResponseBody extends $tea.Model {
+export class GetTotalPublicUrlResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -4212,12 +7614,19 @@ export class GetTotalPublicUrlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTotalPublicUrlResponse extends $tea.Model {
+export class GetTotalPublicUrlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetTotalPublicUrlResponseBody;
@@ -4237,12 +7646,22 @@ export class GetTotalPublicUrlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetXConfigRequest extends $tea.Model {
+export class GetXConfigRequest extends $dara.Model {
   /**
    * @remarks
    * 客户uid
@@ -4308,12 +7727,16 @@ export class GetXConfigRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetXConfigResponseBody extends $tea.Model {
+export class GetXConfigResponseBody extends $dara.Model {
   /**
    * @example
    * 0
@@ -4364,12 +7787,19 @@ export class GetXConfigResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetXConfigResponse extends $tea.Model {
+export class GetXConfigResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetXConfigResponseBody;
@@ -4389,12 +7819,22 @@ export class GetXConfigResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetXDefaultConfigRequest extends $tea.Model {
+export class GetXDefaultConfigRequest extends $dara.Model {
   /**
    * @remarks
    * 客户uid
@@ -4460,12 +7900,16 @@ export class GetXDefaultConfigRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetXDefaultConfigResponseBody extends $tea.Model {
+export class GetXDefaultConfigResponseBody extends $dara.Model {
   /**
    * @example
    * 0
@@ -4516,12 +7960,19 @@ export class GetXDefaultConfigResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetXDefaultConfigResponse extends $tea.Model {
+export class GetXDefaultConfigResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetXDefaultConfigResponseBody;
@@ -4541,12 +7992,22 @@ export class GetXDefaultConfigResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListXTelephonesRequest extends $tea.Model {
+export class ListXTelephonesRequest extends $dara.Model {
   /**
    * @remarks
    * 客户uid
@@ -4618,12 +8079,16 @@ export class ListXTelephonesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListXTelephonesResponseBody extends $tea.Model {
+export class ListXTelephonesResponseBody extends $dara.Model {
   /**
    * @example
    * 0
@@ -4674,12 +8139,19 @@ export class ListXTelephonesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListXTelephonesResponse extends $tea.Model {
+export class ListXTelephonesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListXTelephonesResponseBody;
@@ -4699,12 +8171,22 @@ export class ListXTelephonesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LockSecretNoRequest extends $tea.Model {
+export class LockSecretNoRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -4750,12 +8232,16 @@ export class LockSecretNoRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LockSecretNoResponseBody extends $tea.Model {
+export class LockSecretNoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -4799,12 +8285,16 @@ export class LockSecretNoResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LockSecretNoResponse extends $tea.Model {
+export class LockSecretNoResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: LockSecretNoResponseBody;
@@ -4824,12 +8314,22 @@ export class LockSecretNoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OperateAxgGroupRequest extends $tea.Model {
+export class OperateAxgGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The group ID in the AXG binding.
@@ -4914,12 +8414,16 @@ export class OperateAxgGroupRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OperateAxgGroupResponseBody extends $tea.Model {
+export class OperateAxgGroupResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -4963,12 +8467,16 @@ export class OperateAxgGroupResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OperateAxgGroupResponse extends $tea.Model {
+export class OperateAxgGroupResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: OperateAxgGroupResponseBody;
@@ -4988,12 +8496,22 @@ export class OperateAxgGroupResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OperateBlackNoRequest extends $tea.Model {
+export class OperateBlackNoRequest extends $dara.Model {
   /**
    * @remarks
    * The phone number to be added to or deleted from the blacklist.
@@ -5062,12 +8580,16 @@ export class OperateBlackNoRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OperateBlackNoResponseBody extends $tea.Model {
+export class OperateBlackNoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -5111,12 +8633,16 @@ export class OperateBlackNoResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OperateBlackNoResponse extends $tea.Model {
+export class OperateBlackNoResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: OperateBlackNoResponseBody;
@@ -5136,12 +8662,22 @@ export class OperateBlackNoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPhoneNoAByTrackNoRequest extends $tea.Model {
+export class QueryPhoneNoAByTrackNoRequest extends $dara.Model {
   /**
    * @remarks
    * The cabinet number.
@@ -5193,12 +8729,16 @@ export class QueryPhoneNoAByTrackNoRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPhoneNoAByTrackNoResponseBody extends $tea.Model {
+export class QueryPhoneNoAByTrackNoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -5249,12 +8789,19 @@ export class QueryPhoneNoAByTrackNoResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.module)) {
+      $dara.Model.validateArray(this.module);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryPhoneNoAByTrackNoResponse extends $tea.Model {
+export class QueryPhoneNoAByTrackNoResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryPhoneNoAByTrackNoResponseBody;
@@ -5274,12 +8821,22 @@ export class QueryPhoneNoAByTrackNoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryRecordFileDownloadUrlRequest extends $tea.Model {
+export class QueryRecordFileDownloadUrlRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the call record. Log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) and view **Call Record ID** on the **Call Record Query** page.
@@ -5354,12 +8911,16 @@ export class QueryRecordFileDownloadUrlRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryRecordFileDownloadUrlResponseBody extends $tea.Model {
+export class QueryRecordFileDownloadUrlResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -5413,12 +8974,16 @@ export class QueryRecordFileDownloadUrlResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryRecordFileDownloadUrlResponse extends $tea.Model {
+export class QueryRecordFileDownloadUrlResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QueryRecordFileDownloadUrlResponseBody;
@@ -5438,12 +9003,22 @@ export class QueryRecordFileDownloadUrlResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySecretNoDetailRequest extends $tea.Model {
+export class QuerySecretNoDetailRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -5489,12 +9064,16 @@ export class QuerySecretNoDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySecretNoDetailResponseBody extends $tea.Model {
+export class QuerySecretNoDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -5545,12 +9124,19 @@ export class QuerySecretNoDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.secretNoInfoDTO && typeof (this.secretNoInfoDTO as any).validate === 'function') {
+      (this.secretNoInfoDTO as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySecretNoDetailResponse extends $tea.Model {
+export class QuerySecretNoDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySecretNoDetailResponseBody;
@@ -5570,12 +9156,22 @@ export class QuerySecretNoDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySecretNoRemainRequest extends $tea.Model {
+export class QuerySecretNoRemainRequest extends $dara.Model {
   /**
    * @remarks
    * The home location of the phone number.
@@ -5645,12 +9241,16 @@ export class QuerySecretNoRemainRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySecretNoRemainResponseBody extends $tea.Model {
+export class QuerySecretNoRemainResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -5701,12 +9301,19 @@ export class QuerySecretNoRemainResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.secretRemainDTO && typeof (this.secretRemainDTO as any).validate === 'function') {
+      (this.secretRemainDTO as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySecretNoRemainResponse extends $tea.Model {
+export class QuerySecretNoRemainResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySecretNoRemainResponseBody;
@@ -5726,12 +9333,22 @@ export class QuerySecretNoRemainResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySoundRecordRequest extends $tea.Model {
+export class QuerySoundRecordRequest extends $dara.Model {
   /**
    * @remarks
    * 本次呼叫唯一id
@@ -5797,12 +9414,16 @@ export class QuerySoundRecordRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySoundRecordResponseBody extends $tea.Model {
+export class QuerySoundRecordResponseBody extends $dara.Model {
   /**
    * @example
    * 0
@@ -5853,12 +9474,19 @@ export class QuerySoundRecordResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySoundRecordResponse extends $tea.Model {
+export class QuerySoundRecordResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySoundRecordResponseBody;
@@ -5878,12 +9506,22 @@ export class QuerySoundRecordResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySubsIdRequest extends $tea.Model {
+export class QuerySubsIdRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -5927,12 +9565,16 @@ export class QuerySubsIdRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySubsIdResponseBody extends $tea.Model {
+export class QuerySubsIdResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code. The value OK indicates that the request was successful.
@@ -5983,12 +9625,16 @@ export class QuerySubsIdResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySubsIdResponse extends $tea.Model {
+export class QuerySubsIdResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySubsIdResponseBody;
@@ -6008,12 +9654,22 @@ export class QuerySubsIdResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySubscriptionDetailRequest extends $tea.Model {
+export class QuerySubscriptionDetailRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -6092,12 +9748,16 @@ export class QuerySubscriptionDetailRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySubscriptionDetailResponseBody extends $tea.Model {
+export class QuerySubscriptionDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -6148,12 +9808,19 @@ export class QuerySubscriptionDetailResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.secretBindDetailDTO && typeof (this.secretBindDetailDTO as any).validate === 'function') {
+      (this.secretBindDetailDTO as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QuerySubscriptionDetailResponse extends $tea.Model {
+export class QuerySubscriptionDetailResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: QuerySubscriptionDetailResponseBody;
@@ -6173,12 +9840,22 @@ export class QuerySubscriptionDetailResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReleaseSecretNoRequest extends $tea.Model {
+export class ReleaseSecretNoRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -6224,12 +9901,16 @@ export class ReleaseSecretNoRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReleaseSecretNoResponseBody extends $tea.Model {
+export class ReleaseSecretNoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -6273,12 +9954,16 @@ export class ReleaseSecretNoResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReleaseSecretNoResponse extends $tea.Model {
+export class ReleaseSecretNoResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ReleaseSecretNoResponseBody;
@@ -6298,12 +9983,22 @@ export class ReleaseSecretNoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnBindAXBRequest extends $tea.Model {
+export class UnBindAXBRequest extends $dara.Model {
   /**
    * @remarks
    * bindId绑定关系AXB唯一id
@@ -6369,12 +10064,16 @@ export class UnBindAXBRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnBindAXBResponseBody extends $tea.Model {
+export class UnBindAXBResponseBody extends $dara.Model {
   /**
    * @example
    * 0
@@ -6415,12 +10114,19 @@ export class UnBindAXBResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnBindAXBResponse extends $tea.Model {
+export class UnBindAXBResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UnBindAXBResponseBody;
@@ -6440,12 +10146,22 @@ export class UnBindAXBResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnBindXBRequest extends $tea.Model {
+export class UnBindXBRequest extends $dara.Model {
   /**
    * @remarks
    * authId绑定关系BX唯一id
@@ -6523,12 +10239,16 @@ export class UnBindXBRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnBindXBResponseBody extends $tea.Model {
+export class UnBindXBResponseBody extends $dara.Model {
   /**
    * @example
    * 0
@@ -6569,12 +10289,19 @@ export class UnBindXBResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnBindXBResponse extends $tea.Model {
+export class UnBindXBResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UnBindXBResponseBody;
@@ -6594,12 +10321,22 @@ export class UnBindXBResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnbindSubscriptionRequest extends $tea.Model {
+export class UnbindSubscriptionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -6673,12 +10410,16 @@ export class UnbindSubscriptionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnbindSubscriptionResponseBody extends $tea.Model {
+export class UnbindSubscriptionResponseBody extends $dara.Model {
   /**
    * @remarks
    * A deprecated parameter.
@@ -6732,12 +10473,16 @@ export class UnbindSubscriptionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnbindSubscriptionResponse extends $tea.Model {
+export class UnbindSubscriptionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UnbindSubscriptionResponseBody;
@@ -6757,12 +10502,22 @@ export class UnbindSubscriptionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnlockSecretNoRequest extends $tea.Model {
+export class UnlockSecretNoRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
@@ -6808,12 +10563,16 @@ export class UnlockSecretNoRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnlockSecretNoResponseBody extends $tea.Model {
+export class UnlockSecretNoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -6857,12 +10616,16 @@ export class UnlockSecretNoResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UnlockSecretNoResponse extends $tea.Model {
+export class UnlockSecretNoResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UnlockSecretNoResponseBody;
@@ -6882,12 +10645,22 @@ export class UnlockSecretNoResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSubscriptionRequest extends $tea.Model {
+export class UpdateSubscriptionRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the ASR model.
@@ -7145,12 +10918,16 @@ export class UpdateSubscriptionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSubscriptionResponseBody extends $tea.Model {
+export class UpdateSubscriptionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response code.
@@ -7194,12 +10971,16 @@ export class UpdateSubscriptionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateSubscriptionResponse extends $tea.Model {
+export class UpdateSubscriptionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateSubscriptionResponseBody;
@@ -7219,2750 +11000,14 @@ export class UpdateSubscriptionResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindAXBCallResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * 绑定关系ID
-   * 
-   * @example
-   * 476567566
-   */
-  bindId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bindId: 'BindId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bindId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindAxbResponseBodySecretBindDTO extends $tea.Model {
-  /**
-   * @remarks
-   * The extension of the phone number.
-   * 
-   * >  The BindAxb operation does not involve an extension. Ignore this parameter.
-   * 
-   * @example
-   * 130
-   */
-  extension?: string;
-  /**
-   * @remarks
-   * The private number, that is, phone number X.
-   * 
-   * @example
-   * 139****0000
-   */
-  secretNo?: string;
-  /**
-   * @remarks
-   * The binding ID.
-   * 
-   * @example
-   * 1**************3
-   */
-  subsId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extension: 'Extension',
-      secretNo: 'SecretNo',
-      subsId: 'SubsId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extension: 'string',
-      secretNo: 'string',
-      subsId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindAxgResponseBodySecretBindDTO extends $tea.Model {
-  /**
-   * @remarks
-   * The extension of the phone number.
-   * 
-   * >  The BindAxg operation does not involve an extension. Ignore this parameter.
-   * 
-   * @example
-   * 139****0000
-   */
-  extension?: string;
-  /**
-   * @remarks
-   * The private number, that is, phone number X.
-   * 
-   * @example
-   * 139****0000
-   */
-  secretNo?: string;
-  /**
-   * @remarks
-   * The binding ID.
-   * 
-   * @example
-   * 1************3
-   */
-  subsId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extension: 'Extension',
-      secretNo: 'SecretNo',
-      subsId: 'SubsId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extension: 'string',
-      secretNo: 'string',
-      subsId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindAxnResponseBodySecretBindDTO extends $tea.Model {
-  /**
-   * @remarks
-   * The extension of the phone number.
-   * 
-   * >  The BindAxn operation does not involve an extension. Ignore this parameter.
-   * 
-   * @example
-   * 130
-   */
-  extension?: string;
-  /**
-   * @remarks
-   * The private number, that is, phone number X.
-   * 
-   * @example
-   * 139****0000
-   */
-  secretNo?: string;
-  /**
-   * @remarks
-   * The binding ID.
-   * 
-   * @example
-   * 1***************3
-   */
-  subsId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extension: 'Extension',
-      secretNo: 'SecretNo',
-      subsId: 'SubsId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extension: 'string',
-      secretNo: 'string',
-      subsId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindAxnExtensionResponseBodySecretBindDTO extends $tea.Model {
-  /**
-   * @remarks
-   * The extension of the phone number.
-   * 
-   * @example
-   * 130
-   */
-  extension?: string;
-  /**
-   * @remarks
-   * The private number, that is, phone number X.
-   * 
-   * @example
-   * 139*****0000
-   */
-  secretNo?: string;
-  /**
-   * @remarks
-   * The binding ID.
-   * 
-   * @example
-   * 1***************3
-   */
-  subsId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extension: 'Extension',
-      secretNo: 'SecretNo',
-      subsId: 'SubsId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extension: 'string',
-      secretNo: 'string',
-      subsId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindBatchAxgRequestAxgBindList extends $tea.Model {
-  /**
-   * @example
-   * 7ee372834d2f4cc7ac0d0ab2d0ae1aac
-   */
-  ASRModelId?: string;
-  /**
-   * @example
-   * true
-   */
-  ASRStatus?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  callDisplayType?: number;
-  /**
-   * @example
-   * CONTROL_AX_DISABLE
-   */
-  callRestrict?: string;
-  expectCity?: string;
-  /**
-   * @example
-   * 2022-07-11 01:05:15
-   */
-  expiration?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1234
-   */
-  groupId?: string;
-  /**
-   * @example
-   * False
-   */
-  isRecordingEnabled?: boolean;
-  /**
-   * @example
-   * 18223ad447910fd
-   */
-  outId?: string;
-  /**
-   * @example
-   * 20220824021816883677
-   */
-  outOrderId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 13333333333
-   */
-  phoneNoA?: string;
-  /**
-   * @example
-   * 13333333333
-   */
-  phoneNoB?: string;
-  /**
-   * @example
-   * 13333333333
-   */
-  phoneNoX?: string;
-  /**
-   * @example
-   * {\\"AXBRing_B\\":\\"100000002\\",\\"AXBRing_A\\":\\"100000001\\"}
-   */
-  ringConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ASRModelId: 'ASRModelId',
-      ASRStatus: 'ASRStatus',
-      callDisplayType: 'CallDisplayType',
-      callRestrict: 'CallRestrict',
-      expectCity: 'ExpectCity',
-      expiration: 'Expiration',
-      groupId: 'GroupId',
-      isRecordingEnabled: 'IsRecordingEnabled',
-      outId: 'OutId',
-      outOrderId: 'OutOrderId',
-      phoneNoA: 'PhoneNoA',
-      phoneNoB: 'PhoneNoB',
-      phoneNoX: 'PhoneNoX',
-      ringConfig: 'RingConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ASRModelId: 'string',
-      ASRStatus: 'boolean',
-      callDisplayType: 'number',
-      callRestrict: 'string',
-      expectCity: 'string',
-      expiration: 'string',
-      groupId: 'string',
-      isRecordingEnabled: 'boolean',
-      outId: 'string',
-      outOrderId: 'string',
-      phoneNoA: 'string',
-      phoneNoB: 'string',
-      phoneNoX: 'string',
-      ringConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindBatchAxgResponseBodySecretBindListSecretBind extends $tea.Model {
-  /**
-   * @example
-   * isv.INVALID_PARAMETERS
-   */
-  code?: string;
-  /**
-   * @example
-   * 257
-   */
-  extension?: string;
-  /**
-   * @example
-   * 1234
-   */
-  groupId?: string;
-  /**
-   * @example
-   * ringConfig invalid
-   */
-  message?: string;
-  /**
-   * @example
-   * 13333333333
-   */
-  phoneNoA?: string;
-  /**
-   * @example
-   * 13333333333
-   */
-  secretNo?: string;
-  /**
-   * @example
-   * 1000085060515673
-   */
-  subsId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      extension: 'Extension',
-      groupId: 'GroupId',
-      message: 'Message',
-      phoneNoA: 'PhoneNoA',
-      secretNo: 'SecretNo',
-      subsId: 'SubsId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      extension: 'string',
-      groupId: 'string',
-      message: 'string',
-      phoneNoA: 'string',
-      secretNo: 'string',
-      subsId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindBatchAxgResponseBodySecretBindList extends $tea.Model {
-  secretBind?: BindBatchAxgResponseBodySecretBindListSecretBind[];
-  static names(): { [key: string]: string } {
-    return {
-      secretBind: 'SecretBind',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      secretBind: { 'type': 'array', 'itemType': BindBatchAxgResponseBodySecretBindListSecretBind },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindXBResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * 工作号关系绑定的唯一标识
-   * 
-   * @example
-   * 4353453456
-   */
-  authId?: string;
-  /**
-   * @remarks
-   * X号码
-   * 
-   * @example
-   * 18640577897
-   */
-  telX?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authId: 'AuthId',
-      telX: 'TelX',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authId: 'string',
-      telX: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BuySecretNoResponseBodySecretBuyInfoDTO extends $tea.Model {
-  /**
-   * @remarks
-   * The private number, that is, phone number X.
-   * 
-   * @example
-   * 1390000****
-   */
-  secretNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      secretNo: 'SecretNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      secretNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelPickUpWaybillResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * none
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * none
-   */
-  errorMsg?: string;
-  /**
-   * @remarks
-   * The cancellation result.
-   * 
-   * @example
-   * OK
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Indicates whether the cancellation was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorMsg: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigXRequestSequenceCalls extends $tea.Model {
-  /**
-   * @remarks
-   * 顺振提示音放音编号，格式如callNoPlayCode
-   * 
-   * @example
-   * 01
-   */
-  sequenceCallNoPlayCode?: string;
-  /**
-   * @remarks
-   * 顺振被叫号码
-   * 
-   * @example
-   * 18*******33
-   */
-  sequenceCalledNo?: string;
-  /**
-   * @remarks
-   * 接通后主被叫放音编号，格式如calledPlayCode
-   * 
-   * @example
-   * 02
-   */
-  sequenceCalledPlayCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sequenceCallNoPlayCode: 'SequenceCallNoPlayCode',
-      sequenceCalledNo: 'SequenceCalledNo',
-      sequenceCalledPlayCode: 'SequenceCalledPlayCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sequenceCallNoPlayCode: 'string',
-      sequenceCalledNo: 'string',
-      sequenceCalledPlayCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ConfigXResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * 返回状态码 0000表示成功 其他表示失败
-   * 
-   * @example
-   * 0000
-   */
-  code?: string;
-  /**
-   * @remarks
-   * 返回信息
-   * 
-   * @example
-   * 成功
-   */
-  message?: string;
-  /**
-   * @remarks
-   * 返回是否成功 true  表示成功 false表示失败
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePickUpWaybillRequestConsigneeAddress extends $tea.Model {
-  /**
-   * @remarks
-   * The detailed address of the consignee.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * XX community
-   */
-  addressDetail?: string;
-  /**
-   * @remarks
-   * The district where the consignee is located.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * xihu
-   */
-  areaName?: string;
-  /**
-   * @remarks
-   * The city where the consignee is located.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * hangzhou
-   */
-  cityName?: string;
-  /**
-   * @remarks
-   * The province where the consignee is located.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * zhejiang
-   */
-  provinceName?: string;
-  /**
-   * @remarks
-   * The street where the consignee is located.
-   * 
-   * @example
-   * XX Street
-   */
-  townName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addressDetail: 'AddressDetail',
-      areaName: 'AreaName',
-      cityName: 'CityName',
-      provinceName: 'ProvinceName',
-      townName: 'TownName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addressDetail: 'string',
-      areaName: 'string',
-      cityName: 'string',
-      provinceName: 'string',
-      townName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePickUpWaybillRequestGoodsInfos extends $tea.Model {
-  /**
-   * @remarks
-   * The item name.
-   * 
-   * @example
-   * zhang
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The item quantity.
-   * 
-   * @example
-   * 1
-   */
-  quantity?: string;
-  /**
-   * @remarks
-   * The item weight. Unit: gram.
-   * 
-   * @example
-   * 1000
-   */
-  weight?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      quantity: 'Quantity',
-      weight: 'Weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      quantity: 'string',
-      weight: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePickUpWaybillRequestSendAddress extends $tea.Model {
-  /**
-   * @remarks
-   * The detailed address of the sender.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * XX community
-   */
-  addressDetail?: string;
-  /**
-   * @remarks
-   * The district where the sender is located.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * wenjiang
-   */
-  areaName?: string;
-  /**
-   * @remarks
-   * The city where the sender is located.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * chengdu
-   */
-  cityName?: string;
-  /**
-   * @remarks
-   * The province where the sender is located.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Sichuan
-   */
-  provinceName?: string;
-  /**
-   * @remarks
-   * The street where the sender is located.
-   * 
-   * @example
-   * XX Street
-   */
-  townName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addressDetail: 'AddressDetail',
-      areaName: 'AreaName',
-      cityName: 'CityName',
-      provinceName: 'ProvinceName',
-      townName: 'TownName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addressDetail: 'string',
-      areaName: 'string',
-      cityName: 'string',
-      provinceName: 'string',
-      townName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePickUpWaybillResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The code of the courier company.
-   * 
-   * @example
-   * YTO
-   */
-  cpCode?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * 200
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * none
-   */
-  errorMsg?: string;
-  /**
-   * @remarks
-   * The pickup code.
-   * 
-   * @example
-   * 3524
-   */
-  gotCode?: string;
-  /**
-   * @remarks
-   * The order ID.
-   * 
-   * @example
-   * 77312345629****
-   */
-  mailNo?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cpCode: 'CpCode',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      gotCode: 'GotCode',
-      mailNo: 'MailNo',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cpCode: 'string',
-      errorCode: 'string',
-      errorMsg: 'string',
-      gotCode: 'string',
-      mailNo: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The detailed address of the consignee.
-   * 
-   * @example
-   * XX community
-   */
-  addressDetail?: string;
-  /**
-   * @remarks
-   * The district where the consignee is located.
-   * 
-   * @example
-   * chang,an
-   */
-  areaName?: string;
-  /**
-   * @remarks
-   * The city where the consignee is located.
-   * 
-   * @example
-   * Xi,an
-   */
-  cityName?: string;
-  /**
-   * @remarks
-   * The province where the consignee is located.
-   * 
-   * @example
-   * Shanxi
-   */
-  provinceName?: string;
-  /**
-   * @remarks
-   * The street where the consignee is located.
-   * 
-   * @example
-   * XX Street
-   */
-  townName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addressDetail: 'AddressDetail',
-      areaName: 'AreaName',
-      cityName: 'CityName',
-      provinceName: 'ProvinceName',
-      townName: 'TownName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addressDetail: 'string',
-      areaName: 'string',
-      cityName: 'string',
-      provinceName: 'string',
-      townName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePickUpWaybillPreQueryRequestConsigneeInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The address of the consignee.
-   */
-  addressInfo?: CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo;
-  /**
-   * @remarks
-   * The mobile phone number of the consignee.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1390000****
-   */
-  mobile?: string;
-  /**
-   * @remarks
-   * The name of the consignee.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Li
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addressInfo: 'AddressInfo',
-      mobile: 'Mobile',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addressInfo: CreatePickUpWaybillPreQueryRequestConsigneeInfoAddressInfo,
-      mobile: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The detailed address of the sender.
-   * 
-   * @example
-   * XX community
-   */
-  addressDetail?: string;
-  /**
-   * @remarks
-   * The district where the sender is located.
-   * 
-   * @example
-   * xihu
-   */
-  areaName?: string;
-  /**
-   * @remarks
-   * The city where the sender is located.
-   * 
-   * @example
-   * hangzhou
-   */
-  cityName?: string;
-  /**
-   * @remarks
-   * The province where the sender is located.
-   * 
-   * @example
-   * zhejiang
-   */
-  provinceName?: string;
-  /**
-   * @remarks
-   * The street where the sender is located.
-   * 
-   * @example
-   * XX Street
-   */
-  townName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addressDetail: 'AddressDetail',
-      areaName: 'AreaName',
-      cityName: 'CityName',
-      provinceName: 'ProvinceName',
-      townName: 'TownName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addressDetail: 'string',
-      areaName: 'string',
-      cityName: 'string',
-      provinceName: 'string',
-      townName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePickUpWaybillPreQueryRequestSenderInfo extends $tea.Model {
-  /**
-   * @remarks
-   * The address of the sender.
-   */
-  addressInfo?: CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo;
-  /**
-   * @remarks
-   * The mobile phone number of the sender.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1390000****
-   */
-  mobile?: string;
-  /**
-   * @remarks
-   * The name of the sender.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Wang
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addressInfo: 'AddressInfo',
-      mobile: 'Mobile',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addressInfo: CreatePickUpWaybillPreQueryRequestSenderInfoAddressInfo,
-      mobile: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList extends $tea.Model {
-  /**
-   * @remarks
-   * The end of the time range.
-   * 
-   * @example
-   * 12:00:00
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The tip displayed when the scheduled pickup is not available.
-   * 
-   * @example
-   * Appointment Full
-   */
-  selectDisableTip?: string;
-  /**
-   * @remarks
-   * Indicates whether the time range can be selected for the scheduled pickup.
-   * 
-   * @example
-   * true
-   */
-  selectable?: boolean;
-  /**
-   * @remarks
-   * The beginning of the time range.
-   * 
-   * @example
-   * 10:00:00
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      selectDisableTip: 'SelectDisableTip',
-      selectable: 'Selectable',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      selectDisableTip: 'string',
-      selectable: 'boolean',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes extends $tea.Model {
-  /**
-   * @remarks
-   * The date in the YYYY-MM-DD format.
-   * 
-   * @example
-   * 2022-04-28
-   */
-  date?: string;
-  /**
-   * @remarks
-   * Indicates whether the date is selectable.
-   * 
-   * @example
-   * true
-   */
-  dateSelectable?: boolean;
-  /**
-   * @remarks
-   * The time range for the scheduled pickup for this date.
-   */
-  timeList?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList[];
-  static names(): { [key: string]: string } {
-    return {
-      date: 'Date',
-      dateSelectable: 'DateSelectable',
-      timeList: 'TimeList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      date: 'string',
-      dateSelectable: 'boolean',
-      timeList: { 'type': 'array', 'itemType': CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimesTimeList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the real-time order type.
-   * 
-   * @example
-   * Aliyun
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The tip displayed when the real-time order cannot be placed.
-   * 
-   * @example
-   * Exceeding the real-time ordering time range.
-   */
-  selectDisableTip?: string;
-  /**
-   * @remarks
-   * Indicates whether the real-time order can be placed after the deadline for placing a real-time order is reached.
-   * 
-   * @example
-   * false
-   */
-  selectable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      selectDisableTip: 'SelectDisableTip',
-      selectable: 'Selectable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      selectDisableTip: 'string',
-      selectable: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList extends $tea.Model {
-  /**
-   * @remarks
-   * The available time for the scheduled pickup. If the current courier company cannot accept the scheduled pickup, this field is left empty.
-   */
-  appointTimes?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes[];
-  /**
-   * @remarks
-   * The estimated price. Unit: CNY. The value is accurate to two decimal places. The value of this parameter is displayed if an estimated weight is specified.
-   * 
-   * @example
-   * 12.50
-   */
-  prePrice?: string;
-  /**
-   * @remarks
-   * The information about whether the real-time order can be selected.
-   */
-  realTime?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime;
-  static names(): { [key: string]: string } {
-    return {
-      appointTimes: 'AppointTimes',
-      prePrice: 'PrePrice',
-      realTime: 'RealTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appointTimes: { 'type': 'array', 'itemType': CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListAppointTimes },
-      prePrice: 'string',
-      realTime: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectListRealTime,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePickUpWaybillPreQueryResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The response code.
-   * 
-   * @example
-   * 0
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The information about whether the courier company can accept the order.
-   */
-  cpTimeSelectList?: CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList[];
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Success
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * none
-   */
-  errorMsg?: string;
-  /**
-   * @remarks
-   * The response content.
-   * 
-   * @example
-   * Success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      cpTimeSelectList: 'CpTimeSelectList',
-      errorCode: 'ErrorCode',
-      errorMsg: 'ErrorMsg',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      cpTimeSelectList: { 'type': 'array', 'itemType': CreatePickUpWaybillPreQueryResponseBodyDataCpTimeSelectList },
-      errorCode: 'string',
-      errorMsg: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSmsSignResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * 短信接收者号码签名串(加到短信内容中供解析真实被叫号码)
-   * 
-   * @example
-   * sign23343466
-   */
-  calledNoSign?: string;
-  static names(): { [key: string]: string } {
-    return {
-      calledNoSign: 'CalledNoSign',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      calledNoSign: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSecretAsrDetailResponseBodyDataSentences extends $tea.Model {
-  /**
-   * @remarks
-   * The start time offset of the sentence. Unit: milliseconds.
-   * 
-   * @example
-   * 1020
-   */
-  beginTime?: number;
-  /**
-   * @remarks
-   * The ID of the audio track to which the sentence belongs.
-   * 
-   * @example
-   * 0
-   */
-  channelId?: number;
-  /**
-   * @remarks
-   * The emotion value. Value range: 1 to 10. The higher the value, the stronger the emotion.
-   * 
-   * @example
-   * 5.7
-   */
-  emotionValue?: string;
-  /**
-   * @remarks
-   * The end time offset of the sentence. Unit: milliseconds.
-   * 
-   * @example
-   * 1770
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The silence duration between the current sentence and the previous sentence. Unit: seconds.
-   * 
-   * @example
-   * 0
-   */
-  silenceDuration?: number;
-  /**
-   * @remarks
-   * The average speech rate of the sentence. Unit: number of words per minute.
-   * 
-   * @example
-   * 80
-   */
-  speechRate?: number;
-  /**
-   * @remarks
-   * The recognition result of the sentence.
-   * 
-   * @example
-   * Hello
-   */
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      beginTime: 'BeginTime',
-      channelId: 'ChannelId',
-      emotionValue: 'EmotionValue',
-      endTime: 'EndTime',
-      silenceDuration: 'SilenceDuration',
-      speechRate: 'SpeechRate',
-      text: 'Text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      beginTime: 'number',
-      channelId: 'number',
-      emotionValue: 'string',
-      endTime: 'number',
-      silenceDuration: 'number',
-      speechRate: 'number',
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSecretAsrDetailResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The total duration of the audio file that was recognized. Unit: milliseconds.
-   * 
-   * @example
-   * 10944
-   */
-  bizDuration?: number;
-  /**
-   * @remarks
-   * The ID of the business process.
-   * 
-   * @example
-   * 435ee78c7a019650@!FC100000074672458@!2020061522****
-   */
-  businessId?: string;
-  /**
-   * @remarks
-   * The business keyword.
-   * 
-   * @example
-   * JCGTncltuNao****
-   */
-  businessKey?: string;
-  /**
-   * @remarks
-   * The status code. The status code 21050000 indicates that the request was successful.
-   * 
-   * @example
-   * 21050000
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * SUCCESS
-   */
-  msg?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 8d2329d407a83447a83be441681f4872ac74nE
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ASR result.
-   */
-  sentences?: GetSecretAsrDetailResponseBodyDataSentences[];
-  /**
-   * @remarks
-   * The type.
-   * 
-   * @example
-   * asrResult
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizDuration: 'BizDuration',
-      businessId: 'BusinessId',
-      businessKey: 'BusinessKey',
-      code: 'Code',
-      msg: 'Msg',
-      requestId: 'RequestId',
-      sentences: 'Sentences',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizDuration: 'number',
-      businessId: 'string',
-      businessKey: 'string',
-      code: 'string',
-      msg: 'string',
-      requestId: 'string',
-      sentences: { 'type': 'array', 'itemType': GetSecretAsrDetailResponseBodyDataSentences },
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTotalPublicUrlResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * The download URL of the recorded call.
-   * 
-   * >  The download URL of the recorded call is valid for 30 days.
-   * 
-   * @example
-   * http://secret-axb-reco****cn-shanghai.aliyuncs.com/1000000820257625_66647243838006067251551752068865.mp3?Expires=1551****07&OSSAccessKeyId=LTAIP00vvvv****v&Signature=tK6Yq9KusU4n%2BZQWX****4/WmEA%3D
-   */
-  phonePublicUrl?: string;
-  /**
-   * @remarks
-   * The download URL of the recorded ringing tone.
-   * 
-   * >  The download URL of the recorded ringing tone is valid for 30 days.
-   * 
-   * @example
-   * http://secret-ab-reco****cn-shanghai.aliyuncs.com/1000000820257625_66647243838006067251551752068865.mp3?Expires=155175****&OSSAccessKeyId=LTAIP00vvv****vv&Signature=tK6Yq9KusU4n%2BZQW****g4/WmEA%3D
-   */
-  ringPublicUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      phonePublicUrl: 'PhonePublicUrl',
-      ringPublicUrl: 'RingPublicUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      phonePublicUrl: 'string',
-      ringPublicUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetXConfigResponseBodyDataReachJsons extends $tea.Model {
-  /**
-   * @remarks
-   * 呼叫方向 1:员工B呼叫客户A 2:客户A呼叫员工B
-   * 
-   * @example
-   * 1
-   */
-  callDir?: string;
-  /**
-   * @remarks
-   * 通话状态 1:通话振铃 2:接通前 3:接通后 4:通话结束 5:已接通6:未接通
-   * 
-   * @example
-   * 1
-   */
-  callStatus?: string;
-  /**
-   * @remarks
-   * 接收方向 1:主叫 2:被叫
-   * 
-   * @example
-   * 1
-   */
-  receiveDir?: string;
-  /**
-   * @remarks
-   * 规则ID
-   * 
-   * @example
-   * 345
-   */
-  ruleId?: string;
-  /**
-   * @remarks
-   * 规则名称
-   * 
-   * @example
-   * 企业名片-短信规则
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * 规则类型： 1：企业名片-短信 2：企业名片-闪信 3：企业名片-视频 4：企业名片-音频
-   * 
-   * @example
-   * 1
-   */
-  ruleType?: string;
-  /**
-   * @remarks
-   * 模板ID
-   * 
-   * @example
-   * 12345
-   */
-  tempId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callDir: 'CallDir',
-      callStatus: 'CallStatus',
-      receiveDir: 'ReceiveDir',
-      ruleId: 'RuleId',
-      ruleName: 'RuleName',
-      ruleType: 'RuleType',
-      tempId: 'TempId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callDir: 'string',
-      callStatus: 'string',
-      receiveDir: 'string',
-      ruleId: 'string',
-      ruleName: 'string',
-      ruleType: 'string',
-      tempId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetXConfigResponseBodyDataSequenceCalls extends $tea.Model {
-  /**
-   * @remarks
-   * 顺振提示音放音编号，格式如callNoPlayCode
-   * 
-   * @example
-   * 示例值示例值示例值
-   */
-  sequenceCallNoPlayCode?: string;
-  /**
-   * @remarks
-   * 顺振被叫号码
-   * 
-   * @example
-   * 示例值示例值示例值
-   */
-  sequenceCalledNo?: string;
-  /**
-   * @remarks
-   * 接通后主被叫放音编号，格式如calledPlayCode
-   * 
-   * @example
-   * 示例值示例值示例值
-   */
-  sequenceCalledPlayCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sequenceCallNoPlayCode: 'SequenceCallNoPlayCode',
-      sequenceCalledNo: 'SequenceCalledNo',
-      sequenceCalledPlayCode: 'SequenceCalledPlayCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sequenceCallNoPlayCode: 'string',
-      sequenceCalledNo: 'string',
-      sequenceCalledPlayCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetXConfigResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * 开/关呼叫能力状态： ‘0’：禁用； ‘1’：开启；
-   * 
-   * @example
-   * 0
-   */
-  callAbility?: string;
-  /**
-   * @remarks
-   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
-   * 
-   * @example
-   * 00
-   */
-  GNFlag?: string;
-  /**
-   * @remarks
-   * 企业名片规则控制参数
-   */
-  reachJsons?: GetXConfigResponseBodyDataReachJsons[];
-  /**
-   * @remarks
-   * 顺振控制参数
-   */
-  sequenceCalls?: GetXConfigResponseBodyDataSequenceCalls[];
-  /**
-   * @remarks
-   * 顺振结束时间 格式：HH:mm:ss 18:00:00
-   * 
-   * @example
-   * 09:00:00
-   */
-  sequenceEndTime?: string;
-  /**
-   * @remarks
-   * 顺振开启时间 格式：HH:mm:ss 09:00:00
-   * 
-   * @example
-   * 09:00:00
-   */
-  sequenceStartTime?: string;
-  /**
-   * @remarks
-   * 开/关短信功能状态： ‘0’：禁用； ‘1’：开启；
-   * 
-   * @example
-   * 0
-   */
-  smsAbility?: string;
-  /**
-   * @remarks
-   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
-   * 
-   * @example
-   * 0
-   */
-  smsSignMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callAbility: 'CallAbility',
-      GNFlag: 'GNFlag',
-      reachJsons: 'ReachJsons',
-      sequenceCalls: 'SequenceCalls',
-      sequenceEndTime: 'SequenceEndTime',
-      sequenceStartTime: 'SequenceStartTime',
-      smsAbility: 'SmsAbility',
-      smsSignMode: 'SmsSignMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callAbility: 'string',
-      GNFlag: 'string',
-      reachJsons: { 'type': 'array', 'itemType': GetXConfigResponseBodyDataReachJsons },
-      sequenceCalls: { 'type': 'array', 'itemType': GetXConfigResponseBodyDataSequenceCalls },
-      sequenceEndTime: 'string',
-      sequenceStartTime: 'string',
-      smsAbility: 'string',
-      smsSignMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetXDefaultConfigResponseBodyDataReachJson extends $tea.Model {
-  /**
-   * @remarks
-   * 呼叫方向 1:员工B呼叫客户A 2:客户A呼叫员工B
-   * 
-   * @example
-   * 1
-   */
-  callDir?: string;
-  /**
-   * @remarks
-   * 通话状态 1:通话振铃 2:接通前 3:接通后 4:通话结束 5:已接通6:未接通
-   * 
-   * @example
-   * 1
-   */
-  callStatus?: string;
-  /**
-   * @remarks
-   * 接收方向 1:主叫 2:被叫
-   * 
-   * @example
-   * 1
-   */
-  receiveDir?: string;
-  /**
-   * @remarks
-   * 规则ID
-   * 
-   * @example
-   * 345
-   */
-  ruleId?: string;
-  /**
-   * @remarks
-   * 规则名称
-   * 
-   * @example
-   * 企业名片-短信规则
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * 规则类型： 1：企业名片-短信 2：企业名片-闪信 3：企业名片-视频 4：企业名片-音频
-   * 
-   * @example
-   * 1
-   */
-  ruleType?: string;
-  /**
-   * @remarks
-   * 模板ID
-   * 
-   * @example
-   * 12345
-   */
-  tempId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callDir: 'CallDir',
-      callStatus: 'CallStatus',
-      receiveDir: 'ReceiveDir',
-      ruleId: 'RuleId',
-      ruleName: 'RuleName',
-      ruleType: 'RuleType',
-      tempId: 'TempId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callDir: 'string',
-      callStatus: 'string',
-      receiveDir: 'string',
-      ruleId: 'string',
-      ruleName: 'string',
-      ruleType: 'string',
-      tempId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetXDefaultConfigResponseBodyDataSequenceCall extends $tea.Model {
-  /**
-   * @remarks
-   * 顺振提示音放音编号，格式如callNoPlayCode
-   * 
-   * @example
-   * 示例值
-   */
-  sequenceCallNoPlayCode?: string;
-  /**
-   * @remarks
-   * 顺振被叫号码
-   * 
-   * @example
-   * 示例值示例值示例值
-   */
-  sequenceCalledNo?: string;
-  /**
-   * @remarks
-   * 接通后主被叫放音编号，格式如calledPlayCode
-   * 
-   * @example
-   * 示例值示例值示例值
-   */
-  sequenceCalledPlayCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sequenceCallNoPlayCode: 'SequenceCallNoPlayCode',
-      sequenceCalledNo: 'SequenceCalledNo',
-      sequenceCalledPlayCode: 'SequenceCalledPlayCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sequenceCallNoPlayCode: 'string',
-      sequenceCalledNo: 'string',
-      sequenceCalledPlayCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetXDefaultConfigResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * 开/关呼叫能力状态： ‘0’：禁用； ‘1’：开启；
-   * 
-   * @example
-   * 0
-   */
-  callAbility?: string;
-  /**
-   * @remarks
-   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
-   * 
-   * @example
-   * 00
-   */
-  GNFlag?: string;
-  /**
-   * @remarks
-   * 企业名片规则控制参数
-   */
-  reachJson?: GetXDefaultConfigResponseBodyDataReachJson[];
-  /**
-   * @remarks
-   * 顺振控制参数
-   */
-  sequenceCall?: GetXDefaultConfigResponseBodyDataSequenceCall[];
-  /**
-   * @remarks
-   * 顺振结束时间 格式：HH:mm:ss 18:00:00
-   * 
-   * @example
-   * 09:00:00
-   */
-  sequenceEndTime?: string;
-  /**
-   * @remarks
-   * 顺振开启时间 格式：HH:mm:ss 09:00:00
-   * 
-   * @example
-   * 09:00:00
-   */
-  sequenceStartTime?: string;
-  /**
-   * @remarks
-   * 开/关短信功能状态： ‘0’：禁用； ‘1’：开启；
-   * 
-   * @example
-   * 0
-   */
-  smsAbility?: string;
-  /**
-   * @remarks
-   * 是否透传来显为真实主叫： 00-非透传：互相拨打时都显示工作号; 10-透传：A客户为主叫时,B员工的来显为客户A号码;B员工为主叫时,A客户的来显为工作号; 默认为 00
-   * 
-   * @example
-   * 0
-   */
-  smsSignMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callAbility: 'CallAbility',
-      GNFlag: 'GNFlag',
-      reachJson: 'ReachJson',
-      sequenceCall: 'SequenceCall',
-      sequenceEndTime: 'SequenceEndTime',
-      sequenceStartTime: 'SequenceStartTime',
-      smsAbility: 'SmsAbility',
-      smsSignMode: 'SmsSignMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callAbility: 'string',
-      GNFlag: 'string',
-      reachJson: { 'type': 'array', 'itemType': GetXDefaultConfigResponseBodyDataReachJson },
-      sequenceCall: { 'type': 'array', 'itemType': GetXDefaultConfigResponseBodyDataSequenceCall },
-      sequenceEndTime: 'string',
-      sequenceStartTime: 'string',
-      smsAbility: 'string',
-      smsSignMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListXTelephonesResponseBodyDataList extends $tea.Model {
-  /**
-   * @remarks
-   * 绑定失败原因
-   * 
-   * @example
-   * 绑定失败用户身份证黑名单
-   */
-  authMsg?: string;
-  /**
-   * @remarks
-   * 绑定时间
-   * 
-   * @example
-   * 2024-08-29 17:23:58
-   */
-  bindTime?: string;
-  /**
-   * @remarks
-   * 购买时间
-   * 
-   * @example
-   * 2024-08-29 17:23:58
-   */
-  buyTime?: string;
-  /**
-   * @remarks
-   * 客户号码池key
-   * 
-   * @example
-   * FC533e6eeb81f4400c87ef3745a21a1a
-   */
-  customerPoolKey?: string;
-  /**
-   * @remarks
-   * 号码池名称
-   * 
-   * @example
-   * 测试号码池
-   */
-  customerPoolName?: string;
-  /**
-   * @remarks
-   * 释放时间
-   * 
-   * @example
-   * 2024-08-29 17:23:58
-   */
-  releaseTime?: string;
-  /**
-   * @remarks
-   * 短信开通状态：0 未开通 1已开通
-   * 
-   * @example
-   * 0
-   */
-  smsStatus?: string;
-  /**
-   * @remarks
-   * X号码
-   * 
-   * @example
-   * 17816876546
-   */
-  telephone?: string;
-  /**
-   * @remarks
-   * 号码状态：0 空闲中 1 调拨完成待购买 2购买完成待认证  3 实名认证中  4 实名认证成功  5 认证失败  6 解绑中 7 解绑失败 8已释放 99 超时释放
-   * 
-   * @example
-   * 0
-   */
-  telephoneStatus?: string;
-  /**
-   * @remarks
-   * 解绑时间
-   * 
-   * @example
-   * 2024-08-29 17:23:58
-   */
-  unbindTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      authMsg: 'AuthMsg',
-      bindTime: 'BindTime',
-      buyTime: 'BuyTime',
-      customerPoolKey: 'CustomerPoolKey',
-      customerPoolName: 'CustomerPoolName',
-      releaseTime: 'ReleaseTime',
-      smsStatus: 'SmsStatus',
-      telephone: 'Telephone',
-      telephoneStatus: 'TelephoneStatus',
-      unbindTime: 'UnbindTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authMsg: 'string',
-      bindTime: 'string',
-      buyTime: 'string',
-      customerPoolKey: 'string',
-      customerPoolName: 'string',
-      releaseTime: 'string',
-      smsStatus: 'string',
-      telephone: 'string',
-      telephoneStatus: 'string',
-      unbindTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListXTelephonesResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * 数据集合
-   */
-  list?: ListXTelephonesResponseBodyDataList[];
-  /**
-   * @remarks
-   * 页码
-   * 
-   * @example
-   * 1
-   */
-  pageNo?: number;
-  /**
-   * @remarks
-   * 每页条数
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * 符合查询条件的总数量
-   * 
-   * @example
-   * 50
-   */
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      list: 'List',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      list: { 'type': 'array', 'itemType': ListXTelephonesResponseBodyDataList },
-      pageNo: 'number',
-      pageSize: 'number',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPhoneNoAByTrackNoResponseBodyModule extends $tea.Model {
-  /**
-   * @remarks
-   * The extension of phone number X.
-   * 
-   * @example
-   * 130
-   */
-  extension?: string;
-  /**
-   * @remarks
-   * Phone number A.
-   * 
-   * @example
-   * 1310000****
-   */
-  phoneNoA?: string;
-  /**
-   * @remarks
-   * The private number, that is, phone number X.
-   * 
-   * @example
-   * 1710000****
-   */
-  phoneNoX?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extension: 'Extension',
-      phoneNoA: 'PhoneNoA',
-      phoneNoX: 'PhoneNoX',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extension: 'string',
-      phoneNoA: 'string',
-      phoneNoX: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySecretNoDetailResponseBodySecretNoInfoDTO extends $tea.Model {
-  /**
-   * @remarks
-   * The verification status of the phone number. Valid values:
-   * 
-   * *   **0**: The phone number is not verified.
-   * *   **1**: The phone number is verified.
-   * 
-   * @example
-   * 0
-   */
-  certifyStatus?: number;
-  /**
-   * @remarks
-   * The city.
-   * 
-   * @example
-   * chengdu
-   */
-  city?: string;
-  /**
-   * @remarks
-   * The province.
-   * 
-   * @example
-   * sichuan
-   */
-  province?: string;
-  /**
-   * @remarks
-   * The time when the phone number was purchased.
-   * 
-   * @example
-   * 2021-12-03 15:19:27
-   */
-  purchaseTime?: string;
-  /**
-   * @remarks
-   * The status of the phone number. Valid values:
-   * 
-   * *   **0**: The phone number is not bound to other phone numbers.
-   * *   **1**: The phone number is bound to other phone numbers.
-   * *   **2**: The phone number is locked.
-   * *   **3**: The phone number is frozen.
-   * 
-   * @example
-   * 0
-   */
-  secretStatus?: number;
-  /**
-   * @remarks
-   * The carrier to which the phone number belongs. Valid values:
-   * 
-   * *   **1**: China Mobile
-   * *   **2**: China Unicom
-   * *   **3**: China Telecom
-   * 
-   * @example
-   * 1
-   */
-  vendor?: number;
-  static names(): { [key: string]: string } {
-    return {
-      certifyStatus: 'CertifyStatus',
-      city: 'City',
-      province: 'Province',
-      purchaseTime: 'PurchaseTime',
-      secretStatus: 'SecretStatus',
-      vendor: 'Vendor',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certifyStatus: 'number',
-      city: 'string',
-      province: 'string',
-      purchaseTime: 'string',
-      secretStatus: 'number',
-      vendor: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOListRemainDTO extends $tea.Model {
-  /**
-   * @remarks
-   * The quantity of remaining phone numbers available for online purchase for the city.
-   * 
-   * @example
-   * 120
-   */
-  amount?: number;
-  /**
-   * @remarks
-   * The home location of the phone numbers.
-   * 
-   * @example
-   * Wuhan
-   */
-  city?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'Amount',
-      city: 'City',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      city: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOList extends $tea.Model {
-  remainDTO?: QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOListRemainDTO[];
-  static names(): { [key: string]: string } {
-    return {
-      remainDTO: 'remainDTO',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      remainDTO: { 'type': 'array', 'itemType': QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOListRemainDTO },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySecretNoRemainResponseBodySecretRemainDTO extends $tea.Model {
-  /**
-   * @remarks
-   * The quantity of remaining phone numbers available for online purchase.
-   * 
-   * @example
-   * 0
-   */
-  amount?: number;
-  /**
-   * @remarks
-   * The home location of the phone numbers.
-   * 
-   * @example
-   * hangzhou
-   */
-  city?: string;
-  /**
-   * @remarks
-   * The information about remaining phone numbers available for online purchase.
-   */
-  remainDTOList?: QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOList;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'Amount',
-      city: 'City',
-      remainDTOList: 'RemainDTOList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      city: 'string',
-      remainDTOList: QuerySecretNoRemainResponseBodySecretRemainDTORemainDTOList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySoundRecordResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * 通话录音url路径，最大长度1000，有效期1小时
-   * 
-   * @example
-   * http://www.oss.com/temepl/a.mp3
-   */
-  fileUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileUrl: 'FileUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QuerySubscriptionDetailResponseBodySecretBindDetailDTO extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the ASR model.
-   * 
-   * @example
-   * 123456
-   */
-  ASRModelId?: string;
-  /**
-   * @remarks
-   * Indicates whether automatic speech recognition (ASR) is enabled. Valid values:
-   * 
-   * *   **false**: ASR is disabled.
-   * *   **true**: ASR is enabled.
-   * 
-   * @example
-   * true
-   */
-  ASRStatus?: boolean;
-  /**
-   * @remarks
-   * The status of one-way call restrictions. No value is returned for this parameter if one-way call restrictions are not set. Valid values:
-   * 
-   * *   **CONTROL_AX_DISABLE**: Phone number A cannot be used to call phone number X.
-   * *   **CONTROL_BX_DISABLE**: Phone number B cannot be used to call phone number X.
-   * 
-   * @example
-   * CONTROL_BX_DISABLE
-   */
-  callRestrict?: string;
-  /**
-   * @remarks
-   * The expiration time of the binding.
-   * 
-   * @example
-   * 2019-09-05 12:00:00
-   */
-  expireDate?: string;
-  /**
-   * @remarks
-   * The extension in the AXG extension binding.
-   * 
-   * @example
-   * 130
-   */
-  extension?: string;
-  /**
-   * @remarks
-   * The creation time of the binding.
-   * 
-   * @example
-   * 2019-03-05 12:00:00
-   */
-  gmtCreate?: string;
-  /**
-   * @remarks
-   * The ID of number group G in the binding.
-   * 
-   * @example
-   * 2000000130001
-   */
-  groupId?: number;
-  /**
-   * @remarks
-   * Indicates whether all calls made by the bound phone numbers are recorded. Valid values:
-   * 
-   * *   **false**
-   * *   **true**
-   * 
-   * @example
-   * true
-   */
-  needRecord?: boolean;
-  /**
-   * @remarks
-   * Phone number A in the binding.
-   * 
-   * @example
-   * 13900001111
-   */
-  phoneNoA?: string;
-  /**
-   * @remarks
-   * Phone number B in the binding.
-   * 
-   * @example
-   * 13900002222
-   */
-  phoneNoB?: string;
-  /**
-   * @remarks
-   * The private number in the binding, that is, phone number X.
-   * 
-   * @example
-   * 13900001234
-   */
-  phoneNoX?: string;
-  /**
-   * @remarks
-   * The binding status. Valid values:
-   * 
-   * *   **0**: The binding expired.
-   * *   **1**: The binding is in effect.
-   * 
-   * @example
-   * 1
-   */
-  status?: number;
-  /**
-   * @remarks
-   * The binding ID.
-   * 
-   * @example
-   * 100000076879****
-   */
-  subsId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ASRModelId: 'ASRModelId',
-      ASRStatus: 'ASRStatus',
-      callRestrict: 'CallRestrict',
-      expireDate: 'ExpireDate',
-      extension: 'Extension',
-      gmtCreate: 'GmtCreate',
-      groupId: 'GroupId',
-      needRecord: 'NeedRecord',
-      phoneNoA: 'PhoneNoA',
-      phoneNoB: 'PhoneNoB',
-      phoneNoX: 'PhoneNoX',
-      status: 'Status',
-      subsId: 'SubsId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ASRModelId: 'string',
-      ASRStatus: 'boolean',
-      callRestrict: 'string',
-      expireDate: 'string',
-      extension: 'string',
-      gmtCreate: 'string',
-      groupId: 'number',
-      needRecord: 'boolean',
-      phoneNoA: 'string',
-      phoneNoB: 'string',
-      phoneNoX: 'string',
-      status: 'number',
-      subsId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnBindAXBResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * 返回状态码 0000表示成功 其他表示失败
-   * 
-   * @example
-   * 0000
-   */
-  code?: string;
-  /**
-   * @remarks
-   * 返回信息
-   * 
-   * @example
-   * 成功
-   */
-  message?: string;
-  /**
-   * @remarks
-   * 返回是否成功 true  表示成功 false表示失败
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnBindXBResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * 返回状态码 0000表示成功 其他表示失败
-   * 
-   * @example
-   * 0000
-   */
-  code?: string;
-  /**
-   * @remarks
-   * 返回信息
-   * 
-   * @example
-   * 成功
-   */
-  message?: string;
-  /**
-   * @remarks
-   * 返回是否成功 true  表示成功 false表示失败
-   * 
-   * @example
-   * false
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      success: 'boolean',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -9973,7 +11018,7 @@ export class UnBindXBResponseBodyData extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._signatureAlgorithm = "v2";
     this._endpointRule = "central";
@@ -9983,15 +11028,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -10005,41 +11050,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddAxnTrackNoResponse
    */
-  async addAxnTrackNoWithOptions(request: AddAxnTrackNoRequest, runtime: $Util.RuntimeOptions): Promise<AddAxnTrackNoResponse> {
-    Util.validateModel(request);
+  async addAxnTrackNoWithOptions(request: AddAxnTrackNoRequest, runtime: $dara.RuntimeOptions): Promise<AddAxnTrackNoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNoX)) {
+    if (!$dara.isNull(request.phoneNoX)) {
       query["PhoneNoX"] = request.phoneNoX;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.subsId)) {
+    if (!$dara.isNull(request.subsId)) {
       query["SubsId"] = request.subsId;
     }
 
-    if (!Util.isUnset(request.trackNo)) {
+    if (!$dara.isNull(request.trackNo)) {
       query["trackNo"] = request.trackNo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddAxnTrackNo",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10050,7 +11095,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddAxnTrackNoResponse>(await this.callApi(params, req, runtime), new AddAxnTrackNoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddAxnTrackNoResponse>(await this.callApi(params, req, runtime), new AddAxnTrackNoResponse({}));
+    } else {
+      return $dara.cast<AddAxnTrackNoResponse>(await this.execute(params, req, runtime), new AddAxnTrackNoResponse({}));
+    }
+
   }
 
   /**
@@ -10064,7 +11114,7 @@ export default class Client extends OpenApi {
    * @returns AddAxnTrackNoResponse
    */
   async addAxnTrackNo(request: AddAxnTrackNoRequest): Promise<AddAxnTrackNoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addAxnTrackNoWithOptions(request, runtime);
   }
 
@@ -10079,33 +11129,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddSecretBlacklistResponse
    */
-  async addSecretBlacklistWithOptions(request: AddSecretBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<AddSecretBlacklistResponse> {
-    Util.validateModel(request);
+  async addSecretBlacklistWithOptions(request: AddSecretBlacklistRequest, runtime: $dara.RuntimeOptions): Promise<AddSecretBlacklistResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.blackNo)) {
+    if (!$dara.isNull(request.blackNo)) {
       query["BlackNo"] = request.blackNo;
     }
 
-    if (!Util.isUnset(request.blackType)) {
+    if (!$dara.isNull(request.blackType)) {
       query["BlackType"] = request.blackType;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.wayControl)) {
+    if (!$dara.isNull(request.wayControl)) {
       query["WayControl"] = request.wayControl;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddSecretBlacklist",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10116,7 +11166,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddSecretBlacklistResponse>(await this.callApi(params, req, runtime), new AddSecretBlacklistResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddSecretBlacklistResponse>(await this.callApi(params, req, runtime), new AddSecretBlacklistResponse({}));
+    } else {
+      return $dara.cast<AddSecretBlacklistResponse>(await this.execute(params, req, runtime), new AddSecretBlacklistResponse({}));
+    }
+
   }
 
   /**
@@ -10130,7 +11185,7 @@ export default class Client extends OpenApi {
    * @returns AddSecretBlacklistResponse
    */
   async addSecretBlacklist(request: AddSecretBlacklistRequest): Promise<AddSecretBlacklistResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addSecretBlacklistWithOptions(request, runtime);
   }
 
@@ -10141,53 +11196,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindAXBCallResponse
    */
-  async bindAXBCallWithOptions(request: BindAXBCallRequest, runtime: $Util.RuntimeOptions): Promise<BindAXBCallResponse> {
-    Util.validateModel(request);
+  async bindAXBCallWithOptions(request: BindAXBCallRequest, runtime: $dara.RuntimeOptions): Promise<BindAXBCallResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.authId)) {
+    if (!$dara.isNull(request.authId)) {
       query["AuthId"] = request.authId;
     }
 
-    if (!Util.isUnset(request.callerParentId)) {
+    if (!$dara.isNull(request.callerParentId)) {
       query["CallerParentId"] = request.callerParentId;
     }
 
-    if (!Util.isUnset(request.customerPoolKey)) {
+    if (!$dara.isNull(request.customerPoolKey)) {
       query["CustomerPoolKey"] = request.customerPoolKey;
     }
 
-    if (!Util.isUnset(request.expiration)) {
+    if (!$dara.isNull(request.expiration)) {
       query["Expiration"] = request.expiration;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.reqId)) {
+    if (!$dara.isNull(request.reqId)) {
       query["ReqId"] = request.reqId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.telA)) {
+    if (!$dara.isNull(request.telA)) {
       query["TelA"] = request.telA;
     }
 
-    if (!Util.isUnset(request.userData)) {
+    if (!$dara.isNull(request.userData)) {
       query["UserData"] = request.userData;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindAXBCall",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10198,7 +11253,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindAXBCallResponse>(await this.callApi(params, req, runtime), new BindAXBCallResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BindAXBCallResponse>(await this.callApi(params, req, runtime), new BindAXBCallResponse({}));
+    } else {
+      return $dara.cast<BindAXBCallResponse>(await this.execute(params, req, runtime), new BindAXBCallResponse({}));
+    }
+
   }
 
   /**
@@ -10208,7 +11268,7 @@ export default class Client extends OpenApi {
    * @returns BindAXBCallResponse
    */
   async bindAXBCall(request: BindAXBCallRequest): Promise<BindAXBCallResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindAXBCallWithOptions(request, runtime);
   }
 
@@ -10224,89 +11284,89 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindAxbResponse
    */
-  async bindAxbWithOptions(request: BindAxbRequest, runtime: $Util.RuntimeOptions): Promise<BindAxbResponse> {
-    Util.validateModel(request);
+  async bindAxbWithOptions(request: BindAxbRequest, runtime: $dara.RuntimeOptions): Promise<BindAxbResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ASRModelId)) {
+    if (!$dara.isNull(request.ASRModelId)) {
       query["ASRModelId"] = request.ASRModelId;
     }
 
-    if (!Util.isUnset(request.ASRStatus)) {
+    if (!$dara.isNull(request.ASRStatus)) {
       query["ASRStatus"] = request.ASRStatus;
     }
 
-    if (!Util.isUnset(request.callDisplayType)) {
+    if (!$dara.isNull(request.callDisplayType)) {
       query["CallDisplayType"] = request.callDisplayType;
     }
 
-    if (!Util.isUnset(request.callRestrict)) {
+    if (!$dara.isNull(request.callRestrict)) {
       query["CallRestrict"] = request.callRestrict;
     }
 
-    if (!Util.isUnset(request.callTimeout)) {
+    if (!$dara.isNull(request.callTimeout)) {
       query["CallTimeout"] = request.callTimeout;
     }
 
-    if (!Util.isUnset(request.dtmfConfig)) {
+    if (!$dara.isNull(request.dtmfConfig)) {
       query["DtmfConfig"] = request.dtmfConfig;
     }
 
-    if (!Util.isUnset(request.expectCity)) {
+    if (!$dara.isNull(request.expectCity)) {
       query["ExpectCity"] = request.expectCity;
     }
 
-    if (!Util.isUnset(request.expiration)) {
+    if (!$dara.isNull(request.expiration)) {
       query["Expiration"] = request.expiration;
     }
 
-    if (!Util.isUnset(request.isRecordingEnabled)) {
+    if (!$dara.isNull(request.isRecordingEnabled)) {
       query["IsRecordingEnabled"] = request.isRecordingEnabled;
     }
 
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.outOrderId)) {
+    if (!$dara.isNull(request.outOrderId)) {
       query["OutOrderId"] = request.outOrderId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNoA)) {
+    if (!$dara.isNull(request.phoneNoA)) {
       query["PhoneNoA"] = request.phoneNoA;
     }
 
-    if (!Util.isUnset(request.phoneNoB)) {
+    if (!$dara.isNull(request.phoneNoB)) {
       query["PhoneNoB"] = request.phoneNoB;
     }
 
-    if (!Util.isUnset(request.phoneNoX)) {
+    if (!$dara.isNull(request.phoneNoX)) {
       query["PhoneNoX"] = request.phoneNoX;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.ringConfig)) {
+    if (!$dara.isNull(request.ringConfig)) {
       query["RingConfig"] = request.ringConfig;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindAxb",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10317,7 +11377,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindAxbResponse>(await this.callApi(params, req, runtime), new BindAxbResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BindAxbResponse>(await this.callApi(params, req, runtime), new BindAxbResponse({}));
+    } else {
+      return $dara.cast<BindAxbResponse>(await this.execute(params, req, runtime), new BindAxbResponse({}));
+    }
+
   }
 
   /**
@@ -10332,7 +11397,7 @@ export default class Client extends OpenApi {
    * @returns BindAxbResponse
    */
   async bindAxb(request: BindAxbRequest): Promise<BindAxbResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindAxbWithOptions(request, runtime);
   }
 
@@ -10348,85 +11413,85 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindAxgResponse
    */
-  async bindAxgWithOptions(request: BindAxgRequest, runtime: $Util.RuntimeOptions): Promise<BindAxgResponse> {
-    Util.validateModel(request);
+  async bindAxgWithOptions(request: BindAxgRequest, runtime: $dara.RuntimeOptions): Promise<BindAxgResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ASRModelId)) {
+    if (!$dara.isNull(request.ASRModelId)) {
       query["ASRModelId"] = request.ASRModelId;
     }
 
-    if (!Util.isUnset(request.ASRStatus)) {
+    if (!$dara.isNull(request.ASRStatus)) {
       query["ASRStatus"] = request.ASRStatus;
     }
 
-    if (!Util.isUnset(request.callDisplayType)) {
+    if (!$dara.isNull(request.callDisplayType)) {
       query["CallDisplayType"] = request.callDisplayType;
     }
 
-    if (!Util.isUnset(request.callRestrict)) {
+    if (!$dara.isNull(request.callRestrict)) {
       query["CallRestrict"] = request.callRestrict;
     }
 
-    if (!Util.isUnset(request.expectCity)) {
+    if (!$dara.isNull(request.expectCity)) {
       query["ExpectCity"] = request.expectCity;
     }
 
-    if (!Util.isUnset(request.expiration)) {
+    if (!$dara.isNull(request.expiration)) {
       query["Expiration"] = request.expiration;
     }
 
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.isRecordingEnabled)) {
+    if (!$dara.isNull(request.isRecordingEnabled)) {
       query["IsRecordingEnabled"] = request.isRecordingEnabled;
     }
 
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.outOrderId)) {
+    if (!$dara.isNull(request.outOrderId)) {
       query["OutOrderId"] = request.outOrderId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNoA)) {
+    if (!$dara.isNull(request.phoneNoA)) {
       query["PhoneNoA"] = request.phoneNoA;
     }
 
-    if (!Util.isUnset(request.phoneNoB)) {
+    if (!$dara.isNull(request.phoneNoB)) {
       query["PhoneNoB"] = request.phoneNoB;
     }
 
-    if (!Util.isUnset(request.phoneNoX)) {
+    if (!$dara.isNull(request.phoneNoX)) {
       query["PhoneNoX"] = request.phoneNoX;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.ringConfig)) {
+    if (!$dara.isNull(request.ringConfig)) {
       query["RingConfig"] = request.ringConfig;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindAxg",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10437,7 +11502,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindAxgResponse>(await this.callApi(params, req, runtime), new BindAxgResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BindAxgResponse>(await this.callApi(params, req, runtime), new BindAxgResponse({}));
+    } else {
+      return $dara.cast<BindAxgResponse>(await this.execute(params, req, runtime), new BindAxgResponse({}));
+    }
+
   }
 
   /**
@@ -10452,7 +11522,7 @@ export default class Client extends OpenApi {
    * @returns BindAxgResponse
    */
   async bindAxg(request: BindAxgRequest): Promise<BindAxgResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindAxgWithOptions(request, runtime);
   }
 
@@ -10466,93 +11536,93 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindAxnResponse
    */
-  async bindAxnWithOptions(request: BindAxnRequest, runtime: $Util.RuntimeOptions): Promise<BindAxnResponse> {
-    Util.validateModel(request);
+  async bindAxnWithOptions(request: BindAxnRequest, runtime: $dara.RuntimeOptions): Promise<BindAxnResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ASRModelId)) {
+    if (!$dara.isNull(request.ASRModelId)) {
       query["ASRModelId"] = request.ASRModelId;
     }
 
-    if (!Util.isUnset(request.ASRStatus)) {
+    if (!$dara.isNull(request.ASRStatus)) {
       query["ASRStatus"] = request.ASRStatus;
     }
 
-    if (!Util.isUnset(request.callDisplayType)) {
+    if (!$dara.isNull(request.callDisplayType)) {
       query["CallDisplayType"] = request.callDisplayType;
     }
 
-    if (!Util.isUnset(request.callRestrict)) {
+    if (!$dara.isNull(request.callRestrict)) {
       query["CallRestrict"] = request.callRestrict;
     }
 
-    if (!Util.isUnset(request.callTimeout)) {
+    if (!$dara.isNull(request.callTimeout)) {
       query["CallTimeout"] = request.callTimeout;
     }
 
-    if (!Util.isUnset(request.expectCity)) {
+    if (!$dara.isNull(request.expectCity)) {
       query["ExpectCity"] = request.expectCity;
     }
 
-    if (!Util.isUnset(request.expiration)) {
+    if (!$dara.isNull(request.expiration)) {
       query["Expiration"] = request.expiration;
     }
 
-    if (!Util.isUnset(request.extend)) {
+    if (!$dara.isNull(request.extend)) {
       query["Extend"] = request.extend;
     }
 
-    if (!Util.isUnset(request.isRecordingEnabled)) {
+    if (!$dara.isNull(request.isRecordingEnabled)) {
       query["IsRecordingEnabled"] = request.isRecordingEnabled;
     }
 
-    if (!Util.isUnset(request.noType)) {
+    if (!$dara.isNull(request.noType)) {
       query["NoType"] = request.noType;
     }
 
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.outOrderId)) {
+    if (!$dara.isNull(request.outOrderId)) {
       query["OutOrderId"] = request.outOrderId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNoA)) {
+    if (!$dara.isNull(request.phoneNoA)) {
       query["PhoneNoA"] = request.phoneNoA;
     }
 
-    if (!Util.isUnset(request.phoneNoB)) {
+    if (!$dara.isNull(request.phoneNoB)) {
       query["PhoneNoB"] = request.phoneNoB;
     }
 
-    if (!Util.isUnset(request.phoneNoX)) {
+    if (!$dara.isNull(request.phoneNoX)) {
       query["PhoneNoX"] = request.phoneNoX;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.ringConfig)) {
+    if (!$dara.isNull(request.ringConfig)) {
       query["RingConfig"] = request.ringConfig;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindAxn",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10563,7 +11633,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindAxnResponse>(await this.callApi(params, req, runtime), new BindAxnResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BindAxnResponse>(await this.callApi(params, req, runtime), new BindAxnResponse({}));
+    } else {
+      return $dara.cast<BindAxnResponse>(await this.execute(params, req, runtime), new BindAxnResponse({}));
+    }
+
   }
 
   /**
@@ -10576,7 +11651,7 @@ export default class Client extends OpenApi {
    * @returns BindAxnResponse
    */
   async bindAxn(request: BindAxnRequest): Promise<BindAxnResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindAxnWithOptions(request, runtime);
   }
 
@@ -10592,89 +11667,89 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindAxnExtensionResponse
    */
-  async bindAxnExtensionWithOptions(request: BindAxnExtensionRequest, runtime: $Util.RuntimeOptions): Promise<BindAxnExtensionResponse> {
-    Util.validateModel(request);
+  async bindAxnExtensionWithOptions(request: BindAxnExtensionRequest, runtime: $dara.RuntimeOptions): Promise<BindAxnExtensionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ASRModelId)) {
+    if (!$dara.isNull(request.ASRModelId)) {
       query["ASRModelId"] = request.ASRModelId;
     }
 
-    if (!Util.isUnset(request.ASRStatus)) {
+    if (!$dara.isNull(request.ASRStatus)) {
       query["ASRStatus"] = request.ASRStatus;
     }
 
-    if (!Util.isUnset(request.callDisplayType)) {
+    if (!$dara.isNull(request.callDisplayType)) {
       query["CallDisplayType"] = request.callDisplayType;
     }
 
-    if (!Util.isUnset(request.callRestrict)) {
+    if (!$dara.isNull(request.callRestrict)) {
       query["CallRestrict"] = request.callRestrict;
     }
 
-    if (!Util.isUnset(request.expectCity)) {
+    if (!$dara.isNull(request.expectCity)) {
       query["ExpectCity"] = request.expectCity;
     }
 
-    if (!Util.isUnset(request.expiration)) {
+    if (!$dara.isNull(request.expiration)) {
       query["Expiration"] = request.expiration;
     }
 
-    if (!Util.isUnset(request.extend)) {
+    if (!$dara.isNull(request.extend)) {
       query["Extend"] = request.extend;
     }
 
-    if (!Util.isUnset(request.extension)) {
+    if (!$dara.isNull(request.extension)) {
       query["Extension"] = request.extension;
     }
 
-    if (!Util.isUnset(request.isRecordingEnabled)) {
+    if (!$dara.isNull(request.isRecordingEnabled)) {
       query["IsRecordingEnabled"] = request.isRecordingEnabled;
     }
 
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.outOrderId)) {
+    if (!$dara.isNull(request.outOrderId)) {
       query["OutOrderId"] = request.outOrderId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNoA)) {
+    if (!$dara.isNull(request.phoneNoA)) {
       query["PhoneNoA"] = request.phoneNoA;
     }
 
-    if (!Util.isUnset(request.phoneNoB)) {
+    if (!$dara.isNull(request.phoneNoB)) {
       query["PhoneNoB"] = request.phoneNoB;
     }
 
-    if (!Util.isUnset(request.phoneNoX)) {
+    if (!$dara.isNull(request.phoneNoX)) {
       query["PhoneNoX"] = request.phoneNoX;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.ringConfig)) {
+    if (!$dara.isNull(request.ringConfig)) {
       query["RingConfig"] = request.ringConfig;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindAxnExtension",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10685,7 +11760,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindAxnExtensionResponse>(await this.callApi(params, req, runtime), new BindAxnExtensionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BindAxnExtensionResponse>(await this.callApi(params, req, runtime), new BindAxnExtensionResponse({}));
+    } else {
+      return $dara.cast<BindAxnExtensionResponse>(await this.execute(params, req, runtime), new BindAxnExtensionResponse({}));
+    }
+
   }
 
   /**
@@ -10700,7 +11780,7 @@ export default class Client extends OpenApi {
    * @returns BindAxnExtensionResponse
    */
   async bindAxnExtension(request: BindAxnExtensionRequest): Promise<BindAxnExtensionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindAxnExtensionWithOptions(request, runtime);
   }
 
@@ -10709,39 +11789,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindBatchAxgResponse
    */
-  async bindBatchAxgWithOptions(tmpReq: BindBatchAxgRequest, runtime: $Util.RuntimeOptions): Promise<BindBatchAxgResponse> {
-    Util.validateModel(tmpReq);
+  async bindBatchAxgWithOptions(tmpReq: BindBatchAxgRequest, runtime: $dara.RuntimeOptions): Promise<BindBatchAxgResponse> {
+    tmpReq.validate();
     let request = new BindBatchAxgShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.axgBindList)) {
+    if (!$dara.isNull(tmpReq.axgBindList)) {
       request.axgBindListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.axgBindList, "AxgBindList", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.axgBindListShrink)) {
+    if (!$dara.isNull(request.axgBindListShrink)) {
       query["AxgBindList"] = request.axgBindListShrink;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindBatchAxg",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10752,7 +11832,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindBatchAxgResponse>(await this.callApi(params, req, runtime), new BindBatchAxgResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BindBatchAxgResponse>(await this.callApi(params, req, runtime), new BindBatchAxgResponse({}));
+    } else {
+      return $dara.cast<BindBatchAxgResponse>(await this.execute(params, req, runtime), new BindBatchAxgResponse({}));
+    }
+
   }
 
   /**
@@ -10760,7 +11845,7 @@ export default class Client extends OpenApi {
    * @returns BindBatchAxgResponse
    */
   async bindBatchAxg(request: BindBatchAxgRequest): Promise<BindBatchAxgResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindBatchAxgWithOptions(request, runtime);
   }
 
@@ -10771,49 +11856,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindXBResponse
    */
-  async bindXBWithOptions(request: BindXBRequest, runtime: $Util.RuntimeOptions): Promise<BindXBResponse> {
-    Util.validateModel(request);
+  async bindXBWithOptions(request: BindXBRequest, runtime: $dara.RuntimeOptions): Promise<BindXBResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callerParentId)) {
+    if (!$dara.isNull(request.callerParentId)) {
       query["CallerParentId"] = request.callerParentId;
     }
 
-    if (!Util.isUnset(request.customerPoolKey)) {
+    if (!$dara.isNull(request.customerPoolKey)) {
       query["CustomerPoolKey"] = request.customerPoolKey;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.reqId)) {
+    if (!$dara.isNull(request.reqId)) {
       query["ReqId"] = request.reqId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.telB)) {
+    if (!$dara.isNull(request.telB)) {
       query["TelB"] = request.telB;
     }
 
-    if (!Util.isUnset(request.telX)) {
+    if (!$dara.isNull(request.telX)) {
       query["TelX"] = request.telX;
     }
 
-    if (!Util.isUnset(request.userData)) {
+    if (!$dara.isNull(request.userData)) {
       query["UserData"] = request.userData;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindXB",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10824,7 +11909,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindXBResponse>(await this.callApi(params, req, runtime), new BindXBResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BindXBResponse>(await this.callApi(params, req, runtime), new BindXBResponse({}));
+    } else {
+      return $dara.cast<BindXBResponse>(await this.execute(params, req, runtime), new BindXBResponse({}));
+    }
+
   }
 
   /**
@@ -10834,7 +11924,7 @@ export default class Client extends OpenApi {
    * @returns BindXBResponse
    */
   async bindXB(request: BindXBRequest): Promise<BindXBResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindXBWithOptions(request, runtime);
   }
 
@@ -10851,45 +11941,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BuySecretNoResponse
    */
-  async buySecretNoWithOptions(request: BuySecretNoRequest, runtime: $Util.RuntimeOptions): Promise<BuySecretNoResponse> {
-    Util.validateModel(request);
+  async buySecretNoWithOptions(request: BuySecretNoRequest, runtime: $dara.RuntimeOptions): Promise<BuySecretNoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.city)) {
+    if (!$dara.isNull(request.city)) {
       query["City"] = request.city;
     }
 
-    if (!Util.isUnset(request.displayPool)) {
+    if (!$dara.isNull(request.displayPool)) {
       query["DisplayPool"] = request.displayPool;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.secretNo)) {
+    if (!$dara.isNull(request.secretNo)) {
       query["SecretNo"] = request.secretNo;
     }
 
-    if (!Util.isUnset(request.specId)) {
+    if (!$dara.isNull(request.specId)) {
       query["SpecId"] = request.specId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BuySecretNo",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10900,7 +11990,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BuySecretNoResponse>(await this.callApi(params, req, runtime), new BuySecretNoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BuySecretNoResponse>(await this.callApi(params, req, runtime), new BuySecretNoResponse({}));
+    } else {
+      return $dara.cast<BuySecretNoResponse>(await this.execute(params, req, runtime), new BuySecretNoResponse({}));
+    }
+
   }
 
   /**
@@ -10916,7 +12011,7 @@ export default class Client extends OpenApi {
    * @returns BuySecretNoResponse
    */
   async buySecretNo(request: BuySecretNoRequest): Promise<BuySecretNoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.buySecretNoWithOptions(request, runtime);
   }
 
@@ -10931,33 +12026,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelPickUpWaybillResponse
    */
-  async cancelPickUpWaybillWithOptions(request: CancelPickUpWaybillRequest, runtime: $Util.RuntimeOptions): Promise<CancelPickUpWaybillResponse> {
-    Util.validateModel(request);
+  async cancelPickUpWaybillWithOptions(request: CancelPickUpWaybillRequest, runtime: $dara.RuntimeOptions): Promise<CancelPickUpWaybillResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.cancelDesc)) {
+    if (!$dara.isNull(request.cancelDesc)) {
       query["CancelDesc"] = request.cancelDesc;
     }
 
-    if (!Util.isUnset(request.outerOrderCode)) {
+    if (!$dara.isNull(request.outerOrderCode)) {
       query["OuterOrderCode"] = request.outerOrderCode;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelPickUpWaybill",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -10968,7 +12063,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelPickUpWaybillResponse>(await this.callApi(params, req, runtime), new CancelPickUpWaybillResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CancelPickUpWaybillResponse>(await this.callApi(params, req, runtime), new CancelPickUpWaybillResponse({}));
+    } else {
+      return $dara.cast<CancelPickUpWaybillResponse>(await this.execute(params, req, runtime), new CancelPickUpWaybillResponse({}));
+    }
+
   }
 
   /**
@@ -10982,7 +12082,7 @@ export default class Client extends OpenApi {
    * @returns CancelPickUpWaybillResponse
    */
   async cancelPickUpWaybill(request: CancelPickUpWaybillRequest): Promise<CancelPickUpWaybillResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelPickUpWaybillWithOptions(request, runtime);
   }
 
@@ -10993,71 +12093,71 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ConfigXResponse
    */
-  async configXWithOptions(tmpReq: ConfigXRequest, runtime: $Util.RuntimeOptions): Promise<ConfigXResponse> {
-    Util.validateModel(tmpReq);
+  async configXWithOptions(tmpReq: ConfigXRequest, runtime: $dara.RuntimeOptions): Promise<ConfigXResponse> {
+    tmpReq.validate();
     let request = new ConfigXShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.sequenceCalls)) {
+    if (!$dara.isNull(tmpReq.sequenceCalls)) {
       request.sequenceCallsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sequenceCalls, "SequenceCalls", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.callAbility)) {
+    if (!$dara.isNull(request.callAbility)) {
       query["CallAbility"] = request.callAbility;
     }
 
-    if (!Util.isUnset(request.callerParentId)) {
+    if (!$dara.isNull(request.callerParentId)) {
       query["CallerParentId"] = request.callerParentId;
     }
 
-    if (!Util.isUnset(request.customerPoolKey)) {
+    if (!$dara.isNull(request.customerPoolKey)) {
       query["CustomerPoolKey"] = request.customerPoolKey;
     }
 
-    if (!Util.isUnset(request.GNFlag)) {
+    if (!$dara.isNull(request.GNFlag)) {
       query["GNFlag"] = request.GNFlag;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.reqId)) {
+    if (!$dara.isNull(request.reqId)) {
       query["ReqId"] = request.reqId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.sequenceCallsShrink)) {
+    if (!$dara.isNull(request.sequenceCallsShrink)) {
       query["SequenceCalls"] = request.sequenceCallsShrink;
     }
 
-    if (!Util.isUnset(request.sequenceMode)) {
+    if (!$dara.isNull(request.sequenceMode)) {
       query["SequenceMode"] = request.sequenceMode;
     }
 
-    if (!Util.isUnset(request.smsAbility)) {
+    if (!$dara.isNull(request.smsAbility)) {
       query["SmsAbility"] = request.smsAbility;
     }
 
-    if (!Util.isUnset(request.smsSignMode)) {
+    if (!$dara.isNull(request.smsSignMode)) {
       query["SmsSignMode"] = request.smsSignMode;
     }
 
-    if (!Util.isUnset(request.telX)) {
+    if (!$dara.isNull(request.telX)) {
       query["TelX"] = request.telX;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ConfigX",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11068,7 +12168,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ConfigXResponse>(await this.callApi(params, req, runtime), new ConfigXResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ConfigXResponse>(await this.callApi(params, req, runtime), new ConfigXResponse({}));
+    } else {
+      return $dara.cast<ConfigXResponse>(await this.execute(params, req, runtime), new ConfigXResponse({}));
+    }
+
   }
 
   /**
@@ -11078,7 +12183,7 @@ export default class Client extends OpenApi {
    * @returns ConfigXResponse
    */
   async configX(request: ConfigXRequest): Promise<ConfigXResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.configXWithOptions(request, runtime);
   }
 
@@ -11093,41 +12198,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAxgGroupResponse
    */
-  async createAxgGroupWithOptions(request: CreateAxgGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateAxgGroupResponse> {
-    Util.validateModel(request);
+  async createAxgGroupWithOptions(request: CreateAxgGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreateAxgGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.numbers)) {
+    if (!$dara.isNull(request.numbers)) {
       query["Numbers"] = request.numbers;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAxgGroup",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11138,7 +12243,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAxgGroupResponse>(await this.callApi(params, req, runtime), new CreateAxgGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAxgGroupResponse>(await this.callApi(params, req, runtime), new CreateAxgGroupResponse({}));
+    } else {
+      return $dara.cast<CreateAxgGroupResponse>(await this.execute(params, req, runtime), new CreateAxgGroupResponse({}));
+    }
+
   }
 
   /**
@@ -11152,7 +12262,7 @@ export default class Client extends OpenApi {
    * @returns CreateAxgGroupResponse
    */
   async createAxgGroup(request: CreateAxgGroupRequest): Promise<CreateAxgGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAxgGroupWithOptions(request, runtime);
   }
 
@@ -11167,91 +12277,91 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePickUpWaybillResponse
    */
-  async createPickUpWaybillWithOptions(tmpReq: CreatePickUpWaybillRequest, runtime: $Util.RuntimeOptions): Promise<CreatePickUpWaybillResponse> {
-    Util.validateModel(tmpReq);
+  async createPickUpWaybillWithOptions(tmpReq: CreatePickUpWaybillRequest, runtime: $dara.RuntimeOptions): Promise<CreatePickUpWaybillResponse> {
+    tmpReq.validate();
     let request = new CreatePickUpWaybillShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.consigneeAddress)) {
+    if (!$dara.isNull(tmpReq.consigneeAddress)) {
       request.consigneeAddressShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.consigneeAddress, "ConsigneeAddress", "json");
     }
 
-    if (!Util.isUnset(tmpReq.goodsInfos)) {
+    if (!$dara.isNull(tmpReq.goodsInfos)) {
       request.goodsInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.goodsInfos, "GoodsInfos", "json");
     }
 
-    if (!Util.isUnset(tmpReq.sendAddress)) {
+    if (!$dara.isNull(tmpReq.sendAddress)) {
       request.sendAddressShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sendAddress, "SendAddress", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.appointGotEndTime)) {
+    if (!$dara.isNull(request.appointGotEndTime)) {
       query["AppointGotEndTime"] = request.appointGotEndTime;
     }
 
-    if (!Util.isUnset(request.appointGotStartTime)) {
+    if (!$dara.isNull(request.appointGotStartTime)) {
       query["AppointGotStartTime"] = request.appointGotStartTime;
     }
 
-    if (!Util.isUnset(request.bizType)) {
+    if (!$dara.isNull(request.bizType)) {
       query["BizType"] = request.bizType;
     }
 
-    if (!Util.isUnset(request.consigneeAddressShrink)) {
+    if (!$dara.isNull(request.consigneeAddressShrink)) {
       query["ConsigneeAddress"] = request.consigneeAddressShrink;
     }
 
-    if (!Util.isUnset(request.consigneeMobile)) {
+    if (!$dara.isNull(request.consigneeMobile)) {
       query["ConsigneeMobile"] = request.consigneeMobile;
     }
 
-    if (!Util.isUnset(request.consigneeName)) {
+    if (!$dara.isNull(request.consigneeName)) {
       query["ConsigneeName"] = request.consigneeName;
     }
 
-    if (!Util.isUnset(request.consigneePhone)) {
+    if (!$dara.isNull(request.consigneePhone)) {
       query["ConsigneePhone"] = request.consigneePhone;
     }
 
-    if (!Util.isUnset(request.cpCode)) {
+    if (!$dara.isNull(request.cpCode)) {
       query["CpCode"] = request.cpCode;
     }
 
-    if (!Util.isUnset(request.goodsInfosShrink)) {
+    if (!$dara.isNull(request.goodsInfosShrink)) {
       query["GoodsInfos"] = request.goodsInfosShrink;
     }
 
-    if (!Util.isUnset(request.orderChannels)) {
+    if (!$dara.isNull(request.orderChannels)) {
       query["OrderChannels"] = request.orderChannels;
     }
 
-    if (!Util.isUnset(request.outerOrderCode)) {
+    if (!$dara.isNull(request.outerOrderCode)) {
       query["OuterOrderCode"] = request.outerOrderCode;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.sendAddressShrink)) {
+    if (!$dara.isNull(request.sendAddressShrink)) {
       query["SendAddress"] = request.sendAddressShrink;
     }
 
-    if (!Util.isUnset(request.sendMobile)) {
+    if (!$dara.isNull(request.sendMobile)) {
       query["SendMobile"] = request.sendMobile;
     }
 
-    if (!Util.isUnset(request.sendName)) {
+    if (!$dara.isNull(request.sendName)) {
       query["SendName"] = request.sendName;
     }
 
-    if (!Util.isUnset(request.sendPhone)) {
+    if (!$dara.isNull(request.sendPhone)) {
       query["SendPhone"] = request.sendPhone;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreatePickUpWaybill",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11262,7 +12372,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreatePickUpWaybillResponse>(await this.callApi(params, req, runtime), new CreatePickUpWaybillResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreatePickUpWaybillResponse>(await this.callApi(params, req, runtime), new CreatePickUpWaybillResponse({}));
+    } else {
+      return $dara.cast<CreatePickUpWaybillResponse>(await this.execute(params, req, runtime), new CreatePickUpWaybillResponse({}));
+    }
+
   }
 
   /**
@@ -11276,7 +12391,7 @@ export default class Client extends OpenApi {
    * @returns CreatePickUpWaybillResponse
    */
   async createPickUpWaybill(request: CreatePickUpWaybillRequest): Promise<CreatePickUpWaybillResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createPickUpWaybillWithOptions(request, runtime);
   }
 
@@ -11291,47 +12406,47 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePickUpWaybillPreQueryResponse
    */
-  async createPickUpWaybillPreQueryWithOptions(tmpReq: CreatePickUpWaybillPreQueryRequest, runtime: $Util.RuntimeOptions): Promise<CreatePickUpWaybillPreQueryResponse> {
-    Util.validateModel(tmpReq);
+  async createPickUpWaybillPreQueryWithOptions(tmpReq: CreatePickUpWaybillPreQueryRequest, runtime: $dara.RuntimeOptions): Promise<CreatePickUpWaybillPreQueryResponse> {
+    tmpReq.validate();
     let request = new CreatePickUpWaybillPreQueryShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.consigneeInfo)) {
+    if (!$dara.isNull(tmpReq.consigneeInfo)) {
       request.consigneeInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.consigneeInfo, "ConsigneeInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.senderInfo)) {
+    if (!$dara.isNull(tmpReq.senderInfo)) {
       request.senderInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.senderInfo, "SenderInfo", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.consigneeInfoShrink)) {
+    if (!$dara.isNull(request.consigneeInfoShrink)) {
       query["ConsigneeInfo"] = request.consigneeInfoShrink;
     }
 
-    if (!Util.isUnset(request.cpCode)) {
+    if (!$dara.isNull(request.cpCode)) {
       query["CpCode"] = request.cpCode;
     }
 
-    if (!Util.isUnset(request.orderChannels)) {
+    if (!$dara.isNull(request.orderChannels)) {
       query["OrderChannels"] = request.orderChannels;
     }
 
-    if (!Util.isUnset(request.outerOrderCode)) {
+    if (!$dara.isNull(request.outerOrderCode)) {
       query["OuterOrderCode"] = request.outerOrderCode;
     }
 
-    if (!Util.isUnset(request.preWeight)) {
+    if (!$dara.isNull(request.preWeight)) {
       query["PreWeight"] = request.preWeight;
     }
 
-    if (!Util.isUnset(request.senderInfoShrink)) {
+    if (!$dara.isNull(request.senderInfoShrink)) {
       query["SenderInfo"] = request.senderInfoShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreatePickUpWaybillPreQuery",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11342,7 +12457,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreatePickUpWaybillPreQueryResponse>(await this.callApi(params, req, runtime), new CreatePickUpWaybillPreQueryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreatePickUpWaybillPreQueryResponse>(await this.callApi(params, req, runtime), new CreatePickUpWaybillPreQueryResponse({}));
+    } else {
+      return $dara.cast<CreatePickUpWaybillPreQueryResponse>(await this.execute(params, req, runtime), new CreatePickUpWaybillPreQueryResponse({}));
+    }
+
   }
 
   /**
@@ -11356,7 +12476,7 @@ export default class Client extends OpenApi {
    * @returns CreatePickUpWaybillPreQueryResponse
    */
   async createPickUpWaybillPreQuery(request: CreatePickUpWaybillPreQueryRequest): Promise<CreatePickUpWaybillPreQueryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createPickUpWaybillPreQueryWithOptions(request, runtime);
   }
 
@@ -11367,45 +12487,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSmsSignResponse
    */
-  async createSmsSignWithOptions(request: CreateSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmsSignResponse> {
-    Util.validateModel(request);
+  async createSmsSignWithOptions(request: CreateSmsSignRequest, runtime: $dara.RuntimeOptions): Promise<CreateSmsSignResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.calledNo)) {
+    if (!$dara.isNull(request.calledNo)) {
       query["CalledNo"] = request.calledNo;
     }
 
-    if (!Util.isUnset(request.callerParentId)) {
+    if (!$dara.isNull(request.callerParentId)) {
       query["CallerParentId"] = request.callerParentId;
     }
 
-    if (!Util.isUnset(request.callingNo)) {
+    if (!$dara.isNull(request.callingNo)) {
       query["CallingNo"] = request.callingNo;
     }
 
-    if (!Util.isUnset(request.customerPoolKey)) {
+    if (!$dara.isNull(request.customerPoolKey)) {
       query["CustomerPoolKey"] = request.customerPoolKey;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.reqId)) {
+    if (!$dara.isNull(request.reqId)) {
       query["ReqId"] = request.reqId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateSmsSign",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11416,7 +12536,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateSmsSignResponse>(await this.callApi(params, req, runtime), new CreateSmsSignResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSmsSignResponse>(await this.callApi(params, req, runtime), new CreateSmsSignResponse({}));
+    } else {
+      return $dara.cast<CreateSmsSignResponse>(await this.execute(params, req, runtime), new CreateSmsSignResponse({}));
+    }
+
   }
 
   /**
@@ -11426,7 +12551,7 @@ export default class Client extends OpenApi {
    * @returns CreateSmsSignResponse
    */
   async createSmsSign(request: CreateSmsSignRequest): Promise<CreateSmsSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createSmsSignWithOptions(request, runtime);
   }
 
@@ -11435,33 +12560,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAxgGroupResponse
    */
-  async deleteAxgGroupWithOptions(request: DeleteAxgGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAxgGroupResponse> {
-    Util.validateModel(request);
+  async deleteAxgGroupWithOptions(request: DeleteAxgGroupRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAxgGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAxgGroup",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11472,7 +12597,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAxgGroupResponse>(await this.callApi(params, req, runtime), new DeleteAxgGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAxgGroupResponse>(await this.callApi(params, req, runtime), new DeleteAxgGroupResponse({}));
+    } else {
+      return $dara.cast<DeleteAxgGroupResponse>(await this.execute(params, req, runtime), new DeleteAxgGroupResponse({}));
+    }
+
   }
 
   /**
@@ -11480,7 +12610,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAxgGroupResponse
    */
   async deleteAxgGroup(request: DeleteAxgGroupRequest): Promise<DeleteAxgGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAxgGroupWithOptions(request, runtime);
   }
 
@@ -11495,33 +12625,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSecretBlacklistResponse
    */
-  async deleteSecretBlacklistWithOptions(request: DeleteSecretBlacklistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSecretBlacklistResponse> {
-    Util.validateModel(request);
+  async deleteSecretBlacklistWithOptions(request: DeleteSecretBlacklistRequest, runtime: $dara.RuntimeOptions): Promise<DeleteSecretBlacklistResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.blackNo)) {
+    if (!$dara.isNull(request.blackNo)) {
       query["BlackNo"] = request.blackNo;
     }
 
-    if (!Util.isUnset(request.blackType)) {
+    if (!$dara.isNull(request.blackType)) {
       query["BlackType"] = request.blackType;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       query["Remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.wayControl)) {
+    if (!$dara.isNull(request.wayControl)) {
       query["WayControl"] = request.wayControl;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteSecretBlacklist",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11532,7 +12662,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteSecretBlacklistResponse>(await this.callApi(params, req, runtime), new DeleteSecretBlacklistResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteSecretBlacklistResponse>(await this.callApi(params, req, runtime), new DeleteSecretBlacklistResponse({}));
+    } else {
+      return $dara.cast<DeleteSecretBlacklistResponse>(await this.execute(params, req, runtime), new DeleteSecretBlacklistResponse({}));
+    }
+
   }
 
   /**
@@ -11546,7 +12681,7 @@ export default class Client extends OpenApi {
    * @returns DeleteSecretBlacklistResponse
    */
   async deleteSecretBlacklist(request: DeleteSecretBlacklistRequest): Promise<DeleteSecretBlacklistResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSecretBlacklistWithOptions(request, runtime);
   }
 
@@ -11562,25 +12697,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSecretAsrDetailResponse
    */
-  async getSecretAsrDetailWithOptions(request: GetSecretAsrDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetSecretAsrDetailResponse> {
-    Util.validateModel(request);
+  async getSecretAsrDetailWithOptions(request: GetSecretAsrDetailRequest, runtime: $dara.RuntimeOptions): Promise<GetSecretAsrDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       query["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.callTime)) {
+    if (!$dara.isNull(request.callTime)) {
       query["CallTime"] = request.callTime;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetSecretAsrDetail",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11591,7 +12726,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSecretAsrDetailResponse>(await this.callApi(params, req, runtime), new GetSecretAsrDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSecretAsrDetailResponse>(await this.callApi(params, req, runtime), new GetSecretAsrDetailResponse({}));
+    } else {
+      return $dara.cast<GetSecretAsrDetailResponse>(await this.execute(params, req, runtime), new GetSecretAsrDetailResponse({}));
+    }
+
   }
 
   /**
@@ -11606,7 +12746,7 @@ export default class Client extends OpenApi {
    * @returns GetSecretAsrDetailResponse
    */
   async getSecretAsrDetail(request: GetSecretAsrDetailRequest): Promise<GetSecretAsrDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getSecretAsrDetailWithOptions(request, runtime);
   }
 
@@ -11621,41 +12761,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTotalPublicUrlResponse
    */
-  async getTotalPublicUrlWithOptions(request: GetTotalPublicUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetTotalPublicUrlResponse> {
-    Util.validateModel(request);
+  async getTotalPublicUrlWithOptions(request: GetTotalPublicUrlRequest, runtime: $dara.RuntimeOptions): Promise<GetTotalPublicUrlResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       query["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.callTime)) {
+    if (!$dara.isNull(request.callTime)) {
       query["CallTime"] = request.callTime;
     }
 
-    if (!Util.isUnset(request.checkSubs)) {
+    if (!$dara.isNull(request.checkSubs)) {
       query["CheckSubs"] = request.checkSubs;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.partnerKey)) {
+    if (!$dara.isNull(request.partnerKey)) {
       query["PartnerKey"] = request.partnerKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTotalPublicUrl",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11666,7 +12806,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetTotalPublicUrlResponse>(await this.callApi(params, req, runtime), new GetTotalPublicUrlResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTotalPublicUrlResponse>(await this.callApi(params, req, runtime), new GetTotalPublicUrlResponse({}));
+    } else {
+      return $dara.cast<GetTotalPublicUrlResponse>(await this.execute(params, req, runtime), new GetTotalPublicUrlResponse({}));
+    }
+
   }
 
   /**
@@ -11680,7 +12825,7 @@ export default class Client extends OpenApi {
    * @returns GetTotalPublicUrlResponse
    */
   async getTotalPublicUrl(request: GetTotalPublicUrlRequest): Promise<GetTotalPublicUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getTotalPublicUrlWithOptions(request, runtime);
   }
 
@@ -11691,41 +12836,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetXConfigResponse
    */
-  async getXConfigWithOptions(request: GetXConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetXConfigResponse> {
-    Util.validateModel(request);
+  async getXConfigWithOptions(request: GetXConfigRequest, runtime: $dara.RuntimeOptions): Promise<GetXConfigResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callerParentId)) {
+    if (!$dara.isNull(request.callerParentId)) {
       query["CallerParentId"] = request.callerParentId;
     }
 
-    if (!Util.isUnset(request.customerPoolKey)) {
+    if (!$dara.isNull(request.customerPoolKey)) {
       query["CustomerPoolKey"] = request.customerPoolKey;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.reqId)) {
+    if (!$dara.isNull(request.reqId)) {
       query["ReqId"] = request.reqId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.telX)) {
+    if (!$dara.isNull(request.telX)) {
       query["TelX"] = request.telX;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetXConfig",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11736,7 +12881,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetXConfigResponse>(await this.callApi(params, req, runtime), new GetXConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetXConfigResponse>(await this.callApi(params, req, runtime), new GetXConfigResponse({}));
+    } else {
+      return $dara.cast<GetXConfigResponse>(await this.execute(params, req, runtime), new GetXConfigResponse({}));
+    }
+
   }
 
   /**
@@ -11746,7 +12896,7 @@ export default class Client extends OpenApi {
    * @returns GetXConfigResponse
    */
   async getXConfig(request: GetXConfigRequest): Promise<GetXConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getXConfigWithOptions(request, runtime);
   }
 
@@ -11757,41 +12907,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetXDefaultConfigResponse
    */
-  async getXDefaultConfigWithOptions(request: GetXDefaultConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetXDefaultConfigResponse> {
-    Util.validateModel(request);
+  async getXDefaultConfigWithOptions(request: GetXDefaultConfigRequest, runtime: $dara.RuntimeOptions): Promise<GetXDefaultConfigResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callerParentId)) {
+    if (!$dara.isNull(request.callerParentId)) {
       query["CallerParentId"] = request.callerParentId;
     }
 
-    if (!Util.isUnset(request.customerPoolKey)) {
+    if (!$dara.isNull(request.customerPoolKey)) {
       query["CustomerPoolKey"] = request.customerPoolKey;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.reqId)) {
+    if (!$dara.isNull(request.reqId)) {
       query["ReqId"] = request.reqId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.telX)) {
+    if (!$dara.isNull(request.telX)) {
       query["TelX"] = request.telX;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetXDefaultConfig",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11802,7 +12952,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetXDefaultConfigResponse>(await this.callApi(params, req, runtime), new GetXDefaultConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetXDefaultConfigResponse>(await this.callApi(params, req, runtime), new GetXDefaultConfigResponse({}));
+    } else {
+      return $dara.cast<GetXDefaultConfigResponse>(await this.execute(params, req, runtime), new GetXDefaultConfigResponse({}));
+    }
+
   }
 
   /**
@@ -11812,7 +12967,7 @@ export default class Client extends OpenApi {
    * @returns GetXDefaultConfigResponse
    */
   async getXDefaultConfig(request: GetXDefaultConfigRequest): Promise<GetXDefaultConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getXDefaultConfigWithOptions(request, runtime);
   }
 
@@ -11823,45 +12978,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListXTelephonesResponse
    */
-  async listXTelephonesWithOptions(request: ListXTelephonesRequest, runtime: $Util.RuntimeOptions): Promise<ListXTelephonesResponse> {
-    Util.validateModel(request);
+  async listXTelephonesWithOptions(request: ListXTelephonesRequest, runtime: $dara.RuntimeOptions): Promise<ListXTelephonesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callerParentId)) {
+    if (!$dara.isNull(request.callerParentId)) {
       query["CallerParentId"] = request.callerParentId;
     }
 
-    if (!Util.isUnset(request.customerPoolKey)) {
+    if (!$dara.isNull(request.customerPoolKey)) {
       query["CustomerPoolKey"] = request.customerPoolKey;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageNo)) {
+    if (!$dara.isNull(request.pageNo)) {
       query["PageNo"] = request.pageNo;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.reqId)) {
+    if (!$dara.isNull(request.reqId)) {
       query["ReqId"] = request.reqId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListXTelephones",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11872,7 +13027,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListXTelephonesResponse>(await this.callApi(params, req, runtime), new ListXTelephonesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListXTelephonesResponse>(await this.callApi(params, req, runtime), new ListXTelephonesResponse({}));
+    } else {
+      return $dara.cast<ListXTelephonesResponse>(await this.execute(params, req, runtime), new ListXTelephonesResponse({}));
+    }
+
   }
 
   /**
@@ -11882,7 +13042,7 @@ export default class Client extends OpenApi {
    * @returns ListXTelephonesResponse
    */
   async listXTelephones(request: ListXTelephonesRequest): Promise<ListXTelephonesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listXTelephonesWithOptions(request, runtime);
   }
 
@@ -11898,33 +13058,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns LockSecretNoResponse
    */
-  async lockSecretNoWithOptions(request: LockSecretNoRequest, runtime: $Util.RuntimeOptions): Promise<LockSecretNoResponse> {
-    Util.validateModel(request);
+  async lockSecretNoWithOptions(request: LockSecretNoRequest, runtime: $dara.RuntimeOptions): Promise<LockSecretNoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.secretNo)) {
+    if (!$dara.isNull(request.secretNo)) {
       query["SecretNo"] = request.secretNo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "LockSecretNo",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -11935,7 +13095,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<LockSecretNoResponse>(await this.callApi(params, req, runtime), new LockSecretNoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<LockSecretNoResponse>(await this.callApi(params, req, runtime), new LockSecretNoResponse({}));
+    } else {
+      return $dara.cast<LockSecretNoResponse>(await this.execute(params, req, runtime), new LockSecretNoResponse({}));
+    }
+
   }
 
   /**
@@ -11950,7 +13115,7 @@ export default class Client extends OpenApi {
    * @returns LockSecretNoResponse
    */
   async lockSecretNo(request: LockSecretNoRequest): Promise<LockSecretNoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.lockSecretNoWithOptions(request, runtime);
   }
 
@@ -11966,41 +13131,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OperateAxgGroupResponse
    */
-  async operateAxgGroupWithOptions(request: OperateAxgGroupRequest, runtime: $Util.RuntimeOptions): Promise<OperateAxgGroupResponse> {
-    Util.validateModel(request);
+  async operateAxgGroupWithOptions(request: OperateAxgGroupRequest, runtime: $dara.RuntimeOptions): Promise<OperateAxgGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.numbers)) {
+    if (!$dara.isNull(request.numbers)) {
       query["Numbers"] = request.numbers;
     }
 
-    if (!Util.isUnset(request.operateType)) {
+    if (!$dara.isNull(request.operateType)) {
       query["OperateType"] = request.operateType;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OperateAxgGroup",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12011,7 +13176,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OperateAxgGroupResponse>(await this.callApi(params, req, runtime), new OperateAxgGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OperateAxgGroupResponse>(await this.callApi(params, req, runtime), new OperateAxgGroupResponse({}));
+    } else {
+      return $dara.cast<OperateAxgGroupResponse>(await this.execute(params, req, runtime), new OperateAxgGroupResponse({}));
+    }
+
   }
 
   /**
@@ -12026,7 +13196,7 @@ export default class Client extends OpenApi {
    * @returns OperateAxgGroupResponse
    */
   async operateAxgGroup(request: OperateAxgGroupRequest): Promise<OperateAxgGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.operateAxgGroupWithOptions(request, runtime);
   }
 
@@ -12042,41 +13212,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OperateBlackNoResponse
    */
-  async operateBlackNoWithOptions(request: OperateBlackNoRequest, runtime: $Util.RuntimeOptions): Promise<OperateBlackNoResponse> {
-    Util.validateModel(request);
+  async operateBlackNoWithOptions(request: OperateBlackNoRequest, runtime: $dara.RuntimeOptions): Promise<OperateBlackNoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.blackNo)) {
+    if (!$dara.isNull(request.blackNo)) {
       query["BlackNo"] = request.blackNo;
     }
 
-    if (!Util.isUnset(request.operateType)) {
+    if (!$dara.isNull(request.operateType)) {
       query["OperateType"] = request.operateType;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.tips)) {
+    if (!$dara.isNull(request.tips)) {
       query["Tips"] = request.tips;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "OperateBlackNo",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12087,7 +13257,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<OperateBlackNoResponse>(await this.callApi(params, req, runtime), new OperateBlackNoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<OperateBlackNoResponse>(await this.callApi(params, req, runtime), new OperateBlackNoResponse({}));
+    } else {
+      return $dara.cast<OperateBlackNoResponse>(await this.execute(params, req, runtime), new OperateBlackNoResponse({}));
+    }
+
   }
 
   /**
@@ -12102,7 +13277,7 @@ export default class Client extends OpenApi {
    * @returns OperateBlackNoResponse
    */
   async operateBlackNo(request: OperateBlackNoRequest): Promise<OperateBlackNoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.operateBlackNoWithOptions(request, runtime);
   }
 
@@ -12117,37 +13292,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPhoneNoAByTrackNoResponse
    */
-  async queryPhoneNoAByTrackNoWithOptions(request: QueryPhoneNoAByTrackNoRequest, runtime: $Util.RuntimeOptions): Promise<QueryPhoneNoAByTrackNoResponse> {
-    Util.validateModel(request);
+  async queryPhoneNoAByTrackNoWithOptions(request: QueryPhoneNoAByTrackNoRequest, runtime: $dara.RuntimeOptions): Promise<QueryPhoneNoAByTrackNoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.cabinetNo)) {
+    if (!$dara.isNull(request.cabinetNo)) {
       query["CabinetNo"] = request.cabinetNo;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNoX)) {
+    if (!$dara.isNull(request.phoneNoX)) {
       query["PhoneNoX"] = request.phoneNoX;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.trackNo)) {
+    if (!$dara.isNull(request.trackNo)) {
       query["trackNo"] = request.trackNo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryPhoneNoAByTrackNo",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12158,7 +13333,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryPhoneNoAByTrackNoResponse>(await this.callApi(params, req, runtime), new QueryPhoneNoAByTrackNoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryPhoneNoAByTrackNoResponse>(await this.callApi(params, req, runtime), new QueryPhoneNoAByTrackNoResponse({}));
+    } else {
+      return $dara.cast<QueryPhoneNoAByTrackNoResponse>(await this.execute(params, req, runtime), new QueryPhoneNoAByTrackNoResponse({}));
+    }
+
   }
 
   /**
@@ -12172,7 +13352,7 @@ export default class Client extends OpenApi {
    * @returns QueryPhoneNoAByTrackNoResponse
    */
   async queryPhoneNoAByTrackNo(request: QueryPhoneNoAByTrackNoRequest): Promise<QueryPhoneNoAByTrackNoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryPhoneNoAByTrackNoWithOptions(request, runtime);
   }
 
@@ -12194,41 +13374,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryRecordFileDownloadUrlResponse
    */
-  async queryRecordFileDownloadUrlWithOptions(request: QueryRecordFileDownloadUrlRequest, runtime: $Util.RuntimeOptions): Promise<QueryRecordFileDownloadUrlResponse> {
-    Util.validateModel(request);
+  async queryRecordFileDownloadUrlWithOptions(request: QueryRecordFileDownloadUrlRequest, runtime: $dara.RuntimeOptions): Promise<QueryRecordFileDownloadUrlResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       query["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.callTime)) {
+    if (!$dara.isNull(request.callTime)) {
       query["CallTime"] = request.callTime;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryRecordFileDownloadUrl",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12239,7 +13419,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryRecordFileDownloadUrlResponse>(await this.callApi(params, req, runtime), new QueryRecordFileDownloadUrlResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryRecordFileDownloadUrlResponse>(await this.callApi(params, req, runtime), new QueryRecordFileDownloadUrlResponse({}));
+    } else {
+      return $dara.cast<QueryRecordFileDownloadUrlResponse>(await this.execute(params, req, runtime), new QueryRecordFileDownloadUrlResponse({}));
+    }
+
   }
 
   /**
@@ -12260,7 +13445,7 @@ export default class Client extends OpenApi {
    * @returns QueryRecordFileDownloadUrlResponse
    */
   async queryRecordFileDownloadUrl(request: QueryRecordFileDownloadUrlRequest): Promise<QueryRecordFileDownloadUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryRecordFileDownloadUrlWithOptions(request, runtime);
   }
 
@@ -12275,33 +13460,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySecretNoDetailResponse
    */
-  async querySecretNoDetailWithOptions(request: QuerySecretNoDetailRequest, runtime: $Util.RuntimeOptions): Promise<QuerySecretNoDetailResponse> {
-    Util.validateModel(request);
+  async querySecretNoDetailWithOptions(request: QuerySecretNoDetailRequest, runtime: $dara.RuntimeOptions): Promise<QuerySecretNoDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.secretNo)) {
+    if (!$dara.isNull(request.secretNo)) {
       query["SecretNo"] = request.secretNo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySecretNoDetail",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12312,7 +13497,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySecretNoDetailResponse>(await this.callApi(params, req, runtime), new QuerySecretNoDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySecretNoDetailResponse>(await this.callApi(params, req, runtime), new QuerySecretNoDetailResponse({}));
+    } else {
+      return $dara.cast<QuerySecretNoDetailResponse>(await this.execute(params, req, runtime), new QuerySecretNoDetailResponse({}));
+    }
+
   }
 
   /**
@@ -12326,7 +13516,7 @@ export default class Client extends OpenApi {
    * @returns QuerySecretNoDetailResponse
    */
   async querySecretNoDetail(request: QuerySecretNoDetailRequest): Promise<QuerySecretNoDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySecretNoDetailWithOptions(request, runtime);
   }
 
@@ -12340,37 +13530,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySecretNoRemainResponse
    */
-  async querySecretNoRemainWithOptions(request: QuerySecretNoRemainRequest, runtime: $Util.RuntimeOptions): Promise<QuerySecretNoRemainResponse> {
-    Util.validateModel(request);
+  async querySecretNoRemainWithOptions(request: QuerySecretNoRemainRequest, runtime: $dara.RuntimeOptions): Promise<QuerySecretNoRemainResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.city)) {
+    if (!$dara.isNull(request.city)) {
       query["City"] = request.city;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.secretNo)) {
+    if (!$dara.isNull(request.secretNo)) {
       query["SecretNo"] = request.secretNo;
     }
 
-    if (!Util.isUnset(request.specId)) {
+    if (!$dara.isNull(request.specId)) {
       query["SpecId"] = request.specId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySecretNoRemain",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12381,7 +13571,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySecretNoRemainResponse>(await this.callApi(params, req, runtime), new QuerySecretNoRemainResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySecretNoRemainResponse>(await this.callApi(params, req, runtime), new QuerySecretNoRemainResponse({}));
+    } else {
+      return $dara.cast<QuerySecretNoRemainResponse>(await this.execute(params, req, runtime), new QuerySecretNoRemainResponse({}));
+    }
+
   }
 
   /**
@@ -12394,7 +13589,7 @@ export default class Client extends OpenApi {
    * @returns QuerySecretNoRemainResponse
    */
   async querySecretNoRemain(request: QuerySecretNoRemainRequest): Promise<QuerySecretNoRemainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySecretNoRemainWithOptions(request, runtime);
   }
 
@@ -12405,41 +13600,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySoundRecordResponse
    */
-  async querySoundRecordWithOptions(request: QuerySoundRecordRequest, runtime: $Util.RuntimeOptions): Promise<QuerySoundRecordResponse> {
-    Util.validateModel(request);
+  async querySoundRecordWithOptions(request: QuerySoundRecordRequest, runtime: $dara.RuntimeOptions): Promise<QuerySoundRecordResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.callId)) {
+    if (!$dara.isNull(request.callId)) {
       query["CallId"] = request.callId;
     }
 
-    if (!Util.isUnset(request.callerParentId)) {
+    if (!$dara.isNull(request.callerParentId)) {
       query["CallerParentId"] = request.callerParentId;
     }
 
-    if (!Util.isUnset(request.customerPoolKey)) {
+    if (!$dara.isNull(request.customerPoolKey)) {
       query["CustomerPoolKey"] = request.customerPoolKey;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.reqId)) {
+    if (!$dara.isNull(request.reqId)) {
       query["ReqId"] = request.reqId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySoundRecord",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12450,7 +13645,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySoundRecordResponse>(await this.callApi(params, req, runtime), new QuerySoundRecordResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySoundRecordResponse>(await this.callApi(params, req, runtime), new QuerySoundRecordResponse({}));
+    } else {
+      return $dara.cast<QuerySoundRecordResponse>(await this.execute(params, req, runtime), new QuerySoundRecordResponse({}));
+    }
+
   }
 
   /**
@@ -12460,7 +13660,7 @@ export default class Client extends OpenApi {
    * @returns QuerySoundRecordResponse
    */
   async querySoundRecord(request: QuerySoundRecordRequest): Promise<QuerySoundRecordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySoundRecordWithOptions(request, runtime);
   }
 
@@ -12474,33 +13674,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySubsIdResponse
    */
-  async querySubsIdWithOptions(request: QuerySubsIdRequest, runtime: $Util.RuntimeOptions): Promise<QuerySubsIdResponse> {
-    Util.validateModel(request);
+  async querySubsIdWithOptions(request: QuerySubsIdRequest, runtime: $dara.RuntimeOptions): Promise<QuerySubsIdResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNoX)) {
+    if (!$dara.isNull(request.phoneNoX)) {
       query["PhoneNoX"] = request.phoneNoX;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySubsId",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12511,7 +13711,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySubsIdResponse>(await this.callApi(params, req, runtime), new QuerySubsIdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySubsIdResponse>(await this.callApi(params, req, runtime), new QuerySubsIdResponse({}));
+    } else {
+      return $dara.cast<QuerySubsIdResponse>(await this.execute(params, req, runtime), new QuerySubsIdResponse({}));
+    }
+
   }
 
   /**
@@ -12524,7 +13729,7 @@ export default class Client extends OpenApi {
    * @returns QuerySubsIdResponse
    */
   async querySubsId(request: QuerySubsIdRequest): Promise<QuerySubsIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySubsIdWithOptions(request, runtime);
   }
 
@@ -12541,41 +13746,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySubscriptionDetailResponse
    */
-  async querySubscriptionDetailWithOptions(request: QuerySubscriptionDetailRequest, runtime: $Util.RuntimeOptions): Promise<QuerySubscriptionDetailResponse> {
-    Util.validateModel(request);
+  async querySubscriptionDetailWithOptions(request: QuerySubscriptionDetailRequest, runtime: $dara.RuntimeOptions): Promise<QuerySubscriptionDetailResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNoX)) {
+    if (!$dara.isNull(request.phoneNoX)) {
       query["PhoneNoX"] = request.phoneNoX;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.subsId)) {
+    if (!$dara.isNull(request.subsId)) {
       query["SubsId"] = request.subsId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QuerySubscriptionDetail",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12586,7 +13791,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QuerySubscriptionDetailResponse>(await this.callApi(params, req, runtime), new QuerySubscriptionDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QuerySubscriptionDetailResponse>(await this.callApi(params, req, runtime), new QuerySubscriptionDetailResponse({}));
+    } else {
+      return $dara.cast<QuerySubscriptionDetailResponse>(await this.execute(params, req, runtime), new QuerySubscriptionDetailResponse({}));
+    }
+
   }
 
   /**
@@ -12602,7 +13812,7 @@ export default class Client extends OpenApi {
    * @returns QuerySubscriptionDetailResponse
    */
   async querySubscriptionDetail(request: QuerySubscriptionDetailRequest): Promise<QuerySubscriptionDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.querySubscriptionDetailWithOptions(request, runtime);
   }
 
@@ -12617,33 +13827,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReleaseSecretNoResponse
    */
-  async releaseSecretNoWithOptions(request: ReleaseSecretNoRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseSecretNoResponse> {
-    Util.validateModel(request);
+  async releaseSecretNoWithOptions(request: ReleaseSecretNoRequest, runtime: $dara.RuntimeOptions): Promise<ReleaseSecretNoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.secretNo)) {
+    if (!$dara.isNull(request.secretNo)) {
       query["SecretNo"] = request.secretNo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReleaseSecretNo",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12654,7 +13864,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReleaseSecretNoResponse>(await this.callApi(params, req, runtime), new ReleaseSecretNoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ReleaseSecretNoResponse>(await this.callApi(params, req, runtime), new ReleaseSecretNoResponse({}));
+    } else {
+      return $dara.cast<ReleaseSecretNoResponse>(await this.execute(params, req, runtime), new ReleaseSecretNoResponse({}));
+    }
+
   }
 
   /**
@@ -12668,7 +13883,7 @@ export default class Client extends OpenApi {
    * @returns ReleaseSecretNoResponse
    */
   async releaseSecretNo(request: ReleaseSecretNoRequest): Promise<ReleaseSecretNoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.releaseSecretNoWithOptions(request, runtime);
   }
 
@@ -12679,41 +13894,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnBindAXBResponse
    */
-  async unBindAXBWithOptions(request: UnBindAXBRequest, runtime: $Util.RuntimeOptions): Promise<UnBindAXBResponse> {
-    Util.validateModel(request);
+  async unBindAXBWithOptions(request: UnBindAXBRequest, runtime: $dara.RuntimeOptions): Promise<UnBindAXBResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bindId)) {
+    if (!$dara.isNull(request.bindId)) {
       query["BindId"] = request.bindId;
     }
 
-    if (!Util.isUnset(request.callerParentId)) {
+    if (!$dara.isNull(request.callerParentId)) {
       query["CallerParentId"] = request.callerParentId;
     }
 
-    if (!Util.isUnset(request.customerPoolKey)) {
+    if (!$dara.isNull(request.customerPoolKey)) {
       query["CustomerPoolKey"] = request.customerPoolKey;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.reqId)) {
+    if (!$dara.isNull(request.reqId)) {
       query["ReqId"] = request.reqId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnBindAXB",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12724,7 +13939,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnBindAXBResponse>(await this.callApi(params, req, runtime), new UnBindAXBResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnBindAXBResponse>(await this.callApi(params, req, runtime), new UnBindAXBResponse({}));
+    } else {
+      return $dara.cast<UnBindAXBResponse>(await this.execute(params, req, runtime), new UnBindAXBResponse({}));
+    }
+
   }
 
   /**
@@ -12734,7 +13954,7 @@ export default class Client extends OpenApi {
    * @returns UnBindAXBResponse
    */
   async unBindAXB(request: UnBindAXBRequest): Promise<UnBindAXBResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unBindAXBWithOptions(request, runtime);
   }
 
@@ -12745,45 +13965,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnBindXBResponse
    */
-  async unBindXBWithOptions(request: UnBindXBRequest, runtime: $Util.RuntimeOptions): Promise<UnBindXBResponse> {
-    Util.validateModel(request);
+  async unBindXBWithOptions(request: UnBindXBRequest, runtime: $dara.RuntimeOptions): Promise<UnBindXBResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.authId)) {
+    if (!$dara.isNull(request.authId)) {
       query["AuthId"] = request.authId;
     }
 
-    if (!Util.isUnset(request.callerParentId)) {
+    if (!$dara.isNull(request.callerParentId)) {
       query["CallerParentId"] = request.callerParentId;
     }
 
-    if (!Util.isUnset(request.customerPoolKey)) {
+    if (!$dara.isNull(request.customerPoolKey)) {
       query["CustomerPoolKey"] = request.customerPoolKey;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.reqId)) {
+    if (!$dara.isNull(request.reqId)) {
       query["ReqId"] = request.reqId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.telX)) {
+    if (!$dara.isNull(request.telX)) {
       query["TelX"] = request.telX;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnBindXB",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12794,7 +14014,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnBindXBResponse>(await this.callApi(params, req, runtime), new UnBindXBResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnBindXBResponse>(await this.callApi(params, req, runtime), new UnBindXBResponse({}));
+    } else {
+      return $dara.cast<UnBindXBResponse>(await this.execute(params, req, runtime), new UnBindXBResponse({}));
+    }
+
   }
 
   /**
@@ -12804,7 +14029,7 @@ export default class Client extends OpenApi {
    * @returns UnBindXBResponse
    */
   async unBindXB(request: UnBindXBRequest): Promise<UnBindXBResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unBindXBWithOptions(request, runtime);
   }
 
@@ -12818,41 +14043,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindSubscriptionResponse
    */
-  async unbindSubscriptionWithOptions(request: UnbindSubscriptionRequest, runtime: $Util.RuntimeOptions): Promise<UnbindSubscriptionResponse> {
-    Util.validateModel(request);
+  async unbindSubscriptionWithOptions(request: UnbindSubscriptionRequest, runtime: $dara.RuntimeOptions): Promise<UnbindSubscriptionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.secretNo)) {
+    if (!$dara.isNull(request.secretNo)) {
       query["SecretNo"] = request.secretNo;
     }
 
-    if (!Util.isUnset(request.subsId)) {
+    if (!$dara.isNull(request.subsId)) {
       query["SubsId"] = request.subsId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnbindSubscription",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12863,7 +14088,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnbindSubscriptionResponse>(await this.callApi(params, req, runtime), new UnbindSubscriptionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnbindSubscriptionResponse>(await this.callApi(params, req, runtime), new UnbindSubscriptionResponse({}));
+    } else {
+      return $dara.cast<UnbindSubscriptionResponse>(await this.execute(params, req, runtime), new UnbindSubscriptionResponse({}));
+    }
+
   }
 
   /**
@@ -12876,7 +14106,7 @@ export default class Client extends OpenApi {
    * @returns UnbindSubscriptionResponse
    */
   async unbindSubscription(request: UnbindSubscriptionRequest): Promise<UnbindSubscriptionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindSubscriptionWithOptions(request, runtime);
   }
 
@@ -12892,33 +14122,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnlockSecretNoResponse
    */
-  async unlockSecretNoWithOptions(request: UnlockSecretNoRequest, runtime: $Util.RuntimeOptions): Promise<UnlockSecretNoResponse> {
-    Util.validateModel(request);
+  async unlockSecretNoWithOptions(request: UnlockSecretNoRequest, runtime: $dara.RuntimeOptions): Promise<UnlockSecretNoResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.secretNo)) {
+    if (!$dara.isNull(request.secretNo)) {
       query["SecretNo"] = request.secretNo;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnlockSecretNo",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -12929,7 +14159,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnlockSecretNoResponse>(await this.callApi(params, req, runtime), new UnlockSecretNoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnlockSecretNoResponse>(await this.callApi(params, req, runtime), new UnlockSecretNoResponse({}));
+    } else {
+      return $dara.cast<UnlockSecretNoResponse>(await this.execute(params, req, runtime), new UnlockSecretNoResponse({}));
+    }
+
   }
 
   /**
@@ -12944,7 +14179,7 @@ export default class Client extends OpenApi {
    * @returns UnlockSecretNoResponse
    */
   async unlockSecretNo(request: UnlockSecretNoRequest): Promise<UnlockSecretNoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unlockSecretNoWithOptions(request, runtime);
   }
 
@@ -12959,89 +14194,89 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSubscriptionResponse
    */
-  async updateSubscriptionWithOptions(request: UpdateSubscriptionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSubscriptionResponse> {
-    Util.validateModel(request);
+  async updateSubscriptionWithOptions(request: UpdateSubscriptionRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSubscriptionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ASRModelId)) {
+    if (!$dara.isNull(request.ASRModelId)) {
       query["ASRModelId"] = request.ASRModelId;
     }
 
-    if (!Util.isUnset(request.ASRStatus)) {
+    if (!$dara.isNull(request.ASRStatus)) {
       query["ASRStatus"] = request.ASRStatus;
     }
 
-    if (!Util.isUnset(request.callDisplayType)) {
+    if (!$dara.isNull(request.callDisplayType)) {
       query["CallDisplayType"] = request.callDisplayType;
     }
 
-    if (!Util.isUnset(request.callRestrict)) {
+    if (!$dara.isNull(request.callRestrict)) {
       query["CallRestrict"] = request.callRestrict;
     }
 
-    if (!Util.isUnset(request.expiration)) {
+    if (!$dara.isNull(request.expiration)) {
       query["Expiration"] = request.expiration;
     }
 
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.isRecordingEnabled)) {
+    if (!$dara.isNull(request.isRecordingEnabled)) {
       query["IsRecordingEnabled"] = request.isRecordingEnabled;
     }
 
-    if (!Util.isUnset(request.operateType)) {
+    if (!$dara.isNull(request.operateType)) {
       query["OperateType"] = request.operateType;
     }
 
-    if (!Util.isUnset(request.outId)) {
+    if (!$dara.isNull(request.outId)) {
       query["OutId"] = request.outId;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.phoneNoA)) {
+    if (!$dara.isNull(request.phoneNoA)) {
       query["PhoneNoA"] = request.phoneNoA;
     }
 
-    if (!Util.isUnset(request.phoneNoB)) {
+    if (!$dara.isNull(request.phoneNoB)) {
       query["PhoneNoB"] = request.phoneNoB;
     }
 
-    if (!Util.isUnset(request.phoneNoX)) {
+    if (!$dara.isNull(request.phoneNoX)) {
       query["PhoneNoX"] = request.phoneNoX;
     }
 
-    if (!Util.isUnset(request.poolKey)) {
+    if (!$dara.isNull(request.poolKey)) {
       query["PoolKey"] = request.poolKey;
     }
 
-    if (!Util.isUnset(request.productType)) {
+    if (!$dara.isNull(request.productType)) {
       query["ProductType"] = request.productType;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.ringConfig)) {
+    if (!$dara.isNull(request.ringConfig)) {
       query["RingConfig"] = request.ringConfig;
     }
 
-    if (!Util.isUnset(request.subsId)) {
+    if (!$dara.isNull(request.subsId)) {
       query["SubsId"] = request.subsId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateSubscription",
       version: "2017-05-25",
       protocol: "HTTPS",
@@ -13052,7 +14287,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateSubscriptionResponse>(await this.callApi(params, req, runtime), new UpdateSubscriptionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateSubscriptionResponse>(await this.callApi(params, req, runtime), new UpdateSubscriptionResponse({}));
+    } else {
+      return $dara.cast<UpdateSubscriptionResponse>(await this.execute(params, req, runtime), new UpdateSubscriptionResponse({}));
+    }
+
   }
 
   /**
@@ -13066,7 +14306,7 @@ export default class Client extends OpenApi {
    * @returns UpdateSubscriptionResponse
    */
   async updateSubscription(request: UpdateSubscriptionRequest): Promise<UpdateSubscriptionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSubscriptionWithOptions(request, runtime);
   }
 
