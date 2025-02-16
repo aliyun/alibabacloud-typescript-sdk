@@ -2844,35 +2844,6 @@ export class CreateLoadBalancerRequestRules extends $dara.Model {
   }
 }
 
-export class CreateLoadBalancerRequestSessionAffinityAttributes extends $dara.Model {
-  sameSite?: string;
-  secure?: string;
-  zeroDowntimeFailover?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sameSite: 'SameSite',
-      secure: 'Secure',
-      zeroDowntimeFailover: 'ZeroDowntimeFailover',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sameSite: 'string',
-      secure: 'string',
-      zeroDowntimeFailover: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateOriginPoolRequestOriginsAuthConf extends $dara.Model {
   accessKey?: string;
   authType?: string;
@@ -12783,47 +12754,6 @@ export class ListLoadBalancersResponseBodyLoadBalancersRules extends $dara.Model
   }
 }
 
-export class ListLoadBalancersResponseBodyLoadBalancersSessionAffinityAttributes extends $dara.Model {
-  /**
-   * @example
-   * Lax
-   */
-  sameSite?: string;
-  /**
-   * @example
-   * Always
-   */
-  secure?: string;
-  /**
-   * @example
-   * sticky
-   */
-  zeroDowntimeFailover?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sameSite: 'SameSite',
-      secure: 'Secure',
-      zeroDowntimeFailover: 'ZeroDowntimeFailover',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sameSite: 'string',
-      secure: 'string',
-      zeroDowntimeFailover: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   adaptiveRouting?: ListLoadBalancersResponseBodyLoadBalancersAdaptiveRouting;
   defaultPools?: number[];
@@ -12880,7 +12810,6 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
    * ip
    */
   sessionAffinity?: string;
-  sessionAffinityAttributes?: ListLoadBalancersResponseBodyLoadBalancersSessionAffinityAttributes;
   /**
    * @example
    * 1159101787****
@@ -12920,7 +12849,6 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
       regionPools: 'RegionPools',
       rules: 'Rules',
       sessionAffinity: 'SessionAffinity',
-      sessionAffinityAttributes: 'SessionAffinityAttributes',
       siteId: 'SiteId',
       status: 'Status',
       steeringPolicy: 'SteeringPolicy',
@@ -12943,7 +12871,6 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
       regionPools: 'any',
       rules: { 'type': 'array', 'itemType': ListLoadBalancersResponseBodyLoadBalancersRules },
       sessionAffinity: 'string',
-      sessionAffinityAttributes: ListLoadBalancersResponseBodyLoadBalancersSessionAffinityAttributes,
       siteId: 'number',
       status: 'string',
       steeringPolicy: 'string',
@@ -12967,9 +12894,6 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
     }
     if(Array.isArray(this.rules)) {
       $dara.Model.validateArray(this.rules);
-    }
-    if(this.sessionAffinityAttributes && typeof (this.sessionAffinityAttributes as any).validate === 'function') {
-      (this.sessionAffinityAttributes as any).validate();
     }
     super.validate();
   }
@@ -16867,47 +16791,6 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
     if(this.fixedResponse && typeof (this.fixedResponse as any).validate === 'function') {
       (this.fixedResponse as any).validate();
     }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateLoadBalancerRequestSessionAffinityAttributes extends $dara.Model {
-  /**
-   * @example
-   * Lax
-   */
-  sameSite?: string;
-  /**
-   * @example
-   * Always
-   */
-  secure?: string;
-  /**
-   * @example
-   * sticky
-   */
-  zeroDowntimeFailover?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sameSite: 'SameSite',
-      secure: 'Secure',
-      zeroDowntimeFailover: 'ZeroDowntimeFailover',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sameSite: 'string',
-      secure: 'string',
-      zeroDowntimeFailover: 'string',
-    };
-  }
-
-  validate() {
     super.validate();
   }
 
@@ -22802,6 +22685,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
    */
   defaultPools?: number[];
   description?: string;
+  enabled?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -22846,7 +22730,6 @@ export class CreateLoadBalancerRequest extends $dara.Model {
    */
   rules?: CreateLoadBalancerRequestRules[];
   sessionAffinity?: string;
-  sessionAffinityAttributes?: CreateLoadBalancerRequestSessionAffinityAttributes;
   /**
    * @remarks
    * This parameter is required.
@@ -22867,6 +22750,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
       adaptiveRouting: 'AdaptiveRouting',
       defaultPools: 'DefaultPools',
       description: 'Description',
+      enabled: 'Enabled',
       fallbackPool: 'FallbackPool',
       monitor: 'Monitor',
       name: 'Name',
@@ -22874,7 +22758,6 @@ export class CreateLoadBalancerRequest extends $dara.Model {
       regionPools: 'RegionPools',
       rules: 'Rules',
       sessionAffinity: 'SessionAffinity',
-      sessionAffinityAttributes: 'SessionAffinityAttributes',
       siteId: 'SiteId',
       steeringPolicy: 'SteeringPolicy',
       subRegionPools: 'SubRegionPools',
@@ -22887,6 +22770,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
       adaptiveRouting: CreateLoadBalancerRequestAdaptiveRouting,
       defaultPools: { 'type': 'array', 'itemType': 'number' },
       description: 'string',
+      enabled: 'boolean',
       fallbackPool: 'number',
       monitor: CreateLoadBalancerRequestMonitor,
       name: 'string',
@@ -22894,7 +22778,6 @@ export class CreateLoadBalancerRequest extends $dara.Model {
       regionPools: 'any',
       rules: { 'type': 'array', 'itemType': CreateLoadBalancerRequestRules },
       sessionAffinity: 'string',
-      sessionAffinityAttributes: CreateLoadBalancerRequestSessionAffinityAttributes,
       siteId: 'number',
       steeringPolicy: 'string',
       subRegionPools: 'any',
@@ -22917,9 +22800,6 @@ export class CreateLoadBalancerRequest extends $dara.Model {
     }
     if(Array.isArray(this.rules)) {
       $dara.Model.validateArray(this.rules);
-    }
-    if(this.sessionAffinityAttributes && typeof (this.sessionAffinityAttributes as any).validate === 'function') {
-      (this.sessionAffinityAttributes as any).validate();
     }
     super.validate();
   }
@@ -22944,6 +22824,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
    */
   defaultPoolsShrink?: string;
   description?: string;
+  enabled?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -22988,7 +22869,6 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
    */
   rulesShrink?: string;
   sessionAffinity?: string;
-  sessionAffinityAttributesShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -23009,6 +22889,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
       adaptiveRoutingShrink: 'AdaptiveRouting',
       defaultPoolsShrink: 'DefaultPools',
       description: 'Description',
+      enabled: 'Enabled',
       fallbackPool: 'FallbackPool',
       monitorShrink: 'Monitor',
       name: 'Name',
@@ -23016,7 +22897,6 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
       regionPools: 'RegionPools',
       rulesShrink: 'Rules',
       sessionAffinity: 'SessionAffinity',
-      sessionAffinityAttributesShrink: 'SessionAffinityAttributes',
       siteId: 'SiteId',
       steeringPolicy: 'SteeringPolicy',
       subRegionPools: 'SubRegionPools',
@@ -23029,6 +22909,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
       adaptiveRoutingShrink: 'string',
       defaultPoolsShrink: 'string',
       description: 'string',
+      enabled: 'boolean',
       fallbackPool: 'number',
       monitorShrink: 'string',
       name: 'string',
@@ -23036,7 +22917,6 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
       regionPools: 'any',
       rulesShrink: 'string',
       sessionAffinity: 'string',
-      sessionAffinityAttributesShrink: 'string',
       siteId: 'number',
       steeringPolicy: 'string',
       subRegionPools: 'any',
@@ -33383,6 +33263,112 @@ export class DescribePurgeTasksResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribePurgeTasksResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRatePlanInstanceStatusRequest extends $dara.Model {
+  /**
+   * @example
+   * xcdn-91fknmb80f0g***
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRatePlanInstanceStatusResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xcdn-91fknmb80f0g***
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * running
+   */
+  instanceStatus?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 60423A7F-A83D-1E24-B80E-86DD25790759
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceStatus: 'InstanceStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceStatus: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRatePlanInstanceStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRatePlanInstanceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRatePlanInstanceStatusResponseBody,
     };
   }
 
@@ -52263,6 +52249,164 @@ export class PublishRoutineCodeVersionResponse extends $dara.Model {
   }
 }
 
+export class PurchaseRatePlanRequest extends $dara.Model {
+  autoPay?: boolean;
+  /**
+   * @example
+   * true
+   */
+  autoRenew?: boolean;
+  /**
+   * @example
+   * PREPAY
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * domestic
+   */
+  coverage?: string;
+  /**
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @example
+   * entranceplan
+   */
+  planCode?: string;
+  /**
+   * @example
+   * basic
+   */
+  planName?: string;
+  /**
+   * @example
+   * test.com
+   */
+  siteName?: string;
+  /**
+   * @example
+   * CNAME
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      chargeType: 'ChargeType',
+      coverage: 'Coverage',
+      period: 'Period',
+      planCode: 'PlanCode',
+      planName: 'PlanName',
+      siteName: 'SiteName',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      chargeType: 'string',
+      coverage: 'string',
+      period: 'number',
+      planCode: 'string',
+      planName: 'string',
+      siteName: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PurchaseRatePlanResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xcdn-ads11w
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 123123
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 30423A7F-A83D-1E24-B80E-86DD25790758
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PurchaseRatePlanResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PurchaseRatePlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PurchaseRatePlanResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PurgeCachesRequest extends $dara.Model {
   /**
    * @remarks
@@ -53537,14 +53681,6 @@ export class SetCertificateRequest extends $dara.Model {
    * cas
    */
   type?: string;
-  /**
-   * @remarks
-   * Specifies whether to update the certificate.
-   * 
-   * @example
-   * true
-   */
-  update?: boolean;
   static names(): { [key: string]: string } {
     return {
       casId: 'CasId',
@@ -53557,7 +53693,6 @@ export class SetCertificateRequest extends $dara.Model {
       securityToken: 'SecurityToken',
       siteId: 'SiteId',
       type: 'Type',
-      update: 'Update',
     };
   }
 
@@ -53573,7 +53708,6 @@ export class SetCertificateRequest extends $dara.Model {
       securityToken: 'string',
       siteId: 'number',
       type: 'string',
-      update: 'boolean',
     };
   }
 
@@ -56624,160 +56758,6 @@ export class UpdateImageTransformResponse extends $dara.Model {
   }
 }
 
-export class UpdateKvNamespaceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * ns1
-   */
-  namespace?: string;
-  /**
-   * @remarks
-   * The new name of the namespace.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * new_ns
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      namespace: 'Namespace',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      namespace: 'string',
-      title: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateKvNamespaceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the namespace.
-   * 
-   * @example
-   * this is a test ns.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The updated name of the namespace.
-   * 
-   * @example
-   * new_ns1
-   */
-  namespace?: string;
-  /**
-   * @remarks
-   * The ID of the namespace.
-   * 
-   * @example
-   * 643355322374688768
-   */
-  namespaceId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The status of the namespace. Valid values:
-   * 
-   * *   **online**: normal.
-   * *   **delete**: pending deletion.
-   * *   **deleting**: being deleted.
-   * *   **deleted**: deleted.
-   * 
-   * @example
-   * online
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      namespace: 'Namespace',
-      namespaceId: 'NamespaceId',
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      namespace: 'string',
-      namespaceId: 'string',
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateKvNamespaceResponse extends $dara.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateKvNamespaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateKvNamespaceResponseBody,
-    };
-  }
-
-  validate() {
-    if(this.headers) {
-      $dara.Model.validateMap(this.headers);
-    }
-    if(this.body && typeof (this.body as any).validate === 'function') {
-      (this.body as any).validate();
-    }
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateListRequest extends $dara.Model {
   /**
    * @remarks
@@ -56986,6 +56966,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   adaptiveRouting?: UpdateLoadBalancerRequestAdaptiveRouting;
   defaultPools?: number[];
   description?: string;
+  enabled?: boolean;
   /**
    * @example
    * 96228666776****
@@ -57031,7 +57012,6 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
    * ip
    */
   sessionAffinity?: string;
-  sessionAffinityAttributes?: UpdateLoadBalancerRequestSessionAffinityAttributes;
   /**
    * @remarks
    * This parameter is required.
@@ -57060,6 +57040,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
       adaptiveRouting: 'AdaptiveRouting',
       defaultPools: 'DefaultPools',
       description: 'Description',
+      enabled: 'Enabled',
       fallbackPool: 'FallbackPool',
       id: 'Id',
       monitor: 'Monitor',
@@ -57067,7 +57048,6 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
       regionPools: 'RegionPools',
       rules: 'Rules',
       sessionAffinity: 'SessionAffinity',
-      sessionAffinityAttributes: 'SessionAffinityAttributes',
       siteId: 'SiteId',
       steeringPolicy: 'SteeringPolicy',
       subRegionPools: 'SubRegionPools',
@@ -57080,6 +57060,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
       adaptiveRouting: UpdateLoadBalancerRequestAdaptiveRouting,
       defaultPools: { 'type': 'array', 'itemType': 'number' },
       description: 'string',
+      enabled: 'boolean',
       fallbackPool: 'number',
       id: 'number',
       monitor: UpdateLoadBalancerRequestMonitor,
@@ -57087,7 +57068,6 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
       regionPools: 'any',
       rules: { 'type': 'array', 'itemType': UpdateLoadBalancerRequestRules },
       sessionAffinity: 'string',
-      sessionAffinityAttributes: UpdateLoadBalancerRequestSessionAffinityAttributes,
       siteId: 'number',
       steeringPolicy: 'string',
       subRegionPools: 'any',
@@ -57111,9 +57091,6 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
     if(Array.isArray(this.rules)) {
       $dara.Model.validateArray(this.rules);
     }
-    if(this.sessionAffinityAttributes && typeof (this.sessionAffinityAttributes as any).validate === 'function') {
-      (this.sessionAffinityAttributes as any).validate();
-    }
     super.validate();
   }
 
@@ -57126,6 +57103,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   adaptiveRoutingShrink?: string;
   defaultPoolsShrink?: string;
   description?: string;
+  enabled?: boolean;
   /**
    * @example
    * 96228666776****
@@ -57171,7 +57149,6 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
    * ip
    */
   sessionAffinity?: string;
-  sessionAffinityAttributesShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -57200,6 +57177,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
       adaptiveRoutingShrink: 'AdaptiveRouting',
       defaultPoolsShrink: 'DefaultPools',
       description: 'Description',
+      enabled: 'Enabled',
       fallbackPool: 'FallbackPool',
       id: 'Id',
       monitorShrink: 'Monitor',
@@ -57207,7 +57185,6 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
       regionPools: 'RegionPools',
       rulesShrink: 'Rules',
       sessionAffinity: 'SessionAffinity',
-      sessionAffinityAttributesShrink: 'SessionAffinityAttributes',
       siteId: 'SiteId',
       steeringPolicy: 'SteeringPolicy',
       subRegionPools: 'SubRegionPools',
@@ -57220,6 +57197,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
       adaptiveRoutingShrink: 'string',
       defaultPoolsShrink: 'string',
       description: 'string',
+      enabled: 'boolean',
       fallbackPool: 'number',
       id: 'number',
       monitorShrink: 'string',
@@ -57227,7 +57205,6 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
       regionPools: 'any',
       rulesShrink: 'string',
       sessionAffinity: 'string',
-      sessionAffinityAttributesShrink: 'string',
       siteId: 'number',
       steeringPolicy: 'string',
       subRegionPools: 'any',
@@ -58245,6 +58222,143 @@ export class UpdatePageResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdatePageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRatePlanSpecRequest extends $dara.Model {
+  autoPay?: boolean;
+  /**
+   * @example
+   * PREPAY
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * xcdn-91fknmb80f0g
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * UPGRADE
+   */
+  orderType?: string;
+  /**
+   * @example
+   * entranceplan
+   */
+  targetPlanCode?: string;
+  /**
+   * @example
+   * basic
+   */
+  targetPlanName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      chargeType: 'ChargeType',
+      instanceId: 'InstanceId',
+      orderType: 'OrderType',
+      targetPlanCode: 'TargetPlanCode',
+      targetPlanName: 'TargetPlanName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      chargeType: 'string',
+      instanceId: 'string',
+      orderType: 'string',
+      targetPlanCode: 'string',
+      targetPlanName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRatePlanSpecResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xcdn-as23ds***
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 2223332122***
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 30423A7F-A83D-1E24-B80E-86DD25790758
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRatePlanSpecResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateRatePlanSpecResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateRatePlanSpecResponseBody,
     };
   }
 
@@ -64308,10 +64422,6 @@ export default class Client extends OpenApi {
       request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
     }
 
-    if (!$dara.isNull(tmpReq.sessionAffinityAttributes)) {
-      request.sessionAffinityAttributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sessionAffinityAttributes, "SessionAffinityAttributes", "json");
-    }
-
     let query = { };
     if (!$dara.isNull(request.adaptiveRoutingShrink)) {
       query["AdaptiveRouting"] = request.adaptiveRoutingShrink;
@@ -64323,6 +64433,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      query["Enabled"] = request.enabled;
     }
 
     if (!$dara.isNull(request.fallbackPool)) {
@@ -64351,10 +64465,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sessionAffinity)) {
       query["SessionAffinity"] = request.sessionAffinity;
-    }
-
-    if (!$dara.isNull(request.sessionAffinityAttributesShrink)) {
-      query["SessionAffinityAttributes"] = request.sessionAffinityAttributesShrink;
     }
 
     if (!$dara.isNull(request.siteId)) {
@@ -68429,6 +68539,53 @@ export default class Client extends OpenApi {
   async describePurgeTasks(request: DescribePurgeTasksRequest): Promise<DescribePurgeTasksResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describePurgeTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询套餐实例状态
+   * 
+   * @param request - DescribeRatePlanInstanceStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRatePlanInstanceStatusResponse
+   */
+  async describeRatePlanInstanceStatusWithOptions(request: DescribeRatePlanInstanceStatusRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRatePlanInstanceStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRatePlanInstanceStatus",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRatePlanInstanceStatusResponse>(await this.callApi(params, req, runtime), new DescribeRatePlanInstanceStatusResponse({}));
+    } else {
+      return $dara.cast<DescribeRatePlanInstanceStatusResponse>(await this.execute(params, req, runtime), new DescribeRatePlanInstanceStatusResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询套餐实例状态
+   * 
+   * @param request - DescribeRatePlanInstanceStatusRequest
+   * @returns DescribeRatePlanInstanceStatusResponse
+   */
+  async describeRatePlanInstanceStatus(request: DescribeRatePlanInstanceStatusRequest): Promise<DescribeRatePlanInstanceStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRatePlanInstanceStatusWithOptions(request, runtime);
   }
 
   /**
@@ -73918,6 +74075,85 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新购套餐
+   * 
+   * @param request - PurchaseRatePlanRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PurchaseRatePlanResponse
+   */
+  async purchaseRatePlanWithOptions(request: PurchaseRatePlanRequest, runtime: $dara.RuntimeOptions): Promise<PurchaseRatePlanResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.coverage)) {
+      query["Coverage"] = request.coverage;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.planCode)) {
+      query["PlanCode"] = request.planCode;
+    }
+
+    if (!$dara.isNull(request.planName)) {
+      query["PlanName"] = request.planName;
+    }
+
+    if (!$dara.isNull(request.siteName)) {
+      query["SiteName"] = request.siteName;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PurchaseRatePlan",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PurchaseRatePlanResponse>(await this.callApi(params, req, runtime), new PurchaseRatePlanResponse({}));
+    } else {
+      return $dara.cast<PurchaseRatePlanResponse>(await this.execute(params, req, runtime), new PurchaseRatePlanResponse({}));
+    }
+
+  }
+
+  /**
+   * 新购套餐
+   * 
+   * @param request - PurchaseRatePlanRequest
+   * @returns PurchaseRatePlanResponse
+   */
+  async purchaseRatePlan(request: PurchaseRatePlanRequest): Promise<PurchaseRatePlanResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.purchaseRatePlanWithOptions(request, runtime);
+  }
+
+  /**
    * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
    * 
    * @param tmpReq - PurgeCachesRequest
@@ -74504,10 +74740,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
-    }
-
-    if (!$dara.isNull(request.update)) {
-      body["Update"] = request.update;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -75795,57 +76027,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name of a namespace in Edge KV.
-   * 
-   * @param request - UpdateKvNamespaceRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateKvNamespaceResponse
-   */
-  async updateKvNamespaceWithOptions(request: UpdateKvNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<UpdateKvNamespaceResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.namespace)) {
-      query["Namespace"] = request.namespace;
-    }
-
-    if (!$dara.isNull(request.title)) {
-      query["Title"] = request.title;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "UpdateKvNamespace",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
-      return $dara.cast<UpdateKvNamespaceResponse>(await this.callApi(params, req, runtime), new UpdateKvNamespaceResponse({}));
-    } else {
-      return $dara.cast<UpdateKvNamespaceResponse>(await this.execute(params, req, runtime), new UpdateKvNamespaceResponse({}));
-    }
-
-  }
-
-  /**
-   * Updates the name of a namespace in Edge KV.
-   * 
-   * @param request - UpdateKvNamespaceRequest
-   * @returns UpdateKvNamespaceResponse
-   */
-  async updateKvNamespace(request: UpdateKvNamespaceRequest): Promise<UpdateKvNamespaceResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.updateKvNamespaceWithOptions(request, runtime);
-  }
-
-  /**
    * Updates a custom list.
    * 
    * @param tmpReq - UpdateListRequest
@@ -75941,10 +76122,6 @@ export default class Client extends OpenApi {
       request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
     }
 
-    if (!$dara.isNull(tmpReq.sessionAffinityAttributes)) {
-      request.sessionAffinityAttributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sessionAffinityAttributes, "SessionAffinityAttributes", "json");
-    }
-
     let query = { };
     if (!$dara.isNull(request.adaptiveRoutingShrink)) {
       query["AdaptiveRouting"] = request.adaptiveRoutingShrink;
@@ -75956,6 +76133,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      query["Enabled"] = request.enabled;
     }
 
     if (!$dara.isNull(request.fallbackPool)) {
@@ -75984,10 +76165,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sessionAffinity)) {
       query["SessionAffinity"] = request.sessionAffinity;
-    }
-
-    if (!$dara.isNull(request.sessionAffinityAttributesShrink)) {
-      query["SessionAffinityAttributes"] = request.sessionAffinityAttributesShrink;
     }
 
     if (!$dara.isNull(request.siteId)) {
@@ -76496,6 +76673,73 @@ export default class Client extends OpenApi {
   async updatePage(request: UpdatePageRequest): Promise<UpdatePageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePageWithOptions(request, runtime);
+  }
+
+  /**
+   * 套餐变配
+   * 
+   * @param request - UpdateRatePlanSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateRatePlanSpecResponse
+   */
+  async updateRatePlanSpecWithOptions(request: UpdateRatePlanSpecRequest, runtime: $dara.RuntimeOptions): Promise<UpdateRatePlanSpecResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.targetPlanCode)) {
+      query["TargetPlanCode"] = request.targetPlanCode;
+    }
+
+    if (!$dara.isNull(request.targetPlanName)) {
+      query["TargetPlanName"] = request.targetPlanName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateRatePlanSpec",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateRatePlanSpecResponse>(await this.callApi(params, req, runtime), new UpdateRatePlanSpecResponse({}));
+    } else {
+      return $dara.cast<UpdateRatePlanSpecResponse>(await this.execute(params, req, runtime), new UpdateRatePlanSpecResponse({}));
+    }
+
+  }
+
+  /**
+   * 套餐变配
+   * 
+   * @param request - UpdateRatePlanSpecRequest
+   * @returns UpdateRatePlanSpecResponse
+   */
+  async updateRatePlanSpec(request: UpdateRatePlanSpecRequest): Promise<UpdateRatePlanSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateRatePlanSpecWithOptions(request, runtime);
   }
 
   /**
