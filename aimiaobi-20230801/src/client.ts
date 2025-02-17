@@ -8528,6 +8528,61 @@ export class ListSearchTasksResponseBodyData extends $dara.Model {
   }
 }
 
+export class ListStyleLearningResultResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * AIGC 生成的内容
+   */
+  aigcResult?: string;
+  /**
+   * @example
+   * 70
+   */
+  id?: number;
+  /**
+   * @example
+   * 用户修订后内容
+   */
+  rewriteResult?: string;
+  /**
+   * @example
+   * 文体风格名称
+   */
+  styleName?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aigcResult: 'AigcResult',
+      id: 'Id',
+      rewriteResult: 'RewriteResult',
+      styleName: 'StyleName',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aigcResult: 'string',
+      id: 'number',
+      rewriteResult: 'string',
+      styleName: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTimedViewAttitudeResponseBodyDataViewPointsOutlines extends $dara.Model {
   /**
    * @example
@@ -9555,6 +9610,160 @@ export class RunBookSmartCardResponseBodyPayload extends $dara.Model {
     return {
       output: RunBookSmartCardResponseBodyPayloadOutput,
       usage: RunBookSmartCardResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * result-generated
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 0bd58ea2-dc38-45da-ac02-17f05cb9040b
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      requestId: 'RequestId',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: 'string',
+      eventInfo: 'string',
+      requestId: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationResponseBodyPayloadOutput extends $dara.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 2
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 3
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationResponseBodyPayload extends $dara.Model {
+  output?: RunCommentGenerationResponseBodyPayloadOutput;
+  usage?: RunCommentGenerationResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunCommentGenerationResponseBodyPayloadOutput,
+      usage: RunCommentGenerationResponseBodyPayloadUsage,
     };
   }
 
@@ -11885,6 +12094,199 @@ export class RunKeywordsExtractionGenerationResponseBodyPayload extends $dara.Mo
     return {
       output: RunKeywordsExtractionGenerationResponseBodyPayloadOutput,
       usage: RunKeywordsExtractionGenerationResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMultiDocIntroductionResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Message does not exist.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * finished
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * 92e16ccb-92b6-4894-abbf-fc6e2929a0df
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * b057f2fa-2277-477b-babf-cbc062307828
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 46e5c2b5-0877-4f09-bd91-ab0cf314e48b
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMultiDocIntroductionResponseBodyPayloadOutputKeyPoints extends $dara.Model {
+  keyPoint?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoint: 'KeyPoint',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoint: 'string',
+      source: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMultiDocIntroductionResponseBodyPayloadOutput extends $dara.Model {
+  keyPoints?: RunMultiDocIntroductionResponseBodyPayloadOutputKeyPoints[];
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyPoints: 'KeyPoints',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyPoints: { 'type': 'array', 'itemType': RunMultiDocIntroductionResponseBodyPayloadOutputKeyPoints },
+      summary: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.keyPoints)) {
+      $dara.Model.validateArray(this.keyPoints);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMultiDocIntroductionResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 65
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 165
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMultiDocIntroductionResponseBodyPayload extends $dara.Model {
+  output?: RunMultiDocIntroductionResponseBodyPayloadOutput;
+  usage?: RunMultiDocIntroductionResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunMultiDocIntroductionResponseBodyPayloadOutput,
+      usage: RunMultiDocIntroductionResponseBodyPayloadUsage,
     };
   }
 
@@ -33736,6 +34138,167 @@ export class ListSearchTasksResponse extends $dara.Model {
   }
 }
 
+export class ListStyleLearningResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxxx_p_efm
+   */
+  agentKey?: string;
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  /**
+   * @example
+   * 10
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+      current: 'Current',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+      current: 'number',
+      size: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStyleLearningResultResponseBody extends $dara.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  data?: ListStyleLearningResultResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 10
+   */
+  size?: number;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      current: 'Current',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      size: 'Size',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      current: 'number',
+      data: { 'type': 'array', 'itemType': ListStyleLearningResultResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      size: 'number',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStyleLearningResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListStyleLearningResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListStyleLearningResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTimedViewAttitudeRequest extends $dara.Model {
   /**
    * @remarks
@@ -35039,6 +35602,289 @@ export class RunBookSmartCardResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RunBookSmartCardResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  allowEmoji?: boolean;
+  extraInfo?: string;
+  /**
+   * @example
+   * 20
+   */
+  length?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"short":"50","long":“50”}
+   */
+  lengthRange?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  numComments?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"positive":"50","negative":"50"}
+   */
+  sentiment?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sourceMaterial?: string;
+  style?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"emotion":"50","opinion":"50"}
+   */
+  type?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-3kcs1w3lltrtbfkr
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowEmoji: 'AllowEmoji',
+      extraInfo: 'ExtraInfo',
+      length: 'Length',
+      lengthRange: 'LengthRange',
+      numComments: 'NumComments',
+      sentiment: 'Sentiment',
+      sourceMaterial: 'SourceMaterial',
+      style: 'Style',
+      type: 'Type',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowEmoji: 'boolean',
+      extraInfo: 'string',
+      length: 'string',
+      lengthRange: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      numComments: 'string',
+      sentiment: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      sourceMaterial: 'string',
+      style: 'string',
+      type: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.lengthRange) {
+      $dara.Model.validateMap(this.lengthRange);
+    }
+    if(this.sentiment) {
+      $dara.Model.validateMap(this.sentiment);
+    }
+    if(this.type) {
+      $dara.Model.validateMap(this.type);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  allowEmoji?: boolean;
+  extraInfo?: string;
+  /**
+   * @example
+   * 20
+   */
+  length?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"short":"50","long":“50”}
+   */
+  lengthRangeShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  numComments?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"positive":"50","negative":"50"}
+   */
+  sentimentShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sourceMaterial?: string;
+  style?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"emotion":"50","opinion":"50"}
+   */
+  typeShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-3kcs1w3lltrtbfkr
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowEmoji: 'AllowEmoji',
+      extraInfo: 'ExtraInfo',
+      length: 'Length',
+      lengthRangeShrink: 'LengthRange',
+      numComments: 'NumComments',
+      sentimentShrink: 'Sentiment',
+      sourceMaterial: 'SourceMaterial',
+      style: 'Style',
+      typeShrink: 'Type',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowEmoji: 'boolean',
+      extraInfo: 'string',
+      length: 'string',
+      lengthRangeShrink: 'string',
+      numComments: 'string',
+      sentimentShrink: 'string',
+      sourceMaterial: 'string',
+      style: 'string',
+      typeShrink: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationResponseBody extends $dara.Model {
+  end?: boolean;
+  header?: RunCommentGenerationResponseBodyHeader;
+  payload?: RunCommentGenerationResponseBodyPayload;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'boolean',
+      header: RunCommentGenerationResponseBodyHeader,
+      payload: RunCommentGenerationResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunCommentGenerationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunCommentGenerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunCommentGenerationResponseBody,
     };
   }
 
@@ -36612,6 +37458,192 @@ export class RunKeywordsExtractionGenerationResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RunKeywordsExtractionGenerationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMultiDocIntroductionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  docIds?: string[];
+  keyPointPrompt?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 75bf82fa-b71b-45d7-ae40-0b00e496cd9e
+   */
+  sessionId?: string;
+  summaryPrompt?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docIds: 'DocIds',
+      keyPointPrompt: 'KeyPointPrompt',
+      sessionId: 'SessionId',
+      summaryPrompt: 'SummaryPrompt',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docIds: { 'type': 'array', 'itemType': 'string' },
+      keyPointPrompt: 'string',
+      sessionId: 'string',
+      summaryPrompt: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.docIds)) {
+      $dara.Model.validateArray(this.docIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMultiDocIntroductionShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  docIdsShrink?: string;
+  keyPointPrompt?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 75bf82fa-b71b-45d7-ae40-0b00e496cd9e
+   */
+  sessionId?: string;
+  summaryPrompt?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docIdsShrink: 'DocIds',
+      keyPointPrompt: 'KeyPointPrompt',
+      sessionId: 'SessionId',
+      summaryPrompt: 'SummaryPrompt',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docIdsShrink: 'string',
+      keyPointPrompt: 'string',
+      sessionId: 'string',
+      summaryPrompt: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMultiDocIntroductionResponseBody extends $dara.Model {
+  header?: RunMultiDocIntroductionResponseBodyHeader;
+  payload?: RunMultiDocIntroductionResponseBodyPayload;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunMultiDocIntroductionResponseBodyHeader,
+      payload: RunMultiDocIntroductionResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunMultiDocIntroductionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunMultiDocIntroductionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunMultiDocIntroductionResponseBody,
     };
   }
 
@@ -47296,6 +48328,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取文体学习分析结果列表
+   * 
+   * @param request - ListStyleLearningResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListStyleLearningResultResponse
+   */
+  async listStyleLearningResultWithOptions(request: ListStyleLearningResultRequest, runtime: $dara.RuntimeOptions): Promise<ListStyleLearningResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.current)) {
+      body["Current"] = request.current;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      body["Size"] = request.size;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListStyleLearningResult",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListStyleLearningResultResponse>(await this.callApi(params, req, runtime), new ListStyleLearningResultResponse({}));
+    } else {
+      return $dara.cast<ListStyleLearningResultResponse>(await this.execute(params, req, runtime), new ListStyleLearningResultResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取文体学习分析结果列表
+   * 
+   * @param request - ListStyleLearningResultRequest
+   * @returns ListStyleLearningResultResponse
+   */
+  async listStyleLearningResult(request: ListStyleLearningResultRequest): Promise<ListStyleLearningResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listStyleLearningResultWithOptions(request, runtime);
+  }
+
+  /**
    * 时效性视角列表
    * 
    * @param request - ListTimedViewAttitudeRequest
@@ -47802,6 +48891,103 @@ export default class Client extends OpenApi {
   async runBookSmartCard(request: RunBookSmartCardRequest): Promise<RunBookSmartCardResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.runBookSmartCardWithOptions(request, runtime);
+  }
+
+  /**
+   * 客户之声预测
+   * 
+   * @param tmpReq - RunCommentGenerationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunCommentGenerationResponse
+   */
+  async runCommentGenerationWithOptions(tmpReq: RunCommentGenerationRequest, runtime: $dara.RuntimeOptions): Promise<RunCommentGenerationResponse> {
+    tmpReq.validate();
+    let request = new RunCommentGenerationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.lengthRange)) {
+      request.lengthRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lengthRange, "LengthRange", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sentiment)) {
+      request.sentimentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sentiment, "Sentiment", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.type)) {
+      request.typeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.type, "Type", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowEmoji)) {
+      body["AllowEmoji"] = request.allowEmoji;
+    }
+
+    if (!$dara.isNull(request.extraInfo)) {
+      body["ExtraInfo"] = request.extraInfo;
+    }
+
+    if (!$dara.isNull(request.length)) {
+      body["Length"] = request.length;
+    }
+
+    if (!$dara.isNull(request.lengthRangeShrink)) {
+      body["LengthRange"] = request.lengthRangeShrink;
+    }
+
+    if (!$dara.isNull(request.numComments)) {
+      body["NumComments"] = request.numComments;
+    }
+
+    if (!$dara.isNull(request.sentimentShrink)) {
+      body["Sentiment"] = request.sentimentShrink;
+    }
+
+    if (!$dara.isNull(request.sourceMaterial)) {
+      body["SourceMaterial"] = request.sourceMaterial;
+    }
+
+    if (!$dara.isNull(request.style)) {
+      body["Style"] = request.style;
+    }
+
+    if (!$dara.isNull(request.typeShrink)) {
+      body["Type"] = request.typeShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunCommentGeneration",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RunCommentGenerationResponse>(await this.callApi(params, req, runtime), new RunCommentGenerationResponse({}));
+    } else {
+      return $dara.cast<RunCommentGenerationResponse>(await this.execute(params, req, runtime), new RunCommentGenerationResponse({}));
+    }
+
+  }
+
+  /**
+   * 客户之声预测
+   * 
+   * @param request - RunCommentGenerationRequest
+   * @returns RunCommentGenerationResponse
+   */
+  async runCommentGeneration(request: RunCommentGenerationRequest): Promise<RunCommentGenerationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runCommentGenerationWithOptions(request, runtime);
   }
 
   /**
@@ -48499,6 +49685,75 @@ export default class Client extends OpenApi {
   async runKeywordsExtractionGeneration(request: RunKeywordsExtractionGenerationRequest): Promise<RunKeywordsExtractionGenerationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.runKeywordsExtractionGenerationWithOptions(request, runtime);
+  }
+
+  /**
+   * 文档批量导读
+   * 
+   * @param tmpReq - RunMultiDocIntroductionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunMultiDocIntroductionResponse
+   */
+  async runMultiDocIntroductionWithOptions(tmpReq: RunMultiDocIntroductionRequest, runtime: $dara.RuntimeOptions): Promise<RunMultiDocIntroductionResponse> {
+    tmpReq.validate();
+    let request = new RunMultiDocIntroductionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.docIds)) {
+      request.docIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docIds, "DocIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.docIdsShrink)) {
+      body["DocIds"] = request.docIdsShrink;
+    }
+
+    if (!$dara.isNull(request.keyPointPrompt)) {
+      body["KeyPointPrompt"] = request.keyPointPrompt;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.summaryPrompt)) {
+      body["SummaryPrompt"] = request.summaryPrompt;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunMultiDocIntroduction",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RunMultiDocIntroductionResponse>(await this.callApi(params, req, runtime), new RunMultiDocIntroductionResponse({}));
+    } else {
+      return $dara.cast<RunMultiDocIntroductionResponse>(await this.execute(params, req, runtime), new RunMultiDocIntroductionResponse({}));
+    }
+
+  }
+
+  /**
+   * 文档批量导读
+   * 
+   * @param request - RunMultiDocIntroductionRequest
+   * @returns RunMultiDocIntroductionResponse
+   */
+  async runMultiDocIntroduction(request: RunMultiDocIntroductionRequest): Promise<RunMultiDocIntroductionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runMultiDocIntroductionWithOptions(request, runtime);
   }
 
   /**
