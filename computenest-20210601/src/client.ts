@@ -2398,6 +2398,279 @@ export class GetServiceInstanceResponseBodyTags extends $dara.Model {
   }
 }
 
+export class GetServiceInstanceSubscriptionEstimateCostRequestResourcePeriod extends $dara.Model {
+  /**
+   * @remarks
+   * Renewal duration. The unit is specified by PeriodUnit.
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The time unit for the resource renewal duration, which is the unit of the Period parameter. Valid values: Month, Year. Default value: Month.
+   * 
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * Resource ARN (Aliyun Resource Name).
+   * 
+   * @example
+   * acs:ecs:cn-guangzhou:1361753504587228:instance/i-7xv9pgeqvhxg10jji3vd
+   */
+  resourceArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      resourceArn: 'ResourceArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      period: 'number',
+      periodUnit: 'string',
+      resourceArn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePricesDetailInfos extends $dara.Model {
+  /**
+   * @remarks
+   * Discount amount.
+   * 
+   * @example
+   * 100
+   */
+  discountAmount?: number;
+  /**
+   * @remarks
+   * Original price.
+   * 
+   * @example
+   * 900
+   */
+  originalAmount?: number;
+  /**
+   * @remarks
+   * Pricing module identifier.
+   * 
+   * @example
+   * instance
+   */
+  resource?: string;
+  /**
+   * @remarks
+   * Discounted price.
+   * 
+   * @example
+   * 500
+   */
+  tradeAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      discountAmount: 'DiscountAmount',
+      originalAmount: 'OriginalAmount',
+      resource: 'Resource',
+      tradeAmount: 'TradeAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountAmount: 'number',
+      originalAmount: 'number',
+      resource: 'string',
+      tradeAmount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePricesRules extends $dara.Model {
+  /**
+   * @remarks
+   * Promotion description.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Promotion name.
+   * 
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Promotion ID.
+   * 
+   * @example
+   * 1021199213
+   */
+  ruleDescId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+      ruleDescId: 'RuleDescId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      ruleDescId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrices extends $dara.Model {
+  /**
+   * @remarks
+   * Currency. Valid values:
+   * - CNY: Chinese Yuan.
+   * - USD: US Dollar.
+   * - JPY: Japanese Yen.
+   * 
+   * @example
+   * CNY
+   */
+  currency?: string;
+  /**
+   * @remarks
+   * The price details of the pricing module.
+   */
+  detailInfos?: GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePricesDetailInfos[];
+  /**
+   * @remarks
+   * Discount.
+   * 
+   * @example
+   * 100
+   */
+  discountAmount?: number;
+  /**
+   * @remarks
+   * Original price.
+   * 
+   * @example
+   * 900
+   */
+  originalAmount?: number;
+  /**
+   * @remarks
+   * Renewal duration. The unit is specified by PeriodUnit.
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The time unit for the renewal duration, which is the unit of the Period parameter. Valid values: Month, Year. Default value: Month.
+   * 
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * Resource ARN (Aliyun Resource Name).
+   * 
+   * @example
+   * acs:ecs:cn-hongkong:1488317743351199:instance/i-j6c6f3lbky38o8rpeqw2
+   */
+  resourceArn?: string;
+  /**
+   * @remarks
+   * Promotion details.
+   */
+  rules?: GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePricesRules[];
+  /**
+   * @remarks
+   * Discounted price.
+   * 
+   * @example
+   * 500
+   */
+  tradeAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      detailInfos: 'DetailInfos',
+      discountAmount: 'DiscountAmount',
+      originalAmount: 'OriginalAmount',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      resourceArn: 'ResourceArn',
+      rules: 'Rules',
+      tradeAmount: 'TradeAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      detailInfos: { 'type': 'array', 'itemType': GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePricesDetailInfos },
+      discountAmount: 'number',
+      originalAmount: 'number',
+      period: 'number',
+      periodUnit: 'string',
+      resourceArn: 'string',
+      rules: { 'type': 'array', 'itemType': GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePricesRules },
+      tradeAmount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.detailInfos)) {
+      $dara.Model.validateArray(this.detailInfos);
+    }
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation extends $dara.Model {
   /**
    * @remarks
@@ -4942,6 +5215,156 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   }
 }
 
+export class RenewServiceInstanceResourcesRequestResourcePeriod extends $dara.Model {
+  /**
+   * @remarks
+   * The renewal duration for the resource. The unit is specified by PeriodUnit.
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The time unit for the renewal duration of the resource, which is the unit for the Period parameter. Valid values: Month, Year. Default value: Month.
+   * 
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * Resource ARN (Aliyun Resource Name).
+   * 
+   * @example
+   * acs:ecs:cn-hongkong:1488317743351199:instance/i-j6c6f3lbky38o8rpeqw2
+   */
+  resourceArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      resourceArn: 'ResourceArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      period: 'number',
+      periodUnit: 'string',
+      resourceArn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewServiceInstanceResourcesResponseBodyFailureDetails extends $dara.Model {
+  /**
+   * @remarks
+   * Error code.
+   * 
+   * @example
+   * InvalidPeriod
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * Error message.
+   * 
+   * @example
+   * Error message
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * Resource ARN (Aliyun Resource Name).
+   * 
+   * @example
+   * acs:ecs:cn-hongkong:1488317743351199:instance/i-j6c6f3lbky38o8rpeqw2
+   */
+  resourceArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      resourceArn: 'ResourceArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      resourceArn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewServiceInstanceResourcesResponseBodyRenewalResult extends $dara.Model {
+  /**
+   * @remarks
+   * Number of failed renewals.
+   * 
+   * @example
+   * 1
+   */
+  failed?: number;
+  /**
+   * @remarks
+   * Number of successfully renewed resources.
+   * 
+   * @example
+   * 9
+   */
+  succeeded?: number;
+  /**
+   * @remarks
+   * Number of renewed resources.
+   * 
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failed: 'Failed',
+      succeeded: 'Succeeded',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failed: 'number',
+      succeeded: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
@@ -6609,6 +7032,129 @@ export class DeleteServiceInstancesResponse extends $dara.Model {
   }
 }
 
+export class DeployServiceInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Ensures idempotency of the request. Generate a unique value for this parameter from your client to ensure it is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Region ID. Allowed values:
+   * 
+   * - cn-hangzhou: East China 1 (Hangzhou).
+   * 
+   * - ap-southeast-1: Singapore.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Service instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * si-b58c874912fc4294****
+   */
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployServiceInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4DB0F536-B3BE-4F0D-BD29-E83FB56D****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployServiceInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeployServiceInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeployServiceInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
@@ -8256,6 +8802,175 @@ export class GetServiceInstanceResponse extends $dara.Model {
   }
 }
 
+export class GetServiceInstanceSubscriptionEstimateCostRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Ensures idempotence of the request. Generate a parameter value from your client to ensure its uniqueness across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Order type. Possible value: Renewal.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Renewal
+   */
+  orderType?: string;
+  /**
+   * @remarks
+   * The renewal duration for all prepaid resources of the service instance. The unit is specified by PeriodUnit.
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The time unit for the renewal duration of all prepaid resources of the service instance, which is the unit of the Period parameter. Valid values: Month, Year. Default value: Month.
+   * 
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource renewal configuration.
+   */
+  resourcePeriod?: GetServiceInstanceSubscriptionEstimateCostRequestResourcePeriod[];
+  /**
+   * @remarks
+   * Service instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * si-d6ab3a63ccbb4b17****
+   */
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      orderType: 'OrderType',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      regionId: 'RegionId',
+      resourcePeriod: 'ResourcePeriod',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      orderType: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      regionId: 'string',
+      resourcePeriod: { 'type': 'array', 'itemType': GetServiceInstanceSubscriptionEstimateCostRequestResourcePeriod },
+      serviceInstanceId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourcePeriod)) {
+      $dara.Model.validateArray(this.resourcePeriod);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceSubscriptionEstimateCostResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 464C8CB6-A548-5206-B83C-D32A8E43EC21
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * List of resource price information.
+   */
+  resourcePrices?: GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrices[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourcePrices: 'ResourcePrices',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourcePrices: { 'type': 'array', 'itemType': GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrices },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourcePrices)) {
+      $dara.Model.validateArray(this.resourcePrices);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceSubscriptionEstimateCostResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceInstanceSubscriptionEstimateCostResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceInstanceSubscriptionEstimateCostResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceProvisionsRequest extends $dara.Model {
   /**
    * @remarks
@@ -9819,12 +10534,14 @@ export class ListServiceUsagesResponseBody extends $dara.Model {
    * The service applications.
    */
   serviceUsages?: ListServiceUsagesResponseBodyServiceUsages[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
       serviceUsages: 'ServiceUsages',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -9834,6 +10551,7 @@ export class ListServiceUsagesResponseBody extends $dara.Model {
       nextToken: 'string',
       requestId: 'string',
       serviceUsages: { 'type': 'array', 'itemType': ListServiceUsagesResponseBodyServiceUsages },
+      totalCount: 'number',
     };
   }
 
@@ -10556,6 +11274,173 @@ export class ListTagValuesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagValuesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewServiceInstanceResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The renewal duration for all prepaid resources in the service instance. The unit is specified by PeriodUnit.
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The time unit for the renewal duration of all prepaid resources in the service instance, which is the unit for the Period parameter. Valid values: Month, Year. Default value: Month.
+   * 
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * List of resource renewals.
+   */
+  resourcePeriod?: RenewServiceInstanceResourcesRequestResourcePeriod[];
+  /**
+   * @remarks
+   * Service instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * si-b58c874912fc4294****
+   */
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      regionId: 'RegionId',
+      resourcePeriod: 'ResourcePeriod',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      regionId: 'string',
+      resourcePeriod: { 'type': 'array', 'itemType': RenewServiceInstanceResourcesRequestResourcePeriod },
+      serviceInstanceId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourcePeriod)) {
+      $dara.Model.validateArray(this.resourcePeriod);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewServiceInstanceResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of failed renewals.
+   */
+  failureDetails?: RenewServiceInstanceResourcesResponseBodyFailureDetails[];
+  /**
+   * @remarks
+   * Renewal result.
+   */
+  renewalResult?: RenewServiceInstanceResourcesResponseBodyRenewalResult;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 13FE89A5-C036-56BF-A0FF-A31C59819FD7
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failureDetails: 'FailureDetails',
+      renewalResult: 'RenewalResult',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failureDetails: { 'type': 'array', 'itemType': RenewServiceInstanceResourcesResponseBodyFailureDetails },
+      renewalResult: RenewServiceInstanceResourcesResponseBodyRenewalResult,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failureDetails)) {
+      $dara.Model.validateArray(this.failureDetails);
+    }
+    if(this.renewalResult && typeof (this.renewalResult as any).validate === 'function') {
+      (this.renewalResult as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewServiceInstanceResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewServiceInstanceResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RenewServiceInstanceResourcesResponseBody,
     };
   }
 
@@ -12384,7 +13269,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CancelServiceUsageResponse>(await this.callApi(params, req, runtime), new CancelServiceUsageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CancelServiceUsageResponse>(await this.callApi(params, req, runtime), new CancelServiceUsageResponse({}));
+    } else {
+      return $dara.cast<CancelServiceUsageResponse>(await this.execute(params, req, runtime), new CancelServiceUsageResponse({}));
+    }
+
   }
 
   /**
@@ -12438,7 +13328,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    } else {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.execute(params, req, runtime), new ChangeResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -12500,7 +13395,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CheckServiceDeployableResponse>(await this.callApi(params, req, runtime), new CheckServiceDeployableResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CheckServiceDeployableResponse>(await this.callApi(params, req, runtime), new CheckServiceDeployableResponse({}));
+    } else {
+      return $dara.cast<CheckServiceDeployableResponse>(await this.execute(params, req, runtime), new CheckServiceDeployableResponse({}));
+    }
+
   }
 
   /**
@@ -12565,7 +13465,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ContinueDeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new ContinueDeployServiceInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ContinueDeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new ContinueDeployServiceInstanceResponse({}));
+    } else {
+      return $dara.cast<ContinueDeployServiceInstanceResponse>(await this.execute(params, req, runtime), new ContinueDeployServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -12688,7 +13593,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateServiceInstanceResponse>(await this.callApi(params, req, runtime), new CreateServiceInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateServiceInstanceResponse>(await this.callApi(params, req, runtime), new CreateServiceInstanceResponse({}));
+    } else {
+      return $dara.cast<CreateServiceInstanceResponse>(await this.execute(params, req, runtime), new CreateServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -12744,7 +13654,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateServiceUsageResponse>(await this.callApi(params, req, runtime), new CreateServiceUsageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateServiceUsageResponse>(await this.callApi(params, req, runtime), new CreateServiceUsageResponse({}));
+    } else {
+      return $dara.cast<CreateServiceUsageResponse>(await this.execute(params, req, runtime), new CreateServiceUsageResponse({}));
+    }
+
   }
 
   /**
@@ -12794,7 +13709,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteServiceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteServiceInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteServiceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteServiceInstancesResponse({}));
+    } else {
+      return $dara.cast<DeleteServiceInstancesResponse>(await this.execute(params, req, runtime), new DeleteServiceInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -12806,6 +13726,61 @@ export default class Client extends OpenApi {
   async deleteServiceInstances(request: DeleteServiceInstancesRequest): Promise<DeleteServiceInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteServiceInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Deploy service instance in Created status.
+   * 
+   * @param request - DeployServiceInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeployServiceInstanceResponse
+   */
+  async deployServiceInstanceWithOptions(request: DeployServiceInstanceRequest, runtime: $dara.RuntimeOptions): Promise<DeployServiceInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeployServiceInstance",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new DeployServiceInstanceResponse({}));
+    } else {
+      return $dara.cast<DeployServiceInstanceResponse>(await this.execute(params, req, runtime), new DeployServiceInstanceResponse({}));
+    }
+
+  }
+
+  /**
+   * Deploy service instance in Created status.
+   * 
+   * @param request - DeployServiceInstanceRequest
+   * @returns DeployServiceInstanceResponse
+   */
+  async deployServiceInstance(request: DeployServiceInstanceRequest): Promise<DeployServiceInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deployServiceInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -12836,7 +13811,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    } else {
+      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
+    }
+
   }
 
   /**
@@ -12898,7 +13878,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GenerateServicePolicyResponse>(await this.callApi(params, req, runtime), new GenerateServicePolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GenerateServicePolicyResponse>(await this.callApi(params, req, runtime), new GenerateServicePolicyResponse({}));
+    } else {
+      return $dara.cast<GenerateServicePolicyResponse>(await this.execute(params, req, runtime), new GenerateServicePolicyResponse({}));
+    }
+
   }
 
   /**
@@ -12960,7 +13945,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
+    } else {
+      return $dara.cast<GetServiceResponse>(await this.execute(params, req, runtime), new GetServiceResponse({}));
+    }
+
   }
 
   /**
@@ -13052,7 +14042,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetServiceEstimateCostResponse>(await this.callApi(params, req, runtime), new GetServiceEstimateCostResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceEstimateCostResponse>(await this.callApi(params, req, runtime), new GetServiceEstimateCostResponse({}));
+    } else {
+      return $dara.cast<GetServiceEstimateCostResponse>(await this.execute(params, req, runtime), new GetServiceEstimateCostResponse({}));
+    }
+
   }
 
   /**
@@ -13102,7 +14097,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetServiceInstanceResponse>(await this.callApi(params, req, runtime), new GetServiceInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceInstanceResponse>(await this.callApi(params, req, runtime), new GetServiceInstanceResponse({}));
+    } else {
+      return $dara.cast<GetServiceInstanceResponse>(await this.execute(params, req, runtime), new GetServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -13114,6 +14114,77 @@ export default class Client extends OpenApi {
   async getServiceInstance(request: GetServiceInstanceRequest): Promise<GetServiceInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getServiceInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Query renewal prices for prepaid resources of private deployment service instance. You can query renewal prices for all prepaid resources included in a service instance, or query renewal prices for specified resources. Only one of the two methods can be used.
+   * 
+   * @param request - GetServiceInstanceSubscriptionEstimateCostRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceInstanceSubscriptionEstimateCostResponse
+   */
+  async getServiceInstanceSubscriptionEstimateCostWithOptions(request: GetServiceInstanceSubscriptionEstimateCostRequest, runtime: $dara.RuntimeOptions): Promise<GetServiceInstanceSubscriptionEstimateCostResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourcePeriod)) {
+      query["ResourcePeriod"] = request.resourcePeriod;
+    }
+
+    if (!$dara.isNull(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceInstanceSubscriptionEstimateCost",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceInstanceSubscriptionEstimateCostResponse>(await this.callApi(params, req, runtime), new GetServiceInstanceSubscriptionEstimateCostResponse({}));
+    } else {
+      return $dara.cast<GetServiceInstanceSubscriptionEstimateCostResponse>(await this.execute(params, req, runtime), new GetServiceInstanceSubscriptionEstimateCostResponse({}));
+    }
+
+  }
+
+  /**
+   * Query renewal prices for prepaid resources of private deployment service instance. You can query renewal prices for all prepaid resources included in a service instance, or query renewal prices for specified resources. Only one of the two methods can be used.
+   * 
+   * @param request - GetServiceInstanceSubscriptionEstimateCostRequest
+   * @returns GetServiceInstanceSubscriptionEstimateCostResponse
+   */
+  async getServiceInstanceSubscriptionEstimateCost(request: GetServiceInstanceSubscriptionEstimateCostRequest): Promise<GetServiceInstanceSubscriptionEstimateCostResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getServiceInstanceSubscriptionEstimateCostWithOptions(request, runtime);
   }
 
   /**
@@ -13170,7 +14241,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetServiceProvisionsResponse>(await this.callApi(params, req, runtime), new GetServiceProvisionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceProvisionsResponse>(await this.callApi(params, req, runtime), new GetServiceProvisionsResponse({}));
+    } else {
+      return $dara.cast<GetServiceProvisionsResponse>(await this.execute(params, req, runtime), new GetServiceProvisionsResponse({}));
+    }
+
   }
 
   /**
@@ -13252,7 +14328,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetServiceTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetServiceTemplateParameterConstraintsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetServiceTemplateParameterConstraintsResponse({}));
+    } else {
+      return $dara.cast<GetServiceTemplateParameterConstraintsResponse>(await this.execute(params, req, runtime), new GetServiceTemplateParameterConstraintsResponse({}));
+    }
+
   }
 
   /**
@@ -13294,7 +14375,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetUserInformationResponse>(await this.callApi(params, req, runtime), new GetUserInformationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetUserInformationResponse>(await this.callApi(params, req, runtime), new GetUserInformationResponse({}));
+    } else {
+      return $dara.cast<GetUserInformationResponse>(await this.execute(params, req, runtime), new GetUserInformationResponse({}));
+    }
+
   }
 
   /**
@@ -13328,7 +14414,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListServiceCategoriesResponse>(await this.callApi(params, req, runtime), new ListServiceCategoriesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceCategoriesResponse>(await this.callApi(params, req, runtime), new ListServiceCategoriesResponse({}));
+    } else {
+      return $dara.cast<ListServiceCategoriesResponse>(await this.execute(params, req, runtime), new ListServiceCategoriesResponse({}));
+    }
+
   }
 
   /**
@@ -13396,7 +14487,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListServiceInstanceLogsResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceLogsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceInstanceLogsResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceLogsResponse({}));
+    } else {
+      return $dara.cast<ListServiceInstanceLogsResponse>(await this.execute(params, req, runtime), new ListServiceInstanceLogsResponse({}));
+    }
+
   }
 
   /**
@@ -13478,7 +14574,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListServiceInstanceResourcesResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceInstanceResourcesResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceResourcesResponse({}));
+    } else {
+      return $dara.cast<ListServiceInstanceResourcesResponse>(await this.execute(params, req, runtime), new ListServiceInstanceResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -13532,7 +14633,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListServiceInstanceUpgradeHistoryResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceUpgradeHistoryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceInstanceUpgradeHistoryResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceUpgradeHistoryResponse({}));
+    } else {
+      return $dara.cast<ListServiceInstanceUpgradeHistoryResponse>(await this.execute(params, req, runtime), new ListServiceInstanceUpgradeHistoryResponse({}));
+    }
+
   }
 
   /**
@@ -13594,7 +14700,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListServiceInstancesResponse>(await this.callApi(params, req, runtime), new ListServiceInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceInstancesResponse>(await this.callApi(params, req, runtime), new ListServiceInstancesResponse({}));
+    } else {
+      return $dara.cast<ListServiceInstancesResponse>(await this.execute(params, req, runtime), new ListServiceInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -13644,7 +14755,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListServiceUsagesResponse>(await this.callApi(params, req, runtime), new ListServiceUsagesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceUsagesResponse>(await this.callApi(params, req, runtime), new ListServiceUsagesResponse({}));
+    } else {
+      return $dara.cast<ListServiceUsagesResponse>(await this.execute(params, req, runtime), new ListServiceUsagesResponse({}));
+    }
+
   }
 
   /**
@@ -13718,7 +14834,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
+    } else {
+      return $dara.cast<ListServicesResponse>(await this.execute(params, req, runtime), new ListServicesResponse({}));
+    }
+
   }
 
   /**
@@ -13768,7 +14889,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+    } else {
+      return $dara.cast<ListTagKeysResponse>(await this.execute(params, req, runtime), new ListTagKeysResponse({}));
+    }
+
   }
 
   /**
@@ -13826,7 +14952,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -13880,7 +15011,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
+    } else {
+      return $dara.cast<ListTagValuesResponse>(await this.execute(params, req, runtime), new ListTagValuesResponse({}));
+    }
+
   }
 
   /**
@@ -13892,6 +15028,73 @@ export default class Client extends OpenApi {
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
+  }
+
+  /**
+   * Renew the prepaid resources included in the private deployment service instance. You can renew all prepaid resources under the specified service instance ID, or you can renew the specified resources. Only one of the two renewal methods can be used.
+   * 
+   * @param request - RenewServiceInstanceResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewServiceInstanceResourcesResponse
+   */
+  async renewServiceInstanceResourcesWithOptions(request: RenewServiceInstanceResourcesRequest, runtime: $dara.RuntimeOptions): Promise<RenewServiceInstanceResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourcePeriod)) {
+      query["ResourcePeriod"] = request.resourcePeriod;
+    }
+
+    if (!$dara.isNull(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RenewServiceInstanceResources",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RenewServiceInstanceResourcesResponse>(await this.callApi(params, req, runtime), new RenewServiceInstanceResourcesResponse({}));
+    } else {
+      return $dara.cast<RenewServiceInstanceResourcesResponse>(await this.execute(params, req, runtime), new RenewServiceInstanceResourcesResponse({}));
+    }
+
+  }
+
+  /**
+   * Renew the prepaid resources included in the private deployment service instance. You can renew all prepaid resources under the specified service instance ID, or you can renew the specified resources. Only one of the two renewal methods can be used.
+   * 
+   * @param request - RenewServiceInstanceResourcesRequest
+   * @returns RenewServiceInstanceResourcesResponse
+   */
+  async renewServiceInstanceResources(request: RenewServiceInstanceResourcesRequest): Promise<RenewServiceInstanceResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.renewServiceInstanceResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -13930,7 +15133,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RestartServiceInstanceResponse>(await this.callApi(params, req, runtime), new RestartServiceInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RestartServiceInstanceResponse>(await this.callApi(params, req, runtime), new RestartServiceInstanceResponse({}));
+    } else {
+      return $dara.cast<RestartServiceInstanceResponse>(await this.execute(params, req, runtime), new RestartServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -13980,7 +15188,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RollbackServiceInstanceResponse>(await this.callApi(params, req, runtime), new RollbackServiceInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RollbackServiceInstanceResponse>(await this.callApi(params, req, runtime), new RollbackServiceInstanceResponse({}));
+    } else {
+      return $dara.cast<RollbackServiceInstanceResponse>(await this.execute(params, req, runtime), new RollbackServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -14030,7 +15243,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StartServiceInstanceResponse>(await this.callApi(params, req, runtime), new StartServiceInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartServiceInstanceResponse>(await this.callApi(params, req, runtime), new StartServiceInstanceResponse({}));
+    } else {
+      return $dara.cast<StartServiceInstanceResponse>(await this.execute(params, req, runtime), new StartServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -14080,7 +15298,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StopServiceInstanceResponse>(await this.callApi(params, req, runtime), new StopServiceInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopServiceInstanceResponse>(await this.callApi(params, req, runtime), new StopServiceInstanceResponse({}));
+    } else {
+      return $dara.cast<StopServiceInstanceResponse>(await this.execute(params, req, runtime), new StopServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -14134,7 +15357,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -14192,7 +15420,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UnTagResourcesResponse>(await this.callApi(params, req, runtime), new UnTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnTagResourcesResponse>(await this.callApi(params, req, runtime), new UnTagResourcesResponse({}));
+    } else {
+      return $dara.cast<UnTagResourcesResponse>(await this.execute(params, req, runtime), new UnTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -14242,7 +15475,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateServiceInstanceAttributesResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceAttributesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateServiceInstanceAttributesResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceAttributesResponse({}));
+    } else {
+      return $dara.cast<UpdateServiceInstanceAttributesResponse>(await this.execute(params, req, runtime), new UpdateServiceInstanceAttributesResponse({}));
+    }
+
   }
 
   /**
@@ -14322,7 +15560,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateServiceInstanceSpecResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceSpecResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateServiceInstanceSpecResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceSpecResponse({}));
+    } else {
+      return $dara.cast<UpdateServiceInstanceSpecResponse>(await this.execute(params, req, runtime), new UpdateServiceInstanceSpecResponse({}));
+    }
+
   }
 
   /**
@@ -14382,7 +15625,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateServiceUsageResponse>(await this.callApi(params, req, runtime), new UpdateServiceUsageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateServiceUsageResponse>(await this.callApi(params, req, runtime), new UpdateServiceUsageResponse({}));
+    } else {
+      return $dara.cast<UpdateServiceUsageResponse>(await this.execute(params, req, runtime), new UpdateServiceUsageResponse({}));
+    }
+
   }
 
   /**
@@ -14428,7 +15676,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateUserInformationResponse>(await this.callApi(params, req, runtime), new UpdateUserInformationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateUserInformationResponse>(await this.callApi(params, req, runtime), new UpdateUserInformationResponse({}));
+    } else {
+      return $dara.cast<UpdateUserInformationResponse>(await this.execute(params, req, runtime), new UpdateUserInformationResponse({}));
+    }
+
   }
 
   /**
@@ -14496,7 +15749,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpgradeServiceInstanceResponse>(await this.callApi(params, req, runtime), new UpgradeServiceInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpgradeServiceInstanceResponse>(await this.callApi(params, req, runtime), new UpgradeServiceInstanceResponse({}));
+    } else {
+      return $dara.cast<UpgradeServiceInstanceResponse>(await this.execute(params, req, runtime), new UpgradeServiceInstanceResponse({}));
+    }
+
   }
 
   /**
