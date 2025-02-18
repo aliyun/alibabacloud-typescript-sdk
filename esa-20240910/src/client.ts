@@ -4924,6 +4924,82 @@ export class DescribeDDoSL7QpsListResponseBodyDataModule extends $dara.Model {
   }
 }
 
+export class DescribeEdgeContainerAppStatsResponseBodyPoints extends $dara.Model {
+  /**
+   * @example
+   * 0.1
+   */
+  containerCpuUsageSecondsQuotaRate?: number;
+  /**
+   * @example
+   * 2
+   */
+  containerCpuUsageSecondsTotal?: number;
+  /**
+   * @example
+   * 0
+   */
+  containerFsReadsBytesAvg?: number;
+  /**
+   * @example
+   * 0
+   */
+  containerFsWritesBytesAvg?: number;
+  /**
+   * @example
+   * 0.1
+   */
+  containerMemoryRss?: number;
+  /**
+   * @example
+   * 1
+   */
+  containerMemoryRssQuotaRate?: number;
+  /**
+   * @example
+   * 100
+   */
+  podReadyRate?: number;
+  /**
+   * @example
+   * 2024-01-18T15:04:05Z
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      containerCpuUsageSecondsQuotaRate: 'ContainerCpuUsageSecondsQuotaRate',
+      containerCpuUsageSecondsTotal: 'ContainerCpuUsageSecondsTotal',
+      containerFsReadsBytesAvg: 'ContainerFsReadsBytesAvg',
+      containerFsWritesBytesAvg: 'ContainerFsWritesBytesAvg',
+      containerMemoryRss: 'ContainerMemoryRss',
+      containerMemoryRssQuotaRate: 'ContainerMemoryRssQuotaRate',
+      podReadyRate: 'PodReadyRate',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      containerCpuUsageSecondsQuotaRate: 'number',
+      containerCpuUsageSecondsTotal: 'number',
+      containerFsReadsBytesAvg: 'number',
+      containerFsWritesBytesAvg: 'number',
+      containerMemoryRss: 'number',
+      containerMemoryRssQuotaRate: 'number',
+      podReadyRate: 'number',
+      time: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
@@ -11441,16 +11517,29 @@ export class ListHttpRequestHeaderModificationRulesResponseBodyConfigs extends $
 
 export class ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseHeaderModification extends $dara.Model {
   /**
+   * @remarks
+   * The name of the response header.
+   * 
    * @example
    * headerName
    */
   name?: string;
   /**
+   * @remarks
+   * The action. Valid values:
+   * 
+   * *   add: adds a response header.
+   * *   del: deletes a response header.
+   * *   modify: modifies a response header.
+   * 
    * @example
    * add
    */
   operation?: string;
   /**
+   * @remarks
+   * The value of the response header.
+   * 
    * @example
    * headerValue
    */
@@ -11482,37 +11571,68 @@ export class ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseH
 
 export class ListHttpResponseHeaderModificationRulesResponseBodyConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID.
+   * 
    * @example
    * 35281609698****
    */
   configId?: number;
   /**
+   * @remarks
+   * The type of the configuration. Valid values:
+   * 
+   * *   global: global configuration.
+   * *   rule: rule configuration.
+   * 
    * @example
    * rule
    */
   configType?: string;
+  /**
+   * @remarks
+   * The configurations of modifying response headers. You can add, delete, or modify a response header.
+   */
   responseHeaderModification?: ListHttpResponseHeaderModificationRulesResponseBodyConfigsResponseHeaderModification[];
   /**
+   * @remarks
+   * The rule content.
+   * 
    * @example
    * (http.host eq "video.example.com")
    */
   rule?: string;
   /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   ruleEnable?: string;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * rule_example
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
    * @example
    * 1
    */
   sequence?: number;
   /**
+   * @remarks
+   * The version number of the website configurations.
+   * 
    * @example
    * 0
    */
@@ -11828,41 +11948,74 @@ export class ListHttpsBasicConfigurationsResponseBodyConfigs extends $dara.Model
 
 export class ListImageTransformsResponseBodyConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID,
+   * 
    * @example
    * 395386449776640
    */
   configId?: number;
   /**
+   * @remarks
+   * The type of the configuration. Valid values:
+   * 
+   * *   global: global configuration.
+   * *   rule: rule configuration.
+   * 
    * @example
    * global
    */
   configType?: string;
   /**
+   * @remarks
+   * Indicates whether cache reserve is enabled. Indicates whether the task name is valid. Valid values:
+   * 
+   * *   **on**
+   * *   **off**
+   * 
    * @example
    * on
    */
   enable?: string;
   /**
+   * @remarks
+   * The rule content, which is a policy or conditional expression.
+   * 
    * @example
    * (http.request.uri.path.file_name eq \\"jpg\\")
    */
   rule?: string;
   /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   ruleEnable?: string;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * test
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
    * @example
    * 1
    */
   sequence?: number;
   /**
+   * @remarks
+   * The version number of the website.
+   * 
    * @example
    * 1
    */
@@ -12142,6 +12295,9 @@ export class ListListsRequestQueryArgs extends $dara.Model {
    */
   itemLike?: string;
   /**
+   * @remarks
+   * The type of the custom list.
+   * 
    * @example
    * ip
    */
@@ -13982,56 +14138,106 @@ export class ListRecordsResponseBodyRecords extends $dara.Model {
 
 export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID.
+   * 
    * @example
    * 35281609698****
    */
   configId?: number;
   /**
+   * @remarks
+   * The type of the configuration. Valid values:
+   * 
+   * *   global: global configuration.
+   * *   rule: rule configuration.
+   * 
    * @example
    * rule
    */
   configType?: string;
   /**
+   * @remarks
+   * Indicates whether the feature of retaining the query string is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   reserveQueryString?: string;
   /**
+   * @remarks
+   * The rule content.
+   * 
    * @example
    * (http.host eq "video.example.com")
    */
   rule?: string;
   /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   ruleEnable?: string;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * rule_example
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
    * @example
    * 1
    */
   sequence?: number;
   /**
+   * @remarks
+   * The version of the website configurations.
+   * 
    * @example
    * 1
    */
   siteVersion?: number;
   /**
+   * @remarks
+   * The response code that you want to use to indicate URL redirection. Valid values:
+   * 
+   * *   301
+   * *   302
+   * *   303
+   * *   307
+   * *   308
+   * 
    * @example
    * 301
    */
   statusCode?: string;
   /**
+   * @remarks
+   * The destination URL to which requests are redirected.
+   * 
    * @example
    * http://www.exapmle.com/index.html
    */
   targetUrl?: string;
   /**
+   * @remarks
+   * The redirect type. Valid values:
+   * 
+   * *   static
+   * 
    * @example
    * static
    */
@@ -14079,56 +14285,99 @@ export class ListRedirectRulesResponseBodyConfigs extends $dara.Model {
 
 export class ListRewriteUrlRulesResponseBodyConfigs extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID.
+   * 
    * @example
    * 39538644977****
    */
   configId?: number;
   /**
+   * @remarks
+   * The type of the configuration. Valid values:
+   * 
+   * *   global: global configuration.
+   * *   rule: rule configuration.
+   * 
    * @example
    * global
    */
   configType?: string;
   /**
+   * @remarks
+   * The desired query string to which you want to rewrite the query string in the original request.
+   * 
    * @example
    * example=123
    */
   queryString?: string;
   /**
+   * @remarks
+   * The query string rewrite method. Valid values:
+   * 
+   * *   static
+   * 
    * @example
    * static
    */
   rewriteQueryStringType?: string;
   /**
+   * @remarks
+   * The path rewrite method. Valid values:
+   * 
+   * *   static
+   * 
    * @example
    * static
    */
   rewriteUriType?: string;
   /**
+   * @remarks
+   * The rule content.
+   * 
    * @example
    * (http.host eq "video.example.com")
    */
   rule?: string;
   /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   ruleEnable?: string;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * rule_example
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
    * @example
    * 1
    */
   sequence?: number;
   /**
+   * @remarks
+   * The version number of the website configurations.
+   * 
    * @example
    * 0
    */
   siteVersion?: number;
   /**
+   * @remarks
+   * The desired URI to which you want to rewrite the path in the original request.
+   * 
    * @example
    * /image.example.com/index.html
    */
@@ -20564,7 +20813,7 @@ export class CreateCustomScenePolicyRequest extends $dara.Model {
    * @remarks
    * The time when the policy expires.
    * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * This parameter is required.
    * 
@@ -20594,7 +20843,7 @@ export class CreateCustomScenePolicyRequest extends $dara.Model {
    * @remarks
    * The time when the policy takes effect.
    * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * This parameter is required.
    * 
@@ -31836,7 +32085,7 @@ export class DeleteWaitingRoomRuleResponse extends $dara.Model {
 export class DescribeCustomScenePoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Valid values: 1 to 100000.
+   * The number of the page to return. Valid values: **1 to 100000**.
    * 
    * This parameter is required.
    * 
@@ -31846,7 +32095,7 @@ export class DescribeCustomScenePoliciesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Valid values: 5, 10, and 20.
+   * The number of entries per page. Default value: **10**. Valid values: **5**, **10**, or **20**.
    * 
    * @example
    * 10
@@ -31854,7 +32103,7 @@ export class DescribeCustomScenePoliciesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the policy, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+   * The rule ID.
    * 
    * @example
    * 1234****
@@ -32509,6 +32758,173 @@ export class DescribeDDoSL7QpsListResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeDDoSL7QpsListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEdgeContainerAppStatsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * app-xxxx
+   */
+  app?: string;
+  /**
+   * @example
+   * 2024-09-02T16:04:05Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pod_ready_rate
+   */
+  fields?: string;
+  /**
+   * @example
+   * telecom,unicom,cmcc
+   */
+  isp?: string;
+  /**
+   * @example
+   * huizhou
+   */
+  locate?: string;
+  /**
+   * @example
+   * 2024-09-02T15:04:05Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * t-xxxx
+   */
+  tenant?: string;
+  static names(): { [key: string]: string } {
+    return {
+      app: 'App',
+      endTime: 'EndTime',
+      fields: 'Fields',
+      isp: 'Isp',
+      locate: 'Locate',
+      startTime: 'StartTime',
+      tenant: 'Tenant',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      app: 'string',
+      endTime: 'string',
+      fields: 'string',
+      isp: 'string',
+      locate: 'string',
+      startTime: 'string',
+      tenant: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEdgeContainerAppStatsResponseBody extends $dara.Model {
+  cpuUsageSecondsQuotaRateAvg?: number;
+  cpuUsageSecondsTotalAvg?: number;
+  fsReadsBytesAvgAvg?: number;
+  fsWritesBytesAvgAvg?: number;
+  memoryRssAvg?: number;
+  memoryRssQuotaRateAvg?: number;
+  podReadyRateAvg?: number;
+  points?: DescribeEdgeContainerAppStatsResponseBodyPoints[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 35C66C7B-671H-4297-9187-2C4477247A78
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cpuUsageSecondsQuotaRateAvg: 'CpuUsageSecondsQuotaRateAvg',
+      cpuUsageSecondsTotalAvg: 'CpuUsageSecondsTotalAvg',
+      fsReadsBytesAvgAvg: 'FsReadsBytesAvgAvg',
+      fsWritesBytesAvgAvg: 'FsWritesBytesAvgAvg',
+      memoryRssAvg: 'MemoryRssAvg',
+      memoryRssQuotaRateAvg: 'MemoryRssQuotaRateAvg',
+      podReadyRateAvg: 'PodReadyRateAvg',
+      points: 'Points',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuUsageSecondsQuotaRateAvg: 'number',
+      cpuUsageSecondsTotalAvg: 'number',
+      fsReadsBytesAvgAvg: 'number',
+      fsWritesBytesAvgAvg: 'number',
+      memoryRssAvg: 'number',
+      memoryRssQuotaRateAvg: 'number',
+      podReadyRateAvg: 'number',
+      points: { 'type': 'array', 'itemType': DescribeEdgeContainerAppStatsResponseBodyPoints },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.points)) {
+      $dara.Model.validateArray(this.points);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEdgeContainerAppStatsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEdgeContainerAppStatsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEdgeContainerAppStatsResponseBody,
     };
   }
 
@@ -35598,6 +36014,105 @@ export class GetEdgeContainerAppResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetEdgeContainerAppResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppLogRiverRequest extends $dara.Model {
+  /**
+   * @example
+   * app-880688675****88
+   */
+  appId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppLogRiverResponseBody extends $dara.Model {
+  /**
+   * @example
+   * /root/hello.log
+   */
+  path?: string;
+  /**
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
+  requestId?: string;
+  stdout?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      requestId: 'RequestId',
+      stdout: 'Stdout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      requestId: 'string',
+      stdout: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEdgeContainerAppLogRiverResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEdgeContainerAppLogRiverResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEdgeContainerAppLogRiverResponseBody,
     };
   }
 
@@ -45429,32 +45944,54 @@ export class ListHttpRequestHeaderModificationRulesResponse extends $dara.Model 
 
 export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID.
+   * 
    * @example
    * 35281609698****
    */
   configId?: number;
   /**
+   * @remarks
+   * The configuration type to query. Valid values:
+   * 
+   * *   global: global configurations.
+   * *   rule: queries rule configurations.
+   * 
+   * If this parameter is left empty, all configuration types are returned.
+   * 
    * @example
    * rule
    */
   configType?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned on each page. Default value: 500. Valid values: 1 to 500.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * rule_example
    */
   ruleName?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45462,6 +45999,9 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
    */
   siteId?: number;
   /**
+   * @remarks
+   * The version number of the website configurations.
+   * 
    * @example
    * 0
    */
@@ -45500,28 +46040,47 @@ export class ListHttpResponseHeaderModificationRulesRequest extends $dara.Model 
 }
 
 export class ListHttpResponseHeaderModificationRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration list of modifying a response header.
+   */
   configs?: ListHttpResponseHeaderModificationRulesResponseBodyConfigs[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 14
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages returned.
+   * 
    * @example
    * 1
    */
@@ -45926,32 +46485,54 @@ export class ListHttpsBasicConfigurationsResponse extends $dara.Model {
 
 export class ListImageTransformsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID, which can be obtained by calling the ListImageTransforms operation.[](~~2869056~~)
+   * 
    * @example
    * 352816096987136
    */
   configId?: number;
   /**
+   * @remarks
+   * The configuration type to query. Valid values:
+   * 
+   * *   global: global configurations.
+   * *   rule: rule configurations.
+   * 
+   * This parameter takes effect only when parameter functionName is specified. If this parameter is left empty, all configuration types are returned.
+   * 
    * @example
    * global
    */
   configType?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Maximum value: 500. Default value: 500.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The rule name. This parameter takes effect only when parameter functionName is specified.
+   * 
    * @example
    * test1
    */
   ruleName?: string;
   /**
    * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45959,6 +46540,9 @@ export class ListImageTransformsRequest extends $dara.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The version number of the website. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
+   * 
    * @example
    * 1
    */
@@ -45997,28 +46581,47 @@ export class ListImageTransformsRequest extends $dara.Model {
 }
 
 export class ListImageTransformsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The configurations.
+   */
   configs?: ListImageTransformsResponseBodyConfigs[];
   /**
+   * @remarks
+   * The page number returned.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 500**. Default value: **500**.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records returned.
+   * 
    * @example
    * 16
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 2
    */
@@ -48356,32 +48959,52 @@ export class ListRecordsResponse extends $dara.Model {
 
 export class ListRedirectRulesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID,
+   * 
    * @example
    * 35281609698****
    */
   configId?: number;
   /**
+   * @remarks
+   * The type of the configuration. Valid values:
+   * 
+   * *   global: global configuration.
+   * *   rule: rule configuration.
+   * 
    * @example
    * rule
    */
   configType?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: **500**. Valid values: **1 to 500**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * rule_example
    */
   ruleName?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48389,6 +49012,9 @@ export class ListRedirectRulesRequest extends $dara.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The version of the website configurations.
+   * 
    * @example
    * 0
    */
@@ -48427,28 +49053,47 @@ export class ListRedirectRulesRequest extends $dara.Model {
 }
 
 export class ListRedirectRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration list of the the URL redirect rule.
+   */
   configs?: ListRedirectRulesResponseBodyConfigs[];
   /**
+   * @remarks
+   * The page number returned.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 10
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages returned.
+   * 
    * @example
    * 1
    */
@@ -48524,32 +49169,54 @@ export class ListRedirectRulesResponse extends $dara.Model {
 
 export class ListRewriteUrlRulesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The configuration ID.
+   * 
    * @example
    * 35281609698****
    */
   configId?: number;
   /**
+   * @remarks
+   * The configuration type to query. Valid values:
+   * 
+   * *   global: global configurations.
+   * *   rule: rule configurations.
+   * 
+   * If this parameter is left empty, all configuration types are returned. This parameter takes effect only when parameter functionName is specified.
+   * 
    * @example
    * global
    */
   configType?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 500**. Default value: **500**.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * rule_example
    */
   ruleName?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48557,6 +49224,9 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The version number of the website configurations. You can use this parameter to specify a version of your website to apply the feature settings. By default, version 0 is used.
+   * 
    * @example
    * 0
    */
@@ -48595,28 +49265,47 @@ export class ListRewriteUrlRulesRequest extends $dara.Model {
 }
 
 export class ListRewriteUrlRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The URL rewrite configuration list.
+   */
   configs?: ListRewriteUrlRulesResponseBodyConfigs[];
   /**
+   * @remarks
+   * The page number returned.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 8
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages returned.
+   * 
    * @example
    * 1
    */
@@ -55736,6 +56425,123 @@ export class UpdateDevelopmentModeResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateDevelopmentModeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEdgeContainerAppLogRiverRequest extends $dara.Model {
+  /**
+   * @example
+   * app-88068867578379****
+   */
+  appId?: string;
+  /**
+   * @example
+   * /root/hello.log
+   */
+  path?: string;
+  /**
+   * @example
+   * true
+   */
+  stdout?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      path: 'Path',
+      stdout: 'Stdout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      path: 'string',
+      stdout: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEdgeContainerAppLogRiverResponseBody extends $dara.Model {
+  /**
+   * @example
+   * /root/hello.log
+   */
+  path?: string;
+  /**
+   * @example
+   * 42DE97FA-45D2-5615-9A31-55D9EC0D7563
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  stdout?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      path: 'Path',
+      requestId: 'RequestId',
+      stdout: 'Stdout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      path: 'string',
+      requestId: 'string',
+      stdout: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEdgeContainerAppLogRiverResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEdgeContainerAppLogRiverResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEdgeContainerAppLogRiverResponseBody,
     };
   }
 
@@ -68325,6 +69131,49 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 将天眼提供给XCDN边缘容器的监控OpenAPI适配成青蓝的OpenAPI
+   * 
+   * @param request - DescribeEdgeContainerAppStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEdgeContainerAppStatsResponse
+   */
+  async describeEdgeContainerAppStatsWithOptions(request: DescribeEdgeContainerAppStatsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeEdgeContainerAppStatsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeEdgeContainerAppStats",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeEdgeContainerAppStatsResponse>(await this.callApi(params, req, runtime), new DescribeEdgeContainerAppStatsResponse({}));
+    } else {
+      return $dara.cast<DescribeEdgeContainerAppStatsResponse>(await this.execute(params, req, runtime), new DescribeEdgeContainerAppStatsResponse({}));
+    }
+
+  }
+
+  /**
+   * 将天眼提供给XCDN边缘容器的监控OpenAPI适配成青蓝的OpenAPI
+   * 
+   * @param request - DescribeEdgeContainerAppStatsRequest
+   * @returns DescribeEdgeContainerAppStatsResponse
+   */
+  async describeEdgeContainerAppStats(request: DescribeEdgeContainerAppStatsRequest): Promise<DescribeEdgeContainerAppStatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeEdgeContainerAppStatsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the configuration of smart HTTP DDoS protection for a website.
    * 
    * @param request - DescribeHttpDDoSAttackIntelligentProtectionRequest
@@ -69300,6 +70149,49 @@ export default class Client extends OpenApi {
   async getEdgeContainerApp(request: GetEdgeContainerAppRequest): Promise<GetEdgeContainerAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getEdgeContainerAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取边缘容器应用日志采集配置
+   * 
+   * @param request - GetEdgeContainerAppLogRiverRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEdgeContainerAppLogRiverResponse
+   */
+  async getEdgeContainerAppLogRiverWithOptions(request: GetEdgeContainerAppLogRiverRequest, runtime: $dara.RuntimeOptions): Promise<GetEdgeContainerAppLogRiverResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetEdgeContainerAppLogRiver",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetEdgeContainerAppLogRiverResponse>(await this.callApi(params, req, runtime), new GetEdgeContainerAppLogRiverResponse({}));
+    } else {
+      return $dara.cast<GetEdgeContainerAppLogRiverResponse>(await this.execute(params, req, runtime), new GetEdgeContainerAppLogRiverResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取边缘容器应用日志采集配置
+   * 
+   * @param request - GetEdgeContainerAppLogRiverRequest
+   * @returns GetEdgeContainerAppLogRiverResponse
+   */
+  async getEdgeContainerAppLogRiver(request: GetEdgeContainerAppLogRiverRequest): Promise<GetEdgeContainerAppLogRiverResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getEdgeContainerAppLogRiverWithOptions(request, runtime);
   }
 
   /**
@@ -72128,7 +73020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询HTTP响应头规则列表
+   * Queries the configuration details of an HTTP response header modification rule for a website.
    * 
    * @param request - ListHttpResponseHeaderModificationRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72160,7 +73052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询HTTP响应头规则列表
+   * Queries the configuration details of an HTTP response header modification rule for a website.
    * 
    * @param request - ListHttpResponseHeaderModificationRulesRequest
    * @returns ListHttpResponseHeaderModificationRulesResponse
@@ -72257,7 +73149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询多条站点图片转换配置
+   * Queries the details of image conversion configurations for multiple websites.
    * 
    * @param request - ListImageTransformsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72289,7 +73181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询多条站点图片转换配置
+   * Queries the details of image conversion configurations for multiple websites.
    * 
    * @param request - ListImageTransformsRequest
    * @returns ListImageTransformsResponse
@@ -72915,7 +73807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询重定向规则列表
+   * Queries the configuration details of a URL redirect rule for a website.
    * 
    * @param request - ListRedirectRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72947,7 +73839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询重定向规则列表
+   * Queries the configuration details of a URL redirect rule for a website.
    * 
    * @param request - ListRedirectRulesRequest
    * @returns ListRedirectRulesResponse
@@ -72958,7 +73850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询重写Url规则列表
+   * Queries the details of rewrite URL configurations.
    * 
    * @param request - ListRewriteUrlRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72990,7 +73882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询重写Url规则列表
+   * Queries the details of rewrite URL configurations.
    * 
    * @param request - ListRewriteUrlRulesRequest
    * @returns ListRewriteUrlRulesResponse
@@ -75554,6 +76446,61 @@ export default class Client extends OpenApi {
   async updateDevelopmentMode(request: UpdateDevelopmentModeRequest): Promise<UpdateDevelopmentModeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDevelopmentModeWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新边缘容器应用日志采集配置
+   * 
+   * @param request - UpdateEdgeContainerAppLogRiverRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateEdgeContainerAppLogRiverResponse
+   */
+  async updateEdgeContainerAppLogRiverWithOptions(request: UpdateEdgeContainerAppLogRiverRequest, runtime: $dara.RuntimeOptions): Promise<UpdateEdgeContainerAppLogRiverResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.stdout)) {
+      query["Stdout"] = request.stdout;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateEdgeContainerAppLogRiver",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateEdgeContainerAppLogRiverResponse>(await this.callApi(params, req, runtime), new UpdateEdgeContainerAppLogRiverResponse({}));
+    } else {
+      return $dara.cast<UpdateEdgeContainerAppLogRiverResponse>(await this.execute(params, req, runtime), new UpdateEdgeContainerAppLogRiverResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新边缘容器应用日志采集配置
+   * 
+   * @param request - UpdateEdgeContainerAppLogRiverRequest
+   * @returns UpdateEdgeContainerAppLogRiverResponse
+   */
+  async updateEdgeContainerAppLogRiver(request: UpdateEdgeContainerAppLogRiverRequest): Promise<UpdateEdgeContainerAppLogRiverResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateEdgeContainerAppLogRiverWithOptions(request, runtime);
   }
 
   /**
