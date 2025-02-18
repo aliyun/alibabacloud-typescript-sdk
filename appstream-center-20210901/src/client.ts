@@ -626,21 +626,38 @@ export class CreateAppInstanceGroupResponseBodyAppInstanceGroupModel extends $da
 
 export class DeleteAppInstancesResponseBodyDeleteAppInstanceModels extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the application instance.
+   * 
    * @example
    * ai-gbuea*****
    */
   appInstanceId?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParameter.ProductType
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The parameter ProductType is invalid.
    */
   message?: string;
   /**
+   * @remarks
+   * Specifies whether the application instance is deleted.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -1247,18 +1264,40 @@ export class GetAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dara
 
 export class GetResourcePriceResponseBodyPriceListPricePromotions extends $dara.Model {
   /**
+   * @remarks
+   * The coupon code.
+   * 
    * @example
    * coupon****
    */
   optionCode?: string;
+  /**
+   * @remarks
+   * The coupon description.
+   */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The coupon ID.
+   * 
    * @example
    * 1847709****
    */
   promotionId?: string;
+  /**
+   * @remarks
+   * The coupon name.
+   */
   promotionName?: string;
   /**
+   * @remarks
+   * Indicates whether the coupon was used.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -1294,22 +1333,38 @@ export class GetResourcePriceResponseBodyPriceListPricePromotions extends $dara.
 
 export class GetResourcePriceResponseBodyPriceListPrice extends $dara.Model {
   /**
+   * @remarks
+   * The currency type.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discount. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+   * 
    * @example
    * 999.0
    */
   discountPrice?: string;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 6700
    */
   originalPrice?: string;
+  /**
+   * @remarks
+   * The coupon metadata.
+   */
   promotions?: GetResourcePriceResponseBodyPriceListPricePromotions[];
   /**
+   * @remarks
+   * The actual price. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+   * 
    * @example
    * 5278.0
    */
@@ -1347,8 +1402,15 @@ export class GetResourcePriceResponseBodyPriceListPrice extends $dara.Model {
 }
 
 export class GetResourcePriceResponseBodyPriceListRules extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the price calculation rule.
+   */
   description?: string;
   /**
+   * @remarks
+   * The ID of the price calculation rule.
+   * 
    * @example
    * 260904273633****
    */
@@ -1377,12 +1439,28 @@ export class GetResourcePriceResponseBodyPriceListRules extends $dara.Model {
 }
 
 export class GetResourcePriceResponseBodyPriceList extends $dara.Model {
+  /**
+   * @remarks
+   * The price details.
+   */
   price?: GetResourcePriceResponseBodyPriceListPrice;
   /**
+   * @remarks
+   * The price type.
+   * 
+   * Valid values:
+   * 
+   * *   Connected: in use
+   * *   Standby: pending for use.
+   * 
    * @example
    * Standby
    */
   priceType?: string;
+  /**
+   * @remarks
+   * The price calculation rules.
+   */
   rules?: GetResourcePriceResponseBodyPriceListRules[];
   static names(): { [key: string]: string } {
     return {
@@ -1417,18 +1495,40 @@ export class GetResourcePriceResponseBodyPriceList extends $dara.Model {
 
 export class GetResourcePriceResponseBodyPriceModelPricePromotions extends $dara.Model {
   /**
+   * @remarks
+   * The coupon code.
+   * 
    * @example
    * coupon****
    */
   optionCode?: string;
+  /**
+   * @remarks
+   * The coupon description.
+   */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The coupon ID.
+   * 
    * @example
    * 17440009****
    */
   promotionId?: string;
+  /**
+   * @remarks
+   * The coupon name.
+   */
   promotionName?: string;
   /**
+   * @remarks
+   * Indicates whether the coupon was used.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -1464,22 +1564,38 @@ export class GetResourcePriceResponseBodyPriceModelPricePromotions extends $dara
 
 export class GetResourcePriceResponseBodyPriceModelPrice extends $dara.Model {
   /**
+   * @remarks
+   * The currency type.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discount. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+   * 
    * @example
    * 1.00
    */
   discountPrice?: string;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 11.00
    */
   originalPrice?: string;
+  /**
+   * @remarks
+   * The coupon metadata.
+   */
   promotions?: GetResourcePriceResponseBodyPriceModelPricePromotions[];
   /**
+   * @remarks
+   * The actual price. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+   * 
    * @example
    * 10.00
    */
@@ -1517,8 +1633,15 @@ export class GetResourcePriceResponseBodyPriceModelPrice extends $dara.Model {
 }
 
 export class GetResourcePriceResponseBodyPriceModelRules extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the price calculation rule.
+   */
   description?: string;
   /**
+   * @remarks
+   * The ID of the price calculation rule.
+   * 
    * @example
    * 102002100393****
    */
@@ -1547,7 +1670,15 @@ export class GetResourcePriceResponseBodyPriceModelRules extends $dara.Model {
 }
 
 export class GetResourcePriceResponseBodyPriceModel extends $dara.Model {
+  /**
+   * @remarks
+   * The price details.
+   */
   price?: GetResourcePriceResponseBodyPriceModelPrice;
+  /**
+   * @remarks
+   * The price calculation rules.
+   */
   rules?: GetResourcePriceResponseBodyPriceModelRules[];
   static names(): { [key: string]: string } {
     return {
@@ -1580,18 +1711,40 @@ export class GetResourcePriceResponseBodyPriceModel extends $dara.Model {
 
 export class GetResourceRenewPriceResponseBodyDataPricePromotions extends $dara.Model {
   /**
+   * @remarks
+   * The coupon code.
+   * 
    * @example
    * coupon****
    */
   optionCode?: string;
+  /**
+   * @remarks
+   * The coupon description.
+   */
   promotionDesc?: string;
   /**
+   * @remarks
+   * The coupon ID.
+   * 
    * @example
    * 139965*****
    */
   promotionId?: string;
+  /**
+   * @remarks
+   * The coupon name.
+   */
   promotionName?: string;
   /**
+   * @remarks
+   * Indicates whether the coupon was used.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -1627,22 +1780,38 @@ export class GetResourceRenewPriceResponseBodyDataPricePromotions extends $dara.
 
 export class GetResourceRenewPriceResponseBodyDataPrice extends $dara.Model {
   /**
+   * @remarks
+   * The currency type.
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The discount. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+   * 
    * @example
    * 1
    */
   discountPrice?: string;
   /**
+   * @remarks
+   * The original price.
+   * 
    * @example
    * 11
    */
   originalPrice?: string;
+  /**
+   * @remarks
+   * The coupon description.
+   */
   promotions?: GetResourceRenewPriceResponseBodyDataPricePromotions[];
   /**
+   * @remarks
+   * The actual price. The actual price is calculated based on the following formula: Actual price = Original price - Discount.
+   * 
    * @example
    * 10
    */
@@ -1680,8 +1849,15 @@ export class GetResourceRenewPriceResponseBodyDataPrice extends $dara.Model {
 }
 
 export class GetResourceRenewPriceResponseBodyDataRules extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the price calculation rule.
+   */
   description?: string;
   /**
+   * @remarks
+   * The ID of the price calculation rule.
+   * 
    * @example
    * 20002****
    */
@@ -1710,7 +1886,15 @@ export class GetResourceRenewPriceResponseBodyDataRules extends $dara.Model {
 }
 
 export class GetResourceRenewPriceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The price details.
+   */
   price?: GetResourceRenewPriceResponseBodyDataPrice;
+  /**
+   * @remarks
+   * The price calculation rules.
+   */
   rules?: GetResourceRenewPriceResponseBodyDataRules[];
   static names(): { [key: string]: string } {
     return {
@@ -2402,11 +2586,17 @@ export class ListAppInstanceGroupResponseBodyAppInstanceGroupModels extends $dar
 
 export class ListAppInstancesResponseBodyAppInstanceModelsBindInfo extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the end user that is bound to the application instance.
+   * 
    * @example
    * app.test
    */
   endUserId?: string;
   /**
+   * @remarks
+   * The use duration of the application instance. Unit: seconds.
+   * 
    * @example
    * 2000
    */
@@ -2436,37 +2626,69 @@ export class ListAppInstancesResponseBodyAppInstanceModelsBindInfo extends $dara
 
 export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
    * @example
    * aig-dk8p95irqfst9****
    */
   appInstanceGroupId?: string;
   /**
+   * @remarks
+   * The ID of the application instance.
+   * 
    * @example
    * ai-8dl7dzchklmka****
    */
   appInstanceId?: string;
-  bindInfo?: ListAppInstancesResponseBodyAppInstanceModelsBindInfo;
   /**
+   * @remarks
+   * The information about the binding between the application instance and end users.
+   */
+  bindInfo?: ListAppInstancesResponseBodyAppInstanceModelsBindInfo;
+  chargeType?: string;
+  /**
+   * @remarks
+   * The time when the application instance was created.
+   * 
    * @example
    * 2023-03-07T20:29:19.000+08:00
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The time when the application instance was updated.
+   * 
    * @example
    * 2023-03-07T20:29:19.000+08:00
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The public IP address associated with the primary NIC. This value is returned only if `StrategyType` is set to `Mixed`.
+   * 
    * @example
    * 10.13.13.211
    */
   mainEthPublicIp?: string;
+  nodeId?: string;
   /**
+   * @remarks
+   * The session status. This parameter is returned only if the application instance is in the `RUNNING` state.
+   * 
+   * Valid values:
+   * 
+   * *   disconnect: disconnected
+   * *   connect: connected
+   * 
    * @example
    * connect
    */
   sessionStatus?: string;
   /**
+   * @remarks
+   * The status of the application instance.
+   * 
    * @example
    * BOUND
    */
@@ -2476,9 +2698,11 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
       appInstanceGroupId: 'AppInstanceGroupId',
       appInstanceId: 'AppInstanceId',
       bindInfo: 'BindInfo',
+      chargeType: 'ChargeType',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       mainEthPublicIp: 'MainEthPublicIp',
+      nodeId: 'NodeId',
       sessionStatus: 'SessionStatus',
       status: 'Status',
     };
@@ -2489,9 +2713,11 @@ export class ListAppInstancesResponseBodyAppInstanceModels extends $dara.Model {
       appInstanceGroupId: 'string',
       appInstanceId: 'string',
       bindInfo: ListAppInstancesResponseBodyAppInstanceModelsBindInfo,
+      chargeType: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       mainEthPublicIp: 'string',
+      nodeId: 'string',
       sessionStatus: 'string',
       status: 'string',
     };
@@ -2594,18 +2820,24 @@ export class ListBindInfoResponseBodyBindInfoModels extends $dara.Model {
 
 export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dara.Model {
   /**
+   * @remarks
+   * The number of vCPUs.
+   * 
    * @example
    * 4
    */
   cpu?: string;
   /**
+   * @remarks
+   * The number of GPUs.
+   * 
    * @example
    * 2
    */
   gpu?: string;
   /**
    * @remarks
-   * 显卡内存大小，单位为MB。
+   * The GPU size. Unit: MB.
    * 
    * @example
    * 8192
@@ -2613,39 +2845,53 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
   gpuMemory?: number;
   /**
    * @remarks
-   * 最大并发会话数，即单个资源可同时连接的会话数。如果同时连接的会话数过多，可能导致应用的使用体验下降。取值范围因资源规格不同而不同。各资源规格对应的取值范围分别是：
+   * The maximum number of sessions to which a resource can connect at the same time. If a resource connects to a large number of sessions at the same time, user experience can be compromised. The value range varies based on the resource type. The following items describe the value ranges of different resource types:
    * 
-   * - appstreaming.general.4c8g：1\\~2；
-   * - appstreaming.general.8c16g：1\\~4；
-   * - appstreaming.vgpu.8c16g.4g：1\\~4；
-   * - appstreaming.vgpu.8c31g.16g：1\\~4；
-   * - appstreaming.vgpu.14c93g.12g：1\\~6；
+   * *   appstreaming.general.4c8g: 1 to 2
+   * *   appstreaming.general.8c16g: 1 to 4
+   * *   appstreaming.vgpu.8c16g.4g: 1 to 4
+   * *   appstreaming.vgpu.8c31g.16g: 1 to 4
+   * *   appstreaming.vgpu.14c93g.12g: 1 to 6
    * 
    * @example
    * 4
    */
   maxCapacity?: number;
   /**
+   * @remarks
+   * The memory size. Unit: MB.
+   * 
    * @example
    * 8192
    */
   memory?: number;
   /**
+   * @remarks
+   * The ID of the resource type.
+   * 
    * @example
    * appstreaming.vgpu.4c8g.2g
    */
   nodeInstanceType?: string;
   /**
+   * @remarks
+   * The resource type family.
+   * 
+   * Valid values:
+   * 
+   * *   appstreaming.general: WUYING - General
+   * *   appstreaming.vgpu: WUYING - Graphics
+   * 
    * @example
    * appstreaming.vgpu
    */
   nodeInstanceTypeFamily?: string;
   /**
    * @remarks
-   * 资源规格名称。
+   * The name of the resource type.
    * 
    * @example
-   * 无影-通用型_4核8G
+   * WUYING - General - 4 vCPUs 8 GB Memory
    */
   nodeTypeName?: string;
   static names(): { [key: string]: string } {
@@ -2685,22 +2931,42 @@ export class ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels extends $dar
 
 export class ListOtaTaskResponseBodyTaskList extends $dara.Model {
   /**
+   * @remarks
+   * The OTA version.
+   * 
    * @example
    * 0.0.1-R-20220708.110604
    */
   otaVersion?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
+   * Valid values:
+   * 
+   * *   FAILED
+   * *   RUNNING
+   * *   TERMINATED
+   * *   PART_FINISHED
+   * *   STANDBY
+   * *   FINISHED
+   * 
    * @example
    * RUNNING
    */
   taskDisplayStatus?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * ota-be7jzm29wrrz5****
    */
   taskId?: string;
   /**
    * @remarks
+   * The start time of the OTA update task. The time follows the ISO 8601 standard.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -2968,6 +3234,14 @@ export class ListSessionPackagesResponseBodyData extends $dara.Model {
 
 export class ListTenantConfigResponseBodyTenantConfigModel extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the resource expiration reminder feature is enabled.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -2994,7 +3268,26 @@ export class ListTenantConfigResponseBodyTenantConfigModel extends $dara.Model {
 }
 
 export class ModifyAppInstanceGroupAttributeRequestNetworkDomainRules extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * www.example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The policy used for the domain name.
+   * 
+   * Valid values:
+   * 
+   * *   allow
+   * *   block
+   * 
+   * @example
+   * block
+   */
   policy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3020,6 +3313,10 @@ export class ModifyAppInstanceGroupAttributeRequestNetworkDomainRules extends $d
 }
 
 export class ModifyAppInstanceGroupAttributeRequestNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * The domain name rules.
+   */
   domainRules?: ModifyAppInstanceGroupAttributeRequestNetworkDomainRules[];
   static names(): { [key: string]: string } {
     return {
@@ -3047,11 +3344,23 @@ export class ModifyAppInstanceGroupAttributeRequestNetwork extends $dara.Model {
 
 export class ModifyAppInstanceGroupAttributeRequestNodePool extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of sessions to which a resource can connect at the same time. If a resource connects to a large number of sessions at the same time, user experience can be compromised. The value range varies based on the resource type. The following items describe the value ranges of different resource types:
+   * 
+   * *   appstreaming.general.4c8g: 1 to 2
+   * *   appstreaming.general.8c16g: 1 to 4
+   * *   appstreaming.vgpu.8c16g.4g: 1 to 4
+   * *   appstreaming.vgpu.8c31g.16g: 1 to 4
+   * *   appstreaming.vgpu.14c93g.12g: 1 to 6
+   * 
    * @example
    * 2
    */
   nodeCapacity?: number;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-ew7va2g1wl3vm****
    */
@@ -3081,11 +3390,27 @@ export class ModifyAppInstanceGroupAttributeRequestNodePool extends $dara.Model 
 
 export class ModifyAppInstanceGroupAttributeRequestSecurityPolicy extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to reset after unbinding from a delivery group.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   resetAfterUnbind?: boolean;
   /**
+   * @remarks
+   * Specifies whether to skip user permission verification.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false: This is the default value.
+   * 
    * @example
    * false
    */
@@ -3101,6 +3426,32 @@ export class ModifyAppInstanceGroupAttributeRequestSecurityPolicy extends $dara.
     return {
       resetAfterUnbind: 'boolean',
       skipUserAuthCheck: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile extends $dara.Model {
+  fileSystemId?: string;
+  userProfileSwitch?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      fileSystemId: 'FileSystemId',
+      userProfileSwitch: 'UserProfileSwitch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileSystemId: 'string',
+      userProfileSwitch: 'boolean',
     };
   }
 
@@ -3140,11 +3491,17 @@ export class ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollo
 }
 
 export class ModifyAppInstanceGroupAttributeRequestStoragePolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The storage types.
+   */
   storageTypeList?: string[];
+  userProfile?: ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile;
   userProfileFollow?: ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollow;
   static names(): { [key: string]: string } {
     return {
       storageTypeList: 'StorageTypeList',
+      userProfile: 'UserProfile',
       userProfileFollow: 'UserProfileFollow',
     };
   }
@@ -3152,6 +3509,7 @@ export class ModifyAppInstanceGroupAttributeRequestStoragePolicy extends $dara.M
   static types(): { [key: string]: any } {
     return {
       storageTypeList: { 'type': 'array', 'itemType': 'string' },
+      userProfile: ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfile,
       userProfileFollow: ModifyAppInstanceGroupAttributeRequestStoragePolicyUserProfileFollow,
     };
   }
@@ -3159,6 +3517,9 @@ export class ModifyAppInstanceGroupAttributeRequestStoragePolicy extends $dara.M
   validate() {
     if(Array.isArray(this.storageTypeList)) {
       $dara.Model.validateArray(this.storageTypeList);
+    }
+    if(this.userProfile && typeof (this.userProfile as any).validate === 'function') {
+      (this.userProfile as any).validate();
     }
     if(this.userProfileFollow && typeof (this.userProfileFollow as any).validate === 'function') {
       (this.userProfileFollow as any).validate();
@@ -3600,6 +3961,8 @@ export class AccessPageSetAclResponse extends $dara.Model {
 export class ApproveOtaTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3608,6 +3971,8 @@ export class ApproveOtaTaskRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
+   * The ID of the region where the delivery group resides. You can call the [ListRegions](https://help.aliyun.com/document_detail/428500.html) operation to query the list of regions supported by App Streaming.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3616,6 +3981,14 @@ export class ApproveOtaTaskRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
+   * The type of the OTA update task.
+   * 
+   * Valid values:
+   * 
+   * *   Fota: update of the system components of Alibaba Cloud Workspace
+   * *   AppUpdate
+   * *   ImageUpdate
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3624,6 +3997,8 @@ export class ApproveOtaTaskRequest extends $dara.Model {
   otaType?: string;
   /**
    * @remarks
+   * The start time of the OTA update task. The time follows the ISO 8601 standard.
+   * 
    * This parameter is required.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
@@ -3634,6 +4009,10 @@ export class ApproveOtaTaskRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
+   * The ID of the OTA update task. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+   * 
+   * >  Each successful call to the `ApproveOtaTask` operation causes a value change of this parameter.`` Before you call this operation, call the `ListAppInstanceGroup` operation again to obtain the latest value of this parameter.``
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3671,16 +4050,25 @@ export class ApproveOtaTaskRequest extends $dara.Model {
 
 export class ApproveOtaTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The execution result. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+   * 
    * @example
    * OtaTask.Running
    */
   code?: string;
   /**
+   * @remarks
+   * The error message. If the value of `Code` is `success`, this parameter is not returned.
+   * 
    * @example
    * The task is running and cannot be sumitted.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -4789,6 +5177,8 @@ export class CreateAppInstanceGroupResponse extends $dara.Model {
 export class CreateImageFromAppInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The image name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4797,6 +5187,8 @@ export class CreateImageFromAppInstanceGroupRequest extends $dara.Model {
   appCenterImageName?: string;
   /**
    * @remarks
+   * The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4805,6 +5197,12 @@ export class CreateImageFromAppInstanceGroupRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4838,11 +5236,17 @@ export class CreateImageFromAppInstanceGroupRequest extends $dara.Model {
 
 export class CreateImageFromAppInstanceGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The image ID.
+   * 
    * @example
    * img-bp13mu****
    */
   imageId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -5017,6 +5421,8 @@ export class DeleteAccessPageResponse extends $dara.Model {
 export class DeleteAppInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5025,6 +5431,12 @@ export class DeleteAppInstanceGroupRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5056,6 +5468,9 @@ export class DeleteAppInstanceGroupRequest extends $dara.Model {
 
 export class DeleteAppInstanceGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -5119,6 +5534,8 @@ export class DeleteAppInstanceGroupResponse extends $dara.Model {
 export class DeleteAppInstancesRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group. You can call the [listAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5127,6 +5544,8 @@ export class DeleteAppInstancesRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
+   * The IDs of application instances.
+   * 
    * This parameter is required.
    * 
    * **if can be null:**
@@ -5135,6 +5554,12 @@ export class DeleteAppInstancesRequest extends $dara.Model {
   appInstanceIds?: string[];
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5170,8 +5595,15 @@ export class DeleteAppInstancesRequest extends $dara.Model {
 }
 
 export class DeleteAppInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   deleteAppInstanceModels?: DeleteAppInstancesResponseBodyDeleteAppInstanceModels[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -5486,34 +5918,78 @@ export class GetAppInstanceGroupResponse extends $dara.Model {
 
 export class GetConnectionTicketRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
+   * >  This parameter is required for the first call to this operation and optional for subsequent calls to the operation.
+   * 
    * @example
    * ca-e4s0puhmwi7v****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The delivery groups.
+   * 
+   * > 
+   * 
+   * *   If you configure this parameter, the system assigns application instances only among the specified authorized delivery groups.
+   * 
+   * *   This parameter is required if you configure `AppInstanceId` or `AppInstancePersistentId`.
+   */
   appInstanceGroupIdList?: string[];
   /**
+   * @remarks
+   * The ID of the application instance.
+   * 
+   * > 
+   * 
+   * *   If you configure this parameter, the system attempts to assign only the specified application instance.
+   * 
+   * *   If you configure this parameter, you must also configure `AppInstanceGroupIdList` and the number of delivery groups specified by `AppInstanceGroupIdList` must be 1.
+   * 
    * @example
    * ai-1rznfnrvsa99d****
    */
   appInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the persistent session.
+   * 
+   * @example
+   * p-0bxls9m3cl7s****
+   */
   appInstancePersistentId?: string;
   /**
+   * @remarks
+   * The parameters that are configured to start the application. For information about how to obtain these parameters, see [Obtain parameters configured to install and start an application](https://help.aliyun.com/zh/wuying-appstreaming/user-guide/create-an-application?#how-to-get-installation-and-startup-para).
+   * 
    * @example
    * /q /n
    */
   appStartParam?: string;
   /**
+   * @remarks
+   * The application version. If you configure this parameter, only an application of the specified version is started. If you do not configure this parameter, an application of a random authorized version is started.
+   * 
    * @example
    * 1.0.0
    */
   appVersion?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
+   * >  If you configure this parameter, the system assigns application instances only among the delivery groups that reside in the specified region.
+   * 
    * @example
    * cn-hangzhou
    */
   bizRegionId?: string;
   /**
    * @remarks
+   * The ID of the convenience account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5522,6 +5998,13 @@ export class GetConnectionTicketRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid values:
+   * 
+   * *   CloudApp: App Streaming
+   * *   AndroidCloud: Cloud Phone
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5529,6 +6012,11 @@ export class GetConnectionTicketRequest extends $dara.Model {
    */
   productType?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
+   * >  This parameter is required for calls other than the first call to this operation. You can use this parameter to query the task status and connection credential.
+   * 
    * @example
    * 28778acb-a469-4bc0-8e0f****
    */
@@ -5577,43 +6065,93 @@ export class GetConnectionTicketRequest extends $dara.Model {
 
 export class GetConnectionTicketResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
    * @example
    * aig-53fvrq1oan****
    */
   appInstanceGroupId?: string;
   /**
+   * @remarks
+   * The ID of the application instance.
+   * 
    * @example
    * ai-7ybdeiyoeh5e****
    */
   appInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the persistent session.
+   * 
+   * @example
+   * p-0bxls9m3cl7s****
+   */
   appInstancePersistentId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   bizRegionId?: string;
   /**
+   * @remarks
+   * The operating system.
+   * 
+   * Valid value:
+   * 
+   * *   Windows: the Windows operating system
+   * 
    * @example
    * Windows
    */
   osType?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * f3d1b31c-605e-4d04-a896****
    */
   taskId?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
+   * Valid values:
+   * 
+   * *   Finished: The task is complete.
+   * *   Failed: The task failed.
+   * *   Running: The task is being executed.
+   * 
    * @example
    * Running
    */
   taskStatus?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 148871678899****
+   */
   tenantId?: number;
   /**
+   * @remarks
+   * The credential that is used to connect to App Streaming.
+   * 
+   * >  This parameter is displayed for calls other than the first call to this operation.
+   * 
    * @example
    * DQpbRGVza3RvcF0NCkZvcmNlVGxzVHlwZT0xDQpHV1Rva2VuUGFydDE9MDAva09ROW1FUTU3dU****
    */
@@ -5695,6 +6233,8 @@ export class GetConnectionTicketResponse extends $dara.Model {
 export class GetDebugAppInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group. You can call the `listAppInstanceGroup` operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5703,6 +6243,12 @@ export class GetDebugAppInstanceRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5733,32 +6279,61 @@ export class GetDebugAppInstanceRequest extends $dara.Model {
 }
 
 export class GetDebugAppInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * __DEBUG_APP
+   */
   appId?: string;
   /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
    * @example
    * aig-9ciijz60n4xsv****
    */
   appInstanceGroupId?: string;
   /**
+   * @remarks
+   * The ID of the application instance.
+   * 
    * @example
    * ai-7ybdeiyoeh5e****
    */
   appInstanceId?: string;
   /**
+   * @remarks
+   * The ID of the application version.
+   * 
    * @example
    * 1.1
    */
   appVersion?: string;
   /**
+   * @remarks
+   * The authorization code. This authorization code is valid for 3 minutes and can be used only once, regardless of whether the authentication succeeds. If multiple authentication codes are generated for a user, only the latest authentication code takes effect.
+   * 
    * @example
    * e4e169bea1cc48e8afac53**********
    */
   authCode?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * __debug__
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5831,6 +6406,8 @@ export class GetDebugAppInstanceResponse extends $dara.Model {
 export class GetOtaTaskByTaskIdRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the OTA update task. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5860,28 +6437,46 @@ export class GetOtaTaskByTaskIdRequest extends $dara.Model {
 
 export class GetOtaTaskByTaskIdResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * OtaTask.Running
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The task is running and cannot be sumitted.
    */
   message?: string;
   /**
+   * @remarks
+   * The OTA version.
+   * 
    * @example
    * 0.0.1-R-20220708.110604
    */
   otaVersion?: string;
+  /**
+   * @remarks
+   * The version description.
+   */
   releaseNote?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
    * @remarks
+   * The execution time of the OTA update task. The time follows the ISO 8601 standard.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -5957,6 +6552,8 @@ export class GetOtaTaskByTaskIdResponse extends $dara.Model {
 export class GetResourcePriceRequest extends $dara.Model {
   /**
    * @remarks
+   * The number of resources to purchase.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5964,12 +6561,24 @@ export class GetResourcePriceRequest extends $dara.Model {
    */
   amount?: number;
   /**
+   * @remarks
+   * The type ID of the sessions that you purchase. You can call the `ListAppInstanceType` operation to obtain the ID.
+   * 
+   * You must specify one of AppInstanceType and NodeInstanceType. If you specify both of the parameters, the value of NodeInstanceType takes effect.
+   * 
    * @example
    * appstreaming.general
    */
   appInstanceType?: string;
   /**
    * @remarks
+   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+   * 
+   * Valid values:
+   * 
+   * *   cn-shanghai: China (Shanghai).
+   * *   cn-hangzhou: China (Hangzhou)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5978,6 +6587,13 @@ export class GetResourcePriceRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
+   * The billing method.
+   * 
+   * Valid values:
+   * 
+   * *   PostPaid: pay-as-you-go
+   * *   PrePaid: subscription
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5985,12 +6601,27 @@ export class GetResourcePriceRequest extends $dara.Model {
    */
   chargeType?: string;
   /**
+   * @remarks
+   * The ID of the resource type that you purchase. You can call the [ListNodeInstanceType](https://help.aliyun.com/document_detail/428502.html) to obtain the ID.
+   * 
+   * You must specify one of AppInstanceType and NodeInstanceType. If you specify both of the parameters, the value of NodeInstanceType takes effect.
+   * 
+   * Valid values:
+   * 
+   * *   appstreaming.vgpu.8c16g.4g: WUYING - Graphics - 8 vCPUs, 16 GiB Memory, 4 GiB GPU Memory
+   * *   appstreaming.general.8c16g: WUYING - General - 8 vCPUs, 16 GiB Memory
+   * *   appstreaming.general.4c8g: WUYING - General - 4 vCPUs, 8 GiB Memory
+   * *   appstreaming.vgpu.14c93g.12g: WUYING - Graphics - 14 vCPUs, 93 GiB Memory, 12 GiB GPU Memory.
+   * *   appstreaming.vgpu.8c31g.16g: WUYING - Graphics - 8 vCPUs, 31 GiB Memory, 16 GiB GPU Memory
+   * 
    * @example
    * appstreaming.vgpu.4c8g.2g
    */
   nodeInstanceType?: string;
   /**
    * @remarks
+   * The subscription duration of resources. This parameter must be configured together with `PeriodUnit`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5999,11 +6630,33 @@ export class GetResourcePriceRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
+   * The unit of the subscription duration. This parameter must be configured together with `Period`. The following items describe valid values for the combinations of `Period` and `PeriodUnit`:
+   * 
+   * *   1 Week
+   * *   1 Month
+   * *   2 Month
+   * *   3 Month
+   * *   6 Month
+   * *   1 Year
+   * *   2 Year
+   * *   3 Year
+   * 
+   * >  The value of this parameter is case-insensitive. For example, `Week` is valid and `week` is invalid. If you specify a value combination other than the preceding combinations, such as `2 Week`, the operation can still be called. However, an error occurs when you place the order.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Week
    */
   periodUnit?: string;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6047,18 +6700,39 @@ export class GetResourcePriceRequest extends $dara.Model {
 
 export class GetResourcePriceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParameter.ProductType
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The parameter ProductType is invalid.
    */
   message?: string;
+  /**
+   * @remarks
+   * The price objects.
+   * 
+   * This parameter is returned only if a value is specified for AppInstanceType.
+   */
   priceList?: GetResourcePriceResponseBodyPriceList[];
+  /**
+   * @remarks
+   * The price object.
+   * 
+   * This parameter is returned only if a value is specified for NodeInstanceType.
+   */
   priceModel?: GetResourcePriceResponseBodyPriceModel;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -6136,6 +6810,8 @@ export class GetResourcePriceResponse extends $dara.Model {
 export class GetResourceRenewPriceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6144,6 +6820,8 @@ export class GetResourceRenewPriceRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
+   * The subscription duration of resources. This parameter must be configured together with `PeriodUnit`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6152,6 +6830,19 @@ export class GetResourceRenewPriceRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
+   * The unit of the subscription duration. This parameter must be configured together with `Period`. The following items describe valid values for the combinations of `Period` and `PeriodUnit`:
+   * 
+   * *   1 Week
+   * *   1 Month
+   * *   2 Month
+   * *   3 Month
+   * *   6 Month
+   * *   1 Year
+   * *   2 Year
+   * *   3 Year
+   * 
+   * >  The value of this parameter is case-insensitive. For example, `Week` is valid and `week` is invalid. If you specify a value combination other than the preceding combinations, such as `2 Week`, the operation can still be called. However, an error occurs when you place the order.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6160,6 +6851,12 @@ export class GetResourceRenewPriceRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6194,8 +6891,15 @@ export class GetResourceRenewPriceRequest extends $dara.Model {
 }
 
 export class GetResourceRenewPriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The price object.
+   */
   data?: GetResourceRenewPriceResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -6610,6 +7314,8 @@ export class ListAppInstanceGroupResponse extends $dara.Model {
 export class ListAppInstancesRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6617,31 +7323,54 @@ export class ListAppInstancesRequest extends $dara.Model {
    */
   appInstanceGroupId?: string;
   /**
+   * @remarks
+   * The ID of the application instance.
+   * 
    * @example
    * ai-azn3kmwruh1vl****
    */
   appInstanceId?: string;
   /**
+   * @remarks
+   * The IDs of the application instances. Up to 100 IDs can be specified.
+   * 
    * **if can be null:**
    * false
    */
   appInstanceIdList?: string[];
   /**
+   * @remarks
+   * Specifies whether to query the information about deleted application instances. If you set this parameter to true, you must configure AppInstanceIdList. Otherwise, a parameter error is reported.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   includeDeleted?: boolean;
   /**
+   * @remarks
+   * The number of the page to return. Default value: `1`. We recommend that you configure this parameter.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page. The value cannot be greater than `100`. Default value: `20`. We recommend that you configure this parameter.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The status of the application instances.
+   * 
    * **if can be null:**
    * false
    */
@@ -6686,23 +7415,39 @@ export class ListAppInstancesRequest extends $dara.Model {
 }
 
 export class ListAppInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the application instances.
+   */
   appInstanceModels?: ListAppInstancesResponseBodyAppInstanceModels[];
   /**
+   * @remarks
+   * The page number of the returned page. We recommend that you configure this parameter.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned on each page. The value cannot be greater than `100`. We recommend that you configure this parameter.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 18
    */
@@ -6930,7 +7675,12 @@ export class ListBindInfoResponse extends $dara.Model {
 export class ListNodeInstanceTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * 资源所属的地域ID。关于支持的地域详情，请参见[使用限制](https://help.aliyun.com/document_detail/426036.html)。
+   * The ID of the region where the resource resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+   * 
+   * Valid values:
+   * 
+   * *   cn-shanghai: China (Shanghai)
+   * *   cn-hangzhou: China (Hangzhou)
    * 
    * @example
    * cn-hangzhou
@@ -6941,7 +7691,12 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   gpuMemory?: number;
   /**
    * @remarks
-   * 语言类型。
+   * The language that you want to use.
+   * 
+   * Valid values:
+   * 
+   * *   en-US: English (US)
+   * *   zh-CN: Simplified Chinese
    * 
    * @example
    * zh-CN
@@ -6949,6 +7704,9 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   language?: string;
   memory?: number;
   /**
+   * @remarks
+   * The resource type that you want to query. If you do not configure this parameter, all resource types are returned.
+   * 
    * @example
    * appstreaming.vgpu.4c8g.2g
    */
@@ -6957,7 +7715,11 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * 支持的操作系统类型。
+   * The operating system that is supported.
+   * 
+   * Valid value:
+   * 
+   * *   Windows: the Windows operating system
    * 
    * @example
    * Windows
@@ -6965,6 +7727,8 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   osType?: string;
   /**
    * @remarks
+   * The number of the page to return.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6973,6 +7737,8 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6981,6 +7747,12 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7036,19 +7808,39 @@ export class ListNodeInstanceTypeRequest extends $dara.Model {
 }
 
 export class ListNodeInstanceTypeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The resource types.
+   */
   nodeInstanceTypeModels?: ListNodeInstanceTypeResponseBodyNodeInstanceTypeModels[];
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 6
    */
@@ -7123,6 +7915,8 @@ export class ListNodeInstanceTypeResponse extends $dara.Model {
 export class ListOtaTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7131,6 +7925,12 @@ export class ListOtaTaskRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
+   * The type of the OTA update task.
+   * 
+   * Valid values:
+   * 
+   * *   Fota: update of the system components of Alibaba Cloud Workspace
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7139,6 +7939,8 @@ export class ListOtaTaskRequest extends $dara.Model {
   otaType?: string;
   /**
    * @remarks
+   * The page number of the page to return.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7147,6 +7949,8 @@ export class ListOtaTaskRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7182,22 +7986,38 @@ export class ListOtaTaskRequest extends $dara.Model {
 
 export class ListOtaTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The OTA update tasks.
+   */
   taskList?: ListOtaTaskResponseBodyTaskList[];
   /**
+   * @remarks
+   * The total number of OTA update tasks.
+   * 
    * @example
    * 6
    */
@@ -7514,10 +8334,17 @@ export class ListSessionPackagesResponse extends $dara.Model {
 
 export class ListTenantConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The user configurations.
+   */
   tenantConfigModel?: ListTenantConfigResponseBodyTenantConfigModel;
   static names(): { [key: string]: string } {
     return {
@@ -7583,6 +8410,8 @@ export class ListTenantConfigResponse extends $dara.Model {
 export class LogOffAllSessionsInAppInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7591,6 +8420,12 @@ export class LogOffAllSessionsInAppInstanceGroupRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7622,16 +8457,25 @@ export class LogOffAllSessionsInAppInstanceGroupRequest extends $dara.Model {
 
 export class LogOffAllSessionsInAppInstanceGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParameter.ProductType
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The parameter ProductType is invalid.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -7699,32 +8543,84 @@ export class LogOffAllSessionsInAppInstanceGroupResponse extends $dara.Model {
 export class ModifyAppInstanceGroupAttributeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group.
+   * 
    * This parameter is required.
    * 
    * @example
    * aig-9ciijz60n4xsv****
    */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the delivery group.
+   */
   appInstanceGroupName?: string;
+  /**
+   * @remarks
+   * The network settings.
+   * 
+   * >  If you want to use this parameter, submit a ticket.
+   */
   network?: ModifyAppInstanceGroupAttributeRequestNetwork;
+  /**
+   * @remarks
+   * The information about the resource group.
+   */
   nodePool?: ModifyAppInstanceGroupAttributeRequestNodePool;
   perSessionPerApp?: boolean;
+  /**
+   * @remarks
+   * The application ID of the pre-open application. If you set `PreOpenMode` to `SINGLE_APP`, you cannot leave this parameter empty.``
+   * 
+   * @example
+   * ca-b2ronxxd****
+   */
   preOpenAppId?: string;
+  /**
+   * @remarks
+   * The pre-open mode.
+   * 
+   * Valid values:
+   * 
+   * *   SINGLE_APP: enables the pre-open mode for a single application.
+   * *   OFF: disables the pre-open mode. This is the default value.
+   * 
+   * @example
+   * OFF
+   */
   preOpenMode?: string;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
    * CloudApp
    */
   productType?: string;
+  /**
+   * @remarks
+   * The security policy.
+   */
   securityPolicy?: ModifyAppInstanceGroupAttributeRequestSecurityPolicy;
   /**
+   * @remarks
+   * The duration for which sessions are retained after disconnection. Unit: minutes. After an end user disconnects from a session, the session is closed only after the specified duration elapses. If you want to permanently retain sessions, set this parameter to `-1`. Valid values:-1 and 3 to 300. Default value: `15`.
+   * 
    * @example
    * 15
    */
   sessionTimeout?: number;
+  /**
+   * @remarks
+   * The storage policy.
+   */
   storagePolicy?: ModifyAppInstanceGroupAttributeRequestStoragePolicy;
   static names(): { [key: string]: string } {
     return {
@@ -7782,32 +8678,84 @@ export class ModifyAppInstanceGroupAttributeRequest extends $dara.Model {
 export class ModifyAppInstanceGroupAttributeShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group.
+   * 
    * This parameter is required.
    * 
    * @example
    * aig-9ciijz60n4xsv****
    */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the delivery group.
+   */
   appInstanceGroupName?: string;
+  /**
+   * @remarks
+   * The network settings.
+   * 
+   * >  If you want to use this parameter, submit a ticket.
+   */
   networkShrink?: string;
+  /**
+   * @remarks
+   * The information about the resource group.
+   */
   nodePoolShrink?: string;
   perSessionPerApp?: boolean;
+  /**
+   * @remarks
+   * The application ID of the pre-open application. If you set `PreOpenMode` to `SINGLE_APP`, you cannot leave this parameter empty.``
+   * 
+   * @example
+   * ca-b2ronxxd****
+   */
   preOpenAppId?: string;
+  /**
+   * @remarks
+   * The pre-open mode.
+   * 
+   * Valid values:
+   * 
+   * *   SINGLE_APP: enables the pre-open mode for a single application.
+   * *   OFF: disables the pre-open mode. This is the default value.
+   * 
+   * @example
+   * OFF
+   */
   preOpenMode?: string;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
    * CloudApp
    */
   productType?: string;
+  /**
+   * @remarks
+   * The security policy.
+   */
   securityPolicyShrink?: string;
   /**
+   * @remarks
+   * The duration for which sessions are retained after disconnection. Unit: minutes. After an end user disconnects from a session, the session is closed only after the specified duration elapses. If you want to permanently retain sessions, set this parameter to `-1`. Valid values:-1 and 3 to 300. Default value: `15`.
+   * 
    * @example
    * 15
    */
   sessionTimeout?: number;
+  /**
+   * @remarks
+   * The storage policy.
+   */
   storagePolicyShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7852,16 +8800,25 @@ export class ModifyAppInstanceGroupAttributeShrinkRequest extends $dara.Model {
 
 export class ModifyAppInstanceGroupAttributeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParameter.ProductType
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The parameter ProductType is invalid.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -8266,6 +9223,14 @@ export class ModifyNodePoolAttributeResponse extends $dara.Model {
 
 export class ModifyTenantConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the resource expiration reminder feature.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -8293,6 +9258,9 @@ export class ModifyTenantConfigRequest extends $dara.Model {
 
 export class ModifyTenantConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -8356,6 +9324,8 @@ export class ModifyTenantConfigResponse extends $dara.Model {
 export class PageListAppInstanceGroupUserRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8363,17 +9333,29 @@ export class PageListAppInstanceGroupUserRequest extends $dara.Model {
    */
   appInstanceGroupId?: string;
   /**
+   * @remarks
+   * The number of the page to return. We recommend that you configure this parameter.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to be return on each page. The value cannot be greater than `100`. We recommend that you configure this parameter.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8409,10 +9391,17 @@ export class PageListAppInstanceGroupUserRequest extends $dara.Model {
 
 export class PageListAppInstanceGroupUserResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The users.
+   */
   users?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8478,6 +9467,8 @@ export class PageListAppInstanceGroupUserResponse extends $dara.Model {
 export class RenewAppInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8485,12 +9476,22 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
    */
   appInstanceGroupId?: string;
   /**
+   * @remarks
+   * Specifies whether to enable automatic payment.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false: manual payment. This is the default value.
+   * 
    * @example
    * false
    */
   autoPay?: boolean;
   /**
    * @remarks
+   * The subscription duration of resources. This parameter must be configured together with `PeriodUnit`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8499,11 +9500,33 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
+   * The unit of the subscription duration. This parameter must be configured together with `Period`. The following items describe valid values for the combinations of `Period` and `PeriodUnit`:
+   * 
+   * *   1 Week
+   * *   1 Month
+   * *   2 Month
+   * *   3 Month
+   * *   6 Month
+   * *   1 Year
+   * *   2 Year
+   * *   3 Year
+   * 
+   * >  The value of this parameter is case-insensitive. For example, `Week` is valid and `week` is invalid. If you specify a value combination other than the preceding combinations, such as `2 Week`, the operation can still be called. However, an error occurs when you place the order.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Week
    */
   periodUnit?: string;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8511,6 +9534,9 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
    */
   productType?: string;
   /**
+   * @remarks
+   * The promotion ID. You can call the [GetResourcePrice](https://help.aliyun.com/document_detail/428503.html) operation to obtain the ID.
+   * 
    * @example
    * 17440009****
    */
@@ -8548,21 +9574,33 @@ export class RenewAppInstanceGroupRequest extends $dara.Model {
 
 export class RenewAppInstanceGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParameter.ProductType
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The parameter ProductType is invalid.
    */
   message?: string;
   /**
+   * @remarks
+   * The order ID.
+   * 
    * @example
    * 123456****
    */
   orderId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -8632,6 +9670,8 @@ export class RenewAppInstanceGroupResponse extends $dara.Model {
 export class UnbindRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the delivery group. You can call the [GetConnectionTicket](https://help.aliyun.com/zh/wuying-appstreaming/developer-reference/api-appstream-center-2021-09-01-getconnectionticket) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8639,13 +9679,25 @@ export class UnbindRequest extends $dara.Model {
    */
   appInstanceGroupId?: string;
   /**
+   * @remarks
+   * The session ID. You can call the [GetConnectionTicket](https://help.aliyun.com/zh/wuying-appstreaming/developer-reference/api-appstream-center-2021-09-01-getconnectionticket) operation to obtain the ID.
+   * 
    * @example
    * ai-d297eyf83g5ni****
    */
   appInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the persistent session. You can call the [GetConnectionTicket](https://help.aliyun.com/zh/wuying-appstreaming/developer-reference/api-appstream-center-2021-09-01-getconnectionticket) operation to obtain the ID.
+   * 
+   * @example
+   * p-0bxls9m3cl7s****
+   */
   appInstancePersistentId?: string;
   /**
    * @remarks
+   * The username.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8654,6 +9706,12 @@ export class UnbindRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8691,6 +9749,9 @@ export class UnbindRequest extends $dara.Model {
 
 export class UnbindResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -8754,6 +9815,8 @@ export class UnbindResponse extends $dara.Model {
 export class UpdateAppInstanceGroupImageRequest extends $dara.Model {
   /**
    * @remarks
+   * The image ID of the application. You can obtain the ID from the Images page in the App Streaming console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8762,6 +9825,8 @@ export class UpdateAppInstanceGroupImageRequest extends $dara.Model {
   appCenterImageId?: string;
   /**
    * @remarks
+   * The ID of the delivery group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8770,6 +9835,13 @@ export class UpdateAppInstanceGroupImageRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
+   * The ID of the region where the delivery group resides. For information about the supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+   * 
+   * Valid values:
+   * 
+   * *   cn-shanghai: China (Shanghai).
+   * *   cn-hangzhou: China (Hangzhou)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8778,6 +9850,12 @@ export class UpdateAppInstanceGroupImageRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
+   * The product type.
+   * 
+   * Valid value:
+   * 
+   * *   CloudApp: App Streaming
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8813,16 +9891,25 @@ export class UpdateAppInstanceGroupImageRequest extends $dara.Model {
 
 export class UpdateAppInstanceGroupImageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidParameter.ProductType
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The parameter ProductType is invalid.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -8955,7 +10042,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AccessPageSetAclResponse>(await this.callApi(params, req, runtime), new AccessPageSetAclResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AccessPageSetAclResponse>(await this.callApi(params, req, runtime), new AccessPageSetAclResponse({}));
+    } else {
+      return $dara.cast<AccessPageSetAclResponse>(await this.execute(params, req, runtime), new AccessPageSetAclResponse({}));
+    }
+
   }
 
   /**
@@ -8970,7 +10062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 同意Ota升级
+   * Sets the execution time of an over-the-air (OTA) update task.
    * 
    * @param request - ApproveOtaTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9013,11 +10105,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ApproveOtaTaskResponse>(await this.callApi(params, req, runtime), new ApproveOtaTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ApproveOtaTaskResponse>(await this.callApi(params, req, runtime), new ApproveOtaTaskResponse({}));
+    } else {
+      return $dara.cast<ApproveOtaTaskResponse>(await this.execute(params, req, runtime), new ApproveOtaTaskResponse({}));
+    }
+
   }
 
   /**
-   * 同意Ota升级
+   * Sets the execution time of an over-the-air (OTA) update task.
    * 
    * @param request - ApproveOtaTaskRequest
    * @returns ApproveOtaTaskResponse
@@ -9083,7 +10180,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AskSessionPackagePriceResponse>(await this.callApi(params, req, runtime), new AskSessionPackagePriceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AskSessionPackagePriceResponse>(await this.callApi(params, req, runtime), new AskSessionPackagePriceResponse({}));
+    } else {
+      return $dara.cast<AskSessionPackagePriceResponse>(await this.execute(params, req, runtime), new AskSessionPackagePriceResponse({}));
+    }
+
   }
 
   /**
@@ -9152,7 +10254,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AuthorizeInstanceGroupResponse>(await this.callApi(params, req, runtime), new AuthorizeInstanceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AuthorizeInstanceGroupResponse>(await this.callApi(params, req, runtime), new AuthorizeInstanceGroupResponse({}));
+    } else {
+      return $dara.cast<AuthorizeInstanceGroupResponse>(await this.execute(params, req, runtime), new AuthorizeInstanceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -9234,7 +10341,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<BuySessionPackageResponse>(await this.callApi(params, req, runtime), new BuySessionPackageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BuySessionPackageResponse>(await this.callApi(params, req, runtime), new BuySessionPackageResponse({}));
+    } else {
+      return $dara.cast<BuySessionPackageResponse>(await this.execute(params, req, runtime), new BuySessionPackageResponse({}));
+    }
+
   }
 
   /**
@@ -9296,7 +10408,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateAccessPageResponse>(await this.callApi(params, req, runtime), new CreateAccessPageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAccessPageResponse>(await this.callApi(params, req, runtime), new CreateAccessPageResponse({}));
+    } else {
+      return $dara.cast<CreateAccessPageResponse>(await this.execute(params, req, runtime), new CreateAccessPageResponse({}));
+    }
+
   }
 
   /**
@@ -9462,7 +10579,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new CreateAppInstanceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new CreateAppInstanceGroupResponse({}));
+    } else {
+      return $dara.cast<CreateAppInstanceGroupResponse>(await this.execute(params, req, runtime), new CreateAppInstanceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -9477,7 +10599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateImageFromAppInstanceGroup
+   * Creates a new image by debugging the delivery group.
    * 
    * @param request - CreateImageFromAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9512,11 +10634,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateImageFromAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new CreateImageFromAppInstanceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateImageFromAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new CreateImageFromAppInstanceGroupResponse({}));
+    } else {
+      return $dara.cast<CreateImageFromAppInstanceGroupResponse>(await this.execute(params, req, runtime), new CreateImageFromAppInstanceGroupResponse({}));
+    }
+
   }
 
   /**
-   * CreateImageFromAppInstanceGroup
+   * Creates a new image by debugging the delivery group.
    * 
    * @param request - CreateImageFromAppInstanceGroupRequest
    * @returns CreateImageFromAppInstanceGroupResponse
@@ -9554,7 +10681,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteAccessPageResponse>(await this.callApi(params, req, runtime), new DeleteAccessPageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAccessPageResponse>(await this.callApi(params, req, runtime), new DeleteAccessPageResponse({}));
+    } else {
+      return $dara.cast<DeleteAccessPageResponse>(await this.execute(params, req, runtime), new DeleteAccessPageResponse({}));
+    }
+
   }
 
   /**
@@ -9569,7 +10701,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实例组释放接口
+   * Deletes a delivery group that uses the By Resource - Pay-as-you-go billing method.
+   * 
+   * @remarks
+   * >  You cannot call this operation to delete a subscription delivery group.
    * 
    * @param request - DeleteAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9600,11 +10735,19 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new DeleteAppInstanceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new DeleteAppInstanceGroupResponse({}));
+    } else {
+      return $dara.cast<DeleteAppInstanceGroupResponse>(await this.execute(params, req, runtime), new DeleteAppInstanceGroupResponse({}));
+    }
+
   }
 
   /**
-   * 实例组释放接口
+   * Deletes a delivery group that uses the By Resource - Pay-as-you-go billing method.
+   * 
+   * @remarks
+   * >  You cannot call this operation to delete a subscription delivery group.
    * 
    * @param request - DeleteAppInstanceGroupRequest
    * @returns DeleteAppInstanceGroupResponse
@@ -9615,7 +10758,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实例
+   * Deletes an application instance.
+   * 
+   * @remarks
+   * Only application instances that are in the Initializing or Idle state can be deleted. The operation can be called only by specific customers.
    * 
    * @param request - DeleteAppInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9650,11 +10796,19 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteAppInstancesResponse>(await this.callApi(params, req, runtime), new DeleteAppInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAppInstancesResponse>(await this.callApi(params, req, runtime), new DeleteAppInstancesResponse({}));
+    } else {
+      return $dara.cast<DeleteAppInstancesResponse>(await this.execute(params, req, runtime), new DeleteAppInstancesResponse({}));
+    }
+
   }
 
   /**
-   * 删除实例
+   * Deletes an application instance.
+   * 
+   * @remarks
+   * Only application instances that are in the Initializing or Idle state can be deleted. The operation can be called only by specific customers.
    * 
    * @param request - DeleteAppInstancesRequest
    * @returns DeleteAppInstancesResponse
@@ -9700,7 +10854,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetAccessPageSessionResponse>(await this.callApi(params, req, runtime), new GetAccessPageSessionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAccessPageSessionResponse>(await this.callApi(params, req, runtime), new GetAccessPageSessionResponse({}));
+    } else {
+      return $dara.cast<GetAccessPageSessionResponse>(await this.execute(params, req, runtime), new GetAccessPageSessionResponse({}));
+    }
+
   }
 
   /**
@@ -9746,7 +10905,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new GetAppInstanceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new GetAppInstanceGroupResponse({}));
+    } else {
+      return $dara.cast<GetAppInstanceGroupResponse>(await this.execute(params, req, runtime), new GetAppInstanceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -9761,7 +10925,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取连接ticket，Open API
+   * Queries the credential that is used to connect to App Streaming.
+   * 
+   * @remarks
+   * You must call this operation at least twice to obtain a connection credential.
+   * The first time you call this operation, the system assigns an application instance to the specified convenience account and then starts the application. In this case, the ID of the started task, which is indicated by `TaskID`, is returned.
+   * In subsequent calls, you must configure `TaskID` to query whether the task is completed. If the value of `TaskStatus` in the response is `Finished`, the connection credential, which is indicated by `Ticket`, is returned.
    * 
    * @param request - GetConnectionTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9824,11 +10993,21 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetConnectionTicketResponse>(await this.callApi(params, req, runtime), new GetConnectionTicketResponse({}));
+    } else {
+      return $dara.cast<GetConnectionTicketResponse>(await this.execute(params, req, runtime), new GetConnectionTicketResponse({}));
+    }
+
   }
 
   /**
-   * 获取连接ticket，Open API
+   * Queries the credential that is used to connect to App Streaming.
+   * 
+   * @remarks
+   * You must call this operation at least twice to obtain a connection credential.
+   * The first time you call this operation, the system assigns an application instance to the specified convenience account and then starts the application. In this case, the ID of the started task, which is indicated by `TaskID`, is returned.
+   * In subsequent calls, you must configure `TaskID` to query whether the task is completed. If the value of `TaskStatus` in the response is `Finished`, the connection credential, which is indicated by `Ticket`, is returned.
    * 
    * @param request - GetConnectionTicketRequest
    * @returns GetConnectionTicketResponse
@@ -9839,7 +11018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetDebugAppInstance
+   * Queries information that is used to debug an application instance.
    * 
    * @param request - GetDebugAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9870,11 +11049,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetDebugAppInstanceResponse>(await this.callApi(params, req, runtime), new GetDebugAppInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetDebugAppInstanceResponse>(await this.callApi(params, req, runtime), new GetDebugAppInstanceResponse({}));
+    } else {
+      return $dara.cast<GetDebugAppInstanceResponse>(await this.execute(params, req, runtime), new GetDebugAppInstanceResponse({}));
+    }
+
   }
 
   /**
-   * GetDebugAppInstance
+   * Queries information that is used to debug an application instance.
    * 
    * @param request - GetDebugAppInstanceRequest
    * @returns GetDebugAppInstanceResponse
@@ -9885,7 +11069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取ota任务明细
+   * Queries the details of an over-the-air (OTA) update task, including the available versions and version description.
    * 
    * @param request - GetOtaTaskByTaskIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9912,11 +11096,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetOtaTaskByTaskIdResponse>(await this.callApi(params, req, runtime), new GetOtaTaskByTaskIdResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetOtaTaskByTaskIdResponse>(await this.callApi(params, req, runtime), new GetOtaTaskByTaskIdResponse({}));
+    } else {
+      return $dara.cast<GetOtaTaskByTaskIdResponse>(await this.execute(params, req, runtime), new GetOtaTaskByTaskIdResponse({}));
+    }
+
   }
 
   /**
-   * 获取ota任务明细
+   * Queries the details of an over-the-air (OTA) update task, including the available versions and version description.
    * 
    * @param request - GetOtaTaskByTaskIdRequest
    * @returns GetOtaTaskByTaskIdResponse
@@ -9927,7 +11116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 云应用资源询价接口
+   * Queries resource prices.
    * 
    * @param request - GetResourcePriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9982,11 +11171,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetResourcePriceResponse>(await this.callApi(params, req, runtime), new GetResourcePriceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetResourcePriceResponse>(await this.callApi(params, req, runtime), new GetResourcePriceResponse({}));
+    } else {
+      return $dara.cast<GetResourcePriceResponse>(await this.execute(params, req, runtime), new GetResourcePriceResponse({}));
+    }
+
   }
 
   /**
-   * 云应用资源询价接口
+   * Queries resource prices.
    * 
    * @param request - GetResourcePriceRequest
    * @returns GetResourcePriceResponse
@@ -9997,7 +11191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 云应用资源询价接口
+   * Queries the renewal prices of App Streaming resources.
    * 
    * @param request - GetResourceRenewPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10036,11 +11230,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<GetResourceRenewPriceResponse>(await this.callApi(params, req, runtime), new GetResourceRenewPriceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetResourceRenewPriceResponse>(await this.callApi(params, req, runtime), new GetResourceRenewPriceResponse({}));
+    } else {
+      return $dara.cast<GetResourceRenewPriceResponse>(await this.execute(params, req, runtime), new GetResourceRenewPriceResponse({}));
+    }
+
   }
 
   /**
-   * 云应用资源询价接口
+   * Queries the renewal prices of App Streaming resources.
    * 
    * @param request - GetResourceRenewPriceRequest
    * @returns GetResourceRenewPriceResponse
@@ -10098,7 +11297,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListAccessPagesResponse>(await this.callApi(params, req, runtime), new ListAccessPagesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAccessPagesResponse>(await this.callApi(params, req, runtime), new ListAccessPagesResponse({}));
+    } else {
+      return $dara.cast<ListAccessPagesResponse>(await this.execute(params, req, runtime), new ListAccessPagesResponse({}));
+    }
+
   }
 
   /**
@@ -10182,7 +11386,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new ListAppInstanceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new ListAppInstanceGroupResponse({}));
+    } else {
+      return $dara.cast<ListAppInstanceGroupResponse>(await this.execute(params, req, runtime), new ListAppInstanceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -10197,7 +11406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询交付组内实例列表
+   * Queries the details of application instances in a delivery group, including the IDs, status, creation time, update time, session status, and public IP addresses associated with the primary NICs of the instances.
    * 
    * @param request - ListAppInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10250,11 +11459,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListAppInstancesResponse>(await this.callApi(params, req, runtime), new ListAppInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAppInstancesResponse>(await this.callApi(params, req, runtime), new ListAppInstancesResponse({}));
+    } else {
+      return $dara.cast<ListAppInstancesResponse>(await this.execute(params, req, runtime), new ListAppInstancesResponse({}));
+    }
+
   }
 
   /**
-   * 查询交付组内实例列表
+   * Queries the details of application instances in a delivery group, including the IDs, status, creation time, update time, session status, and public IP addresses associated with the primary NICs of the instances.
    * 
    * @param request - ListAppInstancesRequest
    * @returns ListAppInstancesResponse
@@ -10316,7 +11530,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListBindInfoResponse>(await this.callApi(params, req, runtime), new ListBindInfoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListBindInfoResponse>(await this.callApi(params, req, runtime), new ListBindInfoResponse({}));
+    } else {
+      return $dara.cast<ListBindInfoResponse>(await this.execute(params, req, runtime), new ListBindInfoResponse({}));
+    }
+
   }
 
   /**
@@ -10331,7 +11550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资源规格
+   * Queries the resource types that are available for purchase when you create a delivery group.
    * 
    * @param request - ListNodeInstanceTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10410,11 +11629,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListNodeInstanceTypeResponse>(await this.callApi(params, req, runtime), new ListNodeInstanceTypeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNodeInstanceTypeResponse>(await this.callApi(params, req, runtime), new ListNodeInstanceTypeResponse({}));
+    } else {
+      return $dara.cast<ListNodeInstanceTypeResponse>(await this.execute(params, req, runtime), new ListNodeInstanceTypeResponse({}));
+    }
+
   }
 
   /**
-   * 获取资源规格
+   * Queries the resource types that are available for purchase when you create a delivery group.
    * 
    * @param request - ListNodeInstanceTypeRequest
    * @returns ListNodeInstanceTypeResponse
@@ -10425,7 +11649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 升级历史记录
+   * Queries the information about over-the-air (OTA) update tasks.
    * 
    * @param request - ListOtaTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10464,11 +11688,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListOtaTaskResponse>(await this.callApi(params, req, runtime), new ListOtaTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListOtaTaskResponse>(await this.callApi(params, req, runtime), new ListOtaTaskResponse({}));
+    } else {
+      return $dara.cast<ListOtaTaskResponse>(await this.execute(params, req, runtime), new ListOtaTaskResponse({}));
+    }
+
   }
 
   /**
-   * 升级历史记录
+   * Queries the information about over-the-air (OTA) update tasks.
    * 
    * @param request - ListOtaTaskRequest
    * @returns ListOtaTaskResponse
@@ -10510,7 +11739,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
+    } else {
+      return $dara.cast<ListRegionsResponse>(await this.execute(params, req, runtime), new ListRegionsResponse({}));
+    }
+
   }
 
   /**
@@ -10576,7 +11810,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListSessionPackagesResponse>(await this.callApi(params, req, runtime), new ListSessionPackagesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSessionPackagesResponse>(await this.callApi(params, req, runtime), new ListSessionPackagesResponse({}));
+    } else {
+      return $dara.cast<ListSessionPackagesResponse>(await this.execute(params, req, runtime), new ListSessionPackagesResponse({}));
+    }
+
   }
 
   /**
@@ -10591,6 +11830,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the configurations of the administrator account, such as whether the resource expiration reminder feature is enabled.
+   * 
    * @param request - ListTenantConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTenantConfigResponse
@@ -10608,10 +11849,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTenantConfigResponse>(await this.callApi(params, req, runtime), new ListTenantConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTenantConfigResponse>(await this.callApi(params, req, runtime), new ListTenantConfigResponse({}));
+    } else {
+      return $dara.cast<ListTenantConfigResponse>(await this.execute(params, req, runtime), new ListTenantConfigResponse({}));
+    }
+
   }
 
   /**
+   * Queries the configurations of the administrator account, such as whether the resource expiration reminder feature is enabled.
    * @returns ListTenantConfigResponse
    */
   async listTenantConfig(): Promise<ListTenantConfigResponse> {
@@ -10620,7 +11867,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注销交付下所有会话
+   * Closes all sessions in a pay-as-you-go delivery group for which a scheduled scaling policy is used.
+   * 
+   * @remarks
+   * >  This operation can be called only if you use a pay-as-you-go delivery group for which a scheduled scaling policy is used and if you call the operation at a time other than the scheduled time.
    * 
    * @param request - LogOffAllSessionsInAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10651,11 +11901,19 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<LogOffAllSessionsInAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new LogOffAllSessionsInAppInstanceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<LogOffAllSessionsInAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new LogOffAllSessionsInAppInstanceGroupResponse({}));
+    } else {
+      return $dara.cast<LogOffAllSessionsInAppInstanceGroupResponse>(await this.execute(params, req, runtime), new LogOffAllSessionsInAppInstanceGroupResponse({}));
+    }
+
   }
 
   /**
-   * 注销交付下所有会话
+   * Closes all sessions in a pay-as-you-go delivery group for which a scheduled scaling policy is used.
+   * 
+   * @remarks
+   * >  This operation can be called only if you use a pay-as-you-go delivery group for which a scheduled scaling policy is used and if you call the operation at a time other than the scheduled time.
    * 
    * @param request - LogOffAllSessionsInAppInstanceGroupRequest
    * @returns LogOffAllSessionsInAppInstanceGroupResponse
@@ -10666,7 +11924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改云应用交付组
+   * Modifies the general policies of a delivery group, including the number of concurrent sessions and the retention period of disconnected sessions.
    * 
    * @param tmpReq - ModifyAppInstanceGroupAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10753,11 +12011,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyAppInstanceGroupAttributeResponse>(await this.callApi(params, req, runtime), new ModifyAppInstanceGroupAttributeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyAppInstanceGroupAttributeResponse>(await this.callApi(params, req, runtime), new ModifyAppInstanceGroupAttributeResponse({}));
+    } else {
+      return $dara.cast<ModifyAppInstanceGroupAttributeResponse>(await this.execute(params, req, runtime), new ModifyAppInstanceGroupAttributeResponse({}));
+    }
+
   }
 
   /**
-   * 修改云应用交付组
+   * Modifies the general policies of a delivery group, including the number of concurrent sessions and the retention period of disconnected sessions.
    * 
    * @param request - ModifyAppInstanceGroupAttributeRequest
    * @returns ModifyAppInstanceGroupAttributeResponse
@@ -10809,7 +12072,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyAppPolicyResponse>(await this.callApi(params, req, runtime), new ModifyAppPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyAppPolicyResponse>(await this.callApi(params, req, runtime), new ModifyAppPolicyResponse({}));
+    } else {
+      return $dara.cast<ModifyAppPolicyResponse>(await this.execute(params, req, runtime), new ModifyAppPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -10871,7 +12139,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyNodePoolAttributeResponse>(await this.callApi(params, req, runtime), new ModifyNodePoolAttributeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyNodePoolAttributeResponse>(await this.callApi(params, req, runtime), new ModifyNodePoolAttributeResponse({}));
+    } else {
+      return $dara.cast<ModifyNodePoolAttributeResponse>(await this.execute(params, req, runtime), new ModifyNodePoolAttributeResponse({}));
+    }
+
   }
 
   /**
@@ -10884,6 +12157,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the configurations of the administrator account, such as whether to enable the resource expiration reminder feature.
+   * 
    * @param request - ModifyTenantConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyTenantConfigResponse
@@ -10909,10 +12184,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyTenantConfigResponse>(await this.callApi(params, req, runtime), new ModifyTenantConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyTenantConfigResponse>(await this.callApi(params, req, runtime), new ModifyTenantConfigResponse({}));
+    } else {
+      return $dara.cast<ModifyTenantConfigResponse>(await this.execute(params, req, runtime), new ModifyTenantConfigResponse({}));
+    }
+
   }
 
   /**
+   * Modifies the configurations of the administrator account, such as whether to enable the resource expiration reminder feature.
+   * 
    * @param request - ModifyTenantConfigRequest
    * @returns ModifyTenantConfigResponse
    */
@@ -10922,7 +12204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取授权用户列表
+   * Queries the assigned users that are added to a delivery group by page.
    * 
    * @param request - PageListAppInstanceGroupUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10961,11 +12243,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<PageListAppInstanceGroupUserResponse>(await this.callApi(params, req, runtime), new PageListAppInstanceGroupUserResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PageListAppInstanceGroupUserResponse>(await this.callApi(params, req, runtime), new PageListAppInstanceGroupUserResponse({}));
+    } else {
+      return $dara.cast<PageListAppInstanceGroupUserResponse>(await this.execute(params, req, runtime), new PageListAppInstanceGroupUserResponse({}));
+    }
+
   }
 
   /**
-   * 获取授权用户列表
+   * Queries the assigned users that are added to a delivery group by page.
    * 
    * @param request - PageListAppInstanceGroupUserRequest
    * @returns PageListAppInstanceGroupUserResponse
@@ -10976,7 +12263,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源续费接口
+   * Renews a delivery group.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
    * 
    * @param request - RenewAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11023,11 +12313,19 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RenewAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new RenewAppInstanceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RenewAppInstanceGroupResponse>(await this.callApi(params, req, runtime), new RenewAppInstanceGroupResponse({}));
+    } else {
+      return $dara.cast<RenewAppInstanceGroupResponse>(await this.execute(params, req, runtime), new RenewAppInstanceGroupResponse({}));
+    }
+
   }
 
   /**
-   * 资源续费接口
+   * Renews a delivery group.
+   * 
+   * @remarks
+   * Before you call this operation, make sure that you fully understand the [billing methods and prices](https://help.aliyun.com/document_detail/426039.html) of App Streaming.
    * 
    * @param request - RenewAppInstanceGroupRequest
    * @returns RenewAppInstanceGroupResponse
@@ -11038,7 +12336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除用户绑定
+   * Unbinds a user and a session.
    * 
    * @param request - UnbindRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11081,11 +12379,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UnbindResponse>(await this.callApi(params, req, runtime), new UnbindResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnbindResponse>(await this.callApi(params, req, runtime), new UnbindResponse({}));
+    } else {
+      return $dara.cast<UnbindResponse>(await this.execute(params, req, runtime), new UnbindResponse({}));
+    }
+
   }
 
   /**
-   * 解除用户绑定
+   * Unbinds a user and a session.
    * 
    * @param request - UnbindRequest
    * @returns UnbindResponse
@@ -11096,7 +12399,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新镜像
+   * Updates the image of a delivery group.
+   * 
+   * @remarks
+   * *
+   * **Warning** After the image is updated, the end user session accessing the cloud application will be disconnected. Exercise caution to avoid end user data loss.
+   * >  After the image of the delivery group is updated, the change takes effect on the terminal in approximately 2 minutes.
    * 
    * @param request - UpdateAppInstanceGroupImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11135,11 +12443,21 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UpdateAppInstanceGroupImageResponse>(await this.callApi(params, req, runtime), new UpdateAppInstanceGroupImageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateAppInstanceGroupImageResponse>(await this.callApi(params, req, runtime), new UpdateAppInstanceGroupImageResponse({}));
+    } else {
+      return $dara.cast<UpdateAppInstanceGroupImageResponse>(await this.execute(params, req, runtime), new UpdateAppInstanceGroupImageResponse({}));
+    }
+
   }
 
   /**
-   * 更新镜像
+   * Updates the image of a delivery group.
+   * 
+   * @remarks
+   * *
+   * **Warning** After the image is updated, the end user session accessing the cloud application will be disconnected. Exercise caution to avoid end user data loss.
+   * >  After the image of the delivery group is updated, the change takes effect on the terminal in approximately 2 minutes.
    * 
    * @param request - UpdateAppInstanceGroupImageRequest
    * @returns UpdateAppInstanceGroupImageResponse
