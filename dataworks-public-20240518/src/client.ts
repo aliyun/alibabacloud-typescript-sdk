@@ -1434,6 +1434,9 @@ export class DataQualityRuleTemplateSamplingConfig extends $dara.Model {
 
 export class BatchUpdateTasksRequestTasksDataSource extends $dara.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * odps_test
    */
@@ -1461,16 +1464,25 @@ export class BatchUpdateTasksRequestTasksDataSource extends $dara.Model {
 
 export class BatchUpdateTasksRequestTasksRuntimeResource extends $dara.Model {
   /**
+   * @remarks
+   * The default number of compute units (CUs) configured for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -1503,6 +1515,8 @@ export class BatchUpdateTasksRequestTasksRuntimeResource extends $dara.Model {
 export class BatchUpdateTasksRequestTasksTags extends $dara.Model {
   /**
    * @remarks
+   * The tag key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1510,6 +1524,9 @@ export class BatchUpdateTasksRequestTasksTags extends $dara.Model {
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value1
    */
@@ -1539,26 +1556,48 @@ export class BatchUpdateTasksRequestTasksTags extends $dara.Model {
 
 export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
   /**
+   * @remarks
+   * The CRON expression of the task. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 00 00 00 * * ?
    */
   cron?: string;
   /**
+   * @remarks
+   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 9999-01-01 00:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   recurrence?: string;
   /**
+   * @remarks
+   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 1970-01-01 00:00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The trigger type. Valid values:
+   * 
+   * *   Scheduler: periodic scheduling
+   * *   Manual: manual scheduling
+   * 
    * @example
    * Scheduler
    */
@@ -1593,53 +1632,106 @@ export class BatchUpdateTasksRequestTasksTrigger extends $dara.Model {
 }
 
 export class BatchUpdateTasksRequestTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: BatchUpdateTasksRequestTasksDataSource;
   /**
+   * @remarks
+   * The description of the task.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * SQL node
+   */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The rerun interval. Unit: seconds.
+   * 
    * @example
    * 60
    */
   rerunInterval?: number;
   /**
+   * @remarks
+   * The rerun mode. Valid values:
+   * 
+   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * 
    * @example
    * AllAllowed
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * 
    * @example
    * 3
    */
   rerunTimes?: number;
+  /**
+   * @remarks
+   * The configurations of the runtime environment, such as the resource group information.
+   */
   runtimeResource?: BatchUpdateTasksRequestTasksRuntimeResource;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: BatchUpdateTasksRequestTasksTags[];
   /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
    * @example
    * 3600
    */
   timeout?: number;
+  /**
+   * @remarks
+   * The trigger method.
+   */
   trigger?: BatchUpdateTasksRequestTasksTrigger;
   static names(): { [key: string]: string } {
     return {
@@ -1913,6 +2005,9 @@ export class CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished exte
 
 export class CreateAlertRuleRequestTriggerConditionExtensionError extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to trigger an alert if a batch synchronization task is automatically rerun upon a failure.
+   * 
    * @example
    * false
    */
@@ -2586,7 +2681,7 @@ export class CreateDIJobRequestDestinationDataSourceSettings extends $dara.Model
 export class CreateDIJobRequestJobSettingsColumnDataTypeSettings extends $dara.Model {
   /**
    * @remarks
-   * The data type of the destination field.
+   * The data type of the destination field. Valid values: bigint, boolean, string, text, datetime, timestamp, decimal, and binary. Different types of data sources support different data types.
    * 
    * @example
    * text
@@ -2594,7 +2689,7 @@ export class CreateDIJobRequestJobSettingsColumnDataTypeSettings extends $dara.M
   destinationDataType?: string;
   /**
    * @remarks
-   * The data type of the source field.
+   * The data type of the source field. Valid values: Valid values: bigint, boolean, string, text, datetime, timestamp, decimal, and binary. Different types of data sources support different data types.
    * 
    * @example
    * bigint
@@ -2723,14 +2818,14 @@ export class CreateDIJobRequestJobSettingsRuntimeSettings extends $dara.Model {
    * @remarks
    * The name of the configuration item. Valid values:
    * 
-   * *   runtime.offline.speed.limit.mb: specifies the maximum transmission rate that is allowed for a batch synchronization task. This configuration item takes effect only when runtime.offline.speed.limit.enable is set to true.
-   * *   runtime.offline.speed.limit.enable: specifies whether throttling is enabled for a batch synchronization task.
-   * *   dst.offline.connection.max: specifies the maximum number of connections that are allowed for writing data to the destination of a batch synchronization task.
-   * *   runtime.offline.concurrent: specifies the maximum number of parallel threads that are allowed for a batch synchronization task.
-   * *   dst.realtime.connection.max: specifies the maximum number of connections that are allowed for writing data to the destination of a real-time synchronization task.
-   * *   runtime.enable.auto.create.schema: specifies whether schemas are automatically created in the destination of a synchronization task.
    * *   src.offline.datasource.max.connection: specifies the maximum number of connections that are allowed for reading data from the source of a batch synchronization task.
+   * *   dst.offline.truncate: specifies whether to clear the destination table before data writing.
+   * *   runtime.offline.speed.limit.enable: specifies whether throttling is enabled for a batch synchronization task.
+   * *   runtime.offline.concurrent: specifies the maximum number of parallel threads that are allowed for a batch synchronization task.
+   * *   runtime.enable.auto.create.schema: specifies whether schemas are automatically created in the destination of a synchronization task.
    * *   runtime.realtime.concurrent: specifies the maximum number of parallel threads that are allowed for a real-time synchronization task.
+   * *   runtime.realtime.failover.minute.dataxcdc: The maximum waiting duration before a synchronization task retries the next restart if the previous restart fails after failover occurs. Unit: minutes.
+   * *   runtime.realtime.failover.times.dataxcdc: The maximum number of failures that are allowed for restarting a synchronization task after failovers occur.
    * 
    * @example
    * runtime.offline.concurrent
@@ -2770,7 +2865,21 @@ export class CreateDIJobRequestJobSettingsRuntimeSettings extends $dara.Model {
 export class CreateDIJobRequestJobSettings extends $dara.Model {
   /**
    * @remarks
-   * The channel control settings for the synchronization task. The value of this parameter must be a JSON string.
+   * The channel control settings for the synchronization task. You can configure special channel control settings for the following synchronization links: data synchronization between Hologres data sources and data synchronization from Hologres to Kafka.
+   * 
+   * 1.  Data synchronization from Hologres to Kafka
+   * 
+   * *   Example: {"destinationChannelSettings":{"kafkaClientProperties":[{"key":"linger.ms","value":"100"}],"keyColumns":["col3"],"writeMode":"canal"}}
+   * *   kafkaClientProperties: the parameters related to a Kafka producer, which are used when you write data to a Kafka data source.
+   * *   keyColumns: the names of Kafka columns to which you want to write data.
+   * *   writeMode: the writing format. Valid values: json and canal.
+   * 
+   * 2.  Data synchronization between Hologres data sources
+   * 
+   * *   Example: {"destinationChannelSettings":{"conflictMode":"replace","dynamicColumnAction":"replay","writeMode":"replay"}}
+   * *   conflictMode: the policy used to handle a conflict that occurs during data writing to Hologres. Valid values: replace and ignore.
+   * *   writeMode: the mode in which you want to write data to Hologres. Valid values: replay and insert.
+   * *   dynamicColumnAction: the method used to write data to dynamic columns in a Hologres table. Valid values: replay, insert, and ignore.
    * 
    * @example
    * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
@@ -2779,6 +2888,8 @@ export class CreateDIJobRequestJobSettings extends $dara.Model {
   /**
    * @remarks
    * The data type mappings between source fields and destination fields.
+   * 
+   * >  "ColumnDataTypeSettings":[ { "SourceDataType":"Bigint", "DestinationDataType":"Text" } ]
    */
   columnDataTypeSettings?: CreateDIJobRequestJobSettingsColumnDataTypeSettings[];
   /**
@@ -2789,6 +2900,8 @@ export class CreateDIJobRequestJobSettings extends $dara.Model {
   /**
    * @remarks
    * The processing settings for DDL messages.
+   * 
+   * >  "DDLHandlingSettings":[ { "Type":"Insert", "Action":"Normal" } ]
    */
   ddlHandlingSettings?: CreateDIJobRequestJobSettingsDdlHandlingSettings[];
   /**
@@ -3117,6 +3230,7 @@ export class CreateDIJobRequestTableMappingsSourceObjectSelectionRules extends $
    * The object type. Valid values:
    * 
    * *   Table
+   * *   Schema
    * *   Database
    * 
    * @example
@@ -3182,6 +3296,7 @@ export class CreateDIJobRequestTableMappingsTransformationRules extends $dara.Mo
    * 
    * *   Table
    * *   Schema
+   * *   Database
    * 
    * @example
    * Table
@@ -3215,7 +3330,7 @@ export class CreateDIJobRequestTableMappingsTransformationRules extends $dara.Mo
 export class CreateDIJobRequestTableMappings extends $dara.Model {
   /**
    * @remarks
-   * The list of rules used to select synchronization objects in the source. The objects can be databases or tables.
+   * The list of rules used to select synchronization objects in the source.
    */
   sourceObjectSelectionRules?: CreateDIJobRequestTableMappingsSourceObjectSelectionRules[];
   /**
@@ -3263,7 +3378,6 @@ export class CreateDIJobRequestTransformationRules extends $dara.Model {
    * *   HandleDml
    * *   DefineIncrementalCondition
    * *   DefineCycleScheduleSettings
-   * *   DefineRuntimeSettings
    * *   DefinePartitionKey
    * 
    * @example
@@ -3274,30 +3388,48 @@ export class CreateDIJobRequestTransformationRules extends $dara.Model {
    * @remarks
    * The expression of the rule. The expression must be a JSON string.
    * 
-   * Example of a renaming rule: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922","variables":[{"variableName":"srcDatabaseName","variableRules":[{"from":"fromdb","to":"todb"}]}]}
+   * 1.  Example of a renaming rule
    * 
+   * *   Example: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922" }
    * *   expression: the expression of the renaming rule. You can use the following variables in an expression: ${srcDatasourceName}, ${srcDatabaseName}, and ${srcTableName}. ${srcDatasourceName} specifies the name of the source. ${srcDatabaseName} specifies the name of a source database. ${srcTableName} specifies the name of a source table.
-   * *   variables: the generation rule for a variable used in the expression of the renaming rule. The default value of the specified variable is the original value of the object indicated by the variable. You can define a group of string replacement rules to change the original values based on your business requirements. variableName: the name of the variable. The variable name cannot be enclosed in ${}. variableRules: the string replacement rules for variables. The system runs the string replacement rules in sequence. from specifies the original string. to specifies the new string.
    * 
-   * Example of a rule used to add a specific field to the destination and assign a value to the field: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}
+   * 2.  Example of a column addition rule
    * 
+   * *   Example: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}
    * *   If you do not configure such a rule, no fields are added to the destination and no values are assigned by default.
-   * *   columnName: the name of the field that you want to add.
+   * *   columnName: the name of the field that is added.
    * *   columnValueType: the value type of the field. Valid values: Constant and Variable.
-   * *   columnValue: the value of the field. If you set the valueType parameter to Constant, set the columnValue parameter to a custom constant of the STRING type. If you set the valueType parameter to Variable, set the columnValue to a built-in variable. The following built-in variables are supported: EXECUTE_TIME (LONG data type), DB_NAME_SRC (STRING data type), DATASOURCE_NAME_SRC (STRING data type), TABLE_NAME_SRC (STRING data type), DB_NAME_DEST (STRING data type), DATASOURCE_NAME_DEST (STRING data type), TABLE_NAME_DEST (STRING data type), and DB_NAME_SRC_TRANSED (STRING data type). EXECUTE_TIME specifies the execution time. DB_NAME_SRC specifies the name of a source database. DATASOURCE_NAME_SRC specifies the name of the source. TABLE_NAME_SRC specifies the name of a source table. DB_NAME_DEST specifies the name of a destination database. DATASOURCE_NAME_DEST specifies the name of the destination. TABLE_NAME_DEST specifies the name of a destination table. DB_NAME_SRC_TRANSED specifies the database name obtained after a transformation.
+   * *   columnValue: the value of the field. If the columnValueType parameter is set to Constant, set the columnValue parameter to a constant of the STRING data type. If the columnValueType parameter is set to Variable, set the columnValue parameter to a built-in variable. The following built-in variables are supported: EXECUTE_TIME (LONG data type), DB_NAME_SRC (STRING data type), DATASOURCE_NAME_SRC (STRING data type), TABLE_NAME_SRC (STRING data type), DB_NAME_DEST (STRING data type), DATASOURCE_NAME_DEST (STRING data type), TABLE_NAME_DEST (STRING data type), and DB_NAME_SRC_TRANSED (STRING data type). EXECUTE_TIME specifies the execution time. DB_NAME_SRC specifies the name of a source database. DATASOURCE_NAME_SRC specifies the name of the source. TABLE_NAME_SRC specifies the name of a source table. DB_NAME_DEST specifies the name of a destination database. DATASOURCE_NAME_DEST specifies the name of the destination. TABLE_NAME_DEST specifies the name of a destination table. DB_NAME_SRC_TRANSED specifies the database name obtained after a transformation.
    * 
-   * Example of a rule used to specify primary key fields for a destination table: {"columns":["ukcolumn1","ukcolumn2"]}
+   * 3.  Example of a rule used to specify primary key fields for a destination table
    * 
+   * *   Example: {"columns":["ukcolumn1","ukcolumn2"]}
    * *   If you do not configure such a rule, the primary key fields in the mapped source table are used for the destination table by default.
    * *   If the destination table is an existing table, Data Integration does not modify the schema of the destination table. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run.
    * *   If the destination table is automatically created by the system, Data Integration automatically creates the schema of the destination table. The schema contains the primary key fields that you specify. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run.
    * 
-   * Example of a rule used to process DML messages: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}
+   * 4.  Example of a rule used to process DML messages
    * 
+   * *   Example: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}
    * *   If you do not configure such a rule, the default processing policy for messages generated for insert, update, and delete operations is Normal.
    * *   dmlType: the DML operation. Valid values: Insert, Update, and Delete.
    * *   dmlAction: the processing policy for DML messages. Valid values: Normal, Ignore, Filter, and LogicalDelete. Filter indicates conditional processing. You can set the dmlAction parameter to Filter only when the dmlType parameter is set to Update or Delete.
    * *   filterCondition: the condition used to filter DML messages. This parameter is required only when the dmlAction parameter is set to Filter.
+   * 
+   * 5.  Example of a rule used to perform incremental synchronization
+   * 
+   * *   Example: {"where":"id > 0"}
+   * *   You can configure such a rule to perform incremental synchronization.
+   * 
+   * 6.  Example of a rule used to configure scheduling parameters for an auto triggered task
+   * 
+   * *   Example: {"cronExpress":" \\* \\* \\* \\* \\* \\*", "cycleType":"1"}
+   * *   You can configure such a rule to configure scheduling parameters for an auto triggered task.
+   * 
+   * 7.  Example of a rule used to specify a partition key
+   * 
+   * *   Example: {"columns":["id"]}
+   * *   You can configure such a rule to specify a partition key.
    * 
    * @example
    * {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
@@ -3317,6 +3449,7 @@ export class CreateDIJobRequestTransformationRules extends $dara.Model {
    * 
    * *   Table
    * *   Schema
+   * *   Database
    * 
    * @example
    * Table
@@ -3350,6 +3483,21 @@ export class CreateDIJobRequestTransformationRules extends $dara.Model {
 }
 
 export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical extends $dara.Model {
+  /**
+   * @remarks
+   * 阈值表达式。
+   * 
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
+   * 
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
+   * 
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
   expression?: string;
   /**
    * @remarks
@@ -3400,6 +3548,21 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 }
 
 export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected extends $dara.Model {
+  /**
+   * @remarks
+   * 阈值表达式。
+   * 
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
+   * 
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
+   * 
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
   expression?: string;
   /**
    * @remarks
@@ -3450,6 +3613,21 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 }
 
 export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned extends $dara.Model {
+  /**
+   * @remarks
+   * 阈值表达式。
+   * 
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
+   * 
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
+   * 
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
   expression?: string;
   /**
    * @remarks
@@ -3568,8 +3746,8 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
    * The threshold calculation method. Valid values:
    * 
    * *   Fixed
-   * *   Fluctuation
-   * *   FluctuationDiscreate
+   * *   Fluctation
+   * *   FluctationDiscreate
    * *   Auto
    * *   Average
    * 
@@ -3732,6 +3910,9 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRules extends $dar
   /**
    * @remarks
    * The description of the monitoring rule.
+   * 
+   * @example
+   * OpenAPI test rules
    */
   description?: string;
   /**
@@ -3744,7 +3925,7 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRules extends $dar
   enabled?: boolean;
   /**
    * @remarks
-   * The operations that you can perform after the rule-based check.
+   * The operations that you can perform after the rule-based check fails.
    */
   errorHandlers?: CreateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers[];
   /**
@@ -3758,6 +3939,9 @@ export class CreateDataQualityEvaluationTaskRequestDataQualityRules extends $dar
   /**
    * @remarks
    * The name of the monitoring rule.
+   * 
+   * @example
+   * OpenAPI test rules
    */
   name?: string;
   /**
@@ -3878,7 +4062,7 @@ export class CreateDataQualityEvaluationTaskRequestHooks extends $dara.Model {
 export class CreateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels extends $dara.Model {
   /**
    * @remarks
-   * The alert notification method.
+   * The alert notification methods.
    */
   channels?: string[];
   static names(): { [key: string]: string } {
@@ -3918,9 +4102,7 @@ export class CreateDataQualityEvaluationTaskRequestNotificationsNotificationsNot
   extension?: string;
   /**
    * @remarks
-   * The type of the alert recipient.
-   * 
-   * Valid values:
+   * The type of the alert recipient. Valid values:
    * 
    * *   WebhookUrl
    * *   FeishuUrl
@@ -3968,7 +4150,7 @@ export class CreateDataQualityEvaluationTaskRequestNotificationsNotificationsNot
 export class CreateDataQualityEvaluationTaskRequestNotificationsNotifications extends $dara.Model {
   /**
    * @remarks
-   * The alert notification method.
+   * The alert notification methods.
    */
   notificationChannels?: CreateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels[];
   /**
@@ -4050,7 +4232,15 @@ export class CreateDataQualityEvaluationTaskRequestNotifications extends $dara.M
 export class CreateDataQualityEvaluationTaskRequestTarget extends $dara.Model {
   /**
    * @remarks
-   * The type of the database to which the table belongs.
+   * The type of the database to which the table belongs. Valid values:
+   * 
+   * *   maxcompute
+   * *   hologres
+   * *   cdh
+   * *   analyticdb_for_mysql
+   * *   starrocks
+   * *   emr
+   * *   analyticdb_for_postgresql
    * 
    * @example
    * maxcompute
@@ -4058,7 +4248,7 @@ export class CreateDataQualityEvaluationTaskRequestTarget extends $dara.Model {
   databaseType?: string;
   /**
    * @remarks
-   * The partition configuration of the partitioned table.
+   * The configuration of the partitioned table.
    * 
    * @example
    * pt=$[yyyymmdd-1]
@@ -4142,11 +4332,17 @@ export class CreateDataQualityEvaluationTaskRequestTrigger extends $dara.Model {
 
 export class CreateDataQualityEvaluationTaskInstanceRequestRuntimeResource extends $dara.Model {
   /**
+   * @remarks
+   * The task runs to configure CU consumption. If Serverless resource groups are used, you must specify this parameter.
+   * 
    * @example
    * 0.25
    */
   cu?: number;
   /**
+   * @remarks
+   * The identifier of the scheduling resource group configured for running the task.
+   * 
    * @example
    * 63900680
    */
@@ -4176,6 +4372,17 @@ export class CreateDataQualityEvaluationTaskInstanceRequestRuntimeResource exten
 
 export class CreateDataQualityRuleRequestCheckingConfigThresholdsCritical extends $dara.Model {
   /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Example:
+   * 
+   * *   $checkValue > 0.01
+   * *   $checkValue < -0.01
+   * *   abs($checkValue) > 0.01
+   * 
+   * If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+   * 
    * @example
    * $checkValue > 0.05
    */
@@ -4230,6 +4437,17 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholdsCritical extend
 
 export class CreateDataQualityRuleRequestCheckingConfigThresholdsExpected extends $dara.Model {
   /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Example:
+   * 
+   * *   $checkValue > 0.01
+   * *   $checkValue < -0.01
+   * *   abs($checkValue) > 0.01
+   * 
+   * If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+   * 
    * @example
    * $checkValue <= 0.01
    */
@@ -4284,6 +4502,17 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholdsExpected extend
 
 export class CreateDataQualityRuleRequestCheckingConfigThresholdsWarned extends $dara.Model {
   /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * If the template specified by the TemplateCode parameter is about fluctuation, you must use an expression to represent the threshold for fluctuation. Example:
+   * 
+   * *   $checkValue > 0.01
+   * *   $checkValue < -0.01
+   * *   abs($checkValue) > 0.01
+   * 
+   * If the template specified by the TemplateCode parameter is about fixed value, you can also use an expression to represent the threshold. If you configure the Expression, Operator, and Value parameters for the threshold at the same time, the Expression parameter takes precedence over the Operator and Value parameters.
+   * 
    * @example
    * $checkValue > 0.01
    */
@@ -4389,7 +4618,7 @@ export class CreateDataQualityRuleRequestCheckingConfigThresholds extends $dara.
 export class CreateDataQualityRuleRequestCheckingConfig extends $dara.Model {
   /**
    * @remarks
-   * The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference values. In this example, an expression is used to specify the query method of referenced samples.
+   * The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference samples and perform aggregate operations on the reference values. In this example, an expression is used to specify the query method of referenced samples.
    * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
@@ -4446,7 +4675,7 @@ export class CreateDataQualityRuleRequestCheckingConfig extends $dara.Model {
 export class CreateDataQualityRuleRequestErrorHandlers extends $dara.Model {
   /**
    * @remarks
-   * The SQL statement that is used to filter failed tasks. If the rule is defined by custom SQL statements, you must specify an SQL statement to filter failed tasks.
+   * The SQL statement that is used to filter failed tasks. If you define the rule by using custom SQL statements, you must specify an SQL statement to filter failed tasks.
    * 
    * @example
    * SELECT * FROM tb_api_log WHERE id IS NULL
@@ -4488,7 +4717,7 @@ export class CreateDataQualityRuleRequestErrorHandlers extends $dara.Model {
 export class CreateDataQualityRuleRequestSamplingConfig extends $dara.Model {
   /**
    * @remarks
-   * The metrics used for sampling. Valid values:
+   * The metrics used for sampling. You can leave this parameter empty if you use a rule template. Valid values:
    * 
    * *   Count: the number of rows in the table.
    * *   Min: the minimum value of the field.
@@ -4504,7 +4733,7 @@ export class CreateDataQualityRuleRequestSamplingConfig extends $dara.Model {
    * *   GroupCount: the field value and the number of rows for each field value.
    * *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
    * *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
-   * *   UserDefinedSql: indicates that data is sampled by executing custom SQL statements.
+   * *   UserDefinedSql: specifies that data is sampled by executing custom SQL statements.
    * 
    * @example
    * Count
@@ -4790,11 +5019,17 @@ export class CreateProjectRequestAliyunResourceTags extends $dara.Model {
 
 export class CreateResourceGroupRequestAliyunResourceTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value
    */
@@ -4824,16 +5059,25 @@ export class CreateResourceGroupRequestAliyunResourceTags extends $dara.Model {
 
 export class CreateResourceGroupResponseBodyResourceGroupOrder extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the serverless resource group.
+   * 
    * @example
    * Serverless_res_group_524257424564736_6831777003XXXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The ID of the order to create a serverless resource group.
+   * 
    * @example
    * 2391982058XXXXX
    */
   orderId?: number;
   /**
+   * @remarks
+   * The ID of the order instance that created the serverless resource group.
+   * 
    * @example
    * c442b330-3b10-4584-959e-736e4edXXXXX
    */
@@ -4865,11 +5109,23 @@ export class CreateResourceGroupResponseBodyResourceGroupOrder extends $dara.Mod
 
 export class CreateWorkflowInstancesRequestDefaultRunPropertiesAlert extends $dara.Model {
   /**
+   * @remarks
+   * The notification method.
+   * - Sms: Sms only
+   * - Mail: Mail only
+   * - SmsMail: SMS and email.
+   * 
    * @example
    * Sms
    */
   noticeType?: string;
   /**
+   * @remarks
+   * The alert policy.
+   * - Success: successful alert
+   * - Failure: failed alarm
+   * - SuccessFailure: alerts for both success and failure
+   * 
    * @example
    * Succes
    */
@@ -4900,6 +5156,8 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAlert extends $da
 export class CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis extends $dara.Model {
   /**
    * @remarks
+   * Whether to block the operation if the analysis fails.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4908,6 +5166,8 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis extends 
   blocked?: boolean;
   /**
    * @remarks
+   * Whether to enable analysis.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4939,21 +5199,35 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis extends 
 
 export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends $dara.Model {
   /**
+   * @remarks
+   * The end runtime. This field is required if the policy is set.
+   * 
    * @example
    * 23:59:59
    */
   endTime?: string;
   /**
+   * @remarks
+   * The default value is false.
+   * 
    * @example
    * false
    */
   immediately?: boolean;
   /**
+   * @remarks
+   * The start time. This field is required if the policy is set.
+   * 
    * @example
    * 00:00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The type of the time period. This field is required if the policy is set.
+   * - Daily: every day
+   * - Weekend: Weekends only
+   * 
    * @example
    * Daily
    */
@@ -4986,37 +5260,84 @@ export class CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy extends
 }
 
 export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Model {
+  /**
+   * @remarks
+   * Alarm configuration.
+   */
   alert?: CreateWorkflowInstancesRequestDefaultRunPropertiesAlert;
   /**
    * @remarks
+   * Analyze the configuration.
+   * 
    * This parameter is required.
    */
   analysis?: CreateWorkflowInstancesRequestDefaultRunPropertiesAnalysis;
+  /**
+   * @remarks
+   * The list of project IDs that do not need to be run.
+   */
   excludeProjectIds?: number[];
+  /**
+   * @remarks
+   * The list of task IDs that you do not want to run.
+   */
   excludeTaskIds?: number[];
+  /**
+   * @remarks
+   * The list of project IDs to be run.
+   */
   includeProjectIds?: number[];
+  /**
+   * @remarks
+   * The list of task IDs to be run.
+   */
   includeTaskIds?: number[];
   /**
+   * @remarks
+   * The data replenishment mode. The default value is ManualSelection.
+   * - General: In normal mode, only one \\"roottaskkids\\" can be filled in, and \\"IncludeTaskIds\\" is optional. If not, the content in \\"roottaskkids\\" will be included by default.
+   * - ManualSelection: manually select, \\"roottaskkids\\" can be filled in multiple, \\"IncludeTaskIds\\" optional, if not, the content in \\"roottaskkids\\" will be included by default.
+   * - Chain: the link, \\"roottaskkids\\" is empty, and \\"IncludeTaskIds\\" is filled with two IDs, which are the start and end tasks respectively.
+   * - AllDownstream: all downstream, \\"roottaskkids\\" can only be filled in one
+   * 
    * @example
    * ManualSelection
    */
   mode?: string;
   /**
+   * @remarks
+   * The running sequence. Default value: Asc.
+   * - Asc: ascending order by business date.
+   * - Desc: descending order by business date.
+   * 
    * @example
    * Asc
    */
   order?: string;
   /**
    * @remarks
+   * The number of rows that the task has. Values from 2 to 10 are parallelism and 1 is serial.
+   * 
    * This parameter is required.
    * 
    * @example
    * 2
    */
   parallelism?: number;
+  /**
+   * @remarks
+   * The ID list of the root task.
+   */
   rootTaskIds?: number[];
+  /**
+   * @remarks
+   * Run the policy. If this field is empty, the task configuration is followed.
+   */
   runPolicy?: CreateWorkflowInstancesRequestDefaultRunPropertiesRunPolicy;
   /**
+   * @remarks
+   * The identifier of the custom scheduling Resource Group. If this field is empty, the task configuration is followed.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -5091,6 +5412,8 @@ export class CreateWorkflowInstancesRequestDefaultRunProperties extends $dara.Mo
 export class CreateWorkflowInstancesRequestPeriodsBizDates extends $dara.Model {
   /**
    * @remarks
+   * The end date of the business.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5099,6 +5422,8 @@ export class CreateWorkflowInstancesRequestPeriodsBizDates extends $dara.Model {
   endBizDate?: string;
   /**
    * @remarks
+   * The start business date.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5131,15 +5456,27 @@ export class CreateWorkflowInstancesRequestPeriodsBizDates extends $dara.Model {
 export class CreateWorkflowInstancesRequestPeriods extends $dara.Model {
   /**
    * @remarks
+   * The list of business dates. You can specify a multi-segment business date (up to 7 segments).
+   * 
    * This parameter is required.
    */
   bizDates?: CreateWorkflowInstancesRequestPeriodsBizDates[];
   /**
+   * @remarks
+   * Specifies the end cycle time. Default value: 23:59:59.
+   * 
+   * If you enter this field, StartTime and EndTime must be filled in at the same time.
+   * 
    * @example
    * 23:59:59
    */
   endTime?: string;
   /**
+   * @remarks
+   * Specifies the start cycle time. Default value: 00:00:00.
+   * 
+   * If you enter this field, StartTime and EndTime must be filled in at the same time.
+   * 
    * @example
    * 00:00:00
    */
@@ -5174,6 +5511,9 @@ export class CreateWorkflowInstancesRequestPeriods extends $dara.Model {
 
 export class ExecuteAdhocWorkflowInstanceRequestTasksDataSource extends $dara.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * mysql_test
    */
@@ -5201,6 +5541,9 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksDataSource extends $dara.Mo
 
 export class ExecuteAdhocWorkflowInstanceRequestTasksDependencies extends $dara.Model {
   /**
+   * @remarks
+   * The identifier of the output of the ancestor task.
+   * 
    * @example
    * pre.odps_sql_demo_0
    */
@@ -5228,11 +5571,17 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksDependencies extends $dara.
 
 export class ExecuteAdhocWorkflowInstanceRequestTasksInputsVariables extends $dara.Model {
   /**
+   * @remarks
+   * The name of the variable.
+   * 
    * @example
    * key1
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the variable.
+   * 
    * @example
    * Value1
    */
@@ -5261,6 +5610,10 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksInputsVariables extends $da
 }
 
 export class ExecuteAdhocWorkflowInstanceRequestTasksInputs extends $dara.Model {
+  /**
+   * @remarks
+   * The variables.
+   */
   variables?: ExecuteAdhocWorkflowInstanceRequestTasksInputsVariables[];
   static names(): { [key: string]: string } {
     return {
@@ -5288,6 +5641,9 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksInputs extends $dara.Model 
 
 export class ExecuteAdhocWorkflowInstanceRequestTasksOutputsTaskOutputs extends $dara.Model {
   /**
+   * @remarks
+   * The identifier of the output.
+   * 
    * @example
    * pre.odps_sql_demo_0
    */
@@ -5315,16 +5671,30 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksOutputsTaskOutputs extends 
 
 export class ExecuteAdhocWorkflowInstanceRequestTasksOutputsVariables extends $dara.Model {
   /**
+   * @remarks
+   * The name of the variable.
+   * 
    * @example
    * key1
    */
   name?: string;
   /**
+   * @remarks
+   * The type of the variable. Valid values:
+   * 
+   * *   System
+   * *   Constant
+   * *   NodeOutput
+   * *   PassThrough
+   * 
    * @example
    * Constant
    */
   type?: string;
   /**
+   * @remarks
+   * The value of the variable.
+   * 
    * @example
    * value1
    */
@@ -5355,7 +5725,15 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksOutputsVariables extends $d
 }
 
 export class ExecuteAdhocWorkflowInstanceRequestTasksOutputs extends $dara.Model {
+  /**
+   * @remarks
+   * The task outputs.
+   */
   taskOutputs?: ExecuteAdhocWorkflowInstanceRequestTasksOutputsTaskOutputs[];
+  /**
+   * @remarks
+   * The variables.
+   */
   variables?: ExecuteAdhocWorkflowInstanceRequestTasksOutputsVariables[];
   static names(): { [key: string]: string } {
     return {
@@ -5388,17 +5766,25 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksOutputs extends $dara.Model
 
 export class ExecuteAdhocWorkflowInstanceRequestTasksRuntimeResource extends $dara.Model {
   /**
+   * @remarks
+   * The default number of compute units (CUs) configured for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
    * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5432,11 +5818,17 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksRuntimeResource extends $da
 
 export class ExecuteAdhocWorkflowInstanceRequestTasksScript extends $dara.Model {
   /**
+   * @remarks
+   * The script content.
+   * 
    * @example
    * echo "helloWorld"
    */
   content?: string;
   /**
+   * @remarks
+   * The script parameters.
+   * 
    * @example
    * para1=$bizdate
    */
@@ -5467,23 +5859,48 @@ export class ExecuteAdhocWorkflowInstanceRequestTasksScript extends $dara.Model 
 export class ExecuteAdhocWorkflowInstanceRequestTasks extends $dara.Model {
   /**
    * @remarks
+   * The unique code of the client. This code uniquely identifies a task.
+   * 
    * This parameter is required.
    * 
    * @example
    * Task_0bc5213917368545132902xxxxxxxx
    */
   clientUniqueCode?: string;
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: ExecuteAdhocWorkflowInstanceRequestTasksDataSource;
+  /**
+   * @remarks
+   * The dependency information.
+   */
   dependencies?: ExecuteAdhocWorkflowInstanceRequestTasksDependencies[];
+  /**
+   * @remarks
+   * The input information.
+   */
   inputs?: ExecuteAdhocWorkflowInstanceRequestTasksInputs;
   /**
    * @remarks
+   * The name of the task.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * SQL node.
    */
   name?: string;
+  /**
+   * @remarks
+   * The output information.
+   */
   outputs?: ExecuteAdhocWorkflowInstanceRequestTasksOutputs;
   /**
    * @remarks
+   * The account ID of the owner.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5492,17 +5909,28 @@ export class ExecuteAdhocWorkflowInstanceRequestTasks extends $dara.Model {
   owner?: string;
   /**
    * @remarks
+   * The configurations of the runtime environment, such as the resource group information.
+   * 
    * This parameter is required.
    */
   runtimeResource?: ExecuteAdhocWorkflowInstanceRequestTasksRuntimeResource;
+  /**
+   * @remarks
+   * The script information.
+   */
   script?: ExecuteAdhocWorkflowInstanceRequestTasksScript;
   /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
    * @example
    * 3600
    */
   timeout?: number;
   /**
    * @remarks
+   * The type of the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5778,6 +6206,13 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfi
 }
 
 export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether an alert is triggered if a batch synchronization task is automatically rerun upon a failure.
+   * 
+   * @example
+   * false
+   */
   autoRerunAlertEnabled?: boolean;
   /**
    * @remarks
@@ -6081,7 +6516,7 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget extends $da
    * 
    * *   Task: node
    * *   Baseline: baseline
-   * *   Project: workspace
+   * *   project: workspace
    * *   BizProcess: workflow
    * 
    * @example
@@ -6265,15 +6700,29 @@ export class GetAlertRuleResponseBodyAlertRule extends $dara.Model {
 
 export class GetCreateWorkflowInstancesResultResponseBodyResult extends $dara.Model {
   /**
+   * @remarks
+   * The error message. This parameter is returned only if the creation fails.
+   * 
    * @example
    * Invalid Param xxx
    */
   failureMessage?: string;
   /**
+   * @remarks
+   * The creation status. Valid values:
+   * 
+   * *   Creating
+   * *   Created
+   * *   CreateFailure
+   * 
    * @example
    * Created
    */
   status?: string;
+  /**
+   * @remarks
+   * The workflow instance IDs. This parameter is returned only if the creation is successful.
+   */
   workflowInstanceIds?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -6336,7 +6785,7 @@ export class GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings extends
 export class GetDIJobResponseBodyPagingInfoJobSettingsColumnDataTypeSettings extends $dara.Model {
   /**
    * @remarks
-   * The data type of the destination field.
+   * The data type of the destination field. Valid values: bigint, boolean, string, text, datetime, timestamp, decimal, and binary. Different types of data sources support different data types.
    * 
    * @example
    * text
@@ -6344,7 +6793,7 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsColumnDataTypeSettings ext
   destinationDataType?: string;
   /**
    * @remarks
-   * The data type of the source field.
+   * The data type of the source field. Valid values: bigint, boolean, string, text, datetime, timestamp, decimal, and binary. Different types of data sources support different data types.
    * 
    * @example
    * bigint
@@ -6471,14 +6920,14 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsRuntimeSettings extends $d
    * @remarks
    * The name of the configuration item. Valid values:
    * 
-   * *   runtime.offline.speed.limit.mb: indicates the maximum transmission rate that is allowed for a batch synchronization task. This configuration item takes effect only when runtime.offline.speed.limit.enable is set to true.
-   * *   runtime.offline.speed.limit.enable: indicates whether throttling is enabled for a batch synchronization task.
-   * *   dst.offline.connection.max: indicates the maximum number of connections that are allowed for writing data to the destination of a batch synchronization task.
-   * *   runtime.offline.concurrent: indicates the maximum number of parallel threads that are allowed for a batch synchronization task.
-   * *   dst.realtime.connection.max: indicates the maximum number of connections that are allowed for writing data to the destination of a real-time synchronization task.
-   * *   runtime.enable.auto.create.schema: indicates whether schemas are automatically created in the destination of a synchronization task.
    * *   src.offline.datasource.max.connection: indicates the maximum number of connections that are allowed for reading data from the source of a batch synchronization task.
+   * *   dst.offline.truncate: indicates whether to clear the destination table before data writing.
+   * *   runtime.offline.speed.limit.enable: indicates whether throttling is enabled for a batch synchronization task.
+   * *   runtime.offline.concurrent: indicates the maximum number of parallel threads that are allowed for a batch synchronization task.
+   * *   runtime.enable.auto.create.schema: indicates whether schemas are automatically created in the destination of a synchronization task.
    * *   runtime.realtime.concurrent: indicates the maximum number of parallel threads that are allowed for a real-time synchronization task.
+   * *   runtime.realtime.failover.minute.dataxcdc: indicates the maximum waiting duration before a synchronization task retries the next restart if the previous restart fails after failover occurs. Unit: minutes.
+   * *   runtime.realtime.failover.times.dataxcdc: indicates the maximum number of failures that are allowed for restarting a synchronization task after failovers occur.
    * 
    * @example
    * runtime.offline.concurrent
@@ -6518,7 +6967,21 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsRuntimeSettings extends $d
 export class GetDIJobResponseBodyPagingInfoJobSettings extends $dara.Model {
   /**
    * @remarks
-   * The channel control settings for the synchronization task. The value of this parameter is a JSON string.
+   * The channel control settings for the synchronization task. You can configure special channel control settings for the following synchronization links: data synchronization between Hologres data sources and data synchronization from Hologres to Kafka.
+   * 
+   * 1.  Holo2Kafka
+   * 
+   * *   Example: {"destinationChannelSettings":{"kafkaClientProperties":[{"key":"linger.ms","value":"100"}],"keyColumns":["col3"],"writeMode":"canal"}}
+   * *   kafkaClientProperties: the parameters related to a Kafka producer, which are used when you write data to a Kafka data source.
+   * *   keyColumns: the names of Kafka columns to which data is written.
+   * *   writeMode: the writing format. Valid values: json and canal.
+   * 
+   * 2.  Holo2Holo
+   * 
+   * *   Example: {"destinationChannelSettings":{"conflictMode":"replace","dynamicColumnAction":"replay","writeMode":"replay"}}
+   * *   conflictMode: the policy used to handle a conflict that occurs during data writing to Hologres. Valid values: replace and ignore.
+   * *   writeMode: the mode in which data is written to Hologres. Valid values: replay and insert.
+   * *   dynamicColumnAction: the mode in which data is written to dynamic columns in a Hologres table. Valid values: replay, insert, and ignore.
    * 
    * @example
    * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
@@ -6873,6 +7336,7 @@ export class GetDIJobResponseBodyPagingInfoTableMappingsSourceObjectSelectionRul
    * The object type. Valid values:
    * 
    * *   Table
+   * *   Schema
    * *   Database
    * 
    * @example
@@ -6934,6 +7398,7 @@ export class GetDIJobResponseBodyPagingInfoTableMappingsTransformationRules exte
    * 
    * *   Table
    * *   Schema
+   * *   Database
    * 
    * @example
    * Table
@@ -6967,7 +7432,7 @@ export class GetDIJobResponseBodyPagingInfoTableMappingsTransformationRules exte
 export class GetDIJobResponseBodyPagingInfoTableMappings extends $dara.Model {
   /**
    * @remarks
-   * The list of rules used to select synchronization objects in the source. The objects can be databases or tables.
+   * The list of rules used to select synchronization objects in the source.
    */
   sourceObjectSelectionRules?: GetDIJobResponseBodyPagingInfoTableMappingsSourceObjectSelectionRules[];
   /**
@@ -7015,7 +7480,6 @@ export class GetDIJobResponseBodyPagingInfoTransformationRules extends $dara.Mod
    * *   HandleDml
    * *   DefineIncrementalCondition
    * *   DefineCycleScheduleSettings
-   * *   DefineRuntimeSettings
    * *   DefinePartitionKey
    * 
    * @example
@@ -7026,15 +7490,48 @@ export class GetDIJobResponseBodyPagingInfoTransformationRules extends $dara.Mod
    * @remarks
    * The expression of the rule. The expression is a JSON string.
    * 
-   * Example of a renaming rule: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922","variables":[{"variableName":"srcDatabaseName","variableRules":[{"from":"fromdb","to":"todb"}]}]}.
+   * 1.  Example of a renaming rule
    * 
-   * expression: the expression of the renaming rule. The expression may contain the following variables: ${srcDatasourceName}, ${srcDatabaseName}, and ${srcTableName}. ${srcDatasourceName} indicates the name of the source. ${srcDatabaseName} indicates the name of a source database. ${srcTableName} indicates the name of a source table. variables: the generation rule for a variable used in the expression of the renaming rule. The default value of the specified variable is the original value of the object indicated by the variable. You can define a group of string replacement rules to change the original values based on your business requirements. variableName: the name of the variable. The variable name is not enclosed in ${}. variableRules: the string replacement rules for variables. The system runs the string replacement rules in sequence. from indicates the original string. to indicates the new string. Example of a rule used to add a specific field to the destination and assign a value to the field: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}.
+   * *   Example: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922" }
+   * *   expression: the expression of the renaming rule. You can use the following variables in an expression: ${srcDatasourceName}, ${srcDatabaseName}, and ${srcTableName}. ${srcDatasourceName} indicates the name of the source. ${srcDatabaseName} indicates the name of a source database. ${srcTableName} indicates the name of a source table.
    * 
-   * If no rule of this type is configured, no fields are added to the destination and no values are assigned by default. columnName: the name of the field that is added. columnValueType: the value type of the field. Valid values: Constant and Variable. columnValue: the value of the field. If the value of the columnValueType parameter is Constant, the value of the columnValue parameter is a constant of the STRING data type. If the value of the columnValueType parameter is Variable, the value of the columnValue parameter is a built-in variable. The following built-in variables are supported: EXECUTE_TIME (LONG data type), DB_NAME_SRC (STRING data type), DATASOURCE_NAME_SRC (STRING data type), TABLE_NAME_SRC (STRING data type), DB_NAME_DEST (STRING data type), DATASOURCE_NAME_DEST (STRING data type), TABLE_NAME_DEST (STRING data type), and DB_NAME_SRC_TRANSED (STRING data type). EXECUTE_TIME indicates the execution time. DB_NAME_SRC indicates the name of a source database. DATASOURCE_NAME_SRC indicates the name of the source. TABLE_NAME_SRC indicates the name of a source table. DB_NAME_DEST indicates the name of a destination database. DATASOURCE_NAME_DEST indicates the name of the destination. TABLE_NAME_DEST indicates the name of a destination table. DB_NAME_SRC_TRANSED indicates the database name obtained after a transformation. Example of a rule used to specify primary key fields for a destination table: {"columns":["ukcolumn1","ukcolumn2"]}.
+   * 2.  Example of a column addition rule
    * 
-   * If no rule of this type is configured, the primary key fields in the mapped source table are used for the destination table by default. If the destination table is an existing table, Data Integration does not modify the schema of the destination table. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run. If the destination table is automatically created by the system, Data Integration automatically creates the schema of the destination table. The schema contains the primary key fields that you specify. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run. Example of a rule used to process DML messages: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}.
+   * *   Example: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}
+   * *   If no rule of this type is configured, no fields are added to the destination and no values are assigned by default.
+   * *   columnName: the name of the field that is added.
+   * *   columnValueType: the value type of the field. Valid values: Constant and Variable.
+   * *   columnValue: the value of the field. If the columnValueType parameter is set to Constant, the value of the columnValue parameter is a constant of the STRING data type. If the columnValueType parameter is set to Variable, the value of the columnValue parameter is a built-in variable. The following built-in variables are supported: EXECUTE_TIME (LONG data type), DB_NAME_SRC (STRING data type), DATASOURCE_NAME_SRC (STRING data type), TABLE_NAME_SRC (STRING data type), DB_NAME_DEST (STRING data type), DATASOURCE_NAME_DEST (STRING data type), TABLE_NAME_DEST (STRING data type), and DB_NAME_SRC_TRANSED (STRING data type). EXECUTE_TIME indicates the execution time. DB_NAME_SRC indicates the name of a source database. DATASOURCE_NAME_SRC indicates the name of the source. TABLE_NAME_SRC indicates the name of a source table. DB_NAME_DEST indicates the name of a destination database. DATASOURCE_NAME_DEST indicates the name of the destination. TABLE_NAME_DEST indicates the name of a destination table. DB_NAME_SRC_TRANSED indicates the database name obtained after a transformation.
    * 
-   * If no rule of this type is configured, the default processing policy for messages generated for insert, update, and delete operations is Normal. dmlType: the DML operation. Valid values: Insert, Update, and Delete. dmlAction: the processing policy for DML messages. Valid values: Normal, Ignore, Filter, and LogicalDelete. Filter indicates conditional processing. The value Filter is returned for the dmlAction parameter only when the value of the dmlType parameter is Update or Delete. filterCondition: the condition used to filter DML messages. This parameter is returned only when the value of the dmlAction parameter is Filter.
+   * 3.  Example of a rule used to specify primary key fields for a destination table
+   * 
+   * *   Example: {"columns":["ukcolumn1","ukcolumn2"]}
+   * *   If no rule of this type is configured, the primary key fields in the mapped source table are used for the destination table by default.
+   * *   If the destination table is an existing table, Data Integration does not modify the schema of the destination table. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run.
+   * *   If the destination table is automatically created by the system, Data Integration automatically creates the schema of the destination table. The schema contains the primary key fields that you specify. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run.
+   * 
+   * 4.  Example of a rule used to process DML messages
+   * 
+   * *   Example: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}
+   * *   If no rule of this type is configured, the default processing policy for messages generated for insert, update, and delete operations is Normal.
+   * *   dmlType: the DML operation. Valid values: Insert, Update, and Delete.
+   * *   dmlAction: the processing policy for DML messages. Valid values: Normal, Ignore, Filter, and LogicalDelete. Filter indicates conditional processing. The value Filter is returned for the dmlAction parameter only when the value of the dmlType parameter is Update or Delete.
+   * *   filterCondition: the condition used to filter DML messages. This parameter is returned only when the value of the dmlAction parameter is Filter.
+   * 
+   * 5.  Example of a rule used to perform incremental synchronization
+   * 
+   * *   Example: {"where":"id > 0"}
+   * *   The rule used to perform incremental synchronization is returned.
+   * 
+   * 6.  Example of a rule used to configure scheduling parameters for an auto triggered task
+   * 
+   * *   Example: {"cronExpress":" \\* \\* \\* \\* \\* \\*", "cycleType":"1"}
+   * *   The rule used to configure scheduling parameters for an auto triggered task is returned.
+   * 
+   * 7.  Example of a rule used to specify a partition key
+   * 
+   * *   Example: {"columns":["id"]}
+   * *   The rule used to specify a partition key is returned.
    * 
    * @example
    * {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
@@ -7054,6 +7551,7 @@ export class GetDIJobResponseBodyPagingInfoTransformationRules extends $dara.Mod
    * 
    * *   Table
    * *   Schema
+   * *   Database
    * 
    * @example
    * Table
@@ -7112,7 +7610,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   destinationDataSourceSettings?: GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings[];
   /**
    * @remarks
-   * The destination type. The value Hologres is returned.
+   * The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, Loghub, STARROCKS, Datahub, ANALYTICDB_FOR_MYSQL, Kafka, and Hive.
    * 
    * @example
    * Hologres
@@ -7183,7 +7681,7 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   sourceDataSourceSettings?: GetDIJobResponseBodyPagingInfoSourceDataSourceSettings[];
   /**
    * @remarks
-   * The source type. The value MySQL is returned.
+   * The source type. Valid values: PolarDB, MySQL, Kafka, Loghub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SqlServer, Doris, and ClickHouse.
    * 
    * @example
    * Mysql
@@ -7192,11 +7690,15 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
    * The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+   * 
+   * >  [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
    */
   tableMappings?: GetDIJobResponseBodyPagingInfoTableMappings[];
   /**
    * @remarks
-   * The list of transformation rules that are applied to the synchronization objects selected from the source. Each entry in the list defines a transformation rule.
+   * The list of transformation rules that are applied to the synchronization objects selected from the source.
+   * 
+   * >  [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
    */
   transformationRules?: GetDIJobResponseBodyPagingInfoTransformationRules[];
   static names(): { [key: string]: string } {
@@ -7269,7 +7771,10 @@ export class GetDIJobResponseBodyPagingInfo extends $dara.Model {
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskHooks extends $dara.Model {
   /**
    * @remarks
-   * Hook触发条件
+   * Hook trigger condition. When this condition is met, hook action is triggered. Currently, only two conditional expressions are supported:
+   * 
+   * - Specify only one set of rule severity types AND rule verification status, such as `${severity} = = "High" AND ${status} = = "Critical"`, which indicates that in the executed rule, if the rule verification result of severity High is Critical, the condition is met.
+   * - Specify multiple sets of rule severity types AND rule verification status, such as `(${severity} = = "High" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Error")`, if the rule verification result of severity High is Critical, the rule verification result of severity Normal is Critical, or the rule verification result of severity Normal is Error, the enumeration that satisfies the condition expression severity is consistent with the enumeration DataQualityRule in severity, and the enumeration of status is consistent with the status in DataQualityResult.
    * 
    * @example
    * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
@@ -7278,10 +7783,6 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskHo
   /**
    * @remarks
    * The hook type. Only one hook type is supported.
-   * 
-   * *
-   * 
-   * Valid values:
    * 
    * *   BlockTaskInstance: Blocks the running of scheduling tasks. A monitor is triggered by scheduling tasks. After a monitor finishes running, the monitor determines whether to block the running of scheduling tasks based on the hook condition.
    * 
@@ -7315,7 +7816,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskHo
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotificationsNotificationChannels extends $dara.Model {
   /**
    * @remarks
-   * The alert notification method.
+   * The alert notification methods.
    */
   channels?: string[];
   static names(): { [key: string]: string } {
@@ -7345,7 +7846,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotificationsNotificationReceivers extends $dara.Model {
   /**
    * @remarks
-   * 扩展信息，格式为 json，例如钉钉机器人支持 at 所有人
+   * The extended information.
    * 
    * @example
    * {  "atAll": true }
@@ -7371,7 +7872,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
   receiverType?: string;
   /**
    * @remarks
-   * 告警接收人
+   * The alert recipients.
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -7405,7 +7906,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotifications extends $dara.Model {
   /**
    * @remarks
-   * The alert notification method.
+   * The alert notification methods.
    */
   notificationChannels?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotificationsNotificationChannels[];
   /**
@@ -7445,7 +7946,10 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotifications extends $dara.Model {
   /**
    * @remarks
-   * 通知触发条件
+   * The notification trigger condition. When this condition is met, a message notification is triggered. Currently, only two conditional expressions are supported:
+   * 
+   * - Specify only one set of rule severity types AND rule verification status, such as `${severity} = = "High" AND ${status} = = "Critical"`, which indicates that in the executed rule, if the rule verification result of severity High is Critical, the condition is met.
+   * - Specify multiple sets of rule severity types AND rule verification status, such as `(${severity} = = "High" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Error")`, if the rule verification result of severity High is Critical, the rule verification result of severity Normal is Critical, or the rule verification result of severity Normal is Error, the enumeration that satisfies the condition expression severity is consistent with the enumeration DataQualityRule in severity, and the enumeration of status is consistent with the status in DataQualityResult.
    * 
    * @example
    * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
@@ -7453,7 +7957,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
   condition?: string;
   /**
    * @remarks
-   * The configurations of the alert notification.
+   * The configurations of alert notifications.
    */
   notifications?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotifications[];
   static names(): { [key: string]: string } {
@@ -7485,9 +7989,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNo
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTarget extends $dara.Model {
   /**
    * @remarks
-   * The type of the database to which the table belongs.
-   * 
-   * Valid values:
+   * The type of the database to which the table belongs. Valid values:
    * 
    * *   maxcompute
    * *   hologres
@@ -7502,13 +8004,16 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTa
    */
   databaseType?: string;
   /**
+   * @remarks
+   * Data quality monitoring partition range settings.
+   * 
    * @example
    * pt=$[yyyymmdd-1]
    */
   partitionSpec?: string;
   /**
    * @remarks
-   * 表在数据地图中的唯一ID
+   * The ID of the table in Data Map.
    * 
    * @example
    * odps.meta_open_api_test_sz.test_partition_tbl
@@ -7516,7 +8021,9 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTa
   tableGuid?: string;
   /**
    * @remarks
-   * 监控对象类型
+   * The type of the monitoring object.
+   * 
+   * - Table: Table.
    * 
    * @example
    * Table
@@ -7552,19 +8059,14 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTa
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTrigger extends $dara.Model {
   /**
    * @remarks
-   * 具体指明哪些调度节点的实例执行成功后可以触发
+   * The IDs of scheduling tasks. This parameter is valid only if you set Type to ByScheduledTaskInstance.
    */
   taskIds?: number[];
   /**
    * @remarks
-   * The trigger type of the monitor.
+   * The trigger type of the monitor. Valid values:
    * 
-   * *
-   * *
-   * 
-   * Valid values:
-   * 
-   * *   ByManual (default): The monitor is manually triggered.
+   * *   ByManual: The monitor is manually triggered.
    * *   ByScheduledTaskInstance: The monitor is triggered by associated scheduling tasks.
    * *   ByQualityNode: The monitor is triggered by created data quality monitoring nodes.
    * 
@@ -7599,10 +8101,20 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTr
 }
 
 export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the data source used for the monitor.
+   * 
+   * @example
+   * 45238
+   */
   dataSourceId?: number;
   /**
    * @remarks
-   * 质量监控任务描述
+   * The description of the monitor.
+   * 
+   * @example
+   * The description of the quality monitoring task.
    */
   description?: string;
   /**
@@ -7612,7 +8124,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
   hooks?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskHooks[];
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The ID of the data quality monitor.
    * 
    * @example
    * 2178
@@ -7620,9 +8132,12 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
   id?: number;
   /**
    * @remarks
-   * 质量监控任务名称
+   * The name of the monitor.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * OpenAPI create a data quality monitoring test
    */
   name?: string;
   /**
@@ -7632,7 +8147,7 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
   notifications?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotifications;
   /**
    * @remarks
-   * 项目空间Id
+   * The workspace ID.
    * 
    * @example
    * 2626
@@ -7640,7 +8155,12 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
   projectId?: number;
   /**
    * @remarks
-   * 使用数据源时的一些设置，目前只支持指定EMR的yarn队列、采集EMR表时把SQL引擎指定为SPARK-SQL
+   * Extended configuration, JSON-formatted string, takes effect only for EMR-type data quality monitoring.
+   * 
+   * - queue: the yarn queue used when performing EMR data quality verification. The default queue is the queue configured for this project.
+   * - sqlEngine: SQL engine used when performing EMR data verification
+   *     - HIVE_ SQL
+   *     - SPARK_ SQL
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK_SQL" }
@@ -7709,11 +8229,22 @@ export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask e
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskHooks extends $dara.Model {
   /**
+   * @remarks
+   * Hook trigger condition. When this condition is met, hook action is triggered. Currently, only two conditional expressions are supported:
+   * 
+   * - Specify only one set of rule severity types AND rule verification status, such as `${severity} = = "High" AND ${status} = = "Critical"`, which indicates that in the executed rule, if the rule verification result of severity High is Critical, the condition is met.
+   * - Specify multiple sets of rule severity types AND rule verification status, such as `(${severity} = = "High" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Error")`, if the rule verification result of severity High is Critical, the rule verification result of severity Normal is Critical, or the rule verification result of severity Normal is Error, the enumeration that satisfies the condition expression severity is consistent with the enumeration DataQualityRule in severity, and the enumeration of status is consistent with the status in DataQualityResult.
+   * 
    * @example
    * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
    */
   condition?: string;
   /**
+   * @remarks
+   * Hook type. Currently, only one type is supported:
+   * 
+   * - BlockTaskInstance: the blocking scheduling task continues to run. Data quality monitoring is triggered by the scheduling task. After the data quality monitoring is completed, the Hook.Condition is used to determine whether the blocking scheduling task continues to run.
+   * 
    * @example
    * BlockTaskInstance
    */
@@ -7742,6 +8273,10 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationChannels extends $dara.Model {
+  /**
+   * @remarks
+   * The notification method.
+   */
   channels?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7769,15 +8304,27 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers extends $dara.Model {
   /**
+   * @remarks
+   * Additional parameter settings for sending alerts in json format. The supported keys are as follows:
+   * 
+   * - atAll: when sending DingTalk alerts, do you need to @ everyone in the group. It takes effect when ReceiverType is DingdingUrl.
+   * 
    * @example
    * { "atAll": true }
    */
   extension?: string;
   /**
+   * @remarks
+   * The type of alert recipient.
+   * 
    * @example
    * DingdingUrl
    */
   receiverType?: string;
+  /**
+   * @remarks
+   * The recipient of the alert.
+   */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7808,7 +8355,15 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotifications extends $dara.Model {
+  /**
+   * @remarks
+   * The notification method.
+   */
   notificationChannels?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationChannels[];
+  /**
+   * @remarks
+   * The value of the receiver.
+   */
   notificationReceivers?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers[];
   static names(): { [key: string]: string } {
     return {
@@ -7841,10 +8396,20 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotifications extends $dara.Model {
   /**
+   * @remarks
+   * The notification trigger condition. When this condition is met, a message notification is triggered. Currently, only two conditional expressions are supported:
+   * 
+   * - Specify only one set of rule severity types AND rule verification status, such as `${severity} = = "High" AND ${status} = = "Critical"`, which indicates that in the executed rule, if the rule verification result of severity High is Critical, the condition is met.
+   * - Specify multiple sets of rule severity types AND rule verification status, such as `(${severity} = = "High" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Critical") OR (${severity} = "Normal" AND ${status} = "Error")`, if the rule verification result of severity High is Critical, the rule verification result of severity Normal is Critical, or the rule verification result of severity Normal is Error, the enumeration that satisfies the condition expression severity is consistent with the enumeration DataQualityRule in severity, and the enumeration of status is consistent with the status in DataQualityResult.
+   * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
    */
   condition?: string;
+  /**
+   * @remarks
+   * The alert notification methods.
+   */
   notifications?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotifications[];
   static names(): { [key: string]: string } {
     return {
@@ -7874,21 +8439,34 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTarget extends $dara.Model {
   /**
+   * @remarks
+   * The type of the database to which the table belongs.
+   * 
    * @example
    * maxcompute
    */
   databaseType?: string;
   /**
+   * @remarks
+   * The partition range monitored.
+   * 
    * @example
    * pt=$[yyyymmdd-1]
    */
   partitionSpec?: string;
   /**
+   * @remarks
+   * The unique ID of the table in the data map.
+   * 
    * @example
    * odps.api_trace.ods_d_api_log
    */
   tableGuid?: string;
   /**
+   * @remarks
+   * The type of the monitoring object.
+   * - Table: Table
+   * 
    * @example
    * Table
    */
@@ -7921,8 +8499,18 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTrigger extends $dara.Model {
+  /**
+   * @remarks
+   * The Id list of the scheduled task, which is valid when the Type is ByScheduledTaskInstance.
+   */
   taskIds?: number[];
   /**
+   * @remarks
+   * Quality Monitoring trigger type:
+   * 
+   * - ByManual: manually triggered. Default value
+   * - ByScheduledTaskInstance: triggered by associated scheduling tasks
+   * 
    * @example
    * ByScheduledTaskInstance
    */
@@ -7954,26 +8542,70 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTask extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the monitor.
+   * 
+   * @example
+   * OpenAPI quality monitoring test
+   */
   description?: string;
+  /**
+   * @remarks
+   * Callback settings.
+   */
   hooks?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskHooks[];
   /**
+   * @remarks
+   * The ID of the data quality monitor.
+   * 
    * @example
    * 28544990
    */
   id?: number;
+  /**
+   * @remarks
+   * The name of the monitor.
+   * 
+   * @example
+   * Data quality OpenAPI monitoring test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The configurations of alert notifications.
+   */
   notifications?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotifications;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * 20629
    */
   projectId?: number;
   /**
+   * @remarks
+   * Extended configuration, JSON-formatted string, takes effect only for EMR-type data quality monitoring.
+   * 
+   * - queue: the yarn queue used when performing EMR data quality verification. The default queue is the queue configured for this project.
+   * - sqlEngine: SQL engine used when performing EMR data verification
+   *   - HIVE_ SQL
+   *   - SPARK_ SQL
+   * 
    * @example
    * { "queue": "default" }
    */
   runtimeConf?: string;
+  /**
+   * @remarks
+   * For more information, see DataQualityTarget monitoring objects for the sample data quality verification task. For more information, see DataQualityTarget.
+   */
   target?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTarget;
+  /**
+   * @remarks
+   * The trigger configuration of the data quality verification task.
+   */
   trigger?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTrigger;
   static names(): { [key: string]: string } {
     return {
@@ -8026,37 +8658,70 @@ export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluati
 
 export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstance extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1716344665000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The end time of the instance.
+   * 
    * @example
    * 1716344665000
    */
   finishTime?: number;
   /**
+   * @remarks
+   * The ID of the data quality monitoring instance.
+   * 
    * @example
    * 7234231689
    */
   id?: number;
   /**
+   * @remarks
+   * Data quality verification execution parameters in JSON format. The available keys are as follows:
+   * - triggerTime: the millisecond timestamp of the trigger time. The baseline time of the $[yyyymmdd] expression in the data range of data quality monitoring. Required.
+   * 
    * @example
    * { "triggerTime": 1733284062000 }
    */
   parameters?: string;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * 98330
    */
   projectId?: number;
   /**
+   * @remarks
+   * The status of the data quality monitoring instance.
+   * - Running: Verifying
+   * - Error: A rule verification Error occurred.
+   * - Passed: all rules are verified
+   * - Warned: normal alarm threshold triggered by rules
+   * - Critical: Threshold for serious alerts triggered by rules
+   * 
    * @example
    * Passed
    */
   status?: string;
+  /**
+   * @remarks
+   * The monitor.
+   */
   task?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTask;
   /**
+   * @remarks
+   * The context information when the instance is triggered, in JSON format. The possible keys are as follows:
+   * - TriggerClient: the trigger source of the data quality monitoring instance, such as CWF2 (scheduling system), may be added later.
+   * - TriggerClientId: associated with a specific business resource in the source system. For example, if TriggerClient is CWF2, the ID of the scheduling task is recorded here.
+   * 
    * @example
    * { "triggerClient": "CWF2", "triggerClientId": 70001238945 }
    */
@@ -8109,11 +8774,23 @@ export class GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThreshol
    */
   expression?: string;
   /**
+   * @remarks
+   * Comparison character:
+   * - \\>
+   * - % =
+   * - <
+   * - <=
+   * - ! =
+   * - =
+   * 
    * @example
    * >
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -8153,11 +8830,23 @@ export class GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThreshol
    */
   expression?: string;
   /**
+   * @remarks
+   * Comparison character:
+   * - \\>
+   * - % =
+   * - <
+   * - <=
+   * - ! =
+   * - =
+   * 
    * @example
    * >
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -8197,11 +8886,23 @@ export class GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThreshol
    */
   expression?: string;
   /**
+   * @remarks
+   * Comparison character:
+   * - \\>
+   * - % =
+   * - <
+   * - <=
+   * - ! =
+   * - =
+   * 
    * @example
    * >
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -8283,6 +8984,9 @@ export class GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThreshol
 
 export class GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfig extends $dara.Model {
   /**
+   * @remarks
+   * Some types of thresholds need to query some reference samples, and then summarize the values of the reference samples to obtain the threshold for comparison. Here, an expression is used to represent the query method of the reference samples.
+   * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
    */
@@ -8293,6 +8997,15 @@ export class GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfig extends
    */
   thresholds?: GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThresholds;
   /**
+   * @remarks
+   * Threshold Calculation method:
+   * - Fixed
+   * - Fluctation
+   * - FluctationDiscreate
+   * - Auto
+   * - Average
+   * - Variance
+   * 
    * @example
    * Fixed
    */
@@ -8327,11 +9040,18 @@ export class GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfig extends
 
 export class GetDataQualityRuleResponseBodyDataQualityRuleErrorHandlers extends $dara.Model {
   /**
+   * @remarks
+   * For custom SQL rules, you must specify SQL to filter problem data.
+   * 
    * @example
    * SELECT * FROM tb_api_log WHERE id IS NULL
    */
   errorDataFilter?: string;
   /**
+   * @remarks
+   * Processor type:
+   * - SaveErrorData
+   * 
    * @example
    * SaveErrorData
    */
@@ -8361,21 +9081,48 @@ export class GetDataQualityRuleResponseBodyDataQualityRuleErrorHandlers extends 
 
 export class GetDataQualityRuleResponseBodyDataQualityRuleSamplingConfig extends $dara.Model {
   /**
+   * @remarks
+   * The name of the sampled metric:
+   * - Count: number of table rows
+   * - Min: minimum value of the field
+   * - Max: The maximum value of the field.
+   * - Avg: field mean
+   * - DistinctCount: number of unique field values
+   * - DistinctPercent: the ratio of the number of unique field values to the number of data rows.
+   * - DuplicatedCount: number of duplicate field values
+   * - DuplicatedPercent: the ratio of the number of duplicate field values to the number of data rows.
+   * - TableSize: table size
+   * - NullValueCount: number of rows with empty fields
+   * - NullValuePercent: the proportion of fields that are empty.
+   * - GroupCount: aggregate each value by field value and the corresponding number of data rows
+   * - CountNotIn: the enumerated value does not match the number of rows.
+   * - CountDistinctNotIn: the number of unique values that the enumerated values do not match.
+   * - UserDefinedSql: use custom SQL to collect samples
+   * 
    * @example
    * Max
    */
   metric?: string;
   /**
+   * @remarks
+   * Parameters required for sample collection.
+   * 
    * @example
    * { "Columns": [ "id", "name" ] , "SQL": "select count(1) from table;"}
    */
   metricParameters?: string;
   /**
+   * @remarks
+   * The condition for secondary filtering of data that is not concerned during sampling, which can be up to 16777215 characters in length.
+   * 
    * @example
    * id IS NULL
    */
   samplingFilter?: string;
   /**
+   * @remarks
+   * Before executing the sample statement, insert some runtime parameter setting statements, which can be up to 1000 characters in length. Currently, only MaxCompute is supported.
+   * 
    * @example
    * SET odps.sql.udf.timeout=600s; 
    * SET odps.sql.python.version=cp27;
@@ -8410,21 +9157,42 @@ export class GetDataQualityRuleResponseBodyDataQualityRuleSamplingConfig extends
 
 export class GetDataQualityRuleResponseBodyDataQualityRuleTarget extends $dara.Model {
   /**
+   * @remarks
+   * The dataset of the table type. The database type to which the table belongs.
+   * - maxcompute
+   * - emr
+   * - cdh
+   * - hologres
+   * - analyticdb_for_postgresql
+   * - analyticdb_for_mysql
+   * - starrocks
+   * 
    * @example
    * maxcompute
    */
   databaseType?: string;
   /**
+   * @remarks
+   * Partition settings for partitioned tables.
+   * 
    * @example
    * ds=$[yyyymmdd-1]
    */
   partitionSpec?: string;
   /**
+   * @remarks
+   * The unique ID of the table used by the rule in the data map.
+   * 
    * @example
    * odps.unit_test.tb_unit_test
    */
   tableGuid?: string;
   /**
+   * @remarks
+   * Monitoring object type
+   * 
+   * - Table
+   * 
    * @example
    * Table
    */
@@ -8463,35 +9231,74 @@ export class GetDataQualityRuleResponseBodyDataQualityRule extends $dara.Model {
    */
   checkingConfig?: GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfig;
   /**
+   * @remarks
+   * The description of the rule. It can be up to 500 characters in length.
+   * 
    * @example
    * this is a odps _sql task
    */
   description?: string;
   /**
+   * @remarks
+   * Whether the rule is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The list of quality rule verification problem processors.
+   */
   errorHandlers?: GetDataQualityRuleResponseBodyDataQualityRuleErrorHandlers[];
   /**
+   * @remarks
+   * The ID of the rule.
+   * 
    * @example
    * 16033
    */
   id?: number;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * @example
+   * The table cannot be empty.
+   */
   name?: string;
   /**
+   * @remarks
+   * The ID of the DataWorks workspace.
+   * 
    * @example
    * 1948
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The settings required for sample collection.
+   */
   samplingConfig?: GetDataQualityRuleResponseBodyDataQualityRuleSamplingConfig;
   /**
+   * @remarks
+   * Rule for the business level (corresponding to the strong and weak rules on the page), optional enumeration value:
+   * - Normal
+   * - High
+   * 
    * @example
    * High
    */
   severity?: string;
+  /**
+   * @remarks
+   * The object monitored by the rule.
+   */
   target?: GetDataQualityRuleResponseBodyDataQualityRuleTarget;
   /**
+   * @remarks
+   * The ID of the template used by the rule.
+   * 
    * @example
    * system::user_defined
    */
@@ -8551,11 +9358,23 @@ export class GetDataQualityRuleResponseBodyDataQualityRule extends $dara.Model {
 
 export class GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplateCheckingConfig extends $dara.Model {
   /**
+   * @remarks
+   * Some types of thresholds need to query some reference samples, and then summarize the values of the reference samples to obtain the threshold for comparison. Here, an expression is used to represent the query method of the reference samples.
+   * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
    */
   referencedSamplesFilter?: string;
   /**
+   * @remarks
+   * Threshold Calculation method:
+   * - Fixed
+   * - Fluctation
+   * - FluctationDiscreate
+   * - Auto
+   * - Average
+   * - Variance
+   * 
    * @example
    * Fixed
    */
@@ -8585,16 +9404,40 @@ export class GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplateChecki
 
 export class GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplateSamplingConfig extends $dara.Model {
   /**
+   * @remarks
+   * The name of the sampled metric.
+   * - Count: number of table rows
+   * - Min: minimum value of the field
+   * - Max: The maximum value of the field.
+   * - Avg: field mean
+   * - DistinctCount: number of unique field values
+   * - DistinctPercent: the ratio of the number of unique field values to the number of data rows.
+   * - DuplicatedCount: number of duplicate field values
+   * - DuplicatedPercent: the ratio of the number of duplicate field values to the number of data rows.
+   * - TableSize: table size
+   * - NullValueCount: number of rows with empty fields
+   * - NullValuePercent: the proportion of fields that are empty.
+   * - GroupCount: aggregate each value by field value and the corresponding number of data rows
+   * - CountNotIn: the enumerated value does not match the number of rows.
+   * - CountDistinctNotIn: the number of unique values that the enumerated values do not match.
+   * - UserDefinedSql: use custom SQL to collect samples.
+   * 
    * @example
    * Max
    */
   metric?: string;
   /**
+   * @remarks
+   * Parameters required for sample collection.
+   * 
    * @example
    * {"SQL": "select count(1) from table;"}
    */
   metricParameters?: string;
   /**
+   * @remarks
+   * Before executing the sample statement, insert some runtime parameter setting statements, which can be up to 1000 characters in length. Currently, only MaxCompute is supported.
+   * 
    * @example
    * SET odps.sql.udf.timeout=600s; 
    * SET odps.sql.python.version=cp27;
@@ -8626,21 +9469,54 @@ export class GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplateSampli
 }
 
 export class GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplate extends $dara.Model {
+  /**
+   * @remarks
+   * Sample verification settings.
+   */
   checkingConfig?: GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplateCheckingConfig;
   /**
+   * @remarks
+   * The Code of the rule template.
+   * 
    * @example
    * USER_DEFINED:123
    */
   code?: string;
+  /**
+   * @remarks
+   * The category directory where the custom template is stored, separated by slashes. Each level name can be up to 1024 characters in length and cannot contain white space characters or slashes.
+   * 
+   * @example
+   * /ods/order_data
+   */
   directoryPath?: string;
+  /**
+   * @remarks
+   * The name of the rule template. It can contain up to 512 characters in length, including numbers, letters, Chinese characters, and half-width punctuation marks.
+   * 
+   * @example
+   * Table row Count Verification
+   */
   name?: string;
   /**
+   * @remarks
+   * The ID of the DataWorks workspace.
+   * 
    * @example
    * 4020
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The settings required for sample collection.
+   */
   samplingConfig?: GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplateSamplingConfig;
   /**
+   * @remarks
+   * Available range of templates:
+   * - Tenant: all tenants are available
+   * - Project: only available in the current Project
+   * 
    * @example
    * Project
    */
@@ -8853,6 +9729,9 @@ export class GetDeploymentResponseBodyPipelineStages extends $dara.Model {
   /**
    * @remarks
    * The description of the stage.
+   * 
+   * @example
+   * Phase description
    */
   description?: string;
   /**
@@ -8863,11 +9742,17 @@ export class GetDeploymentResponseBodyPipelineStages extends $dara.Model {
   /**
    * @remarks
    * The error message returned for the stage.
+   * 
+   * @example
+   * Exception information XXX
    */
   message?: string;
   /**
    * @remarks
    * The name of the stage.
+   * 
+   * @example
+   * Publish package build
    */
   name?: string;
   /**
@@ -8977,6 +9862,9 @@ export class GetDeploymentResponseBodyPipeline extends $dara.Model {
   /**
    * @remarks
    * The error message returned when the process fails.
+   * 
+   * @example
+   * Error message
    */
   message?: string;
   /**
@@ -9083,6 +9971,9 @@ export class GetFunctionResponseBodyFunction extends $dara.Model {
   /**
    * @remarks
    * The name of the UDF.
+   * 
+   * @example
+   * Function name
    */
   name?: string;
   /**
@@ -9104,6 +9995,39 @@ export class GetFunctionResponseBodyFunction extends $dara.Model {
   /**
    * @remarks
    * The FlowSpec field information about the UDF. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
+   * 
+   * @example
+   * {
+   *     "version": "1.1.0",
+   *     "kind": "Function",
+   *     "spec": {
+   *         "functions": [
+   *             {
+   *                 "name": "Function_Name",
+   *                 "id": "580667964888595XXXX",
+   *                 "script": {
+   *                     "content": "{  \\"uuid\\": \\"580667964888595XXXX\\",  \\"name\\": \\"Function_Name\\",  \\"datasource\\": {    \\"type\\": \\"odps\\",    \\"name\\": \\"odps_first\\"  },  \\"runtimeResource\\": {    \\"resourceGroup\\": \\"S_res_group_XXXX_XXXX\\",    \\"resourceGroupId\\": 6591XXXX  }}",
+   *                     "path": "XXX/OpenAPI/Function/Function_Name",
+   *                     "runtime": {
+   *                         "command": "ODPS_FUNCTION"
+   *                     }
+   *                 },
+   *                 "datasource": {
+   *                     "name": "odps_first",
+   *                     "type": "odps"
+   *                 },
+   *                 "runtimeResource": {
+   *                     "resourceGroup": "S_res_group_XXXX_XXXX",
+   *                     "id": "723932906364267XXXX",
+   *                     "resourceGroupId": "6591XXXX"
+   *                 },
+   *                 "metadata": {
+   *                     "owner": "110755000425XXXX"
+   *                 }
+   *             }
+   *         ]
+   *     }
+   * }
    */
   spec?: string;
   static names(): { [key: string]: string } {
@@ -9230,26 +10154,41 @@ export class GetJobStatusResponseBodyJobStatus extends $dara.Model {
 
 export class GetNetworkResponseBodyNetwork extends $dara.Model {
   /**
+   * @remarks
+   * The time when the network resource was created. The value is a 64-bit timestamp.
+   * 
    * @example
    * 1727055811000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the user who creates the network resource.
+   * 
    * @example
    * 11075500042XXXXX
    */
   createUser?: string;
   /**
+   * @remarks
+   * The network ID.
+   * 
    * @example
    * 1000
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the serverless resource group.
+   * 
    * @example
    * Serverless_res_group_524257424564736_6831777003XXXXX
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-2ze13vamugr7jenXXXXX
    */
@@ -9269,11 +10208,17 @@ export class GetNetworkResponseBodyNetwork extends $dara.Model {
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
    * @example
    * vpc-m2et4f3oc8msfbccXXXXX
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The VSwitch ID.
+   * 
    * @example
    * vsw-uf8usrhs7hjd9amsXXXXX
    */
@@ -9341,6 +10286,9 @@ export class GetNodeResponseBodyNode extends $dara.Model {
   /**
    * @remarks
    * The name of the node.
+   * 
+   * @example
+   * Node name
    */
   name?: string;
   /**
@@ -9362,8 +10310,99 @@ export class GetNodeResponseBodyNode extends $dara.Model {
   /**
    * @remarks
    * The FlowSpec field information about this node. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow).
+   * 
+   * @example
+   * {
+   *     "version": "1.1.0",
+   *     "kind": "Node",
+   *     "spec": {
+   *         "nodes": [
+   *             {
+   *                 "recurrence": "Normal",
+   *                 "id": "860438872620113XXXX",
+   *                 "timeout": 0,
+   *                 "instanceMode": "T+1",
+   *                 "rerunMode": "Allowed",
+   *                 "rerunTimes": 3,
+   *                 "rerunInterval": 180000,
+   *                 "datasource": {
+   *                     "name": "odps_test",
+   *                     "type": "odps"
+   *                 },
+   *                 "script": {
+   *                     "language": "odps-sql",
+   *                     "path": "XX/OpenAPI_Test/ODPS_SQL_Test",
+   *                     "runtime": {
+   *                         "command": "ODPS_SQL",
+   *                         "commandTypeId": 10
+   *                     },
+   *                     "content": "select now();",
+   *                     "id": "853573334108680XXXX"
+   *                 },
+   *                 "trigger": {
+   *                     "type": "Scheduler",
+   *                     "id": "543680677872062XXXX",
+   *                     "cron": "00 00 00 * * ?",
+   *                     "startTime": "1970-01-01 00:00:00",
+   *                     "endTime": "9999-01-01 00:00:00",
+   *                     "timezone": "Asia/Shanghai",
+   *                     "delaySeconds": 0
+   *                 },
+   *                 "runtimeResource": {
+   *                     "resourceGroup": "S_res_group_XXXX_XXXX",
+   *                     "id": "623731286945488XXXX",
+   *                     "resourceGroupId": "7201XXXX"
+   *                 },
+   *                 "name": "ODPS_SQL_Test",
+   *                 "owner": "110755000425XXXX",
+   *                 "metadata": {
+   *                     "owner": "110755000425XXXX",
+   *                     "ownerName": "XXXXX@test.XXX.com",
+   *                     "projectId": "307XXX"
+   *                 },
+   *                 "inputs": {
+   *                     "nodeOutputs": [
+   *                         {
+   *                             "data": "lwttest_standard_root",
+   *                             "artifactType": "NodeOutput"
+   *                         }
+   *                     ]
+   *                 },
+   *                 "outputs": {
+   *                     "nodeOutputs": [
+   *                         {
+   *                             "data": "860438872620113XXXX",
+   *                             "artifactType": "NodeOutput",
+   *                             "refTableName": "ODPS_SQL_Test",
+   *                             "isDefault": true
+   *                         }
+   *                     ]
+   *                 }
+   *             }
+   *         ],
+   *         "flow": [
+   *             {
+   *                 "nodeId": "860438872620113XXXX",
+   *                 "depends": [
+   *                     {
+   *                         "type": "Normal",
+   *                         "output": "lwttest_standard_root"
+   *                     }
+   *                 ]
+   *             }
+   *         ]
+   *     },
+   *     "metadata": {
+   *         "uuid": "860438872620113XXXX"
+   *     }
+   * }
    */
   spec?: string;
+  /**
+   * @example
+   * 700006680527
+   */
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -9373,6 +10412,7 @@ export class GetNodeResponseBodyNode extends $dara.Model {
       owner: 'Owner',
       projectId: 'ProjectId',
       spec: 'Spec',
+      taskId: 'TaskId',
     };
   }
 
@@ -9385,6 +10425,7 @@ export class GetNodeResponseBodyNode extends $dara.Model {
       owner: 'string',
       projectId: 'number',
       spec: 'string',
+      taskId: 'number',
     };
   }
 
@@ -9454,6 +10495,9 @@ export class GetProjectResponseBodyProject extends $dara.Model {
   /**
    * @remarks
    * The description of the workspace.
+   * 
+   * @example
+   * Financial analysis group project data development
    */
   description?: string;
   /**
@@ -9481,6 +10525,9 @@ export class GetProjectResponseBodyProject extends $dara.Model {
   /**
    * @remarks
    * The display name of the workspace.
+   * 
+   * @example
+   * Sora financial analysis
    */
   displayName?: string;
   /**
@@ -9603,6 +10650,9 @@ export class GetProjectMemberResponseBodyProjectMemberRoles extends $dara.Model 
   /**
    * @remarks
    * The name of the role.
+   * 
+   * @example
+   * Visitors
    */
   name?: string;
   /**
@@ -9709,19 +10759,6 @@ export class GetProjectRoleResponseBodyProjectRole extends $dara.Model {
    * @remarks
    * The code of the role in the DataWorks workspace.
    * 
-   * Valid values:
-   * 
-   * *   role_project_admin: workspace administrator
-   * *   role_project_dev: developer
-   * *   role_project_dg_admin: data governance administrator
-   * *   role_project_guest: visitor
-   * *   role_project_security: security administrator
-   * *   role_project_deploy: deployer
-   * *   role_project_owner: workspace owner
-   * *   role_project_data_analyst: data analyst
-   * *   role_project_pe: O\\&M engineer
-   * *   role_project_erd: model designer
-   * 
    * @example
    * role_project_guest
    */
@@ -9729,6 +10766,9 @@ export class GetProjectRoleResponseBodyProjectRole extends $dara.Model {
   /**
    * @remarks
    * The name of the role in the DataWorks workspace.
+   * 
+   * @example
+   * Visitors
    */
   name?: string;
   /**
@@ -9741,9 +10781,7 @@ export class GetProjectRoleResponseBodyProjectRole extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The type of the role in the DataWorks workspace.
-   * 
-   * Valid values:
+   * The type of the role in the DataWorks workspace. Valid values:
    * 
    * *   UserCustom: user-defined role
    * *   System: system role
@@ -9807,6 +10845,9 @@ export class GetResourceResponseBodyResource extends $dara.Model {
   /**
    * @remarks
    * The name of the file resource.
+   * 
+   * @example
+   * OpenAPI_Test_Resource. py
    */
   name?: string;
   /**
@@ -9828,6 +10869,38 @@ export class GetResourceResponseBodyResource extends $dara.Model {
   /**
    * @remarks
    * The FlowSpec field information about the file resource. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow).
+   * 
+   * @example
+   * {
+   *     "version": "1.1.0",
+   *     "kind": "Resource",
+   *     "spec": {
+   *         "fileResources": [
+   *             {
+   *                 "name": "OpenAPI_Test_Resource.py",
+   *                 "id": "631478864897630XXXX",
+   *                 "script": {
+   *                     "content": "",
+   *                     "path": "XX/OpenAPI_Test/Resource_Test/OpenAPI_Test_Resource.py",
+   *                     "runtime": {
+   *                         "command": "ODPS_PYTHON"
+   *                     }
+   *                 },
+   *                 "type": "python",
+   *                 "file": {
+   *                     "storage": {}
+   *                 },
+   *                 "datasource": {
+   *                     "name": "odps_first",
+   *                     "type": "odps"
+   *                 },
+   *                 "metadata": {
+   *                     "owner": "110755000425XXXX"
+   *                 }
+   *             }
+   *         ]
+   *     }
+   * }
    */
   spec?: string;
   static names(): { [key: string]: string } {
@@ -9865,11 +10938,17 @@ export class GetResourceResponseBodyResource extends $dara.Model {
 
 export class GetResourceGroupResponseBodyResourceGroupAliyunResourceTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value
    */
@@ -9907,6 +10986,9 @@ export class GetResourceGroupResponseBodyResourceGroupSpec extends $dara.Model {
    */
   amount?: number;
   /**
+   * @remarks
+   * Specification details.
+   * 
    * @example
    * 2CU
    */
@@ -9936,59 +11018,93 @@ export class GetResourceGroupResponseBodyResourceGroupSpec extends $dara.Model {
 
 export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-aek2kqofrgXXXXX
    */
   aliyunResourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   aliyunResourceTags?: GetResourceGroupResponseBodyResourceGroupAliyunResourceTags[];
   /**
+   * @remarks
+   * The creation time, which is a 64-bit timestamp.
+   * 
    * @example
    * 1727055811000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the user who created the resource group.
+   * 
    * @example
    * 11075500042XXXXX
    */
   createUser?: string;
   /**
+   * @remarks
+   * The default VPC ID bound to the common resource group.
+   * 
    * @example
    * vpc-m2et4f3oc8msfbccXXXXX
    */
   defaultVpcId?: string;
   /**
+   * @remarks
+   * The default switch ID bound to the common resource group.
+   * 
    * @example
    * vsw-uf8usrhs7hjd9amsXXXXX
    */
   defaultVswitchId?: string;
   /**
+   * @remarks
+   * The unique identifier of the resource group.
+   * 
    * @example
    * Serverless_res_group_524257424564736_6831777003XXXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the resource group.
+   * 
    * @example
    * common_resource_group
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the order instance of the resource group.
+   * 
    * @example
    * c442b330-3b10-4584-959e-736e4edXXXXX
    */
   orderInstanceId?: string;
   /**
+   * @remarks
+   * The billing method of the resource group. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+   * 
    * @example
    * PrePaid
    */
   paymentType?: string;
   /**
+   * @remarks
+   * The description of the resource group.
+   * 
    * @example
-   * 创建用于普通任务的通用资源组
+   * Create a common resource group for common tasks
    */
   remark?: string;
   /**
    * @remarks
-   * The type the resource group. Valid values:
+   * The type of the resource group. Valid values:
    * 
    * *   CommonV2: serverless resource group
    * *   ExclusiveDataIntegration: exclusive resource group for Data Integration
@@ -10011,13 +11127,15 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
    * *   Normal: The resource group is running or in use.
    * *   Stop: The resource group is expired.
    * *   Deleted: The resource group is released or destroyed.
-   * *   Creating: The resource group is being started.
-   * *   CreateFailed: The resource group fails to be started.
+   * *   Creating: The resource group is being created.
+   * *   CreateFailed: The resource group fails to be created.
    * *   Updating: The resource group is being scaled in or out, or the configurations of the resource group are being changed.
    * *   UpdateFailed: The resource group fails to be scaled out or upgraded.
    * *   Deleting: The resource group is being released or destroyed.
    * *   DeleteFailed: The resource group fails to be released or destroyed.
    * *   Timeout: The operations that are performed on the resource group time out.
+   * *   Freezed: The resource group is frozen.
+   * *   Starting: The resource group is being started.
    * 
    * @example
    * Normal
@@ -10078,16 +11196,25 @@ export class GetResourceGroupResponseBodyResourceGroup extends $dara.Model {
 
 export class GetRouteResponseBodyRoute extends $dara.Model {
   /**
+   * @remarks
+   * The time when the route was created. The value is a 64-bit timestamp.
+   * 
    * @example
    * 1727055811000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The CIDR block of the destination-based route.
+   * 
    * @example
    * 192.168.0.0/16
    */
   destinationCidr?: string;
   /**
+   * @remarks
+   * The route ID.
+   * 
    * @example
    * 1000
    */
@@ -10101,11 +11228,17 @@ export class GetRouteResponseBodyRoute extends $dara.Model {
    */
   networkId?: number;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * Serverless_res_group_524257424564736_6831777003XXXXX
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The network resource ID.
+   * 
    * @example
    * ns-679XXXXX
    */
@@ -10174,14 +11307,12 @@ export class GetTaskResponseBodyTaskDataSource extends $dara.Model {
 export class GetTaskResponseBodyTaskDependencies extends $dara.Model {
   /**
    * @remarks
-   * The dependency type.
+   * The dependency type. Valid values:
    * 
-   * Valid values:
-   * 
-   * *   CrossCycleDependsOnChildren: cross-cycle dependency on the level-1 descendant nodes of a node
+   * *   CrossCycleDependsOnChildren: cross-cycle dependency on level-1 descendant nodes
    * *   CrossCycleDependsOnSelf: cross-cycle dependency on the current node
    * *   CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
-   * *   Normal: same-cycle dependency
+   * *   Normal: same-cycle scheduling dependency
    * 
    * @example
    * Normal
@@ -10189,7 +11320,7 @@ export class GetTaskResponseBodyTaskDependencies extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * 上游任务的输出标识符。（`同周期依赖`返回此字段）
+   * The identifier of the output of the ancestor task. This parameter is returned only if `same-cycle scheduling dependencies` and the node input are configured.
    * 
    * @example
    * pre.odps_sql_demo_0
@@ -10197,7 +11328,7 @@ export class GetTaskResponseBodyTaskDependencies extends $dara.Model {
   upstreamOutput?: string;
   /**
    * @remarks
-   * 上游任务的Id。（`跨周期依赖其他节点`依赖返回此字段，其他跨周期依赖类型不返回）
+   * The ancestor task ID. This parameter is returned only if `cross-cycle scheduling dependencies` or `same-cycle scheduling dependencies` and the node input are not configured.
    * 
    * @example
    * 1234
@@ -10239,12 +11370,10 @@ export class GetTaskResponseBodyTaskInputsVariables extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type.
-   * 
-   * Valid values:
+   * The type. Valid values:
    * 
    * *   Constant: constant
-   * *   PassThrough: parameter pass-through
+   * *   PassThrough: node output
    * *   System: variable
    * *   NodeOutput: script output
    * 
@@ -10356,13 +11485,11 @@ export class GetTaskResponseBodyTaskOutputsVariables extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type.
-   * 
-   * Valid values:
+   * The type. Valid values:
    * 
    * *   Constant: constant
-   * *   PassThrough: parameter pass-through
-   * *   System: system variable
+   * *   PassThrough: node output
+   * *   System: variable
    * *   NodeOutput: script output
    * 
    * @example
@@ -10631,9 +11758,7 @@ export class GetTaskResponseBodyTaskSubTasksSubTasksTrigger extends $dara.Model 
   endTime?: string;
   /**
    * @remarks
-   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler.
-   * 
-   * Valid values:
+   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
    * 
    * *   Pause
    * *   Skip
@@ -10653,12 +11778,10 @@ export class GetTaskResponseBodyTaskSubTasksSubTasksTrigger extends $dara.Model 
   startTime?: string;
   /**
    * @remarks
-   * The trigger type.
+   * The trigger type. Valid values:
    * 
-   * Valid values:
-   * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * *   Scheduler: periodic scheduling
+   * *   Manual: manual scheduling
    * 
    * @example
    * Scheduler
@@ -10697,6 +11820,9 @@ export class GetTaskResponseBodyTaskSubTasksSubTasks extends $dara.Model {
   /**
    * @remarks
    * The baseline ID.
+   * 
+   * @example
+   * The baseline ID.
    */
   baselineId?: number;
   /**
@@ -10728,6 +11854,16 @@ export class GetTaskResponseBodyTaskSubTasksSubTasks extends $dara.Model {
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
+   * @example
+   * Prod
+   */
   envType?: string;
   /**
    * @remarks
@@ -10756,6 +11892,9 @@ export class GetTaskResponseBodyTaskSubTasksSubTasks extends $dara.Model {
   /**
    * @remarks
    * The name of the task.
+   * 
+   * @example
+   * SQL node
    */
   name?: string;
   /**
@@ -10776,9 +11915,7 @@ export class GetTaskResponseBodyTaskSubTasksSubTasks extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The environment of the workspace.
-   * 
-   * Valid values:
+   * The environment of the workspace. This parameter is deprecated and replaced by the EnvType parameter. Valid values:
    * 
    * *   Prod: production environment
    * *   Dev: development environment
@@ -10807,13 +11944,11 @@ export class GetTaskResponseBodyTaskSubTasksSubTasks extends $dara.Model {
   rerunInterval?: number;
   /**
    * @remarks
-   * The rerun mode.
+   * The rerun mode. Valid values:
    * 
-   * Valid values:
-   * 
-   * *   AllDenied: The task cannot be rerun regardless of whether it is successfully run or fails to run.
-   * *   FailureAllowed: The task can be rerun only after it fails to run.
-   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to be run.
+   * *   FailureAllowed: The task can be rerun only after it fails to be run.
+   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to be run.
    * 
    * @example
    * AllAllowed
@@ -10941,9 +12076,7 @@ export class GetTaskResponseBodyTaskSubTasks extends $dara.Model {
   subTasks?: GetTaskResponseBodyTaskSubTasksSubTasks[];
   /**
    * @remarks
-   * The type of the subtask.
-   * 
-   * Valid values:
+   * The type of the subtask. Valid values:
    * 
    * *   DoWhile: do-while node
    * *   Combined: node group
@@ -11038,9 +12171,7 @@ export class GetTaskResponseBodyTaskTrigger extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler.
-   * 
-   * Valid values:
+   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
    * 
    * *   Pause
    * *   Skip
@@ -11060,12 +12191,10 @@ export class GetTaskResponseBodyTaskTrigger extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The trigger type.
+   * The trigger type. Valid values:
    * 
-   * Valid values:
-   * 
-   * *   Scheduler: scheduling cycle-based trigger
-   * *   Manual: manual trigger
+   * *   Scheduler: periodic scheduling
+   * *   Manual: manual scheduling
    * 
    * @example
    * Scheduler
@@ -11143,6 +12272,16 @@ export class GetTaskResponseBodyTask extends $dara.Model {
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
+   * @example
+   * Prod
+   */
   envType?: string;
   /**
    * @remarks
@@ -11162,11 +12301,10 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   inputs?: GetTaskResponseBodyTaskInputs;
   /**
    * @remarks
-   * 实例生成模式。
+   * The instance generation mode. Valid values:
    * 
-   * T+1（第二天生成）
-   * 
-   * Immediately（立即生成）
+   * *   T+1
+   * *   Immediately
    * 
    * @example
    * T+1
@@ -11191,6 +12329,9 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   /**
    * @remarks
    * The name of the task.
+   * 
+   * @example
+   * SQL node
    */
   name?: string;
   /**
@@ -11216,9 +12357,7 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The environment of the workspace.
-   * 
-   * Valid values:
+   * The environment of the workspace. This parameter is deprecated and replaced by the EnvType parameter. Valid values:
    * 
    * *   Prod: production environment
    * *   Dev: development environment
@@ -11247,13 +12386,11 @@ export class GetTaskResponseBodyTask extends $dara.Model {
   rerunInterval?: number;
   /**
    * @remarks
-   * The rerun mode.
+   * The rerun mode. Valid values:
    * 
-   * Valid values:
-   * 
-   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-   * *   FailureAllowed: The task can be rerun only after it fails to run.
-   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to be run.
+   * *   FailureAllowed: The task can be rerun only after it fails to be run.
+   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to be run.
    * 
    * @example
    * AllAllowed
@@ -12037,6 +13174,9 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   /**
    * @remarks
    * The name of the task for which the instance is generated.
+   * 
+   * @example
+   * SQL node
    */
   taskName?: string;
   /**
@@ -12122,6 +13262,9 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
   /**
    * @remarks
    * The name of the workflow to which the instance belongs.
+   * 
+   * @example
+   * Test workflow
    */
   workflowName?: string;
   static names(): { [key: string]: string } {
@@ -12238,16 +13381,30 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $dara.Model {
 
 export class GetWorkflowResponseBodyWorkflowDependencies extends $dara.Model {
   /**
+   * @remarks
+   * The scheduling dependency type. Valid values:
+   * 
+   * *   CrossCycleDependsOnChildren: cross-cycle dependency on the level-1 descendant nodes of a node
+   * *   CrossCycleDependsOnSelf: cross-cycle dependency on the current node
+   * *   CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
+   * *   Normal: same-cycle scheduling dependency
+   * 
    * @example
    * Normal
    */
   type?: string;
   /**
+   * @remarks
+   * The identifier of the output of the ancestor task. This parameter is returned only if `same-cycle scheduling dependencies` and the node input are configured.
+   * 
    * @example
    * pre.odps_sql_demo_0
    */
   upstreamOutput?: string;
   /**
+   * @remarks
+   * The ancestor task ID. This parameter is returned only if `cross-cycle scheduling dependencies` or `same-cycle scheduling dependencies` and the node input are not configured.
+   * 
    * @example
    * 1234
    */
@@ -12279,6 +13436,9 @@ export class GetWorkflowResponseBodyWorkflowDependencies extends $dara.Model {
 
 export class GetWorkflowResponseBodyWorkflowOutputsTaskOutputs extends $dara.Model {
   /**
+   * @remarks
+   * The identifier of the output.
+   * 
    * @example
    * pre.odps_sql_demo_0
    */
@@ -12305,6 +13465,10 @@ export class GetWorkflowResponseBodyWorkflowOutputsTaskOutputs extends $dara.Mod
 }
 
 export class GetWorkflowResponseBodyWorkflowOutputs extends $dara.Model {
+  /**
+   * @remarks
+   * The task outputs.
+   */
   taskOutputs?: GetWorkflowResponseBodyWorkflowOutputsTaskOutputs[];
   static names(): { [key: string]: string } {
     return {
@@ -12332,11 +13496,17 @@ export class GetWorkflowResponseBodyWorkflowOutputs extends $dara.Model {
 
 export class GetWorkflowResponseBodyWorkflowTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value1
    */
@@ -12366,6 +13536,9 @@ export class GetWorkflowResponseBodyWorkflowTags extends $dara.Model {
 
 export class GetWorkflowResponseBodyWorkflowTasksDataSource extends $dara.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * mysql_test
    */
@@ -12393,16 +13566,25 @@ export class GetWorkflowResponseBodyWorkflowTasksDataSource extends $dara.Model 
 
 export class GetWorkflowResponseBodyWorkflowTasksRuntimeResource extends $dara.Model {
   /**
+   * @remarks
+   * The default number of compute units (CUs) configured for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -12434,99 +13616,182 @@ export class GetWorkflowResponseBodyWorkflowTasksRuntimeResource extends $dara.M
 
 export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
   /**
+   * @remarks
+   * The baseline ID.
+   * 
    * @example
    * 1234
    */
   baselineId?: number;
   /**
+   * @remarks
+   * The unique code of the client. This parameter is used to create a task asynchronously and implement the idempotence of the task. If you do not specify this parameter when you create the task, the system automatically generates a unique code. The unique code is uniquely associated with the task ID. If you specify this parameter when you update or delete the task, the value of this parameter must be the unique code that is used to create the task.
+   * 
    * @example
    * Task_0bc5213917368545132902xxxxxxxx
    */
   clientUniqueCode?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The account ID of the creator.
+   * 
    * @example
    * 1000
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: GetWorkflowResponseBodyWorkflowTasksDataSource;
   /**
+   * @remarks
+   * The description of the task.
+   * 
    * @example
    * Test
    */
   description?: string;
   /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
    * @example
    * 1000
    */
   modifyUser?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * SQL node
+   */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The priority of the task. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The rerun interval. Unit: seconds.
+   * 
    * @example
    * 60
    */
   rerunInterval?: number;
   /**
+   * @remarks
+   * The rerun mode. Valid values:
+   * 
+   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * 
    * @example
    * AllAllowed
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * 
    * @example
    * 3
    */
   rerunTimes?: number;
+  /**
+   * @remarks
+   * The configurations of the runtime environment, such as the resource group information.
+   */
   runtimeResource?: GetWorkflowResponseBodyWorkflowTasksRuntimeResource;
   /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
    * @example
    * 3600
    */
   timeout?: number;
   /**
+   * @remarks
+   * The running mode of the task after it is triggered. Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   triggerRecurrence?: string;
   /**
+   * @remarks
+   * The type of the task.
+   * 
    * @example
    * ODPS_SQL
    */
   type?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the task belongs.
+   * 
    * @example
    * 1234
    */
@@ -12602,26 +13867,48 @@ export class GetWorkflowResponseBodyWorkflowTasks extends $dara.Model {
 
 export class GetWorkflowResponseBodyWorkflowTrigger extends $dara.Model {
   /**
+   * @remarks
+   * The CRON expression. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 00 00 00 * * ?
    */
   cron?: string;
   /**
+   * @remarks
+   * The end time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 1970-01-01 00:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The running mode of the workflow after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   recurrence?: string;
   /**
+   * @remarks
+   * The start time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 1970-01-01 00:00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The trigger type. Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
    * @example
    * Scheduler
    */
@@ -12657,61 +13944,128 @@ export class GetWorkflowResponseBodyWorkflowTrigger extends $dara.Model {
 
 export class GetWorkflowResponseBodyWorkflow extends $dara.Model {
   /**
+   * @remarks
+   * The unique code of the client. This parameter is used to create a workflow asynchronously and implement the idempotence of the workflow. If you do not specify this parameter when you create the workflow, the system automatically generates a unique code. The unique code is uniquely associated with the workflow ID. If you specify this parameter when you update or delete the workflow, the value of this parameter must be the unique code that is used to create the workflow.
+   * 
    * @example
    * Workflow_0bc5213917368545132902xxxxxxxx
    */
   clientUniqueCode?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The account ID of the creator.
+   * 
    * @example
    * 1000
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The dependency information.
+   */
   dependencies?: GetWorkflowResponseBodyWorkflowDependencies[];
+  /**
+   * @remarks
+   * The description of the workflow.
+   * 
+   * @example
+   * Test workflow
+   */
   description?: string;
   /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The workflow ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
    * @example
    * 1000
    */
   modifyUser?: string;
+  /**
+   * @remarks
+   * The name of the workflow.
+   * 
+   * @example
+   * Workflow
+   */
   name?: string;
+  /**
+   * @remarks
+   * The output information.
+   */
   outputs?: GetWorkflowResponseBodyWorkflowOutputs;
   /**
+   * @remarks
+   * The account ID of the workflow owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The parameters.
+   * 
    * @example
    * para1=$bizdate para2=$[yyyymmdd]
    */
   parameters?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: GetWorkflowResponseBodyWorkflowTags[];
+  /**
+   * @remarks
+   * The tasks.
+   */
   tasks?: GetWorkflowResponseBodyWorkflowTasks[];
+  /**
+   * @remarks
+   * The trigger method.
+   */
   trigger?: GetWorkflowResponseBodyWorkflowTrigger;
   static names(): { [key: string]: string } {
     return {
@@ -12809,6 +14163,9 @@ export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $dara.M
   /**
    * @remarks
    * The name of the workflow.
+   * 
+   * @example
+   * OpenAPI test workflow Demo
    */
   name?: string;
   /**
@@ -12830,8 +14187,89 @@ export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $dara.M
   /**
    * @remarks
    * The FlowSpec field information about the workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
+   * 
+   * @example
+   * {
+   *     "metadata": {
+   *         "tenantId": "52425742456XXXX",
+   *         "projectId": "307XXXX",
+   *         "uuid": "463497880880954XXXX"
+   *     },
+   *     "kind": "CycleWorkflow",
+   *     "version": "1.1.0",
+   *     "spec": {
+   *         "name": "OpenAPI_Test_Workflow_Demo",
+   *         "id": "463497880880954XXXX",
+   *         "type": "CycleWorkflow",
+   *         "owner": "110755000425XXXX",
+   *         "workflows": [
+   *             {
+   *                 "script": {
+   *                     "path": "XX/OpenAPI_Test/Workflow_Test/OpenAPI_Test_Workflow_Demo",
+   *                     "runtime": {
+   *                         "command": "WORKFLOW"
+   *                     },
+   *                     "id": "698002781368644XXXX"
+   *                 },
+   *                 "id": "463497880880954XXXX",
+   *                 "trigger": {
+   *                     "type": "Scheduler",
+   *                     "id": "652567824470354XXXX",
+   *                     "cron": "00 02 00 * * ?",
+   *                     "startTime": "1970-01-01 00:00:00",
+   *                     "endTime": "9999-01-01 00:00:00",
+   *                     "timezone": "Asia/Shanghai",
+   *                     "delaySeconds": 0
+   *                 },
+   *                 "strategy": {
+   *                     "timeout": 0,
+   *                     "instanceMode": "T+1",
+   *                     "rerunMode": "Allowed",
+   *                     "rerunTimes": 3,
+   *                     "rerunInterval": 180000,
+   *                     "failureStrategy": "Break"
+   *                 },
+   *                 "name": "OpenAPI_Test_Workflow_Demo",
+   *                 "owner": "110755000425XXXX",
+   *                 "metadata": {
+   *                     "owner": "110755000425XXXX",
+   *                     "ownerName": "XXXX@test.XXXX.com",
+   *                     "tenantId": "52425742456XXXX",
+   *                     "project": {
+   *                         "mode": "STANDARD",
+   *                         "projectId": "307303",
+   *                         "projectIdentifier": "lwttest_standard",
+   *                         "projectName": "XXXX",
+   *                         "projectOwnerId": "110755000425XXXX",
+   *                         "simple": false,
+   *                         "tenantId": "52425742456XXXX"
+   *                     },
+   *                     "projectId": "307XXXX"
+   *                 },
+   *                 "inputs": {},
+   *                 "outputs": {
+   *                     "nodeOutputs": [
+   *                         {
+   *                             "data": "463497880880954XXXX",
+   *                             "artifactType": "NodeOutput",
+   *                             "refTableName": "OpenAPI_Test_Workflow_Demo",
+   *                             "isDefault": true
+   *                         }
+   *                     ]
+   *                 },
+   *                 "nodes": [],
+   *                 "dependencies": []
+   *             }
+   *         ]
+   *     }
+   * }
    */
   spec?: string;
+  /**
+   * @example
+   * 700006657495
+   */
+  workflowId?: number;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -12841,6 +14279,7 @@ export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $dara.M
       owner: 'Owner',
       projectId: 'ProjectId',
       spec: 'Spec',
+      workflowId: 'WorkflowId',
     };
   }
 
@@ -12853,6 +14292,7 @@ export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $dara.M
       owner: 'string',
       projectId: 'number',
       spec: 'string',
+      workflowId: 'number',
     };
   }
 
@@ -12867,6 +14307,9 @@ export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $dara.M
 
 export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model {
   /**
+   * @remarks
+   * The data timestamp.
+   * 
    * @example
    * 1710239005403
    */
@@ -12973,7 +14416,13 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * 工作流类型
+   * The type of the workflow instance. Valid values:
+   * 
+   * *   Normal
+   * *   Manual
+   * *   SmokeTest
+   * *   SupplementData
+   * *   ManualWorkflow
    * 
    * @example
    * Normal
@@ -13219,6 +14668,13 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExten
 }
 
 export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether an alert is triggered if a batch synchronization task is automatically rerun upon a failure.
+   * 
+   * @example
+   * false
+   */
   autoRerunAlertEnabled?: boolean;
   /**
    * @remarks
@@ -13522,7 +14978,7 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarge
    * 
    * *   Task: node
    * *   Baseline: baseline
-   * *   Projec: workspace
+   * *   Project: workspace
    * *   BizProcess: workflow
    * 
    * @example
@@ -13843,7 +15299,7 @@ export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSe
 export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettings extends $dara.Model {
   /**
    * @remarks
-   * The duration of the alert suppression interval. Unit: minutes.
+   * This parameter is deprecated and replaced by the MuteInterval parameter.
    * 
    * @example
    * 5
@@ -13905,7 +15361,7 @@ export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSe
 export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesTriggerConditions extends $dara.Model {
   /**
    * @remarks
-   * The types of DDL operations for which the alert rule takes effect. This parameter is returned only if the MetricType parameter is set to DdlReport.
+   * This parameter is deprecated and replaced by the DdlTypes parameter.
    * 
    * @deprecated
    */
@@ -14750,7 +16206,7 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * The destination type. Valid values: Hologres and Hive.
+   * The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, Loghub, STARROCKS, Datahub, ANALYTICDB_FOR_MYSQL, Kafka, and Hive. If you do not configure this parameter, the API operation returns synchronization tasks that use all type of destinations.
    * 
    * @example
    * Hologres
@@ -14811,7 +16267,7 @@ export class ListDIJobsResponseBodyPagingInfoDIJobs extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The source type. The value MySQL is returned.
+   * The source type. Valid values: PolarDB, MySQL, Kafka, Loghub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SqlServer, Doris, and ClickHouse. If you do not configure this parameter, the API operation returns synchronization tasks that use all types of sources.
    * 
    * @example
    * Mysql
@@ -14914,42 +16370,83 @@ export class ListDIJobsResponseBodyPagingInfo extends $dara.Model {
 
 export class ListDataAssetTagsResponseBodyPagingInfoDataAssetTags extends $dara.Model {
   /**
+   * @remarks
+   * The type of the tag.
+   * 
+   * Valid values:
+   * 
+   * *   Normal
+   * *   System
+   * 
    * @example
    * Normal
    */
   category?: string;
   /**
+   * @remarks
+   * The time when the tag was created.
+   * 
    * @example
    * 1735890003000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The creator of the tag.
+   * 
    * @example
    * 12345
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The description of the tag.
+   * 
+   * @example
+   * This is a description
+   */
   description?: string;
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key1
    */
   key?: string;
+  /**
+   * @remarks
+   * The tag administrators.
+   */
   managers?: string[];
   /**
+   * @remarks
+   * The time when the tag was last modified.
+   * 
    * @example
    * 1735890003000
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The user who last modified the tag.
+   * 
    * @example
    * 1234
    */
   modifyUser?: string;
   /**
+   * @remarks
+   * The type of the tag value.
+   * 
    * @example
    * String
    */
   valueType?: string;
+  /**
+   * @remarks
+   * The tag values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -14997,18 +16494,31 @@ export class ListDataAssetTagsResponseBodyPagingInfoDataAssetTags extends $dara.
 }
 
 export class ListDataAssetTagsResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The tags.
+   */
   dataAssetTags?: ListDataAssetTagsResponseBodyPagingInfoDataAssetTags[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 2524
    */
@@ -15046,6 +16556,10 @@ export class ListDataAssetTagsResponseBodyPagingInfo extends $dara.Model {
 export class ListDataAssetsRequestTags extends $dara.Model {
   /**
    * @remarks
+   * The tag key.
+   * 
+   * The tag key can be up to 64 characters in length and can contain letters, digits, and the following characters: `-@#*<>|[]()+=&%$!~`. It cannot start with `dw:`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15053,6 +16567,9 @@ export class ListDataAssetsRequestTags extends $dara.Model {
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value
    */
@@ -15081,28 +16598,53 @@ export class ListDataAssetsRequestTags extends $dara.Model {
 }
 
 export class ListDataAssetsResponseBodyPagingInfoDataAssetsDataAssetTagMappings extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the lineage-based automatic backtrack feature is enabled for the mapping.
+   * 
+   * @example
+   * false
+   */
   autoTraceEnabled?: boolean;
   /**
+   * @remarks
+   * The creator of the mapping between the data asset and the tag.
+   * 
    * @example
    * 12345
    */
   creator?: string;
   /**
+   * @remarks
+   * The data asset ID.
+   * 
    * @example
    * 7259557313
    */
   dataAssetId?: string;
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key
    */
   key?: string;
   /**
+   * @remarks
+   * The way in which the mapping between the data asset and the tag is created. Valid values:
+   * 
+   * *   System
+   * *   UserDefined
+   * 
    * @example
    * UserDefined
    */
   tagSource?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value
    */
@@ -15139,28 +16681,53 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssetsDataAssetTagMappings 
 }
 
 export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model {
+  /**
+   * @remarks
+   * The mappings between data assets and tags.
+   */
   dataAssetTagMappings?: ListDataAssetsResponseBodyPagingInfoDataAssetsDataAssetTagMappings[];
   /**
+   * @remarks
+   * The environment of the workspace to which the data asset belongs. Valid values:
+   * 
+   * *   Dev: development environment
+   * *   Prod: production environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The data asset ID.
+   * 
    * @example
    * 7259557313
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the data asset.
+   * 
    * @example
    * ali_cn_es_gfn
    */
   name?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 54275
    */
   projectId?: number;
   /**
+   * @remarks
+   * The type of the data asset. Valid values:
+   * 
+   * *   ACS::DataWorks::Table
+   * *   ACS::DataWorks::Task
+   * 
    * @example
    * ACS::DataWorks::Task
    */
@@ -15200,18 +16767,31 @@ export class ListDataAssetsResponseBodyPagingInfoDataAssets extends $dara.Model 
 }
 
 export class ListDataAssetsResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The data assets.
+   */
   dataAssets?: ListDataAssetsResponseBodyPagingInfoDataAssets[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -15590,9 +17170,12 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   id?: number;
   /**
    * @remarks
-   * The name of the task.
+   * The name of the monitor.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Quality verification task
    */
   name?: string;
   /**
@@ -16192,6 +17775,9 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   /**
    * @remarks
    * The name of the data quality monitoring task. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   * 
+   * @example
+   * Data quality verification task
    */
   name?: string;
   /**
@@ -16336,11 +17922,17 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $dara.
 
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetails extends $dara.Model {
   /**
+   * @remarks
+   * The value used to compare with the threshold.
+   * 
    * @example
    * 100.0
    */
   checkedValue?: string;
   /**
+   * @remarks
+   * Use the referenced sample to participate in the CheckedValue calculation of the benchmark value.
+   * 
    * @example
    * 0.0
    */
@@ -16385,6 +17977,17 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetai
 
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsCritical extends $dara.Model {
   /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * The volatility type rule must use an expression to represent the volatility threshold. For example:
+   * 
+   * - Fluctuation rise greater than 0.01: $checkValue > 0.01
+   * - Fluctuation drop greater than 0.01:$checkValue < -0.01
+   * - Absolute volatility: abs($checkValue) > 0.01
+   * 
+   * You can also use expressions to configure thresholds for fixed-Value rules. If you configure them at the same time, the expression priority is higher than Operator and Value.
+   * 
    * @example
    * $checkValue > 0.01
    */
@@ -16403,6 +18006,9 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -16434,6 +18040,17 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsExpected extends $dara.Model {
   /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * The volatility type rule must use an expression to represent the volatility threshold. For example:
+   * 
+   * - Fluctuation rise greater than 0.01: $checkValue > 0.01
+   * - Fluctuation drop greater than 0.01:$checkValue < -0.01
+   * - Absolute volatility: abs($checkValue) > 0.01
+   * 
+   * You can also use expressions to configure thresholds for fixed-Value rules. If you configure them at the same time, the expression priority is higher than Operator and Value.
+   * 
    * @example
    * $checkValue > 0.01
    */
@@ -16452,6 +18069,9 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -16483,6 +18103,17 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholdsWarned extends $dara.Model {
   /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * The volatility type rule must use an expression to represent the volatility threshold. For example:
+   * 
+   * - Fluctuation rise greater than 0.01: $checkValue > 0.01
+   * - Fluctuation drop greater than 0.01:$checkValue < -0.01
+   * - Absolute volatility: abs($checkValue) > 0.01
+   * 
+   * You can also use expressions to configure thresholds for fixed-Value rules. If you configure them at the same time, the expression priority is higher than Operator and Value.
+   * 
    * @example
    * $checkValue > 0.01
    */
@@ -16501,6 +18132,9 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -16582,6 +18216,9 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfig extends $dara.Model {
   /**
+   * @remarks
+   * Some types of thresholds need to query some reference samples, and then summarize the values of the reference samples to obtain the threshold for comparison. Here, an expression is used to represent the query method of the reference samples.
+   * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
    */
@@ -16636,6 +18273,9 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
 
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleErrorHandlers extends $dara.Model {
   /**
+   * @remarks
+   * For custom SQL rules, you must specify SQL to filter problem data.
+   * 
    * @example
    * SELECT * FROM tb_api_log WHERE id IS NULL
    */
@@ -16699,16 +18339,25 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleS
    */
   metric?: string;
   /**
+   * @remarks
+   * Parameters required for sample collection.
+   * 
    * @example
    * { "columns": [ "id", "name" ] }
    */
   metricParameters?: string;
   /**
+   * @remarks
+   * The condition for secondary filtering of data that is not concerned during sampling, which can be up to 16777215 characters in length.
+   * 
    * @example
    * id IS NULL
    */
   samplingFilter?: string;
   /**
+   * @remarks
+   * Before executing the sample statement, insert some runtime parameter setting statements, which can be up to 1000 characters in length. Currently, only MaxCompute is supported.
+   * 
    * @example
    * SET odps.sql.udf.timeout=600s;
    */
@@ -16758,6 +18407,9 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleT
    */
   databaseType?: string;
   /**
+   * @remarks
+   * The unique ID of the table in the data map.
+   * 
    * @example
    * odps.unit_test.tb_unit_test
    */
@@ -16804,11 +18456,17 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule 
    */
   checkingConfig?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfig;
   /**
+   * @remarks
+   * The description of the rule. It can be up to 500 characters in length.
+   * 
    * @example
    * this is a odps _sql task
    */
   description?: string;
   /**
+   * @remarks
+   * Whether the rule is enabled.
+   * 
    * @example
    * true
    */
@@ -16819,12 +18477,25 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule 
    */
   errorHandlers?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleErrorHandlers[];
   /**
+   * @remarks
+   * The ID of the rule.
+   * 
    * @example
    * 100001
    */
   id?: number;
+  /**
+   * @remarks
+   * The rule name, a combination of numbers, English letters, Chinese characters, and half-width punctuation marks, can be up to 255 characters in length.
+   * 
+   * @example
+   * The table cannot be empty.
+   */
   name?: string;
   /**
+   * @remarks
+   * DataWorks the ID of the project.
+   * 
    * @example
    * 100
    */
@@ -16913,6 +18584,9 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule 
 
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResults extends $dara.Model {
   /**
+   * @remarks
+   * The time when the verification result was generated.
+   * 
    * @example
    * 1708284916414
    */
@@ -16923,6 +18597,9 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResults exte
    */
   details?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetails[];
   /**
+   * @remarks
+   * The ID of the verification result.
+   * 
    * @example
    * 16033
    */
@@ -16933,6 +18610,9 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResults exte
    */
   rule?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule;
   /**
+   * @remarks
+   * The sample value used for this verification.
+   * 
    * @example
    * [
    *   {
@@ -16960,6 +18640,9 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResults exte
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the verification task instance.
+   * 
    * @example
    * 200001
    */
@@ -17010,16 +18693,25 @@ export class ListDataQualityResultsResponseBodyPagingInfo extends $dara.Model {
    */
   dataQualityResults?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResults[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 219
    */
@@ -17056,11 +18748,23 @@ export class ListDataQualityResultsResponseBodyPagingInfo extends $dara.Model {
 
 export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTemplatesCheckingConfig extends $dara.Model {
   /**
+   * @remarks
+   * Some types of thresholds need to query some reference samples, and then summarize the values of the reference samples to obtain the threshold for comparison. Here, an expression is used to represent the query method of the reference samples.
+   * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
    */
   referencedSamplesFilter?: string;
   /**
+   * @remarks
+   * Threshold Calculation method
+   * - Fixed
+   * - Fluctation
+   * - FluctationDiscreate
+   * - Auto
+   * - Average
+   * - Variance
+   * 
    * @example
    * Fixed
    */
@@ -17090,16 +18794,40 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTe
 
 export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTemplatesSamplingConfig extends $dara.Model {
   /**
+   * @remarks
+   * The name of the sampled metric.
+   * - Count: number of table rows
+   * - Min: minimum value of the field
+   * - Max: The maximum value of the field.
+   * - Avg: field mean
+   * - DistinctCount: number of unique field values
+   * - DistinctPercent: the ratio of the number of unique field values to the number of data rows.
+   * - DuplicatedCount: number of duplicate field values
+   * - DuplicatedPercent: the ratio of the number of duplicate field values to the number of data rows.
+   * - TableSize: table size
+   * - NullValueCount: number of rows with empty fields
+   * - NullValuePercent: the proportion of fields that are empty.
+   * - GroupCount: aggregate each value by field value and the corresponding number of data rows
+   * - CountNotIn: the enumerated value does not match the number of rows.
+   * - CountDistinctNotIn: the number of unique values that the enumerated values do not match.
+   * - UserDefinedSql: use custom SQL to collect samples
+   * 
    * @example
    * Max
    */
   metric?: string;
   /**
+   * @remarks
+   * Parameters required for sample collection
+   * 
    * @example
    * {"Sql": "select count(1) from table;"}
    */
   metricParameters?: string;
   /**
+   * @remarks
+   * Before executing the sample statement, insert some runtime parameter setting statements, which can be up to 1000 characters in length. Currently, only MaxCompute are supported.
+   * 
    * @example
    * SET odps.sql.udf.timeout=600s; 
    * SET odps.sql.python.version=cp27;
@@ -17131,21 +18859,54 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTe
 }
 
 export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTemplates extends $dara.Model {
+  /**
+   * @remarks
+   * Sample verification settings
+   */
   checkingConfig?: ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTemplatesCheckingConfig;
   /**
+   * @remarks
+   * Rule template Code
+   * 
    * @example
    * USER_DEFINED:123
    */
   code?: string;
+  /**
+   * @remarks
+   * The category directory where the custom template is stored, separated by slashes. Each level name can be up to 1024 characters in length and cannot contain white space characters or slashes.
+   * 
+   * @example
+   * /ods/order_data
+   */
   directoryPath?: string;
+  /**
+   * @remarks
+   * Rule template name, a combination of numbers, English letters, Chinese characters, and half-width punctuation marks, up to 512 characters in length
+   * 
+   * @example
+   * Table row Count Verification
+   */
   name?: string;
   /**
+   * @remarks
+   * DataWorks workspace ID
+   * 
    * @example
    * 2043
    */
   projectId?: number;
+  /**
+   * @remarks
+   * Settings required for sample collection
+   */
   samplingConfig?: ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTemplatesSamplingConfig;
   /**
+   * @remarks
+   * Available range of templates:
+   * - Tenant: all tenants are available
+   * - Project: only available in the current Project
+   * 
    * @example
    * Project
    */
@@ -17190,18 +18951,31 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTe
 }
 
 export class ListDataQualityRuleTemplatesResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Rule template list
+   */
   dataQualityRuleTemplates?: ListDataQualityRuleTemplatesResponseBodyPagingInfoDataQualityRuleTemplates[];
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total number of entries
+   * 
    * @example
    * 42
    */
@@ -17237,6 +19011,21 @@ export class ListDataQualityRuleTemplatesResponseBodyPagingInfo extends $dara.Mo
 }
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsCritical extends $dara.Model {
+  /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * The volatility type rule must use an expression to represent the volatility threshold. For example:
+   * 
+   * - Fluctuation rise greater than 0.01: $checkValue > 0.01
+   * - Fluctuation drop greater than 0.01:$checkValue < -0.01
+   * - Absolute volatility: abs($checkValue) > 0.01
+   * 
+   * You can also use expressions to configure thresholds for fixed-Value rules. If you configure them at the same time, the expression priority is higher than Operator and Value.
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
   expression?: string;
   /**
    * @remarks
@@ -17287,6 +19076,21 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 }
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsExpected extends $dara.Model {
+  /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * The volatility type rule must use an expression to represent the volatility threshold. For example:
+   * 
+   * - Fluctuation rise greater than 0.01: $checkValue > 0.01
+   * - Fluctuation drop greater than 0.01:$checkValue < -0.01
+   * - Absolute volatility: abs($checkValue) > 0.01
+   * 
+   * You can also use expressions to configure thresholds for fixed-Value rules. If you configure them at the same time, the expression priority is higher than Operator and Value.
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
   expression?: string;
   /**
    * @remarks
@@ -17337,6 +19141,21 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 }
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsWarned extends $dara.Model {
+  /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * The volatility type rule must use an expression to represent the volatility threshold. For example:
+   * 
+   * - Fluctuation rise greater than 0.01: $checkValue > 0.01
+   * - Fluctuation drop greater than 0.01:$checkValue < -0.01
+   * - Absolute volatility: abs($checkValue) > 0.01
+   * 
+   * You can also use expressions to configure thresholds for fixed-Value rules. If you configure them at the same time, the expression priority is higher than Operator and Value.
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
   expression?: string;
   /**
    * @remarks
@@ -17710,6 +19529,9 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRules extends 
   /**
    * @remarks
    * The rule name.
+   * 
+   * @example
+   * The table cannot be empty.
    */
   name?: string;
   /**
@@ -17888,6 +19710,11 @@ export class ListDataSourceSharedRulesResponseBodyDataSourceSharedRules extends 
    */
   dataSourceId?: number;
   /**
+   * @remarks
+   * The environment to which the target data source belongs. The values are as follows:
+   * - Dev: the development environment.
+   * - Prod: the production environment.
+   * 
    * @example
    * Dev
    */
@@ -18214,6 +20041,9 @@ export class ListDeploymentsResponseBodyPagingInfoDeploymentsStages extends $dar
   /**
    * @remarks
    * The description of the stage.
+   * 
+   * @example
+   * Check before going online to development
    */
   description?: string;
   /**
@@ -18224,11 +20054,17 @@ export class ListDeploymentsResponseBodyPagingInfoDeploymentsStages extends $dar
   /**
    * @remarks
    * The error message returned during the stage.
+   * 
+   * @example
+   * Error message
    */
   message?: string;
   /**
    * @remarks
    * The name of the stage.
+   * 
+   * @example
+   * Check before going online to development
    */
   name?: string;
   /**
@@ -18338,6 +20174,9 @@ export class ListDeploymentsResponseBodyPagingInfoDeployments extends $dara.Mode
   /**
    * @remarks
    * The error message returned if the process fails.
+   * 
+   * @example
+   * Error message
    */
   message?: string;
   /**
@@ -18419,7 +20258,7 @@ export class ListDeploymentsResponseBodyPagingInfoDeployments extends $dara.Mode
 export class ListDeploymentsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The deployment processes.
+   * The processes.
    */
   deployments?: ListDeploymentsResponseBodyPagingInfoDeployments[];
   /**
@@ -18477,6 +20316,13 @@ export class ListDeploymentsResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInstancesTaskInstanceDataSource extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * mysql_test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18500,7 +20346,21 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
 }
 
 export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInstancesTaskInstanceRuntime extends $dara.Model {
+  /**
+   * @remarks
+   * The host for running.
+   * 
+   * @example
+   * cn-shanghai.1.2
+   */
   gateway?: string;
+  /**
+   * @remarks
+   * The instance run ID.
+   * 
+   * @example
+   * T3_123
+   */
   processId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18526,8 +20386,29 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
 }
 
 export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInstancesTaskInstanceRuntimeResource extends $dara.Model {
+  /**
+   * @remarks
+   * The default number of compute units (CUs) configured for task running.
+   * 
+   * @example
+   * 0.25
+   */
   cu?: string;
+  /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
+   * @example
+   * i-xxxxxx
+   */
   image?: string;
+  /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18555,49 +20436,280 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
 }
 
 export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInstancesTaskInstance extends $dara.Model {
+  /**
+   * @remarks
+   * The baseline ID.
+   * 
+   * @example
+   * 1234
+   */
   baselineId?: number;
+  /**
+   * @remarks
+   * The data timestamp.
+   * 
+   * @example
+   * 1710239005403
+   */
   bizdate?: number;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1710239005403
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The account ID of the creator.
+   * 
+   * @example
+   * 1000
+   */
   createUser?: string;
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInstancesTaskInstanceDataSource;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The environment in which the data source is used. Valid values:
+   * 
+   * *   Dev
+   * *   Prod
+   * 
+   * @example
+   * Prod
+   */
   envType?: string;
+  /**
+   * @remarks
+   * The time when the instance finished running.
+   * 
+   * @example
+   * 1710239005403
+   */
   finishedTime?: number;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * 1234
+   */
   id?: number;
+  /**
+   * @remarks
+   * The modification time.
+   * 
+   * @example
+   * 1710239005403
+   */
   modifyTime?: number;
+  /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
+   * @example
+   * 1000
+   */
   modifyUser?: string;
+  /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
+   * @example
+   * 1000
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The sequence number of the cycle. This parameter indicates the cycle of the task instance on the current day.
+   * 
+   * @example
+   * 1
+   */
   periodNumber?: number;
+  /**
+   * @remarks
+   * The priority of the task. Minimum value: 1. Maximum value: 8. A larger value indicates a higher priority. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 100
+   */
   projectId?: number;
   /**
    * @remarks
    * The rerun mode.
+   * 
+   * @example
+   * AllAllowed
    */
   rerunMode?: string;
+  /**
+   * @remarks
+   * The number of times the instance is run. By default, the value starts from 1.
+   * 
+   * @example
+   * 1
+   */
   runNumber?: number;
+  /**
+   * @remarks
+   * The runtime information about the instance.
+   */
   runtime?: ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInstancesTaskInstanceRuntime;
+  /**
+   * @remarks
+   * The configurations of the runtime environment, such as the resource group information.
+   */
   runtimeResource?: ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInstancesTaskInstanceRuntimeResource;
+  /**
+   * @remarks
+   * The time when the instance started to run.
+   * 
+   * @example
+   * 1710239005403
+   */
   startedTime?: number;
   /**
    * @remarks
-   * The status of the instance.
+   * The status of the instance. Valid values:
+   * 
+   * *   NotRun: The instance is not run.
+   * *   Running: The instance is running.
+   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
+   * *   CheckingCondition: Branch conditions are being checked for the instance.
+   * *   WaitResource: The instance is waiting for resources.
+   * *   Failure: The instance fails to be run.
+   * *   Success: The instance is successfully run.
+   * *   Checking: Data quality is being checked for the instance.
+   * *   WaitTrigger: The instance is waiting to be triggered by external scheduling systems.
+   * 
+   * @example
+   * Success
    */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the task for which the instance is generated.
+   * 
+   * @example
+   * 1234
+   */
   taskId?: number;
+  /**
+   * @remarks
+   * The name of the task for which the instance is generated.
+   * 
+   * @example
+   * SQL node
+   */
   taskName?: string;
   /**
    * @remarks
-   * The task type.
+   * The type of the task for which the instance is generated.
+   * 
+   * @example
+   * ODPS_SQL
    */
   taskType?: string;
+  /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
+   * Note: The value of this parameter is rounded up by hour.
+   * 
+   * @example
+   * 3600
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
+   * @example
+   * Normal
+   */
   triggerRecurrence?: string;
+  /**
+   * @remarks
+   * The scheduling time.
+   * 
+   * @example
+   * 1710239005403
+   */
   triggerTime?: number;
+  /**
+   * @remarks
+   * The trigger type. Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
+   * @example
+   * Scheduler
+   */
   triggerType?: string;
+  /**
+   * @remarks
+   * The ID of the workflow to which the instance belongs.
+   * 
+   * @example
+   * 1234
+   */
   workflowId?: number;
+  /**
+   * @remarks
+   * The workflow instance ID.
+   * 
+   * @example
+   * 1234
+   */
   workflowInstanceId?: number;
+  /**
+   * @remarks
+   * The type of the workflow instance. Valid values:
+   * 
+   * *   Normal
+   * *   Manual
+   * *   SmokeTest
+   * *   SupplementData
+   * *   ManualWorkflow
+   * 
+   * @example
+   * Normal
+   */
   workflowInstanceType?: string;
+  /**
+   * @remarks
+   * The name of the workflow to which the instance belongs.
+   * 
+   * @example
+   * Test workflow
+   */
   workflowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18694,7 +20806,13 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInst
 export class ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInstances extends $dara.Model {
   /**
    * @remarks
-   * The dependency type.
+   * The scheduling dependency type. Valid values:
+   * 
+   * *   Normal: same-cycle scheduling dependency
+   * *   CrossCycle: cross-cycle scheduling dependency
+   * 
+   * @example
+   * Normal
    */
   dependencyType?: string;
   /**
@@ -18894,6 +21012,16 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The environment in which the data source is used. Valid values:
+   * 
+   * *   Dev
+   * *   Prod
+   * 
+   * @example
+   * Prod
+   */
   envType?: string;
   /**
    * @remarks
@@ -18953,9 +21081,7 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
   priority?: number;
   /**
    * @remarks
-   * The environment of the workspace.
-   * 
-   * Valid values:
+   * The environment of the workspace. This parameter is deprecated and replaced by the EnvType parameter. Valid values:
    * 
    * *   Prod: production environment
    * *   Dev: development environment
@@ -19016,9 +21142,7 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
   startedTime?: number;
   /**
    * @remarks
-   * The status of the instance.
-   * 
-   * Valid values:
+   * The status of the instance. Valid values:
    * 
    * *   NotRun: The instance is not run.
    * *   Running: The instance is running.
@@ -19028,6 +21152,7 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
    * *   Failure: The instance fails to be run.
    * *   Success: The instance is successfully run.
    * *   Checking: Data quality is being checked for the instance.
+   * *   WaitTrigger: The instance is waiting to be triggered by external scheduling systems.
    * 
    * @example
    * Success
@@ -19035,7 +21160,13 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
   status?: string;
   /**
    * @remarks
-   * The dependency type.
+   * The scheduling dependency type. Valid values:
+   * 
+   * *   Normal: same-cycle scheduling dependency
+   * *   CrossCycle: cross-cycle scheduling dependency
+   * 
+   * @example
+   * Normal
    */
   stepType?: string;
   /**
@@ -19049,6 +21180,9 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
   /**
    * @remarks
    * The name of the task for which the instance is generated.
+   * 
+   * @example
+   * SQL node
    */
   taskName?: string;
   /**
@@ -19140,6 +21274,9 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
   /**
    * @remarks
    * The name of the workflow to which the instance belongs.
+   * 
+   * @example
+   * Test workflow
    */
   workflowName?: string;
   static names(): { [key: string]: string } {
@@ -19239,6 +21376,10 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
 }
 
 export class ListDownstreamTaskInstancesResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The descendant instances.
+   */
   downstreamTaskInstances?: ListDownstreamTaskInstancesResponseBodyPagingInfoDownstreamTaskInstances[];
   /**
    * @remarks
@@ -19258,7 +21399,7 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfo extends $dara.Mod
   pageSize?: number;
   /**
    * @remarks
-   * The instances.
+   * The instances. This parameter is deprecated and replaced by the DownstreamTaskInstances parameter.
    */
   taskInstances?: ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances[];
   /**
@@ -19305,6 +21446,13 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfo extends $dara.Mod
 }
 
 export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskDataSource extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * mysql_test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19328,8 +21476,29 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskDataSou
 }
 
 export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskRuntimeResource extends $dara.Model {
+  /**
+   * @remarks
+   * The default number of compute units (CUs) configured for task running.
+   * 
+   * @example
+   * 0.25
+   */
   cu?: string;
+  /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
+   * @example
+   * i-xxxxxx
+   */
   image?: string;
+  /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19357,11 +21526,60 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskRuntime
 }
 
 export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskTrigger extends $dara.Model {
+  /**
+   * @remarks
+   * The CRON expression. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
+   * @example
+   * 00 00 00 * * ?
+   */
   cron?: string;
+  /**
+   * @remarks
+   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
+   * @example
+   * 9999-01-01 00:00:00
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
+   * @example
+   * Normal
+   */
   recurrence?: string;
+  /**
+   * @remarks
+   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
+   * @example
+   * 1970-01-01 00:00:00
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time zone.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timezone?: string;
+  /**
+   * @remarks
+   * The trigger type. Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
+   * @example
+   * Scheduler
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19397,43 +21615,145 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskTrigger
 export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extends $dara.Model {
   /**
    * @remarks
-   * The ID of the baseline.
+   * The baseline ID.
+   * 
+   * @example
+   * 1234
    */
   baselineId?: number;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1710239005403
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The account ID of the creator.
+   * 
+   * @example
+   * 1000
+   */
   createUser?: string;
   /**
    * @remarks
-   * The information about the data source.
+   * The information about the associated data source.
    */
   dataSource?: ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskDataSource;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod
+   * *   Dev
+   * 
+   * @example
+   * Prod
+   */
   envType?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * 1234
+   */
   id?: number;
+  /**
+   * @remarks
+   * The instance generation mode. Valid values:
+   * 
+   * *   T+1
+   * *   Immediately
+   * 
+   * @example
+   * T+1
+   */
   instanceMode?: string;
+  /**
+   * @remarks
+   * The modification time.
+   * 
+   * @example
+   * 1710239005403
+   */
   modifyTime?: number;
+  /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
+   * @example
+   * 1000
+   */
   modifyUser?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * SQL node
+   */
   name?: string;
+  /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
+   * @example
+   * 1000
+   */
   owner?: string;
   /**
    * @remarks
    * The priority of the task. Valid values: 1 to 8.
+   * 
+   * @example
+   * 1
    */
   priority?: number;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 100
+   */
   projectId?: number;
   /**
    * @remarks
-   * The interval between two consecutive reruns. Unit: seconds.
+   * The rerun interval. Unit: seconds.
+   * 
+   * @example
+   * 60
    */
   rerunInterval?: number;
   /**
    * @remarks
-   * The rerun mode.
+   * The rerun mode. Valid values:
+   * 
+   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * 
+   * @example
+   * AllAllowed
    */
   rerunMode?: string;
   /**
    * @remarks
-   * The number of reruns.
+   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * 
+   * @example
+   * 3
    */
   rerunTimes?: number;
   /**
@@ -19444,18 +21764,31 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
   /**
    * @remarks
    * The timeout period of task running. Unit: seconds.
+   * 
+   * @example
+   * 3600
    */
   timeout?: number;
   /**
    * @remarks
-   * The method to trigger the running of the task.
+   * The trigger method.
    */
   trigger?: ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTaskTrigger;
   /**
    * @remarks
    * The type of the task.
+   * 
+   * @example
+   * ODPS_SQL
    */
   type?: string;
+  /**
+   * @remarks
+   * The ID of the workflow to which the task belongs.
+   * 
+   * @example
+   * 1234
+   */
   workflowId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19532,9 +21865,19 @@ export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask extend
 export class ListDownstreamTasksResponseBodyPagingInfoDownstreamTasks extends $dara.Model {
   /**
    * @remarks
-   * The dependency type.
+   * The scheduling dependency type. Valid values:
+   * 
+   * *   Normal: same-cycle scheduling dependency
+   * *   CrossCycle: cross-cycle scheduling dependency
+   * 
+   * @example
+   * Normal
    */
   dependencyType?: string;
+  /**
+   * @remarks
+   * The information about the task.
+   */
   task?: ListDownstreamTasksResponseBodyPagingInfoDownstreamTasksTask;
   static names(): { [key: string]: string } {
     return {
@@ -19771,6 +22114,16 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod
+   * *   Dev
+   * 
+   * @example
+   * Prod
+   */
   envType?: string;
   /**
    * @remarks
@@ -19781,6 +22134,12 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
    */
   id?: number;
   /**
+   * @remarks
+   * The instance generation mode. Valid values:
+   * 
+   * *   T+1
+   * *   Immediately
+   * 
    * @example
    * T+1
    */
@@ -19804,6 +22163,9 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   /**
    * @remarks
    * The name of the task.
+   * 
+   * @example
+   * SQL node
    */
   name?: string;
   /**
@@ -19824,12 +22186,12 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
   priority?: number;
   /**
    * @remarks
-   * The environment of the workspace.
+   * The environment of the workspace. This parameter is deprecated and replaced by the EnvType parameter.
    * 
    * Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * *   Prod
+   * *   Dev
    * 
    * @example
    * Prod
@@ -19881,6 +22243,12 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
    */
   runtimeResource?: ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource;
   /**
+   * @remarks
+   * The scheduling dependency type. Valid values:
+   * 
+   * *   Normal: same-cycle scheduling dependency
+   * *   CrossCycle: cross-cycle scheduling dependency
+   * 
    * @example
    * Normal
    */
@@ -19991,6 +22359,10 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $dara.Model 
 }
 
 export class ListDownstreamTasksResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The descendant tasks.
+   */
   downstreamTasks?: ListDownstreamTasksResponseBodyPagingInfoDownstreamTasks[];
   /**
    * @remarks
@@ -20010,7 +22382,7 @@ export class ListDownstreamTasksResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tasks.
+   * The tasks. This parameter is deprecated and replaced by the DownstreamTasks parameter.
    */
   tasks?: ListDownstreamTasksResponseBodyPagingInfoTasks[];
   /**
@@ -20168,6 +22540,9 @@ export class ListFunctionsResponseBodyPagingInfoFunctionsScript extends $dara.Mo
   /**
    * @remarks
    * The script path.
+   * 
+   * @example
+   * XXX/OpenAPI/function/function_name
    */
   path?: string;
   /**
@@ -20252,6 +22627,9 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   /**
    * @remarks
    * The overall description of the UDF.
+   * 
+   * @example
+   * Description
    */
   description?: string;
   /**
@@ -20294,6 +22672,10 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   /**
    * @remarks
    * The description of the example.
+   * 
+   * @example
+   * Example description >>> select tsetUdf(xx,yy);
+   * abc
    */
   exampleDescription?: string;
   /**
@@ -20323,6 +22705,9 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   /**
    * @remarks
    * The name of the UDF.
+   * 
+   * @example
+   * Function name
    */
   name?: string;
   /**
@@ -20336,6 +22721,10 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   /**
    * @remarks
    * The description of the parameter.
+   * 
+   * @example
+   * xx: parameter information XXX
+   * yy: parameter information YYY
    */
   parameterDescription?: string;
   /**
@@ -20349,6 +22738,9 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $dara.Model {
   /**
    * @remarks
    * The description of the return value.
+   * 
+   * @example
+   * The return value is a string.
    */
   returnValueDescription?: string;
   /**
@@ -20512,41 +22904,65 @@ export class ListFunctionsResponseBodyPagingInfo extends $dara.Model {
 
 export class ListNetworksResponseBodyPagingInfoNetworkList extends $dara.Model {
   /**
+   * @remarks
+   * The time when the network resource was created. The value is a 64-bit timestamp.
+   * 
    * @example
    * 1727055811000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the user who creates the network resource.
+   * 
    * @example
    * 11075500042XXXXX
    */
   createUser?: string;
   /**
+   * @remarks
+   * The network ID.
+   * 
    * @example
    * 1000
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the serverless resource group.
+   * 
    * @example
    * Serverless_res_group_524257424564736_6831777003XXXXX
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-2ze13vamugr7jenXXXXX
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The status of the network resource. Valid values: Pending, Creating, Running, Deleting, and Deleted.
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
    * @example
    * vpc-m2et4f3oc8msfbccXXXXX
    */
   vpcId?: string;
   /**
+   * @remarks
+   * The VSwitch ID.
+   * 
    * @example
    * vsw-uf8usrhs7hjd9amsXXXXX
    */
@@ -20587,18 +23003,31 @@ export class ListNetworksResponseBodyPagingInfoNetworkList extends $dara.Model {
 }
 
 export class ListNetworksResponseBodyPagingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The network resources of the serverless resource group.
+   */
   networkList?: ListNetworksResponseBodyPagingInfoNetworkList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -20795,9 +23224,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
   node?: ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariablesNode;
   /**
    * @remarks
-   * The scope of the variable.
-   * 
-   * Valid values:
+   * The scope of the variable. Valid values:
    * 
    * *   NodeParameter
    * *   NodeContext
@@ -20810,9 +23237,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsVariables exte
   scope?: string;
   /**
    * @remarks
-   * The type of the variable.
-   * 
-   * Valid values:
+   * The type of the variable. Valid values:
    * 
    * *   NoKvVariableExpression
    * *   Constant
@@ -21040,9 +23465,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
   node?: ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariablesNode;
   /**
    * @remarks
-   * The scope of the variable.
-   * 
-   * Valid values:
+   * The scope of the variable. Valid values:
    * 
    * *   NodeParameter
    * *   NodeContext
@@ -21055,9 +23478,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsVariables ext
   scope?: string;
   /**
    * @remarks
-   * The type of the variable.
-   * 
-   * Valid values:
+   * The type of the variable. Valid values:
    * 
    * *   NoKvVariableExpression
    * *   Constant
@@ -21276,7 +23697,10 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesScript extends $dara
 export class ListNodeDependenciesResponseBodyPagingInfoNodesStrategy extends $dara.Model {
   /**
    * @remarks
-   * The instance generation mode.
+   * The instance generation mode. Valid values:
+   * 
+   * *   T+1
+   * *   Immediately
    * 
    * @example
    * T+1
@@ -21292,7 +23716,11 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesStrategy extends $da
   rerunInterval?: number;
   /**
    * @remarks
-   * The rerun mode.
+   * The rerun mode. Valid values:
+   * 
+   * *   Allowed
+   * *   Denied
+   * *   FailureAllowed
    * 
    * @example
    * Allowed
@@ -21354,7 +23782,7 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesTags extends $dara.M
   key?: string;
   /**
    * @remarks
-   * The tag value
+   * The tag value.
    * 
    * @example
    * null
@@ -21486,6 +23914,9 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $dara.Model
   /**
    * @remarks
    * The description of the node.
+   * 
+   * @example
+   * Node description
    */
   description?: string;
   /**
@@ -21512,6 +23943,9 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $dara.Model
   /**
    * @remarks
    * The name of the node.
+   * 
+   * @example
+   * Node name
    */
   name?: string;
   /**
@@ -21541,9 +23975,9 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodes extends $dara.Model
    * 
    * Valid values:
    * 
-   * *   Normal: The node is scheduled as expected.
-   * *   Pause: The node is paused, and the running of its descendant nodes is blocked.
-   * *   Skip: The node is dry run. The system does not actually run the node but directly prompts that the node is successfully run. The running duration of the node is 0 seconds. In addition, the node does not occupy resources or block the running of its descendant nodes.
+   * *   Normal: Nodes are scheduled as expected.
+   * *   Pause: Nodes are paused, and the running of their descendant nodes is blocked.
+   * *   Skip: Nodes are dry run. The system does not actually run the nodes but directly prompts that the nodes are successfully run. The running duration of the nodes is 0 seconds. In addition, the nodes do not occupy resources or block the running of their descendant nodes.
    * 
    * @example
    * Normal
@@ -21881,9 +24315,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $dara.M
   node?: ListNodesResponseBodyPagingInfoNodesInputsVariablesNode;
   /**
    * @remarks
-   * The scope of the variable.
-   * 
-   * Valid values:
+   * The scope of the variable. Valid values:
    * 
    * *   WorkSpace
    * *   NodeParameter
@@ -21896,9 +24328,7 @@ export class ListNodesResponseBodyPagingInfoNodesInputsVariables extends $dara.M
   scope?: string;
   /**
    * @remarks
-   * The type of the variable.
-   * 
-   * Valid values:
+   * The type of the variable. Valid values:
    * 
    * *   NoKvVariableExpression
    * *   Constant
@@ -22126,9 +24556,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $dara.
   node?: ListNodesResponseBodyPagingInfoNodesOutputsVariablesNode;
   /**
    * @remarks
-   * The scope of the variable.
-   * 
-   * Valid values:
+   * The scope of the variable. Valid value:
    * 
    * *   NodeParameter
    * *   NodeContext
@@ -22141,9 +24569,7 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsVariables extends $dara.
   scope?: string;
   /**
    * @remarks
-   * The type of the variable.
-   * 
-   * Valid values:
+   * The type of the variable. Valid value:
    * 
    * *   NoKvVariableExpression
    * *   Constant
@@ -22362,7 +24788,10 @@ export class ListNodesResponseBodyPagingInfoNodesScript extends $dara.Model {
 export class ListNodesResponseBodyPagingInfoNodesStrategy extends $dara.Model {
   /**
    * @remarks
-   * The instance generation mode.
+   * The instance generation mode. Valid values:
+   * 
+   * *   T+1
+   * *   Immediately
    * 
    * @example
    * T+1
@@ -22378,7 +24807,11 @@ export class ListNodesResponseBodyPagingInfoNodesStrategy extends $dara.Model {
   rerunInterval?: number;
   /**
    * @remarks
-   * The rerun mode.
+   * The rerun mode. Valid values:
+   * 
+   * *   Allowed
+   * *   Denied
+   * *   FailureAllowed
    * 
    * @example
    * Allowed
@@ -22520,12 +24953,6 @@ export class ListNodesResponseBodyPagingInfoNodesTrigger extends $dara.Model {
    * *   Manual
    * *   Steaming
    * 
-   * <!---->
-   * 
-   * *
-   * *
-   * *
-   * 
    * @example
    * Scheduler
    */
@@ -22578,6 +25005,9 @@ export class ListNodesResponseBodyPagingInfoNodes extends $dara.Model {
   /**
    * @remarks
    * The description of the node.
+   * 
+   * @example
+   * Node description
    */
   description?: string;
   /**
@@ -22826,6 +25256,9 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembersRoles extends
   /**
    * @remarks
    * The name of the role.
+   * 
+   * @example
+   * Visitors
    */
   name?: string;
   /**
@@ -22998,7 +25431,10 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $dara.Mo
   code?: string;
   /**
    * @remarks
-   * The name of the role in the DataWorks workspace.
+   * The name of the role.
+   * 
+   * @example
+   * Visitors
    */
   name?: string;
   /**
@@ -23201,6 +25637,9 @@ export class ListProjectsResponseBodyPagingInfoProjects extends $dara.Model {
   /**
    * @remarks
    * The description of the workspace.
+   * 
+   * @example
+   * Financial analysis group project data development
    */
   description?: string;
   /**
@@ -23228,6 +25667,9 @@ export class ListProjectsResponseBodyPagingInfoProjects extends $dara.Model {
   /**
    * @remarks
    * The display name of the workspace.
+   * 
+   * @example
+   * Sora financial analysis
    */
   displayName?: string;
   /**
@@ -23389,11 +25831,17 @@ export class ListProjectsResponseBodyPagingInfo extends $dara.Model {
 
 export class ListResourceGroupsRequestAliyunResourceTags extends $dara.Model {
   /**
+   * @remarks
+   * Tag Key
+   * 
    * @example
    * key
    */
   key?: string;
   /**
+   * @remarks
+   * Tag Value
+   * 
    * @example
    * value
    */
@@ -23423,11 +25871,17 @@ export class ListResourceGroupsRequestAliyunResourceTags extends $dara.Model {
 
 export class ListResourceGroupsResponseBodyPagingInfoResourceGroupListSpec extends $dara.Model {
   /**
+   * @remarks
+   * Quantity
+   * 
    * @example
    * 1
    */
   amount?: number;
   /**
+   * @remarks
+   * Specification details
+   * 
    * @example
    * 2CU
    */
@@ -23457,41 +25911,65 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupListSpec exten
 
 export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $dara.Model {
   /**
+   * @remarks
+   * Alibaba Cloud Resource Group ID
+   * 
    * @example
    * rg-aek2kqofrgXXXXX
    */
   aliyunResourceGroupId?: string;
   /**
+   * @remarks
+   * The creation time, which is a 64-bit timestamp.
+   * 
    * @example
    * 1727055811000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the user who created the resource group.
+   * 
    * @example
    * 11075500042XXXXX
    */
   createUser?: string;
   /**
+   * @remarks
+   * Default VPC ID bound to a common resource group
+   * 
    * @example
    * vpc-m2et4f3oc8msfbccXXXXX
    */
   defaultVpcId?: string;
   /**
+   * @remarks
+   * The default switch ID bound to the common resource group.
+   * 
    * @example
    * vsw-uf8usrhs7hjd9amsXXXXX
    */
   defaultVswicthId?: string;
   /**
+   * @remarks
+   * Unique identifier of a resource group
+   * 
    * @example
    * Serverless_res_group_524257424564736_6831777003XXXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the resource group.
+   * 
    * @example
    * common_resource_group
    */
   name?: string;
   /**
+   * @remarks
+   * The order instance ID of the resource group.
+   * 
    * @example
    * c442b330-3b10-4584-959e-736e4edXXXXX
    */
@@ -23505,13 +25983,16 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
    */
   paymentType?: string;
   /**
+   * @remarks
+   * Remarks for resource groups
+   * 
    * @example
-   * 创建用于普通任务的通用资源组
+   * Create a common resource group for common tasks
    */
   remark?: string;
   /**
    * @remarks
-   * The type of the resource group. Valid values:
+   * The type of resource group. Valid values:
    * 
    * *   CommonV2: serverless resource group
    * *   ExclusiveDataIntegration: exclusive resource group for Data Integration
@@ -23522,6 +26003,10 @@ export class ListResourceGroupsResponseBodyPagingInfoResourceGroupList extends $
    * CommonV2
    */
   resourceGroupType?: string;
+  /**
+   * @remarks
+   * Resource Group specifications
+   */
   spec?: ListResourceGroupsResponseBodyPagingInfoResourceGroupListSpec;
   /**
    * @remarks
@@ -23613,6 +26098,9 @@ export class ListResourceGroupsResponseBodyPagingInfo extends $dara.Model {
    */
   resourceGroupList?: ListResourceGroupsResponseBodyPagingInfoResourceGroupList[];
   /**
+   * @remarks
+   * All data entries
+   * 
    * @example
    * 100
    */
@@ -23997,31 +26485,49 @@ export class ListResourcesResponseBodyPagingInfo extends $dara.Model {
 
 export class ListRoutesResponseBodyPagingInfoRouteList extends $dara.Model {
   /**
+   * @remarks
+   * The creation time, which is a 64-bit timestamp.
+   * 
    * @example
    * 1727055811000
    */
   createTime?: number;
   /**
+   * @remarks
+   * Route destination CIDR
+   * 
    * @example
    * 192.168.0.0/16
    */
   destinationCidr?: string;
   /**
+   * @remarks
+   * Route ID
+   * 
    * @example
    * 1000
    */
   id?: number;
   /**
+   * @remarks
+   * Network Resource ID
+   * 
    * @example
    * 1000
    */
   networkId?: number;
   /**
+   * @remarks
+   * Unique identifier of the resource group to which it belongs
+   * 
    * @example
-   * Serverless_res_group_524257424564736_6831777003XXXXX
+   * Serverless_res_group_524257424564736_6831777003****
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Unique identifier of network resource
+   * 
    * @example
    * ns-679XXXXXX
    */
@@ -24059,17 +26565,30 @@ export class ListRoutesResponseBodyPagingInfoRouteList extends $dara.Model {
 
 export class ListRoutesResponseBodyPagingInfo extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of network resource routing information obtained.
+   */
   routeList?: ListRoutesResponseBodyPagingInfoRouteList[];
   /**
+   * @remarks
+   * All data entries
+   * 
    * @example
    * 100
    */
@@ -24116,6 +26635,9 @@ export class ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs ex
   /**
    * @remarks
    * The operation content.
+   * 
+   * @example
+   * Freeze tasks
    */
   operationContent?: string;
   /**
@@ -24544,6 +27066,9 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   /**
    * @remarks
    * The name of the task for which the instance is generated.
+   * 
+   * @example
+   * SQL node
    */
   taskName?: string;
   /**
@@ -24635,6 +27160,9 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $dara.
   /**
    * @remarks
    * The name of the workflow to which the instance belongs.
+   * 
+   * @example
+   * Test workflow
    */
   workflowName?: string;
   static names(): { [key: string]: string } {
@@ -24801,6 +27329,9 @@ export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $d
   /**
    * @remarks
    * The operation content.
+   * 
+   * @example
+   * Freeze tasks
    */
   operationContent?: string;
   /**
@@ -25124,6 +27655,12 @@ export class ListTasksResponseBodyPagingInfoTasks extends $dara.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The instance generation mode. Valid values:
+   * 
+   * *   T+1
+   * *   Immediately
+   * 
    * @example
    * T+1
    */
@@ -25147,6 +27684,9 @@ export class ListTasksResponseBodyPagingInfoTasks extends $dara.Model {
   /**
    * @remarks
    * The name of the task.
+   * 
+   * @example
+   * SQL node
    */
   name?: string;
   /**
@@ -25222,6 +27762,9 @@ export class ListTasksResponseBodyPagingInfoTasks extends $dara.Model {
    */
   runtimeResource?: ListTasksResponseBodyPagingInfoTasksRuntimeResource;
   /**
+   * @remarks
+   * The list of script parameters.
+   * 
    * @example
    * para1=$bizdate para2=$[yyyymmdd]
    */
@@ -25555,6 +28098,16 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
+   * @example
+   * Prod
+   */
   envType?: string;
   /**
    * @remarks
@@ -25597,6 +28150,9 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    */
   owner?: string;
   /**
+   * @remarks
+   * The sequence number of the period. Indicates which cycle of the day the task instance is in.
+   * 
    * @example
    * 1
    */
@@ -25661,7 +28217,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   runtime?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime;
   /**
    * @remarks
-   * The information about the resource group with which the instance is associated.
+   * The configurations of the runtime environment, such as the resource group information.
    */
   runtimeResource?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource;
   /**
@@ -25693,7 +28249,13 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   status?: string;
   /**
    * @remarks
-   * The dependency type.
+   * The scheduling dependency type. Valid values:
+   * 
+   * *   Normal: same-cycle scheduling dependency
+   * *   CrossCycle: cross-cycle scheduling dependency
+   * 
+   * @example
+   * Normal
    */
   stepType?: string;
   /**
@@ -25707,6 +28269,9 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   /**
    * @remarks
    * The name of the task for which the instance is generated.
+   * 
+   * @example
+   * SQL node
    */
   taskName?: string;
   /**
@@ -25796,6 +28361,9 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
   /**
    * @remarks
    * The name of the workflow to which the instance belongs.
+   * 
+   * @example
+   * Test workflow
    */
   workflowName?: string;
   static names(): { [key: string]: string } {
@@ -25895,6 +28463,13 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
 }
 
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstanceDataSource extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * mysql_test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25918,7 +28493,21 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
 }
 
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstanceRuntime extends $dara.Model {
+  /**
+   * @remarks
+   * The host for running.
+   * 
+   * @example
+   * cn-shanghai.1.2
+   */
   gateway?: string;
+  /**
+   * @remarks
+   * The instance run ID.
+   * 
+   * @example
+   * T3_123
+   */
   processId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25944,8 +28533,29 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
 }
 
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstanceRuntimeResource extends $dara.Model {
+  /**
+   * @remarks
+   * The default number of compute units (CUs) configured for task running.
+   * 
+   * @example
+   * 0.25
+   */
   cu?: string;
+  /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
+   * @example
+   * i-xxxxxx
+   */
   image?: string;
+  /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25973,49 +28583,280 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
 }
 
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstance extends $dara.Model {
+  /**
+   * @remarks
+   * The baseline ID.
+   * 
+   * @example
+   * 1234
+   */
   baselineId?: number;
+  /**
+   * @remarks
+   * The data timestamp.
+   * 
+   * @example
+   * 1710239005403
+   */
   bizdate?: number;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1710239005403
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The account ID of the creator.
+   * 
+   * @example
+   * 1000
+   */
   createUser?: string;
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstanceDataSource;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The environment in which the data source is used. Valid values:
+   * 
+   * *   Dev
+   * *   Prod
+   * 
+   * @example
+   * Prod
+   */
   envType?: string;
+  /**
+   * @remarks
+   * The time when the instance finished running.
+   * 
+   * @example
+   * 1710239005403
+   */
   finishedTime?: number;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * 1234
+   */
   id?: number;
+  /**
+   * @remarks
+   * The modification time.
+   * 
+   * @example
+   * 1710239005403
+   */
   modifyTime?: number;
+  /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
+   * @example
+   * 1000
+   */
   modifyUser?: string;
+  /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
+   * @example
+   * 1000
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The sequence number of the cycle. This parameter indicates the cycle of the task instance on the current day.
+   * 
+   * @example
+   * 1
+   */
   periodNumber?: number;
+  /**
+   * @remarks
+   * The priority of the task. Minimum value: 1. Maximum value: 8. A larger value indicates a higher priority. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 100
+   */
   projectId?: number;
   /**
    * @remarks
    * The rerun mode.
+   * 
+   * @example
+   * AllAllowed
    */
   rerunMode?: string;
+  /**
+   * @remarks
+   * The number of times the instance is run. By default, the value starts from 1.
+   * 
+   * @example
+   * 1
+   */
   runNumber?: number;
+  /**
+   * @remarks
+   * The runtime information about the instance.
+   */
   runtime?: ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstanceRuntime;
+  /**
+   * @remarks
+   * The configurations of the runtime environment, such as the resource group information.
+   */
   runtimeResource?: ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstancesTaskInstanceRuntimeResource;
+  /**
+   * @remarks
+   * The time when the instance started to run.
+   * 
+   * @example
+   * 1710239005403
+   */
   startedTime?: number;
   /**
    * @remarks
-   * The status of the instance.
+   * The status of the instance. Valid values:
+   * 
+   * *   NotRun: The instance is not run.
+   * *   Running: The instance is running.
+   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
+   * *   CheckingCondition: Branch conditions are being checked for the instance.
+   * *   WaitResource: The instance is waiting for resources.
+   * *   Failure: The instance fails to be run.
+   * *   Success: The instance is successfully run.
+   * *   Checking: Data quality is being checked for the instance.
+   * *   WaitTrigger: The instance is waiting to be triggered by external scheduling systems.
+   * 
+   * @example
+   * Success
    */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the task for which the instance is generated.
+   * 
+   * @example
+   * 1234
+   */
   taskId?: number;
+  /**
+   * @remarks
+   * The name of the task for which the instance is generated.
+   * 
+   * @example
+   * SQL node
+   */
   taskName?: string;
   /**
    * @remarks
-   * The task type.
+   * The type of the task for which the instance is generated.
+   * 
+   * @example
+   * ODPS_SQL
    */
   taskType?: string;
+  /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
+   * Note: The value of this parameter is rounded up by hour.
+   * 
+   * @example
+   * 3600
+   */
   timeout?: number;
+  /**
+   * @remarks
+   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
+   * @example
+   * Normal
+   */
   triggerRecurrence?: string;
+  /**
+   * @remarks
+   * The scheduling time.
+   * 
+   * @example
+   * 1710239005403
+   */
   triggerTime?: number;
+  /**
+   * @remarks
+   * The trigger type. Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
+   * @example
+   * Scheduler
+   */
   triggerType?: string;
+  /**
+   * @remarks
+   * The ID of the workflow to which the instance belongs.
+   * 
+   * @example
+   * 1234
+   */
   workflowId?: number;
+  /**
+   * @remarks
+   * The workflow instance ID.
+   * 
+   * @example
+   * 1234
+   */
   workflowInstanceId?: number;
+  /**
+   * @remarks
+   * The type of the workflow instance. Valid values:
+   * 
+   * *   Normal
+   * *   Manual
+   * *   SmokeTest
+   * *   SupplementData
+   * *   ManualWorkflow
+   * 
+   * @example
+   * Normal
+   */
   workflowInstanceType?: string;
+  /**
+   * @remarks
+   * The name of the workflow to which the instance belongs.
+   * 
+   * @example
+   * Test workflow
+   */
   workflowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26112,7 +28953,13 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstance
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstances extends $dara.Model {
   /**
    * @remarks
-   * The dependency type.
+   * The scheduling dependency type. Valid values:
+   * 
+   * *   Normal
+   * *   CrossCycle
+   * 
+   * @example
+   * Normal
    */
   dependencyType?: string;
   /**
@@ -26165,7 +29012,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfo extends $dara.Model
   pageSize?: number;
   /**
    * @remarks
-   * The instances.
+   * The instances. This parameter is deprecated and replaced by the UpstreamTaskInstances parameter.
    */
   taskInstances?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances[];
   /**
@@ -26176,6 +29023,10 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfo extends $dara.Model
    * 100
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The ancestor instances.
+   */
   upstreamTaskInstances?: ListUpstreamTaskInstancesResponseBodyPagingInfoUpstreamTaskInstances[];
   static names(): { [key: string]: string } {
     return {
@@ -26421,6 +29272,16 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $dara.Model {
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod
+   * *   Dev
+   * 
+   * @example
+   * Prod
+   */
   envType?: string;
   /**
    * @remarks
@@ -26461,6 +29322,9 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $dara.Model {
   /**
    * @remarks
    * The name of the task.
+   * 
+   * @example
+   * SQL node
    */
   name?: string;
   /**
@@ -26481,12 +29345,12 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The environment of the workspace.
+   * The environment of the workspace. This parameter is deprecated and replaced by the EnvType parameter.
    * 
    * Valid values:
    * 
-   * *   Prod: production environment
-   * *   Dev: development environment
+   * *   Prod
+   * *   Dev
    * 
    * @example
    * Prod
@@ -26655,6 +29519,13 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $dara.Model {
 }
 
 export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskDataSource extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the data source.
+   * 
+   * @example
+   * mysql_test
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26678,8 +29549,29 @@ export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskDataSource 
 }
 
 export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskRuntimeResource extends $dara.Model {
+  /**
+   * @remarks
+   * The default number of compute units (CUs) configured for task running.
+   * 
+   * @example
+   * 0.25
+   */
   cu?: string;
+  /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
+   * @example
+   * i-xxxxxx
+   */
   image?: string;
+  /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
+   * @example
+   * S_res_group_524258031846018_1684XXXXXXXXX
+   */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26707,11 +29599,60 @@ export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskRuntimeReso
 }
 
 export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskTrigger extends $dara.Model {
+  /**
+   * @remarks
+   * The CRON expression. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
+   * @example
+   * 00 00 00 * * ?
+   */
   cron?: string;
+  /**
+   * @remarks
+   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
+   * @example
+   * 9999-01-01 00:00:00
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
+   * @example
+   * Normal
+   */
   recurrence?: string;
+  /**
+   * @remarks
+   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
+   * @example
+   * 1970-01-01 00:00:00
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time zone.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timezone?: string;
+  /**
+   * @remarks
+   * The trigger type. Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
+   * @example
+   * Scheduler
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26747,43 +29688,145 @@ export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskTrigger ext
 export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTask extends $dara.Model {
   /**
    * @remarks
-   * The ID of the baseline.
+   * The baseline ID.
+   * 
+   * @example
+   * 1234
    */
   baselineId?: number;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1710239005403
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The account ID of the creator.
+   * 
+   * @example
+   * 1000
+   */
   createUser?: string;
   /**
    * @remarks
-   * The information about the data source.
+   * The information about the associated data source.
    */
   dataSource?: ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskDataSource;
+  /**
+   * @remarks
+   * The description of the task.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod
+   * *   Dev
+   * 
+   * @example
+   * Prod
+   */
   envType?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * 1234
+   */
   id?: number;
+  /**
+   * @remarks
+   * The instance generation mode. Valid values:
+   * 
+   * *   T+1
+   * *   Immediately
+   * 
+   * @example
+   * T+1
+   */
   instanceMode?: string;
+  /**
+   * @remarks
+   * The modification time.
+   * 
+   * @example
+   * 1710239005403
+   */
   modifyTime?: number;
+  /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
+   * @example
+   * 1000
+   */
   modifyUser?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * SQL node
+   */
   name?: string;
+  /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
+   * @example
+   * 1000
+   */
   owner?: string;
   /**
    * @remarks
    * The priority of the task. Valid values: 1 to 8.
+   * 
+   * @example
+   * 1
    */
   priority?: number;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * 100
+   */
   projectId?: number;
   /**
    * @remarks
-   * The interval between two consecutive reruns. Unit: seconds.
+   * The rerun interval. Unit: seconds.
+   * 
+   * @example
+   * 60
    */
   rerunInterval?: number;
   /**
    * @remarks
-   * The rerun mode.
+   * The rerun mode. Valid values:
+   * 
+   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * 
+   * @example
+   * AllAllowed
    */
   rerunMode?: string;
   /**
    * @remarks
-   * The number of reruns.
+   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * 
+   * @example
+   * 3
    */
   rerunTimes?: number;
   /**
@@ -26794,18 +29837,31 @@ export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTask extends $d
   /**
    * @remarks
    * The timeout period of task running. Unit: seconds.
+   * 
+   * @example
+   * 3600
    */
   timeout?: number;
   /**
    * @remarks
-   * The method to trigger the running of the task.
+   * The trigger method.
    */
   trigger?: ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTaskTrigger;
   /**
    * @remarks
    * The type of the task.
+   * 
+   * @example
+   * ODPS_SQL
    */
   type?: string;
+  /**
+   * @remarks
+   * The ID of the workflow to which the task belongs.
+   * 
+   * @example
+   * 1234
+   */
   workflowId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -26882,9 +29938,19 @@ export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTask extends $d
 export class ListUpstreamTasksResponseBodyPagingInfoUpstreamTasks extends $dara.Model {
   /**
    * @remarks
-   * The dependency type.
+   * The scheduling dependency type. Valid values:
+   * 
+   * *   Normal: same-cycle scheduling dependency
+   * *   CrossCycle: cross-cycle scheduling dependency
+   * 
+   * @example
+   * Normal
    */
   dependencyType?: string;
+  /**
+   * @remarks
+   * The information about the task.
+   */
   task?: ListUpstreamTasksResponseBodyPagingInfoUpstreamTasksTask;
   static names(): { [key: string]: string } {
     return {
@@ -26931,7 +29997,7 @@ export class ListUpstreamTasksResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The tasks.
+   * The tasks. This parameter is deprecated and replaced by the UpstreamTasks parameter.
    */
   tasks?: ListUpstreamTasksResponseBodyPagingInfoTasks[];
   /**
@@ -26942,6 +30008,10 @@ export class ListUpstreamTasksResponseBodyPagingInfo extends $dara.Model {
    * 100
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The ancestor tasks.
+   */
   upstreamTasks?: ListUpstreamTasksResponseBodyPagingInfoUpstreamTasks[];
   static names(): { [key: string]: string } {
     return {
@@ -27020,6 +30090,9 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitionsScr
   /**
    * @remarks
    * The script path.
+   * 
+   * @example
+   * XX/OpenAPI_test/workflow_test/OpenAPI_test_workflow_Demo
    */
   path?: string;
   /**
@@ -27067,6 +30140,9 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
   /**
    * @remarks
    * The description of the workflow.
+   * 
+   * @example
+   * Workflow description
    */
   description?: string;
   /**
@@ -27088,6 +30164,9 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfoWorkflowDefinitions ex
   /**
    * @remarks
    * The name of the workflow.
+   * 
+   * @example
+   * OpenAPI test workflow Demo
    */
   name?: string;
   /**
@@ -27227,64 +30306,131 @@ export class ListWorkflowDefinitionsResponseBodyPagingInfo extends $dara.Model {
 }
 
 export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extends $dara.Model {
+  /**
+   * @remarks
+   * 业务日期。
+   * 
+   * @example
+   * 1710239005403
+   */
   bizDate?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The account ID of the creator.
+   * 
    * @example
    * 100
    */
   createUser?: string;
   /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod
+   * *   Dev
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The time when the instance finished running.
+   * 
    * @example
    * 1710239005403
    */
   finishedTime?: number;
   /**
+   * @remarks
+   * The workflow instance ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
    * @example
    * 100
    */
   modifyUser?: string;
   /**
+   * @remarks
+   * The name of the workflow instance.
+   * 
    * @example
    * WorkflowInstance1
    */
   name?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The time when the instance started to run.
+   * 
    * @example
    * 1710239005403
    */
   startedTime?: number;
   /**
+   * @remarks
+   * The status of the workflow instance. Valid values:
+   * 
+   * *   NotRun: The instance is not run.
+   * *   Running: The instance is running.
+   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
+   * *   CheckingCondition: Branch conditions are being checked for the instance.
+   * *   WaitResource: The instance is waiting for resources.
+   * *   Failure: The instance fails to be run.
+   * *   Success: The instance is successfully run.
+   * *   Checking: Data quality is being checked for the instance.
+   * 
    * @example
    * Success
    */
   status?: string;
+  /**
+   * @remarks
+   * 工作流实例的类型。
+   * - Normal：周期调度
+   * - Manual：手动任务
+   * - SmokeTest：测试
+   * - SupplementData：补数据
+   * - ManualWorkflow：手动工作流
+   * 
+   * @example
+   * Normal
+   */
   type?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the instance belongs.
+   * 
    * @example
    * 1234
    */
@@ -27338,20 +30484,33 @@ export class ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances extend
 
 export class ListWorkflowInstancesResponseBodyPagingInfo extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The workflow instances.
+   */
   workflowInstances?: ListWorkflowInstancesResponseBodyPagingInfoWorkflowInstances[];
   static names(): { [key: string]: string } {
     return {
@@ -27385,26 +30544,48 @@ export class ListWorkflowInstancesResponseBodyPagingInfo extends $dara.Model {
 
 export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.Model {
   /**
+   * @remarks
+   * The CRON expression. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 00 00 00 * * ?
    */
   cron?: string;
   /**
+   * @remarks
+   * The end time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 9999-01-01 00:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The running mode of the workflow after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   recurrence?: string;
   /**
+   * @remarks
+   * The start time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 1970-01-01 00:00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The trigger type. Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
    * @example
    * Scheduler
    */
@@ -27440,65 +30621,108 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.M
 
 export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
   /**
+   * @remarks
+   * The unique code of the client. This parameter is used to create a workflow asynchronously and implement the idempotence of the workflow. If you do not specify this parameter when you create the workflow, the system automatically generates a unique code. The unique code is uniquely associated with the workflow ID. If you specify this parameter when you update or delete the workflow, the value of this parameter must be the unique code that is used to create the workflow.
+   * 
    * @example
    * Workflow_0bc5213917368545132902xxxxxxxx
    */
   clientUniqueCode?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The account ID of the creator.
+   * 
    * @example
    * 1000
    */
   createUser?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod
+   * *   Dev
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The workflow ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
    * @example
    * 1000
    */
   modifyUser?: string;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * Workflow1
    */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The parameters.
+   * 
    * @example
    * para1=$bizdate para2=$[yyyymmdd]
    */
   parameters?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The trigger method.
+   */
   trigger?: ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger;
   static names(): { [key: string]: string } {
     return {
@@ -27550,20 +30774,33 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
 
 export class ListWorkflowsResponseBodyPagingInfo extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The workflows.
+   */
   workflows?: ListWorkflowsResponseBodyPagingInfoWorkflows[];
   static names(): { [key: string]: string } {
     return {
@@ -27684,6 +30921,8 @@ export class StartDIJobRequestRealtimeStartSettings extends $dara.Model {
 export class TagDataAssetsRequestTags extends $dara.Model {
   /**
    * @remarks
+   * The tag key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27691,6 +30930,9 @@ export class TagDataAssetsRequestTags extends $dara.Model {
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value
    */
@@ -27721,6 +30963,8 @@ export class TagDataAssetsRequestTags extends $dara.Model {
 export class UnTagDataAssetsRequestTags extends $dara.Model {
   /**
    * @remarks
+   * The tag key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27728,6 +30972,9 @@ export class UnTagDataAssetsRequestTags extends $dara.Model {
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value
    */
@@ -29260,26 +32507,32 @@ export class UpdateDIJobRequestTransformationRules extends $dara.Model {
 }
 
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical extends $dara.Model {
+  /**
+   * @remarks
+   * 阈值表达式。
+   * 
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
+   * 
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
+   * 
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
   expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
    * 
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * 
-   * Valid values:
-   * 
-   * *   <=
-   * *   <
-   * *   ! =
-   * *   \\=
    * *   \\>
    * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
    * 
    * @example
    * >
@@ -29319,26 +32572,32 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 }
 
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected extends $dara.Model {
+  /**
+   * @remarks
+   * 阈值表达式。
+   * 
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
+   * 
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
+   * 
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
   expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
    * 
-   * *
-   * *
-   * *
+   * *   \\>
+   * *   \\>=
+   * *   <
    * *   <=
    * *   !=
    * *   \\=
-   * 
-   * Valid values:
-   * 
-   * *   <=
-   * *   <
-   * *   ! =
-   * *   \\=
-   * *   \\>
-   * *   \\>=
    * 
    * @example
    * =
@@ -29378,26 +32637,32 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
 }
 
 export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned extends $dara.Model {
+  /**
+   * @remarks
+   * 阈值表达式。
+   * 
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
+   * 
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
+   * 
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
   expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
    * 
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * 
-   * Valid values:
-   * 
-   * *   <=
-   * *   <
-   * *   ! =
-   * *   \\=
    * *   \\>
    * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
    * 
    * @example
    * >
@@ -29502,15 +32767,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfi
   thresholds?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholds;
   /**
    * @remarks
-   * The threshold calculation method.
-   * 
-   * *
-   * *
-   * *
-   * *
-   * *
-   * 
-   * Valid values:
+   * The threshold calculation method. Valid values:
    * 
    * *   Fluctuation
    * *   Auto
@@ -29561,11 +32818,7 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers
   errorDataFilter?: string;
   /**
    * @remarks
-   * The type of the operation.
-   * 
-   * *
-   * 
-   * Valid values:
+   * The type of the operation. Valid values:
    * 
    * *   SaveErrorData
    * 
@@ -29600,23 +32853,6 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfi
   /**
    * @remarks
    * The metrics used for sampling.
-   * 
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * 
    * Valid values:
    * 
    * *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
@@ -29699,6 +32935,9 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRules extends $dar
   /**
    * @remarks
    * The description of the rule.
+   * 
+   * @example
+   * OpenAPI test rules
    */
   description?: string;
   /**
@@ -29725,6 +32964,9 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRules extends $dar
   /**
    * @remarks
    * The name of the monitoring rule.
+   * 
+   * @example
+   * OpenAPI test rules
    */
   name?: string;
   /**
@@ -29734,15 +32976,10 @@ export class UpdateDataQualityEvaluationTaskRequestDataQualityRules extends $dar
   samplingConfig?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfig;
   /**
    * @remarks
-   * The strength of the rule.
+   * The strength of the rule. Valid values:
    * 
-   * *
-   * *
-   * 
-   * Valid values:
-   * 
-   * *   High
    * *   Normal
+   * *   High
    * 
    * @example
    * Normal
@@ -29850,7 +33087,7 @@ export class UpdateDataQualityEvaluationTaskRequestHooks extends $dara.Model {
 export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels extends $dara.Model {
   /**
    * @remarks
-   * The alert notification method.
+   * The alert notification methods.
    */
   channels?: string[];
   static names(): { [key: string]: string } {
@@ -29940,7 +33177,7 @@ export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNot
 export class UpdateDataQualityEvaluationTaskRequestNotificationsNotifications extends $dara.Model {
   /**
    * @remarks
-   * The alert notification method.
+   * The alert notification methods.
    */
   notificationChannels?: UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels[];
   /**
@@ -30023,9 +33260,7 @@ export class UpdateDataQualityEvaluationTaskRequestNotifications extends $dara.M
 export class UpdateDataQualityEvaluationTaskRequestTarget extends $dara.Model {
   /**
    * @remarks
-   * The type of the database to which the table belongs.
-   * 
-   * Valid values:
+   * The type of the database to which the table belongs. Valid values:
    * 
    * *   maxcompute
    * *   hologres
@@ -30088,12 +33323,7 @@ export class UpdateDataQualityEvaluationTaskRequestTrigger extends $dara.Model {
   taskIds?: number[];
   /**
    * @remarks
-   * The trigger type of the monitor.
-   * 
-   * *
-   * *
-   * 
-   * Valid values:
+   * The trigger type of the monitor. Valid values:
    * 
    * *   ByScheduledTaskInstance: The monitor is triggered by the associated scheduling tasks.
    * *   ByManual: The monitor is manually triggered.
@@ -30130,6 +33360,17 @@ export class UpdateDataQualityEvaluationTaskRequestTrigger extends $dara.Model {
 
 export class UpdateDataQualityRuleRequestCheckingConfigThresholdsCritical extends $dara.Model {
   /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * The volatility type rule must use an expression to represent the volatility threshold. For example:
+   * 
+   * - Fluctuation rise greater than 0.01: $checkValue > 0.01
+   * - Fluctuation drop greater than 0.01:$checkValue < -0.01
+   * - Absolute volatility: abs($checkValue) > 0.01
+   * 
+   * You can also use expressions to configure thresholds for fixed-Value rules. If you configure them at the same time, the expression priority is higher than Operator and Value.
+   * 
    * @example
    * $checkValue > 0.05
    */
@@ -30184,6 +33425,17 @@ export class UpdateDataQualityRuleRequestCheckingConfigThresholdsCritical extend
 
 export class UpdateDataQualityRuleRequestCheckingConfigThresholdsExpected extends $dara.Model {
   /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * The volatility type rule must use an expression to represent the volatility threshold. For example:
+   * 
+   * - Fluctuation rise greater than 0.01: $checkValue > 0.01
+   * - Fluctuation drop greater than 0.01:$checkValue < -0.01
+   * - Absolute volatility: abs($checkValue) > 0.01
+   * 
+   * You can also use expressions to configure thresholds for fixed-Value rules. If you configure them at the same time, the expression priority is higher than Operator and Value.
+   * 
    * @example
    * $checkValue <= 0.01
    */
@@ -30238,6 +33490,17 @@ export class UpdateDataQualityRuleRequestCheckingConfigThresholdsExpected extend
 
 export class UpdateDataQualityRuleRequestCheckingConfigThresholdsWarned extends $dara.Model {
   /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * The volatility type rule must use an expression to represent the volatility threshold. For example:
+   * 
+   * - Fluctuation rise greater than 0.01: $checkValue > 0.01
+   * - Fluctuation drop greater than 0.01:$checkValue < -0.01
+   * - Absolute volatility: abs($checkValue) > 0.01
+   * 
+   * You can also use expressions to configure thresholds for fixed-Value rules. If you configure them at the same time, the expression priority is higher than Operator and Value.
+   * 
    * @example
    * $checkValue > 0.01
    */
@@ -30627,6 +33890,9 @@ export class UpdateDataQualityRuleTemplateRequestSamplingConfig extends $dara.Mo
 
 export class UpdateTaskRequestDataSource extends $dara.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * odps_test
    */
@@ -30655,6 +33921,12 @@ export class UpdateTaskRequestDataSource extends $dara.Model {
 export class UpdateTaskRequestDependencies extends $dara.Model {
   /**
    * @remarks
+   * The type of the dependency.
+   * - CrossCycleDependsOnChildren: cross-cycle dependency level-1 child nodes
+   * - CrossCycleDependsOnSelf: cross-cycle dependency
+   * - CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
+   * - Normal: same-cycle dependency
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30662,11 +33934,17 @@ export class UpdateTaskRequestDependencies extends $dara.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The output identifier of the upstream task. (This field is returned when the input content is set depending on the same cycle)
+   * 
    * @example
    * pre.odps_sql_demo_0
    */
   upstreamOutput?: string;
   /**
+   * @remarks
+   * The Id of the upstream task. (This field is returned when the input content is not set for cross-cycle dependencies on other nodes and same-cycle dependencies.
+   * 
    * @example
    * 1234
    */
@@ -30698,12 +33976,21 @@ export class UpdateTaskRequestDependencies extends $dara.Model {
 
 export class UpdateTaskRequestInputsVariables extends $dara.Model {
   /**
+   * @remarks
+   * The name of the variable.
+   * 
    * @example
    * key1
    */
   name?: string;
   /**
    * @remarks
+   * Type.
+   * - Constant: Constant
+   * - PassThrough: parameter node output
+   * - System: variable
+   * - NodeOutput: script output
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30711,6 +33998,9 @@ export class UpdateTaskRequestInputsVariables extends $dara.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The value of the variable.
+   * 
    * @example
    * value1
    */
@@ -30741,6 +34031,10 @@ export class UpdateTaskRequestInputsVariables extends $dara.Model {
 }
 
 export class UpdateTaskRequestInputs extends $dara.Model {
+  /**
+   * @remarks
+   * The list of variable definitions.
+   */
   variables?: UpdateTaskRequestInputsVariables[];
   static names(): { [key: string]: string } {
     return {
@@ -30768,6 +34062,9 @@ export class UpdateTaskRequestInputs extends $dara.Model {
 
 export class UpdateTaskRequestOutputsTaskOutputs extends $dara.Model {
   /**
+   * @remarks
+   * The output identifier.
+   * 
    * @example
    * pre.odps_sql_demo_0
    */
@@ -30795,12 +34092,21 @@ export class UpdateTaskRequestOutputsTaskOutputs extends $dara.Model {
 
 export class UpdateTaskRequestOutputsVariables extends $dara.Model {
   /**
+   * @remarks
+   * The name of the variable.
+   * 
    * @example
    * key1
    */
   name?: string;
   /**
    * @remarks
+   * Type.
+   * - Constant: Constant
+   * - PassThrough: parameter node output
+   * - System: variable
+   * - NodeOutput: script output
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30808,6 +34114,9 @@ export class UpdateTaskRequestOutputsVariables extends $dara.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The value of the variable.
+   * 
    * @example
    * value1
    */
@@ -30838,7 +34147,15 @@ export class UpdateTaskRequestOutputsVariables extends $dara.Model {
 }
 
 export class UpdateTaskRequestOutputs extends $dara.Model {
+  /**
+   * @remarks
+   * The list of task output definitions.
+   */
   taskOutputs?: UpdateTaskRequestOutputsTaskOutputs[];
+  /**
+   * @remarks
+   * The list of variable definitions.
+   */
   variables?: UpdateTaskRequestOutputsVariables[];
   static names(): { [key: string]: string } {
     return {
@@ -30871,17 +34188,25 @@ export class UpdateTaskRequestOutputs extends $dara.Model {
 
 export class UpdateTaskRequestRuntimeResource extends $dara.Model {
   /**
+   * @remarks
+   * Configure CU consumption for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for the task.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
    * @remarks
+   * The identifier of the scheduling resource group configured for running the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30915,11 +34240,17 @@ export class UpdateTaskRequestRuntimeResource extends $dara.Model {
 
 export class UpdateTaskRequestScript extends $dara.Model {
   /**
+   * @remarks
+   * The script content.
+   * 
    * @example
    * echo "helloWorld"
    */
   content?: string;
   /**
+   * @remarks
+   * The list of script parameters.
+   * 
    * @example
    * para1=$bizdate
    */
@@ -30950,6 +34281,8 @@ export class UpdateTaskRequestScript extends $dara.Model {
 export class UpdateTaskRequestTags extends $dara.Model {
   /**
    * @remarks
+   * The tag key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30957,6 +34290,9 @@ export class UpdateTaskRequestTags extends $dara.Model {
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the tag.
+   * 
    * @example
    * value1
    */
@@ -30986,27 +34322,46 @@ export class UpdateTaskRequestTags extends $dara.Model {
 
 export class UpdateTaskRequestTrigger extends $dara.Model {
   /**
+   * @remarks
+   * Cron expression, which takes effect when type = Scheduler.
+   * 
    * @example
    * 00 00 00 * * ?
    */
   cron?: string;
   /**
+   * @remarks
+   * The expiration time of the periodic trigger, which takes effect when type = Scheduler.
+   * 
    * @example
    * 9999-01-01 00:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The operation mode when the trigger is triggered. It takes effect when type = Scheduler.
+   * - Pause: Pause
+   * - Skip: empty run
+   * - Normal: Normal operation
+   * 
    * @example
    * Normal
    */
   recurrence?: string;
   /**
+   * @remarks
+   * The time when the cycle trigger takes effect. It takes effect when type = Scheduler.
+   * 
    * @example
    * 1970-01-01 00:00:00
    */
   startTime?: string;
   /**
    * @remarks
+   * The type of the trigger method.
+   * - Scheduler: the scheduling cycle is triggered.
+   * - Manual: manually triggered
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31139,6 +34494,12 @@ export class UpdateTaskInstancesRequestTaskInstances extends $dara.Model {
 export class UpdateWorkflowRequestDependencies extends $dara.Model {
   /**
    * @remarks
+   * The type of the dependency.
+   * - CrossCycleDependsOnChildren: cross-cycle dependency level-1 child nodes
+   * - CrossCycleDependsOnSelf: cross-cycle dependency
+   * - CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
+   * - Normal: same-cycle dependency
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31146,11 +34507,17 @@ export class UpdateWorkflowRequestDependencies extends $dara.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The output identifier of the upstream task. (This field is returned when `same cycle dependence` and input content is set)
+   * 
    * @example
    * pre.odps_sql_demo_0
    */
   upstreamOutput?: string;
   /**
+   * @remarks
+   * The Id of the upstream task. (This field is returned when the input content is not set for `cross-cycle dependency other nodes` and `same-cycle dependency `, otherwise it is not returned)
+   * 
    * @example
    * 1234
    */
@@ -31182,6 +34549,9 @@ export class UpdateWorkflowRequestDependencies extends $dara.Model {
 
 export class UpdateWorkflowRequestOutputsTaskOutputs extends $dara.Model {
   /**
+   * @remarks
+   * The output identifier.
+   * 
    * @example
    * pre.odps_sql_demo_0
    */
@@ -31208,6 +34578,10 @@ export class UpdateWorkflowRequestOutputsTaskOutputs extends $dara.Model {
 }
 
 export class UpdateWorkflowRequestOutputs extends $dara.Model {
+  /**
+   * @remarks
+   * The list of workflow task output definitions.
+   */
   taskOutputs?: UpdateWorkflowRequestOutputsTaskOutputs[];
   static names(): { [key: string]: string } {
     return {
@@ -31236,6 +34610,8 @@ export class UpdateWorkflowRequestOutputs extends $dara.Model {
 export class UpdateWorkflowRequestTags extends $dara.Model {
   /**
    * @remarks
+   * The tag key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31243,6 +34619,9 @@ export class UpdateWorkflowRequestTags extends $dara.Model {
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the tag.
+   * 
    * @example
    * value1
    */
@@ -31272,6 +34651,9 @@ export class UpdateWorkflowRequestTags extends $dara.Model {
 
 export class UpdateWorkflowRequestTasksDataSource extends $dara.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * odps_test
    */
@@ -31300,6 +34682,12 @@ export class UpdateWorkflowRequestTasksDataSource extends $dara.Model {
 export class UpdateWorkflowRequestTasksDependencies extends $dara.Model {
   /**
    * @remarks
+   * The type of the dependency.
+   * - CrossCycleDependsOnChildren: cross-cycle dependency level-1 child nodes
+   * - CrossCycleDependsOnSelf: cross-cycle dependency
+   * - CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
+   * - Normal: same-cycle dependency
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31307,11 +34695,17 @@ export class UpdateWorkflowRequestTasksDependencies extends $dara.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The output identifier of the upstream task. (This field is returned when the input content is set depending on the same cycle)
+   * 
    * @example
    * pre.odps_sql_demo_0
    */
   upstreamOutput?: string;
   /**
+   * @remarks
+   * The Id of the upstream task. (This field is returned when the input content is not set for cross-cycle dependencies on other nodes and same-cycle dependencies.
+   * 
    * @example
    * 1234
    */
@@ -31343,12 +34737,21 @@ export class UpdateWorkflowRequestTasksDependencies extends $dara.Model {
 
 export class UpdateWorkflowRequestTasksInputsVariables extends $dara.Model {
   /**
+   * @remarks
+   * The name of the variable.
+   * 
    * @example
    * key1
    */
   name?: string;
   /**
    * @remarks
+   * Type.
+   * - Constant: Constant
+   * - PassThrough: parameter node output
+   * - System: variable
+   * - NodeOutput: script output
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31356,6 +34759,9 @@ export class UpdateWorkflowRequestTasksInputsVariables extends $dara.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The value of the variable.
+   * 
    * @example
    * value1
    */
@@ -31386,6 +34792,10 @@ export class UpdateWorkflowRequestTasksInputsVariables extends $dara.Model {
 }
 
 export class UpdateWorkflowRequestTasksInputs extends $dara.Model {
+  /**
+   * @remarks
+   * The list of variable definitions.
+   */
   variables?: UpdateWorkflowRequestTasksInputsVariables[];
   static names(): { [key: string]: string } {
     return {
@@ -31413,6 +34823,9 @@ export class UpdateWorkflowRequestTasksInputs extends $dara.Model {
 
 export class UpdateWorkflowRequestTasksOutputsTaskOutputs extends $dara.Model {
   /**
+   * @remarks
+   * The output identifier.
+   * 
    * @example
    * pre.odps_sql_demo_0
    */
@@ -31440,12 +34853,21 @@ export class UpdateWorkflowRequestTasksOutputsTaskOutputs extends $dara.Model {
 
 export class UpdateWorkflowRequestTasksOutputsVariables extends $dara.Model {
   /**
+   * @remarks
+   * The name of the variable.
+   * 
    * @example
    * key1
    */
   name?: string;
   /**
    * @remarks
+   * Type.
+   * - Constant: Constant
+   * - PassThrough: parameter node output
+   * - System: variable
+   * - NodeOutput: script output
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31453,6 +34875,9 @@ export class UpdateWorkflowRequestTasksOutputsVariables extends $dara.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The value of the variable.
+   * 
    * @example
    * value1
    */
@@ -31483,7 +34908,15 @@ export class UpdateWorkflowRequestTasksOutputsVariables extends $dara.Model {
 }
 
 export class UpdateWorkflowRequestTasksOutputs extends $dara.Model {
+  /**
+   * @remarks
+   * The list of task output definitions.
+   */
   taskOutputs?: UpdateWorkflowRequestTasksOutputsTaskOutputs[];
+  /**
+   * @remarks
+   * The list of variable definitions.
+   */
   variables?: UpdateWorkflowRequestTasksOutputsVariables[];
   static names(): { [key: string]: string } {
     return {
@@ -31516,17 +34949,25 @@ export class UpdateWorkflowRequestTasksOutputs extends $dara.Model {
 
 export class UpdateWorkflowRequestTasksRuntimeResource extends $dara.Model {
   /**
+   * @remarks
+   * Configure CU consumption for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for the task.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
    * @remarks
+   * The identifier of the scheduling resource group configured for running the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31560,11 +35001,17 @@ export class UpdateWorkflowRequestTasksRuntimeResource extends $dara.Model {
 
 export class UpdateWorkflowRequestTasksScript extends $dara.Model {
   /**
+   * @remarks
+   * The script content.
+   * 
    * @example
    * echo "helloWorld"
    */
   content?: string;
   /**
+   * @remarks
+   * The list of script parameters.
+   * 
    * @example
    * para1=$bizdate
    */
@@ -31595,6 +35042,8 @@ export class UpdateWorkflowRequestTasksScript extends $dara.Model {
 export class UpdateWorkflowRequestTasksTags extends $dara.Model {
   /**
    * @remarks
+   * The tag key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31602,6 +35051,9 @@ export class UpdateWorkflowRequestTasksTags extends $dara.Model {
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the tag.
+   * 
    * @example
    * value1
    */
@@ -31632,6 +35084,11 @@ export class UpdateWorkflowRequestTasksTags extends $dara.Model {
 export class UpdateWorkflowRequestTasksTrigger extends $dara.Model {
   /**
    * @remarks
+   * The operation mode when the trigger is triggered. It takes effect when type = Scheduler.
+   * - Pause: Pause
+   * - Skip: empty run
+   * - Normal: Normal operation
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31639,6 +35096,11 @@ export class UpdateWorkflowRequestTasksTrigger extends $dara.Model {
    */
   recurrence?: string;
   /**
+   * @remarks
+   * The type of the trigger method.
+   * - Scheduler: the scheduling cycle is triggered.
+   * - Manual: manually triggered
+   * 
    * @example
    * Scheduler
    */
@@ -31668,44 +35130,83 @@ export class UpdateWorkflowRequestTasksTrigger extends $dara.Model {
 
 export class UpdateWorkflowRequestTasks extends $dara.Model {
   /**
+   * @remarks
+   * The baseline ID.
+   * 
    * @example
    * 1234
    */
   baseLineId?: number;
   /**
+   * @remarks
+   * The client-side unique code of the task, which is used to implement asynchronous and idempotent functions. If not specified during creation, the system will automatically generate the code, which will be uniquely bound to the resource ID. If you specify this parameter when updating and deleting resources, it should be consistent with the client unique code when creating resources.
+   * 
    * @example
    * Task_0bc5213917368545132902xxxxxxxx
    */
   clientUniqueCode?: string;
+  /**
+   * @remarks
+   * The associated data source information.
+   */
   dataSource?: UpdateWorkflowRequestTasksDataSource;
+  /**
+   * @remarks
+   * Dependency information.
+   */
   dependencies?: UpdateWorkflowRequestTasksDependencies[];
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * Test
    */
   description?: string;
   /**
+   * @remarks
+   * The project environment.
+   * - Prod: Production
+   * - Dev: Development
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
    * @remarks
+   * The ID of the task. If you enter this field, a full update is performed on the corresponding task. If you do not enter this field, a new task is created.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @remarks
+   * Enter information.
+   */
   inputs?: UpdateWorkflowRequestTasksInputs;
   /**
    * @remarks
+   * The name of the task.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * SQL node
    */
   name?: string;
+  /**
+   * @remarks
+   * The output information.
+   */
   outputs?: UpdateWorkflowRequestTasksOutputs;
   /**
    * @remarks
+   * The account ID of the owner.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31713,12 +35214,20 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
    */
   owner?: string;
   /**
+   * @remarks
+   * The retry interval, in seconds.
+   * 
    * @example
    * 60
    */
   rerunInterval?: number;
   /**
    * @remarks
+   * The configuration of whether the task is allowed to rerun.
+   * - AllDenied (failure or success cannot be rerun)
+   * - FailureAllowed (only failures can be rerun)
+   * - AllAllowed (run again if failed or successful)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31726,29 +35235,49 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of retries that take effect when the task is set to rerun.
+   * 
    * @example
    * 3
    */
   rerunTimes?: number;
   /**
    * @remarks
+   * Configuration of the runtime environment, such as resource group information.
+   * 
    * This parameter is required.
    */
   runtimeResource?: UpdateWorkflowRequestTasksRuntimeResource;
+  /**
+   * @remarks
+   * Run the script information.
+   */
   script?: UpdateWorkflowRequestTasksScript;
+  /**
+   * @remarks
+   * The list of task tags.
+   */
   tags?: UpdateWorkflowRequestTasksTags[];
   /**
+   * @remarks
+   * The timeout period of the task execution, in seconds.
+   * 
    * @example
    * 3600
    */
   timeout?: number;
   /**
    * @remarks
+   * The trigger method of the task.
+   * 
    * This parameter is required.
    */
   trigger?: UpdateWorkflowRequestTasksTrigger;
   /**
    * @remarks
+   * The type of the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31840,22 +35369,35 @@ export class UpdateWorkflowRequestTasks extends $dara.Model {
 
 export class UpdateWorkflowRequestTrigger extends $dara.Model {
   /**
+   * @remarks
+   * Cron expression, which takes effect when type = Scheduler.
+   * 
    * @example
    * 00 00 00 * * ?
    */
   cron?: string;
   /**
+   * @remarks
+   * The expiration time of the periodic trigger, which takes effect when type = Scheduler.
+   * 
    * @example
    * 9999-01-01 00:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The time when the cycle trigger takes effect. It takes effect when type = Scheduler.
+   * 
    * @example
    * 1970-01-01 00:00:00
    */
   startTime?: string;
   /**
    * @remarks
+   * The type of the trigger method.
+   * - Scheduler: the scheduling cycle is triggered.
+   * - Manual: manually triggered
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32256,10 +35798,20 @@ export class DataQualityRuleTemplate extends $dara.Model {
 
 export class SuccessInfoValue extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The task does not exist.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32530,6 +36082,8 @@ export class AssociateProjectToResourceGroupResponse extends $dara.Model {
 export class AttachDataQualityRulesToEvaluationTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the data quality monitoring task that is associated with the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32538,11 +36092,15 @@ export class AttachDataQualityRulesToEvaluationTaskRequest extends $dara.Model {
   dataQualityEvaluationTaskId?: number;
   /**
    * @remarks
+   * The IDs of the monitoring rules.
+   * 
    * This parameter is required.
    */
   dataQualityRuleIds?: number[];
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32580,6 +36138,8 @@ export class AttachDataQualityRulesToEvaluationTaskRequest extends $dara.Model {
 export class AttachDataQualityRulesToEvaluationTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the data quality monitoring task that is associated with the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32588,11 +36148,15 @@ export class AttachDataQualityRulesToEvaluationTaskShrinkRequest extends $dara.M
   dataQualityEvaluationTaskId?: number;
   /**
    * @remarks
+   * The IDs of the monitoring rules.
+   * 
    * This parameter is required.
    */
   dataQualityRuleIdsShrink?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32634,6 +36198,11 @@ export class AttachDataQualityRulesToEvaluationTaskResponseBody extends $dara.Mo
    */
   requestId?: string;
   /**
+   * @remarks
+   * The value of the association is as follows:
+   * - true: The call is successful.
+   * - false: the call failed.
+   * 
    * @example
    * true
    */
@@ -32698,10 +36267,17 @@ export class AttachDataQualityRulesToEvaluationTaskResponse extends $dara.Model 
 
 export class BatchUpdateTasksRequest extends $dara.Model {
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The tasks.
+   */
   tasks?: BatchUpdateTasksRequestTasks[];
   static names(): { [key: string]: string } {
     return {
@@ -32731,10 +36307,17 @@ export class BatchUpdateTasksRequest extends $dara.Model {
 
 export class BatchUpdateTasksShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The tasks.
+   */
   tasksShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32761,10 +36344,17 @@ export class BatchUpdateTasksShrinkRequest extends $dara.Model {
 
 export class BatchUpdateTasksResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the batch operation, which is in the MAP structure. The task ID serves as a key, and the result serves as a value.
+   */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {
     return {
@@ -32881,6 +36471,9 @@ export class CloneDataSourceResponseBody extends $dara.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * 
    * @example
    * FCD583B9-346B-5E75-82C1-4A7C192C48DB
    */
@@ -32971,7 +36564,7 @@ export class CreateAlertRuleRequest extends $dara.Model {
   notification?: CreateAlertRuleRequestNotification;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the creator of the rule.
+   * The ID of the Alibaba Cloud account used by the owner of the rule.
    * 
    * This parameter is required.
    * 
@@ -33049,7 +36642,7 @@ export class CreateAlertRuleShrinkRequest extends $dara.Model {
   notificationShrink?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account used by the creator of the rule.
+   * The ID of the Alibaba Cloud account used by the owner of the rule.
    * 
    * This parameter is required.
    * 
@@ -33499,7 +37092,7 @@ export class CreateDIJobRequest extends $dara.Model {
   destinationDataSourceSettings?: CreateDIJobRequestDestinationDataSourceSettings[];
   /**
    * @remarks
-   * The destination type. Valid values: Hologres and Hive.
+   * The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, LogHub, StarRocks, DataHub, AnalyticDB for MySQL, Kafka, and Hive.
    * 
    * This parameter is required.
    * 
@@ -33572,7 +37165,7 @@ export class CreateDIJobRequest extends $dara.Model {
   sourceDataSourceSettings?: CreateDIJobRequestSourceDataSourceSettings[];
   /**
    * @remarks
-   * The source type. Set this parameter to MySQL.
+   * The source type. Valid values: PolarDB, MySQL, Kafka, LogHub, Hologres, Oracle, OceanBase, MongoDB, Redshift, Hive, SQL Server, Doris, and ClickHouse.
    * 
    * This parameter is required.
    * 
@@ -33584,12 +37177,16 @@ export class CreateDIJobRequest extends $dara.Model {
    * @remarks
    * The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
    * 
+   * >  [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
+   * 
    * This parameter is required.
    */
   tableMappings?: CreateDIJobRequestTableMappings[];
   /**
    * @remarks
-   * The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+   * The list of transformation rules for objects involved in the synchronization task.
+   * 
+   * >  [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
    */
   transformationRules?: CreateDIJobRequestTransformationRules[];
   static names(): { [key: string]: string } {
@@ -33673,7 +37270,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   destinationDataSourceSettingsShrink?: string;
   /**
    * @remarks
-   * The destination type. Valid values: Hologres and Hive.
+   * The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, LogHub, StarRocks, DataHub, AnalyticDB for MySQL, Kafka, and Hive.
    * 
    * This parameter is required.
    * 
@@ -33746,7 +37343,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   sourceDataSourceSettingsShrink?: string;
   /**
    * @remarks
-   * The source type. Set this parameter to MySQL.
+   * The source type. Valid values: PolarDB, MySQL, Kafka, LogHub, Hologres, Oracle, OceanBase, MongoDB, Redshift, Hive, SQL Server, Doris, and ClickHouse.
    * 
    * This parameter is required.
    * 
@@ -33758,12 +37355,16 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
    * @remarks
    * The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
    * 
+   * >  [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
+   * 
    * This parameter is required.
    */
   tableMappingsShrink?: string;
   /**
    * @remarks
-   * The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+   * The list of transformation rules for objects involved in the synchronization task.
+   * 
+   * >  [ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema", "RuleExpression":"{"expression":"${srcDatasoureName}_${srcDatabaseName}"}" } ]
    */
   transformationRulesShrink?: string;
   static names(): { [key: string]: string } {
@@ -33899,21 +37500,46 @@ export class CreateDIJobResponse extends $dara.Model {
 }
 
 export class CreateDataAssetTagRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the tag.
+   * 
+   * @example
+   * This is a description
+   */
   description?: string;
   /**
    * @remarks
+   * The tag key.
+   * 
    * This parameter is required.
    * 
    * @example
    * key1
    */
   key?: string;
+  /**
+   * @remarks
+   * The tag administrators.
+   */
   managers?: string[];
   /**
+   * @remarks
+   * The type of the tag value. Valid values:
+   * 
+   * *   Boolean
+   * *   Int
+   * *   String
+   * *   Double
+   * 
    * @example
    * String
    */
   valueType?: string;
+  /**
+   * @remarks
+   * The tag values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -33951,21 +37577,46 @@ export class CreateDataAssetTagRequest extends $dara.Model {
 }
 
 export class CreateDataAssetTagShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the tag.
+   * 
+   * @example
+   * This is a description
+   */
   description?: string;
   /**
    * @remarks
+   * The tag key.
+   * 
    * This parameter is required.
    * 
    * @example
    * key1
    */
   key?: string;
+  /**
+   * @remarks
+   * The tag administrators.
+   */
   managersShrink?: string;
   /**
+   * @remarks
+   * The type of the tag value. Valid values:
+   * 
+   * *   Boolean
+   * *   Int
+   * *   String
+   * *   Double
+   * 
    * @example
    * String
    */
   valueType?: string;
+  /**
+   * @remarks
+   * The tag values.
+   */
   valuesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33999,13 +37650,16 @@ export class CreateDataAssetTagShrinkRequest extends $dara.Model {
 export class CreateDataAssetTagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0bc1ec92159376
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -34085,6 +37739,9 @@ export class CreateDataQualityEvaluationTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the monitor.
+   * 
+   * @example
+   * OpenAPI create a data quality monitoring test
    */
   description?: string;
   /**
@@ -34097,6 +37754,9 @@ export class CreateDataQualityEvaluationTaskRequest extends $dara.Model {
    * The name of the monitor.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * OpenAPI create a data quality monitoring test
    */
   name?: string;
   /**
@@ -34210,6 +37870,9 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the monitor.
+   * 
+   * @example
+   * OpenAPI create a data quality monitoring test
    */
   description?: string;
   /**
@@ -34222,6 +37885,9 @@ export class CreateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
    * The name of the monitor.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * OpenAPI create a data quality monitoring test
    */
   name?: string;
   /**
@@ -34381,6 +38047,8 @@ export class CreateDataQualityEvaluationTaskResponse extends $dara.Model {
 export class CreateDataQualityEvaluationTaskInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the data quality monitoring task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34389,6 +38057,9 @@ export class CreateDataQualityEvaluationTaskInstanceRequest extends $dara.Model 
   dataQualityEvaluationTaskId?: number;
   /**
    * @remarks
+   * Data quality verification execution parameters in JSON format. The available keys are as follows:
+   * - triggerTime: the millisecond timestamp of the trigger time. The baseline time of the $[yyyymmdd] expression in the data range of data quality monitoring. Required.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34397,12 +38068,20 @@ export class CreateDataQualityEvaluationTaskInstanceRequest extends $dara.Model 
   parameters?: string;
   /**
    * @remarks
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
+   * 
+   * This parameter is used to determine the DataWorks workspaces used for this API call.
+   * 
    * This parameter is required.
    * 
    * @example
    * 10000
    */
   projectId?: number;
+  /**
+   * @remarks
+   * Resource Group information, which must be filled in when running non-MaxCompute data quality verification.
+   */
   runtimeResource?: CreateDataQualityEvaluationTaskInstanceRequestRuntimeResource;
   static names(): { [key: string]: string } {
     return {
@@ -34437,6 +38116,8 @@ export class CreateDataQualityEvaluationTaskInstanceRequest extends $dara.Model 
 export class CreateDataQualityEvaluationTaskInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the data quality monitoring task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34445,6 +38126,9 @@ export class CreateDataQualityEvaluationTaskInstanceShrinkRequest extends $dara.
   dataQualityEvaluationTaskId?: number;
   /**
    * @remarks
+   * Data quality verification execution parameters in JSON format. The available keys are as follows:
+   * - triggerTime: the millisecond timestamp of the trigger time. The baseline time of the $[yyyymmdd] expression in the data range of data quality monitoring. Required.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34453,12 +38137,20 @@ export class CreateDataQualityEvaluationTaskInstanceShrinkRequest extends $dara.
   parameters?: string;
   /**
    * @remarks
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
+   * 
+   * This parameter is used to determine the DataWorks workspaces used for this API call.
+   * 
    * This parameter is required.
    * 
    * @example
    * 10000
    */
   projectId?: number;
+  /**
+   * @remarks
+   * Resource Group information, which must be filled in when running non-MaxCompute data quality verification.
+   */
   runtimeResourceShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34489,6 +38181,9 @@ export class CreateDataQualityEvaluationTaskInstanceShrinkRequest extends $dara.
 
 export class CreateDataQualityEvaluationTaskInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the data quality monitoring instance.
+   * 
    * @example
    * 22130
    */
@@ -34591,6 +38286,9 @@ export class CreateDataQualityRuleRequest extends $dara.Model {
    * The name of the rule.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * The table cannot be empty.
    */
   name?: string;
   /**
@@ -34610,7 +38308,7 @@ export class CreateDataQualityRuleRequest extends $dara.Model {
   samplingConfig?: CreateDataQualityRuleRequestSamplingConfig;
   /**
    * @remarks
-   * The strength of the rule.
+   * The strength of the monitoring rule. Valid values:
    * 
    * *   Normal
    * *   High
@@ -34715,6 +38413,9 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
    * The name of the rule.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * The table cannot be empty.
    */
   name?: string;
   /**
@@ -34734,7 +38435,7 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
   samplingConfigShrink?: string;
   /**
    * @remarks
-   * The strength of the rule.
+   * The strength of the monitoring rule. Valid values:
    * 
    * *   Normal
    * *   High
@@ -34797,6 +38498,9 @@ export class CreateDataQualityRuleShrinkRequest extends $dara.Model {
 
 export class CreateDataQualityRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the rule.
+   * 
    * @example
    * 19715
    */
@@ -34876,6 +38580,9 @@ export class CreateDataQualityRuleTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
+   * 
+   * @example
+   * /ods/order_data
    */
   directoryPath?: string;
   /**
@@ -34883,6 +38590,9 @@ export class CreateDataQualityRuleTemplateRequest extends $dara.Model {
    * The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Table row Count Verification
    */
   name?: string;
   /**
@@ -34957,6 +38667,9 @@ export class CreateDataQualityRuleTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
+   * 
+   * @example
+   * /ods/order_data
    */
   directoryPath?: string;
   /**
@@ -34964,6 +38677,9 @@ export class CreateDataQualityRuleTemplateShrinkRequest extends $dara.Model {
    * The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Table row Count Verification
    */
   name?: string;
   /**
@@ -35025,6 +38741,9 @@ export class CreateDataQualityRuleTemplateShrinkRequest extends $dara.Model {
 
 export class CreateDataQualityRuleTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The Code of the rule template.
+   * 
    * @example
    * UserDefined:3001
    */
@@ -35152,6 +38871,10 @@ export class CreateDataSourceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/overview) and go to the workspace management page to obtain the ID.
+   * 
+   * This parameter is used to determine the DataWorks workspaces used for this API call.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35209,6 +38932,9 @@ export class CreateDataSourceResponseBody extends $dara.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * 
    * @example
    * B62EC203-B39E-5DC1-B5B8-EB3C61707009
    */
@@ -35284,6 +39010,10 @@ export class CreateDataSourceSharedRuleRequest extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
+   * Share data sources to the target project environment, including
+   * - Dev (Development Environment)
+   * - Prod (production environment)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35345,6 +39075,9 @@ export class CreateDataSourceSharedRuleResponseBody extends $dara.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * 
    * @example
    * 46F594E6-84AB-5FA5-8144-6F3D149961E1
    */
@@ -35411,6 +39144,9 @@ export class CreateDeploymentRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the process.
+   * 
+   * @example
+   * This is a OdpsSQL-node publishing process. The function is XXXX.
    */
   description?: string;
   /**
@@ -35481,6 +39217,9 @@ export class CreateDeploymentShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the process.
+   * 
+   * @example
+   * This is a OdpsSQL-node publishing process. The function is XXXX.
    */
   description?: string;
   /**
@@ -35635,6 +39374,33 @@ export class CreateFunctionRequest extends $dara.Model {
    * The FlowSpec field information about the UDF. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
    * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *   "version": "1.1.0",
+   *   "kind": "Function",
+   *   "spec": {
+   *     "functions": [
+   *       {
+   *         "name": "function name",
+   *         "script": {
+   *           "content": "{\\"name\\": \\"function name\\", \\"datasource\\": {\\"type\\": \\"ODPS\\", \\"name\\": \\"ODPS_first\\"}, \\"runtimeResource\\": {\\"resourceGroup\\": \\"s_res_group_xx_xxxx\\"}}",
+   *           "path": "XXX/OpenAPI/function/function name",
+   *           "runtime": {
+   *             "command": "ODPS_FUNCTION"
+   *           }
+   *         },
+   *         "datasource": {
+   *           "name": "ODPS_first",
+   *           "type": "ODPS"
+   *         },
+   *         "runtimeResource": {
+   *           "resourceGroup": "S_res_group_XXXX_XXXX"
+   *         }
+   *       }
+   *     ]
+   *   }
+   * }
    */
   spec?: string;
   static names(): { [key: string]: string } {
@@ -35671,7 +39437,7 @@ export class CreateFunctionResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
    * AE49C88D-5BEE-5ADD-8B8C-C4BBC0D7XXXX
@@ -35738,6 +39504,8 @@ export class CreateFunctionResponse extends $dara.Model {
 export class CreateNetworkRequest extends $dara.Model {
   /**
    * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35746,6 +39514,8 @@ export class CreateNetworkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the serverless resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35754,6 +39524,8 @@ export class CreateNetworkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35762,6 +39534,8 @@ export class CreateNetworkRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
+   * The VSwitch ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35797,16 +39571,25 @@ export class CreateNetworkRequest extends $dara.Model {
 
 export class CreateNetworkResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The network ID.
+   * 
    * @example
    * 1000
    */
   id?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -35896,13 +39679,13 @@ export class CreateNodeRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The scene of the node. This parameter determines the location (the DataStudio pane or the Manual pane) of the node. You can set this parameter to DATAWORKS_MANUAL_WORKFLOW only if the ContainerId parameter is configured and the container specified by ContainerId is a manually triggered workflow.
+   * The scene of the node. This parameter determines the location (the DataStudio pane or the Manual pane) of the node. You can set this parameter to DataworksManualWorkflow only if the ContainerId parameter is configured and the container specified by ContainerId is a manually triggered workflow.
    * 
    * Valid values:
    * 
-   * *   DATAWORKS_PROJECT
-   * *   DATAWORKS_MANUAL_WORKFLOW
-   * *   DATAWORKS_MANUAL_TASK
+   * *   DataworksProject
+   * *   DataworksManualWorkflow
+   * *   DataworksManualTask
    * 
    * This parameter is required.
    * 
@@ -35915,6 +39698,76 @@ export class CreateNodeRequest extends $dara.Model {
    * The FlowSpec field information about the node. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
    * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *   "version": "1.1.0",
+   *   "kind": "Node",
+   *   "spec": {
+   *     "nodes": [
+   *       {
+   *         "id": "860438872620113XXXX",
+   *         "recurrence": "Normal",
+   *         "timeout": 0,
+   *         "instanceMode": "T+1",
+   *         "rerunMode": "Allowed",
+   *         "rerunTimes": 3,
+   *         "rerunInterval": 180000,
+   *         "datasource": {
+   *           "name": "ODPS_test",
+   *           "type": "ODPS"
+   *         },
+   *         "script": {
+   *           "path": "XX/OpenAPI test/odpsSQL test",
+   *           "runtime": {
+   *             "command": "ODPS_SQL"
+   *           },
+   *           "content": "select now();"
+   *         },
+   *         "trigger": {
+   *           "type": "Scheduler",
+   *           "cron": "00 00 00 * * ?",
+   *           "startTime": "1970-01-01 00:00:00",
+   *           "endTime": "9999-01-01 00:00:00",
+   *           "timezone": "Asia/Shanghai",
+   *           "delaySeconds": 0
+   *         },
+   *         "runtimeResource": {
+   *           "resourceGroup": "S_res_group_XXXX_XXXX"
+   *         },
+   *         "name": "odpsSQL test",
+   *         "inputs": {
+   *           "nodeOutputs": [
+   *             {
+   *               "data": "lwttest_standard_root",
+   *               "artifactType": "NodeOutput"
+   *             }
+   *           ]
+   *         },
+   *         "outputs": {
+   *           "nodeOutputs": [
+   *             {
+   *               "data": "output_data",
+   *               "artifactType": "NodeOutput",
+   *               "refTableName": "odpsSQL test"
+   *             }
+   *           ]
+   *         }
+   *       }
+   *     ],
+   *     "flow": [
+   *       {
+   *         "nodeId": "860438872620113XXXX",
+   *         "depends": [
+   *           {
+   *             "type": "Normal",
+   *             "output": "project_root"
+   *           }
+   *         ]
+   *       }
+   *     ]
+   *   }
+   * }
    */
   spec?: string;
   static names(): { [key: string]: string } {
@@ -36024,7 +39877,7 @@ export class CreateProjectRequest extends $dara.Model {
    * @remarks
    * The ID of the Alibaba Cloud resource group to which the workspace belongs. You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups) and go to the Resource Group page to query the ID.
    * 
-   * You can configure this parameter to specify an Alibaba Cloud resource group that you want to use to manage the workspace.
+   * You must configure this parameter to specify an Alibaba Cloud resource group for the workspace that you want to create.
    * 
    * @example
    * rg-acfmzbn7pti3zff
@@ -36038,6 +39891,9 @@ export class CreateProjectRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the workspace.
+   * 
+   * @example
+   * Financial analysis group project data development
    */
   description?: string;
   /**
@@ -36067,11 +39923,20 @@ export class CreateProjectRequest extends $dara.Model {
    * The display name of the workspace.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Sora financial analysis
    */
   displayName?: string;
   /**
    * @remarks
    * The name of the workspace.
+   * 
+   * Limits:
+   * 
+   * *   The workspace name must be unqiue in a region.
+   * *   The workspace name can contain letters, digits, and underscores (_), and must start with a letter.
+   * *   The workspace name must be 3 to 28 characters in length.
    * 
    * This parameter is required.
    * 
@@ -36133,7 +39998,7 @@ export class CreateProjectShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the Alibaba Cloud resource group to which the workspace belongs. You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups) and go to the Resource Group page to query the ID.
    * 
-   * You can configure this parameter to specify an Alibaba Cloud resource group that you want to use to manage the workspace.
+   * You must configure this parameter to specify an Alibaba Cloud resource group for the workspace that you want to create.
    * 
    * @example
    * rg-acfmzbn7pti3zff
@@ -36147,6 +40012,9 @@ export class CreateProjectShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the workspace.
+   * 
+   * @example
+   * Financial analysis group project data development
    */
   description?: string;
   /**
@@ -36176,11 +40044,20 @@ export class CreateProjectShrinkRequest extends $dara.Model {
    * The display name of the workspace.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Sora financial analysis
    */
   displayName?: string;
   /**
    * @remarks
    * The name of the workspace.
+   * 
+   * Limits:
+   * 
+   * *   The workspace name must be unqiue in a region.
+   * *   The workspace name can contain letters, digits, and underscores (_), and must start with a letter.
+   * *   The workspace name must be 3 to 28 characters in length.
    * 
    * This parameter is required.
    * 
@@ -36236,13 +40113,16 @@ export class CreateProjectShrinkRequest extends $dara.Model {
 
 export class CreateProjectResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 123456
    */
   id?: number;
   /**
    * @remarks
-   * The workspace ID.
+   * The workspace ID. Note: This parameter is deprecated and is replaced by the Id parameter.
    * 
    * @example
    * 123456
@@ -36516,6 +40396,34 @@ export class CreateResourceRequest extends $dara.Model {
    * The FlowSpec field information about the file resource. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
    * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *     "version": "1.1.0",
+   *     "kind": "Resource",
+   *     "spec": {
+   *         "fileResources": [
+   *             {
+   *                 "name": "OpenAPITestResource.py",
+   *                 "script": {
+   *                     "content": "",
+   *                     "path": "XX/OpenAPITest/ResourcesTest/OpenAPITestResource.py",
+   *                     "runtime": {
+   *                         "command": "ODPS_PYTHON"
+   *                     }
+   *                 },
+   *                 "type": "python",
+   *                 "file": {
+   *                     "storage": {}
+   *                 },
+   *                 "datasource": {
+   *                     "name": "odps_first",
+   *                     "type": "odps"
+   *                 }
+   *             }
+   *         ]
+   *     }
+   * }
    */
   spec?: string;
   static names(): { [key: string]: string } {
@@ -36552,10 +40460,10 @@ export class CreateResourceResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The request ID.
+   * A5B97987-66EA-5563-9599-A2752292XXXX
    * 
    * @example
-   * A5B97987-66EA-5563-9599-A2752292XXXX
+   * The ID of the file resource.
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -36618,14 +40526,27 @@ export class CreateResourceResponse extends $dara.Model {
 
 export class CreateResourceGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-aek2kqofrgXXXXX
    */
   aliyunResourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   aliyunResourceTags?: CreateResourceGroupRequestAliyunResourceTags[];
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal.
+   */
   autoRenewEnabled?: boolean;
   /**
    * @remarks
+   * The idempotent identifier of the client is used to ensure idempotent operation of creating a common resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36634,6 +40555,8 @@ export class CreateResourceGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * The name of a common resource group. It must start with a letter and can contain letters, numbers, and underscores (_). It can be up to 128 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36641,17 +40564,25 @@ export class CreateResourceGroupRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The duration of the payment.
+   * 
    * @example
    * 1
    */
   paymentDuration?: number;
   /**
+   * @remarks
+   * The unit of the subscription duration. Valid values: Month and Year.
+   * 
    * @example
    * Month
    */
   paymentDurationUnit?: string;
   /**
    * @remarks
+   * The billing method of the serverless resource group. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36659,8 +40590,11 @@ export class CreateResourceGroupRequest extends $dara.Model {
    */
   paymentType?: string;
   /**
+   * @remarks
+   * Note for creating a common resource group, which can contain letters, Chinese characters, numbers, underscores (_), and a maximum of 128 characters.
+   * 
    * @example
-   * 创建用于普通任务的通用资源组
+   * Create a serverless resource group for common tasks
    */
   remark?: string;
   /**
@@ -36673,6 +40607,8 @@ export class CreateResourceGroupRequest extends $dara.Model {
   spec?: number;
   /**
    * @remarks
+   * The ID of the virtual private cloud (VPC) with which the serverless resource group is associated by default.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36681,6 +40617,8 @@ export class CreateResourceGroupRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
+   * The ID of the vSwitch with which the serverless resource group is associated by default.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36735,14 +40673,27 @@ export class CreateResourceGroupRequest extends $dara.Model {
 
 export class CreateResourceGroupShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-aek2kqofrgXXXXX
    */
   aliyunResourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   aliyunResourceTagsShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal.
+   */
   autoRenewEnabled?: boolean;
   /**
    * @remarks
+   * The idempotent identifier of the client is used to ensure idempotent operation of creating a common resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36751,6 +40702,8 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * The name of a common resource group. It must start with a letter and can contain letters, numbers, and underscores (_). It can be up to 128 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36758,17 +40711,25 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The duration of the payment.
+   * 
    * @example
    * 1
    */
   paymentDuration?: number;
   /**
+   * @remarks
+   * The unit of the subscription duration. Valid values: Month and Year.
+   * 
    * @example
    * Month
    */
   paymentDurationUnit?: string;
   /**
    * @remarks
+   * The billing method of the serverless resource group. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36776,8 +40737,11 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
    */
   paymentType?: string;
   /**
+   * @remarks
+   * Note for creating a common resource group, which can contain letters, Chinese characters, numbers, underscores (_), and a maximum of 128 characters.
+   * 
    * @example
-   * 创建用于普通任务的通用资源组
+   * Create a serverless resource group for common tasks
    */
   remark?: string;
   /**
@@ -36790,6 +40754,8 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
   spec?: number;
   /**
    * @remarks
+   * The ID of the virtual private cloud (VPC) with which the serverless resource group is associated by default.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36798,6 +40764,8 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
+   * The ID of the vSwitch with which the serverless resource group is associated by default.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36849,12 +40817,22 @@ export class CreateResourceGroupShrinkRequest extends $dara.Model {
 
 export class CreateResourceGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The order information for creating a serverless resource group.
+   */
   resourceGroupOrder?: CreateResourceGroupResponseBodyResourceGroupOrder;
   /**
+   * @remarks
+   * Whether the request is successful.
+   * 
    * @example
    * true
    */
@@ -36925,6 +40903,8 @@ export class CreateResourceGroupResponse extends $dara.Model {
 export class CreateRouteRequest extends $dara.Model {
   /**
    * @remarks
+   * The CIDR blocks of the destination-based route.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36933,6 +40913,8 @@ export class CreateRouteRequest extends $dara.Model {
   destinationCidr?: string;
   /**
    * @remarks
+   * The network ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36964,11 +40946,17 @@ export class CreateRouteRequest extends $dara.Model {
 
 export class CreateRouteResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The route ID.
+   * 
    * @example
    * 1000
    */
   id?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
@@ -37057,6 +41045,55 @@ export class CreateWorkflowDefinitionRequest extends $dara.Model {
    * The FlowSpec field information about the workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
    * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *     "kind": "CycleWorkflow",
+   *     "version": "1.1.0",
+   *     "spec": {
+   *         "name": "OpenAPITestWorkflowDemo",
+   *         "type": "CycleWorkflow",
+   *         "workflows": [
+   *             {
+   *                 "script": {
+   *                     "path": "XX/OpenAPITest/WorkflowTest/OpenAPITestWorkflowDemo",
+   *                     "runtime": {
+   *                         "command": "WORKFLOW"
+   *                     }
+   *                 },
+   *                 "trigger": {
+   *                     "type": "Scheduler",
+   *                     "cron": "00 02 00 * * ?",
+   *                     "startTime": "1970-01-01 00:00:00",
+   *                     "endTime": "9999-01-01 00:00:00",
+   *                     "timezone": "Asia/Shanghai",
+   *                     "delaySeconds": 0
+   *                 },
+   *                 "strategy": {
+   *                     "timeout": 0,
+   *                     "instanceMode": "T+1",
+   *                     "rerunMode": "Allowed",
+   *                     "rerunTimes": 3,
+   *                     "rerunInterval": 180000,
+   *                     "failureStrategy": "Break"
+   *                 },
+   *                 "name": "OpenAPITestWorkflowDemo",
+   *                 "inputs": {},
+   *                 "outputs": {
+   *                     "nodeOutputs": [
+   *                         {
+   *                             "data": "workflow_output",
+   *                             "artifactType": "NodeOutput",
+   *                             "refTableName": "OpenAPITestWorkflowDemo"
+   *                         }
+   *                     ]
+   *                 },
+   *                 "nodes": [],
+   *                 "dependencies": []
+   *             }
+   *         ]
+   *     }
+   * }
    */
   spec?: string;
   static names(): { [key: string]: string } {
@@ -37159,32 +41196,55 @@ export class CreateWorkflowDefinitionResponse extends $dara.Model {
 
 export class CreateWorkflowInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The default value is true.
+   * 
    * @example
    * true
    */
   autoStartEnabled?: boolean;
   /**
+   * @remarks
+   * The reason for the creation.
+   * 
    * @example
    * create for test
    */
   comment?: string;
+  /**
+   * @remarks
+   * Runtime configuration.
+   */
   defaultRunProperties?: CreateWorkflowInstancesRequestDefaultRunProperties;
   /**
+   * @remarks
+   * The project environment.
+   * - Prod (production)
+   * - Dev
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
    * @remarks
+   * The name.
+   * 
    * This parameter is required.
    * 
    * @example
    * WorkflowInstance1
    */
   name?: string;
+  /**
+   * @remarks
+   * Make up the data cycle settings.
+   */
   periods?: CreateWorkflowInstancesRequestPeriods;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37192,6 +41252,9 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * Task parameters. Set parameters for a specific task. In JSON format, the key is the Task ID. For more information about the value format, see Task Script parameters (Task.Script. GetTask of the Parameter interface).
+   * 
    * @example
    * {
    *   "1001": "key1=val2 key2=val2", 
@@ -37201,6 +41264,11 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
   taskParameters?: string;
   /**
    * @remarks
+   * The type of the workflow instance.
+   * 
+   * - SupplementData: Retroactive data
+   * - ManualWorkflow: manual workflow
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37209,6 +41277,8 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
+   * The ID of the workflow to which the workflow belongs. The default value of WorkflowId for retroactive data is 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37216,6 +41286,9 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
    */
   workflowId?: number;
   /**
+   * @remarks
+   * Workflow parameters. The priority is higher than the task parameters. JSON format.
+   * 
    * @example
    * { 
    *   "key1": "value1", 
@@ -37272,32 +41345,55 @@ export class CreateWorkflowInstancesRequest extends $dara.Model {
 
 export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The default value is true.
+   * 
    * @example
    * true
    */
   autoStartEnabled?: boolean;
   /**
+   * @remarks
+   * The reason for the creation.
+   * 
    * @example
    * create for test
    */
   comment?: string;
+  /**
+   * @remarks
+   * Runtime configuration.
+   */
   defaultRunPropertiesShrink?: string;
   /**
+   * @remarks
+   * The project environment.
+   * - Prod (production)
+   * - Dev
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
    * @remarks
+   * The name.
+   * 
    * This parameter is required.
    * 
    * @example
    * WorkflowInstance1
    */
   name?: string;
+  /**
+   * @remarks
+   * Make up the data cycle settings.
+   */
   periodsShrink?: string;
   /**
    * @remarks
+   * The project ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37305,6 +41401,9 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * Task parameters. Set parameters for a specific task. In JSON format, the key is the Task ID. For more information about the value format, see Task Script parameters (Task.Script. GetTask of the Parameter interface).
+   * 
    * @example
    * {
    *   "1001": "key1=val2 key2=val2", 
@@ -37314,6 +41413,11 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   taskParameters?: string;
   /**
    * @remarks
+   * The type of the workflow instance.
+   * 
+   * - SupplementData: Retroactive data
+   * - ManualWorkflow: manual workflow
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37322,6 +41426,8 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
+   * The ID of the workflow to which the workflow belongs. The default value of WorkflowId for retroactive data is 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37329,6 +41435,9 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
    */
   workflowId?: number;
   /**
+   * @remarks
+   * Workflow parameters. The priority is higher than the task parameters. JSON format.
+   * 
    * @example
    * { 
    *   "key1": "value1", 
@@ -37379,11 +41488,17 @@ export class CreateWorkflowInstancesShrinkRequest extends $dara.Model {
 
 export class CreateWorkflowInstancesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the operation. You can use this field to query the results of the creation operation through the GetCreateWorkflowInstancesResult interface.
+   * 
    * @example
    * e15ad21c-b0e9-4792-8f55-b037xxxxxxxx
    */
   operationId?: string;
   /**
+   * @remarks
+   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -37811,12 +41926,18 @@ export class DeleteDIJobResponse extends $dara.Model {
 export class DeleteDataAssetTagRequest extends $dara.Model {
   /**
    * @remarks
+   * The tag key.
+   * 
    * This parameter is required.
    * 
    * @example
    * key1
    */
   key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -37847,12 +41968,18 @@ export class DeleteDataAssetTagRequest extends $dara.Model {
 export class DeleteDataAssetTagShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The tag key.
+   * 
    * This parameter is required.
    * 
    * @example
    * key1
    */
   key?: string;
+  /**
+   * @remarks
+   * The tag values.
+   */
   valuesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37880,13 +42007,16 @@ export class DeleteDataAssetTagShrinkRequest extends $dara.Model {
 export class DeleteDataAssetTagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0bc1411515937635973****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -37951,11 +42081,19 @@ export class DeleteDataAssetTagResponse extends $dara.Model {
 
 export class DeleteDataQualityEvaluationTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the data quality monitor.
+   * 
    * @example
    * 123123
    */
   id?: number;
   /**
+   * @remarks
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
+   * 
+   * This parameter is used to determine the DataWorks workspaces used for this API call.
+   * 
    * @example
    * 10000
    */
@@ -37993,6 +42131,11 @@ export class DeleteDataQualityEvaluationTaskResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the deletion is successful.
+   * - true: Successful
+   * - false: Failed
+   * 
    * @example
    * true
    */
@@ -38324,13 +42467,18 @@ export class DeleteDataSourceRequest extends $dara.Model {
 export class DeleteDataSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
    * B56432E0-2112-5C97-88D0-AA0AE5C75C74
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the call is successful.
+   * - true: Successful
+   * - false: Failed
+   * 
    * @example
    * true
    */
@@ -38427,11 +42575,19 @@ export class DeleteDataSourceSharedRuleRequest extends $dara.Model {
 
 export class DeleteDataSourceSharedRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * 
    * @example
    * 64B-587A-8CED-969E1973887FXXX-TT
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the data source sharing rule is deleted successfully. The value is as follows:
+   * -true: The request is successful.
+   * -false: The request failed.
+   * 
    * @example
    * true
    */
@@ -38619,6 +42775,8 @@ export class DeleteFunctionResponse extends $dara.Model {
 export class DeleteNetworkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the network that you want to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38648,6 +42806,9 @@ export class DeleteNetworkRequest extends $dara.Model {
 
 export class DeleteNetworkResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
@@ -39282,6 +43443,8 @@ export class DeleteResourceGroupResponse extends $dara.Model {
 export class DeleteRouteRequest extends $dara.Model {
   /**
    * @remarks
+   * The route ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39311,6 +43474,9 @@ export class DeleteRouteRequest extends $dara.Model {
 
 export class DeleteRouteResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
@@ -39505,17 +43671,28 @@ export class DeleteTaskResponse extends $dara.Model {
 
 export class DeleteWorkflowRequest extends $dara.Model {
   /**
+   * @remarks
+   * The unique code of the client. This parameter is used to create a workflow asynchronously and implement the idempotence of the workflow. If you do not specify this parameter when you create the workflow, the system automatically generates a unique code. The unique code is uniquely associated with the workflow ID. If you specify this parameter when you update or delete the workflow, the value of this parameter must be the unique code that is used to create the workflow.
+   * 
    * @example
    * Workflow_0bc5213917368545132902xxxxxxxx
    */
   clientUniqueCode?: string;
   /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
    * @remarks
+   * The workflow ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39549,11 +43726,17 @@ export class DeleteWorkflowRequest extends $dara.Model {
 
 export class DeleteWorkflowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -39741,6 +43924,8 @@ export class DeleteWorkflowDefinitionResponse extends $dara.Model {
 export class DetachDataQualityRulesFromEvaluationTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the data quality monitoring task that is associated with the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39749,11 +43934,15 @@ export class DetachDataQualityRulesFromEvaluationTaskRequest extends $dara.Model
   dataQualityEvaluationTaskId?: number;
   /**
    * @remarks
+   * The IDs of the monitoring rules.
+   * 
    * This parameter is required.
    */
   dataQualityRuleIds?: number[];
   /**
    * @remarks
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to obtain the workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39791,6 +43980,8 @@ export class DetachDataQualityRulesFromEvaluationTaskRequest extends $dara.Model
 export class DetachDataQualityRulesFromEvaluationTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the data quality monitoring task that is associated with the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39799,11 +43990,15 @@ export class DetachDataQualityRulesFromEvaluationTaskShrinkRequest extends $dara
   dataQualityEvaluationTaskId?: number;
   /**
    * @remarks
+   * The IDs of the monitoring rules.
+   * 
    * This parameter is required.
    */
   dataQualityRuleIdsShrink?: string;
   /**
    * @remarks
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to obtain the workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39845,6 +44040,11 @@ export class DetachDataQualityRulesFromEvaluationTaskResponseBody extends $dara.
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the call is successful. The values are as follows:
+   * - true: The call is successful.
+   * - false: the call failed.
+   * 
    * @example
    * true
    */
@@ -40170,16 +44370,29 @@ export class ExecDeploymentStageResponse extends $dara.Model {
 export class ExecuteAdhocWorkflowInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * 业务日期。
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1710239005403
    */
   bizDate?: number;
   /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
    * @remarks
+   * The name of the workflow instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40188,6 +44401,8 @@ export class ExecuteAdhocWorkflowInstanceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The account ID of the owner.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40196,6 +44411,8 @@ export class ExecuteAdhocWorkflowInstanceRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40204,6 +44421,8 @@ export class ExecuteAdhocWorkflowInstanceRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The tasks.
+   * 
    * This parameter is required.
    */
   tasks?: ExecuteAdhocWorkflowInstanceRequestTasks[];
@@ -40244,16 +44463,29 @@ export class ExecuteAdhocWorkflowInstanceRequest extends $dara.Model {
 export class ExecuteAdhocWorkflowInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * 业务日期。
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1710239005403
    */
   bizDate?: number;
   /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
    * @remarks
+   * The name of the workflow instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40262,6 +44494,8 @@ export class ExecuteAdhocWorkflowInstanceShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The account ID of the owner.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40270,6 +44504,8 @@ export class ExecuteAdhocWorkflowInstanceShrinkRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40278,6 +44514,8 @@ export class ExecuteAdhocWorkflowInstanceShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
+   * The tasks.
+   * 
    * This parameter is required.
    */
   tasksShrink?: string;
@@ -40314,11 +44552,17 @@ export class ExecuteAdhocWorkflowInstanceShrinkRequest extends $dara.Model {
 
 export class ExecuteAdhocWorkflowInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * The workflow instance ID.
+   * 
    * @example
    * 1234
    */
@@ -40489,6 +44733,8 @@ export class GetAlertRuleResponse extends $dara.Model {
 export class GetCreateWorkflowInstancesResultRequest extends $dara.Model {
   /**
    * @remarks
+   * The operation ID. This parameter is used to query the result of asynchronously creating a workflow instance. You can call the CreateWorkflowInstances operation to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40518,10 +44764,17 @@ export class GetCreateWorkflowInstancesResultRequest extends $dara.Model {
 
 export class GetCreateWorkflowInstancesResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of asynchronously creating a workflow instance.
+   */
   result?: GetCreateWorkflowInstancesResultResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
@@ -40758,12 +45011,16 @@ export class GetDIJobLogRequest extends $dara.Model {
    * 6153616438
    */
   instanceId?: number;
+  nodeType?: string;
+  pageNumber?: number;
   static names(): { [key: string]: string } {
     return {
       DIJobId: 'DIJobId',
       failoverId: 'FailoverId',
       id: 'Id',
       instanceId: 'InstanceId',
+      nodeType: 'NodeType',
+      pageNumber: 'PageNumber',
     };
   }
 
@@ -40773,6 +45030,8 @@ export class GetDIJobLogRequest extends $dara.Model {
       failoverId: 'number',
       id: 'number',
       instanceId: 'number',
+      nodeType: 'string',
+      pageNumber: 'number',
     };
   }
 
@@ -40862,6 +45121,9 @@ export class GetDIJobLogResponse extends $dara.Model {
 
 export class GetDataQualityEvaluationTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the data quality monitor.
+   * 
    * @example
    * 1006455182
    */
@@ -40965,6 +45227,8 @@ export class GetDataQualityEvaluationTaskResponse extends $dara.Model {
 export class GetDataQualityEvaluationTaskInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the data quality monitoring instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40993,8 +45257,15 @@ export class GetDataQualityEvaluationTaskInstanceRequest extends $dara.Model {
 }
 
 export class GetDataQualityEvaluationTaskInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the monitor instance.
+   */
   dataQualityEvaluationTaskInstance?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstance;
   /**
+   * @remarks
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * 
    * @example
    * 8abcb91f-d266-4073-b907-2ed670378ed1
    */
@@ -41063,6 +45334,8 @@ export class GetDataQualityEvaluationTaskInstanceResponse extends $dara.Model {
 export class GetDataQualityRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The rule ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41097,6 +45370,9 @@ export class GetDataQualityRuleResponseBody extends $dara.Model {
    */
   dataQualityRule?: GetDataQualityRuleResponseBodyDataQualityRule;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 691CA452-D37A-4ED0-9441
    */
@@ -41201,6 +45477,9 @@ export class GetDataQualityRuleTemplateResponseBody extends $dara.Model {
    */
   dataQualityRuleTemplate?: GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplate;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 691CA452-D37A-4ED0-9441
    */
@@ -41723,6 +46002,8 @@ export class GetJobStatusResponse extends $dara.Model {
 export class GetNetworkRequest extends $dara.Model {
   /**
    * @remarks
+   * The network ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41757,6 +46038,9 @@ export class GetNetworkResponseBody extends $dara.Model {
    */
   network?: GetNetworkResponseBodyNetwork;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
@@ -41845,7 +46129,7 @@ export class GetNodeRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the workspace ID.
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
    * 
    * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
    * 
@@ -41993,7 +46277,7 @@ export class GetProjectResponseBody extends $dara.Model {
   project?: GetProjectResponseBodyProject;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
@@ -42184,9 +46468,7 @@ export class GetProjectMemberResponse extends $dara.Model {
 export class GetProjectRoleRequest extends $dara.Model {
   /**
    * @remarks
-   * The code of the role in the DataWorks workspace.
-   * 
-   * Valid values:
+   * The code of the role in the DataWorks workspace. Valid values:
    * 
    * *   role_project_admin: workspace administrator
    * *   role_project_dev: developer
@@ -42435,6 +46717,8 @@ export class GetResourceResponse extends $dara.Model {
 export class GetResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * Unique identifier of a common resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42464,6 +46748,9 @@ export class GetResourceGroupRequest extends $dara.Model {
 
 export class GetResourceGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
@@ -42474,6 +46761,9 @@ export class GetResourceGroupResponseBody extends $dara.Model {
    */
   resourceGroup?: GetResourceGroupResponseBodyResourceGroup;
   /**
+   * @remarks
+   * Whether the request is successful.
+   * 
    * @example
    * true
    */
@@ -42544,6 +46834,8 @@ export class GetResourceGroupResponse extends $dara.Model {
 export class GetRouteRequest extends $dara.Model {
   /**
    * @remarks
+   * The route ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42573,6 +46865,9 @@ export class GetRouteRequest extends $dara.Model {
 
 export class GetRouteResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
@@ -42666,9 +46961,7 @@ export class GetTaskRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The environment of the workspace.
-   * 
-   * Valid values:
+   * The environment of the workspace. Valid values:
    * 
    * *   Prod: production environment
    * *   Dev: development environment
@@ -43001,12 +47294,20 @@ export class GetTaskInstanceLogResponse extends $dara.Model {
 
 export class GetWorkflowRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
    * @remarks
+   * The workflow ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43038,10 +47339,17 @@ export class GetWorkflowRequest extends $dara.Model {
 
 export class GetWorkflowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the workflow.
+   */
   workflow?: GetWorkflowResponseBodyWorkflow;
   static names(): { [key: string]: string } {
     return {
@@ -43116,6 +47424,11 @@ export class GetWorkflowDefinitionRequest extends $dara.Model {
    */
   id?: number;
   /**
+   * @example
+   * false
+   */
+  includeScriptContent?: boolean;
+  /**
    * @remarks
    * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
    * 
@@ -43128,6 +47441,7 @@ export class GetWorkflowDefinitionRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       id: 'Id',
+      includeScriptContent: 'IncludeScriptContent',
       projectId: 'ProjectId',
     };
   }
@@ -43135,6 +47449,7 @@ export class GetWorkflowDefinitionRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       id: 'number',
+      includeScriptContent: 'boolean',
       projectId: 'number',
     };
   }
@@ -43526,6 +47841,139 @@ export class ImportWorkflowDefinitionRequest extends $dara.Model {
    * The FlowSpec field information about the workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
    * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *     "version": "1.1.0",
+   *     "kind": "CycleWorkflow",
+   *     "spec": {
+   *         "name": "Asynchronous_Workflow_Creation_Test",
+   *         "id": "632647691239009XXXX",
+   *         "type": "CycleWorkflow",
+   *         "workflows": [
+   *             {
+   *                 "script": {
+   *                     "path": "XX/OpenAPI_Test/Workflow_Test/Asynchronous_Workflow_Creation_Test",
+   *                     "runtime": {
+   *                         "command": "WORKFLOW"
+   *                     }
+   *                 },
+   *                 "id": "632647691239009XXXX",
+   *                 "trigger": {
+   *                     "type": "Scheduler",
+   *                     "cron": "00 03 00 * * ?",
+   *                     "startTime": "1970-01-01 00:00:00",
+   *                     "endTime": "9999-01-01 00:00:00",
+   *                     "timezone": "Asia/Shanghai",
+   *                     "delaySeconds": 0
+   *                 },
+   *                 "strategy": {
+   *                     "timeout": 0,
+   *                     "instanceMode": "T+1",
+   *                     "rerunMode": "Allowed",
+   *                     "rerunTimes": 3,
+   *                     "rerunInterval": 180000,
+   *                     "failureStrategy": "Break"
+   *                 },
+   *                 "name": "Asynchronous_Workflow_Creation_Test",
+   *                 "inputs": {},
+   *                 "outputs": {
+   *                     "nodeOutputs": [
+   *                         {
+   *                             "data": "632647691239009XXXX",
+   *                             "artifactType": "NodeOutput",
+   *                             "refTableName": "Asynchronous_Workflow_Creation_Test"
+   *                         }
+   *                     ]
+   *                 },
+   *                 "nodes": [
+   *                     {
+   *                         "recurrence": "Normal",
+   *                         "id": "742981001612325XXXX",
+   *                         "timeout": 0,
+   *                         "instanceMode": "T+1",
+   *                         "rerunMode": "Allowed",
+   *                         "rerunTimes": 3,
+   *                         "rerunInterval": 180000,
+   *                         "script": {
+   *                             "path": "XX/OpenAPI_Test/Workflow_Test/Asynchronous_Workflow_Creation_Test/111",
+   *                             "runtime": {
+   *                                 "command": "ODPS_SQL"
+   *                             },
+   *                             "content": "select now();\\n"
+   *                         },
+   *                         "trigger": {
+   *                             "type": "Scheduler",
+   *                             "cron": "00 24 00 * * ?",
+   *                             "startTime": "1970-01-01 00:00:00",
+   *                             "endTime": "9999-01-01 00:00:00",
+   *                             "timezone": "Asia/Shanghai",
+   *                             "delaySeconds": 0
+   *                         },
+   *                         "name": "111",
+   *                         "inputs": {},
+   *                         "outputs": {
+   *                             "nodeOutputs": [
+   *                                 {
+   *                                     "data": "742981001612325XXXX",
+   *                                     "artifactType": "NodeOutput",
+   *                                     "refTableName": "111"
+   *                                 }
+   *                             ]
+   *                         }
+   *                     },
+   *                     {
+   *                         "recurrence": "Normal",
+   *                         "id": "595182137303408XXXX",
+   *                         "timeout": 0,
+   *                         "instanceMode": "T+1",
+   *                         "rerunMode": "Allowed",
+   *                         "rerunTimes": 3,
+   *                         "rerunInterval": 180000,
+   *                         "script": {
+   *                             "path": "XX/OpenAPI_Test/Workflow_Test/Asynchronous_Workflow_Creation_Test/222",
+   *                             "runtime": {
+   *                                 "command": "ODPS_SQL"
+   *                             },
+   *                             "content": "select now();\\n select 1;"
+   *                         },
+   *                         "trigger": {
+   *                             "type": "Scheduler",
+   *                             "cron": "00 00 00 * * ?",
+   *                             "startTime": "1970-01-01 00:00:00",
+   *                             "endTime": "9999-01-01 00:00:00",
+   *                             "timezone": "Asia/Shanghai",
+   *                             "delaySeconds": 0
+   *                         },
+   *                         "name": "222",
+   *                         "inputs": {},
+   *                         "outputs": {
+   *                             "nodeOutputs": [
+   *                                 {
+   *                                     "data": "595182137303408XXXX",
+   *                                     "artifactType": "NodeOutput",
+   *                                     "refTableName": "222"                                
+   *                                 }
+   *                             ]
+   *                         }
+   *                     }
+   *                 ],
+   *                 "dependencies": [
+   *                     {
+   *                         "nodeId": "595182137303408XXXX",
+   *                         "depends": [
+   *                             {
+   *                                 "type": "Normal",
+   *                                 "output": "742981001612325XXXX",
+   *                                 "refTableName": "111"
+   *                             }
+   *                         ]
+   *                     }
+   *                 ]
+   *             }
+   *         ]
+   *     }
+   * }
    */
   spec?: string;
   static names(): { [key: string]: string } {
@@ -44563,7 +49011,7 @@ export class ListDIJobRunDetailsResponse extends $dara.Model {
 export class ListDIJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination type. If you do not configure this parameter, no limits are imposed on the tasks.
+   * The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, Loghub, STARROCKS, Datahub, ANALYTICDB_FOR_MYSQL, Kafka, and Hive. If you do not configure this parameter, the API operation queries synchronization tasks that use all type of destinations.
    * 
    * @example
    * Hologres
@@ -44621,7 +49069,7 @@ export class ListDIJobsRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The source type. If you do not configure this parameter, no limits are imposed on the tasks.
+   * The source type. Valid values: PolarDB, MySQL, Kafka, Loghub, Hologres, Oracle, OceanBase, MongoDB, RedShift, Hive, SqlServer, Doris, and ClickHouse. If you do not configure this parameter, the API operation queries synchronization tasks that use all types of sources.
    * 
    * @example
    * MySQL
@@ -44737,21 +49185,38 @@ export class ListDIJobsResponse extends $dara.Model {
 
 export class ListDataAssetTagsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The type of the tag.
+   * 
+   * Valid values:
+   * 
+   * *   Normal
+   * *   System
+   * 
    * @example
    * Normal
    */
   category?: string;
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
@@ -44784,10 +49249,14 @@ export class ListDataAssetTagsRequest extends $dara.Model {
 }
 
 export class ListDataAssetTagsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListDataAssetTagsResponseBodyPagingInfo;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0bc1ec92159376****
@@ -44855,34 +49324,64 @@ export class ListDataAssetTagsResponse extends $dara.Model {
 }
 
 export class ListDataAssetsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The data asset IDs.
+   */
   dataAssetIds?: string[];
   /**
+   * @remarks
+   * The type of the data asset. Valid values:
+   * 
+   * *   ACS::DataWorks::Table
+   * *   ACS::DataWorks::Task
+   * 
    * @example
    * ACS::DataWorks::Task
    */
   dataAssetType?: string;
   /**
+   * @remarks
+   * The environment of the workspace to which the data asset belongs. Valid values:
+   * 
+   * *   Dev: development environment
+   * *   Prod: production environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 10000
    */
   projectId?: number;
   /**
    * @remarks
+   * The tags that are added to data assets. This parameter specifies a filter condition.
+   * 
+   * *   You can specify multiple tags, which are in the logical OR relation. For example, you can query the data assets that contain one of the following tags: `["key1:v1", "key2:v1", "key3:v1"]`.
+   * *   If you do not configure this parameter, tag-based filtering is not performed.
+   * 
    * This parameter is required.
    */
   tags?: ListDataAssetsRequestTags[];
@@ -44926,34 +49425,64 @@ export class ListDataAssetsRequest extends $dara.Model {
 }
 
 export class ListDataAssetsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The data asset IDs.
+   */
   dataAssetIdsShrink?: string;
   /**
+   * @remarks
+   * The type of the data asset. Valid values:
+   * 
+   * *   ACS::DataWorks::Table
+   * *   ACS::DataWorks::Task
+   * 
    * @example
    * ACS::DataWorks::Task
    */
   dataAssetType?: string;
   /**
+   * @remarks
+   * The environment of the workspace to which the data asset belongs. Valid values:
+   * 
+   * *   Dev: development environment
+   * *   Prod: production environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 10000
    */
   projectId?: number;
   /**
    * @remarks
+   * The tags that are added to data assets. This parameter specifies a filter condition.
+   * 
+   * *   You can specify multiple tags, which are in the logical OR relation. For example, you can query the data assets that contain one of the following tags: `["key1:v1", "key2:v1", "key3:v1"]`.
+   * *   If you do not configure this parameter, tag-based filtering is not performed.
+   * 
    * This parameter is required.
    */
   tagsShrink?: string;
@@ -44991,10 +49520,14 @@ export class ListDataAssetsShrinkRequest extends $dara.Model {
 }
 
 export class ListDataAssetsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListDataAssetsResponseBodyPagingInfo;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0bc1ec92159376
@@ -45270,6 +49803,9 @@ export class ListDataQualityEvaluationTasksRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the data quality monitoring task. Fuzzy match is supported.
+   * 
+   * @example
+   * Test
    */
   name?: string;
   /**
@@ -45426,26 +49962,41 @@ export class ListDataQualityResultsRequest extends $dara.Model {
    */
   bizdateTo?: string;
   /**
+   * @remarks
+   * The earliest time when data quality verification results are generated.
+   * 
    * @example
    * 1710239005403
    */
   createTimeFrom?: number;
   /**
+   * @remarks
+   * The latest generation time of data quality verification results.
+   * 
    * @example
    * 1710239005403
    */
   createTimeTo?: number;
   /**
+   * @remarks
+   * The ID of the data quality verification task.
+   * 
    * @example
    * 200001
    */
   dataQualityEvaluationTaskId?: number;
   /**
+   * @remarks
+   * The ID of the data quality verification task instance.
+   * 
    * @example
    * 10001
    */
   dataQualityEvaluationTaskInstanceId?: number;
   /**
+   * @remarks
+   * The ID of the data quality rule.
+   * 
    * @example
    * 100001
    */
@@ -45590,11 +50141,30 @@ export class ListDataQualityResultsResponse extends $dara.Model {
 
 export class ListDataQualityRuleTemplatesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The source of the rule template. Required.
+   * - System: System Template
+   * - UserDefined: user-defined Template
+   * 
    * @example
    * System
    */
   creationSource?: string;
+  /**
+   * @remarks
+   * The category directory where the custom template is stored, slash/divider level. Each level name can be up to 1024 characters in length and cannot contain white space characters or backslashes.
+   * 
+   * @example
+   * /ods/order_data
+   */
   directoryPath?: string;
+  /**
+   * @remarks
+   * Fuzzy matching of template rule names. If it is a system template, the internationalized name of the system template will be fuzzy matching based on the language.
+   * 
+   * @example
+   * Table rows
+   */
   name?: string;
   /**
    * @remarks
@@ -45614,6 +50184,8 @@ export class ListDataQualityRuleTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * DataWorks workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45652,8 +50224,15 @@ export class ListDataQualityRuleTemplatesRequest extends $dara.Model {
 }
 
 export class ListDataQualityRuleTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Quality Rule template pagination query results
+   */
   pagingInfo?: ListDataQualityRuleTemplatesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 691CA452-D37A-4ED0-9441
    */
@@ -46368,12 +50947,12 @@ export class ListDeploymentsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   INIT
-   * *   RUNNING
-   * *   SUCCESS
-   * *   FAIL
-   * *   TERMINATION
-   * *   CANCEL
+   * *   Init
+   * *   Running
+   * *   Success
+   * *   Fail
+   * *   Termination
+   * *   Cancel
    * 
    * @example
    * RUNNING
@@ -46791,16 +51370,16 @@ export class ListFunctionsRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The UDF type. This parameter specifies a filter condition.
+   * The user-defined function (UDF) type. This parameter specifies a filter condition.
    * 
    * Valid values:
    * 
-   * *   MATH: mathematical operation function
-   * *   AGGREGATE: aggregate function
-   * *   STRING: string processing function
-   * *   DATE: date function
-   * *   ANALYTIC: window function
-   * *   OTHER: others
+   * *   Math: mathematical operation function
+   * *   Aggregate: aggregate function
+   * *   String: string processing function
+   * *   Date: date function
+   * *   Analytic: window function
+   * *   Other: other functions
    * 
    * @example
    * MATH
@@ -46911,10 +51490,26 @@ export class ListFunctionsResponse extends $dara.Model {
 }
 
 export class ListNetworksRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   /**
    * @remarks
+   * Unique identifier of a Serverless resource group
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46922,6 +51517,16 @@ export class ListNetworksRequest extends $dara.Model {
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The fields used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * 
+   * *   Id (Desc/Asc): the network ID
+   * *   Status (Desc/Asc): the network status
+   * *   CreateUser (Desc/Asc): the user who created the network
+   * *   CreateTime (Desc/Asc): the time when the network was created
+   * 
+   * Default value: CreateTime Asc.
+   * 
    * @example
    * CreateTime Asc
    */
@@ -46954,13 +51559,23 @@ export class ListNetworksRequest extends $dara.Model {
 }
 
 export class ListNetworksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListNetworksResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the request is successful
+   * 
    * @example
    * true
    */
@@ -47205,6 +51820,15 @@ export class ListNodesRequest extends $dara.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The scheduling type. This parameter specifies a filter condition.
+   * 
+   * Valid values:
+   * 
+   * *   Normal: Nodes are scheduled as expected.
+   * *   Pause: Nodes are paused, and the running of their descendant nodes is blocked.
+   * *   Skip: Nodes are dry run. The system does not actually run the nodes but directly prompts that the nodes are successfully run. The running duration of the nodes is 0 seconds. In addition, the nodes do not occupy resources or block the running of their descendant nodes.
+   * 
    * @example
    * Normal
    */
@@ -47223,13 +51847,13 @@ export class ListNodesRequest extends $dara.Model {
   rerunMode?: string;
   /**
    * @remarks
-   * The scene of nodes. This parameter specifies a filter condition.
+   * The scene of the node. This parameter determines the location of the node.
    * 
    * Valid values:
    * 
-   * *   DATAWORKS_PROJECT
-   * *   MANUAL_WORKFLOW
-   * *   MANUAL_NODE
+   * *   DataworksProject
+   * *   DataworksManualWorkflow
+   * *   DataworksManualTask
    * 
    * @example
    * DATAWORKS_PROJECT
@@ -47601,9 +52225,7 @@ export class ListProjectRolesRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The type of the role in the DataWorks workspace.
-   * 
-   * Valid values:
+   * The type of the role. Valid values:
    * 
    * *   UserCustom: user-defined role
    * *   System: system role
@@ -47690,9 +52312,7 @@ export class ListProjectRolesShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The type of the role in the DataWorks workspace.
-   * 
-   * Valid values:
+   * The type of the role. Valid values:
    * 
    * *   UserCustom: user-defined role
    * *   System: system role
@@ -47811,6 +52431,8 @@ export class ListProjectsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Alibaba Cloud resource group to which the workspaces belong. You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups) and go to the Resource Group page to query the ID.
+   * 
+   * This parameter is used to query the information about workspaces that belong to a specific resource group.
    * 
    * @example
    * rg-acfmzbn7pti3zff
@@ -47962,6 +52584,8 @@ export class ListProjectsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Alibaba Cloud resource group to which the workspaces belong. You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups) and go to the Resource Group page to query the ID.
+   * 
+   * This parameter is used to query the information about workspaces that belong to a specific resource group.
    * 
    * @example
    * rg-acfmzbn7pti3zff
@@ -48177,10 +52801,17 @@ export class ListProjectsResponse extends $dara.Model {
 
 export class ListResourceGroupsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Alibaba Cloud Resource Group ID
+   * 
    * @example
    * rg-aek2kqofrgXXXXX
    */
   aliyunResourceGroupId?: string;
+  /**
+   * @remarks
+   * Alibaba Cloud tag list
+   */
   aliyunResourceTags?: ListResourceGroupsRequestAliyunResourceTags[];
   /**
    * @remarks
@@ -48232,16 +52863,16 @@ export class ListResourceGroupsRequest extends $dara.Model {
   resourceGroupTypes?: string[];
   /**
    * @remarks
-   * The fields used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * The list of fields used for sorting. Fields such as TriggerTime and StartedTime are supported. You must configure this parameter in the Sorting field + Sort by (Desc/Asc). By default, results are sorted in ascending order. Valid values:
    * 
-   * *   Id (Desc/Asc): the resource group ID
-   * *   Name (Desc/Asc): the name of the resource group
-   * *   Remark (Desc/Asc): the remarks of the resource group
-   * *   Type (Desc/Asc): the type of the resource group
-   * *   Status (Desc/Asc): the status of the resource group
-   * *   Spec (Desc/Asc): the specifications of the resource group
-   * *   CreateUser (Desc/Asc): the creator of the resource group
-   * *   CreateTime (Desc/Asc): the time when the route is created
+   * *   Id (Desc/Asc): resource group ID
+   * *   Name (Desc/Asc): resource group name
+   * *   Remark (Desc/Asc): resource group remarks
+   * *   Type (Desc/Asc): resource group type
+   * *   Status (Desc/Asc): status of resources in a resource group
+   * *   Spec (Desc/Asc): resource group specifications
+   * *   CreateUser (Desc/Asc): creator
+   * *   CreateTime (Desc/Asc): creation time
    * 
    * Default value: CreateTime Asc
    * 
@@ -48304,10 +52935,17 @@ export class ListResourceGroupsRequest extends $dara.Model {
 
 export class ListResourceGroupsShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Alibaba Cloud Resource Group ID
+   * 
    * @example
    * rg-aek2kqofrgXXXXX
    */
   aliyunResourceGroupId?: string;
+  /**
+   * @remarks
+   * Alibaba Cloud tag list
+   */
   aliyunResourceTagsShrink?: string;
   /**
    * @remarks
@@ -48359,16 +52997,16 @@ export class ListResourceGroupsShrinkRequest extends $dara.Model {
   resourceGroupTypesShrink?: string;
   /**
    * @remarks
-   * The fields used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * The list of fields used for sorting. Fields such as TriggerTime and StartedTime are supported. You must configure this parameter in the Sorting field + Sort by (Desc/Asc). By default, results are sorted in ascending order. Valid values:
    * 
-   * *   Id (Desc/Asc): the resource group ID
-   * *   Name (Desc/Asc): the name of the resource group
-   * *   Remark (Desc/Asc): the remarks of the resource group
-   * *   Type (Desc/Asc): the type of the resource group
-   * *   Status (Desc/Asc): the status of the resource group
-   * *   Spec (Desc/Asc): the specifications of the resource group
-   * *   CreateUser (Desc/Asc): the creator of the resource group
-   * *   CreateTime (Desc/Asc): the time when the route is created
+   * *   Id (Desc/Asc): resource group ID
+   * *   Name (Desc/Asc): resource group name
+   * *   Remark (Desc/Asc): resource group remarks
+   * *   Type (Desc/Asc): resource group type
+   * *   Status (Desc/Asc): status of resources in a resource group
+   * *   Spec (Desc/Asc): resource group specifications
+   * *   CreateUser (Desc/Asc): creator
+   * *   CreateTime (Desc/Asc): creation time
    * 
    * Default value: CreateTime Asc
    * 
@@ -48428,7 +53066,7 @@ export class ListResourceGroupsResponseBody extends $dara.Model {
   pagingInfo?: ListResourceGroupsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -48663,22 +53301,33 @@ export class ListResourcesResponse extends $dara.Model {
 
 export class ListRoutesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The network ID.
+   * 
    * @example
    * 1000
    */
   networkId?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
    * @remarks
+   * The ID of the resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48686,6 +53335,15 @@ export class ListRoutesRequest extends $dara.Model {
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The fields used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * 
+   * *   Id (Desc/Asc): the route ID
+   * *   DestinationCidr (Desc/Asc): the destination CIDR block of the route
+   * *   CreateTime (Desc/Asc): the time when the route is created
+   * 
+   * Default value: CreateTime Asc.
+   * 
    * @example
    * CreateTime Asc
    */
@@ -48720,8 +53378,15 @@ export class ListRoutesRequest extends $dara.Model {
 }
 
 export class ListRoutesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListRoutesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
@@ -48867,7 +53532,7 @@ export class ListTaskInstanceOperationLogsResponseBody extends $dara.Model {
   pagingInfo?: ListTaskInstanceOperationLogsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
@@ -49047,6 +53712,9 @@ export class ListTaskInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the task. Fuzzy match is supported.
+   * 
+   * @example
+   * SQL node
    */
   taskName?: string;
   /**
@@ -49071,7 +53739,7 @@ export class ListTaskInstancesRequest extends $dara.Model {
   triggerRecurrence?: string;
   /**
    * @remarks
-   * The trigger type. Valid values:
+   * The trigger type.
    * 
    * *   Scheduler: scheduling cycle-based trigger
    * *   Manual: manual trigger
@@ -49286,6 +53954,9 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the task. Fuzzy match is supported.
+   * 
+   * @example
+   * SQL node
    */
   taskName?: string;
   /**
@@ -49310,7 +53981,7 @@ export class ListTaskInstancesShrinkRequest extends $dara.Model {
   triggerRecurrence?: string;
   /**
    * @remarks
-   * The trigger type. Valid values:
+   * The trigger type.
    * 
    * *   Scheduler: scheduling cycle-based trigger
    * *   Manual: manual trigger
@@ -49518,9 +54189,7 @@ export class ListTaskOperationLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The environment of the workspace.
-   * 
-   * Valid values:
+   * The environment of the workspace. Valid values:
    * 
    * *   Prod: production environment
    * *   Dev: development environment
@@ -49634,10 +54303,17 @@ export class ListTaskOperationLogsResponse extends $dara.Model {
 }
 
 export class ListTasksRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the task.
+   */
   ids?: number[];
   /**
    * @remarks
    * The name of the task. Fuzzy match is supported.
+   * 
+   * @example
+   * SQL node
    */
   name?: string;
   /**
@@ -49803,10 +54479,17 @@ export class ListTasksRequest extends $dara.Model {
 }
 
 export class ListTasksShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the task.
+   */
   idsShrink?: string;
   /**
    * @remarks
    * The name of the task. Fuzzy match is supported.
+   * 
+   * @example
+   * SQL node
    */
   name?: string;
   /**
@@ -50469,32 +55152,55 @@ export class ListWorkflowDefinitionsResponse extends $dara.Model {
 export class ListWorkflowInstancesRequest extends $dara.Model {
   /**
    * @remarks
+   * 业务日期。
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1710239005403
    */
   bizDate?: number;
+  /**
+   * @remarks
+   * The IDs of the workflow instances. You can query multiple instances at a time by instance ID.
+   */
   ids?: number[];
   /**
+   * @remarks
+   * The instance name. Fuzzy match is supported.
+   * 
    * @example
    * WorkflowInstance1
    */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the workflow instance owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50502,12 +55208,38 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The fields used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * 
+   * *   TriggerTime (Desc/Asc)
+   * *   StartedTime (Desc/Asc)
+   * *   FinishedTime (Desc/Asc)
+   * *   CreateTime (Desc/Asc)
+   * *   Id (Desc/Asc)
+   * 
+   * Default value: Id Desc.
+   * 
    * @example
    * Id Desc
    */
   sortBy?: string;
+  /**
+   * @remarks
+   * 工作流实例的类型。
+   * - Normal：周期调度
+   * - Manual：手动任务
+   * - SmokeTest：测试
+   * - SupplementData：补数据
+   * - ManualWorkflow：手动工作流
+   * 
+   * @example
+   * Normal
+   */
   type?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the instance belongs.
+   * 
    * @example
    * 1234
    */
@@ -50557,32 +55289,55 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
 export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * 业务日期。
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1710239005403
    */
   bizDate?: number;
+  /**
+   * @remarks
+   * The IDs of the workflow instances. You can query multiple instances at a time by instance ID.
+   */
   idsShrink?: string;
   /**
+   * @remarks
+   * The instance name. Fuzzy match is supported.
+   * 
    * @example
    * WorkflowInstance1
    */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the workflow instance owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50590,12 +55345,38 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The fields used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * 
+   * *   TriggerTime (Desc/Asc)
+   * *   StartedTime (Desc/Asc)
+   * *   FinishedTime (Desc/Asc)
+   * *   CreateTime (Desc/Asc)
+   * *   Id (Desc/Asc)
+   * 
+   * Default value: Id Desc.
+   * 
    * @example
    * Id Desc
    */
   sortBy?: string;
+  /**
+   * @remarks
+   * 工作流实例的类型。
+   * - Normal：周期调度
+   * - Manual：手动任务
+   * - SmokeTest：测试
+   * - SupplementData：补数据
+   * - ManualWorkflow：手动工作流
+   * 
+   * @example
+   * Normal
+   */
   type?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the instance belongs.
+   * 
    * @example
    * 1234
    */
@@ -50640,8 +55421,15 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
 }
 
 export class ListWorkflowInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListWorkflowInstancesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -50709,33 +55497,57 @@ export class ListWorkflowInstancesResponse extends $dara.Model {
 
 export class ListWorkflowsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
+  /**
+   * @remarks
+   * The IDs of the workflows. You can query multiple workflows at a time by workflow ID.
+   */
   ids?: number[];
   /**
+   * @remarks
+   * The name of the workflow. Fuzzy match is supported.
+   * 
    * @example
    * Workflow1
    */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the workflow owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50743,11 +55555,26 @@ export class ListWorkflowsRequest extends $dara.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The field used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * 
+   * *   ModifyTime (Desc/Asc)
+   * *   CreateTime (Desc/Asc)
+   * *   Id (Desc/Asc)
+   * 
+   * Default value: Id Desc.
+   * 
    * @example
    * Id Desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The trigger type. Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
    * @example
    * Scheduler
    */
@@ -50794,33 +55621,57 @@ export class ListWorkflowsRequest extends $dara.Model {
 
 export class ListWorkflowsShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
+  /**
+   * @remarks
+   * The IDs of the workflows. You can query multiple workflows at a time by workflow ID.
+   */
   idsShrink?: string;
   /**
+   * @remarks
+   * The name of the workflow. Fuzzy match is supported.
+   * 
    * @example
    * Workflow1
    */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the workflow owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50828,11 +55679,26 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The field used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * 
+   * *   ModifyTime (Desc/Asc)
+   * *   CreateTime (Desc/Asc)
+   * *   Id (Desc/Asc)
+   * 
+   * Default value: Id Desc.
+   * 
    * @example
    * Id Desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The trigger type. Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
    * @example
    * Scheduler
    */
@@ -50875,8 +55741,15 @@ export class ListWorkflowsShrinkRequest extends $dara.Model {
 }
 
 export class ListWorkflowsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListWorkflowsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -51684,6 +56557,9 @@ export class RenameFunctionRequest extends $dara.Model {
    * The new name.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Rename
    */
   name?: string;
   /**
@@ -51815,6 +56691,9 @@ export class RenameNodeRequest extends $dara.Model {
    * The new name.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Rename
    */
   name?: string;
   /**
@@ -51946,6 +56825,9 @@ export class RenameResourceRequest extends $dara.Model {
    * The new name.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Rename
    */
   name?: string;
   /**
@@ -52066,7 +56948,7 @@ export class RenameResourceResponse extends $dara.Model {
 export class RenameWorkflowDefinitionRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the workflow.
+   * The ID of the workflow.
    * 
    * This parameter is required.
    * 
@@ -52079,11 +56961,14 @@ export class RenameWorkflowDefinitionRequest extends $dara.Model {
    * The new name.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * Rename
    */
   name?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
    * 
    * This parameter is required.
    * 
@@ -52196,10 +57081,17 @@ export class RenameWorkflowDefinitionResponse extends $dara.Model {
 
 export class RerunTaskInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The ID list of the task instance.
+   */
   ids?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -52229,10 +57121,17 @@ export class RerunTaskInstancesRequest extends $dara.Model {
 
 export class RerunTaskInstancesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The ID list of the task instance.
+   */
   idsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52259,6 +57158,9 @@ export class RerunTaskInstancesShrinkRequest extends $dara.Model {
 
 export class RerunTaskInstancesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -52331,10 +57233,17 @@ export class RerunTaskInstancesResponse extends $dara.Model {
 
 export class ResumeTaskInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The ID list of the task instance.
+   */
   ids?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -52364,10 +57273,17 @@ export class ResumeTaskInstancesRequest extends $dara.Model {
 
 export class ResumeTaskInstancesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The ID list of the task instance.
+   */
   idsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52394,6 +57310,9 @@ export class ResumeTaskInstancesShrinkRequest extends $dara.Model {
 
 export class ResumeTaskInstancesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -52644,10 +57563,17 @@ export class RevokeMemberProjectRolesResponse extends $dara.Model {
 
 export class SetSuccessTaskInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The ID list of the task instance.
+   */
   ids?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -52677,10 +57603,17 @@ export class SetSuccessTaskInstancesRequest extends $dara.Model {
 
 export class SetSuccessTaskInstancesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The ID list of the task instance.
+   */
   idsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52707,6 +57640,9 @@ export class SetSuccessTaskInstancesShrinkRequest extends $dara.Model {
 
 export class SetSuccessTaskInstancesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -53264,10 +58200,17 @@ export class StopDIJobResponse extends $dara.Model {
 
 export class StopTaskInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The ID list of the task instance.
+   */
   ids?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -53297,10 +58240,17 @@ export class StopTaskInstancesRequest extends $dara.Model {
 
 export class StopTaskInstancesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The ID list of the task instance.
+   */
   idsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53327,6 +58277,9 @@ export class StopTaskInstancesShrinkRequest extends $dara.Model {
 
 export class StopTaskInstancesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -53399,12 +58352,17 @@ export class StopTaskInstancesResponse extends $dara.Model {
 
 export class StopWorkflowInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
   /**
    * @remarks
+   * The workflow instance IDs.
+   * 
    * This parameter is required.
    */
   ids?: number[];
@@ -53436,12 +58394,17 @@ export class StopWorkflowInstancesRequest extends $dara.Model {
 
 export class StopWorkflowInstancesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
   /**
    * @remarks
+   * The workflow instance IDs.
+   * 
    * This parameter is required.
    */
   idsShrink?: string;
@@ -53470,10 +58433,17 @@ export class StopWorkflowInstancesShrinkRequest extends $dara.Model {
 
 export class StopWorkflowInstancesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the batch operation, which is in the MAP structure. The workflow instance ID serves as a key, and the result serves as a value.
+   */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {
     return {
@@ -53538,10 +58508,17 @@ export class StopWorkflowInstancesResponse extends $dara.Model {
 
 export class SuspendTaskInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The ID list of the task instance.
+   */
   ids?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -53571,10 +58548,17 @@ export class SuspendTaskInstancesRequest extends $dara.Model {
 
 export class SuspendTaskInstancesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The ID list of the task instance.
+   */
   idsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53601,6 +58585,9 @@ export class SuspendTaskInstancesShrinkRequest extends $dara.Model {
 
 export class SuspendTaskInstancesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -53673,17 +58660,27 @@ export class SuspendTaskInstancesResponse extends $dara.Model {
 
 export class TagDataAssetsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable lineage-based automatic backtracking.
+   * 
    * @example
    * false
    */
   autoTraceEnabled?: boolean;
   /**
    * @remarks
+   * The data asset IDs.
+   * 
    * This parameter is required.
    */
   dataAssetIds?: string[];
   /**
    * @remarks
+   * The type of the data asset. Valid values:
+   * 
+   * *   ACS::DataWorks::Table
+   * *   ACS::DataWorks::Task
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53691,17 +58688,28 @@ export class TagDataAssetsRequest extends $dara.Model {
    */
   dataAssetType?: string;
   /**
+   * @remarks
+   * The environment of the workspace to which the data asset belongs. Valid values:
+   * 
+   * *   Dev: development environment
+   * *   Prod: production environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 10000
    */
   projectId?: number;
   /**
    * @remarks
+   * The tags that you want to add to data assets.
+   * 
    * This parameter is required.
    */
   tags?: TagDataAssetsRequestTags[];
@@ -53744,17 +58752,27 @@ export class TagDataAssetsRequest extends $dara.Model {
 
 export class TagDataAssetsShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable lineage-based automatic backtracking.
+   * 
    * @example
    * false
    */
   autoTraceEnabled?: boolean;
   /**
    * @remarks
+   * The data asset IDs.
+   * 
    * This parameter is required.
    */
   dataAssetIdsShrink?: string;
   /**
    * @remarks
+   * The type of the data asset. Valid values:
+   * 
+   * *   ACS::DataWorks::Table
+   * *   ACS::DataWorks::Task
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53762,17 +58780,28 @@ export class TagDataAssetsShrinkRequest extends $dara.Model {
    */
   dataAssetType?: string;
   /**
+   * @remarks
+   * The environment of the workspace to which the data asset belongs. Valid values:
+   * 
+   * *   Dev: development environment
+   * *   Prod: production environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 10000
    */
   projectId?: number;
   /**
    * @remarks
+   * The tags that you want to add to data assets.
+   * 
    * This parameter is required.
    */
   tagsShrink?: string;
@@ -53810,13 +58839,19 @@ export class TagDataAssetsShrinkRequest extends $dara.Model {
 export class TagDataAssetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0bc1ec92159376
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -54014,11 +59049,18 @@ export class TriggerSchedulerTaskInstanceResponse extends $dara.Model {
 export class UnTagDataAssetsRequest extends $dara.Model {
   /**
    * @remarks
+   * The data asset IDs.
+   * 
    * This parameter is required.
    */
   dataAssetIds?: string[];
   /**
    * @remarks
+   * The type of the data asset. Valid values:
+   * 
+   * *   ACS::DataWorks::Table
+   * *   ACS::DataWorks::Task
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54026,17 +59068,28 @@ export class UnTagDataAssetsRequest extends $dara.Model {
    */
   dataAssetType?: string;
   /**
+   * @remarks
+   * The environment of the workspace to which the data asset belongs. Valid values:
+   * 
+   * *   Dev: development environment
+   * *   Prod: production environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 123
    */
   projectId?: number;
   /**
    * @remarks
+   * The tags that you want to remove.
+   * 
    * This parameter is required.
    */
   tags?: UnTagDataAssetsRequestTags[];
@@ -54078,11 +59131,18 @@ export class UnTagDataAssetsRequest extends $dara.Model {
 export class UnTagDataAssetsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The data asset IDs.
+   * 
    * This parameter is required.
    */
   dataAssetIdsShrink?: string;
   /**
    * @remarks
+   * The type of the data asset. Valid values:
+   * 
+   * *   ACS::DataWorks::Table
+   * *   ACS::DataWorks::Task
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54090,17 +59150,28 @@ export class UnTagDataAssetsShrinkRequest extends $dara.Model {
    */
   dataAssetType?: string;
   /**
+   * @remarks
+   * The environment of the workspace to which the data asset belongs. Valid values:
+   * 
+   * *   Dev: development environment
+   * *   Prod: production environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 123
    */
   projectId?: number;
   /**
    * @remarks
+   * The tags that you want to remove.
+   * 
    * This parameter is required.
    */
   tagsShrink?: string;
@@ -54136,13 +59207,19 @@ export class UnTagDataAssetsShrinkRequest extends $dara.Model {
 export class UnTagDataAssetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 8754EE08-4AA2-5F77-ADD7-754DBBDA9F75
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -55017,16 +60094,33 @@ export class UpdateDIJobResponse extends $dara.Model {
 }
 
 export class UpdateDataAssetTagRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the tag.
+   * 
+   * @example
+   * This is a description.
+   */
   description?: string;
   /**
    * @remarks
+   * The tag key.
+   * 
    * This parameter is required.
    * 
    * @example
    * key1
    */
   key?: string;
+  /**
+   * @remarks
+   * The tag administrators.
+   */
   managers?: string[];
+  /**
+   * @remarks
+   * The tag values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -55062,16 +60156,33 @@ export class UpdateDataAssetTagRequest extends $dara.Model {
 }
 
 export class UpdateDataAssetTagShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the tag.
+   * 
+   * @example
+   * This is a description.
+   */
   description?: string;
   /**
    * @remarks
+   * The tag key.
+   * 
    * This parameter is required.
    * 
    * @example
    * key1
    */
   key?: string;
+  /**
+   * @remarks
+   * The tag administrators.
+   */
   managersShrink?: string;
+  /**
+   * @remarks
+   * The tag values.
+   */
   valuesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55103,13 +60214,16 @@ export class UpdateDataAssetTagShrinkRequest extends $dara.Model {
 export class UpdateDataAssetTagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0bc1ec92159376
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -55189,6 +60303,9 @@ export class UpdateDataQualityEvaluationTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the monitor.
+   * 
+   * @example
+   * OpenAPI data quality monitoring test.
    */
   description?: string;
   /**
@@ -55209,6 +60326,9 @@ export class UpdateDataQualityEvaluationTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the monitor.
+   * 
+   * @example
+   * OpenAPI data quality monitoring test.
    */
   name?: string;
   /**
@@ -55324,6 +60444,9 @@ export class UpdateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the monitor.
+   * 
+   * @example
+   * OpenAPI data quality monitoring test.
    */
   description?: string;
   /**
@@ -55344,6 +60467,9 @@ export class UpdateDataQualityEvaluationTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the monitor.
+   * 
+   * @example
+   * OpenAPI data quality monitoring test.
    */
   name?: string;
   /**
@@ -55542,6 +60668,9 @@ export class UpdateDataQualityRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the rule. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   * 
+   * @example
+   * The table cannot be empty.
    */
   name?: string;
   /**
@@ -55661,6 +60790,9 @@ export class UpdateDataQualityRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the rule. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   * 
+   * @example
+   * The table cannot be empty.
    */
   name?: string;
   /**
@@ -55825,11 +60957,17 @@ export class UpdateDataQualityRuleTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
+   * 
+   * @example
+   * /ods/order_data
    */
   directoryPath?: string;
   /**
    * @remarks
    * The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
+   * 
+   * @example
+   * Table row Count Verification
    */
   name?: string;
   /**
@@ -55898,11 +61036,17 @@ export class UpdateDataQualityRuleTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
+   * 
+   * @example
+   * /ods/order_data
    */
   directoryPath?: string;
   /**
    * @remarks
    * The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
+   * 
+   * @example
+   * Table row Count Verification
    */
   name?: string;
   /**
@@ -55949,7 +61093,7 @@ export class UpdateDataQualityRuleTemplateShrinkRequest extends $dara.Model {
 export class UpdateDataQualityRuleTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 691CA452-D37A-4ED0-9441
@@ -56124,6 +61268,12 @@ export class UpdateDataSourceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the data source has been modified:
+   * 
+   * - true: Yes
+   * - false: no
+   * 
    * @example
    * true
    */
@@ -56212,6 +61362,33 @@ export class UpdateFunctionRequest extends $dara.Model {
    * The FlowSpec field information about the UDF. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
    * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *     "version": "1.1.0",
+   *     "kind": "Function",
+   *     "spec": {
+   *         "functions": [
+   *             {
+   *                 "name": "FunctionName",
+   *                 "script": {
+   *                     "content": "{\\"name\\": \\"FunctionName\\", \\"datasource\\": {\\"type\\": \\"odps\\", \\"name\\": \\"odps_first\\"}, \\"runtimeResource\\": {\\"resourceGroup\\": \\"S_res_group_XXXX_XXXX\\"}}",
+   *                     "path": "XXX/OpenAPI/Function/FunctionName",
+   *                     "runtime": {
+   *                         "command": "ODPS_FUNCTION"
+   *                     }
+   *                 },
+   *                 "datasource": {
+   *                     "name": "odps_first",
+   *                     "type": "odps"
+   *                 },
+   *                 "runtimeResource": {
+   *                     "resourceGroup": "S_res_group_XXXX_XXXX"
+   *                 }
+   *             }
+   *         ]
+   *     }
+   * }
    */
   spec?: string;
   static names(): { [key: string]: string } {
@@ -56242,7 +61419,7 @@ export class UpdateFunctionRequest extends $dara.Model {
 export class UpdateFunctionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can troubleshoot issues based on the ID.
    * 
    * @example
    * 12123960-CB2C-5086-868E-C6C1D024XXXX
@@ -56344,6 +61521,76 @@ export class UpdateNodeRequest extends $dara.Model {
    * The FlowSpec field information about the node. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
    * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *     "version": "1.1.0",
+   *     "kind": "Node",
+   *     "spec": {
+   *         "nodes": [
+   *             {
+   *                 "id": "860438872620113XXXX",
+   *                 "recurrence": "Normal",
+   *                 "timeout": 0,
+   *                 "instanceMode": "T+1",
+   *                 "rerunMode": "Allowed",
+   *                 "rerunTimes": 3,
+   *                 "rerunInterval": 180000,
+   *                 "datasource": {
+   *                     "name": "odps_test",
+   *                     "type": "odps"
+   *                 },
+   *                 "script": {
+   *                     "path": "XX/OpenAPI_Test/odpsSQL_Test",
+   *                     "runtime": {
+   *                         "command": "ODPS_SQL"
+   *                     },
+   *                     "content": "select now();"
+   *                 },
+   *                 "trigger": {
+   *                     "type": "Scheduler",
+   *                     "cron": "00 00 00 * * ?",
+   *                     "startTime": "1970-01-01 00:00:00",
+   *                     "endTime": "9999-01-01 00:00:00",
+   *                     "timezone": "Asia/Shanghai",
+   *                     "delaySeconds": 0
+   *                 },
+   *                 "runtimeResource": {
+   *                     "resourceGroup": "S_res_group_XXXX_XXXX"
+   *                 },
+   *                 "name": "odpsSQL_Test",
+   *                 "inputs": {
+   *                     "nodeOutputs": [
+   *                         {
+   *                             "data": "lwttest_standard_root",
+   *                             "artifactType": "NodeOutput"
+   *                         }
+   *                     ]
+   *                 },
+   *                 "outputs": {
+   *                     "nodeOutputs": [
+   *                         {
+   *                             "data": "output_data",
+   *                             "artifactType": "NodeOutput",
+   *                             "refTableName": "odpsSQL_Test"
+   *                         }
+   *                     ]
+   *                 }
+   *             }
+   *         ],
+   *         "flow": [
+   *             {
+   *                 "nodeId": "860438872620113XXXX",
+   *                 "depends": [
+   *                     {
+   *                         "type": "Normal",
+   *                         "output": "project_root"
+   *                     }
+   *                 ]
+   *             }
+   *         ]
+   *     }
+   * }
    */
   spec?: string;
   static names(): { [key: string]: string } {
@@ -56374,7 +61621,7 @@ export class UpdateNodeRequest extends $dara.Model {
 export class UpdateNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can troubleshoot issues based on the ID.
    * 
    * @example
    * 99EBE7CF-69C0-5089-BE3E-79563C31XXXX
@@ -56453,6 +61700,9 @@ export class UpdateProjectRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the workspace.
+   * 
+   * @example
+   * Financial analysis group project data development
    */
   description?: string;
   /**
@@ -56482,10 +61732,17 @@ export class UpdateProjectRequest extends $dara.Model {
   /**
    * @remarks
    * The display name of the workspace.
+   * 
+   * @example
+   * Sora financial analysis Space
    */
   displayName?: string;
   /**
    * @remarks
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the workspace management page to obtain the ID.
+   * 
+   * This parameter is used to determine the DataWorks workspaces used for this API call.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56549,6 +61806,9 @@ export class UpdateProjectRequest extends $dara.Model {
 
 export class UpdateProjectResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * 
    * @example
    * AFBB799F-8578-51C5-A766-E922EDB8XXXX
    */
@@ -56635,6 +61895,34 @@ export class UpdateResourceRequest extends $dara.Model {
    * The FlowSpec field information about the file resource. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
    * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *     "version": "1.1.0",
+   *     "kind": "Resource",
+   *     "spec": {
+   *         "fileResources": [
+   *             {
+   *                 "name": "OpenAPI_Test_Resource.py",
+   *                 "script": {
+   *                     "content": "",
+   *                     "path": "XX/OpenAPI_Test/Resources_Test/OpenAPI_Test_Resource.py",
+   *                     "runtime": {
+   *                         "command": "ODPS_PYTHON"
+   *                     }
+   *                 },
+   *                 "type": "python",
+   *                 "file": {
+   *                     "storage": {}
+   *                 },
+   *                 "datasource": {
+   *                     "name": "odps_first",
+   *                     "type": "odps"
+   *                 }
+   *             }
+   *         ]
+   *     }
+   * }
    */
   spec?: string;
   static names(): { [key: string]: string } {
@@ -56665,7 +61953,7 @@ export class UpdateResourceRequest extends $dara.Model {
 export class UpdateResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can troubleshoot issues based on the ID.
    * 
    * @example
    * 4CDF7B72-020B-542A-8465-21CFFA81XXXX
@@ -56743,7 +62031,7 @@ export class UpdateResourceResponse extends $dara.Model {
 export class UpdateResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the new Alibaba Cloud resource group.
    * 
    * @example
    * rg-aek2kqofrgXXXXX
@@ -56772,7 +62060,7 @@ export class UpdateResourceGroupRequest extends $dara.Model {
    * The new remarks that you want to modify for the resource group.
    * 
    * @example
-   * 创建用于普通任务的通用资源组
+   * Create a common resource group for common tasks
    */
   remark?: string;
   static names(): { [key: string]: string } {
@@ -56805,7 +62093,7 @@ export class UpdateResourceGroupRequest extends $dara.Model {
 export class UpdateResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -56890,6 +62178,8 @@ export class UpdateRouteRequest extends $dara.Model {
   destinationCidr?: string;
   /**
    * @remarks
+   * The route ID of the network resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56921,6 +62211,9 @@ export class UpdateRouteRequest extends $dara.Model {
 
 export class UpdateRouteResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
@@ -56993,44 +62286,85 @@ export class UpdateRouteResponse extends $dara.Model {
 
 export class UpdateTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client unique code of the task, which uniquely identifies a task. It is used to implement asynchronous and idempotent functions. If it is not specified during creation, the system will automatically generate the code, which will be uniquely bound to the resource ID. If you specify this parameter when updating and deleting resources, it should be consistent with the client unique code when creating resources.
+   * 
    * @example
    * Task_0bc5213917368545132902xxxxxxxx
    */
   clientUniqueCode?: string;
+  /**
+   * @remarks
+   * The associated data source information.
+   */
   dataSource?: UpdateTaskRequestDataSource;
+  /**
+   * @remarks
+   * Dependency information.
+   */
   dependencies?: UpdateTaskRequestDependencies[];
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The project environment.
+   * - Prod: Production
+   * - Dev: Development
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
    * @remarks
+   * The ID of the task.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @remarks
+   * Enter information.
+   */
   inputs?: UpdateTaskRequestInputs;
   /**
+   * @remarks
+   * The instance generation mode.
+   * - T +1 (second born)
+   * - Immediately (generate now)
+   * 
    * @example
    * T+1
    */
   instanceMode?: string;
   /**
    * @remarks
+   * The name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * SQL node
    */
   name?: string;
+  /**
+   * @remarks
+   * The output information.
+   */
   outputs?: UpdateTaskRequestOutputs;
   /**
    * @remarks
+   * The account ID of the owner of the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57038,12 +62372,20 @@ export class UpdateTaskRequest extends $dara.Model {
    */
   owner?: string;
   /**
+   * @remarks
+   * The retry interval, in seconds.
+   * 
    * @example
    * 60
    */
   rerunInterval?: number;
   /**
    * @remarks
+   * The configuration of whether the task is allowed to rerun.
+   * - AllDenied: failure or success cannot be rerun.
+   * - FailureAllowed: only failures can be rerun
+   * - AllAllowed: you can run again if you fail or succeed.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57051,24 +62393,42 @@ export class UpdateTaskRequest extends $dara.Model {
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of retries that take effect when the task is set to rerun.
+   * 
    * @example
    * 3
    */
   rerunTimes?: number;
   /**
    * @remarks
+   * Configuration of the runtime environment, such as resource group information.
+   * 
    * This parameter is required.
    */
   runtimeResource?: UpdateTaskRequestRuntimeResource;
+  /**
+   * @remarks
+   * Run the script information.
+   */
   script?: UpdateTaskRequestScript;
+  /**
+   * @remarks
+   * The list of task tags.
+   */
   tags?: UpdateTaskRequestTags[];
   /**
+   * @remarks
+   * The timeout period of the task execution, in seconds.
+   * 
    * @example
    * 3600
    */
   timeout?: number;
   /**
    * @remarks
+   * The trigger method of the task.
+   * 
    * This parameter is required.
    */
   trigger?: UpdateTaskRequestTrigger;
@@ -57155,44 +62515,85 @@ export class UpdateTaskRequest extends $dara.Model {
 
 export class UpdateTaskShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client unique code of the task, which uniquely identifies a task. It is used to implement asynchronous and idempotent functions. If it is not specified during creation, the system will automatically generate the code, which will be uniquely bound to the resource ID. If you specify this parameter when updating and deleting resources, it should be consistent with the client unique code when creating resources.
+   * 
    * @example
    * Task_0bc5213917368545132902xxxxxxxx
    */
   clientUniqueCode?: string;
+  /**
+   * @remarks
+   * The associated data source information.
+   */
   dataSourceShrink?: string;
+  /**
+   * @remarks
+   * Dependency information.
+   */
   dependenciesShrink?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The project environment.
+   * - Prod: Production
+   * - Dev: Development
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
    * @remarks
+   * The ID of the task.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @remarks
+   * Enter information.
+   */
   inputsShrink?: string;
   /**
+   * @remarks
+   * The instance generation mode.
+   * - T +1 (second born)
+   * - Immediately (generate now)
+   * 
    * @example
    * T+1
    */
   instanceMode?: string;
   /**
    * @remarks
+   * The name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * SQL node
    */
   name?: string;
+  /**
+   * @remarks
+   * The output information.
+   */
   outputsShrink?: string;
   /**
    * @remarks
+   * The account ID of the owner of the task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57200,12 +62601,20 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
    */
   owner?: string;
   /**
+   * @remarks
+   * The retry interval, in seconds.
+   * 
    * @example
    * 60
    */
   rerunInterval?: number;
   /**
    * @remarks
+   * The configuration of whether the task is allowed to rerun.
+   * - AllDenied: failure or success cannot be rerun.
+   * - FailureAllowed: only failures can be rerun
+   * - AllAllowed: you can run again if you fail or succeed.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57213,24 +62622,42 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of retries that take effect when the task is set to rerun.
+   * 
    * @example
    * 3
    */
   rerunTimes?: number;
   /**
    * @remarks
+   * Configuration of the runtime environment, such as resource group information.
+   * 
    * This parameter is required.
    */
   runtimeResourceShrink?: string;
+  /**
+   * @remarks
+   * Run the script information.
+   */
   scriptShrink?: string;
+  /**
+   * @remarks
+   * The list of task tags.
+   */
   tagsShrink?: string;
   /**
+   * @remarks
+   * The timeout period of the task execution, in seconds.
+   * 
    * @example
    * 3600
    */
   timeout?: number;
   /**
    * @remarks
+   * The trigger method of the task.
+   * 
    * This parameter is required.
    */
   triggerShrink?: string;
@@ -57293,11 +62720,17 @@ export class UpdateTaskShrinkRequest extends $dara.Model {
 
 export class UpdateTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the operation is successful.
+   * 
    * @example
    * true
    */
@@ -57514,23 +62947,41 @@ export class UpdateTaskInstancesResponse extends $dara.Model {
 
 export class UpdateWorkflowRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client-side unique code of the workflow for asynchronous and idempotent implementation. If not specified during creation, the system will automatically generate the code, which will be uniquely bound to the resource ID. If you specify this parameter when updating and deleting resources, it should be consistent with the client unique code when creating resources.
+   * 
    * @example
    * Workflow_0bc5213917368545132902xxxxxxxx
    */
   clientUniqueCode?: string;
+  /**
+   * @remarks
+   * Dependency information.
+   */
   dependencies?: UpdateWorkflowRequestDependencies[];
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The project environment.
+   * 
+   * - Prod: Production
+   * - Dev: Development
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
    * @remarks
+   * The ID of the workflow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57539,12 +62990,23 @@ export class UpdateWorkflowRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * My Workflow
    */
   name?: string;
+  /**
+   * @remarks
+   * The output information.
+   */
   outputs?: UpdateWorkflowRequestOutputs;
   /**
    * @remarks
+   * The account ID of the owner.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57552,14 +63014,27 @@ export class UpdateWorkflowRequest extends $dara.Model {
    */
   owner?: string;
   /**
+   * @remarks
+   * The list of parameters.
+   * 
    * @example
    * para1=$bizdate para2=$[yyyymmdd]
    */
   parameters?: string;
+  /**
+   * @remarks
+   * The list of workflow tags.
+   */
   tags?: UpdateWorkflowRequestTags[];
+  /**
+   * @remarks
+   * The list of tasks.
+   */
   tasks?: UpdateWorkflowRequestTasks[];
   /**
    * @remarks
+   * The trigger method.
+   * 
    * This parameter is required.
    */
   trigger?: UpdateWorkflowRequestTrigger;
@@ -57623,23 +63098,41 @@ export class UpdateWorkflowRequest extends $dara.Model {
 
 export class UpdateWorkflowShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client-side unique code of the workflow for asynchronous and idempotent implementation. If not specified during creation, the system will automatically generate the code, which will be uniquely bound to the resource ID. If you specify this parameter when updating and deleting resources, it should be consistent with the client unique code when creating resources.
+   * 
    * @example
    * Workflow_0bc5213917368545132902xxxxxxxx
    */
   clientUniqueCode?: string;
+  /**
+   * @remarks
+   * Dependency information.
+   */
   dependenciesShrink?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The project environment.
+   * 
+   * - Prod: Production
+   * - Dev: Development
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
    * @remarks
+   * The ID of the workflow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57648,12 +63141,23 @@ export class UpdateWorkflowShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * My Workflow
    */
   name?: string;
+  /**
+   * @remarks
+   * The output information.
+   */
   outputsShrink?: string;
   /**
    * @remarks
+   * The account ID of the owner.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57661,14 +63165,27 @@ export class UpdateWorkflowShrinkRequest extends $dara.Model {
    */
   owner?: string;
   /**
+   * @remarks
+   * The list of parameters.
+   * 
    * @example
    * para1=$bizdate para2=$[yyyymmdd]
    */
   parameters?: string;
+  /**
+   * @remarks
+   * The list of workflow tags.
+   */
   tagsShrink?: string;
+  /**
+   * @remarks
+   * The list of tasks.
+   */
   tasksShrink?: string;
   /**
    * @remarks
+   * The trigger method.
+   * 
    * This parameter is required.
    */
   triggerShrink?: string;
@@ -57717,11 +63234,17 @@ export class UpdateWorkflowShrinkRequest extends $dara.Model {
 
 export class UpdateWorkflowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request. It is used to locate logs and troubleshoot problems.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the operation is successful.
+   * 
    * @example
    * true
    */
@@ -57810,6 +63333,57 @@ export class UpdateWorkflowDefinitionRequest extends $dara.Model {
    * The FlowSpec field information about the workflow. For more information, see [FlowSpec](https://github.com/aliyun/dataworks-spec/blob/master/README_zh_CN.md).
    * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *     "kind": "CycleWorkflow",
+   *     "version": "1.1.0",
+   *     "spec": {
+   *         "name": "OpenAPI Test Workflow Demo",
+   *         "type": "CycleWorkflow",
+   *         "id": "652567824470354XXXX",
+   *         "workflows": [
+   *             {
+   *                 "id": "652567824470354XXXX",
+   *                 "script": {
+   *                     "path": "XX/OpenAPI_Test/Workflow_Test/OpenAPI_Test_Workflow_Demo",
+   *                     "runtime": {
+   *                         "command": "WORKFLOW"
+   *                     }
+   *                 },
+   *                 "trigger": {
+   *                     "type": "Scheduler",
+   *                     "cron": "00 02 00 * * ?",
+   *                     "startTime": "1970-01-01 00:00:00",
+   *                     "endTime": "9999-01-01 00:00:00",
+   *                     "timezone": "Asia/Shanghai",
+   *                     "delaySeconds": 0
+   *                 },
+   *                 "strategy": {
+   *                     "timeout": 0,
+   *                     "instanceMode": "T+1",
+   *                     "rerunMode": "Allowed",
+   *                     "rerunTimes": 3,
+   *                     "rerunInterval": 180000,
+   *                     "failureStrategy": "Break"
+   *                 },
+   *                 "name": "OpenAPI Test Workflow Demo",
+   *                 "inputs": {},
+   *                 "outputs": {
+   *                     "nodeOutputs": [
+   *                         {
+   *                             "data": "workflow_output",
+   *                             "artifactType": "NodeOutput",
+   *                             "refTableName": "OpenAPI_Test_Workflow_Demo"
+   *                         }
+   *                     ]
+   *                 },
+   *                 "nodes": [],
+   *                 "dependencies": []
+   *             }
+   *         ]
+   *     }
+   * }
    */
   spec?: string;
   static names(): { [key: string]: string } {
@@ -57840,7 +63414,7 @@ export class UpdateWorkflowDefinitionRequest extends $dara.Model {
 export class UpdateWorkflowDefinitionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The request ID. You can locate logs and troubleshoot issues based on the ID.
    * 
    * @example
    * 20BF7E80-668A-5620-8AD8-879B8FEAXXXX
@@ -58077,7 +63651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 把数据质量规则关联到数据质量校验任务上
+   * Associates monitoring rules with a monitor
    * 
    * @param tmpReq - AttachDataQualityRulesToEvaluationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58127,7 +63701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 把数据质量规则关联到数据质量校验任务上
+   * Associates monitoring rules with a monitor
    * 
    * @param request - AttachDataQualityRulesToEvaluationTaskRequest
    * @returns AttachDataQualityRulesToEvaluationTaskResponse
@@ -58138,6 +63712,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Performs incremental updates on multiple tasks at a time.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param tmpReq - BatchUpdateTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BatchUpdateTasksResponse
@@ -58182,6 +63761,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Performs incremental updates on multiple tasks at a time.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - BatchUpdateTasksRequest
    * @returns BatchUpdateTasksResponse
    */
@@ -58381,7 +63965,8 @@ export default class Client extends OpenApi {
    * Creates a new-version synchronization task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   *   This API operation is available for all DataWorks editions.
+   * *   You can call this API operation to create a synchronization task. When you call this API operation, you must configure parameters such as SourceDataSourceSettings, DestinationDataSourceSettings, MigrationType, TransformationRules, TableMappings, and JobSettings. The SourceDataSourceSettings parameter defines the settings related to the source. The DestinationDataSourceSettings parameter defines the settings related to the destination. The MigrationType parameter defines the synchronization task type. The TransformationRules parameter defines the transformation rules for objects involved in the synchronization task. The TableMappings parameter defines the mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. The JobSettings parameter defines the settings for the dimension of the synchronization task, including policies for data type mappings between source fields and destination fields and settings for periodic scheduling.
    * 
    * @param tmpReq - CreateDIJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58442,7 +64027,8 @@ export default class Client extends OpenApi {
    * Creates a new-version synchronization task.
    * 
    * @remarks
-   * This API operation is available for all DataWorks editions.
+   *   This API operation is available for all DataWorks editions.
+   * *   You can call this API operation to create a synchronization task. When you call this API operation, you must configure parameters such as SourceDataSourceSettings, DestinationDataSourceSettings, MigrationType, TransformationRules, TableMappings, and JobSettings. The SourceDataSourceSettings parameter defines the settings related to the source. The DestinationDataSourceSettings parameter defines the settings related to the destination. The MigrationType parameter defines the synchronization task type. The TransformationRules parameter defines the transformation rules for objects involved in the synchronization task. The TableMappings parameter defines the mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. The JobSettings parameter defines the settings for the dimension of the synchronization task, including policies for data type mappings between source fields and destination fields and settings for periodic scheduling.
    * 
    * @param request - CreateDIJobRequest
    * @returns CreateDIJobResponse
@@ -58453,7 +64039,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建标签
+   * Creates a tag.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param tmpReq - CreateDataAssetTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58515,7 +64104,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建标签
+   * Creates a tag.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param request - CreateDataAssetTagRequest
    * @returns CreateDataAssetTagResponse
@@ -58637,7 +64229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量校验任务实例
+   * Creates a monitor instance
    * 
    * @param tmpReq - CreateDataQualityEvaluationTaskInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58691,7 +64283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据质量校验任务实例
+   * Creates a monitor instance
    * 
    * @param request - CreateDataQualityEvaluationTaskInstanceRequest
    * @returns CreateDataQualityEvaluationTaskInstanceResponse
@@ -59432,10 +65024,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a file resource in DataStudio. The information about the file resource is described by using FlowSpec.
+   * >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
    * 
    * @remarks
-   * >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
+   * Private
    * 
    * @param request - CreateResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59475,10 +65067,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a file resource in DataStudio. The information about the file resource is described by using FlowSpec.
+   * >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
    * 
    * @remarks
-   * >  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
+   * Private
    * 
    * @param request - CreateResourceRequest
    * @returns CreateResourceResponse
@@ -59940,7 +65532,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除标签
+   * Deletes a tag.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param tmpReq - DeleteDataAssetTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59986,7 +65581,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除标签
+   * Deletes a tag.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param request - DeleteDataAssetTagRequest
    * @returns DeleteDataAssetTagResponse
@@ -59997,7 +65595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据质量校验任务
+   * Deletes a data quality monitoring task.
    * 
    * @param request - DeleteDataQualityEvaluationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60037,7 +65635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据质量校验任务
+   * Deletes a data quality monitoring task.
    * 
    * @param request - DeleteDataQualityEvaluationTaskRequest
    * @returns DeleteDataQualityEvaluationTaskResponse
@@ -60759,6 +66357,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a workflow.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - DeleteWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteWorkflowResponse
@@ -60803,6 +66406,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a workflow.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - DeleteWorkflowRequest
    * @returns DeleteWorkflowResponse
    */
@@ -60869,7 +66477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消数据质量规则和数据质量校验任务的关联
+   * Disassociates monitoring rules from a monitor
    * 
    * @param tmpReq - DetachDataQualityRulesFromEvaluationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60919,7 +66527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消数据质量规则和数据质量校验任务的关联
+   * Disassociates monitoring rules from a monitor
    * 
    * @param request - DetachDataQualityRulesFromEvaluationTaskRequest
    * @returns DetachDataQualityRulesFromEvaluationTaskResponse
@@ -61056,6 +66664,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create a temporary workflow instance based on configurations.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param tmpReq - ExecuteAdhocWorkflowInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExecuteAdhocWorkflowInstanceResponse
@@ -61116,6 +66729,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create a temporary workflow instance based on configurations.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - ExecuteAdhocWorkflowInstanceRequest
    * @returns ExecuteAdhocWorkflowInstanceResponse
    */
@@ -61168,7 +66786,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询异步创建工作流实例的结果
+   * Queries the result of asynchronously creating a workflow instance.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetCreateWorkflowInstancesResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61200,7 +66821,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询异步创建工作流实例的结果
+   * Queries the result of asynchronously creating a workflow instance.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetCreateWorkflowInstancesResultRequest
    * @returns GetCreateWorkflowInstancesResultResponse
@@ -61309,7 +66933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据质量校验任务详情
+   * Queries the details of a monitor.
    * 
    * @param request - GetDataQualityEvaluationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61341,7 +66965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据质量校验任务详情
+   * Queries the details of a monitor.
    * 
    * @param request - GetDataQualityEvaluationTaskRequest
    * @returns GetDataQualityEvaluationTaskResponse
@@ -61352,7 +66976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据质量校验任务实例详情
+   * Queries the details of a monitor instance.
    * 
    * @param request - GetDataQualityEvaluationTaskInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61384,7 +67008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据质量校验任务实例详情
+   * Queries the details of a monitor instance.
    * 
    * @param request - GetDataQualityEvaluationTaskInstanceRequest
    * @returns GetDataQualityEvaluationTaskInstanceResponse
@@ -61395,7 +67019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询质量规则详情
+   * Queries the information about a data quality monitoring rule.
    * 
    * @remarks
    * This API operation is available for all DataWorks editions.
@@ -61430,7 +67054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询质量规则详情
+   * Queries the information about a data quality monitoring rule.
    * 
    * @remarks
    * This API operation is available for all DataWorks editions.
@@ -61973,7 +67597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据id获取指定资源组。
+   * Queries the information about a resource group based on its ID.
    * 
    * @remarks
    * You can use this API operation only in DataWorks Basic Edition or an advanced edition.
@@ -62008,7 +67632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据id获取指定资源组。
+   * Queries the information about a resource group based on its ID.
    * 
    * @remarks
    * You can use this API operation only in DataWorks Basic Edition or an advanced edition.
@@ -62212,6 +67836,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a workflow.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - GetWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetWorkflowResponse
@@ -62242,6 +67871,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a workflow.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - GetWorkflowRequest
    * @returns GetWorkflowResponse
    */
@@ -62413,8 +68047,9 @@ export default class Client extends OpenApi {
    * Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
    * 
    * @remarks
-   * > You cannot use this API operation to import multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system imports only the first specified workflow.
-   * >  ImportWorkflowDefinition is an asynchronous operation. After you send a request, an asynchronous task is generated, and the system returns the ID of the asynchronous task. You can call the GetJobStatus operation to query the status of the asynchronous task.
+   * > 
+   * *   You cannot use this API operation to import multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system imports only the first specified workflow.
+   * *   ImportWorkflowDefinition is an asynchronous operation. After you send a request, an asynchronous task is generated, and the system returns the ID of the asynchronous task. You can call the GetJobStatus operation to query the status of the asynchronous task.
    * 
    * @param request - ImportWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -62457,8 +68092,9 @@ export default class Client extends OpenApi {
    * Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
    * 
    * @remarks
-   * > You cannot use this API operation to import multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system imports only the first specified workflow.
-   * >  ImportWorkflowDefinition is an asynchronous operation. After you send a request, an asynchronous task is generated, and the system returns the ID of the asynchronous task. You can call the GetJobStatus operation to query the status of the asynchronous task.
+   * > 
+   * *   You cannot use this API operation to import multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system imports only the first specified workflow.
+   * *   ImportWorkflowDefinition is an asynchronous operation. After you send a request, an asynchronous task is generated, and the system returns the ID of the asynchronous task. You can call the GetJobStatus operation to query the status of the asynchronous task.
    * 
    * @param request - ImportWorkflowDefinitionRequest
    * @returns ImportWorkflowDefinitionResponse
@@ -62795,7 +68431,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询标签列表
+   * Queries a list of tags.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param request - ListDataAssetTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -62827,7 +68466,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询标签列表
+   * Queries a list of tags.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param request - ListDataAssetTagsRequest
    * @returns ListDataAssetTagsResponse
@@ -62838,7 +68480,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListDataAssets
+   * Queries the information about DataWorks data assets to which tags are added by page.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param tmpReq - ListDataAssetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -62880,7 +68525,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListDataAssets
+   * Queries the information about DataWorks data assets to which tags are added by page.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param request - ListDataAssetsRequest
    * @returns ListDataAssetsResponse
@@ -63034,7 +68682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询质量规则模版列表
+   * Queries a list of data quality monitoring rule templates.
    * 
    * @param request - ListDataQualityRuleTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -63066,7 +68714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询质量规则模版列表
+   * Queries a list of data quality monitoring rule templates.
    * 
    * @param request - ListDataQualityRuleTemplatesRequest
    * @returns ListDataQualityRuleTemplatesResponse
@@ -63910,7 +69558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网络资源的路由列表。
+   * Queries a list of routes of a network resource.
    * 
    * @remarks
    * This API operation is available for all DataWorks editions.
@@ -63945,7 +69593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网络资源的路由列表。
+   * Queries a list of routes of a network resource.
    * 
    * @remarks
    * This API operation is available for all DataWorks editions.
@@ -64432,6 +70080,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of workflow instances by page. You can also specify filter conditions to query workflow instances.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param tmpReq - ListWorkflowInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListWorkflowInstancesResponse
@@ -64508,6 +70161,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of workflow instances by page. You can also specify filter conditions to query workflow instances.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - ListWorkflowInstancesRequest
    * @returns ListWorkflowInstancesResponse
    */
@@ -64517,6 +70175,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of workflows by page. You can also specify filter conditions to query workflows.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param tmpReq - ListWorkflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListWorkflowsResponse
@@ -64589,6 +70252,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of workflows by page. You can also specify filter conditions to query workflows.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - ListWorkflowsRequest
    * @returns ListWorkflowsResponse
    */
@@ -65107,6 +70775,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Reruns multiple instances at a time.
+   * 
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
@@ -65154,6 +70824,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Reruns multiple instances at a time.
+   * 
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
@@ -65166,6 +70838,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resumes multiple suspended instances at a time.
+   * 
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
@@ -65213,6 +70887,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resumes multiple suspended instances at a time.
+   * 
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
@@ -65292,6 +70968,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Sets the statuses of multiple instances to successful at a time.
+   * 
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
@@ -65339,6 +71017,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Sets the statuses of multiple instances to successful at a time.
+   * 
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
@@ -65518,6 +71198,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Stops multiple instances at a time.
+   * 
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
@@ -65565,6 +71247,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Stops multiple instances at a time.
+   * 
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
@@ -65577,6 +71261,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Stops multiple workflow instances at a time.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param tmpReq - StopWorkflowInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopWorkflowInstancesResponse
@@ -65621,6 +71310,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Stops multiple workflow instances at a time.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - StopWorkflowInstancesRequest
    * @returns StopWorkflowInstancesResponse
    */
@@ -65630,6 +71324,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Suspends multiple instances at a time.
+   * 
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
@@ -65677,6 +71373,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Suspends multiple instances at a time.
+   * 
    * @remarks
    * This API operation is available for all DataWorks editions.
    * 
@@ -65689,7 +71387,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为资产绑定标签
+   * Adds tags to data assets.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param tmpReq - TagDataAssetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65755,7 +71456,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为资产绑定标签
+   * Adds tags to data assets.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param request - TagDataAssetsRequest
    * @returns TagDataAssetsResponse
@@ -65829,7 +71533,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为资产解绑标签关系
+   * Removes tags from data assets.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param tmpReq - UnTagDataAssetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65891,7 +71598,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为资产解绑标签关系
+   * Removes tags from data assets.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param request - UnTagDataAssetsRequest
    * @returns UnTagDataAssetsResponse
@@ -66099,7 +71809,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新标签
+   * Updates a tag.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param tmpReq - UpdateDataAssetTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -66157,7 +71870,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新标签
+   * Updates a tag.
+   * 
+   * @remarks
+   * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
    * 
    * @param request - UpdateDataAssetTagRequest
    * @returns UpdateDataAssetTagResponse
