@@ -8611,6 +8611,7 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
    * male1-1.ialicdn.com,female1-1.ialicdn.com
    */
   nameServerList?: string;
+  offlineReason?: string;
   /**
    * @remarks
    * The plan name.
@@ -8709,6 +8710,7 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
       createTime: 'CreateTime',
       instanceId: 'InstanceId',
       nameServerList: 'NameServerList',
+      offlineReason: 'OfflineReason',
       planName: 'PlanName',
       planSpecName: 'PlanSpecName',
       resourceGroupId: 'ResourceGroupId',
@@ -8731,6 +8733,7 @@ export class GetSiteResponseBodySiteModel extends $dara.Model {
       createTime: 'string',
       instanceId: 'string',
       nameServerList: 'string',
+      offlineReason: 'string',
       planName: 'string',
       planSpecName: 'string',
       resourceGroupId: 'string',
@@ -14916,6 +14919,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
    * male1-1.ialicdn.com,female1-1.ialicdn.com
    */
   nameServerList?: string;
+  offlineReason?: string;
   /**
    * @remarks
    * The plan name.
@@ -15009,6 +15013,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
       createTime: 'CreateTime',
       instanceId: 'InstanceId',
       nameServerList: 'NameServerList',
+      offlineReason: 'OfflineReason',
       planName: 'PlanName',
       planSpecName: 'PlanSpecName',
       resourceGroupId: 'ResourceGroupId',
@@ -15030,6 +15035,7 @@ export class ListSitesResponseBodySites extends $dara.Model {
       createTime: 'string',
       instanceId: 'string',
       nameServerList: 'string',
+      offlineReason: 'string',
       planName: 'string',
       planSpecName: 'string',
       resourceGroupId: 'string',
