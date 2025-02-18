@@ -2439,15 +2439,22 @@ export class CreateScalingConfigurationRequestSystemDisk extends $dara.Model {
    * @remarks
    * The size of the system disk. Unit: GiB.
    * 
-   * *   If you set SystemDisk.Category cloud: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_efficiency: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_ssd: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_essd: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_essd: 20 to 500.
+   * *   Basic disk: 20 to 500.
    * 
-   * The value of SystemDisk.Size must be greater than or equal to the value of max{20, ImageSize}.
+   * *   ESSD (cloud_essd): The valid values vary based on the performance level of the ESSD.
    * 
-   * Default value: 40 or the size of the image, whichever is greater.
+   *     *   PL0 ESSD: 1 to 2048.
+   *     *   PL1 ESSD: 20 to 2048.
+   *     *   PL2 ESSD: 461 to 2048.
+   *     *   PL3 ESSD: 1261 to 2048.
+   * 
+   * *   ESSD AutoPL disk (cloud_auto): 1 to 2048.
+   * 
+   * *   Other disk categories: 20 to 2048.
+   * 
+   * The value of this parameter must be at least 1 and greater than or equal to the image size.
+   * 
+   * Default value: 40 or the size of the image, whichever is larger.
    * 
    * @example
    * 100
@@ -3437,15 +3444,22 @@ export class CreateScalingConfigurationShrinkRequestSystemDisk extends $dara.Mod
    * @remarks
    * The size of the system disk. Unit: GiB.
    * 
-   * *   If you set SystemDisk.Category cloud: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_efficiency: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_ssd: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_essd: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_essd: 20 to 500.
+   * *   Basic disk: 20 to 500.
    * 
-   * The value of SystemDisk.Size must be greater than or equal to the value of max{20, ImageSize}.
+   * *   ESSD (cloud_essd): The valid values vary based on the performance level of the ESSD.
    * 
-   * Default value: 40 or the size of the image, whichever is greater.
+   *     *   PL0 ESSD: 1 to 2048.
+   *     *   PL1 ESSD: 20 to 2048.
+   *     *   PL2 ESSD: 461 to 2048.
+   *     *   PL3 ESSD: 1261 to 2048.
+   * 
+   * *   ESSD AutoPL disk (cloud_auto): 1 to 2048.
+   * 
+   * *   Other disk categories: 20 to 2048.
+   * 
+   * The value of this parameter must be at least 1 and greater than or equal to the image size.
+   * 
+   * Default value: 40 or the size of the image, whichever is larger.
    * 
    * @example
    * 100
@@ -4321,6 +4335,7 @@ export class CreateScalingGroupRequestCapacityOptions extends $dara.Model {
    * 20
    */
   onDemandPercentageAboveBaseCapacity?: number;
+  priceComparisonMode?: string;
   /**
    * @remarks
    * Specifies whether to replace pay-as-you-go instances with preemptible instances. If you specify `CompensateWithOnDemand`, it may result in a higher percentage of pay-as-you-go instances compared to the value of `OnDemandPercentageAboveBaseCapacity`. In this scenario, Auto Scaling will try to deploy preemptible instances to replace the surplus pay-as-you-go instances. When `CompensateWithOnDemand` is specified, Auto Scaling creates pay-as-you-go instances if there are not enough preemptible instance types. To avoid keeping these pay-as-you-go ECS instances for long periods, Auto Scaling tries to replace them with preemptible instances as soon as enough of preemptible instance types become available. Valid values:
@@ -4339,6 +4354,7 @@ export class CreateScalingGroupRequestCapacityOptions extends $dara.Model {
       compensateWithOnDemand: 'CompensateWithOnDemand',
       onDemandBaseCapacity: 'OnDemandBaseCapacity',
       onDemandPercentageAboveBaseCapacity: 'OnDemandPercentageAboveBaseCapacity',
+      priceComparisonMode: 'PriceComparisonMode',
       spotAutoReplaceOnDemand: 'SpotAutoReplaceOnDemand',
     };
   }
@@ -4348,6 +4364,7 @@ export class CreateScalingGroupRequestCapacityOptions extends $dara.Model {
       compensateWithOnDemand: 'boolean',
       onDemandBaseCapacity: 'number',
       onDemandPercentageAboveBaseCapacity: 'number',
+      priceComparisonMode: 'string',
       spotAutoReplaceOnDemand: 'boolean',
     };
   }
@@ -4891,7 +4908,21 @@ export class CreateScalingRuleRequestAlarmDimensions extends $dara.Model {
 }
 
 export class CreateScalingRuleRequestHybridMetricsDimensions extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the metric dimension.
+   * 
+   * @example
+   * queue
+   */
   dimensionKey?: string;
+  /**
+   * @remarks
+   * The value of the metric dimension.
+   * 
+   * @example
+   * testQueue
+   */
   dimensionValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4917,10 +4948,48 @@ export class CreateScalingRuleRequestHybridMetricsDimensions extends $dara.Model
 }
 
 export class CreateScalingRuleRequestHybridMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The metric dimensions. You can use this parameter to specify the monitored resources.
+   */
   dimensions?: CreateScalingRuleRequestHybridMetricsDimensions[];
+  /**
+   * @remarks
+   * The metric expression that consists of multiple Hybrid Cloud Monitoring metrics. It calculates a result used to trigger scaling events.
+   * 
+   * The expression must be written in Reverse Polish Notation (RPN) format and supports only the following operators: `+, -, *, /`.
+   * 
+   * @example
+   * (a+b)/2
+   */
   expression?: string;
+  /**
+   * @remarks
+   * The reference ID of the metric in the metric expression.
+   * 
+   * @example
+   * a
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the Hybrid Cloud Monitoring metric.
+   * 
+   * @example
+   * AliyunSmq_NumberOfMessagesVisible
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * The statistical method of the metric value. Valid values:
+   * 
+   * *   Average: calculates the average value of all metric values within a specified interval.
+   * *   Minimum: calculates the minimum value of all metric values within a specified interval.
+   * *   Maximum: calculates the maximum value of all metric values within a specified interval.
+   * 
+   * @example
+   * Average
+   */
   statistic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5179,7 +5248,21 @@ export class DescribeAlarmsResponseBodyAlarmListExpressions extends $dara.Model 
 }
 
 export class DescribeAlarmsResponseBodyAlarmListHybridMetricsDimensions extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the metric dimension.
+   * 
+   * @example
+   * queue
+   */
   dimensionKey?: string;
+  /**
+   * @remarks
+   * The key of the metric dimension.
+   * 
+   * @example
+   * testQueue
+   */
   dimensionValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5205,10 +5288,48 @@ export class DescribeAlarmsResponseBodyAlarmListHybridMetricsDimensions extends 
 }
 
 export class DescribeAlarmsResponseBodyAlarmListHybridMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The metric dimensions. This parameter is used to specify the monitored resources.
+   */
   dimensions?: DescribeAlarmsResponseBodyAlarmListHybridMetricsDimensions[];
+  /**
+   * @remarks
+   * The metric expression that consists of multiple Hybrid Cloud Monitoring metrics. It calculates a result used to trigger scaling events.
+   * 
+   * The expression is written in Reverse Polish Notation (RPN) format and supports only the following operators: `+, -, *, /`.
+   * 
+   * @example
+   * (a+b)/2
+   */
   expression?: string;
+  /**
+   * @remarks
+   * The reference ID of the metric in the metric expression.
+   * 
+   * @example
+   * a
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the Hybrid Cloud Monitoring metric.
+   * 
+   * @example
+   * AliyunSmq_NumberOfMessagesVisible
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * The statistical method of the metric value. Valid values:
+   * 
+   * *   Average: The average value of all metric values within a specified interval is calculated.
+   * *   Minimum: The minimum value of all metric values within a specified interval is calculated.
+   * *   Maximum: The maximum value of all metric values within a specified interval is calculated.
+   * 
+   * @example
+   * Average
+   */
   statistic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5325,7 +5446,20 @@ export class DescribeAlarmsResponseBodyAlarmList extends $dara.Model {
    * &&
    */
   expressionsLogicOperator?: string;
+  /**
+   * @remarks
+   * The Hybrid Cloud Monitoring metrics.
+   */
   hybridMetrics?: DescribeAlarmsResponseBodyAlarmListHybridMetrics[];
+  /**
+   * @remarks
+   * The ID of the Hybrid Cloud Monitoring namespace.
+   * 
+   * For information about how to manage Hybrid Cloud Monitoring namespaces, see [Manage namespaces](https://help.aliyun.com/document_detail/217606.html).
+   * 
+   * @example
+   * aliyun-test
+   */
   hybridMonitorNamespace?: string;
   /**
    * @remarks
@@ -5365,10 +5499,11 @@ export class DescribeAlarmsResponseBodyAlarmList extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The metric type. Valid values:
+   * The type of the metric. Valid values:
    * 
    * *   system: system metrics of CloudMonitor
    * *   custom: custom metrics that are reported to CloudMonitor.
+   * *   hybrid: metrics of Hybrid Cloud Monitoring.
    * 
    * @example
    * system
@@ -5398,6 +5533,13 @@ export class DescribeAlarmsResponseBodyAlarmList extends $dara.Model {
    * 300
    */
   period?: number;
+  /**
+   * @remarks
+   * The PromQL statement of Hybrid Cloud Monitoring.
+   * 
+   * @example
+   * (avg(last_over_time(AliyunMnsnew_ActiveMessages{region=\\"cn-hangzhou\\",userId=\\"123456****\\",queue=\\"testQueue\\"}[900s])) by (userId))/(avg(last_over_time(AliyunEss_RunningInstanceCount{instanceId=\\"asg-bp1****\\"}[900s])) by (userId) != 0)
+   */
   promQL?: string;
   /**
    * @remarks
@@ -10522,6 +10664,20 @@ export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks extends $
    * asg-bp16pbfcr8j9*****
    */
   scalingGroupId?: string;
+  /**
+   * @remarks
+   * Indicates whether instances that match the desired scaling configuration are skipped.
+   * 
+   * >  The system determines the match based on the ID of the desired scaling configuration rather than individual configuration items.
+   * 
+   * Valid values:
+   * 
+   * *   true: Instances that match the desired scaling configuration are skipped. When you initiate an instance refresh task, the system checks the configurations of all instances. The refresh operation is skipped for instances created based on the desired scaling configuration.
+   * *   false: Instances that match the desired scaling configuration are not skipped. When an instance refresh task is initiated, all instances in the scaling group at the time of initiation are refreshed.
+   * 
+   * @example
+   * true
+   */
   skipMatching?: boolean;
   /**
    * @remarks
@@ -11028,9 +11184,34 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeScalingActivitiesResponseBodyScalingActivitiesErrorMessages extends $dara.Model {
+  /**
+   * @remarks
+   * The error code that is returned when the scaling activity failed.
+   * 
+   * @example
+   * OperationDenied.NoStock
+   */
   code?: string;
+  /**
+   * @remarks
+   * The description of the scaling activity exception.
+   * 
+   * @example
+   * Fail to create instances into scaling group.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The IDs of the instances included in the failed scaling activities.
+   */
   failedInstanceIds?: string[];
+  /**
+   * @remarks
+   * The error message that is returned when the scaling activity failed or is partially successful.
+   * 
+   * @example
+   * The resource is out of stock in the specified zone. Please try other types, or choose other regions and zones.
+   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11204,6 +11385,10 @@ export class DescribeScalingActivitiesResponseBodyScalingActivities extends $dar
    * The specified ECS resource is out of stock in this region. Please try again later.
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The error messages that are returned when the scaling activities failed or are partially successful.
+   */
   errorMessages?: DescribeScalingActivitiesResponseBodyScalingActivitiesErrorMessages[];
   /**
    * @remarks
@@ -14175,6 +14360,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions exten
    * 0
    */
   onDemandPercentageAboveBaseCapacity?: number;
+  priceComparisonMode?: string;
   /**
    * @remarks
    * Specifies whether to replace pay-as-you-go ECS instances with preemptible ECS instances. If you specify `CompensateWithOnDemand`, it may result in a higher percentage of pay-as-you-go instances compared to the value of `OnDemandPercentageAboveBaseCapacity`. In this scenario, Auto Scaling will try to deploy preemptible ECS instances to replace the surplus pay-as-you-go ECS instances. When `CompensateWithOnDemand` is specified, Auto Scaling creates pay-as-you-go ECS instances if there are not enough preemptible instance types available. To avoid keeping these pay-as-you-go ECS instances for long periods, Auto Scaling tries to replace them with preemptible instances as soon as enough of preemptible instance types become available. Valid values:
@@ -14191,6 +14377,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions exten
       compensateWithOnDemand: 'CompensateWithOnDemand',
       onDemandBaseCapacity: 'OnDemandBaseCapacity',
       onDemandPercentageAboveBaseCapacity: 'OnDemandPercentageAboveBaseCapacity',
+      priceComparisonMode: 'PriceComparisonMode',
       spotAutoReplaceOnDemand: 'SpotAutoReplaceOnDemand',
     };
   }
@@ -14200,6 +14387,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions exten
       compensateWithOnDemand: 'boolean',
       onDemandBaseCapacity: 'number',
       onDemandPercentageAboveBaseCapacity: 'number',
+      priceComparisonMode: 'string',
       spotAutoReplaceOnDemand: 'boolean',
     };
   }
@@ -15735,7 +15923,21 @@ export class DescribeScalingRulesResponseBodyScalingRulesAlarms extends $dara.Mo
 }
 
 export class DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the metric dimension.
+   * 
+   * @example
+   * queue
+   */
   dimensionKey?: string;
+  /**
+   * @remarks
+   * The key of the metric dimension.
+   * 
+   * @example
+   * testQueue
+   */
   dimensionValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15761,10 +15963,48 @@ export class DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions
 }
 
 export class DescribeScalingRulesResponseBodyScalingRulesHybridMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The metric dimensions. This parameter is used to specify the monitored resources.
+   */
   dimensions?: DescribeScalingRulesResponseBodyScalingRulesHybridMetricsDimensions[];
+  /**
+   * @remarks
+   * The metric expression that consists of multiple Hybrid Cloud Monitoring metrics. It calculates a result used to trigger scaling events.
+   * 
+   * The expression is written in Reverse Polish Notation (RPN) format and supports only the following operators: `+, -, *, /`.
+   * 
+   * @example
+   * (a+b)/2
+   */
   expression?: string;
+  /**
+   * @remarks
+   * The reference ID of the metric in the metric expression.
+   * 
+   * @example
+   * a
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the Hybrid Cloud Monitoring metric.
+   * 
+   * @example
+   * AliyunSmq_NumberOfMessagesVisible
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * The statistical method of the metric value. Valid values:
+   * 
+   * *   Average: The average value of all metric values within a specified interval is calculated.
+   * *   Minimum: The minimum value of all metric values within a specified interval is calculated.
+   * *   Maximum: The maximum value of all metric values within a specified interval is calculated.
+   * 
+   * @example
+   * Average
+   */
   statistic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15906,7 +16146,20 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
    * 300
    */
   estimatedInstanceWarmup?: number;
+  /**
+   * @remarks
+   * The Hybrid Cloud Monitoring metrics.
+   */
   hybridMetrics?: DescribeScalingRulesResponseBodyScalingRulesHybridMetrics[];
+  /**
+   * @remarks
+   * The ID of the Hybrid Cloud Monitoring namespace.
+   * 
+   * For information about how to manage Hybrid Cloud Monitoring namespaces, see [Manage namespaces](https://help.aliyun.com/document_detail/217606.html).
+   * 
+   * @example
+   * aliyun-test
+   */
   hybridMonitorNamespace?: string;
   /**
    * @remarks
@@ -15932,6 +16185,17 @@ export class DescribeScalingRulesResponseBodyScalingRules extends $dara.Model {
    * CpuUtilization
    */
   metricName?: string;
+  /**
+   * @remarks
+   * The metric type. Valid values:
+   * 
+   * *   system: system metrics of CloudMonitor.
+   * *   custom: custom metrics that are reported to CloudMonitor.
+   * *   hybrid: metrics of Hybrid Cloud Monitoring.
+   * 
+   * @example
+   * system
+   */
   metricType?: string;
   /**
    * @remarks
@@ -18866,13 +19130,20 @@ export class ModifyScalingConfigurationRequestSystemDisk extends $dara.Model {
    * @remarks
    * The size of the system disk. Unit: GiB. Valid values:
    * 
-   * *   If you set SystemDisk.Category to cloud: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_efficiency: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_ssd: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_essd: 20 to 500.
-   * *   If you set SystemDisk.Category to ephemeral_ssd: 20 to 500.
+   * *   Basic disk: 20 to 500.
    * 
-   * The value of SystemDisk.Size must be greater than or equal to max{20, ImageSize}.
+   * *   ESSD: Valid values vary based on the performance level of the ESSD.
+   * 
+   *     *   PL0 ESSD: 1 to 2048.
+   *     *   PL1 ESSD: 20 to 2048.
+   *     *   PL2 ESSD: 461 to 2048.
+   *     *   PL3 ESSD: 1261 to 2048.
+   * 
+   * *   ESSD AutoPL disk: 1 to 2048.
+   * 
+   * *   Other disk categories: 20 to 2048.
+   * 
+   * The value of this parameter must be at least 1 and greater than or equal to the image size.
    * 
    * @example
    * 50
@@ -19882,13 +20153,20 @@ export class ModifyScalingConfigurationShrinkRequestSystemDisk extends $dara.Mod
    * @remarks
    * The size of the system disk. Unit: GiB. Valid values:
    * 
-   * *   If you set SystemDisk.Category to cloud: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_efficiency: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_ssd: 20 to 500.
-   * *   If you set SystemDisk.Category to cloud_essd: 20 to 500.
-   * *   If you set SystemDisk.Category to ephemeral_ssd: 20 to 500.
+   * *   Basic disk: 20 to 500.
    * 
-   * The value of SystemDisk.Size must be greater than or equal to max{20, ImageSize}.
+   * *   ESSD: Valid values vary based on the performance level of the ESSD.
+   * 
+   *     *   PL0 ESSD: 1 to 2048.
+   *     *   PL1 ESSD: 20 to 2048.
+   *     *   PL2 ESSD: 461 to 2048.
+   *     *   PL3 ESSD: 1261 to 2048.
+   * 
+   * *   ESSD AutoPL disk: 1 to 2048.
+   * 
+   * *   Other disk categories: 20 to 2048.
+   * 
+   * The value of this parameter must be at least 1 and greater than or equal to the image size.
    * 
    * @example
    * 50
@@ -20733,6 +21011,7 @@ export class ModifyScalingGroupRequestCapacityOptions extends $dara.Model {
    * 20
    */
   onDemandPercentageAboveBaseCapacity?: number;
+  priceComparisonMode?: string;
   /**
    * @remarks
    * Specifies whether to replace pay-as-you-go ECS instances with preemptible ECS instances. If you specify `CompensateWithOnDemand`, it may result in a higher percentage of pay-as-you-go instances compared to the value of `OnDemandPercentageAboveBaseCapacity`. In this scenario, Auto Scaling will try to deploy preemptible ECS instances to replace the surplus pay-as-you-go ECS instances. When `CompensateWithOnDemand` is specified, Auto Scaling creates pay-as-you-go ECS instances if there are not enough preemptible instance types. To avoid keeping these pay-as-you-go ECS instances for long periods, Auto Scaling tries to replace them with preemptible instances as soon as enough of preemptible instance types become available. Valid values:
@@ -20751,6 +21030,7 @@ export class ModifyScalingGroupRequestCapacityOptions extends $dara.Model {
       compensateWithOnDemand: 'CompensateWithOnDemand',
       onDemandBaseCapacity: 'OnDemandBaseCapacity',
       onDemandPercentageAboveBaseCapacity: 'OnDemandPercentageAboveBaseCapacity',
+      priceComparisonMode: 'PriceComparisonMode',
       spotAutoReplaceOnDemand: 'SpotAutoReplaceOnDemand',
     };
   }
@@ -20760,6 +21040,7 @@ export class ModifyScalingGroupRequestCapacityOptions extends $dara.Model {
       compensateWithOnDemand: 'boolean',
       onDemandBaseCapacity: 'number',
       onDemandPercentageAboveBaseCapacity: 'number',
+      priceComparisonMode: 'string',
       spotAutoReplaceOnDemand: 'boolean',
     };
   }
@@ -20883,7 +21164,21 @@ export class ModifyScalingRuleRequestAlarmDimensions extends $dara.Model {
 }
 
 export class ModifyScalingRuleRequestHybridMetricsDimensions extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the metric dimension.
+   * 
+   * @example
+   * queue
+   */
   dimensionKey?: string;
+  /**
+   * @remarks
+   * The value of the metric dimension.
+   * 
+   * @example
+   * testQueue
+   */
   dimensionValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20909,10 +21204,48 @@ export class ModifyScalingRuleRequestHybridMetricsDimensions extends $dara.Model
 }
 
 export class ModifyScalingRuleRequestHybridMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The metric dimensions. You can use this parameter to specify the monitored resources.
+   */
   dimensions?: ModifyScalingRuleRequestHybridMetricsDimensions[];
+  /**
+   * @remarks
+   * The metric expression that consists of multiple Hybrid Cloud Monitoring metrics. It calculates a result used to trigger scaling events.
+   * 
+   * The expression must be written in Reverse Polish Notation (RPN) format and supports only the following operators: `+, -, *, /`.
+   * 
+   * @example
+   * (a+b)/2
+   */
   expression?: string;
+  /**
+   * @remarks
+   * The reference ID of the metric in the metric expression.
+   * 
+   * @example
+   * a
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the Hybrid Cloud Monitoring metric.
+   * 
+   * @example
+   * AliyunSmq_NumberOfMessagesVisible
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * The statistical method of the metric value. Valid values:
+   * 
+   * *   Average: calculates the average value of all metric values within a specified interval.
+   * *   Minimum: calculates the minimum value of all metric values within a specified interval.
+   * *   Maximum: calculates the maximum value of all metric values within a specified interval.
+   * 
+   * @example
+   * Average
+   */
   statistic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22018,6 +22351,14 @@ export class AttachInstancesRequest extends $dara.Model {
    */
   entrusted?: boolean;
   /**
+   * @remarks
+   * Specifies whether to ignore invalid instances when a batch of instances is added to the scaling group. Valid values:
+   * 
+   * *   true: ignores invalid instances. If invalid instances exist and valid instances are added, the corresponding scaling activity enters the Warning state. You can check the scaling activity details to view the invalid instances that are ignored.
+   * *   false: does not ignore invalid instances. If invalid instances exist in the batch of instances that you want to add to the scaling group, an error is reported.
+   * 
+   * Default value: false.
+   * 
    * @example
    * false
    */
@@ -26808,7 +27149,20 @@ export class CreateScalingRuleRequest extends $dara.Model {
    * 300
    */
   estimatedInstanceWarmup?: number;
+  /**
+   * @remarks
+   * The Hybrid Cloud Monitoring metrics.
+   */
   hybridMetrics?: CreateScalingRuleRequestHybridMetrics[];
+  /**
+   * @remarks
+   * The ID of the Hybrid Cloud Monitoring namespace.
+   * 
+   * For information about how to manage Hybrid Cloud Monitoring namespaces, see [Manage namespaces](https://help.aliyun.com/document_detail/217606.html).
+   * 
+   * @example
+   * aliyun-test
+   */
   hybridMonitorNamespace?: string;
   /**
    * @remarks
@@ -26847,6 +27201,17 @@ export class CreateScalingRuleRequest extends $dara.Model {
    * CpuUtilization
    */
   metricName?: string;
+  /**
+   * @remarks
+   * The metric type. Valid values:
+   * 
+   * *   system: system metrics of CloudMonitor.
+   * *   custom: custom metrics that are reported to CloudMonitor.
+   * *   hybrid: metrics of Hybrid Cloud Monitoring.
+   * 
+   * @example
+   * system
+   */
   metricType?: string;
   /**
    * @remarks
@@ -28553,10 +28918,11 @@ export class DescribeAlarmsRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The metric type. Valid values:
+   * The type of the metric. Valid values:
    * 
    * *   system: system metrics of CloudMonitor
    * *   custom: custom metrics that are reported to CloudMonitor.
+   * *   hybrid: metrics of Hybrid Cloud Monitoring.
    * 
    * @example
    * true
@@ -37459,13 +37825,13 @@ export class ModifyScalingConfigurationRequest extends $dara.Model {
   creditSpecification?: string;
   /**
    * @remarks
-   * The priority of the custom ECS instance type + vSwitch combination.
+   * The priority of the custom "ECS instance type + vSwitch" combination.
    * 
    * >  This setting is valid only if the scaling policy of the scaling group is a priority policy.
    * 
-   * If Auto Scaling cannot create ECS instances by using the custom ECS instance type + vSwitch combination of the highest priority, Auto Scaling creates ECS instances by using the custom ECS instance type + vSwitch combination of the next highest priority.
+   * If Auto Scaling cannot create ECS instances by using the custom "ECS instance type + vSwitch" combination of the highest priority, Auto Scaling creates ECS instances by using the custom "ECS instance type + vSwitch" combination of the next highest priority.
    * 
-   * >  If you specify the priorities of only a part of custom ECS instance type + vSwitch combinations, Auto Scaling preferentially creates ECS instances by using the custom combinations that have the specified priorities. If the custom combinations that have the specified priorities do not provide sufficient resources, Auto Scaling creates ECS instances by using the custom combinations that do not have the specified priorities based on the specified orders of vSwitches and instance types.
+   * >  If you specify the priorities of only a part of custom "ECS instance type + vSwitch" combinations, Auto Scaling preferentially creates ECS instances by using the custom combinations that have the specified priorities. If the custom combinations that have the specified priorities do not provide sufficient resources, Auto Scaling creates ECS instances by using the custom combinations that do not have the specified priorities based on the specified orders of vSwitches and instance types.
    * 
    * *   Example: The specified order of vSwitches for your scaling group is vsw1 and vsw2, and the specified order of instance types in your scaling configuration is type1 and type 2. In addition, you use CustomPriorities to specify ["vsw2+type2", "vsw1+type2"]. In this example, the vsw2+type2 combination has the highest priority and the vsw2+type1 combination has the lowest priority. The vsw1+type2 combination has a higher priority than the vsw1+type1 combination.
    */
@@ -38122,13 +38488,13 @@ export class ModifyScalingConfigurationShrinkRequest extends $dara.Model {
   creditSpecification?: string;
   /**
    * @remarks
-   * The priority of the custom ECS instance type + vSwitch combination.
+   * The priority of the custom "ECS instance type + vSwitch" combination.
    * 
    * >  This setting is valid only if the scaling policy of the scaling group is a priority policy.
    * 
-   * If Auto Scaling cannot create ECS instances by using the custom ECS instance type + vSwitch combination of the highest priority, Auto Scaling creates ECS instances by using the custom ECS instance type + vSwitch combination of the next highest priority.
+   * If Auto Scaling cannot create ECS instances by using the custom "ECS instance type + vSwitch" combination of the highest priority, Auto Scaling creates ECS instances by using the custom "ECS instance type + vSwitch" combination of the next highest priority.
    * 
-   * >  If you specify the priorities of only a part of custom ECS instance type + vSwitch combinations, Auto Scaling preferentially creates ECS instances by using the custom combinations that have the specified priorities. If the custom combinations that have the specified priorities do not provide sufficient resources, Auto Scaling creates ECS instances by using the custom combinations that do not have the specified priorities based on the specified orders of vSwitches and instance types.
+   * >  If you specify the priorities of only a part of custom "ECS instance type + vSwitch" combinations, Auto Scaling preferentially creates ECS instances by using the custom combinations that have the specified priorities. If the custom combinations that have the specified priorities do not provide sufficient resources, Auto Scaling creates ECS instances by using the custom combinations that do not have the specified priorities based on the specified orders of vSwitches and instance types.
    * 
    * *   Example: The specified order of vSwitches for your scaling group is vsw1 and vsw2, and the specified order of instance types in your scaling configuration is type1 and type 2. In addition, you use CustomPriorities to specify ["vsw2+type2", "vsw1+type2"]. In this example, the vsw2+type2 combination has the highest priority and the vsw2+type1 combination has the lowest priority. The vsw1+type2 combination has a higher priority than the vsw1+type1 combination.
    */
@@ -39360,7 +39726,20 @@ export class ModifyScalingRuleRequest extends $dara.Model {
    * 60
    */
   estimatedInstanceWarmup?: number;
+  /**
+   * @remarks
+   * The Hybrid Cloud Monitoring metrics.
+   */
   hybridMetrics?: ModifyScalingRuleRequestHybridMetrics[];
+  /**
+   * @remarks
+   * The ID of the Hybrid Cloud Monitoring namespace.
+   * 
+   * For information about how to manage Hybrid Cloud Monitoring namespaces, see [Manage namespaces](https://help.aliyun.com/document_detail/217606.html).
+   * 
+   * @example
+   * aliyun-test
+   */
   hybridMonitorNamespace?: string;
   /**
    * @remarks
@@ -39397,6 +39776,17 @@ export class ModifyScalingRuleRequest extends $dara.Model {
    * CpuUtilization
    */
   metricName?: string;
+  /**
+   * @remarks
+   * The metric type. Valid values:
+   * 
+   * *   system: system metrics of CloudMonitor.
+   * *   custom: custom metrics that are reported to CloudMonitor.
+   * *   hybrid: metrics of Hybrid Cloud Monitoring.
+   * 
+   * @example
+   * system
+   */
   metricType?: string;
   /**
    * @remarks
@@ -41611,6 +42001,22 @@ export class StartInstanceRefreshRequest extends $dara.Model {
    * asg-bp18p2yfxow2dloq****
    */
   scalingGroupId?: string;
+  /**
+   * @remarks
+   * Specifies whether to skip instances that match the desired scaling configuration.
+   * 
+   * >  The system determines the match based on the ID of the desired scaling configuration rather than individual configuration items.
+   * 
+   * Valid values:
+   * 
+   * *   true: skips instances that match the desired scaling configuration. When you initiate an instance refresh task, the system checks the configurations of all instances. The refresh operation is skipped for instances created based on the desired scaling configuration.
+   * *   false: does not skip instances that match the desired scaling configuration. When an instance refresh task is initiated, all instances in the scaling group at the time of initiation are refreshed.
+   * 
+   * Default value: true.
+   * 
+   * @example
+   * true
+   */
   skipMatching?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -42629,7 +43035,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ApplyEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new ApplyEciScalingConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ApplyEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new ApplyEciScalingConfigurationResponse({}));
+    } else {
+      return $dara.cast<ApplyEciScalingConfigurationResponse>(await this.execute(params, req, runtime), new ApplyEciScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -42718,7 +43129,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ApplyScalingGroupResponse>(await this.callApi(params, req, runtime), new ApplyScalingGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ApplyScalingGroupResponse>(await this.callApi(params, req, runtime), new ApplyScalingGroupResponse({}));
+    } else {
+      return $dara.cast<ApplyScalingGroupResponse>(await this.execute(params, req, runtime), new ApplyScalingGroupResponse({}));
+    }
+
   }
 
   /**
@@ -42823,7 +43239,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AttachAlbServerGroupsResponse>(await this.callApi(params, req, runtime), new AttachAlbServerGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AttachAlbServerGroupsResponse>(await this.callApi(params, req, runtime), new AttachAlbServerGroupsResponse({}));
+    } else {
+      return $dara.cast<AttachAlbServerGroupsResponse>(await this.execute(params, req, runtime), new AttachAlbServerGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -42911,7 +43332,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AttachDBInstancesResponse>(await this.callApi(params, req, runtime), new AttachDBInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AttachDBInstancesResponse>(await this.callApi(params, req, runtime), new AttachDBInstancesResponse({}));
+    } else {
+      return $dara.cast<AttachDBInstancesResponse>(await this.execute(params, req, runtime), new AttachDBInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -43022,7 +43448,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AttachInstancesResponse>(await this.callApi(params, req, runtime), new AttachInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AttachInstancesResponse>(await this.callApi(params, req, runtime), new AttachInstancesResponse({}));
+    } else {
+      return $dara.cast<AttachInstancesResponse>(await this.execute(params, req, runtime), new AttachInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -43117,7 +43548,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AttachLoadBalancersResponse>(await this.callApi(params, req, runtime), new AttachLoadBalancersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AttachLoadBalancersResponse>(await this.callApi(params, req, runtime), new AttachLoadBalancersResponse({}));
+    } else {
+      return $dara.cast<AttachLoadBalancersResponse>(await this.execute(params, req, runtime), new AttachLoadBalancersResponse({}));
+    }
+
   }
 
   /**
@@ -43192,7 +43628,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AttachServerGroupsResponse>(await this.callApi(params, req, runtime), new AttachServerGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AttachServerGroupsResponse>(await this.callApi(params, req, runtime), new AttachServerGroupsResponse({}));
+    } else {
+      return $dara.cast<AttachServerGroupsResponse>(await this.execute(params, req, runtime), new AttachServerGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -43275,7 +43716,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<AttachVServerGroupsResponse>(await this.callApi(params, req, runtime), new AttachVServerGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AttachVServerGroupsResponse>(await this.callApi(params, req, runtime), new AttachVServerGroupsResponse({}));
+    } else {
+      return $dara.cast<AttachVServerGroupsResponse>(await this.execute(params, req, runtime), new AttachVServerGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -43353,7 +43799,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CancelInstanceRefreshResponse>(await this.callApi(params, req, runtime), new CancelInstanceRefreshResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CancelInstanceRefreshResponse>(await this.callApi(params, req, runtime), new CancelInstanceRefreshResponse({}));
+    } else {
+      return $dara.cast<CancelInstanceRefreshResponse>(await this.execute(params, req, runtime), new CancelInstanceRefreshResponse({}));
+    }
+
   }
 
   /**
@@ -43422,7 +43873,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    } else {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.execute(params, req, runtime), new ChangeResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -43499,7 +43955,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CompleteLifecycleActionResponse>(await this.callApi(params, req, runtime), new CompleteLifecycleActionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CompleteLifecycleActionResponse>(await this.callApi(params, req, runtime), new CompleteLifecycleActionResponse({}));
+    } else {
+      return $dara.cast<CompleteLifecycleActionResponse>(await this.execute(params, req, runtime), new CompleteLifecycleActionResponse({}));
+    }
+
   }
 
   /**
@@ -43623,7 +44084,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateAlarmResponse>(await this.callApi(params, req, runtime), new CreateAlarmResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAlarmResponse>(await this.callApi(params, req, runtime), new CreateAlarmResponse({}));
+    } else {
+      return $dara.cast<CreateAlarmResponse>(await this.execute(params, req, runtime), new CreateAlarmResponse({}));
+    }
+
   }
 
   /**
@@ -43668,7 +44134,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateDiagnoseReportResponse>(await this.callApi(params, req, runtime), new CreateDiagnoseReportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDiagnoseReportResponse>(await this.callApi(params, req, runtime), new CreateDiagnoseReportResponse({}));
+    } else {
+      return $dara.cast<CreateDiagnoseReportResponse>(await this.execute(params, req, runtime), new CreateDiagnoseReportResponse({}));
+    }
+
   }
 
   /**
@@ -43910,7 +44381,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new CreateEciScalingConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new CreateEciScalingConfigurationResponse({}));
+    } else {
+      return $dara.cast<CreateEciScalingConfigurationResponse>(await this.execute(params, req, runtime), new CreateEciScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -43998,7 +44474,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateLifecycleHookResponse>(await this.callApi(params, req, runtime), new CreateLifecycleHookResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateLifecycleHookResponse>(await this.callApi(params, req, runtime), new CreateLifecycleHookResponse({}));
+    } else {
+      return $dara.cast<CreateLifecycleHookResponse>(await this.execute(params, req, runtime), new CreateLifecycleHookResponse({}));
+    }
+
   }
 
   /**
@@ -44075,7 +44556,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateNotificationConfigurationResponse>(await this.callApi(params, req, runtime), new CreateNotificationConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateNotificationConfigurationResponse>(await this.callApi(params, req, runtime), new CreateNotificationConfigurationResponse({}));
+    } else {
+      return $dara.cast<CreateNotificationConfigurationResponse>(await this.execute(params, req, runtime), new CreateNotificationConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -44373,7 +44859,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateScalingConfigurationResponse>(await this.callApi(params, req, runtime), new CreateScalingConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateScalingConfigurationResponse>(await this.callApi(params, req, runtime), new CreateScalingConfigurationResponse({}));
+    } else {
+      return $dara.cast<CreateScalingConfigurationResponse>(await this.execute(params, req, runtime), new CreateScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -44632,7 +45123,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateScalingGroupResponse>(await this.callApi(params, req, runtime), new CreateScalingGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateScalingGroupResponse>(await this.callApi(params, req, runtime), new CreateScalingGroupResponse({}));
+    } else {
+      return $dara.cast<CreateScalingGroupResponse>(await this.execute(params, req, runtime), new CreateScalingGroupResponse({}));
+    }
+
   }
 
   /**
@@ -44816,7 +45312,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateScalingRuleResponse>(await this.callApi(params, req, runtime), new CreateScalingRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateScalingRuleResponse>(await this.callApi(params, req, runtime), new CreateScalingRuleResponse({}));
+    } else {
+      return $dara.cast<CreateScalingRuleResponse>(await this.execute(params, req, runtime), new CreateScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -44947,7 +45448,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateScheduledTaskResponse>(await this.callApi(params, req, runtime), new CreateScheduledTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateScheduledTaskResponse>(await this.callApi(params, req, runtime), new CreateScheduledTaskResponse({}));
+    } else {
+      return $dara.cast<CreateScheduledTaskResponse>(await this.execute(params, req, runtime), new CreateScheduledTaskResponse({}));
+    }
+
   }
 
   /**
@@ -45015,7 +45521,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeactivateScalingConfigurationResponse>(await this.callApi(params, req, runtime), new DeactivateScalingConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeactivateScalingConfigurationResponse>(await this.callApi(params, req, runtime), new DeactivateScalingConfigurationResponse({}));
+    } else {
+      return $dara.cast<DeactivateScalingConfigurationResponse>(await this.execute(params, req, runtime), new DeactivateScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -45072,7 +45583,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteAlarmResponse>(await this.callApi(params, req, runtime), new DeleteAlarmResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAlarmResponse>(await this.callApi(params, req, runtime), new DeleteAlarmResponse({}));
+    } else {
+      return $dara.cast<DeleteAlarmResponse>(await this.execute(params, req, runtime), new DeleteAlarmResponse({}));
+    }
+
   }
 
   /**
@@ -45135,7 +45651,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteEciScalingConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteEciScalingConfigurationResponse({}));
+    } else {
+      return $dara.cast<DeleteEciScalingConfigurationResponse>(await this.execute(params, req, runtime), new DeleteEciScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -45211,7 +45732,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteLifecycleHookResponse>(await this.callApi(params, req, runtime), new DeleteLifecycleHookResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteLifecycleHookResponse>(await this.callApi(params, req, runtime), new DeleteLifecycleHookResponse({}));
+    } else {
+      return $dara.cast<DeleteLifecycleHookResponse>(await this.execute(params, req, runtime), new DeleteLifecycleHookResponse({}));
+    }
+
   }
 
   /**
@@ -45274,7 +45800,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteNotificationConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteNotificationConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteNotificationConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteNotificationConfigurationResponse({}));
+    } else {
+      return $dara.cast<DeleteNotificationConfigurationResponse>(await this.execute(params, req, runtime), new DeleteNotificationConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -45333,7 +45864,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteScalingConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteScalingConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteScalingConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteScalingConfigurationResponse({}));
+    } else {
+      return $dara.cast<DeleteScalingConfigurationResponse>(await this.execute(params, req, runtime), new DeleteScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -45412,7 +45948,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteScalingGroupResponse>(await this.callApi(params, req, runtime), new DeleteScalingGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteScalingGroupResponse>(await this.callApi(params, req, runtime), new DeleteScalingGroupResponse({}));
+    } else {
+      return $dara.cast<DeleteScalingGroupResponse>(await this.execute(params, req, runtime), new DeleteScalingGroupResponse({}));
+    }
+
   }
 
   /**
@@ -45482,7 +46023,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteScalingRuleResponse>(await this.callApi(params, req, runtime), new DeleteScalingRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteScalingRuleResponse>(await this.callApi(params, req, runtime), new DeleteScalingRuleResponse({}));
+    } else {
+      return $dara.cast<DeleteScalingRuleResponse>(await this.execute(params, req, runtime), new DeleteScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -45540,7 +46086,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteScheduledTaskResponse>(await this.callApi(params, req, runtime), new DeleteScheduledTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteScheduledTaskResponse>(await this.callApi(params, req, runtime), new DeleteScheduledTaskResponse({}));
+    } else {
+      return $dara.cast<DeleteScheduledTaskResponse>(await this.execute(params, req, runtime), new DeleteScheduledTaskResponse({}));
+    }
+
   }
 
   /**
@@ -45622,7 +46173,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeAlarmsResponse>(await this.callApi(params, req, runtime), new DescribeAlarmsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeAlarmsResponse>(await this.callApi(params, req, runtime), new DescribeAlarmsResponse({}));
+    } else {
+      return $dara.cast<DescribeAlarmsResponse>(await this.execute(params, req, runtime), new DescribeAlarmsResponse({}));
+    }
+
   }
 
   /**
@@ -45676,7 +46232,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeAlertConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeAlertConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeAlertConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeAlertConfigurationResponse({}));
+    } else {
+      return $dara.cast<DescribeAlertConfigurationResponse>(await this.execute(params, req, runtime), new DescribeAlertConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -45714,7 +46275,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeDiagnoseReportsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnoseReportsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDiagnoseReportsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnoseReportsResponse({}));
+    } else {
+      return $dara.cast<DescribeDiagnoseReportsResponse>(await this.execute(params, req, runtime), new DescribeDiagnoseReportsResponse({}));
+    }
+
   }
 
   /**
@@ -45768,7 +46334,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeEciScalingConfigurationDetailResponse>(await this.callApi(params, req, runtime), new DescribeEciScalingConfigurationDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeEciScalingConfigurationDetailResponse>(await this.callApi(params, req, runtime), new DescribeEciScalingConfigurationDetailResponse({}));
+    } else {
+      return $dara.cast<DescribeEciScalingConfigurationDetailResponse>(await this.execute(params, req, runtime), new DescribeEciScalingConfigurationDetailResponse({}));
+    }
+
   }
 
   /**
@@ -45846,7 +46417,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeEciScalingConfigurationsResponse>(await this.callApi(params, req, runtime), new DescribeEciScalingConfigurationsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeEciScalingConfigurationsResponse>(await this.callApi(params, req, runtime), new DescribeEciScalingConfigurationsResponse({}));
+    } else {
+      return $dara.cast<DescribeEciScalingConfigurationsResponse>(await this.execute(params, req, runtime), new DescribeEciScalingConfigurationsResponse({}));
+    }
+
   }
 
   /**
@@ -45884,7 +46460,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeElasticStrengthResponse>(await this.callApi(params, req, runtime), new DescribeElasticStrengthResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeElasticStrengthResponse>(await this.callApi(params, req, runtime), new DescribeElasticStrengthResponse({}));
+    } else {
+      return $dara.cast<DescribeElasticStrengthResponse>(await this.execute(params, req, runtime), new DescribeElasticStrengthResponse({}));
+    }
+
   }
 
   /**
@@ -45958,7 +46539,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeInstanceRefreshesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceRefreshesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeInstanceRefreshesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceRefreshesResponse({}));
+    } else {
+      return $dara.cast<DescribeInstanceRefreshesResponse>(await this.execute(params, req, runtime), new DescribeInstanceRefreshesResponse({}));
+    }
+
   }
 
   /**
@@ -46031,7 +46617,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeLifecycleActionsResponse>(await this.callApi(params, req, runtime), new DescribeLifecycleActionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeLifecycleActionsResponse>(await this.callApi(params, req, runtime), new DescribeLifecycleActionsResponse({}));
+    } else {
+      return $dara.cast<DescribeLifecycleActionsResponse>(await this.execute(params, req, runtime), new DescribeLifecycleActionsResponse({}));
+    }
+
   }
 
   /**
@@ -46118,7 +46709,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeLifecycleHooksResponse>(await this.callApi(params, req, runtime), new DescribeLifecycleHooksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeLifecycleHooksResponse>(await this.callApi(params, req, runtime), new DescribeLifecycleHooksResponse({}));
+    } else {
+      return $dara.cast<DescribeLifecycleHooksResponse>(await this.execute(params, req, runtime), new DescribeLifecycleHooksResponse({}));
+    }
+
   }
 
   /**
@@ -46170,7 +46766,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeLimitationResponse>(await this.callApi(params, req, runtime), new DescribeLimitationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeLimitationResponse>(await this.callApi(params, req, runtime), new DescribeLimitationResponse({}));
+    } else {
+      return $dara.cast<DescribeLimitationResponse>(await this.execute(params, req, runtime), new DescribeLimitationResponse({}));
+    }
+
   }
 
   /**
@@ -46224,7 +46825,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeNotificationConfigurationsResponse>(await this.callApi(params, req, runtime), new DescribeNotificationConfigurationsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeNotificationConfigurationsResponse>(await this.callApi(params, req, runtime), new DescribeNotificationConfigurationsResponse({}));
+    } else {
+      return $dara.cast<DescribeNotificationConfigurationsResponse>(await this.execute(params, req, runtime), new DescribeNotificationConfigurationsResponse({}));
+    }
+
   }
 
   /**
@@ -46270,7 +46876,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeNotificationTypesResponse>(await this.callApi(params, req, runtime), new DescribeNotificationTypesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeNotificationTypesResponse>(await this.callApi(params, req, runtime), new DescribeNotificationTypesResponse({}));
+    } else {
+      return $dara.cast<DescribeNotificationTypesResponse>(await this.execute(params, req, runtime), new DescribeNotificationTypesResponse({}));
+    }
+
   }
 
   /**
@@ -46308,7 +46919,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribePatternTypesResponse>(await this.callApi(params, req, runtime), new DescribePatternTypesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribePatternTypesResponse>(await this.callApi(params, req, runtime), new DescribePatternTypesResponse({}));
+    } else {
+      return $dara.cast<DescribePatternTypesResponse>(await this.execute(params, req, runtime), new DescribePatternTypesResponse({}));
+    }
+
   }
 
   /**
@@ -46362,7 +46978,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    } else {
+      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
+    }
+
   }
 
   /**
@@ -46449,7 +47070,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeScalingActivitiesResponse>(await this.callApi(params, req, runtime), new DescribeScalingActivitiesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeScalingActivitiesResponse>(await this.callApi(params, req, runtime), new DescribeScalingActivitiesResponse({}));
+    } else {
+      return $dara.cast<DescribeScalingActivitiesResponse>(await this.execute(params, req, runtime), new DescribeScalingActivitiesResponse({}));
+    }
+
   }
 
   /**
@@ -46508,7 +47134,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeScalingActivityDetailResponse>(await this.callApi(params, req, runtime), new DescribeScalingActivityDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeScalingActivityDetailResponse>(await this.callApi(params, req, runtime), new DescribeScalingActivityDetailResponse({}));
+    } else {
+      return $dara.cast<DescribeScalingActivityDetailResponse>(await this.execute(params, req, runtime), new DescribeScalingActivityDetailResponse({}));
+    }
+
   }
 
   /**
@@ -46586,7 +47217,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeScalingConfigurationsResponse>(await this.callApi(params, req, runtime), new DescribeScalingConfigurationsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeScalingConfigurationsResponse>(await this.callApi(params, req, runtime), new DescribeScalingConfigurationsResponse({}));
+    } else {
+      return $dara.cast<DescribeScalingConfigurationsResponse>(await this.execute(params, req, runtime), new DescribeScalingConfigurationsResponse({}));
+    }
+
   }
 
   /**
@@ -46640,7 +47276,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeScalingGroupDetailResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeScalingGroupDetailResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupDetailResponse({}));
+    } else {
+      return $dara.cast<DescribeScalingGroupDetailResponse>(await this.execute(params, req, runtime), new DescribeScalingGroupDetailResponse({}));
+    }
+
   }
 
   /**
@@ -46678,7 +47319,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeScalingGroupDiagnoseDetailsResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupDiagnoseDetailsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeScalingGroupDiagnoseDetailsResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupDiagnoseDetailsResponse({}));
+    } else {
+      return $dara.cast<DescribeScalingGroupDiagnoseDetailsResponse>(await this.execute(params, req, runtime), new DescribeScalingGroupDiagnoseDetailsResponse({}));
+    }
+
   }
 
   /**
@@ -46768,7 +47414,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeScalingGroupsResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeScalingGroupsResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupsResponse({}));
+    } else {
+      return $dara.cast<DescribeScalingGroupsResponse>(await this.execute(params, req, runtime), new DescribeScalingGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -46870,7 +47521,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeScalingInstancesResponse>(await this.callApi(params, req, runtime), new DescribeScalingInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeScalingInstancesResponse>(await this.callApi(params, req, runtime), new DescribeScalingInstancesResponse({}));
+    } else {
+      return $dara.cast<DescribeScalingInstancesResponse>(await this.execute(params, req, runtime), new DescribeScalingInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -46963,7 +47619,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeScalingRulesResponse>(await this.callApi(params, req, runtime), new DescribeScalingRulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeScalingRulesResponse>(await this.callApi(params, req, runtime), new DescribeScalingRulesResponse({}));
+    } else {
+      return $dara.cast<DescribeScalingRulesResponse>(await this.execute(params, req, runtime), new DescribeScalingRulesResponse({}));
+    }
+
   }
 
   /**
@@ -47067,7 +47728,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeScheduledTasksResponse>(await this.callApi(params, req, runtime), new DescribeScheduledTasksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeScheduledTasksResponse>(await this.callApi(params, req, runtime), new DescribeScheduledTasksResponse({}));
+    } else {
+      return $dara.cast<DescribeScheduledTasksResponse>(await this.execute(params, req, runtime), new DescribeScheduledTasksResponse({}));
+    }
+
   }
 
   /**
@@ -47136,7 +47802,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DetachAlbServerGroupsResponse>(await this.callApi(params, req, runtime), new DetachAlbServerGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DetachAlbServerGroupsResponse>(await this.callApi(params, req, runtime), new DetachAlbServerGroupsResponse({}));
+    } else {
+      return $dara.cast<DetachAlbServerGroupsResponse>(await this.execute(params, req, runtime), new DetachAlbServerGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -47206,7 +47877,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DetachDBInstancesResponse>(await this.callApi(params, req, runtime), new DetachDBInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DetachDBInstancesResponse>(await this.callApi(params, req, runtime), new DetachDBInstancesResponse({}));
+    } else {
+      return $dara.cast<DetachDBInstancesResponse>(await this.execute(params, req, runtime), new DetachDBInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -47300,7 +47976,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DetachInstancesResponse>(await this.callApi(params, req, runtime), new DetachInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DetachInstancesResponse>(await this.callApi(params, req, runtime), new DetachInstancesResponse({}));
+    } else {
+      return $dara.cast<DetachInstancesResponse>(await this.execute(params, req, runtime), new DetachInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -47382,7 +48063,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DetachLoadBalancersResponse>(await this.callApi(params, req, runtime), new DetachLoadBalancersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DetachLoadBalancersResponse>(await this.callApi(params, req, runtime), new DetachLoadBalancersResponse({}));
+    } else {
+      return $dara.cast<DetachLoadBalancersResponse>(await this.execute(params, req, runtime), new DetachLoadBalancersResponse({}));
+    }
+
   }
 
   /**
@@ -47448,7 +48134,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DetachServerGroupsResponse>(await this.callApi(params, req, runtime), new DetachServerGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DetachServerGroupsResponse>(await this.callApi(params, req, runtime), new DetachServerGroupsResponse({}));
+    } else {
+      return $dara.cast<DetachServerGroupsResponse>(await this.execute(params, req, runtime), new DetachServerGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -47522,7 +48213,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DetachVServerGroupsResponse>(await this.callApi(params, req, runtime), new DetachVServerGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DetachVServerGroupsResponse>(await this.callApi(params, req, runtime), new DetachVServerGroupsResponse({}));
+    } else {
+      return $dara.cast<DetachVServerGroupsResponse>(await this.execute(params, req, runtime), new DetachVServerGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -47587,7 +48283,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DisableAlarmResponse>(await this.callApi(params, req, runtime), new DisableAlarmResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DisableAlarmResponse>(await this.callApi(params, req, runtime), new DisableAlarmResponse({}));
+    } else {
+      return $dara.cast<DisableAlarmResponse>(await this.execute(params, req, runtime), new DisableAlarmResponse({}));
+    }
+
   }
 
   /**
@@ -47653,7 +48354,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DisableScalingGroupResponse>(await this.callApi(params, req, runtime), new DisableScalingGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DisableScalingGroupResponse>(await this.callApi(params, req, runtime), new DisableScalingGroupResponse({}));
+    } else {
+      return $dara.cast<DisableScalingGroupResponse>(await this.execute(params, req, runtime), new DisableScalingGroupResponse({}));
+    }
+
   }
 
   /**
@@ -47712,7 +48418,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<EnableAlarmResponse>(await this.callApi(params, req, runtime), new EnableAlarmResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EnableAlarmResponse>(await this.callApi(params, req, runtime), new EnableAlarmResponse({}));
+    } else {
+      return $dara.cast<EnableAlarmResponse>(await this.execute(params, req, runtime), new EnableAlarmResponse({}));
+    }
+
   }
 
   /**
@@ -47806,7 +48517,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<EnableScalingGroupResponse>(await this.callApi(params, req, runtime), new EnableScalingGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EnableScalingGroupResponse>(await this.callApi(params, req, runtime), new EnableScalingGroupResponse({}));
+    } else {
+      return $dara.cast<EnableScalingGroupResponse>(await this.execute(params, req, runtime), new EnableScalingGroupResponse({}));
+    }
+
   }
 
   /**
@@ -47883,7 +48599,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<EnterStandbyResponse>(await this.callApi(params, req, runtime), new EnterStandbyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EnterStandbyResponse>(await this.callApi(params, req, runtime), new EnterStandbyResponse({}));
+    } else {
+      return $dara.cast<EnterStandbyResponse>(await this.execute(params, req, runtime), new EnterStandbyResponse({}));
+    }
+
   }
 
   /**
@@ -47974,7 +48695,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ExecuteScalingRuleResponse>(await this.callApi(params, req, runtime), new ExecuteScalingRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ExecuteScalingRuleResponse>(await this.callApi(params, req, runtime), new ExecuteScalingRuleResponse({}));
+    } else {
+      return $dara.cast<ExecuteScalingRuleResponse>(await this.execute(params, req, runtime), new ExecuteScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -48057,7 +48783,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ExitStandbyResponse>(await this.callApi(params, req, runtime), new ExitStandbyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ExitStandbyResponse>(await this.callApi(params, req, runtime), new ExitStandbyResponse({}));
+    } else {
+      return $dara.cast<ExitStandbyResponse>(await this.execute(params, req, runtime), new ExitStandbyResponse({}));
+    }
+
   }
 
   /**
@@ -48126,7 +48857,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+    } else {
+      return $dara.cast<ListTagKeysResponse>(await this.execute(params, req, runtime), new ListTagKeysResponse({}));
+    }
+
   }
 
   /**
@@ -48196,7 +48932,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -48266,7 +49007,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
+    } else {
+      return $dara.cast<ListTagValuesResponse>(await this.execute(params, req, runtime), new ListTagValuesResponse({}));
+    }
+
   }
 
   /**
@@ -48387,7 +49133,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyAlarmResponse>(await this.callApi(params, req, runtime), new ModifyAlarmResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyAlarmResponse>(await this.callApi(params, req, runtime), new ModifyAlarmResponse({}));
+    } else {
+      return $dara.cast<ModifyAlarmResponse>(await this.execute(params, req, runtime), new ModifyAlarmResponse({}));
+    }
+
   }
 
   /**
@@ -48452,7 +49203,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyAlertConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyAlertConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyAlertConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyAlertConfigurationResponse({}));
+    } else {
+      return $dara.cast<ModifyAlertConfigurationResponse>(await this.execute(params, req, runtime), new ModifyAlertConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -48698,7 +49454,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyEciScalingConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyEciScalingConfigurationResponse({}));
+    } else {
+      return $dara.cast<ModifyEciScalingConfigurationResponse>(await this.execute(params, req, runtime), new ModifyEciScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -48764,7 +49525,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyInstanceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAttributeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyInstanceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAttributeResponse({}));
+    } else {
+      return $dara.cast<ModifyInstanceAttributeResponse>(await this.execute(params, req, runtime), new ModifyInstanceAttributeResponse({}));
+    }
+
   }
 
   /**
@@ -48859,7 +49625,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyLifecycleHookResponse>(await this.callApi(params, req, runtime), new ModifyLifecycleHookResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyLifecycleHookResponse>(await this.callApi(params, req, runtime), new ModifyLifecycleHookResponse({}));
+    } else {
+      return $dara.cast<ModifyLifecycleHookResponse>(await this.execute(params, req, runtime), new ModifyLifecycleHookResponse({}));
+    }
+
   }
 
   /**
@@ -48930,7 +49701,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyNotificationConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyNotificationConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyNotificationConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyNotificationConfigurationResponse({}));
+    } else {
+      return $dara.cast<ModifyNotificationConfigurationResponse>(await this.execute(params, req, runtime), new ModifyNotificationConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -49212,7 +49988,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyScalingConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyScalingConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyScalingConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyScalingConfigurationResponse({}));
+    } else {
+      return $dara.cast<ModifyScalingConfigurationResponse>(await this.execute(params, req, runtime), new ModifyScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -49407,7 +50188,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyScalingGroupResponse>(await this.callApi(params, req, runtime), new ModifyScalingGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyScalingGroupResponse>(await this.callApi(params, req, runtime), new ModifyScalingGroupResponse({}));
+    } else {
+      return $dara.cast<ModifyScalingGroupResponse>(await this.execute(params, req, runtime), new ModifyScalingGroupResponse({}));
+    }
+
   }
 
   /**
@@ -49564,7 +50350,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyScalingRuleResponse>(await this.callApi(params, req, runtime), new ModifyScalingRuleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyScalingRuleResponse>(await this.callApi(params, req, runtime), new ModifyScalingRuleResponse({}));
+    } else {
+      return $dara.cast<ModifyScalingRuleResponse>(await this.execute(params, req, runtime), new ModifyScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -49684,7 +50475,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ModifyScheduledTaskResponse>(await this.callApi(params, req, runtime), new ModifyScheduledTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyScheduledTaskResponse>(await this.callApi(params, req, runtime), new ModifyScheduledTaskResponse({}));
+    } else {
+      return $dara.cast<ModifyScheduledTaskResponse>(await this.execute(params, req, runtime), new ModifyScheduledTaskResponse({}));
+    }
+
   }
 
   /**
@@ -49761,7 +50557,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RebalanceInstancesResponse>(await this.callApi(params, req, runtime), new RebalanceInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RebalanceInstancesResponse>(await this.callApi(params, req, runtime), new RebalanceInstancesResponse({}));
+    } else {
+      return $dara.cast<RebalanceInstancesResponse>(await this.execute(params, req, runtime), new RebalanceInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -49840,7 +50641,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RecordLifecycleActionHeartbeatResponse>(await this.callApi(params, req, runtime), new RecordLifecycleActionHeartbeatResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RecordLifecycleActionHeartbeatResponse>(await this.callApi(params, req, runtime), new RecordLifecycleActionHeartbeatResponse({}));
+    } else {
+      return $dara.cast<RecordLifecycleActionHeartbeatResponse>(await this.execute(params, req, runtime), new RecordLifecycleActionHeartbeatResponse({}));
+    }
+
   }
 
   /**
@@ -49940,7 +50746,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RemoveInstancesResponse>(await this.callApi(params, req, runtime), new RemoveInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RemoveInstancesResponse>(await this.callApi(params, req, runtime), new RemoveInstancesResponse({}));
+    } else {
+      return $dara.cast<RemoveInstancesResponse>(await this.execute(params, req, runtime), new RemoveInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -50008,7 +50819,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ResumeInstanceRefreshResponse>(await this.callApi(params, req, runtime), new ResumeInstanceRefreshResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ResumeInstanceRefreshResponse>(await this.callApi(params, req, runtime), new ResumeInstanceRefreshResponse({}));
+    } else {
+      return $dara.cast<ResumeInstanceRefreshResponse>(await this.execute(params, req, runtime), new ResumeInstanceRefreshResponse({}));
+    }
+
   }
 
   /**
@@ -50070,7 +50886,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ResumeProcessesResponse>(await this.callApi(params, req, runtime), new ResumeProcessesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ResumeProcessesResponse>(await this.callApi(params, req, runtime), new ResumeProcessesResponse({}));
+    } else {
+      return $dara.cast<ResumeProcessesResponse>(await this.execute(params, req, runtime), new ResumeProcessesResponse({}));
+    }
+
   }
 
   /**
@@ -50128,7 +50949,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RollbackInstanceRefreshResponse>(await this.callApi(params, req, runtime), new RollbackInstanceRefreshResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RollbackInstanceRefreshResponse>(await this.callApi(params, req, runtime), new RollbackInstanceRefreshResponse({}));
+    } else {
+      return $dara.cast<RollbackInstanceRefreshResponse>(await this.execute(params, req, runtime), new RollbackInstanceRefreshResponse({}));
+    }
+
   }
 
   /**
@@ -50229,7 +51055,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ScaleWithAdjustmentResponse>(await this.callApi(params, req, runtime), new ScaleWithAdjustmentResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ScaleWithAdjustmentResponse>(await this.callApi(params, req, runtime), new ScaleWithAdjustmentResponse({}));
+    } else {
+      return $dara.cast<ScaleWithAdjustmentResponse>(await this.execute(params, req, runtime), new ScaleWithAdjustmentResponse({}));
+    }
+
   }
 
   /**
@@ -50296,7 +51127,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetGroupDeletionProtectionResponse>(await this.callApi(params, req, runtime), new SetGroupDeletionProtectionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetGroupDeletionProtectionResponse>(await this.callApi(params, req, runtime), new SetGroupDeletionProtectionResponse({}));
+    } else {
+      return $dara.cast<SetGroupDeletionProtectionResponse>(await this.execute(params, req, runtime), new SetGroupDeletionProtectionResponse({}));
+    }
+
   }
 
   /**
@@ -50353,7 +51189,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetInstanceHealthResponse>(await this.callApi(params, req, runtime), new SetInstanceHealthResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetInstanceHealthResponse>(await this.callApi(params, req, runtime), new SetInstanceHealthResponse({}));
+    } else {
+      return $dara.cast<SetInstanceHealthResponse>(await this.execute(params, req, runtime), new SetInstanceHealthResponse({}));
+    }
+
   }
 
   /**
@@ -50420,7 +51261,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SetInstancesProtectionResponse>(await this.callApi(params, req, runtime), new SetInstancesProtectionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetInstancesProtectionResponse>(await this.callApi(params, req, runtime), new SetInstancesProtectionResponse({}));
+    } else {
+      return $dara.cast<SetInstancesProtectionResponse>(await this.execute(params, req, runtime), new SetInstancesProtectionResponse({}));
+    }
+
   }
 
   /**
@@ -50506,7 +51352,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StartInstanceRefreshResponse>(await this.callApi(params, req, runtime), new StartInstanceRefreshResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartInstanceRefreshResponse>(await this.callApi(params, req, runtime), new StartInstanceRefreshResponse({}));
+    } else {
+      return $dara.cast<StartInstanceRefreshResponse>(await this.execute(params, req, runtime), new StartInstanceRefreshResponse({}));
+    }
+
   }
 
   /**
@@ -50573,7 +51424,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SuspendInstanceRefreshResponse>(await this.callApi(params, req, runtime), new SuspendInstanceRefreshResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SuspendInstanceRefreshResponse>(await this.callApi(params, req, runtime), new SuspendInstanceRefreshResponse({}));
+    } else {
+      return $dara.cast<SuspendInstanceRefreshResponse>(await this.execute(params, req, runtime), new SuspendInstanceRefreshResponse({}));
+    }
+
   }
 
   /**
@@ -50638,7 +51494,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SuspendProcessesResponse>(await this.callApi(params, req, runtime), new SuspendProcessesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SuspendProcessesResponse>(await this.callApi(params, req, runtime), new SuspendProcessesResponse({}));
+    } else {
+      return $dara.cast<SuspendProcessesResponse>(await this.execute(params, req, runtime), new SuspendProcessesResponse({}));
+    }
+
   }
 
   /**
@@ -50709,7 +51570,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -50784,7 +51650,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -50842,7 +51713,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<VerifyAuthenticationResponse>(await this.callApi(params, req, runtime), new VerifyAuthenticationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<VerifyAuthenticationResponse>(await this.callApi(params, req, runtime), new VerifyAuthenticationResponse({}));
+    } else {
+      return $dara.cast<VerifyAuthenticationResponse>(await this.execute(params, req, runtime), new VerifyAuthenticationResponse({}));
+    }
+
   }
 
   /**
@@ -50896,7 +51772,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<VerifyUserResponse>(await this.callApi(params, req, runtime), new VerifyUserResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<VerifyUserResponse>(await this.callApi(params, req, runtime), new VerifyUserResponse({}));
+    } else {
+      return $dara.cast<VerifyUserResponse>(await this.execute(params, req, runtime), new VerifyUserResponse({}));
+    }
+
   }
 
   /**
