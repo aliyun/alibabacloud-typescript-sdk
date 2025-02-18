@@ -1,2048 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class DescribeFileModerationResultRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the moderation service.
-   * 
-   * @example
-   * document_detection
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
-   * 
-   * *   taskId: required. The URL of the object that you want to moderate. Make sure that the URL can be accessed over the Internet.
-   * 
-   * @example
-   * {\\"taskId\\":\\"vi_f_hPgx9PFIQISdlfA888hOFG-1yJq8v\\"}
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileModerationResultResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: DescribeFileModerationResultResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * OK
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: DescribeFileModerationResultResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileModerationResultResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeFileModerationResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeFileModerationResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageModerationResultRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ReqId field returned by the asynchronous Image Moderation 2.0 API.
-   * 
-   * @example
-   * B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
-   */
-  reqId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      reqId: 'ReqId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      reqId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageModerationResultResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The image moderation results.
-   */
-  data?: DescribeImageModerationResultResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * success
-   */
-  msg?: string;
-  /**
-   * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * 2881AD4F-638B-52A3-BA20-F74C5B1CEAE3
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: DescribeImageModerationResultResponseBodyData,
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageModerationResultResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeImageModerationResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeImageModerationResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageResultExtRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The content of the information to be obtained. Multiple values are separated by commas.
-   * 
-   * @example
-   * customImage,textInImage
-   */
-  infoType?: string;
-  /**
-   * @remarks
-   * The reqId field returned by the Url Async Moderation API.
-   * 
-   * @example
-   * 638EDDC65C82AB39319A9F60
-   */
-  reqId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      infoType: 'InfoType',
-      reqId: 'ReqId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      infoType: 'string',
-      reqId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageResultExtResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: DescribeImageResultExtResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * success
-   */
-  msg?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: DescribeImageResultExtResponseBodyData,
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageResultExtResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeImageResultExtResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeImageResultExtResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUploadTokenResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: DescribeUploadTokenResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * OK
-   */
-  msg?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: DescribeUploadTokenResponseBodyData,
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUploadTokenResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeUploadTokenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeUploadTokenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUrlModerationResultRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ReqId field returned by an asynchronous URL moderation operation.
-   * 
-   * @example
-   * B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
-   */
-  reqId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      reqId: 'ReqId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      reqId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUrlModerationResultResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: DescribeUrlModerationResultResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * success
-   */
-  msg?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 01F9144A-2088-5D87-935B-2DB865284B1A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: DescribeUrlModerationResultResponseBodyData,
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUrlModerationResultResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeUrlModerationResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeUrlModerationResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FileModerationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the moderation service.
-   * 
-   * @example
-   * document_detection
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
-   * 
-   * @example
-   * {"url":"https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.pdf"}
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FileModerationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: FileModerationResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * SUCCESS
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: FileModerationResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FileModerationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FileModerationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FileModerationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImageAsyncModerationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the moderation service.
-   * 
-   * @example
-   * baselineCheck
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
-   * 
-   * @example
-   * {"imageUrl":"https://img.alicdn.com/tfs/TB1U4r9AeH2gK0jSZJnXXaT1FXa-2880-480.png","dataId":"img123****"}
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImageAsyncModerationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: ImageAsyncModerationResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * success
-   */
-  msg?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 4A926AE2-4C96-573F-824F-0532960799F8
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: ImageAsyncModerationResponseBodyData,
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImageAsyncModerationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ImageAsyncModerationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ImageAsyncModerationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImageBatchModerationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The types of detection supported by the enhanced image review, separated by English commas. Values:
-   * 
-   * - baselineCheck：General Baseline Detection
-   * - baselineCheck_pro：General Baseline Detection_Pro Edition
-   * - tonalityImprove：Content governance monitoring
-   * - aigcCheck：AIGC image detection
-   * 
-   * @example
-   * baselineCheck,tonalityImprove
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The set of relevant parameters for content detection objects.
-   * 
-   * @example
-   * {
-   *         "imageUrl": "https://img.alicdn.com/tfs/TB1U4r9AeH2gK0jSZJnXXaT1FXa-2880-480.png",
-   *         "dataId": "img123****"
-   *     }
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImageBatchModerationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Return code. A return of 200 represents success.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The result of image content detection.
-   */
-  data?: ImageBatchModerationResponseBodyData;
-  /**
-   * @remarks
-   * The response message for this request.
-   * 
-   * @example
-   * success
-   */
-  msg?: string;
-  /**
-   * @remarks
-   * The ID of this invocation request, generated by Alibaba Cloud as a unique identifier for the request, can be used for troubleshooting and pinpointing issues.
-   * 
-   * @example
-   * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: ImageBatchModerationResponseBodyData,
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImageBatchModerationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ImageBatchModerationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ImageBatchModerationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImageModerationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The moderation services supported by Image Moderation 2.0. Valid values:
-   * 
-   * *   baselineCheck: common baseline moderation
-   * *   baselineCheck_pro: common baseline moderation_Professional
-   * *   baselineCheck_cb: common baseline moderation_For regions outside the Chinese mainland
-   * *   tonalityImprove: content governance moderation
-   * *   aigcCheck: AI-generated image identification
-   * *   profilePhotoCheck: avatar image moderation
-   * *   advertisingCheck: marketing material identification
-   * *   liveStreamCheck: moderation of screenshots of videos and live streams
-   * 
-   * Valid values:
-   * 
-   * *   liveStreamCheck: moderation of screenshots of videos and live streams
-   * *   baselineCheck: common baseline moderation
-   * *   aigcCheck: AI-generated image identification
-   * *   baselineCheck_pro: common baseline moderation_Professional
-   * *   advertisingCheck: marketing material identification
-   * *   baselineCheck_cb: common baseline moderation_For regions outside the Chinese mainland
-   * *   tonalityImprove: content governance moderation
-   * *   profilePhotoCheck: avatar image moderation
-   * 
-   * @example
-   * baselineCheck
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
-   * 
-   * *   imageUrl: the URL of the object that you want to moderate. This parameter is required.
-   * *   dataId: the ID of the object that you want to moderate. This parameter is optional.
-   * 
-   * @example
-   * {"imageUrl":"https://www.aliyun.com/test.jpg","dataId":"img1234567"}
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImageModerationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The moderation results.
-   */
-  data?: ImageModerationResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * OK
-   */
-  msg?: string;
-  /**
-   * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
-   * 
-   * @example
-   * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: ImageModerationResponseBodyData,
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImageModerationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ImageModerationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ImageModerationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TextModerationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the moderation service.
-   * 
-   * @example
-   * nickname_detection
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
-   * 
-   * @example
-   * {"content":"Content to be moderated"}
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TextModerationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The moderation results.
-   */
-  data?: TextModerationResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * OK
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: TextModerationResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TextModerationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TextModerationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TextModerationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TextModerationPlusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The moderation service.
-   * 
-   * Valid values:
-   * 
-   * *   chat_detection_pro: moderation of interactive content of private chats_Professional
-   * *   llm_response_moderation: moderation of text generated by LLMs
-   * *   llm_query_moderation: moderation of input text of LLMs
-   * *   nickname_detection_pro: moderation of user nicknames_Professional
-   * *   comment_detection_pro: moderation of comment content of public chats_Professional
-   * 
-   * @example
-   * llm_query_moderation
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
-   * 
-   * @example
-   * {"content":"Content to be moderated"}
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TextModerationPlusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The moderation results.
-   */
-  data?: TextModerationPlusResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * OK
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: TextModerationPlusResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TextModerationPlusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TextModerationPlusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TextModerationPlusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UrlAsyncModerationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the moderation service.
-   * 
-   * @example
-   * url_detection
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
-   * 
-   * @example
-   * {
-   *         "url": "https://help.aliyun.com/",
-   *         "dataId": "url123******"
-   * }
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UrlAsyncModerationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: UrlAsyncModerationResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * success
-   */
-  msg?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 6CF2815C-****-****-B52E-FF6E2****492
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      msg: 'Msg',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: UrlAsyncModerationResponseBodyData,
-      msg: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UrlAsyncModerationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UrlAsyncModerationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UrlAsyncModerationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoModerationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the moderation service.
-   * 
-   * @example
-   * videoDetection
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
-   * 
-   * @example
-   * {\\"url\\": \\"https://talesofai.oss-cn-shanghai.aliyuncs.com/xxx.mp4\\", \\"dataId\\": \\"94db0b88-f521-11ed-806e-fae21c1f239c\\"}
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoModerationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: VideoModerationResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * SUCCESS
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: VideoModerationResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoModerationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: VideoModerationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VideoModerationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoModerationCancelRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the moderation service.
-   * 
-   * @example
-   * videoDetection
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
-   * 
-   * @example
-   * {\\"taskId\\":\\"vi_s_4O9gp7GfNQdx9GOqdekFmk-1z2RJT\\"}
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoModerationCancelResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * OK
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6CF2815C-****-****-B52E-FF6E2****492
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoModerationCancelResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: VideoModerationCancelResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VideoModerationCancelResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoModerationResultRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the moderation service.
-   * 
-   * Valid values:
-   * 
-   * *   liveStreamDetection: live stream moderation
-   * *   videoDetection: video file moderation
-   * *   liveStreamDetection_cb: live stream moderation_For regions outside the Chinese mainland
-   * *   videoDetection_cb: video file moderation_For regions outside the Chinese mainland.
-   * 
-   * @example
-   * videoDetection
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The parameters required by the moderation service. The ID of the task that you want to query. You can specify one task ID at a time.
-   * 
-   * @example
-   * {\\"taskId\\":\\"au_f_8PoWiZKoLbczp5HRn69VdT-1y8@U5\\"}
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoModerationResultResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code. The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The moderation results.
-   */
-  data?: VideoModerationResultResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * success finished
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: VideoModerationResultResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VideoModerationResultResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: VideoModerationResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VideoModerationResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoiceModerationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the moderation service.
-   * 
-   * @example
-   * nickname_detection
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
-   * 
-   * @example
-   * {"url": "http://aliyundoc.com/test.flv", "dataId": "data1234"}
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoiceModerationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: VoiceModerationResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * SUCCESS
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: VoiceModerationResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoiceModerationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: VoiceModerationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VoiceModerationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoiceModerationCancelRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the moderation service.
-   * 
-   * @example
-   * nickname_detection
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The parameters required by the moderation service. The value is a JSON string.
-   * 
-   * @example
-   * {"taskId":"xxxxx-xxxx"}
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoiceModerationCancelResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * SUCCESS
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 4A926AE2-4C96-573F-824F-0532960799F8
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoiceModerationCancelResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: VoiceModerationCancelResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VoiceModerationCancelResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoiceModerationResultRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the moderation service. Valid values: nickname_detection: user nickname
-   * 
-   * @example
-   * nickname_detection
-   */
-  service?: string;
-  /**
-   * @remarks
-   * The parameters of API requests that are sent from API Gateway to the backend service.
-   * 
-   * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
-   * 
-   * @example
-   * {"taskId":"xxxxx-xxxx"}
-   */
-  serviceParameters?: string;
-  static names(): { [key: string]: string } {
-    return {
-      service: 'Service',
-      serviceParameters: 'ServiceParameters',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      service: 'string',
-      serviceParameters: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoiceModerationResultResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: VoiceModerationResultResponseBodyData;
-  /**
-   * @remarks
-   * The message that is returned in response to the request.
-   * 
-   * @example
-   * SUCCESS
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 2881AD4F-638B-52A3-BA20-F74C5B1CEAE3
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: VoiceModerationResultResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoiceModerationResultResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: VoiceModerationResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VoiceModerationResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult extends $dara.Model {
   /**
    * @remarks
    * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
@@ -2083,12 +46,16 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLa
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation extends $tea.Model {
+export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLocation extends $dara.Model {
   /**
    * @remarks
    * The H value of the coordinate point.
@@ -2139,12 +106,16 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeFileModerationResultResponseBodyDataPageResultImageResult extends $tea.Model {
+export class DescribeFileModerationResultResponseBodyDataPageResultImageResult extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -2199,12 +170,22 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResult e
     };
   }
 
+  validate() {
+    if(Array.isArray(this.labelResult)) {
+      $dara.Model.validateArray(this.labelResult);
+    }
+    if(this.location && typeof (this.location as any).validate === 'function') {
+      (this.location as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeFileModerationResultResponseBodyDataPageResultTextResult extends $tea.Model {
+export class DescribeFileModerationResultResponseBodyDataPageResultTextResult extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -2213,6 +194,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
    * This is a title.
    */
   description?: string;
+  descriptions?: string;
   /**
    * @remarks
    * The details of the labels.
@@ -2272,6 +254,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
+      descriptions: 'Descriptions',
       labels: 'Labels',
       riskLevel: 'RiskLevel',
       riskTips: 'RiskTips',
@@ -2285,6 +268,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      descriptions: 'string',
       labels: 'string',
       riskLevel: 'string',
       riskTips: 'string',
@@ -2295,12 +279,16 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeFileModerationResultResponseBodyDataPageResult extends $tea.Model {
+export class DescribeFileModerationResultResponseBodyDataPageResult extends $dara.Model {
   /**
    * @remarks
    * The image moderation results.
@@ -2355,12 +343,22 @@ export class DescribeFileModerationResultResponseBodyDataPageResult extends $tea
     };
   }
 
+  validate() {
+    if(Array.isArray(this.imageResult)) {
+      $dara.Model.validateArray(this.imageResult);
+    }
+    if(Array.isArray(this.textResult)) {
+      $dara.Model.validateArray(this.textResult);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels extends $tea.Model {
+export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummaryImageLabels extends $dara.Model {
   /**
    * @remarks
    * The description.
@@ -2401,12 +399,16 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary extends $tea.Model {
+export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary extends $dara.Model {
   /**
    * @remarks
    * Image Label
@@ -2434,12 +436,20 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary
     };
   }
 
+  validate() {
+    if(Array.isArray(this.imageLabels)) {
+      $dara.Model.validateArray(this.imageLabels);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels extends $tea.Model {
+export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryTextLabels extends $dara.Model {
+  description?: string;
   /**
    * @remarks
    * The details of the labels.
@@ -2458,6 +468,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryT
   labelSum?: number;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       label: 'Label',
       labelSum: 'LabelSum',
     };
@@ -2465,9 +476,14 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryT
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       label: 'string',
       labelSum: 'number',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -2475,7 +491,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryT
   }
 }
 
-export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary extends $tea.Model {
+export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary extends $dara.Model {
   /**
    * @remarks
    * Risk Level
@@ -2503,12 +519,19 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummary 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.textLabels)) {
+      $dara.Model.validateArray(this.textLabels);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeFileModerationResultResponseBodyDataPageSummary extends $tea.Model {
+export class DescribeFileModerationResultResponseBodyDataPageSummary extends $dara.Model {
   /**
    * @remarks
    * Image Results Summary
@@ -2543,12 +566,22 @@ export class DescribeFileModerationResultResponseBodyDataPageSummary extends $te
     };
   }
 
+  validate() {
+    if(this.imageSummary && typeof (this.imageSummary as any).validate === 'function') {
+      (this.imageSummary as any).validate();
+    }
+    if(this.textSummary && typeof (this.textSummary as any).validate === 'function') {
+      (this.textSummary as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeFileModerationResultResponseBodyData extends $tea.Model {
+export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The ID of the moderated object.
@@ -2613,12 +646,22 @@ export class DescribeFileModerationResultResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.pageResult)) {
+      $dara.Model.validateArray(this.pageResult);
+    }
+    if(this.pageSummary && typeof (this.pageSummary as any).validate === 'function') {
+      (this.pageSummary as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeImageModerationResultResponseBodyDataResult extends $tea.Model {
+export class DescribeImageModerationResultResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
    * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
@@ -2659,12 +702,16 @@ export class DescribeImageModerationResultResponseBodyDataResult extends $tea.Mo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeImageModerationResultResponseBodyData extends $tea.Model {
+export class DescribeImageModerationResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The value of dataId that is specified in the API request. If this parameter is not specified in the API request, this field is not available in the response.
@@ -2732,12 +779,19 @@ export class DescribeImageModerationResultResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeImageResultExtResponseBodyDataCustomImage extends $tea.Model {
+export class DescribeImageResultExtResponseBodyDataCustomImage extends $dara.Model {
   /**
    * @remarks
    * The image ID.
@@ -2778,12 +832,16 @@ export class DescribeImageResultExtResponseBodyDataCustomImage extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeImageResultExtResponseBodyDataPublicFigure extends $tea.Model {
+export class DescribeImageResultExtResponseBodyDataPublicFigure extends $dara.Model {
   /**
    * @remarks
    * Identified person coding information.
@@ -2804,12 +862,16 @@ export class DescribeImageResultExtResponseBodyDataPublicFigure extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeImageResultExtResponseBodyDataTextInImageCustomTexts extends $tea.Model {
+export class DescribeImageResultExtResponseBodyDataTextInImageCustomTexts extends $dara.Model {
   /**
    * @remarks
    * Custom words, multiple words separated by commas.
@@ -2850,12 +912,16 @@ export class DescribeImageResultExtResponseBodyDataTextInImageCustomTexts extend
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeImageResultExtResponseBodyDataTextInImage extends $tea.Model {
+export class DescribeImageResultExtResponseBodyDataTextInImage extends $dara.Model {
   /**
    * @remarks
    * When a custom text library is hit, the custom library ID, custom library name, and custom word are returned.
@@ -2887,12 +953,25 @@ export class DescribeImageResultExtResponseBodyDataTextInImage extends $tea.Mode
     };
   }
 
+  validate() {
+    if(Array.isArray(this.customTexts)) {
+      $dara.Model.validateArray(this.customTexts);
+    }
+    if(Array.isArray(this.ocrDatas)) {
+      $dara.Model.validateArray(this.ocrDatas);
+    }
+    if(Array.isArray(this.riskWords)) {
+      $dara.Model.validateArray(this.riskWords);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeImageResultExtResponseBodyData extends $tea.Model {
+export class DescribeImageResultExtResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * If a custom image library is hit, information about the hit custom image library is returned.
@@ -2924,12 +1003,25 @@ export class DescribeImageResultExtResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.customImage)) {
+      $dara.Model.validateArray(this.customImage);
+    }
+    if(Array.isArray(this.publicFigure)) {
+      $dara.Model.validateArray(this.publicFigure);
+    }
+    if(this.textInImage && typeof (this.textInImage as any).validate === 'function') {
+      (this.textInImage as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeUploadTokenResponseBodyData extends $tea.Model {
+export class DescribeUploadTokenResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The AccessKey ID.
@@ -3020,12 +1112,16 @@ export class DescribeUploadTokenResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeUrlModerationResultResponseBodyDataExtraInfo extends $tea.Model {
+export class DescribeUrlModerationResultResponseBodyDataExtraInfo extends $dara.Model {
   /**
    * @remarks
    * The ICP number.
@@ -3066,12 +1162,16 @@ export class DescribeUrlModerationResultResponseBodyDataExtraInfo extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeUrlModerationResultResponseBodyDataResult extends $tea.Model {
+export class DescribeUrlModerationResultResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
    * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
@@ -3102,12 +1202,16 @@ export class DescribeUrlModerationResultResponseBodyDataResult extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeUrlModerationResultResponseBodyData extends $tea.Model {
+export class DescribeUrlModerationResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The value of dataId that is specified in the API request. If this parameter is not specified in the API request, this field is not available in the response.
@@ -3152,12 +1256,22 @@ export class DescribeUrlModerationResultResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.extraInfo && typeof (this.extraInfo as any).validate === 'function') {
+      (this.extraInfo as any).validate();
+    }
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FileModerationResponseBodyData extends $tea.Model {
+export class FileModerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The task ID.
@@ -3178,12 +1292,16 @@ export class FileModerationResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageAsyncModerationResponseBodyData extends $tea.Model {
+export class ImageAsyncModerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The ID of the moderated object.
@@ -3214,12 +1332,16 @@ export class ImageAsyncModerationResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResult extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
    * Confidence score, ranging from 0 to 100, retained to two decimal places. Some labels do not have a confidence score.
@@ -3260,12 +1382,16 @@ export class ImageBatchModerationResponseBodyDataResult extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResultsExtCustomImage extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResultsExtCustomImage extends $dara.Model {
   /**
    * @remarks
    * The ID of the hit custom image.
@@ -3306,12 +1432,16 @@ export class ImageBatchModerationResponseBodyDataResultsExtCustomImage extends $
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLocation extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLocation extends $dara.Model {
   /**
    * @remarks
    * The width of the text area, in pixels.
@@ -3362,12 +1492,16 @@ export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLocation exte
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLogo extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLogo extends $dara.Model {
   /**
    * @remarks
    * Confidence score, from 0 to 100, rounded to two decimal places.
@@ -3408,12 +1542,16 @@ export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLogo extends 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResultsExtLogoData extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResultsExtLogoData extends $dara.Model {
   /**
    * @remarks
    * The location information of the identifier.
@@ -3438,12 +1576,22 @@ export class ImageBatchModerationResponseBodyDataResultsExtLogoData extends $tea
     };
   }
 
+  validate() {
+    if(this.location && typeof (this.location as any).validate === 'function') {
+      (this.location as any).validate();
+    }
+    if(Array.isArray(this.logo)) {
+      $dara.Model.validateArray(this.logo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResultsExtPublicFigureLocation extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResultsExtPublicFigureLocation extends $dara.Model {
   /**
    * @remarks
    * The width of the text area, in pixels.
@@ -3494,12 +1642,16 @@ export class ImageBatchModerationResponseBodyDataResultsExtPublicFigureLocation 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResultsExtPublicFigure extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResultsExtPublicFigure extends $dara.Model {
   /**
    * @remarks
    * Identify the encoded information of the person.
@@ -3537,12 +1689,19 @@ export class ImageBatchModerationResponseBodyDataResultsExtPublicFigure extends 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.location)) {
+      $dara.Model.validateArray(this.location);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResultsExtTextInImageCustomText extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResultsExtTextInImageCustomText extends $dara.Model {
   /**
    * @remarks
    * Custom words, separate multiple words with commas.
@@ -3583,12 +1742,16 @@ export class ImageBatchModerationResponseBodyDataResultsExtTextInImageCustomText
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResultLocation extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResultLocation extends $dara.Model {
   /**
    * @remarks
    * The height of the text area, in pixels.
@@ -3639,12 +1802,16 @@ export class ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResultL
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResult extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResult extends $dara.Model {
   /**
    * @remarks
    * Text line coordinate information.
@@ -3672,12 +1839,19 @@ export class ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResult 
     };
   }
 
+  validate() {
+    if(this.location && typeof (this.location as any).validate === 'function') {
+      (this.location as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResultsExtTextInImage extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResultsExtTextInImage extends $dara.Model {
   /**
    * @remarks
    * When a custom text library is matched, return the custom library ID, custom library name, and custom words.
@@ -3709,12 +1883,25 @@ export class ImageBatchModerationResponseBodyDataResultsExtTextInImage extends $
     };
   }
 
+  validate() {
+    if(Array.isArray(this.customText)) {
+      $dara.Model.validateArray(this.customText);
+    }
+    if(Array.isArray(this.ocrResult)) {
+      $dara.Model.validateArray(this.ocrResult);
+    }
+    if(Array.isArray(this.riskWord)) {
+      $dara.Model.validateArray(this.riskWord);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResultsExt extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResultsExt extends $dara.Model {
   /**
    * @remarks
    * Custom image library hit information list.
@@ -3753,12 +1940,28 @@ export class ImageBatchModerationResponseBodyDataResultsExt extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.customImage)) {
+      $dara.Model.validateArray(this.customImage);
+    }
+    if(this.logoData && typeof (this.logoData as any).validate === 'function') {
+      (this.logoData as any).validate();
+    }
+    if(Array.isArray(this.publicFigure)) {
+      $dara.Model.validateArray(this.publicFigure);
+    }
+    if(this.textInImage && typeof (this.textInImage as any).validate === 'function') {
+      (this.textInImage as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResultsResult extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResultsResult extends $dara.Model {
   /**
    * @remarks
    * Confidence score, ranging from 0 to 100, rounded to two decimal places. Some labels do not have a confidence score.
@@ -3799,12 +2002,16 @@ export class ImageBatchModerationResponseBodyDataResultsResult extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyDataResults extends $tea.Model {
+export class ImageBatchModerationResponseBodyDataResults extends $dara.Model {
   /**
    * @remarks
    * Image supplementary reference information.
@@ -3849,12 +2056,22 @@ export class ImageBatchModerationResponseBodyDataResults extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.ext && typeof (this.ext as any).validate === 'function') {
+      (this.ext as any).validate();
+    }
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageBatchModerationResponseBodyData extends $tea.Model {
+export class ImageBatchModerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * To detect the data ID corresponding to the object.
@@ -3899,12 +2116,22 @@ export class ImageBatchModerationResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    if(Array.isArray(this.results)) {
+      $dara.Model.validateArray(this.results);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtCustomImage extends $tea.Model {
+export class ImageModerationResponseBodyDataExtCustomImage extends $dara.Model {
   /**
    * @remarks
    * The image ID.
@@ -3945,12 +2172,16 @@ export class ImageModerationResponseBodyDataExtCustomImage extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtFaceDataBang extends $tea.Model {
+export class ImageModerationResponseBodyDataExtFaceDataBang extends $dara.Model {
   /**
    * @remarks
    * The confidence level of the bang recognition result. Valid values: 0 to 100. A higher value indicates a more credible result.
@@ -3981,12 +2212,16 @@ export class ImageModerationResponseBodyDataExtFaceDataBang extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtFaceDataGender extends $tea.Model {
+export class ImageModerationResponseBodyDataExtFaceDataGender extends $dara.Model {
   /**
    * @remarks
    * The confidence level of the gender recognition result. Valid values: 0 to 100. A higher value indicates a more credible result.
@@ -4021,12 +2256,16 @@ export class ImageModerationResponseBodyDataExtFaceDataGender extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtFaceDataHairstyle extends $tea.Model {
+export class ImageModerationResponseBodyDataExtFaceDataHairstyle extends $dara.Model {
   /**
    * @remarks
    * The confidence level of the hairstyle recognition result. Valid values: 0 to 100. A higher value indicates a more credible result.
@@ -4063,12 +2302,16 @@ export class ImageModerationResponseBodyDataExtFaceDataHairstyle extends $tea.Mo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtFaceDataHat extends $tea.Model {
+export class ImageModerationResponseBodyDataExtFaceDataHat extends $dara.Model {
   /**
    * @remarks
    * The confidence level of the result of wearing the hat. Valid values: 0 to 100. A higher value indicates a more credible result.
@@ -4103,12 +2346,16 @@ export class ImageModerationResponseBodyDataExtFaceDataHat extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtFaceDataLocation extends $tea.Model {
+export class ImageModerationResponseBodyDataExtFaceDataLocation extends $dara.Model {
   /**
    * @remarks
    * The height of the face area. Unit: pixels.
@@ -4159,12 +2406,16 @@ export class ImageModerationResponseBodyDataExtFaceDataLocation extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtFaceDataMask extends $tea.Model {
+export class ImageModerationResponseBodyDataExtFaceDataMask extends $dara.Model {
   /**
    * @remarks
    * The confidence level of the result of wearing the mask. Valid values: 0 to 100. A higher value indicates a more credible result.
@@ -4199,12 +2450,16 @@ export class ImageModerationResponseBodyDataExtFaceDataMask extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtFaceDataMustache extends $tea.Model {
+export class ImageModerationResponseBodyDataExtFaceDataMustache extends $dara.Model {
   /**
    * @remarks
    * The confidence level of the result of the beard. Valid values: 0 to 100. A higher value indicates a more credible result.
@@ -4239,12 +2494,16 @@ export class ImageModerationResponseBodyDataExtFaceDataMustache extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtFaceDataQuality extends $tea.Model {
+export class ImageModerationResponseBodyDataExtFaceDataQuality extends $dara.Model {
   /**
    * @remarks
    * The blur of the face image. Valid values: 0 to 100. The higher the score, the more fuzzy it is.
@@ -4309,12 +2568,16 @@ export class ImageModerationResponseBodyDataExtFaceDataQuality extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtFaceData extends $tea.Model {
+export class ImageModerationResponseBodyDataExtFaceData extends $dara.Model {
   /**
    * @remarks
    * The age recognition result.
@@ -4417,12 +2680,40 @@ export class ImageModerationResponseBodyDataExtFaceData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.bang && typeof (this.bang as any).validate === 'function') {
+      (this.bang as any).validate();
+    }
+    if(this.gender && typeof (this.gender as any).validate === 'function') {
+      (this.gender as any).validate();
+    }
+    if(this.hairstyle && typeof (this.hairstyle as any).validate === 'function') {
+      (this.hairstyle as any).validate();
+    }
+    if(this.hat && typeof (this.hat as any).validate === 'function') {
+      (this.hat as any).validate();
+    }
+    if(this.location && typeof (this.location as any).validate === 'function') {
+      (this.location as any).validate();
+    }
+    if(this.mask && typeof (this.mask as any).validate === 'function') {
+      (this.mask as any).validate();
+    }
+    if(this.mustache && typeof (this.mustache as any).validate === 'function') {
+      (this.mustache as any).validate();
+    }
+    if(this.quality && typeof (this.quality as any).validate === 'function') {
+      (this.quality as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtLogoDataLocation extends $tea.Model {
+export class ImageModerationResponseBodyDataExtLogoDataLocation extends $dara.Model {
   /**
    * @remarks
    * The height of the text area, in pixels.
@@ -4473,12 +2764,16 @@ export class ImageModerationResponseBodyDataExtLogoDataLocation extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtLogoDataLogo extends $tea.Model {
+export class ImageModerationResponseBodyDataExtLogoDataLogo extends $dara.Model {
   /**
    * @remarks
    * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places. Some labels do not have scores of confidence levels.
@@ -4519,12 +2814,16 @@ export class ImageModerationResponseBodyDataExtLogoDataLogo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtLogoData extends $tea.Model {
+export class ImageModerationResponseBodyDataExtLogoData extends $dara.Model {
   /**
    * @remarks
    * Location information.
@@ -4549,12 +2848,22 @@ export class ImageModerationResponseBodyDataExtLogoData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.location && typeof (this.location as any).validate === 'function') {
+      (this.location as any).validate();
+    }
+    if(Array.isArray(this.logo)) {
+      $dara.Model.validateArray(this.logo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtOcrResultLocation extends $tea.Model {
+export class ImageModerationResponseBodyDataExtOcrResultLocation extends $dara.Model {
   /**
    * @remarks
    * The height of the text area, in pixels.
@@ -4605,12 +2914,16 @@ export class ImageModerationResponseBodyDataExtOcrResultLocation extends $tea.Mo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtOcrResult extends $tea.Model {
+export class ImageModerationResponseBodyDataExtOcrResult extends $dara.Model {
   /**
    * @remarks
    * Location information.
@@ -4638,12 +2951,19 @@ export class ImageModerationResponseBodyDataExtOcrResult extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.location && typeof (this.location as any).validate === 'function') {
+      (this.location as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtPublicFigureLocation extends $tea.Model {
+export class ImageModerationResponseBodyDataExtPublicFigureLocation extends $dara.Model {
   /**
    * @remarks
    * The height
@@ -4694,12 +3014,16 @@ export class ImageModerationResponseBodyDataExtPublicFigureLocation extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtPublicFigure extends $tea.Model {
+export class ImageModerationResponseBodyDataExtPublicFigure extends $dara.Model {
   /**
    * @remarks
    * Identified person coding information.
@@ -4737,12 +3061,19 @@ export class ImageModerationResponseBodyDataExtPublicFigure extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.location)) {
+      $dara.Model.validateArray(this.location);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtRecognition extends $tea.Model {
+export class ImageModerationResponseBodyDataExtRecognition extends $dara.Model {
   /**
    * @remarks
    * The category of image recognition.
@@ -4773,12 +3104,16 @@ export class ImageModerationResponseBodyDataExtRecognition extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtTextInImageCustomText extends $tea.Model {
+export class ImageModerationResponseBodyDataExtTextInImageCustomText extends $dara.Model {
   /**
    * @remarks
    * Custom words, multiple words separated by commas.
@@ -4819,12 +3154,16 @@ export class ImageModerationResponseBodyDataExtTextInImageCustomText extends $te
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtTextInImageOcrResultLocation extends $tea.Model {
+export class ImageModerationResponseBodyDataExtTextInImageOcrResultLocation extends $dara.Model {
   /**
    * @remarks
    * The height of the text area, in pixels.
@@ -4875,12 +3214,16 @@ export class ImageModerationResponseBodyDataExtTextInImageOcrResultLocation exte
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtTextInImageOcrResult extends $tea.Model {
+export class ImageModerationResponseBodyDataExtTextInImageOcrResult extends $dara.Model {
   /**
    * @remarks
    * Location information.
@@ -4908,12 +3251,19 @@ export class ImageModerationResponseBodyDataExtTextInImageOcrResult extends $tea
     };
   }
 
+  validate() {
+    if(this.location && typeof (this.location as any).validate === 'function') {
+      (this.location as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtTextInImage extends $tea.Model {
+export class ImageModerationResponseBodyDataExtTextInImage extends $dara.Model {
   /**
    * @remarks
    * When a custom text library is hit, the custom library ID, custom library name, and custom word are returned.
@@ -4945,12 +3295,25 @@ export class ImageModerationResponseBodyDataExtTextInImage extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.customText)) {
+      $dara.Model.validateArray(this.customText);
+    }
+    if(Array.isArray(this.ocrResult)) {
+      $dara.Model.validateArray(this.ocrResult);
+    }
+    if(Array.isArray(this.riskWord)) {
+      $dara.Model.validateArray(this.riskWord);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExtVlContent extends $tea.Model {
+export class ImageModerationResponseBodyDataExtVlContent extends $dara.Model {
   /**
    * @remarks
    * the vl output content
@@ -4971,12 +3334,16 @@ export class ImageModerationResponseBodyDataExtVlContent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataExt extends $tea.Model {
+export class ImageModerationResponseBodyDataExt extends $dara.Model {
   /**
    * @remarks
    * If a custom image library is hit, information about the hit custom image library is returned.
@@ -5043,12 +3410,40 @@ export class ImageModerationResponseBodyDataExt extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.customImage)) {
+      $dara.Model.validateArray(this.customImage);
+    }
+    if(Array.isArray(this.faceData)) {
+      $dara.Model.validateArray(this.faceData);
+    }
+    if(Array.isArray(this.logoData)) {
+      $dara.Model.validateArray(this.logoData);
+    }
+    if(Array.isArray(this.ocrResult)) {
+      $dara.Model.validateArray(this.ocrResult);
+    }
+    if(Array.isArray(this.publicFigure)) {
+      $dara.Model.validateArray(this.publicFigure);
+    }
+    if(Array.isArray(this.recognition)) {
+      $dara.Model.validateArray(this.recognition);
+    }
+    if(this.textInImage && typeof (this.textInImage as any).validate === 'function') {
+      (this.textInImage as any).validate();
+    }
+    if(this.vlContent && typeof (this.vlContent as any).validate === 'function') {
+      (this.vlContent as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyDataResult extends $tea.Model {
+export class ImageModerationResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
    * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places. Some labels do not have scores of confidence levels.
@@ -5089,12 +3484,16 @@ export class ImageModerationResponseBodyDataResult extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ImageModerationResponseBodyData extends $tea.Model {
+export class ImageModerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The ID of the moderated object.
@@ -5141,12 +3540,133 @@ export class ImageModerationResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.ext && typeof (this.ext as any).validate === 'function') {
+      (this.ext as any).validate();
+    }
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TextModerationResponseBodyData extends $tea.Model {
+export class ManualModerationResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 2a5389eb-4ff8-4584-ac99-644e2a539aa1
+   */
+  dataId?: string;
+  /**
+   * @example
+   * xxxxx-xxxxx
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualModerationResultResponseBodyDataResult extends $dara.Model {
+  description?: string;
+  /**
+   * @example
+   * violent_explosion
+   */
+  label?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      label: 'Label',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      label: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualModerationResultResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * data1234
+   */
+  dataId?: string;
+  result?: ManualModerationResultResponseBodyDataResult[];
+  /**
+   * @example
+   * high
+   */
+  riskLevel?: string;
+  /**
+   * @example
+   * xxxxx-xxxxx
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+      result: 'Result',
+      riskLevel: 'RiskLevel',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+      result: { 'type': 'array', 'itemType': ManualModerationResultResponseBodyDataResult },
+      riskLevel: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The ID of the Alibaba Cloud account.
@@ -5203,12 +3723,16 @@ export class TextModerationResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TextModerationPlusResponseBodyDataAdvice extends $tea.Model {
+export class TextModerationPlusResponseBodyDataAdvice extends $dara.Model {
   /**
    * @remarks
    * The answer.
@@ -5249,12 +3773,16 @@ export class TextModerationPlusResponseBodyDataAdvice extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TextModerationPlusResponseBodyDataResultCustomizedHit extends $tea.Model {
+export class TextModerationPlusResponseBodyDataResultCustomizedHit extends $dara.Model {
   /**
    * @remarks
    * The terms that are hit. Multiple terms are separated by commas (,).
@@ -5285,12 +3813,16 @@ export class TextModerationPlusResponseBodyDataResultCustomizedHit extends $tea.
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TextModerationPlusResponseBodyDataResult extends $tea.Model {
+export class TextModerationPlusResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
    * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
@@ -5348,12 +3880,19 @@ export class TextModerationPlusResponseBodyDataResult extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.customizedHit)) {
+      $dara.Model.validateArray(this.customizedHit);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TextModerationPlusResponseBodyData extends $tea.Model {
+export class TextModerationPlusResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The suggestion.
@@ -5401,12 +3940,22 @@ export class TextModerationPlusResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.advice)) {
+      $dara.Model.validateArray(this.advice);
+    }
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UrlAsyncModerationResponseBodyData extends $tea.Model {
+export class UrlAsyncModerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The ID of the moderated object.
@@ -5437,12 +3986,16 @@ export class UrlAsyncModerationResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VideoModerationResponseBodyData extends $tea.Model {
+export class VideoModerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The ID of the moderated object.
@@ -5473,12 +4026,17 @@ export class VideoModerationResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VideoModerationResultResponseBodyDataAudioResultAudioSummarys extends $tea.Model {
+export class VideoModerationResultResponseBodyDataAudioResultAudioSummarys extends $dara.Model {
+  description?: string;
   /**
    * @remarks
    * The voice label.
@@ -5497,6 +4055,7 @@ export class VideoModerationResultResponseBodyDataAudioResultAudioSummarys exten
   labelSum?: number;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       label: 'Label',
       labelSum: 'LabelSum',
     };
@@ -5504,9 +4063,14 @@ export class VideoModerationResultResponseBodyDataAudioResultAudioSummarys exten
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       label: 'string',
       labelSum: 'number',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -5514,7 +4078,8 @@ export class VideoModerationResultResponseBodyDataAudioResultAudioSummarys exten
   }
 }
 
-export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extends $tea.Model {
+export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extends $dara.Model {
+  descriptions?: string;
   /**
    * @remarks
    * The end time of the text after voice-to-text conversion. Unit: seconds.
@@ -5613,6 +4178,7 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      descriptions: 'Descriptions',
       endTime: 'EndTime',
       endTimestamp: 'EndTimestamp',
       extend: 'Extend',
@@ -5630,6 +4196,7 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
 
   static types(): { [key: string]: any } {
     return {
+      descriptions: 'string',
       endTime: 'number',
       endTimestamp: 'number',
       extend: 'string',
@@ -5645,12 +4212,16 @@ export class VideoModerationResultResponseBodyDataAudioResultSliceDetails extend
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VideoModerationResultResponseBodyDataAudioResult extends $tea.Model {
+export class VideoModerationResultResponseBodyDataAudioResult extends $dara.Model {
   /**
    * @remarks
    * Summary of voice labels.
@@ -5685,12 +4256,22 @@ export class VideoModerationResultResponseBodyDataAudioResult extends $tea.Model
     };
   }
 
+  validate() {
+    if(Array.isArray(this.audioSummarys)) {
+      $dara.Model.validateArray(this.audioSummarys);
+    }
+    if(Array.isArray(this.sliceDetails)) {
+      $dara.Model.validateArray(this.sliceDetails);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys extends $tea.Model {
+export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys extends $dara.Model {
   /**
    * @remarks
    * The description of the result.
@@ -5731,12 +4312,16 @@ export class VideoModerationResultResponseBodyDataFrameResultFrameSummarys exten
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage extends $tea.Model {
+export class VideoModerationResultResponseBodyDataFrameResultFramesResultsCustomImage extends $dara.Model {
   /**
    * @remarks
    * The ID of the custom image that is hit.
@@ -5767,12 +4352,16 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsCustom
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure extends $tea.Model {
+export class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublicFigure extends $dara.Model {
   /**
    * @remarks
    * The information about the code of the identified figure.
@@ -5793,12 +4382,16 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsPublic
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult extends $tea.Model {
+export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult extends $dara.Model {
   /**
    * @remarks
    * The score of the confidence level. Valid values: 0 to 100. The value is accurate to two decimal places.
@@ -5839,12 +4432,16 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VideoModerationResultResponseBodyDataFrameResultFramesResults extends $tea.Model {
+export class VideoModerationResultResponseBodyDataFrameResultFramesResults extends $dara.Model {
   /**
    * @remarks
    * If a custom image library is hit, information about the custom image library is returned.
@@ -5893,12 +4490,28 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
     };
   }
 
+  validate() {
+    if(Array.isArray(this.customImage)) {
+      $dara.Model.validateArray(this.customImage);
+    }
+    if(Array.isArray(this.publicFigure)) {
+      $dara.Model.validateArray(this.publicFigure);
+    }
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
+    }
+    if(this.textInImage) {
+      $dara.Model.validateMap(this.textInImage);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VideoModerationResultResponseBodyDataFrameResultFrames extends $tea.Model {
+export class VideoModerationResultResponseBodyDataFrameResultFrames extends $dara.Model {
   /**
    * @remarks
    * The interval between the start of the video file and the captured frame. Unit: seconds.
@@ -5956,12 +4569,19 @@ export class VideoModerationResultResponseBodyDataFrameResultFrames extends $tea
     };
   }
 
+  validate() {
+    if(Array.isArray(this.results)) {
+      $dara.Model.validateArray(this.results);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VideoModerationResultResponseBodyDataFrameResult extends $tea.Model {
+export class VideoModerationResultResponseBodyDataFrameResult extends $dara.Model {
   /**
    * @remarks
    * The number of captured frames that are returned for the video file.
@@ -6006,12 +4626,22 @@ export class VideoModerationResultResponseBodyDataFrameResult extends $tea.Model
     };
   }
 
+  validate() {
+    if(Array.isArray(this.frameSummarys)) {
+      $dara.Model.validateArray(this.frameSummarys);
+    }
+    if(Array.isArray(this.frames)) {
+      $dara.Model.validateArray(this.frames);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VideoModerationResultResponseBodyData extends $tea.Model {
+export class VideoModerationResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The voice moderation results. The moderation results contain a structure.
@@ -6076,12 +4706,22 @@ export class VideoModerationResultResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.audioResult && typeof (this.audioResult as any).validate === 'function') {
+      (this.audioResult as any).validate();
+    }
+    if(this.frameResult && typeof (this.frameResult as any).validate === 'function') {
+      (this.frameResult as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VoiceModerationResponseBodyData extends $tea.Model {
+export class VoiceModerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The ID of the moderated object.
@@ -6112,12 +4752,17 @@ export class VoiceModerationResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Model {
+export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Model {
+  descriptions?: string;
   /**
    * @remarks
    * The end time of the audio segment in seconds.
@@ -6224,6 +4869,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      descriptions: 'Descriptions',
       endTime: 'EndTime',
       endTimestamp: 'EndTimestamp',
       extend: 'Extend',
@@ -6242,6 +4888,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
 
   static types(): { [key: string]: any } {
     return {
+      descriptions: 'string',
       endTime: 'number',
       endTimestamp: 'number',
       extend: 'string',
@@ -6258,12 +4905,19 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $tea.Mode
     };
   }
 
+  validate() {
+    if(this.originAlgoResult) {
+      $dara.Model.validateMap(this.originAlgoResult);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VoiceModerationResultResponseBodyData extends $tea.Model {
+export class VoiceModerationResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The ID of the moderated object.
@@ -6331,6 +4985,2784 @@ export class VoiceModerationResultResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.sliceDetails)) {
+      $dara.Model.validateArray(this.sliceDetails);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the moderation service.
+   * 
+   * @example
+   * document_detection
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The parameters required by the moderation service. The value is a JSON string.
+   * 
+   * *   taskId: required. The URL of the object that you want to moderate. Make sure that the URL can be accessed over the Internet.
+   * 
+   * @example
+   * {\\"taskId\\":\\"vi_f_hPgx9PFIQISdlfA888hOFG-1yJq8v\\"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: DescribeFileModerationResultResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeFileModerationResultResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileModerationResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFileModerationResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFileModerationResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageModerationResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ReqId field returned by the asynchronous Image Moderation 2.0 API.
+   * 
+   * @example
+   * B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
+   */
+  reqId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reqId: 'ReqId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reqId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageModerationResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The image moderation results.
+   */
+  data?: DescribeImageModerationResultResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * success
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 2881AD4F-638B-52A3-BA20-F74C5B1CEAE3
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeImageModerationResultResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageModerationResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImageModerationResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeImageModerationResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageResultExtRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the information to be obtained. Multiple values are separated by commas.
+   * 
+   * @example
+   * customImage,textInImage
+   */
+  infoType?: string;
+  /**
+   * @remarks
+   * The reqId field returned by the Url Async Moderation API.
+   * 
+   * @example
+   * 638EDDC65C82AB39319A9F60
+   */
+  reqId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      infoType: 'InfoType',
+      reqId: 'ReqId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      infoType: 'string',
+      reqId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageResultExtResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: DescribeImageResultExtResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * success
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeImageResultExtResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageResultExtResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeImageResultExtResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeImageResultExtResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUploadTokenResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: DescribeUploadTokenResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * OK
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeUploadTokenResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUploadTokenResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUploadTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUploadTokenResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUrlModerationResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ReqId field returned by an asynchronous URL moderation operation.
+   * 
+   * @example
+   * B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
+   */
+  reqId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reqId: 'ReqId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reqId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUrlModerationResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: DescribeUrlModerationResultResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * success
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 01F9144A-2088-5D87-935B-2DB865284B1A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeUrlModerationResultResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUrlModerationResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUrlModerationResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUrlModerationResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FileModerationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the moderation service.
+   * 
+   * @example
+   * document_detection
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The parameters required by the moderation service. The value is a JSON string.
+   * 
+   * @example
+   * {"url":"https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.pdf"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FileModerationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: FileModerationResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: FileModerationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FileModerationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FileModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FileModerationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageAsyncModerationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the moderation service.
+   * 
+   * @example
+   * baselineCheck
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The parameters required by the moderation service. The value is a JSON string.
+   * 
+   * @example
+   * {"imageUrl":"https://img.alicdn.com/tfs/TB1U4r9AeH2gK0jSZJnXXaT1FXa-2880-480.png","dataId":"img123****"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageAsyncModerationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: ImageAsyncModerationResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * success
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4A926AE2-4C96-573F-824F-0532960799F8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ImageAsyncModerationResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageAsyncModerationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImageAsyncModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImageAsyncModerationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The types of detection supported by the enhanced image review, separated by English commas. Values:
+   * 
+   * - baselineCheck：General Baseline Detection
+   * - baselineCheck_pro：General Baseline Detection_Pro Edition
+   * - tonalityImprove：Content governance monitoring
+   * - aigcCheck：AIGC image detection
+   * 
+   * @example
+   * baselineCheck,tonalityImprove
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The set of relevant parameters for content detection objects.
+   * 
+   * @example
+   * {
+   *         "imageUrl": "https://img.alicdn.com/tfs/TB1U4r9AeH2gK0jSZJnXXaT1FXa-2880-480.png",
+   *         "dataId": "img123****"
+   *     }
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Return code. A return of 200 represents success.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The result of image content detection.
+   */
+  data?: ImageBatchModerationResponseBodyData;
+  /**
+   * @remarks
+   * The response message for this request.
+   * 
+   * @example
+   * success
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * The ID of this invocation request, generated by Alibaba Cloud as a unique identifier for the request, can be used for troubleshooting and pinpointing issues.
+   * 
+   * @example
+   * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ImageBatchModerationResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImageBatchModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImageBatchModerationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The moderation services supported by Image Moderation 2.0. Valid values:
+   * 
+   * *   baselineCheck: common baseline moderation
+   * *   baselineCheck_pro: common baseline moderation_Professional
+   * *   baselineCheck_cb: common baseline moderation_For regions outside the Chinese mainland
+   * *   tonalityImprove: content governance moderation
+   * *   aigcCheck: AI-generated image identification
+   * *   profilePhotoCheck: avatar image moderation
+   * *   advertisingCheck: marketing material identification
+   * *   liveStreamCheck: moderation of screenshots of videos and live streams
+   * 
+   * Valid values:
+   * 
+   * *   liveStreamCheck: moderation of screenshots of videos and live streams
+   * *   baselineCheck: common baseline moderation
+   * *   aigcCheck: AI-generated image identification
+   * *   baselineCheck_pro: common baseline moderation_Professional
+   * *   advertisingCheck: marketing material identification
+   * *   baselineCheck_cb: common baseline moderation_For regions outside the Chinese mainland
+   * *   tonalityImprove: content governance moderation
+   * *   profilePhotoCheck: avatar image moderation
+   * 
+   * @example
+   * baselineCheck
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The parameters required by the moderation service. The value is a JSON string.
+   * 
+   * *   imageUrl: the URL of the object that you want to moderate. This parameter is required.
+   * *   dataId: the ID of the object that you want to moderate. This parameter is optional.
+   * 
+   * @example
+   * {"imageUrl":"https://www.aliyun.com/test.jpg","dataId":"img1234567"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The moderation results.
+   */
+  data?: ImageModerationResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * OK
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * The request ID, which is used to locate and troubleshoot issues.
+   * 
+   * @example
+   * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ImageModerationResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageModerationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImageModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImageModerationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualCallbackRequest extends $dara.Model {
+  channel?: string;
+  /**
+   * @example
+   * abc
+   */
+  checksum?: string;
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * {\\"Result\\": [{\\"Confidence\\": 100.0, \\"CustomizedHit\\": [{\\"KeyWords\\": u\\"\\u4fdd\\u969c,\\u6700\\u5927,\\u9ad8\\u7ea7\\", \\"LibName\\": u\\"\\u4f18\\u8def\\u654f\\u611f\\u8bcd\\"}], \\"Label\\": \\"customized\\"}]}
+   */
+  data?: string;
+  /**
+   * @example
+   * OK
+   */
+  msg?: string;
+  /**
+   * @example
+   * B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
+   */
+  reqId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'Channel',
+      checksum: 'Checksum',
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      reqId: 'ReqId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: 'string',
+      checksum: 'string',
+      code: 'string',
+      data: 'string',
+      msg: 'string',
+      reqId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualCallbackResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualCallbackResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ManualCallbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ManualCallbackResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualModerationRequest extends $dara.Model {
+  /**
+   * @example
+   * imageManualCheck
+   */
+  service?: string;
+  /**
+   * @example
+   * {"url": "https://talesofai.oss-cn-shanghai.aliyuncs.com/xxx.mp4", "dataId": "data1234"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualModerationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: ManualModerationResponseBodyData;
+  /**
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ManualModerationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualModerationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ManualModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ManualModerationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualModerationResultRequest extends $dara.Model {
+  /**
+   * @example
+   * {\\"TaskId\\":\\"e5f2d886-4c23-440d-999c-bd98acde11b6\\"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualModerationResultResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: ManualModerationResultResponseBodyData;
+  /**
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ManualModerationResultResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ManualModerationResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ManualModerationResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ManualModerationResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the moderation service.
+   * 
+   * @example
+   * nickname_detection
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The parameters required by the moderation service. The value is a JSON string.
+   * 
+   * @example
+   * {"content":"Content to be moderated"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The moderation results.
+   */
+  data?: TextModerationResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: TextModerationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TextModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TextModerationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationPlusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The moderation service.
+   * 
+   * Valid values:
+   * 
+   * *   chat_detection_pro: moderation of interactive content of private chats_Professional
+   * *   llm_response_moderation: moderation of text generated by LLMs
+   * *   llm_query_moderation: moderation of input text of LLMs
+   * *   nickname_detection_pro: moderation of user nicknames_Professional
+   * *   comment_detection_pro: moderation of comment content of public chats_Professional
+   * 
+   * @example
+   * llm_query_moderation
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The parameters required by the moderation service. The value is a JSON string.
+   * 
+   * @example
+   * {"content":"Content to be moderated"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationPlusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The moderation results.
+   */
+  data?: TextModerationPlusResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: TextModerationPlusResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextModerationPlusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TextModerationPlusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TextModerationPlusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UrlAsyncModerationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the moderation service.
+   * 
+   * @example
+   * url_detection
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The parameters required by the moderation service. The value is a JSON string.
+   * 
+   * @example
+   * {
+   *         "url": "https://help.aliyun.com/",
+   *         "dataId": "url123******"
+   * }
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UrlAsyncModerationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: UrlAsyncModerationResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * success
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 6CF2815C-****-****-B52E-FF6E2****492
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: UrlAsyncModerationResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UrlAsyncModerationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UrlAsyncModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UrlAsyncModerationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the moderation service.
+   * 
+   * @example
+   * videoDetection
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The parameters required by the moderation service. The value is a JSON string.
+   * 
+   * @example
+   * {\\"url\\": \\"https://talesofai.oss-cn-shanghai.aliyuncs.com/xxx.mp4\\", \\"dataId\\": \\"94db0b88-f521-11ed-806e-fae21c1f239c\\"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: VideoModerationResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: VideoModerationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VideoModerationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationCancelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the moderation service.
+   * 
+   * @example
+   * videoDetection
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The parameters required by the moderation service. The value is a JSON string.
+   * 
+   * @example
+   * {\\"taskId\\":\\"vi_s_4O9gp7GfNQdx9GOqdekFmk-1z2RJT\\"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationCancelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6CF2815C-****-****-B52E-FF6E2****492
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationCancelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoModerationCancelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VideoModerationCancelResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the moderation service.
+   * 
+   * Valid values:
+   * 
+   * *   liveStreamDetection: live stream moderation
+   * *   videoDetection: video file moderation
+   * *   liveStreamDetection_cb: live stream moderation_For regions outside the Chinese mainland
+   * *   videoDetection_cb: video file moderation_For regions outside the Chinese mainland.
+   * 
+   * @example
+   * videoDetection
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The parameters required by the moderation service. The ID of the task that you want to query. You can specify one task ID at a time.
+   * 
+   * @example
+   * {\\"taskId\\":\\"au_f_8PoWiZKoLbczp5HRn69VdT-1y8@U5\\"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The moderation results.
+   */
+  data?: VideoModerationResultResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * success finished
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: VideoModerationResultResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VideoModerationResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VideoModerationResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VideoModerationResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceModerationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the moderation service.
+   * 
+   * @example
+   * nickname_detection
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The parameters required by the moderation service. The value is a JSON string.
+   * 
+   * @example
+   * {"url": "http://aliyundoc.com/test.flv", "dataId": "data1234"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceModerationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: VoiceModerationResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: VoiceModerationResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceModerationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceModerationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceModerationCancelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the moderation service.
+   * 
+   * @example
+   * nickname_detection
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The parameters required by the moderation service. The value is a JSON string.
+   * 
+   * @example
+   * {"taskId":"xxxxx-xxxx"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceModerationCancelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4A926AE2-4C96-573F-824F-0532960799F8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceModerationCancelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceModerationCancelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceModerationCancelResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceModerationResultRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the moderation service. Valid values: nickname_detection: user nickname
+   * 
+   * @example
+   * nickname_detection
+   */
+  service?: string;
+  /**
+   * @remarks
+   * The parameters of API requests that are sent from API Gateway to the backend service.
+   * 
+   * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
+   * 
+   * @example
+   * {"taskId":"xxxxx-xxxx"}
+   */
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      service: 'Service',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      service: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceModerationResultResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: VoiceModerationResultResponseBodyData;
+  /**
+   * @remarks
+   * The message that is returned in response to the request.
+   * 
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2881AD4F-638B-52A3-BA20-F74C5B1CEAE3
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: VoiceModerationResultResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceModerationResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VoiceModerationResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VoiceModerationResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -6339,7 +7771,7 @@ export class VoiceModerationResultResponseBodyData extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
@@ -6368,15 +7800,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -6386,21 +7818,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeFileModerationResultResponse
    */
-  async describeFileModerationResultWithOptions(request: DescribeFileModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFileModerationResultResponse> {
-    Util.validateModel(request);
+  async describeFileModerationResultWithOptions(request: DescribeFileModerationResultRequest, runtime: $dara.RuntimeOptions): Promise<DescribeFileModerationResultResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       body["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       body["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeFileModerationResult",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -6411,7 +7843,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeFileModerationResultResponse>(await this.callApi(params, req, runtime), new DescribeFileModerationResultResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeFileModerationResultResponse>(await this.callApi(params, req, runtime), new DescribeFileModerationResultResponse({}));
+    } else {
+      return $dara.cast<DescribeFileModerationResultResponse>(await this.execute(params, req, runtime), new DescribeFileModerationResultResponse({}));
+    }
+
   }
 
   /**
@@ -6421,7 +7858,7 @@ export default class Client extends OpenApi {
    * @returns DescribeFileModerationResultResponse
    */
   async describeFileModerationResult(request: DescribeFileModerationResultRequest): Promise<DescribeFileModerationResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeFileModerationResultWithOptions(request, runtime);
   }
 
@@ -6436,17 +7873,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeImageModerationResultResponse
    */
-  async describeImageModerationResultWithOptions(request: DescribeImageModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageModerationResultResponse> {
-    Util.validateModel(request);
+  async describeImageModerationResultWithOptions(request: DescribeImageModerationResultRequest, runtime: $dara.RuntimeOptions): Promise<DescribeImageModerationResultResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.reqId)) {
+    if (!$dara.isNull(request.reqId)) {
       query["ReqId"] = request.reqId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeImageModerationResult",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -6457,7 +7894,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeImageModerationResultResponse>(await this.callApi(params, req, runtime), new DescribeImageModerationResultResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeImageModerationResultResponse>(await this.callApi(params, req, runtime), new DescribeImageModerationResultResponse({}));
+    } else {
+      return $dara.cast<DescribeImageModerationResultResponse>(await this.execute(params, req, runtime), new DescribeImageModerationResultResponse({}));
+    }
+
   }
 
   /**
@@ -6471,7 +7913,7 @@ export default class Client extends OpenApi {
    * @returns DescribeImageModerationResultResponse
    */
   async describeImageModerationResult(request: DescribeImageModerationResultRequest): Promise<DescribeImageModerationResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeImageModerationResultWithOptions(request, runtime);
   }
 
@@ -6482,21 +7924,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeImageResultExtResponse
    */
-  async describeImageResultExtWithOptions(request: DescribeImageResultExtRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageResultExtResponse> {
-    Util.validateModel(request);
+  async describeImageResultExtWithOptions(request: DescribeImageResultExtRequest, runtime: $dara.RuntimeOptions): Promise<DescribeImageResultExtResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.infoType)) {
+    if (!$dara.isNull(request.infoType)) {
       body["InfoType"] = request.infoType;
     }
 
-    if (!Util.isUnset(request.reqId)) {
+    if (!$dara.isNull(request.reqId)) {
       body["ReqId"] = request.reqId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeImageResultExt",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -6507,7 +7949,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeImageResultExtResponse>(await this.callApi(params, req, runtime), new DescribeImageResultExtResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeImageResultExtResponse>(await this.callApi(params, req, runtime), new DescribeImageResultExtResponse({}));
+    } else {
+      return $dara.cast<DescribeImageResultExtResponse>(await this.execute(params, req, runtime), new DescribeImageResultExtResponse({}));
+    }
+
   }
 
   /**
@@ -6517,7 +7964,7 @@ export default class Client extends OpenApi {
    * @returns DescribeImageResultExtResponse
    */
   async describeImageResultExt(request: DescribeImageResultExtRequest): Promise<DescribeImageResultExtResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeImageResultExtWithOptions(request, runtime);
   }
 
@@ -6528,9 +7975,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUploadTokenResponse
    */
-  async describeUploadTokenWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUploadTokenResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async describeUploadTokenWithOptions(runtime: $dara.RuntimeOptions): Promise<DescribeUploadTokenResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "DescribeUploadToken",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -6541,7 +7988,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeUploadTokenResponse>(await this.callApi(params, req, runtime), new DescribeUploadTokenResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeUploadTokenResponse>(await this.callApi(params, req, runtime), new DescribeUploadTokenResponse({}));
+    } else {
+      return $dara.cast<DescribeUploadTokenResponse>(await this.execute(params, req, runtime), new DescribeUploadTokenResponse({}));
+    }
+
   }
 
   /**
@@ -6549,7 +8001,7 @@ export default class Client extends OpenApi {
    * @returns DescribeUploadTokenResponse
    */
   async describeUploadToken(): Promise<DescribeUploadTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeUploadTokenWithOptions(runtime);
   }
 
@@ -6565,17 +8017,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUrlModerationResultResponse
    */
-  async describeUrlModerationResultWithOptions(request: DescribeUrlModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUrlModerationResultResponse> {
-    Util.validateModel(request);
+  async describeUrlModerationResultWithOptions(request: DescribeUrlModerationResultRequest, runtime: $dara.RuntimeOptions): Promise<DescribeUrlModerationResultResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.reqId)) {
+    if (!$dara.isNull(request.reqId)) {
       body["ReqId"] = request.reqId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeUrlModerationResult",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -6586,7 +8038,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeUrlModerationResultResponse>(await this.callApi(params, req, runtime), new DescribeUrlModerationResultResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeUrlModerationResultResponse>(await this.callApi(params, req, runtime), new DescribeUrlModerationResultResponse({}));
+    } else {
+      return $dara.cast<DescribeUrlModerationResultResponse>(await this.execute(params, req, runtime), new DescribeUrlModerationResultResponse({}));
+    }
+
   }
 
   /**
@@ -6601,7 +8058,7 @@ export default class Client extends OpenApi {
    * @returns DescribeUrlModerationResultResponse
    */
   async describeUrlModerationResult(request: DescribeUrlModerationResultRequest): Promise<DescribeUrlModerationResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeUrlModerationResultWithOptions(request, runtime);
   }
 
@@ -6612,21 +8069,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FileModerationResponse
    */
-  async fileModerationWithOptions(request: FileModerationRequest, runtime: $Util.RuntimeOptions): Promise<FileModerationResponse> {
-    Util.validateModel(request);
+  async fileModerationWithOptions(request: FileModerationRequest, runtime: $dara.RuntimeOptions): Promise<FileModerationResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       body["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       body["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "FileModeration",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -6637,7 +8094,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<FileModerationResponse>(await this.callApi(params, req, runtime), new FileModerationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<FileModerationResponse>(await this.callApi(params, req, runtime), new FileModerationResponse({}));
+    } else {
+      return $dara.cast<FileModerationResponse>(await this.execute(params, req, runtime), new FileModerationResponse({}));
+    }
+
   }
 
   /**
@@ -6647,7 +8109,7 @@ export default class Client extends OpenApi {
    * @returns FileModerationResponse
    */
   async fileModeration(request: FileModerationRequest): Promise<FileModerationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.fileModerationWithOptions(request, runtime);
   }
 
@@ -6658,21 +8120,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ImageAsyncModerationResponse
    */
-  async imageAsyncModerationWithOptions(request: ImageAsyncModerationRequest, runtime: $Util.RuntimeOptions): Promise<ImageAsyncModerationResponse> {
-    Util.validateModel(request);
+  async imageAsyncModerationWithOptions(request: ImageAsyncModerationRequest, runtime: $dara.RuntimeOptions): Promise<ImageAsyncModerationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       query["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       query["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ImageAsyncModeration",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -6683,7 +8145,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ImageAsyncModerationResponse>(await this.callApi(params, req, runtime), new ImageAsyncModerationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ImageAsyncModerationResponse>(await this.callApi(params, req, runtime), new ImageAsyncModerationResponse({}));
+    } else {
+      return $dara.cast<ImageAsyncModerationResponse>(await this.execute(params, req, runtime), new ImageAsyncModerationResponse({}));
+    }
+
   }
 
   /**
@@ -6693,7 +8160,7 @@ export default class Client extends OpenApi {
    * @returns ImageAsyncModerationResponse
    */
   async imageAsyncModeration(request: ImageAsyncModerationRequest): Promise<ImageAsyncModerationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.imageAsyncModerationWithOptions(request, runtime);
   }
 
@@ -6704,21 +8171,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ImageBatchModerationResponse
    */
-  async imageBatchModerationWithOptions(request: ImageBatchModerationRequest, runtime: $Util.RuntimeOptions): Promise<ImageBatchModerationResponse> {
-    Util.validateModel(request);
+  async imageBatchModerationWithOptions(request: ImageBatchModerationRequest, runtime: $dara.RuntimeOptions): Promise<ImageBatchModerationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       query["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       query["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ImageBatchModeration",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -6729,7 +8196,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ImageBatchModerationResponse>(await this.callApi(params, req, runtime), new ImageBatchModerationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ImageBatchModerationResponse>(await this.callApi(params, req, runtime), new ImageBatchModerationResponse({}));
+    } else {
+      return $dara.cast<ImageBatchModerationResponse>(await this.execute(params, req, runtime), new ImageBatchModerationResponse({}));
+    }
+
   }
 
   /**
@@ -6739,7 +8211,7 @@ export default class Client extends OpenApi {
    * @returns ImageBatchModerationResponse
    */
   async imageBatchModeration(request: ImageBatchModerationRequest): Promise<ImageBatchModerationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.imageBatchModerationWithOptions(request, runtime);
   }
 
@@ -6753,21 +8225,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ImageModerationResponse
    */
-  async imageModerationWithOptions(request: ImageModerationRequest, runtime: $Util.RuntimeOptions): Promise<ImageModerationResponse> {
-    Util.validateModel(request);
+  async imageModerationWithOptions(request: ImageModerationRequest, runtime: $dara.RuntimeOptions): Promise<ImageModerationResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       body["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       body["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ImageModeration",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -6778,7 +8250,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ImageModerationResponse>(await this.callApi(params, req, runtime), new ImageModerationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ImageModerationResponse>(await this.callApi(params, req, runtime), new ImageModerationResponse({}));
+    } else {
+      return $dara.cast<ImageModerationResponse>(await this.execute(params, req, runtime), new ImageModerationResponse({}));
+    }
+
   }
 
   /**
@@ -6791,8 +8268,173 @@ export default class Client extends OpenApi {
    * @returns ImageModerationResponse
    */
   async imageModeration(request: ImageModerationRequest): Promise<ImageModerationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.imageModerationWithOptions(request, runtime);
+  }
+
+  /**
+   * 内容安全人审结果回调接口
+   * 
+   * @param request - ManualCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ManualCallbackResponse
+   */
+  async manualCallbackWithOptions(request: ManualCallbackRequest, runtime: $dara.RuntimeOptions): Promise<ManualCallbackResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channel)) {
+      body["Channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.checksum)) {
+      body["Checksum"] = request.checksum;
+    }
+
+    if (!$dara.isNull(request.code)) {
+      body["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.data)) {
+      body["Data"] = request.data;
+    }
+
+    if (!$dara.isNull(request.msg)) {
+      body["Msg"] = request.msg;
+    }
+
+    if (!$dara.isNull(request.reqId)) {
+      body["ReqId"] = request.reqId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ManualCallback",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ManualCallbackResponse>(await this.callApi(params, req, runtime), new ManualCallbackResponse({}));
+    } else {
+      return $dara.cast<ManualCallbackResponse>(await this.execute(params, req, runtime), new ManualCallbackResponse({}));
+    }
+
+  }
+
+  /**
+   * 内容安全人审结果回调接口
+   * 
+   * @param request - ManualCallbackRequest
+   * @returns ManualCallbackResponse
+   */
+  async manualCallback(request: ManualCallbackRequest): Promise<ManualCallbackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.manualCallbackWithOptions(request, runtime);
+  }
+
+  /**
+   * 内容安全人审提交请求接口
+   * 
+   * @param request - ManualModerationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ManualModerationResponse
+   */
+  async manualModerationWithOptions(request: ManualModerationRequest, runtime: $dara.RuntimeOptions): Promise<ManualModerationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.service)) {
+      body["Service"] = request.service;
+    }
+
+    if (!$dara.isNull(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ManualModeration",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ManualModerationResponse>(await this.callApi(params, req, runtime), new ManualModerationResponse({}));
+    } else {
+      return $dara.cast<ManualModerationResponse>(await this.execute(params, req, runtime), new ManualModerationResponse({}));
+    }
+
+  }
+
+  /**
+   * 内容安全人审提交请求接口
+   * 
+   * @param request - ManualModerationRequest
+   * @returns ManualModerationResponse
+   */
+  async manualModeration(request: ManualModerationRequest): Promise<ManualModerationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.manualModerationWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取人审结果
+   * 
+   * @param request - ManualModerationResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ManualModerationResultResponse
+   */
+  async manualModerationResultWithOptions(request: ManualModerationResultRequest, runtime: $dara.RuntimeOptions): Promise<ManualModerationResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ManualModerationResult",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ManualModerationResultResponse>(await this.callApi(params, req, runtime), new ManualModerationResultResponse({}));
+    } else {
+      return $dara.cast<ManualModerationResultResponse>(await this.execute(params, req, runtime), new ManualModerationResultResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取人审结果
+   * 
+   * @param request - ManualModerationResultRequest
+   * @returns ManualModerationResultResponse
+   */
+  async manualModerationResult(request: ManualModerationResultRequest): Promise<ManualModerationResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.manualModerationResultWithOptions(request, runtime);
   }
 
   /**
@@ -6802,21 +8444,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TextModerationResponse
    */
-  async textModerationWithOptions(request: TextModerationRequest, runtime: $Util.RuntimeOptions): Promise<TextModerationResponse> {
-    Util.validateModel(request);
+  async textModerationWithOptions(request: TextModerationRequest, runtime: $dara.RuntimeOptions): Promise<TextModerationResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       body["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       body["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TextModeration",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -6827,7 +8469,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TextModerationResponse>(await this.callApi(params, req, runtime), new TextModerationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TextModerationResponse>(await this.callApi(params, req, runtime), new TextModerationResponse({}));
+    } else {
+      return $dara.cast<TextModerationResponse>(await this.execute(params, req, runtime), new TextModerationResponse({}));
+    }
+
   }
 
   /**
@@ -6837,7 +8484,7 @@ export default class Client extends OpenApi {
    * @returns TextModerationResponse
    */
   async textModeration(request: TextModerationRequest): Promise<TextModerationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.textModerationWithOptions(request, runtime);
   }
 
@@ -6851,21 +8498,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TextModerationPlusResponse
    */
-  async textModerationPlusWithOptions(request: TextModerationPlusRequest, runtime: $Util.RuntimeOptions): Promise<TextModerationPlusResponse> {
-    Util.validateModel(request);
+  async textModerationPlusWithOptions(request: TextModerationPlusRequest, runtime: $dara.RuntimeOptions): Promise<TextModerationPlusResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       body["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       body["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TextModerationPlus",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -6876,7 +8523,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TextModerationPlusResponse>(await this.callApi(params, req, runtime), new TextModerationPlusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TextModerationPlusResponse>(await this.callApi(params, req, runtime), new TextModerationPlusResponse({}));
+    } else {
+      return $dara.cast<TextModerationPlusResponse>(await this.execute(params, req, runtime), new TextModerationPlusResponse({}));
+    }
+
   }
 
   /**
@@ -6889,7 +8541,7 @@ export default class Client extends OpenApi {
    * @returns TextModerationPlusResponse
    */
   async textModerationPlus(request: TextModerationPlusRequest): Promise<TextModerationPlusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.textModerationPlusWithOptions(request, runtime);
   }
 
@@ -6900,21 +8552,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UrlAsyncModerationResponse
    */
-  async urlAsyncModerationWithOptions(request: UrlAsyncModerationRequest, runtime: $Util.RuntimeOptions): Promise<UrlAsyncModerationResponse> {
-    Util.validateModel(request);
+  async urlAsyncModerationWithOptions(request: UrlAsyncModerationRequest, runtime: $dara.RuntimeOptions): Promise<UrlAsyncModerationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       query["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       query["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UrlAsyncModeration",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -6925,7 +8577,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UrlAsyncModerationResponse>(await this.callApi(params, req, runtime), new UrlAsyncModerationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UrlAsyncModerationResponse>(await this.callApi(params, req, runtime), new UrlAsyncModerationResponse({}));
+    } else {
+      return $dara.cast<UrlAsyncModerationResponse>(await this.execute(params, req, runtime), new UrlAsyncModerationResponse({}));
+    }
+
   }
 
   /**
@@ -6935,7 +8592,7 @@ export default class Client extends OpenApi {
    * @returns UrlAsyncModerationResponse
    */
   async urlAsyncModeration(request: UrlAsyncModerationRequest): Promise<UrlAsyncModerationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.urlAsyncModerationWithOptions(request, runtime);
   }
 
@@ -6946,21 +8603,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VideoModerationResponse
    */
-  async videoModerationWithOptions(request: VideoModerationRequest, runtime: $Util.RuntimeOptions): Promise<VideoModerationResponse> {
-    Util.validateModel(request);
+  async videoModerationWithOptions(request: VideoModerationRequest, runtime: $dara.RuntimeOptions): Promise<VideoModerationResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       body["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       body["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "VideoModeration",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -6971,7 +8628,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VideoModerationResponse>(await this.callApi(params, req, runtime), new VideoModerationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<VideoModerationResponse>(await this.callApi(params, req, runtime), new VideoModerationResponse({}));
+    } else {
+      return $dara.cast<VideoModerationResponse>(await this.execute(params, req, runtime), new VideoModerationResponse({}));
+    }
+
   }
 
   /**
@@ -6981,7 +8643,7 @@ export default class Client extends OpenApi {
    * @returns VideoModerationResponse
    */
   async videoModeration(request: VideoModerationRequest): Promise<VideoModerationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.videoModerationWithOptions(request, runtime);
   }
 
@@ -6992,21 +8654,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VideoModerationCancelResponse
    */
-  async videoModerationCancelWithOptions(request: VideoModerationCancelRequest, runtime: $Util.RuntimeOptions): Promise<VideoModerationCancelResponse> {
-    Util.validateModel(request);
+  async videoModerationCancelWithOptions(request: VideoModerationCancelRequest, runtime: $dara.RuntimeOptions): Promise<VideoModerationCancelResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       body["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       body["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "VideoModerationCancel",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -7017,7 +8679,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VideoModerationCancelResponse>(await this.callApi(params, req, runtime), new VideoModerationCancelResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<VideoModerationCancelResponse>(await this.callApi(params, req, runtime), new VideoModerationCancelResponse({}));
+    } else {
+      return $dara.cast<VideoModerationCancelResponse>(await this.execute(params, req, runtime), new VideoModerationCancelResponse({}));
+    }
+
   }
 
   /**
@@ -7027,7 +8694,7 @@ export default class Client extends OpenApi {
    * @returns VideoModerationCancelResponse
    */
   async videoModerationCancel(request: VideoModerationCancelRequest): Promise<VideoModerationCancelResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.videoModerationCancelWithOptions(request, runtime);
   }
 
@@ -7041,21 +8708,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VideoModerationResultResponse
    */
-  async videoModerationResultWithOptions(request: VideoModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<VideoModerationResultResponse> {
-    Util.validateModel(request);
+  async videoModerationResultWithOptions(request: VideoModerationResultRequest, runtime: $dara.RuntimeOptions): Promise<VideoModerationResultResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       body["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       body["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "VideoModerationResult",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -7066,7 +8733,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VideoModerationResultResponse>(await this.callApi(params, req, runtime), new VideoModerationResultResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<VideoModerationResultResponse>(await this.callApi(params, req, runtime), new VideoModerationResultResponse({}));
+    } else {
+      return $dara.cast<VideoModerationResultResponse>(await this.execute(params, req, runtime), new VideoModerationResultResponse({}));
+    }
+
   }
 
   /**
@@ -7079,7 +8751,7 @@ export default class Client extends OpenApi {
    * @returns VideoModerationResultResponse
    */
   async videoModerationResult(request: VideoModerationResultRequest): Promise<VideoModerationResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.videoModerationResultWithOptions(request, runtime);
   }
 
@@ -7090,21 +8762,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VoiceModerationResponse
    */
-  async voiceModerationWithOptions(request: VoiceModerationRequest, runtime: $Util.RuntimeOptions): Promise<VoiceModerationResponse> {
-    Util.validateModel(request);
+  async voiceModerationWithOptions(request: VoiceModerationRequest, runtime: $dara.RuntimeOptions): Promise<VoiceModerationResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       body["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       body["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "VoiceModeration",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -7115,7 +8787,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VoiceModerationResponse>(await this.callApi(params, req, runtime), new VoiceModerationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<VoiceModerationResponse>(await this.callApi(params, req, runtime), new VoiceModerationResponse({}));
+    } else {
+      return $dara.cast<VoiceModerationResponse>(await this.execute(params, req, runtime), new VoiceModerationResponse({}));
+    }
+
   }
 
   /**
@@ -7125,7 +8802,7 @@ export default class Client extends OpenApi {
    * @returns VoiceModerationResponse
    */
   async voiceModeration(request: VoiceModerationRequest): Promise<VoiceModerationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.voiceModerationWithOptions(request, runtime);
   }
 
@@ -7136,21 +8813,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VoiceModerationCancelResponse
    */
-  async voiceModerationCancelWithOptions(request: VoiceModerationCancelRequest, runtime: $Util.RuntimeOptions): Promise<VoiceModerationCancelResponse> {
-    Util.validateModel(request);
+  async voiceModerationCancelWithOptions(request: VoiceModerationCancelRequest, runtime: $dara.RuntimeOptions): Promise<VoiceModerationCancelResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       body["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       body["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "VoiceModerationCancel",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -7161,7 +8838,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VoiceModerationCancelResponse>(await this.callApi(params, req, runtime), new VoiceModerationCancelResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<VoiceModerationCancelResponse>(await this.callApi(params, req, runtime), new VoiceModerationCancelResponse({}));
+    } else {
+      return $dara.cast<VoiceModerationCancelResponse>(await this.execute(params, req, runtime), new VoiceModerationCancelResponse({}));
+    }
+
   }
 
   /**
@@ -7171,7 +8853,7 @@ export default class Client extends OpenApi {
    * @returns VoiceModerationCancelResponse
    */
   async voiceModerationCancel(request: VoiceModerationCancelRequest): Promise<VoiceModerationCancelResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.voiceModerationCancelWithOptions(request, runtime);
   }
 
@@ -7182,21 +8864,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VoiceModerationResultResponse
    */
-  async voiceModerationResultWithOptions(request: VoiceModerationResultRequest, runtime: $Util.RuntimeOptions): Promise<VoiceModerationResultResponse> {
-    Util.validateModel(request);
+  async voiceModerationResultWithOptions(request: VoiceModerationResultRequest, runtime: $dara.RuntimeOptions): Promise<VoiceModerationResultResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.service)) {
+    if (!$dara.isNull(request.service)) {
       body["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.serviceParameters)) {
+    if (!$dara.isNull(request.serviceParameters)) {
       body["ServiceParameters"] = request.serviceParameters;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "VoiceModerationResult",
       version: "2022-03-02",
       protocol: "HTTPS",
@@ -7207,7 +8889,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VoiceModerationResultResponse>(await this.callApi(params, req, runtime), new VoiceModerationResultResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<VoiceModerationResultResponse>(await this.callApi(params, req, runtime), new VoiceModerationResultResponse({}));
+    } else {
+      return $dara.cast<VoiceModerationResultResponse>(await this.execute(params, req, runtime), new VoiceModerationResultResponse({}));
+    }
+
   }
 
   /**
@@ -7217,7 +8904,7 @@ export default class Client extends OpenApi {
    * @returns VoiceModerationResultResponse
    */
   async voiceModerationResult(request: VoiceModerationResultRequest): Promise<VoiceModerationResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.voiceModerationResultWithOptions(request, runtime);
   }
 
