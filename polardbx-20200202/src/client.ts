@@ -1,8720 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class AlignStoragePrimaryAzoneRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  regionId?: string;
-  storageInstanceName?: string;
-  switchTime?: string;
-  switchTimeMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-      storageInstanceName: 'StorageInstanceName',
-      switchTime: 'SwitchTime',
-      switchTimeMode: 'SwitchTimeMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-      storageInstanceName: 'string',
-      switchTime: 'string',
-      switchTimeMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AlignStoragePrimaryAzoneResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AlignStoragePrimaryAzoneResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AlignStoragePrimaryAzoneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AlignStoragePrimaryAzoneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AllocateColdDataVolumeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzravgpt8q****
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AllocateColdDataVolumeResponseBody extends $tea.Model {
-  /**
-   * @example
-   * D6A4256F-7B83-5BD7-9AC0-72E1FAC05330
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AllocateColdDataVolumeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AllocateColdDataVolumeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AllocateColdDataVolumeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AllocateInstancePublicConnectionRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-**************
-   */
-  connectionStringPrefix?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-**************
-   */
-  DBInstanceName?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 3306
-   */
-  port?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      connectionStringPrefix: 'ConnectionStringPrefix',
-      DBInstanceName: 'DBInstanceName',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      port: 'Port',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectionStringPrefix: 'string',
-      DBInstanceName: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      port: 'string',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AllocateInstancePublicConnectionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AllocateInstancePublicConnectionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AllocateInstancePublicConnectionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AllocateInstancePublicConnectionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelActiveOperationTasksRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 111
-   */
-  ids?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ids: 'Ids',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ids: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelActiveOperationTasksResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 111,1223
-   */
-  ids?: string;
-  /**
-   * @example
-   * AE4F6C34-065F-45AA-B5DC-4B8D816F6305
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ids: 'Ids',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ids: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelActiveOperationTasksResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelActiveOperationTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelActiveOperationTasksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * rg-acfmwolx3j4****
-   */
-  newResourceGroupId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-szrwrbp693****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PolarDBXInstance
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      newResourceGroupId: 'NewResourceGroupId',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      newResourceGroupId: 'string',
-      regionId: 'string',
-      resourceId: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3WE34
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ChangeResourceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ChangeResourceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCloudResourceAuthorizedRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * acs:ram::123456789012****:role/AliyunRdsInstanceEncryptionDefaultRole
-   */
-  roleArn?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-      roleArn: 'RoleArn',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-      roleArn: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCloudResourceAuthorizedResponseBody extends $tea.Model {
-  data?: CheckCloudResourceAuthorizedResponseBodyData;
-  /**
-   * @example
-   * A501A191-BD70-5E50-98A9-C2A486A82****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CheckCloudResourceAuthorizedResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCloudResourceAuthorizedResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CheckCloudResourceAuthorizedResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CheckCloudResourceAuthorizedResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccountRequest extends $tea.Model {
-  /**
-   * @example
-   * test
-   */
-  accountDescription?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * testAccount
-   */
-  accountName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Test@1111
-   */
-  accountPassword?: string;
-  /**
-   * @example
-   * ReadWrite
-   */
-  accountPrivilege?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-**************
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * testdb
-   */
-  DBName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * securityAccount
-   */
-  securityAccountName?: string;
-  /**
-   * @example
-   * securityPassword
-   */
-  securityAccountPassword?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountDescription: 'AccountDescription',
-      accountName: 'AccountName',
-      accountPassword: 'AccountPassword',
-      accountPrivilege: 'AccountPrivilege',
-      DBInstanceName: 'DBInstanceName',
-      DBName: 'DBName',
-      regionId: 'RegionId',
-      securityAccountName: 'SecurityAccountName',
-      securityAccountPassword: 'SecurityAccountPassword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountDescription: 'string',
-      accountName: 'string',
-      accountPassword: 'string',
-      accountPrivilege: 'string',
-      DBInstanceName: 'string',
-      DBName: 'string',
-      regionId: 'string',
-      securityAccountName: 'string',
-      securityAccountPassword: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccountResponseBody extends $tea.Model {
-  /**
-   * @example
-   * ****
-   */
-  message?: string;
-  /**
-   * @example
-   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBackupRequest extends $tea.Model {
-  /**
-   * @example
-   * 0
-   */
-  backupType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-**************
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backupType: 'BackupType',
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backupType: 'string',
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBackupResponseBody extends $tea.Model {
-  data?: CreateBackupResponseBodyData;
-  /**
-   * @example
-   * *****
-   */
-  message?: string;
-  /**
-   * @example
-   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateBackupResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBackupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateBackupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateBackupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * testaccount
-   */
-  accountName?: string;
-  /**
-   * @example
-   * ReadWrite
-   */
-  accountPrivilege?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * utf8mb4
-   */
-  charset?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-**************
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * db for test
-   */
-  dbDescription?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * testdb
-   */
-  dbName?: string;
-  /**
-   * @example
-   * auto
-   */
-  mode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * securityAccount
-   */
-  securityAccountName?: string;
-  /**
-   * @example
-   * securityPassword
-   */
-  securityAccountPassword?: string;
-  storagePoolName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      accountPrivilege: 'AccountPrivilege',
-      charset: 'Charset',
-      DBInstanceName: 'DBInstanceName',
-      dbDescription: 'DbDescription',
-      dbName: 'DbName',
-      mode: 'Mode',
-      regionId: 'RegionId',
-      securityAccountName: 'SecurityAccountName',
-      securityAccountPassword: 'SecurityAccountPassword',
-      storagePoolName: 'StoragePoolName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      accountPrivilege: 'string',
-      charset: 'string',
-      DBInstanceName: 'string',
-      dbDescription: 'string',
-      dbName: 'string',
-      mode: 'string',
-      regionId: 'string',
-      securityAccountName: 'string',
-      securityAccountPassword: 'string',
-      storagePoolName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBResponseBody extends $tea.Model {
-  /**
-   * @example
-   * *****
-   */
-  message?: string;
-  /**
-   * @example
-   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDBResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDBResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBInstanceRequest extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  autoRenew?: boolean;
-  CNNodeCount?: string;
-  /**
-   * @example
-   * xxxxxx-xxx
-   */
-  clientToken?: string;
-  cnClass?: string;
-  /**
-   * @example
-   * polarx.x4.2xlarge.2d
-   */
-  DBNodeClass?: string;
-  /**
-   * @example
-   * 2
-   */
-  DBNodeCount?: number;
-  DNNodeCount?: string;
-  dnClass?: string;
-  dnStorageSpace?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2.0
-   */
-  engineVersion?: string;
-  extraParams?: { [key: string]: string };
-  isColumnarReadDBInstance?: boolean;
-  /**
-   * @example
-   * false
-   */
-  isReadDBInstance?: boolean;
-  /**
-   * @example
-   * vpc
-   */
-  networkType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PREPAY
-   */
-  payType?: string;
-  /**
-   * @example
-   * Month
-   */
-  period?: string;
-  /**
-   * @example
-   * pxc-*********
-   */
-  primaryDBInstanceName?: string;
-  /**
-   * @example
-   * cn-shenzhen-e
-   */
-  primaryZone?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * null
-   */
-  resourceGroupId?: string;
-  /**
-   * @example
-   * cn-shenzhen-a
-   */
-  secondaryZone?: string;
-  series?: string;
-  /**
-   * @example
-   * cn-shenzhen-e
-   */
-  tertiaryZone?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 3azones
-   */
-  topologyType?: string;
-  /**
-   * @example
-   * 1
-   */
-  usedTime?: number;
-  /**
-   * @remarks
-   * VPC ID。
-   * 
-   * @example
-   * vpc-*****
-   */
-  VPCId?: string;
-  /**
-   * @example
-   * vsw-*********
-   */
-  vSwitchId?: string;
-  /**
-   * @example
-   * cn-hangzhou-a
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoRenew: 'AutoRenew',
-      CNNodeCount: 'CNNodeCount',
-      clientToken: 'ClientToken',
-      cnClass: 'CnClass',
-      DBNodeClass: 'DBNodeClass',
-      DBNodeCount: 'DBNodeCount',
-      DNNodeCount: 'DNNodeCount',
-      dnClass: 'DnClass',
-      dnStorageSpace: 'DnStorageSpace',
-      engineVersion: 'EngineVersion',
-      extraParams: 'ExtraParams',
-      isColumnarReadDBInstance: 'IsColumnarReadDBInstance',
-      isReadDBInstance: 'IsReadDBInstance',
-      networkType: 'NetworkType',
-      payType: 'PayType',
-      period: 'Period',
-      primaryDBInstanceName: 'PrimaryDBInstanceName',
-      primaryZone: 'PrimaryZone',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      secondaryZone: 'SecondaryZone',
-      series: 'Series',
-      tertiaryZone: 'TertiaryZone',
-      topologyType: 'TopologyType',
-      usedTime: 'UsedTime',
-      VPCId: 'VPCId',
-      vSwitchId: 'VSwitchId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoRenew: 'boolean',
-      CNNodeCount: 'string',
-      clientToken: 'string',
-      cnClass: 'string',
-      DBNodeClass: 'string',
-      DBNodeCount: 'number',
-      DNNodeCount: 'string',
-      dnClass: 'string',
-      dnStorageSpace: 'string',
-      engineVersion: 'string',
-      extraParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      isColumnarReadDBInstance: 'boolean',
-      isReadDBInstance: 'boolean',
-      networkType: 'string',
-      payType: 'string',
-      period: 'string',
-      primaryDBInstanceName: 'string',
-      primaryZone: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      secondaryZone: 'string',
-      series: 'string',
-      tertiaryZone: 'string',
-      topologyType: 'string',
-      usedTime: 'number',
-      VPCId: 'string',
-      vSwitchId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBInstanceShrinkRequest extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  autoRenew?: boolean;
-  CNNodeCount?: string;
-  /**
-   * @example
-   * xxxxxx-xxx
-   */
-  clientToken?: string;
-  cnClass?: string;
-  /**
-   * @example
-   * polarx.x4.2xlarge.2d
-   */
-  DBNodeClass?: string;
-  /**
-   * @example
-   * 2
-   */
-  DBNodeCount?: number;
-  DNNodeCount?: string;
-  dnClass?: string;
-  dnStorageSpace?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2.0
-   */
-  engineVersion?: string;
-  extraParamsShrink?: string;
-  isColumnarReadDBInstance?: boolean;
-  /**
-   * @example
-   * false
-   */
-  isReadDBInstance?: boolean;
-  /**
-   * @example
-   * vpc
-   */
-  networkType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PREPAY
-   */
-  payType?: string;
-  /**
-   * @example
-   * Month
-   */
-  period?: string;
-  /**
-   * @example
-   * pxc-*********
-   */
-  primaryDBInstanceName?: string;
-  /**
-   * @example
-   * cn-shenzhen-e
-   */
-  primaryZone?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * null
-   */
-  resourceGroupId?: string;
-  /**
-   * @example
-   * cn-shenzhen-a
-   */
-  secondaryZone?: string;
-  series?: string;
-  /**
-   * @example
-   * cn-shenzhen-e
-   */
-  tertiaryZone?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 3azones
-   */
-  topologyType?: string;
-  /**
-   * @example
-   * 1
-   */
-  usedTime?: number;
-  /**
-   * @remarks
-   * VPC ID。
-   * 
-   * @example
-   * vpc-*****
-   */
-  VPCId?: string;
-  /**
-   * @example
-   * vsw-*********
-   */
-  vSwitchId?: string;
-  /**
-   * @example
-   * cn-hangzhou-a
-   */
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoRenew: 'AutoRenew',
-      CNNodeCount: 'CNNodeCount',
-      clientToken: 'ClientToken',
-      cnClass: 'CnClass',
-      DBNodeClass: 'DBNodeClass',
-      DBNodeCount: 'DBNodeCount',
-      DNNodeCount: 'DNNodeCount',
-      dnClass: 'DnClass',
-      dnStorageSpace: 'DnStorageSpace',
-      engineVersion: 'EngineVersion',
-      extraParamsShrink: 'ExtraParams',
-      isColumnarReadDBInstance: 'IsColumnarReadDBInstance',
-      isReadDBInstance: 'IsReadDBInstance',
-      networkType: 'NetworkType',
-      payType: 'PayType',
-      period: 'Period',
-      primaryDBInstanceName: 'PrimaryDBInstanceName',
-      primaryZone: 'PrimaryZone',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      secondaryZone: 'SecondaryZone',
-      series: 'Series',
-      tertiaryZone: 'TertiaryZone',
-      topologyType: 'TopologyType',
-      usedTime: 'UsedTime',
-      VPCId: 'VPCId',
-      vSwitchId: 'VSwitchId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoRenew: 'boolean',
-      CNNodeCount: 'string',
-      clientToken: 'string',
-      cnClass: 'string',
-      DBNodeClass: 'string',
-      DBNodeCount: 'number',
-      DNNodeCount: 'string',
-      dnClass: 'string',
-      dnStorageSpace: 'string',
-      engineVersion: 'string',
-      extraParamsShrink: 'string',
-      isColumnarReadDBInstance: 'boolean',
-      isReadDBInstance: 'boolean',
-      networkType: 'string',
-      payType: 'string',
-      period: 'string',
-      primaryDBInstanceName: 'string',
-      primaryZone: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      secondaryZone: 'string',
-      series: 'string',
-      tertiaryZone: 'string',
-      topologyType: 'string',
-      usedTime: 'number',
-      VPCId: 'string',
-      vSwitchId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBInstanceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * pxc-*********
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * 12345
-   */
-  orderId?: string;
-  /**
-   * @example
-   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDBInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDBInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSuperAccountRequest extends $tea.Model {
-  /**
-   * @example
-   * testdbadescription
-   */
-  accountDescription?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * dba
-   */
-  accountName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * testdbapassword
-   */
-  accountPassword?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-************
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountDescription: 'AccountDescription',
-      accountName: 'AccountName',
-      accountPassword: 'AccountPassword',
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountDescription: 'string',
-      accountName: 'string',
-      accountPassword: 'string',
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSuperAccountResponseBody extends $tea.Model {
-  /**
-   * @example
-   * *****
-   */
-  message?: string;
-  /**
-   * @example
-   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSuperAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateSuperAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateSuperAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * testaccount
-   */
-  accountName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-*********
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * securityAccount
-   */
-  securityAccountName?: string;
-  /**
-   * @example
-   * securityPassword
-   */
-  securityAccountPassword?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-      securityAccountName: 'SecurityAccountName',
-      securityAccountPassword: 'SecurityAccountPassword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      DBInstanceName: 'string',
-      regionId: 'string',
-      securityAccountName: 'string',
-      securityAccountPassword: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccountResponseBody extends $tea.Model {
-  /**
-   * @example
-   * ****
-   */
-  message?: string;
-  /**
-   * @example
-   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * testdb
-   */
-  dbName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      dbName: 'DbName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      dbName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBResponseBody extends $tea.Model {
-  /**
-   * @example
-   * *****
-   */
-  message?: string;
-  /**
-   * @example
-   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDBResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDBResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBInstanceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBInstanceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDBInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDBInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccountListRequest extends $tea.Model {
-  /**
-   * @example
-   * testaccount
-   */
-  accountName?: string;
-  /**
-   * @example
-   * 0
-   */
-  accountType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      accountType: 'AccountType',
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      accountType: 'string',
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccountListResponseBody extends $tea.Model {
-  data?: DescribeAccountListResponseBodyData[];
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeAccountListResponseBodyData },
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccountListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeAccountListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeAccountListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeActiveOperationMaintainConfRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeActiveOperationMaintainConfResponseBody extends $tea.Model {
-  config?: DescribeActiveOperationMaintainConfResponseBodyConfig;
-  /**
-   * @example
-   * 1
-   */
-  hasConfig?: number;
-  /**
-   * @example
-   * 1A586DCB-39A6-4050-81CC-C7BD4CCDB49F
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      hasConfig: 'HasConfig',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: DescribeActiveOperationMaintainConfResponseBodyConfig,
-      hasConfig: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeActiveOperationMaintainConfResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeActiveOperationMaintainConfResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeActiveOperationMaintainConfResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeActiveOperationTaskCountRequest extends $tea.Model {
-  /**
-   * @example
-   * Category
-   */
-  category?: string;
-  /**
-   * @example
-   * polarx
-   */
-  product?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      category: 'Category',
-      product: 'Product',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      category: 'string',
-      product: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeActiveOperationTaskCountResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  needPop?: number;
-  /**
-   * @example
-   * EC7E27FC-58F8-4722-89BB-D1B6D0971956
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 20
-   */
-  taskCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      needPop: 'NeedPop',
-      requestId: 'RequestId',
-      taskCount: 'TaskCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      needPop: 'number',
-      requestId: 'string',
-      taskCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeActiveOperationTaskCountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeActiveOperationTaskCountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeActiveOperationTaskCountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeActiveOperationTasksRequest extends $tea.Model {
-  /**
-   * @example
-   * -1
-   */
-  allowCancel?: number;
-  /**
-   * @example
-   * -1
-   */
-  allowChange?: number;
-  /**
-   * @example
-   * all
-   */
-  changeLevel?: string;
-  /**
-   * @example
-   * polarx
-   */
-  dbType?: string;
-  /**
-   * @example
-   * pxc-xxxxx
-   */
-  insName?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 25
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * polarx
-   */
-  productId?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  region?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * -1
-   */
-  status?: number;
-  /**
-   * @example
-   * all
-   */
-  taskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowCancel: 'AllowCancel',
-      allowChange: 'AllowChange',
-      changeLevel: 'ChangeLevel',
-      dbType: 'DbType',
-      insName: 'InsName',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      productId: 'ProductId',
-      region: 'Region',
-      regionId: 'RegionId',
-      status: 'Status',
-      taskType: 'TaskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowCancel: 'number',
-      allowChange: 'number',
-      changeLevel: 'string',
-      dbType: 'string',
-      insName: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      productId: 'string',
-      region: 'string',
-      regionId: 'string',
-      status: 'number',
-      taskType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
-  items?: DescribeActiveOperationTasksResponseBodyItems[];
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 12
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * xxxx
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 23
-   */
-  totalRecordCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'Items',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalRecordCount: 'TotalRecordCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: { 'type': 'array', 'itemType': DescribeActiveOperationTasksResponseBodyItems },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalRecordCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeActiveOperationTasksResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeActiveOperationTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeActiveOperationTasksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeArchiveTableListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  pageIndex?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  regionId?: string;
-  schemaName?: string;
-  status?: string;
-  tableName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      pageIndex: 'PageIndex',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      schemaName: 'SchemaName',
-      status: 'Status',
-      tableName: 'TableName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      pageIndex: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      schemaName: 'string',
-      status: 'string',
-      tableName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeArchiveTableListResponseBody extends $tea.Model {
-  data?: DescribeArchiveTableListResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeArchiveTableListResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeArchiveTableListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeArchiveTableListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeArchiveTableListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupPolicyResponseBody extends $tea.Model {
-  data?: DescribeBackupPolicyResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * B87E2AB3-B7C9-4394-9160-7F639F732031
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeBackupPolicyResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeBackupPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeBackupPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupSetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 111
-   */
-  backupSetId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-htri0ori2r****
-   */
-  DBInstanceName?: string;
-  destCrossRegion?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backupSetId: 'BackupSetId',
-      DBInstanceName: 'DBInstanceName',
-      destCrossRegion: 'DestCrossRegion',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backupSetId: 'string',
-      DBInstanceName: 'string',
-      destCrossRegion: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupSetResponseBody extends $tea.Model {
-  data?: DescribeBackupSetResponseBodyData[];
-  /**
-   * @example
-   * successs
-   */
-  message?: string;
-  /**
-   * @example
-   * 1A6D328C-84B8-40DC-BF49-6C73984D7494
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeBackupSetResponseBodyData },
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupSetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeBackupSetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeBackupSetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupSetListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-xxxxxx
-   */
-  DBInstanceName?: string;
-  destCrossRegion?: string;
-  /**
-   * @example
-   * 1635707845000
-   */
-  endTime?: number;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 30
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * 1635707845000
-   */
-  startTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      destCrossRegion: 'DestCrossRegion',
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      destCrossRegion: 'string',
-      endTime: 'number',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      startTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupSetListResponseBody extends $tea.Model {
-  data?: DescribeBackupSetListResponseBodyData[];
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 1A6D328C-84B8-40DC-BF49-6C73984D7494
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeBackupSetListResponseBodyData },
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupSetListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeBackupSetListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeBackupSetListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBinaryLogListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hz1fds
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2021-11-09 10:27:46
-   */
-  endTime?: string;
-  instanceName?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 30
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2021-09-09 10:27:46
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      endTime: 'EndTime',
-      instanceName: 'InstanceName',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      endTime: 'string',
-      instanceName: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBinaryLogListResponseBody extends $tea.Model {
-  logList?: DescribeBinaryLogListResponseBodyLogList[];
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 30
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 2DFF784E-DC31-5BBC-9B25-9261CD9E0AA9
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 100
-   */
-  totalNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      logList: 'LogList',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalNumber: 'TotalNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logList: { 'type': 'array', 'itemType': DescribeBinaryLogListResponseBodyLogList },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBinaryLogListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeBinaryLogListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeBinaryLogListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCharacterSetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-*********
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCharacterSetResponseBody extends $tea.Model {
-  data?: DescribeCharacterSetResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 709C1E40-092D-4A3D-9958-6D7438******
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeCharacterSetResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCharacterSetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeCharacterSetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeCharacterSetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeColdDataBasicInfoRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeColdDataBasicInfoResponseBody extends $tea.Model {
-  data?: DescribeColdDataBasicInfoResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeColdDataBasicInfoResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeColdDataBasicInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeColdDataBasicInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeColdDataBasicInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceAttributeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * rg-aekzaxhezhs5***
-   */
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceAttributeResponseBody extends $tea.Model {
-  DBInstance?: DescribeDBInstanceAttributeResponseBodyDBInstance;
-  /**
-   * @example
-   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstance: 'DBInstance',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstance: DescribeDBInstanceAttributeResponseBodyDBInstance,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceAttributeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDBInstanceAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBInstanceAttributeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceConfigRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * htap
-   */
-  configName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-*********
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configName: 'ConfigName',
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configName: 'string',
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceConfigResponseBody extends $tea.Model {
-  data?: DescribeDBInstanceConfigResponseBodyData;
-  /**
-   * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeDBInstanceConfigResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDBInstanceConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBInstanceConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceHARequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceHAResponseBody extends $tea.Model {
-  data?: DescribeDBInstanceHAResponseBodyData;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeDBInstanceHAResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceHAResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDBInstanceHAResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBInstanceHAResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceSSLRequest extends $tea.Model {
-  /**
-   * @example
-   * pxc-*********
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceSSLResponseBody extends $tea.Model {
-  data?: DescribeDBInstanceSSLResponseBodyData;
-  /**
-   * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeDBInstanceSSLResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceSSLResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDBInstanceSSLResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBInstanceSSLResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceTDERequest extends $tea.Model {
-  /**
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceTDEResponseBody extends $tea.Model {
-  data?: DescribeDBInstanceTDEResponseBodyData;
-  /**
-   * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeDBInstanceTDEResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceTDEResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDBInstanceTDEResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBInstanceTDEResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceTopologyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  endTime?: string;
-  minuteSimple?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      endTime: 'EndTime',
-      minuteSimple: 'MinuteSimple',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      endTime: 'string',
-      minuteSimple: 'boolean',
-      regionId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceTopologyResponseBody extends $tea.Model {
-  data?: DescribeDBInstanceTopologyResponseBodyData;
-  /**
-   * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeDBInstanceTopologyResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceTopologyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDBInstanceTopologyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBInstanceTopologyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceViaEndpointRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hz*******.polarx.rds.aliyuncs.com
-   */
-  endpoint?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endpoint: 'Endpoint',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endpoint: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceViaEndpointResponseBody extends $tea.Model {
-  DBInstance?: DescribeDBInstanceViaEndpointResponseBodyDBInstance;
-  /**
-   * @example
-   * 14036EBE-CF2E-44DB-ACE9-AC6157D3A6FC
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstance: 'DBInstance',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstance: DescribeDBInstanceViaEndpointResponseBodyDBInstance,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstanceViaEndpointResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDBInstanceViaEndpointResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBInstanceViaEndpointResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstancesRequest extends $tea.Model {
-  dbVersion?: string;
-  /**
-   * @example
-   * dinga93c84f4d***
-   */
-  instanceId?: string;
-  mustHasCdc?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * rg-acfmyst47hjw***
-   */
-  resourceGroupId?: string;
-  /**
-   * @example
-   * enterprise
-   */
-  series?: string;
-  /**
-   * @example
-   * [{\\"TagKey\\":\\"test\\",\\"TagValue\\":\\"test-value\\"}]
-   */
-  tags?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dbVersion: 'DbVersion',
-      instanceId: 'InstanceId',
-      mustHasCdc: 'MustHasCdc',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      series: 'Series',
-      tags: 'Tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbVersion: 'string',
-      instanceId: 'string',
-      mustHasCdc: 'boolean',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      series: 'string',
-      tags: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstancesResponseBody extends $tea.Model {
-  DBInstances?: DescribeDBInstancesResponseBodyDBInstances[];
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 30
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 30
-   */
-  totalNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstances: 'DBInstances',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalNumber: 'TotalNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstances: { 'type': 'array', 'itemType': DescribeDBInstancesResponseBodyDBInstances },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBInstancesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDBInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBNodePerformanceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * polarx_cn
-   */
-  characterType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-*******
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-i-******,pxc-i-*******
-   */
-  DBNodeIds?: string;
-  /**
-   * @example
-   * master
-   */
-  DBNodeRole?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2012-06-18T15:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Cpu_Usage,Mem_Usage
-   */
-  key?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2012-06-08T15:00Z
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      characterType: 'CharacterType',
-      DBInstanceName: 'DBInstanceName',
-      DBNodeIds: 'DBNodeIds',
-      DBNodeRole: 'DBNodeRole',
-      endTime: 'EndTime',
-      key: 'Key',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      characterType: 'string',
-      DBInstanceName: 'string',
-      DBNodeIds: 'string',
-      DBNodeRole: 'string',
-      endTime: 'string',
-      key: 'string',
-      regionId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBNodePerformanceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * 2021-10-20T02:00Z
-   */
-  endTime?: string;
-  performanceKeys?: DescribeDBNodePerformanceResponseBodyPerformanceKeys;
-  /**
-   * @example
-   * EFB5E10B-5268-170F-A378-9AF86CCEACC8
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 2021-10-20T00:00Z
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      endTime: 'EndTime',
-      performanceKeys: 'PerformanceKeys',
-      requestId: 'RequestId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      endTime: 'string',
-      performanceKeys: DescribeDBNodePerformanceResponseBodyPerformanceKeys,
-      requestId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBNodePerformanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDBNodePerformanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDBNodePerformanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDbListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * db_name
-   */
-  DBName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      DBName: 'DBName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      DBName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDbListResponseBody extends $tea.Model {
-  data?: DescribeDbListResponseBodyData[];
-  /**
-   * @example
-   * Success
-   */
-  message?: string;
-  /**
-   * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeDbListResponseBodyData },
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDbListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDbListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDbListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDistributeTableListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sbtest1
-   */
-  dbName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      dbName: 'DbName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      dbName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDistributeTableListResponseBody extends $tea.Model {
-  data?: DescribeDistributeTableListResponseBodyData;
-  /**
-   * @example
-   * Success
-   */
-  message?: string;
-  /**
-   * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeDistributeTableListResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDistributeTableListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDistributeTableListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDistributeTableListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventsRequest extends $tea.Model {
-  /**
-   * @example
-   * 2021-10-18T03:07:25Z
-   */
-  endTime?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * 2021-10-18T03:07:25Z
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventsResponseBody extends $tea.Model {
-  eventItems?: DescribeEventsResponseBodyEventItems[];
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 4748127A-6D50-432C-B635-433467074C27
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 20
-   */
-  totalRecordCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      eventItems: 'EventItems',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalRecordCount: 'TotalRecordCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventItems: { 'type': 'array', 'itemType': DescribeEventsResponseBodyEventItems },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalRecordCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeEventsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeEventsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGdnInstancesRequest extends $tea.Model {
-  /**
-   * @example
-   * gdn_id、
-   * polarx_id
-   */
-  filterType?: string;
-  /**
-   * @example
-   * gdn-***、
-   * pxc-***
-   */
-  filterValue?: string;
-  /**
-   * @remarks
-   * GDN ID。
-   * 
-   * @example
-   * gdn-***
-   */
-  GDNId?: string;
-  /**
-   * @example
-   * 50
-   */
-  pageNum?: string;
-  /**
-   * @example
-   * 30
-   */
-  pageSize?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filterType: 'FilterType',
-      filterValue: 'FilterValue',
-      GDNId: 'GDNId',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filterType: 'string',
-      filterValue: 'string',
-      GDNId: 'string',
-      pageNum: 'string',
-      pageSize: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGdnInstancesResponseBody extends $tea.Model {
-  data?: DescribeGdnInstancesResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 7B044BD1-6402-5DE9-9AED-63D15A994E37
-   */
-  requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeGdnInstancesResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGdnInstancesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeGdnInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeGdnInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOpenBackupSetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * 2024-10-14T00:00:00Z
-   */
-  restoreTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-      restoreTime: 'RestoreTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-      restoreTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOpenBackupSetResponseBody extends $tea.Model {
-  /**
-   * @example
-   * {"gmsBackupSet": {"pubFullDownloadUrl": "https://xxxxx","dnName": "pxc-xdb-m-xxxxxx","hostInstanceId": 0001,"binlogs": [],"backupEndTime": "2024-10-21T10:11:56Z","backupLinkExpiredTime": "2024-10-23T06:13:54Z","dnBackupSetId": "00088","notCompletedBinlogs": [],"commitIndex": "15249275","innerFullDownloadUrl": "http://xxxxx","backupStartTime": "2024-10-21T10:09:20Z","backupSetSize": 526118912},"dnBackupSets": [],"insName": "pxc-xxxxx","backupSetId": "cb-xxxxx","canBinlogRecoverToTime": 1729567925000,"backupEndTime": "2024-10-21T10:12:16Z","canBinlogRecoverToTimeUTC": "2024-10-22T03:32:05Z","canBackupMinRecoverToTimeUTC": "2024-10-21T10:11:56Z","pitrInvalid": false,"backupStartTime": "2024-10-21T10:09:16Z","canBackupMinRecoverToTime": 1729505516000}
-   */
-  data?: any;
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'any',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeOpenBackupSetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeOpenBackupSetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeOpenBackupSetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeParameterTemplatesRequest extends $tea.Model {
-  /**
-   * @example
-   * pxc-********
-   */
-  DBInstanceId?: string;
-  engineVersion?: string;
-  /**
-   * @example
-   * compute
-   */
-  paramLevel?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      engineVersion: 'EngineVersion',
-      paramLevel: 'ParamLevel',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      engineVersion: 'string',
-      paramLevel: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeParameterTemplatesResponseBody extends $tea.Model {
-  data?: DescribeParameterTemplatesResponseBodyData;
-  /**
-   * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeParameterTemplatesResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeParameterTemplatesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeParameterTemplatesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeParameterTemplatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeParametersRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-********
-   */
-  DBInstanceId?: string;
-  /**
-   * @example
-   * compute
-   */
-  paramLevel?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      paramLevel: 'ParamLevel',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      paramLevel: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeParametersResponseBody extends $tea.Model {
-  data?: DescribeParametersResponseBodyData;
-  /**
-   * @example
-   * 6BA32080EEA
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeParametersResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeParametersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeParametersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeParametersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: number;
-  /**
-   * @example
-   * 200
-   */
-  errorCode?: number;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  regions?: DescribeRegionsResponseBodyRegions;
-  /**
-   * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      errorCode: 'ErrorCode',
-      message: 'Message',
-      regions: 'Regions',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      errorCode: 'number',
-      message: 'string',
-      regions: DescribeRegionsResponseBodyRegions,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeScaleOutMigrateTaskListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeScaleOutMigrateTaskListResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 32
-   */
-  progress?: number;
-  /**
-   * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      progress: 'Progress',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      progress: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeScaleOutMigrateTaskListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeScaleOutMigrateTaskListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeScaleOutMigrateTaskListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSecurityIpsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSecurityIpsResponseBody extends $tea.Model {
-  data?: DescribeSecurityIpsResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 14036EBE-CF2E-44DB-ACE9-AC6157D3A6FC
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeSecurityIpsResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSecurityIpsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSecurityIpsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSecurityIpsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogRecordsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * polarx_cn
-   */
-  characterType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-bjxxxxxxxx
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * testdb
-   */
-  DBName?: string;
-  /**
-   * @example
-   * pxc-i-mezcj4ejdz
-   */
-  DBNodeIds?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2024-11-22T02:22Z
-   */
-  endTime?: string;
-  /**
-   * @example
-   * 1
-   */
-  page?: number;
-  /**
-   * @example
-   * 30
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2024-10-09T02:26
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      characterType: 'CharacterType',
-      DBInstanceName: 'DBInstanceName',
-      DBName: 'DBName',
-      DBNodeIds: 'DBNodeIds',
-      endTime: 'EndTime',
-      page: 'Page',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      characterType: 'string',
-      DBInstanceName: 'string',
-      DBName: 'string',
-      DBNodeIds: 'string',
-      endTime: 'string',
-      page: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogRecordsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * pxc-********
-   */
-  DBInstanceId?: string;
-  items?: DescribeSlowLogRecordsResponseBodyItems[];
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: string;
-  /**
-   * @example
-   * 30
-   */
-  pageRecordCount?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * C458B1E8-1683-3645-B154-6BA32080EEA
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 3
-   */
-  totalCount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      items: 'Items',
-      pageNumber: 'PageNumber',
-      pageRecordCount: 'PageRecordCount',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      items: { 'type': 'array', 'itemType': DescribeSlowLogRecordsResponseBodyItems },
-      pageNumber: 'string',
-      pageRecordCount: 'string',
-      requestId: 'string',
-      totalCount: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSlowLogRecordsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSlowLogRecordsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSlowLogRecordsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTagsRequest extends $tea.Model {
-  /**
-   * @example
-   * pxc-xxx
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * test
-   */
-  tagKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-      tagKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTagsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * requestid
-   */
-  requestId?: string;
-  tagInfos?: DescribeTagsResponseBodyTagInfos[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tagInfos: 'TagInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tagInfos: { 'type': 'array', 'itemType': DescribeTagsResponseBodyTagInfos },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTagsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeTagsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeTagsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTasksRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2021-11-04
-   */
-  endTime?: string;
-  ownerAccount?: string;
-  ownerId?: number;
-  /**
-   * @example
-   * 30
-   */
-  pageNumber?: number;
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 2021-11-01
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      endTime: 'EndTime',
-      ownerAccount: 'OwnerAccount',
-      ownerId: 'OwnerId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      endTime: 'string',
-      ownerAccount: 'string',
-      ownerId: 'number',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTasksResponseBody extends $tea.Model {
-  items?: DescribeTasksResponseBodyItems[];
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 30
-   */
-  pageRecordCount?: number;
-  /**
-   * @example
-   * D6045D78-C119-5A17-9DEA-0F810394E008
-   */
-  requestId?: string;
-  /**
-   * @example
-   * 2
-   */
-  totalRecordCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'Items',
-      pageNumber: 'PageNumber',
-      pageRecordCount: 'PageRecordCount',
-      requestId: 'RequestId',
-      totalRecordCount: 'TotalRecordCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: { 'type': 'array', 'itemType': DescribeTasksResponseBodyItems },
-      pageNumber: 'number',
-      pageRecordCount: 'number',
-      requestId: 'string',
-      totalRecordCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTasksResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeTasksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserEncryptionKeyListRequest extends $tea.Model {
-  /**
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserEncryptionKeyListResponseBody extends $tea.Model {
-  data?: DescribeUserEncryptionKeyListResponseBodyData;
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeUserEncryptionKeyListResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserEncryptionKeyListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeUserEncryptionKeyListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeUserEncryptionKeyListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableRightsSeparationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-sprcym7g7w****
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * account_1
-   */
-  dbaAccountName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * *****
-   */
-  dbaAccountPassword?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hanghzou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      dbaAccountName: 'DbaAccountName',
-      dbaAccountPassword: 'DbaAccountPassword',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      dbaAccountName: 'string',
-      dbaAccountPassword: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableRightsSeparationResponseBody extends $tea.Model {
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * FE5D94E3-3C93-3594-95D9-AAED2A980915
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DisableRightsSeparationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DisableRightsSeparationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DisableRightsSeparationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableRightsSeparationRequest extends $tea.Model {
-  /**
-   * @example
-   * test123
-   */
-  auditAccountDescription?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * account_audit
-   */
-  auditAccountName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ******
-   */
-  auditAccountPassword?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-htri0ori2r4k9p
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * test123
-   */
-  securityAccountDescription?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * account_sec
-   */
-  securityAccountName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * *****
-   */
-  securityAccountPassword?: string;
-  static names(): { [key: string]: string } {
-    return {
-      auditAccountDescription: 'AuditAccountDescription',
-      auditAccountName: 'AuditAccountName',
-      auditAccountPassword: 'AuditAccountPassword',
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-      securityAccountDescription: 'SecurityAccountDescription',
-      securityAccountName: 'SecurityAccountName',
-      securityAccountPassword: 'SecurityAccountPassword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      auditAccountDescription: 'string',
-      auditAccountName: 'string',
-      auditAccountPassword: 'string',
-      DBInstanceName: 'string',
-      regionId: 'string',
-      securityAccountDescription: 'string',
-      securityAccountName: 'string',
-      securityAccountPassword: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableRightsSeparationResponseBody extends $tea.Model {
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 73559800-3c8c-11ec-bd40-99cfcff3fe1e
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableRightsSeparationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: EnableRightsSeparationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: EnableRightsSeparationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequest extends $tea.Model {
-  /**
-   * @example
-   * xxdds
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  resourceId?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PolarDBXInstance
-   */
-  resourceType?: string;
-  tag?: ListTagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * xxdd
-   */
-  nextToken?: string;
-  /**
-   * @example
-   * xxxx-xxxxxx
-   */
-  requestId?: string;
-  tagResources?: ListTagResourcesResponseBodyTagResources;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      tagResources: 'TagResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      tagResources: ListTagResourcesResponseBodyTagResources,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountDescriptionRequest extends $tea.Model {
-  accountDescription?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * account
-   */
-  accountName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountDescription: 'AccountDescription',
-      accountName: 'AccountName',
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountDescription: 'string',
-      accountName: 'string',
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountDescriptionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * msg
-   */
-  message?: string;
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountDescriptionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyAccountDescriptionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyAccountDescriptionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountPrivilegeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * account_sec
-   */
-  accountName?: string;
-  /**
-   * @example
-   * ReadWrite
-   */
-  accountPrivilege?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-htri0ori2r4k9p
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * sbtest
-   */
-  dbName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * account_audit
-   */
-  securityAccountName?: string;
-  /**
-   * @example
-   * *****
-   */
-  securityAccountPassword?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      accountPrivilege: 'AccountPrivilege',
-      DBInstanceName: 'DBInstanceName',
-      dbName: 'DbName',
-      regionId: 'RegionId',
-      securityAccountName: 'SecurityAccountName',
-      securityAccountPassword: 'SecurityAccountPassword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      accountPrivilege: 'string',
-      DBInstanceName: 'string',
-      dbName: 'string',
-      regionId: 'string',
-      securityAccountName: 'string',
-      securityAccountPassword: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountPrivilegeResponseBody extends $tea.Model {
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 73559800-3c8c-11ec-bd40-99cfcff3fe1e
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyAccountPrivilegeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyAccountPrivilegeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyAccountPrivilegeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyActiveOperationMaintainConfRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1,2,3,4,5,6,7
-   */
-  cycleTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * Week
-   */
-  cycleType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 02:00:00Z
-   */
-  maintainEndTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 02:00:00Z
-   */
-  maintainStartTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cycleTime: 'CycleTime',
-      cycleType: 'CycleType',
-      maintainEndTime: 'MaintainEndTime',
-      maintainStartTime: 'MaintainStartTime',
-      regionId: 'RegionId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cycleTime: 'string',
-      cycleType: 'string',
-      maintainEndTime: 'string',
-      maintainStartTime: 'string',
-      regionId: 'string',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyActiveOperationMaintainConfResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 4035409E-7297-4115-ABC9-C1C3942BC069
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyActiveOperationMaintainConfResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyActiveOperationMaintainConfResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyActiveOperationMaintainConfResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyActiveOperationTasksRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  ids?: string;
-  /**
-   * @example
-   * 1
-   */
-  immediateStart?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * 2021-08-15T12:00:00Z
-   */
-  switchTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ids: 'Ids',
-      immediateStart: 'ImmediateStart',
-      regionId: 'RegionId',
-      switchTime: 'SwitchTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ids: 'string',
-      immediateStart: 'number',
-      regionId: 'string',
-      switchTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  ids?: string;
-  /**
-   * @example
-   * 8C9CC90A-9532-4752-B59F-580112C5A45B
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ids: 'Ids',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ids: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyActiveOperationTasksResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyActiveOperationTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyActiveOperationTasksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceClassRequest extends $tea.Model {
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  clientToken?: string;
-  cnClass?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  dnClass?: string;
-  dnStorageSpace?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  specifiedDNScale?: boolean;
-  specifiedDNSpecMapJson?: string;
-  switchTime?: string;
-  switchTimeMode?: string;
-  /**
-   * @example
-   * polarx.x4.xlarge.2e
-   */
-  targetDBInstanceClass?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      cnClass: 'CnClass',
-      DBInstanceName: 'DBInstanceName',
-      dnClass: 'DnClass',
-      dnStorageSpace: 'DnStorageSpace',
-      regionId: 'RegionId',
-      specifiedDNScale: 'SpecifiedDNScale',
-      specifiedDNSpecMapJson: 'SpecifiedDNSpecMapJson',
-      switchTime: 'SwitchTime',
-      switchTimeMode: 'SwitchTimeMode',
-      targetDBInstanceClass: 'TargetDBInstanceClass',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      cnClass: 'string',
-      DBInstanceName: 'string',
-      dnClass: 'string',
-      dnStorageSpace: 'string',
-      regionId: 'string',
-      specifiedDNScale: 'boolean',
-      specifiedDNSpecMapJson: 'string',
-      switchTime: 'string',
-      switchTimeMode: 'string',
-      targetDBInstanceClass: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceClassResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 20211103105558
-   */
-  orderId?: string;
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceClassResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDBInstanceClassResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDBInstanceClassResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceConfigRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ENABLE_CONSISTENT_REPLICA_READ
-   */
-  configName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * true
-   */
-  configValue?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configName: 'ConfigName',
-      configValue: 'ConfigValue',
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configName: 'string',
-      configValue: 'string',
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceConfigResponseBody extends $tea.Model {
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceConfigResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDBInstanceConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDBInstanceConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceConnectionStringRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-unrf5ssig0ecg8.polarx.huhehaote.rds.aliyuncs.com
-   */
-  connectionString?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-unrf5ssig0ecg8
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 3300
-   */
-  newPort?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * test2
-   */
-  newPrefix?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      connectionString: 'ConnectionString',
-      DBInstanceName: 'DBInstanceName',
-      newPort: 'NewPort',
-      newPrefix: 'NewPrefix',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connectionString: 'string',
-      DBInstanceName: 'string',
-      newPort: 'string',
-      newPrefix: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceConnectionStringResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: number;
-  data?: ModifyDBInstanceConnectionStringResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * c3cf535c-a585-11ea-8263-00163e04d3a7
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'number',
-      data: ModifyDBInstanceConnectionStringResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceConnectionStringResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDBInstanceConnectionStringResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDBInstanceConnectionStringResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceDescriptionRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  DBInstanceDescription?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceDescription: 'DBInstanceDescription',
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceDescription: 'string',
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceDescriptionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDBInstanceDescriptionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDBInstanceDescriptionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDBInstanceDescriptionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDatabaseDescriptionRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  dbDescription?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * testDB
-   */
-  dbName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      dbDescription: 'DbDescription',
-      dbName: 'DbName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      dbDescription: 'string',
-      dbName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDatabaseDescriptionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDatabaseDescriptionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDatabaseDescriptionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDatabaseDescriptionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyParameterRequest extends $tea.Model {
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasdyuoo
-   */
-  DBInstanceId?: string;
-  /**
-   * @example
-   * compute
-   */
-  paramLevel?: string;
-  parameterGroupId?: string;
-  /**
-   * @example
-   * {"CONN_POOL_BLOCK_TIMEOUT":6000}
-   */
-  parameters?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      DBInstanceId: 'DBInstanceId',
-      paramLevel: 'ParamLevel',
-      parameterGroupId: 'ParameterGroupId',
-      parameters: 'Parameters',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      DBInstanceId: 'string',
-      paramLevel: 'string',
-      parameterGroupId: 'string',
-      parameters: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyParameterResponseBody extends $tea.Model {
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyParameterResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyParameterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyParameterResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySecurityIpsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * default
-   */
-  groupName?: string;
-  /**
-   * @example
-   * 1
-   */
-  modifyMode?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 127.0.0.1,192.168.0.0
-   */
-  securityIPList?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      groupName: 'GroupName',
-      modifyMode: 'ModifyMode',
-      regionId: 'RegionId',
-      securityIPList: 'SecurityIPList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      groupName: 'string',
-      modifyMode: 'string',
-      regionId: 'string',
-      securityIPList: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySecurityIpsResponseBody extends $tea.Model {
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifySecurityIpsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifySecurityIpsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifySecurityIpsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseColdDataVolumeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzravgpt8q****
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseColdDataVolumeResponseBody extends $tea.Model {
-  /**
-   * @example
-   * EA330983-C895-57C0-AE82-5A63106EBB10
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseColdDataVolumeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReleaseColdDataVolumeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReleaseColdDataVolumeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseInstancePublicConnectionRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasdyuoo.polarx.rds.aliyuncs.com
-   */
-  currentConnectionString?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentConnectionString: 'CurrentConnectionString',
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentConnectionString: 'string',
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseInstancePublicConnectionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseInstancePublicConnectionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReleaseInstancePublicConnectionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReleaseInstancePublicConnectionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetAccountPasswordRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * account
-   */
-  accountName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * *****
-   */
-  accountPassword?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-htri0ori2r4k9p
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * account_sec
-   */
-  securityAccountName?: string;
-  /**
-   * @example
-   * *****
-   */
-  securityAccountPassword?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      accountPassword: 'AccountPassword',
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-      securityAccountName: 'SecurityAccountName',
-      securityAccountPassword: 'SecurityAccountPassword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      accountPassword: 'string',
-      DBInstanceName: 'string',
-      regionId: 'string',
-      securityAccountName: 'string',
-      securityAccountPassword: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetAccountPasswordResponseBody extends $tea.Model {
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 73559800-3c8c-11ec-bd40-99cfcff3fe1e
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetAccountPasswordResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ResetAccountPasswordResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ResetAccountPasswordResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartDBInstanceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartDBInstanceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RestartDBInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RestartDBInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RestartDBInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwitchDBInstanceHARequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  regionId?: string;
-  switchTime?: string;
-  switchTimeMode?: string;
-  targetPrimaryAzoneId?: string;
-  targetPrimaryRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-      switchTime: 'SwitchTime',
-      switchTimeMode: 'SwitchTimeMode',
-      targetPrimaryAzoneId: 'TargetPrimaryAzoneId',
-      targetPrimaryRegionId: 'TargetPrimaryRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-      switchTime: 'string',
-      switchTimeMode: 'string',
-      targetPrimaryAzoneId: 'string',
-      targetPrimaryRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwitchDBInstanceHAResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwitchDBInstanceHAResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SwitchDBInstanceHAResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SwitchDBInstanceHAResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwitchGdnMemberRoleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-********
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  switchMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      regionId: 'RegionId',
-      switchMode: 'SwitchMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      regionId: 'string',
-      switchMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwitchGdnMemberRoleResponseBody extends $tea.Model {
-  data?: SwitchGdnMemberRoleResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SwitchGdnMemberRoleResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SwitchGdnMemberRoleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SwitchGdnMemberRoleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SwitchGdnMemberRoleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PolarDBXInstance
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  tag?: TagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * xxxx-xxxx
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $tea.Model {
-  all?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * PolarDBXInstance
-   */
-  resourceType?: string;
-  tagKey?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      all: 'All',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tagKey: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * RequestId
-   * 
-   * @example
-   * xxxxxx
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UntagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateBackupPolicyRequest extends $tea.Model {
-  /**
-   * @example
-   * 1001000
-   */
-  backupPeriod?: string;
-  /**
-   * @example
-   * 03:00Z
-   */
-  backupPlanBegin?: string;
-  /**
-   * @example
-   * 30
-   */
-  backupSetRetention?: number;
-  /**
-   * @example
-   * 0
-   */
-  backupType?: string;
-  /**
-   * @example
-   * P
-   */
-  backupWay?: string;
-  /**
-   * @example
-   * 30
-   */
-  coldDataBackupInterval?: number;
-  /**
-   * @example
-   * 30
-   */
-  coldDataBackupRetention?: number;
-  crossRegionDataBackupRetention?: number;
-  crossRegionLogBackupRetention?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasdyuoo
-   */
-  DBInstanceName?: string;
-  destCrossRegion?: string;
-  /**
-   * @example
-   * 1
-   */
-  forceCleanOnHighSpaceUsage?: number;
-  isCrossRegionDataBackupEnabled?: boolean;
-  isCrossRegionLogBackupEnabled?: boolean;
-  /**
-   * @example
-   * 1
-   */
-  isEnabled?: number;
-  /**
-   * @example
-   * 7
-   */
-  localLogRetention?: number;
-  localLogRetentionNumber?: number;
-  /**
-   * @example
-   * 30
-   */
-  logLocalRetentionSpace?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * 7
-   */
-  removeLogRetention?: number;
-  static names(): { [key: string]: string } {
-    return {
-      backupPeriod: 'BackupPeriod',
-      backupPlanBegin: 'BackupPlanBegin',
-      backupSetRetention: 'BackupSetRetention',
-      backupType: 'BackupType',
-      backupWay: 'BackupWay',
-      coldDataBackupInterval: 'ColdDataBackupInterval',
-      coldDataBackupRetention: 'ColdDataBackupRetention',
-      crossRegionDataBackupRetention: 'CrossRegionDataBackupRetention',
-      crossRegionLogBackupRetention: 'CrossRegionLogBackupRetention',
-      DBInstanceName: 'DBInstanceName',
-      destCrossRegion: 'DestCrossRegion',
-      forceCleanOnHighSpaceUsage: 'ForceCleanOnHighSpaceUsage',
-      isCrossRegionDataBackupEnabled: 'IsCrossRegionDataBackupEnabled',
-      isCrossRegionLogBackupEnabled: 'IsCrossRegionLogBackupEnabled',
-      isEnabled: 'IsEnabled',
-      localLogRetention: 'LocalLogRetention',
-      localLogRetentionNumber: 'LocalLogRetentionNumber',
-      logLocalRetentionSpace: 'LogLocalRetentionSpace',
-      regionId: 'RegionId',
-      removeLogRetention: 'RemoveLogRetention',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backupPeriod: 'string',
-      backupPlanBegin: 'string',
-      backupSetRetention: 'number',
-      backupType: 'string',
-      backupWay: 'string',
-      coldDataBackupInterval: 'number',
-      coldDataBackupRetention: 'number',
-      crossRegionDataBackupRetention: 'number',
-      crossRegionLogBackupRetention: 'number',
-      DBInstanceName: 'string',
-      destCrossRegion: 'string',
-      forceCleanOnHighSpaceUsage: 'number',
-      isCrossRegionDataBackupEnabled: 'boolean',
-      isCrossRegionLogBackupEnabled: 'boolean',
-      isEnabled: 'number',
-      localLogRetention: 'number',
-      localLogRetentionNumber: 'number',
-      logLocalRetentionSpace: 'number',
-      regionId: 'string',
-      removeLogRetention: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateBackupPolicyResponseBody extends $tea.Model {
-  data?: UpdateBackupPolicyResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: UpdateBackupPolicyResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateBackupPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateBackupPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateBackupPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDBInstanceSSLRequest extends $tea.Model {
-  /**
-   * @example
-   * pxc-hzrqjarxdocd4t.polarx.rds.aliyuncs.com
-   */
-  certCommonName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * true
-   */
-  enableSSL?: boolean;
-  /**
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      certCommonName: 'CertCommonName',
-      DBInstanceName: 'DBInstanceName',
-      enableSSL: 'EnableSSL',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certCommonName: 'string',
-      DBInstanceName: 'string',
-      enableSSL: 'boolean',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDBInstanceSSLResponseBody extends $tea.Model {
-  data?: UpdateDBInstanceSSLResponseBodyData;
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: UpdateDBInstanceSSLResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDBInstanceSSLResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateDBInstanceSSLResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateDBInstanceSSLResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDBInstanceTDERequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * RkVBNURDMjAtNkQ4QS01OTc5LTk3QUEtRkM1NzU0Nk******
-   */
-  encryptionKey?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * acs:ram::1406926****:role/aliyunrdsinstanceencryptiondefaultrole
-   */
-  roleArn?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  TDEStatus?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      encryptionKey: 'EncryptionKey',
-      regionId: 'RegionId',
-      roleArn: 'RoleArn',
-      TDEStatus: 'TDEStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      encryptionKey: 'string',
-      regionId: 'string',
-      roleArn: 'string',
-      TDEStatus: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDBInstanceTDEResponseBody extends $tea.Model {
-  data?: UpdateDBInstanceTDEResponseBodyData;
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: UpdateDBInstanceTDEResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateDBInstanceTDEResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateDBInstanceTDEResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateDBInstanceTDEResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePolarDBXInstanceNodeRequest extends $tea.Model {
-  addDNSpec?: string;
-  /**
-   * @example
-   * 2
-   */
-  CNNodeCount?: string;
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasdyuoo
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * 2
-   */
-  DNNodeCount?: string;
-  /**
-   * @example
-   * 3
-   */
-  dbInstanceNodeCount?: string;
-  deleteDNIds?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  storagePoolName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addDNSpec: 'AddDNSpec',
-      CNNodeCount: 'CNNodeCount',
-      clientToken: 'ClientToken',
-      DBInstanceName: 'DBInstanceName',
-      DNNodeCount: 'DNNodeCount',
-      dbInstanceNodeCount: 'DbInstanceNodeCount',
-      deleteDNIds: 'DeleteDNIds',
-      regionId: 'RegionId',
-      storagePoolName: 'StoragePoolName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addDNSpec: 'string',
-      CNNodeCount: 'string',
-      clientToken: 'string',
-      DBInstanceName: 'string',
-      DNNodeCount: 'string',
-      dbInstanceNodeCount: 'string',
-      deleteDNIds: 'string',
-      regionId: 'string',
-      storagePoolName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePolarDBXInstanceNodeResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 20211103105558
-   */
-  orderId?: string;
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdatePolarDBXInstanceNodeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdatePolarDBXInstanceNodeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdatePolarDBXInstanceNodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeDBInstanceKernelVersionRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * polarx-kernel_5.4.12-16349923_xcluster-20210926
-   */
-  minorVersion?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @example
-   * 0
-   */
-  switchMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      minorVersion: 'MinorVersion',
-      regionId: 'RegionId',
-      switchMode: 'SwitchMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      minorVersion: 'string',
-      regionId: 'string',
-      switchMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeDBInstanceKernelVersionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * pxc-hzjasd****
-   */
-  DBInstanceName?: string;
-  /**
-   * @example
-   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
-   */
-  requestId?: string;
-  /**
-   * @example
-   * polarx-kernel_5.4.7-16001481_xcluster-20200910
-   */
-  targetMinorVersion?: string;
-  /**
-   * @example
-   * 422922413
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      requestId: 'RequestId',
-      targetMinorVersion: 'TargetMinorVersion',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      requestId: 'string',
-      targetMinorVersion: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeDBInstanceKernelVersionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpgradeDBInstanceKernelVersionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpgradeDBInstanceKernelVersionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckCloudResourceAuthorizedResponseBodyData extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class CheckCloudResourceAuthorizedResponseBodyData extends $dara.Model {
   /**
    * @example
    * 0
@@ -8739,12 +30,16 @@ export class CheckCloudResourceAuthorizedResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateBackupResponseBodyData extends $tea.Model {
+export class CreateBackupResponseBodyData extends $dara.Model {
   backupSetId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8758,12 +53,16 @@ export class CreateBackupResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeAccountListResponseBodyData extends $tea.Model {
+export class DescribeAccountListResponseBodyData extends $dara.Model {
   /**
    * @example
    * testaccount desc
@@ -8823,12 +122,16 @@ export class DescribeAccountListResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $tea.Model {
+export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara.Model {
   /**
    * @example
    * 2021-08-11T10:08:27Z
@@ -8888,12 +191,16 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $tea.
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
+export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
   /**
    * @example
    * 0
@@ -9081,12 +388,19 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.subInsNames)) {
+      $dara.Model.validateArray(this.subInsNames);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeArchiveTableListResponseBodyDataTables extends $tea.Model {
+export class DescribeArchiveTableListResponseBodyDataTables extends $dara.Model {
   archiveStatus?: string;
   createdDate?: number;
   fileCount?: number;
@@ -9118,12 +432,16 @@ export class DescribeArchiveTableListResponseBodyDataTables extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeArchiveTableListResponseBodyData extends $tea.Model {
+export class DescribeArchiveTableListResponseBodyData extends $dara.Model {
   pageIndex?: number;
   pageSize?: number;
   pausedCount?: number;
@@ -9158,12 +476,19 @@ export class DescribeArchiveTableListResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tables)) {
+      $dara.Model.validateArray(this.tables);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeBackupPolicyResponseBodyData extends $tea.Model {
+export class DescribeBackupPolicyResponseBodyData extends $dara.Model {
   backupPeriod?: string;
   backupPlanBegin?: string;
   backupSetRetention?: number;
@@ -9231,12 +556,16 @@ export class DescribeBackupPolicyResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeBackupSetResponseBodyDataOSSList extends $tea.Model {
+export class DescribeBackupSetResponseBodyDataOSSList extends $dara.Model {
   /**
    * @example
    * hins3084_data_20220418110623_qp.xb
@@ -9275,12 +604,16 @@ export class DescribeBackupSetResponseBodyDataOSSList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeBackupSetResponseBodyData extends $tea.Model {
+export class DescribeBackupSetResponseBodyData extends $dara.Model {
   /**
    * @example
    * 0
@@ -9343,12 +676,19 @@ export class DescribeBackupSetResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.OSSList)) {
+      $dara.Model.validateArray(this.OSSList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeBackupSetListResponseBodyData extends $tea.Model {
+export class DescribeBackupSetListResponseBodyData extends $dara.Model {
   /**
    * @example
    * 0
@@ -9408,12 +748,16 @@ export class DescribeBackupSetListResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeBinaryLogListResponseBodyLogList extends $tea.Model {
+export class DescribeBinaryLogListResponseBodyLogList extends $dara.Model {
   /**
    * @example
    * 2021-09-09 10:27:46
@@ -9501,12 +845,16 @@ export class DescribeBinaryLogListResponseBodyLogList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeCharacterSetResponseBodyData extends $tea.Model {
+export class DescribeCharacterSetResponseBodyData extends $dara.Model {
   characterSet?: string[];
   /**
    * @example
@@ -9527,12 +875,19 @@ export class DescribeCharacterSetResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.characterSet)) {
+      $dara.Model.validateArray(this.characterSet);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeColdDataBasicInfoResponseBodyData extends $tea.Model {
+export class DescribeColdDataBasicInfoResponseBodyData extends $dara.Model {
   backupSetCount?: number;
   backupSetSpaceSize?: number;
   cloudProduct?: string;
@@ -9573,12 +928,16 @@ export class DescribeColdDataBasicInfoResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs extends $tea.Model {
+export class DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs extends $dara.Model {
   /**
    * @example
    * polardbx-xxx.aliyuncs.com
@@ -9630,12 +989,16 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs extends 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceAttributeResponseBodyDBInstanceDBNodes extends $tea.Model {
+export class DescribeDBInstanceAttributeResponseBodyDBInstanceDBNodes extends $dara.Model {
   computeNodeId?: string;
   /**
    * @example
@@ -9680,12 +1043,16 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceDBNodes extends $t
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceAttributeResponseBodyDBInstanceGdnMemberList extends $tea.Model {
+export class DescribeDBInstanceAttributeResponseBodyDBInstanceGdnMemberList extends $dara.Model {
   memberName?: string;
   role?: string;
   status?: string;
@@ -9705,12 +1072,16 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceGdnMemberList exte
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet extends $tea.Model {
+export class DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet extends $dara.Model {
   /**
    * @example
    * key2
@@ -9735,12 +1106,16 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet extends $te
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Model {
+export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $dara.Model {
   canNotCreateColumnar?: boolean;
   /**
    * @example
@@ -10086,12 +1461,37 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
     };
   }
 
+  validate() {
+    if(Array.isArray(this.columnarReadDBInstances)) {
+      $dara.Model.validateArray(this.columnarReadDBInstances);
+    }
+    if(Array.isArray(this.connAddrs)) {
+      $dara.Model.validateArray(this.connAddrs);
+    }
+    if(Array.isArray(this.DBNodes)) {
+      $dara.Model.validateArray(this.DBNodes);
+    }
+    if(Array.isArray(this.gdnMemberList)) {
+      $dara.Model.validateArray(this.gdnMemberList);
+    }
+    if(Array.isArray(this.LTSVersions)) {
+      $dara.Model.validateArray(this.LTSVersions);
+    }
+    if(Array.isArray(this.readDBInstances)) {
+      $dara.Model.validateArray(this.readDBInstances);
+    }
+    if(Array.isArray(this.tagSet)) {
+      $dara.Model.validateArray(this.tagSet);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceConfigResponseBodyData extends $tea.Model {
+export class DescribeDBInstanceConfigResponseBodyData extends $dara.Model {
   /**
    * @example
    * htap
@@ -10115,12 +1515,16 @@ export class DescribeDBInstanceConfigResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceHAResponseBodyData extends $tea.Model {
+export class DescribeDBInstanceHAResponseBodyData extends $dara.Model {
   primaryAzoneId?: string;
   primaryRegionId?: string;
   secondaryAzoneId?: string;
@@ -10146,12 +1550,16 @@ export class DescribeDBInstanceHAResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceSSLResponseBodyData extends $tea.Model {
+export class DescribeDBInstanceSSLResponseBodyData extends $dara.Model {
   /**
    * @example
    * pxc-sddddddcym7g7w****.polarx.singapore.rds.aliyuncs.com
@@ -10183,12 +1591,16 @@ export class DescribeDBInstanceSSLResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceTDEResponseBodyData extends $tea.Model {
+export class DescribeDBInstanceTDEResponseBodyData extends $dara.Model {
   /**
    * @example
    * 0
@@ -10206,12 +1618,16 @@ export class DescribeDBInstanceTDEResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHistoryItems extends $tea.Model {
+export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHistoryItems extends $dara.Model {
   activated?: boolean;
   azone?: string;
   characterType?: string;
@@ -10246,12 +1662,16 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyHist
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList extends $tea.Model {
+export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList extends $dara.Model {
   /**
    * @example
    * cn-hangzhou-a
@@ -10276,12 +1696,16 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsConnectionIp extends $tea.Model {
+export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsConnectionIp extends $dara.Model {
   /**
    * @example
    * pxc-xdb-m-pxcdym7g7w********.mysql.singapore.rds.aliyuncs.com
@@ -10313,12 +1737,16 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItems extends $tea.Model {
+export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItems extends $dara.Model {
   /**
    * @example
    * true
@@ -10481,12 +1909,22 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
     };
   }
 
+  validate() {
+    if(Array.isArray(this.azoneRoleList)) {
+      $dara.Model.validateArray(this.azoneRoleList);
+    }
+    if(Array.isArray(this.connectionIp)) {
+      $dara.Model.validateArray(this.connectionIp);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology extends $tea.Model {
+export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology extends $dara.Model {
   /**
    * @example
    * lvs
@@ -10597,12 +2035,22 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology ext
     };
   }
 
+  validate() {
+    if(Array.isArray(this.historyItems)) {
+      $dara.Model.validateArray(this.historyItems);
+    }
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceTopologyResponseBodyData extends $tea.Model {
+export class DescribeDBInstanceTopologyResponseBodyData extends $dara.Model {
   logicInstanceTopology?: DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopology;
   static names(): { [key: string]: string } {
     return {
@@ -10616,12 +2064,19 @@ export class DescribeDBInstanceTopologyResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.logicInstanceTopology && typeof (this.logicInstanceTopology as any).validate === 'function') {
+      (this.logicInstanceTopology as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceConnAddrs extends $tea.Model {
+export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceConnAddrs extends $dara.Model {
   /**
    * @example
    * polardbx-xxx.aliyuncs.com
@@ -10677,12 +2132,16 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceConnAddrs extend
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceDBNodes extends $tea.Model {
+export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceDBNodes extends $dara.Model {
   /**
    * @example
    * pxc-i-********
@@ -10735,12 +2194,16 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceDBNodes extends 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceTagSet extends $tea.Model {
+export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceTagSet extends $dara.Model {
   /**
    * @example
    * key2
@@ -10765,12 +2228,16 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstanceTagSet extends $
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $tea.Model {
+export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $dara.Model {
   /**
    * @example
    * polarx.x4.xlarge.2e
@@ -11062,12 +2529,31 @@ export class DescribeDBInstanceViaEndpointResponseBodyDBInstance extends $tea.Mo
     };
   }
 
+  validate() {
+    if(Array.isArray(this.connAddrs)) {
+      $dara.Model.validateArray(this.connAddrs);
+    }
+    if(Array.isArray(this.DBNodes)) {
+      $dara.Model.validateArray(this.DBNodes);
+    }
+    if(Array.isArray(this.LTSVersions)) {
+      $dara.Model.validateArray(this.LTSVersions);
+    }
+    if(Array.isArray(this.readDBInstances)) {
+      $dara.Model.validateArray(this.readDBInstances);
+    }
+    if(Array.isArray(this.tagSet)) {
+      $dara.Model.validateArray(this.tagSet);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstancesResponseBodyDBInstancesNodes extends $tea.Model {
+export class DescribeDBInstancesResponseBodyDBInstancesNodes extends $dara.Model {
   /**
    * @example
    * polarx.x4.large.2e
@@ -11102,12 +2588,16 @@ export class DescribeDBInstancesResponseBodyDBInstancesNodes extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstancesResponseBodyDBInstancesTagSet extends $tea.Model {
+export class DescribeDBInstancesResponseBodyDBInstancesTagSet extends $dara.Model {
   /**
    * @example
    * key1
@@ -11132,12 +2622,16 @@ export class DescribeDBInstancesResponseBodyDBInstancesTagSet extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
+export class DescribeDBInstancesResponseBodyDBInstances extends $dara.Model {
   /**
    * @example
    * pxc-c-dmlgit****
@@ -11429,12 +2923,28 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.columnarReadDBInstances)) {
+      $dara.Model.validateArray(this.columnarReadDBInstances);
+    }
+    if(Array.isArray(this.nodes)) {
+      $dara.Model.validateArray(this.nodes);
+    }
+    if(Array.isArray(this.readDBInstances)) {
+      $dara.Model.validateArray(this.readDBInstances);
+    }
+    if(Array.isArray(this.tagSet)) {
+      $dara.Model.validateArray(this.tagSet);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItemPointsPerformanceItemValue extends $tea.Model {
+export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItemPointsPerformanceItemValue extends $dara.Model {
   /**
    * @example
    * 1600822800000
@@ -11459,12 +2969,16 @@ export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItem
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItemPoints extends $tea.Model {
+export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItemPoints extends $dara.Model {
   performanceItemValue?: DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItemPointsPerformanceItemValue[];
   static names(): { [key: string]: string } {
     return {
@@ -11478,12 +2992,19 @@ export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItem
     };
   }
 
+  validate() {
+    if(Array.isArray(this.performanceItemValue)) {
+      $dara.Model.validateArray(this.performanceItemValue);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItem extends $tea.Model {
+export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItem extends $dara.Model {
   /**
    * @example
    * pxc-i-********
@@ -11518,12 +3039,19 @@ export class DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItem
     };
   }
 
+  validate() {
+    if(this.points && typeof (this.points as any).validate === 'function') {
+      (this.points as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDBNodePerformanceResponseBodyPerformanceKeys extends $tea.Model {
+export class DescribeDBNodePerformanceResponseBodyPerformanceKeys extends $dara.Model {
   performanceItem?: DescribeDBNodePerformanceResponseBodyPerformanceKeysPerformanceItem[];
   static names(): { [key: string]: string } {
     return {
@@ -11537,12 +3065,19 @@ export class DescribeDBNodePerformanceResponseBodyPerformanceKeys extends $tea.M
     };
   }
 
+  validate() {
+    if(Array.isArray(this.performanceItem)) {
+      $dara.Model.validateArray(this.performanceItem);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDbListResponseBodyDataAccounts extends $tea.Model {
+export class DescribeDbListResponseBodyDataAccounts extends $dara.Model {
   /**
    * @example
    * root4test
@@ -11567,12 +3102,16 @@ export class DescribeDbListResponseBodyDataAccounts extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDbListResponseBodyData extends $tea.Model {
+export class DescribeDbListResponseBodyData extends $dara.Model {
   accounts?: DescribeDbListResponseBodyDataAccounts[];
   /**
    * @example
@@ -11614,12 +3153,19 @@ export class DescribeDbListResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.accounts)) {
+      $dara.Model.validateArray(this.accounts);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDistributeTableListResponseBodyDataTables extends $tea.Model {
+export class DescribeDistributeTableListResponseBodyDataTables extends $dara.Model {
   /**
    * @example
    * id
@@ -11658,12 +3204,16 @@ export class DescribeDistributeTableListResponseBodyDataTables extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDistributeTableListResponseBodyData extends $tea.Model {
+export class DescribeDistributeTableListResponseBodyData extends $dara.Model {
   tables?: DescribeDistributeTableListResponseBodyDataTables[];
   static names(): { [key: string]: string } {
     return {
@@ -11677,12 +3227,19 @@ export class DescribeDistributeTableListResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tables)) {
+      $dara.Model.validateArray(this.tables);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEventsResponseBodyEventItems extends $tea.Model {
+export class DescribeEventsResponseBodyEventItems extends $dara.Model {
   /**
    * @example
    * 50421290
@@ -11770,12 +3327,16 @@ export class DescribeEventsResponseBodyEventItems extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList extends $tea.Model {
+export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList extends $dara.Model {
   /**
    * @example
    * polarx.x4.medium.2e
@@ -11857,6 +3418,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
    * Creating
    */
   status?: string;
+  taskStatus?: string;
   /**
    * @example
    * cn-zhangjiakou-a
@@ -11885,6 +3447,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
       secondaryZone: 'SecondaryZone',
       secondsBehindMaster: 'SecondsBehindMaster',
       status: 'Status',
+      taskStatus: 'TaskStatus',
       tertiaryZone: 'TertiaryZone',
       zoneId: 'ZoneId',
     };
@@ -11908,9 +3471,14 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
       secondaryZone: 'string',
       secondsBehindMaster: 'string',
       status: 'string',
+      taskStatus: 'string',
       tertiaryZone: 'string',
       zoneId: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -11918,7 +3486,7 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceListMemberList exten
   }
 }
 
-export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $tea.Model {
+export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $dara.Model {
   /**
    * @example
    * test
@@ -11974,12 +3542,19 @@ export class DescribeGdnInstancesResponseBodyDataGdnInstanceList extends $tea.Mo
     };
   }
 
+  validate() {
+    if(Array.isArray(this.memberList)) {
+      $dara.Model.validateArray(this.memberList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeGdnInstancesResponseBodyData extends $tea.Model {
+export class DescribeGdnInstancesResponseBodyData extends $dara.Model {
   gdnInstanceList?: DescribeGdnInstancesResponseBodyDataGdnInstanceList[];
   /**
    * @example
@@ -12014,12 +3589,19 @@ export class DescribeGdnInstancesResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.gdnInstanceList)) {
+      $dara.Model.validateArray(this.gdnInstanceList);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeParameterTemplatesResponseBodyDataParameters extends $tea.Model {
+export class DescribeParameterTemplatesResponseBodyDataParameters extends $dara.Model {
   /**
    * @example
    * [0|1]
@@ -12072,12 +3654,16 @@ export class DescribeParameterTemplatesResponseBodyDataParameters extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeParameterTemplatesResponseBodyData extends $tea.Model {
+export class DescribeParameterTemplatesResponseBodyData extends $dara.Model {
   /**
    * @example
    * polarx
@@ -12112,12 +3698,19 @@ export class DescribeParameterTemplatesResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeParametersResponseBodyDataConfigParameters extends $tea.Model {
+export class DescribeParametersResponseBodyDataConfigParameters extends $dara.Model {
   parameterDescription?: string;
   /**
    * @example
@@ -12145,12 +3738,16 @@ export class DescribeParametersResponseBodyDataConfigParameters extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeParametersResponseBodyDataRunningParameters extends $tea.Model {
+export class DescribeParametersResponseBodyDataRunningParameters extends $dara.Model {
   parameterDescription?: string;
   /**
    * @example
@@ -12178,12 +3775,16 @@ export class DescribeParametersResponseBodyDataRunningParameters extends $tea.Mo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeParametersResponseBodyData extends $tea.Model {
+export class DescribeParametersResponseBodyData extends $dara.Model {
   configParameters?: DescribeParametersResponseBodyDataConfigParameters[];
   DBInstanceId?: string;
   /**
@@ -12217,12 +3818,22 @@ export class DescribeParametersResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.configParameters)) {
+      $dara.Model.validateArray(this.configParameters);
+    }
+    if(Array.isArray(this.runningParameters)) {
+      $dara.Model.validateArray(this.runningParameters);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponseBodyRegionsRegionZonesZone extends $tea.Model {
+export class DescribeRegionsResponseBodyRegionsRegionZonesZone extends $dara.Model {
   /**
    * @example
    * true
@@ -12247,12 +3858,16 @@ export class DescribeRegionsResponseBodyRegionsRegionZonesZone extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponseBodyRegionsRegionZones extends $tea.Model {
+export class DescribeRegionsResponseBodyRegionsRegionZones extends $dara.Model {
   zone?: DescribeRegionsResponseBodyRegionsRegionZonesZone[];
   static names(): { [key: string]: string } {
     return {
@@ -12266,12 +3881,19 @@ export class DescribeRegionsResponseBodyRegionsRegionZones extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.zone)) {
+      $dara.Model.validateArray(this.zone);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
+export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
   /**
    * @example
    * ch-hangzhou
@@ -12306,12 +3928,19 @@ export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.zones && typeof (this.zones as any).validate === 'function') {
+      (this.zones as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   region?: DescribeRegionsResponseBodyRegionsRegion[];
   static names(): { [key: string]: string } {
     return {
@@ -12325,12 +3954,19 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.region)) {
+      $dara.Model.validateArray(this.region);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeSecurityIpsResponseBodyDataGroupItems extends $tea.Model {
+export class DescribeSecurityIpsResponseBodyDataGroupItems extends $dara.Model {
   /**
    * @example
    * defaultGroup
@@ -12355,12 +3991,16 @@ export class DescribeSecurityIpsResponseBodyDataGroupItems extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeSecurityIpsResponseBodyData extends $tea.Model {
+export class DescribeSecurityIpsResponseBodyData extends $dara.Model {
   /**
    * @example
    * pxc-hzjasd****
@@ -12381,12 +4021,19 @@ export class DescribeSecurityIpsResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.groupItems)) {
+      $dara.Model.validateArray(this.groupItems);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeSlowLogRecordsResponseBodyItems extends $tea.Model {
+export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
   /**
    * @example
    * pxc-i-xxxx
@@ -12572,12 +4219,16 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeTagsResponseBodyTagInfos extends $tea.Model {
+export class DescribeTagsResponseBodyTagInfos extends $dara.Model {
   DBInstanceIds?: string[];
   /**
    * @example
@@ -12605,12 +4256,19 @@ export class DescribeTagsResponseBodyTagInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.DBInstanceIds)) {
+      $dara.Model.validateArray(this.DBInstanceIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeTasksResponseBodyItems extends $tea.Model {
+export class DescribeTasksResponseBodyItems extends $dara.Model {
   /**
    * @example
    * 2021-10-20T19:40:00Z
@@ -12698,12 +4356,16 @@ export class DescribeTasksResponseBodyItems extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeUserEncryptionKeyListResponseBodyData extends $tea.Model {
+export class DescribeUserEncryptionKeyListResponseBodyData extends $dara.Model {
   keyIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12717,12 +4379,19 @@ export class DescribeUserEncryptionKeyListResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.keyIds)) {
+      $dara.Model.validateArray(this.keyIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequestTag extends $tea.Model {
+export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @example
    * 1
@@ -12747,12 +4416,16 @@ export class ListTagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
   /**
    * @example
    * pxc-xxxx
@@ -12791,12 +4464,16 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Mo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
   static names(): { [key: string]: string } {
     return {
@@ -12810,12 +4487,19 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagResource)) {
+      $dara.Model.validateArray(this.tagResource);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ModifyDBInstanceConnectionStringResponseBodyData extends $tea.Model {
+export class ModifyDBInstanceConnectionStringResponseBodyData extends $dara.Model {
   /**
    * @example
    * test2.polarx.huhehaote.rds.aliyuncs.com
@@ -12854,12 +4538,16 @@ export class ModifyDBInstanceConnectionStringResponseBodyData extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SwitchGdnMemberRoleResponseBodyData extends $tea.Model {
+export class SwitchGdnMemberRoleResponseBodyData extends $dara.Model {
   /**
    * @example
    * 2209883
@@ -12877,12 +4565,16 @@ export class SwitchGdnMemberRoleResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequestTag extends $tea.Model {
+export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @example
    * 12
@@ -12907,12 +4599,16 @@ export class TagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateBackupPolicyResponseBodyData extends $tea.Model {
+export class UpdateBackupPolicyResponseBodyData extends $dara.Model {
   backupPeriod?: string;
   backupPlanBegin?: string;
   backupSetRetention?: number;
@@ -12980,12 +4676,16 @@ export class UpdateBackupPolicyResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateDBInstanceSSLResponseBodyData extends $tea.Model {
+export class UpdateDBInstanceSSLResponseBodyData extends $dara.Model {
   /**
    * @example
    * 2209883
@@ -13003,12 +4703,16 @@ export class UpdateDBInstanceSSLResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateDBInstanceTDEResponseBodyData extends $tea.Model {
+export class UpdateDBInstanceTDEResponseBodyData extends $dara.Model {
   /**
    * @example
    * 42292****
@@ -13026,6 +4730,10208 @@ export class UpdateDBInstanceTDEResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlignStoragePrimaryAzoneRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  storageInstanceName?: string;
+  switchTime?: string;
+  switchTimeMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      storageInstanceName: 'StorageInstanceName',
+      switchTime: 'SwitchTime',
+      switchTimeMode: 'SwitchTimeMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+      storageInstanceName: 'string',
+      switchTime: 'string',
+      switchTimeMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlignStoragePrimaryAzoneResponseBody extends $dara.Model {
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlignStoragePrimaryAzoneResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AlignStoragePrimaryAzoneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AlignStoragePrimaryAzoneResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllocateColdDataVolumeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzravgpt8q****
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllocateColdDataVolumeResponseBody extends $dara.Model {
+  /**
+   * @example
+   * D6A4256F-7B83-5BD7-9AC0-72E1FAC05330
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllocateColdDataVolumeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AllocateColdDataVolumeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AllocateColdDataVolumeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllocateInstancePublicConnectionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-**************
+   */
+  connectionStringPrefix?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-**************
+   */
+  DBInstanceName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3306
+   */
+  port?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectionStringPrefix: 'ConnectionStringPrefix',
+      DBInstanceName: 'DBInstanceName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      port: 'Port',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionStringPrefix: 'string',
+      DBInstanceName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      port: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllocateInstancePublicConnectionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AllocateInstancePublicConnectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AllocateInstancePublicConnectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AllocateInstancePublicConnectionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelActiveOperationTasksRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 111
+   */
+  ids?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelActiveOperationTasksResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 111,1223
+   */
+  ids?: string;
+  /**
+   * @example
+   * AE4F6C34-065F-45AA-B5DC-4B8D816F6305
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelActiveOperationTasksResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelActiveOperationTasksResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rg-acfmwolx3j4****
+   */
+  newResourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-szrwrbp693****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PolarDBXInstance
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newResourceGroupId: 'NewResourceGroupId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newResourceGroupId: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3WE34
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCloudResourceAuthorizedRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * acs:ram::123456789012****:role/AliyunRdsInstanceEncryptionDefaultRole
+   */
+  roleArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      roleArn: 'RoleArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+      roleArn: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCloudResourceAuthorizedResponseBody extends $dara.Model {
+  data?: CheckCloudResourceAuthorizedResponseBodyData;
+  /**
+   * @example
+   * A501A191-BD70-5E50-98A9-C2A486A82****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CheckCloudResourceAuthorizedResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckCloudResourceAuthorizedResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckCloudResourceAuthorizedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckCloudResourceAuthorizedResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccountRequest extends $dara.Model {
+  /**
+   * @example
+   * test
+   */
+  accountDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testAccount
+   */
+  accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Test@1111
+   */
+  accountPassword?: string;
+  /**
+   * @example
+   * ReadWrite
+   */
+  accountPrivilege?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-**************
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * testdb
+   */
+  DBName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * securityAccount
+   */
+  securityAccountName?: string;
+  /**
+   * @example
+   * securityPassword
+   */
+  securityAccountPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountDescription: 'AccountDescription',
+      accountName: 'AccountName',
+      accountPassword: 'AccountPassword',
+      accountPrivilege: 'AccountPrivilege',
+      DBInstanceName: 'DBInstanceName',
+      DBName: 'DBName',
+      regionId: 'RegionId',
+      securityAccountName: 'SecurityAccountName',
+      securityAccountPassword: 'SecurityAccountPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountDescription: 'string',
+      accountName: 'string',
+      accountPassword: 'string',
+      accountPrivilege: 'string',
+      DBInstanceName: 'string',
+      DBName: 'string',
+      regionId: 'string',
+      securityAccountName: 'string',
+      securityAccountPassword: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccountResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ****
+   */
+  message?: string;
+  /**
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackupRequest extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  backupType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-**************
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupType: 'BackupType',
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupType: 'string',
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackupResponseBody extends $dara.Model {
+  data?: CreateBackupResponseBodyData;
+  /**
+   * @example
+   * *****
+   */
+  message?: string;
+  /**
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateBackupResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBackupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBackupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testaccount
+   */
+  accountName?: string;
+  /**
+   * @example
+   * ReadWrite
+   */
+  accountPrivilege?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * utf8mb4
+   */
+  charset?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-**************
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * db for test
+   */
+  dbDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testdb
+   */
+  dbName?: string;
+  /**
+   * @example
+   * auto
+   */
+  mode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * securityAccount
+   */
+  securityAccountName?: string;
+  /**
+   * @example
+   * securityPassword
+   */
+  securityAccountPassword?: string;
+  storagePoolName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      accountPrivilege: 'AccountPrivilege',
+      charset: 'Charset',
+      DBInstanceName: 'DBInstanceName',
+      dbDescription: 'DbDescription',
+      dbName: 'DbName',
+      mode: 'Mode',
+      regionId: 'RegionId',
+      securityAccountName: 'SecurityAccountName',
+      securityAccountPassword: 'SecurityAccountPassword',
+      storagePoolName: 'StoragePoolName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      accountPrivilege: 'string',
+      charset: 'string',
+      DBInstanceName: 'string',
+      dbDescription: 'string',
+      dbName: 'string',
+      mode: 'string',
+      regionId: 'string',
+      securityAccountName: 'string',
+      securityAccountPassword: 'string',
+      storagePoolName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBResponseBody extends $dara.Model {
+  /**
+   * @example
+   * *****
+   */
+  message?: string;
+  /**
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDBResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDBResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBInstanceRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  autoRenew?: boolean;
+  CNNodeCount?: string;
+  /**
+   * @example
+   * xxxxxx-xxx
+   */
+  clientToken?: string;
+  cnClass?: string;
+  /**
+   * @example
+   * polarx.x4.2xlarge.2d
+   */
+  DBNodeClass?: string;
+  /**
+   * @example
+   * 2
+   */
+  DBNodeCount?: number;
+  DNNodeCount?: string;
+  dnClass?: string;
+  dnStorageSpace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2.0
+   */
+  engineVersion?: string;
+  extraParams?: { [key: string]: string };
+  isColumnarReadDBInstance?: boolean;
+  /**
+   * @example
+   * false
+   */
+  isReadDBInstance?: boolean;
+  /**
+   * @example
+   * vpc
+   */
+  networkType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PREPAY
+   */
+  payType?: string;
+  /**
+   * @example
+   * Month
+   */
+  period?: string;
+  /**
+   * @example
+   * pxc-*********
+   */
+  primaryDBInstanceName?: string;
+  /**
+   * @example
+   * cn-shenzhen-e
+   */
+  primaryZone?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * null
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * cn-shenzhen-a
+   */
+  secondaryZone?: string;
+  series?: string;
+  /**
+   * @example
+   * cn-shenzhen-e
+   */
+  tertiaryZone?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3azones
+   */
+  topologyType?: string;
+  /**
+   * @example
+   * 1
+   */
+  usedTime?: number;
+  /**
+   * @remarks
+   * VPC ID。
+   * 
+   * @example
+   * vpc-*****
+   */
+  VPCId?: string;
+  /**
+   * @example
+   * vsw-*********
+   */
+  vSwitchId?: string;
+  /**
+   * @example
+   * cn-hangzhou-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'AutoRenew',
+      CNNodeCount: 'CNNodeCount',
+      clientToken: 'ClientToken',
+      cnClass: 'CnClass',
+      DBNodeClass: 'DBNodeClass',
+      DBNodeCount: 'DBNodeCount',
+      DNNodeCount: 'DNNodeCount',
+      dnClass: 'DnClass',
+      dnStorageSpace: 'DnStorageSpace',
+      engineVersion: 'EngineVersion',
+      extraParams: 'ExtraParams',
+      isColumnarReadDBInstance: 'IsColumnarReadDBInstance',
+      isReadDBInstance: 'IsReadDBInstance',
+      networkType: 'NetworkType',
+      payType: 'PayType',
+      period: 'Period',
+      primaryDBInstanceName: 'PrimaryDBInstanceName',
+      primaryZone: 'PrimaryZone',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      secondaryZone: 'SecondaryZone',
+      series: 'Series',
+      tertiaryZone: 'TertiaryZone',
+      topologyType: 'TopologyType',
+      usedTime: 'UsedTime',
+      VPCId: 'VPCId',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      CNNodeCount: 'string',
+      clientToken: 'string',
+      cnClass: 'string',
+      DBNodeClass: 'string',
+      DBNodeCount: 'number',
+      DNNodeCount: 'string',
+      dnClass: 'string',
+      dnStorageSpace: 'string',
+      engineVersion: 'string',
+      extraParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      isColumnarReadDBInstance: 'boolean',
+      isReadDBInstance: 'boolean',
+      networkType: 'string',
+      payType: 'string',
+      period: 'string',
+      primaryDBInstanceName: 'string',
+      primaryZone: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      secondaryZone: 'string',
+      series: 'string',
+      tertiaryZone: 'string',
+      topologyType: 'string',
+      usedTime: 'number',
+      VPCId: 'string',
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.extraParams) {
+      $dara.Model.validateMap(this.extraParams);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBInstanceShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  autoRenew?: boolean;
+  CNNodeCount?: string;
+  /**
+   * @example
+   * xxxxxx-xxx
+   */
+  clientToken?: string;
+  cnClass?: string;
+  /**
+   * @example
+   * polarx.x4.2xlarge.2d
+   */
+  DBNodeClass?: string;
+  /**
+   * @example
+   * 2
+   */
+  DBNodeCount?: number;
+  DNNodeCount?: string;
+  dnClass?: string;
+  dnStorageSpace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2.0
+   */
+  engineVersion?: string;
+  extraParamsShrink?: string;
+  isColumnarReadDBInstance?: boolean;
+  /**
+   * @example
+   * false
+   */
+  isReadDBInstance?: boolean;
+  /**
+   * @example
+   * vpc
+   */
+  networkType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PREPAY
+   */
+  payType?: string;
+  /**
+   * @example
+   * Month
+   */
+  period?: string;
+  /**
+   * @example
+   * pxc-*********
+   */
+  primaryDBInstanceName?: string;
+  /**
+   * @example
+   * cn-shenzhen-e
+   */
+  primaryZone?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * null
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * cn-shenzhen-a
+   */
+  secondaryZone?: string;
+  series?: string;
+  /**
+   * @example
+   * cn-shenzhen-e
+   */
+  tertiaryZone?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3azones
+   */
+  topologyType?: string;
+  /**
+   * @example
+   * 1
+   */
+  usedTime?: number;
+  /**
+   * @remarks
+   * VPC ID。
+   * 
+   * @example
+   * vpc-*****
+   */
+  VPCId?: string;
+  /**
+   * @example
+   * vsw-*********
+   */
+  vSwitchId?: string;
+  /**
+   * @example
+   * cn-hangzhou-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'AutoRenew',
+      CNNodeCount: 'CNNodeCount',
+      clientToken: 'ClientToken',
+      cnClass: 'CnClass',
+      DBNodeClass: 'DBNodeClass',
+      DBNodeCount: 'DBNodeCount',
+      DNNodeCount: 'DNNodeCount',
+      dnClass: 'DnClass',
+      dnStorageSpace: 'DnStorageSpace',
+      engineVersion: 'EngineVersion',
+      extraParamsShrink: 'ExtraParams',
+      isColumnarReadDBInstance: 'IsColumnarReadDBInstance',
+      isReadDBInstance: 'IsReadDBInstance',
+      networkType: 'NetworkType',
+      payType: 'PayType',
+      period: 'Period',
+      primaryDBInstanceName: 'PrimaryDBInstanceName',
+      primaryZone: 'PrimaryZone',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      secondaryZone: 'SecondaryZone',
+      series: 'Series',
+      tertiaryZone: 'TertiaryZone',
+      topologyType: 'TopologyType',
+      usedTime: 'UsedTime',
+      VPCId: 'VPCId',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      CNNodeCount: 'string',
+      clientToken: 'string',
+      cnClass: 'string',
+      DBNodeClass: 'string',
+      DBNodeCount: 'number',
+      DNNodeCount: 'string',
+      dnClass: 'string',
+      dnStorageSpace: 'string',
+      engineVersion: 'string',
+      extraParamsShrink: 'string',
+      isColumnarReadDBInstance: 'boolean',
+      isReadDBInstance: 'boolean',
+      networkType: 'string',
+      payType: 'string',
+      period: 'string',
+      primaryDBInstanceName: 'string',
+      primaryZone: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      secondaryZone: 'string',
+      series: 'string',
+      tertiaryZone: 'string',
+      topologyType: 'string',
+      usedTime: 'number',
+      VPCId: 'string',
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBInstanceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * pxc-*********
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * 12345
+   */
+  orderId?: string;
+  /**
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDBInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDBInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSuperAccountRequest extends $dara.Model {
+  /**
+   * @example
+   * testdbadescription
+   */
+  accountDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dba
+   */
+  accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testdbapassword
+   */
+  accountPassword?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-************
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountDescription: 'AccountDescription',
+      accountName: 'AccountName',
+      accountPassword: 'AccountPassword',
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountDescription: 'string',
+      accountName: 'string',
+      accountPassword: 'string',
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSuperAccountResponseBody extends $dara.Model {
+  /**
+   * @example
+   * *****
+   */
+  message?: string;
+  /**
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSuperAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSuperAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSuperAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testaccount
+   */
+  accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-*********
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * securityAccount
+   */
+  securityAccountName?: string;
+  /**
+   * @example
+   * securityPassword
+   */
+  securityAccountPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      securityAccountName: 'SecurityAccountName',
+      securityAccountPassword: 'SecurityAccountPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      DBInstanceName: 'string',
+      regionId: 'string',
+      securityAccountName: 'string',
+      securityAccountPassword: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ****
+   */
+  message?: string;
+  /**
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testdb
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      dbName: 'DbName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      dbName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBResponseBody extends $dara.Model {
+  /**
+   * @example
+   * *****
+   */
+  message?: string;
+  /**
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDBResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDBResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBInstanceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDBInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDBInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccountListRequest extends $dara.Model {
+  /**
+   * @example
+   * testaccount
+   */
+  accountName?: string;
+  /**
+   * @example
+   * 0
+   */
+  accountType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      accountType: 'AccountType',
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      accountType: 'string',
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccountListResponseBody extends $dara.Model {
+  data?: DescribeAccountListResponseBodyData[];
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeAccountListResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccountListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeAccountListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeAccountListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationMaintainConfRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationMaintainConfResponseBody extends $dara.Model {
+  config?: DescribeActiveOperationMaintainConfResponseBodyConfig;
+  /**
+   * @example
+   * 1
+   */
+  hasConfig?: number;
+  /**
+   * @example
+   * 1A586DCB-39A6-4050-81CC-C7BD4CCDB49F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      hasConfig: 'HasConfig',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: DescribeActiveOperationMaintainConfResponseBodyConfig,
+      hasConfig: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.config && typeof (this.config as any).validate === 'function') {
+      (this.config as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationMaintainConfResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeActiveOperationMaintainConfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeActiveOperationMaintainConfResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTaskCountRequest extends $dara.Model {
+  /**
+   * @example
+   * Category
+   */
+  category?: string;
+  /**
+   * @example
+   * polarx
+   */
+  product?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      product: 'Product',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      product: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTaskCountResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  needPop?: number;
+  /**
+   * @example
+   * EC7E27FC-58F8-4722-89BB-D1B6D0971956
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 20
+   */
+  taskCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      needPop: 'NeedPop',
+      requestId: 'RequestId',
+      taskCount: 'TaskCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      needPop: 'number',
+      requestId: 'string',
+      taskCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTaskCountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeActiveOperationTaskCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeActiveOperationTaskCountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksRequest extends $dara.Model {
+  /**
+   * @example
+   * -1
+   */
+  allowCancel?: number;
+  /**
+   * @example
+   * -1
+   */
+  allowChange?: number;
+  /**
+   * @example
+   * all
+   */
+  changeLevel?: string;
+  /**
+   * @example
+   * polarx
+   */
+  dbType?: string;
+  /**
+   * @example
+   * pxc-xxxxx
+   */
+  insName?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 25
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * polarx
+   */
+  productId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * -1
+   */
+  status?: number;
+  /**
+   * @example
+   * all
+   */
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowCancel: 'AllowCancel',
+      allowChange: 'AllowChange',
+      changeLevel: 'ChangeLevel',
+      dbType: 'DbType',
+      insName: 'InsName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      productId: 'ProductId',
+      region: 'Region',
+      regionId: 'RegionId',
+      status: 'Status',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCancel: 'number',
+      allowChange: 'number',
+      changeLevel: 'string',
+      dbType: 'string',
+      insName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      productId: 'string',
+      region: 'string',
+      regionId: 'string',
+      status: 'number',
+      taskType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
+  items?: DescribeActiveOperationTasksResponseBodyItems[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 12
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * xxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 23
+   */
+  totalRecordCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalRecordCount: 'TotalRecordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeActiveOperationTasksResponseBodyItems },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalRecordCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeActiveOperationTasksResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeArchiveTableListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  pageIndex?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  schemaName?: string;
+  status?: string;
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      schemaName: 'SchemaName',
+      status: 'Status',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      schemaName: 'string',
+      status: 'string',
+      tableName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeArchiveTableListResponseBody extends $dara.Model {
+  data?: DescribeArchiveTableListResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeArchiveTableListResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeArchiveTableListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeArchiveTableListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeArchiveTableListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyResponseBody extends $dara.Model {
+  data?: DescribeBackupPolicyResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * B87E2AB3-B7C9-4394-9160-7F639F732031
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeBackupPolicyResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBackupPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeBackupPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 111
+   */
+  backupSetId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-htri0ori2r****
+   */
+  DBInstanceName?: string;
+  destCrossRegion?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupSetId: 'BackupSetId',
+      DBInstanceName: 'DBInstanceName',
+      destCrossRegion: 'DestCrossRegion',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupSetId: 'string',
+      DBInstanceName: 'string',
+      destCrossRegion: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetResponseBody extends $dara.Model {
+  data?: DescribeBackupSetResponseBodyData[];
+  /**
+   * @example
+   * successs
+   */
+  message?: string;
+  /**
+   * @example
+   * 1A6D328C-84B8-40DC-BF49-6C73984D7494
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeBackupSetResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBackupSetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeBackupSetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-xxxxxx
+   */
+  DBInstanceName?: string;
+  destCrossRegion?: string;
+  /**
+   * @example
+   * 1635707845000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 1635707845000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      destCrossRegion: 'DestCrossRegion',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      destCrossRegion: 'string',
+      endTime: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetListResponseBody extends $dara.Model {
+  data?: DescribeBackupSetListResponseBodyData[];
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1A6D328C-84B8-40DC-BF49-6C73984D7494
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeBackupSetListResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupSetListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBackupSetListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeBackupSetListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBinaryLogListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hz1fds
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-11-09 10:27:46
+   */
+  endTime?: string;
+  instanceName?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-09-09 10:27:46
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      endTime: 'EndTime',
+      instanceName: 'InstanceName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      endTime: 'string',
+      instanceName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBinaryLogListResponseBody extends $dara.Model {
+  logList?: DescribeBinaryLogListResponseBodyLogList[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 2DFF784E-DC31-5BBC-9B25-9261CD9E0AA9
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 100
+   */
+  totalNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      logList: 'LogList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalNumber: 'TotalNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logList: { 'type': 'array', 'itemType': DescribeBinaryLogListResponseBodyLogList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalNumber: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.logList)) {
+      $dara.Model.validateArray(this.logList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBinaryLogListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeBinaryLogListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeBinaryLogListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCharacterSetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-*********
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCharacterSetResponseBody extends $dara.Model {
+  data?: DescribeCharacterSetResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 709C1E40-092D-4A3D-9958-6D7438******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeCharacterSetResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCharacterSetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCharacterSetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCharacterSetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColdDataBasicInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColdDataBasicInfoResponseBody extends $dara.Model {
+  data?: DescribeColdDataBasicInfoResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeColdDataBasicInfoResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeColdDataBasicInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeColdDataBasicInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeColdDataBasicInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceAttributeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-aekzaxhezhs5***
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
+  DBInstance?: DescribeDBInstanceAttributeResponseBodyDBInstance;
+  /**
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstance: 'DBInstance',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstance: DescribeDBInstanceAttributeResponseBodyDBInstance,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.DBInstance && typeof (this.DBInstance as any).validate === 'function') {
+      (this.DBInstance as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceAttributeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceAttributeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * htap
+   */
+  configName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-*********
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configName: 'ConfigName',
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configName: 'string',
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceConfigResponseBody extends $dara.Model {
+  data?: DescribeDBInstanceConfigResponseBodyData;
+  /**
+   * @example
+   * C458B1E8-1683-3645-B154-6BA32080EEA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeDBInstanceConfigResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceHARequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceHAResponseBody extends $dara.Model {
+  data?: DescribeDBInstanceHAResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeDBInstanceHAResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceHAResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceHAResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceHAResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceSSLRequest extends $dara.Model {
+  /**
+   * @example
+   * pxc-*********
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceSSLResponseBody extends $dara.Model {
+  data?: DescribeDBInstanceSSLResponseBodyData;
+  /**
+   * @example
+   * C458B1E8-1683-3645-B154-6BA32080EEA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeDBInstanceSSLResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceSSLResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceSSLResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceSSLResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceTDERequest extends $dara.Model {
+  /**
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceTDEResponseBody extends $dara.Model {
+  data?: DescribeDBInstanceTDEResponseBodyData;
+  /**
+   * @example
+   * C458B1E8-1683-3645-B154-6BA32080EEA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeDBInstanceTDEResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceTDEResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceTDEResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceTDEResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceTopologyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  endTime?: string;
+  minuteSimple?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      endTime: 'EndTime',
+      minuteSimple: 'MinuteSimple',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      endTime: 'string',
+      minuteSimple: 'boolean',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceTopologyResponseBody extends $dara.Model {
+  data?: DescribeDBInstanceTopologyResponseBodyData;
+  /**
+   * @example
+   * C458B1E8-1683-3645-B154-6BA32080EEA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeDBInstanceTopologyResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceTopologyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceTopologyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceTopologyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceViaEndpointRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hz*******.polarx.rds.aliyuncs.com
+   */
+  endpoint?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'Endpoint',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceViaEndpointResponseBody extends $dara.Model {
+  DBInstance?: DescribeDBInstanceViaEndpointResponseBodyDBInstance;
+  /**
+   * @example
+   * 14036EBE-CF2E-44DB-ACE9-AC6157D3A6FC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstance: 'DBInstance',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstance: DescribeDBInstanceViaEndpointResponseBodyDBInstance,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.DBInstance && typeof (this.DBInstance as any).validate === 'function') {
+      (this.DBInstance as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstanceViaEndpointResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstanceViaEndpointResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstanceViaEndpointResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstancesRequest extends $dara.Model {
+  dbVersion?: string;
+  /**
+   * @example
+   * dinga93c84f4d***
+   */
+  instanceId?: string;
+  mustHasCdc?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-acfmyst47hjw***
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * enterprise
+   */
+  series?: string;
+  /**
+   * @example
+   * [{\\"TagKey\\":\\"test\\",\\"TagValue\\":\\"test-value\\"}]
+   */
+  tags?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbVersion: 'DbVersion',
+      instanceId: 'InstanceId',
+      mustHasCdc: 'MustHasCdc',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      series: 'Series',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbVersion: 'string',
+      instanceId: 'string',
+      mustHasCdc: 'boolean',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      series: 'string',
+      tags: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstancesResponseBody extends $dara.Model {
+  DBInstances?: DescribeDBInstancesResponseBodyDBInstances[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * C458B1E8-1683-3645-B154-6BA32080EEA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 30
+   */
+  totalNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstances: 'DBInstances',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalNumber: 'TotalNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstances: { 'type': 'array', 'itemType': DescribeDBInstancesResponseBodyDBInstances },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalNumber: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.DBInstances)) {
+      $dara.Model.validateArray(this.DBInstances);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBNodePerformanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * polarx_cn
+   */
+  characterType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-*******
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-i-******,pxc-i-*******
+   */
+  DBNodeIds?: string;
+  /**
+   * @example
+   * master
+   */
+  DBNodeRole?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2012-06-18T15:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Cpu_Usage,Mem_Usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2012-06-08T15:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      characterType: 'CharacterType',
+      DBInstanceName: 'DBInstanceName',
+      DBNodeIds: 'DBNodeIds',
+      DBNodeRole: 'DBNodeRole',
+      endTime: 'EndTime',
+      key: 'Key',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      characterType: 'string',
+      DBInstanceName: 'string',
+      DBNodeIds: 'string',
+      DBNodeRole: 'string',
+      endTime: 'string',
+      key: 'string',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBNodePerformanceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * 2021-10-20T02:00Z
+   */
+  endTime?: string;
+  performanceKeys?: DescribeDBNodePerformanceResponseBodyPerformanceKeys;
+  /**
+   * @example
+   * EFB5E10B-5268-170F-A378-9AF86CCEACC8
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2021-10-20T00:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      endTime: 'EndTime',
+      performanceKeys: 'PerformanceKeys',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      endTime: 'string',
+      performanceKeys: DescribeDBNodePerformanceResponseBodyPerformanceKeys,
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.performanceKeys && typeof (this.performanceKeys as any).validate === 'function') {
+      (this.performanceKeys as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBNodePerformanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDBNodePerformanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDBNodePerformanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDbListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * db_name
+   */
+  DBName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      DBName: 'DBName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      DBName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDbListResponseBody extends $dara.Model {
+  data?: DescribeDbListResponseBodyData[];
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * C458B1E8-1683-3645-B154-6BA32080EEA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeDbListResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDbListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDbListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDbListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDistributeTableListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sbtest1
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      dbName: 'DbName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      dbName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDistributeTableListResponseBody extends $dara.Model {
+  data?: DescribeDistributeTableListResponseBodyData;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * C458B1E8-1683-3645-B154-6BA32080EEA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeDistributeTableListResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDistributeTableListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDistributeTableListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDistributeTableListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsRequest extends $dara.Model {
+  /**
+   * @example
+   * 2021-10-18T03:07:25Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 2021-10-18T03:07:25Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsResponseBody extends $dara.Model {
+  eventItems?: DescribeEventsResponseBodyEventItems[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 4748127A-6D50-432C-B635-433467074C27
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 20
+   */
+  totalRecordCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventItems: 'EventItems',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalRecordCount: 'TotalRecordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventItems: { 'type': 'array', 'itemType': DescribeEventsResponseBodyEventItems },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalRecordCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.eventItems)) {
+      $dara.Model.validateArray(this.eventItems);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEventsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGdnInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * gdn_id、
+   * polarx_id
+   */
+  filterType?: string;
+  /**
+   * @example
+   * gdn-***、
+   * pxc-***
+   */
+  filterValue?: string;
+  /**
+   * @remarks
+   * GDN ID。
+   * 
+   * @example
+   * gdn-***
+   */
+  GDNId?: string;
+  /**
+   * @example
+   * 50
+   */
+  pageNum?: string;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterType: 'FilterType',
+      filterValue: 'FilterValue',
+      GDNId: 'GDNId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterType: 'string',
+      filterValue: 'string',
+      GDNId: 'string',
+      pageNum: 'string',
+      pageSize: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGdnInstancesResponseBody extends $dara.Model {
+  data?: DescribeGdnInstancesResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 7B044BD1-6402-5DE9-9AED-63D15A994E37
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeGdnInstancesResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGdnInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeGdnInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeGdnInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOpenBackupSetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 2024-10-14T00:00:00Z
+   */
+  restoreTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      restoreTime: 'RestoreTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+      restoreTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOpenBackupSetResponseBody extends $dara.Model {
+  /**
+   * @example
+   * {"gmsBackupSet": {"pubFullDownloadUrl": "https://xxxxx","dnName": "pxc-xdb-m-xxxxxx","hostInstanceId": 0001,"binlogs": [],"backupEndTime": "2024-10-21T10:11:56Z","backupLinkExpiredTime": "2024-10-23T06:13:54Z","dnBackupSetId": "00088","notCompletedBinlogs": [],"commitIndex": "15249275","innerFullDownloadUrl": "http://xxxxx","backupStartTime": "2024-10-21T10:09:20Z","backupSetSize": 526118912},"dnBackupSets": [],"insName": "pxc-xxxxx","backupSetId": "cb-xxxxx","canBinlogRecoverToTime": 1729567925000,"backupEndTime": "2024-10-21T10:12:16Z","canBinlogRecoverToTimeUTC": "2024-10-22T03:32:05Z","canBackupMinRecoverToTimeUTC": "2024-10-21T10:11:56Z","pitrInvalid": false,"backupStartTime": "2024-10-21T10:09:16Z","canBackupMinRecoverToTime": 1729505516000}
+   */
+  data?: any;
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOpenBackupSetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOpenBackupSetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOpenBackupSetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterTemplatesRequest extends $dara.Model {
+  /**
+   * @example
+   * pxc-********
+   */
+  DBInstanceId?: string;
+  engineVersion?: string;
+  /**
+   * @example
+   * compute
+   */
+  paramLevel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      engineVersion: 'EngineVersion',
+      paramLevel: 'ParamLevel',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      engineVersion: 'string',
+      paramLevel: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterTemplatesResponseBody extends $dara.Model {
+  data?: DescribeParameterTemplatesResponseBodyData;
+  /**
+   * @example
+   * C458B1E8-1683-3645-B154-6BA32080EEA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeParameterTemplatesResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParameterTemplatesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeParameterTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeParameterTemplatesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParametersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceId?: string;
+  /**
+   * @example
+   * compute
+   */
+  paramLevel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      paramLevel: 'ParamLevel',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      paramLevel: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParametersResponseBody extends $dara.Model {
+  data?: DescribeParametersResponseBodyData;
+  /**
+   * @example
+   * 6BA32080EEA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeParametersResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeParametersResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeParametersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeParametersResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @example
+   * 200
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  regions?: DescribeRegionsResponseBodyRegions;
+  /**
+   * @example
+   * C458B1E8-1683-3645-B154-6BA32080EEA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      regions: 'Regions',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      errorCode: 'number',
+      message: 'string',
+      regions: DescribeRegionsResponseBodyRegions,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.regions && typeof (this.regions as any).validate === 'function') {
+      (this.regions as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRegionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScaleOutMigrateTaskListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScaleOutMigrateTaskListResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 32
+   */
+  progress?: number;
+  /**
+   * @example
+   * C458B1E8-1683-3645-B154-6BA32080EEA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      progress: 'Progress',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      progress: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScaleOutMigrateTaskListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeScaleOutMigrateTaskListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeScaleOutMigrateTaskListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityIpsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityIpsResponseBody extends $dara.Model {
+  data?: DescribeSecurityIpsResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 14036EBE-CF2E-44DB-ACE9-AC6157D3A6FC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeSecurityIpsResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSecurityIpsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSecurityIpsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSecurityIpsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogRecordsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * polarx_cn
+   */
+  characterType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-bjxxxxxxxx
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * testdb
+   */
+  DBName?: string;
+  /**
+   * @example
+   * pxc-i-mezcj4ejdz
+   */
+  DBNodeIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-11-22T02:22Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-10-09T02:26
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      characterType: 'CharacterType',
+      DBInstanceName: 'DBInstanceName',
+      DBName: 'DBName',
+      DBNodeIds: 'DBNodeIds',
+      endTime: 'EndTime',
+      page: 'Page',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      characterType: 'string',
+      DBInstanceName: 'string',
+      DBName: 'string',
+      DBNodeIds: 'string',
+      endTime: 'string',
+      page: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * pxc-********
+   */
+  DBInstanceId?: string;
+  items?: DescribeSlowLogRecordsResponseBodyItems[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 30
+   */
+  pageRecordCount?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C458B1E8-1683-3645-B154-6BA32080EEA
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 3
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageRecordCount: 'PageRecordCount',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      items: { 'type': 'array', 'itemType': DescribeSlowLogRecordsResponseBodyItems },
+      pageNumber: 'string',
+      pageRecordCount: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlowLogRecordsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSlowLogRecordsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSlowLogRecordsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsRequest extends $dara.Model {
+  /**
+   * @example
+   * pxc-xxx
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * test
+   */
+  tagKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+      tagKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * requestid
+   */
+  requestId?: string;
+  tagInfos?: DescribeTagsResponseBodyTagInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tagInfos: 'TagInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tagInfos: { 'type': 'array', 'itemType': DescribeTagsResponseBodyTagInfos },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagInfos)) {
+      $dara.Model.validateArray(this.tagInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTagsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTasksRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-11-04
+   */
+  endTime?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageNumber?: number;
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-11-01
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      endTime: 'EndTime',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      endTime: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTasksResponseBody extends $dara.Model {
+  items?: DescribeTasksResponseBodyItems[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageRecordCount?: number;
+  /**
+   * @example
+   * D6045D78-C119-5A17-9DEA-0F810394E008
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2
+   */
+  totalRecordCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageRecordCount: 'PageRecordCount',
+      requestId: 'RequestId',
+      totalRecordCount: 'TotalRecordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeTasksResponseBodyItems },
+      pageNumber: 'number',
+      pageRecordCount: 'number',
+      requestId: 'string',
+      totalRecordCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTasksResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTasksResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
+  /**
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEncryptionKeyListResponseBody extends $dara.Model {
+  data?: DescribeUserEncryptionKeyListResponseBodyData;
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeUserEncryptionKeyListResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEncryptionKeyListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserEncryptionKeyListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserEncryptionKeyListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableRightsSeparationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-sprcym7g7w****
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * account_1
+   */
+  dbaAccountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * *****
+   */
+  dbaAccountPassword?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hanghzou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      dbaAccountName: 'DbaAccountName',
+      dbaAccountPassword: 'DbaAccountPassword',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      dbaAccountName: 'string',
+      dbaAccountPassword: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableRightsSeparationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * FE5D94E3-3C93-3594-95D9-AAED2A980915
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableRightsSeparationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableRightsSeparationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableRightsSeparationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableRightsSeparationRequest extends $dara.Model {
+  /**
+   * @example
+   * test123
+   */
+  auditAccountDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * account_audit
+   */
+  auditAccountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ******
+   */
+  auditAccountPassword?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-htri0ori2r4k9p
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * test123
+   */
+  securityAccountDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * account_sec
+   */
+  securityAccountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * *****
+   */
+  securityAccountPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditAccountDescription: 'AuditAccountDescription',
+      auditAccountName: 'AuditAccountName',
+      auditAccountPassword: 'AuditAccountPassword',
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      securityAccountDescription: 'SecurityAccountDescription',
+      securityAccountName: 'SecurityAccountName',
+      securityAccountPassword: 'SecurityAccountPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditAccountDescription: 'string',
+      auditAccountName: 'string',
+      auditAccountPassword: 'string',
+      DBInstanceName: 'string',
+      regionId: 'string',
+      securityAccountDescription: 'string',
+      securityAccountName: 'string',
+      securityAccountPassword: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableRightsSeparationResponseBody extends $dara.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 73559800-3c8c-11ec-bd40-99cfcff3fe1e
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableRightsSeparationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableRightsSeparationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableRightsSeparationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $dara.Model {
+  /**
+   * @example
+   * xxdds
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PolarDBXInstance
+   */
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxdd
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * xxxx-xxxxxx
+   */
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: ListTagResourcesResponseBodyTagResources,
+    };
+  }
+
+  validate() {
+    if(this.tagResources && typeof (this.tagResources as any).validate === 'function') {
+      (this.tagResources as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountDescriptionRequest extends $dara.Model {
+  accountDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * account
+   */
+  accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountDescription: 'AccountDescription',
+      accountName: 'AccountName',
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountDescription: 'string',
+      accountName: 'string',
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountDescriptionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * msg
+   */
+  message?: string;
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountDescriptionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAccountDescriptionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAccountDescriptionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountPrivilegeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * account_sec
+   */
+  accountName?: string;
+  /**
+   * @example
+   * ReadWrite
+   */
+  accountPrivilege?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-htri0ori2r4k9p
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * sbtest
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * account_audit
+   */
+  securityAccountName?: string;
+  /**
+   * @example
+   * *****
+   */
+  securityAccountPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      accountPrivilege: 'AccountPrivilege',
+      DBInstanceName: 'DBInstanceName',
+      dbName: 'DbName',
+      regionId: 'RegionId',
+      securityAccountName: 'SecurityAccountName',
+      securityAccountPassword: 'SecurityAccountPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      accountPrivilege: 'string',
+      DBInstanceName: 'string',
+      dbName: 'string',
+      regionId: 'string',
+      securityAccountName: 'string',
+      securityAccountPassword: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountPrivilegeResponseBody extends $dara.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 73559800-3c8c-11ec-bd40-99cfcff3fe1e
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAccountPrivilegeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAccountPrivilegeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAccountPrivilegeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationMaintainConfRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1,2,3,4,5,6,7
+   */
+  cycleTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Week
+   */
+  cycleType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 02:00:00Z
+   */
+  maintainEndTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 02:00:00Z
+   */
+  maintainStartTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cycleTime: 'CycleTime',
+      cycleType: 'CycleType',
+      maintainEndTime: 'MaintainEndTime',
+      maintainStartTime: 'MaintainStartTime',
+      regionId: 'RegionId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleTime: 'string',
+      cycleType: 'string',
+      maintainEndTime: 'string',
+      maintainStartTime: 'string',
+      regionId: 'string',
+      status: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationMaintainConfResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 4035409E-7297-4115-ABC9-C1C3942BC069
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationMaintainConfResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyActiveOperationMaintainConfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyActiveOperationMaintainConfResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  ids?: string;
+  /**
+   * @example
+   * 1
+   */
+  immediateStart?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 2021-08-15T12:00:00Z
+   */
+  switchTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      immediateStart: 'ImmediateStart',
+      regionId: 'RegionId',
+      switchTime: 'SwitchTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      immediateStart: 'number',
+      regionId: 'string',
+      switchTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  ids?: string;
+  /**
+   * @example
+   * 8C9CC90A-9532-4752-B59F-580112C5A45B
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyActiveOperationTasksResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceClassRequest extends $dara.Model {
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  clientToken?: string;
+  cnClass?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  dnClass?: string;
+  dnStorageSpace?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  specifiedDNScale?: boolean;
+  specifiedDNSpecMapJson?: string;
+  switchTime?: string;
+  switchTimeMode?: string;
+  /**
+   * @example
+   * polarx.x4.xlarge.2e
+   */
+  targetDBInstanceClass?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      cnClass: 'CnClass',
+      DBInstanceName: 'DBInstanceName',
+      dnClass: 'DnClass',
+      dnStorageSpace: 'DnStorageSpace',
+      regionId: 'RegionId',
+      specifiedDNScale: 'SpecifiedDNScale',
+      specifiedDNSpecMapJson: 'SpecifiedDNSpecMapJson',
+      switchTime: 'SwitchTime',
+      switchTimeMode: 'SwitchTimeMode',
+      targetDBInstanceClass: 'TargetDBInstanceClass',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      cnClass: 'string',
+      DBInstanceName: 'string',
+      dnClass: 'string',
+      dnStorageSpace: 'string',
+      regionId: 'string',
+      specifiedDNScale: 'boolean',
+      specifiedDNSpecMapJson: 'string',
+      switchTime: 'string',
+      switchTimeMode: 'string',
+      targetDBInstanceClass: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceClassResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 20211103105558
+   */
+  orderId?: string;
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceClassResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceClassResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBInstanceClassResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ENABLE_CONSISTENT_REPLICA_READ
+   */
+  configName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  configValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configName: 'ConfigName',
+      configValue: 'ConfigValue',
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configName: 'string',
+      configValue: 'string',
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceConfigResponseBody extends $dara.Model {
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBInstanceConfigResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-unrf5ssig0ecg8.polarx.huhehaote.rds.aliyuncs.com
+   */
+  connectionString?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-unrf5ssig0ecg8
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3300
+   */
+  newPort?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test2
+   */
+  newPrefix?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionString: 'ConnectionString',
+      DBInstanceName: 'DBInstanceName',
+      newPort: 'NewPort',
+      newPrefix: 'NewPrefix',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionString: 'string',
+      DBInstanceName: 'string',
+      newPort: 'string',
+      newPrefix: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceConnectionStringResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: ModifyDBInstanceConnectionStringResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * c3cf535c-a585-11ea-8263-00163e04d3a7
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ModifyDBInstanceConnectionStringResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceConnectionStringResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceConnectionStringResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBInstanceConnectionStringResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceDescriptionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  DBInstanceDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceDescription: 'DBInstanceDescription',
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceDescription: 'string',
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceDescriptionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceDescriptionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceDescriptionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBInstanceDescriptionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDatabaseDescriptionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dbDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testDB
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      dbDescription: 'DbDescription',
+      dbName: 'DbName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      dbDescription: 'string',
+      dbName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDatabaseDescriptionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDatabaseDescriptionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDatabaseDescriptionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDatabaseDescriptionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyParameterRequest extends $dara.Model {
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasdyuoo
+   */
+  DBInstanceId?: string;
+  /**
+   * @example
+   * compute
+   */
+  paramLevel?: string;
+  parameterGroupId?: string;
+  /**
+   * @example
+   * {"CONN_POOL_BLOCK_TIMEOUT":6000}
+   */
+  parameters?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DBInstanceId: 'DBInstanceId',
+      paramLevel: 'ParamLevel',
+      parameterGroupId: 'ParameterGroupId',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DBInstanceId: 'string',
+      paramLevel: 'string',
+      parameterGroupId: 'string',
+      parameters: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyParameterResponseBody extends $dara.Model {
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyParameterResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyParameterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyParameterResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySecurityIpsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * default
+   */
+  groupName?: string;
+  /**
+   * @example
+   * 1
+   */
+  modifyMode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 127.0.0.1,192.168.0.0
+   */
+  securityIPList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      groupName: 'GroupName',
+      modifyMode: 'ModifyMode',
+      regionId: 'RegionId',
+      securityIPList: 'SecurityIPList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      groupName: 'string',
+      modifyMode: 'string',
+      regionId: 'string',
+      securityIPList: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySecurityIpsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySecurityIpsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySecurityIpsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifySecurityIpsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseColdDataVolumeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzravgpt8q****
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseColdDataVolumeResponseBody extends $dara.Model {
+  /**
+   * @example
+   * EA330983-C895-57C0-AE82-5A63106EBB10
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseColdDataVolumeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseColdDataVolumeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseColdDataVolumeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstancePublicConnectionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasdyuoo.polarx.rds.aliyuncs.com
+   */
+  currentConnectionString?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentConnectionString: 'CurrentConnectionString',
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentConnectionString: 'string',
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstancePublicConnectionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseInstancePublicConnectionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseInstancePublicConnectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseInstancePublicConnectionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetAccountPasswordRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * account
+   */
+  accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * *****
+   */
+  accountPassword?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-htri0ori2r4k9p
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * account_sec
+   */
+  securityAccountName?: string;
+  /**
+   * @example
+   * *****
+   */
+  securityAccountPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      accountPassword: 'AccountPassword',
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      securityAccountName: 'SecurityAccountName',
+      securityAccountPassword: 'SecurityAccountPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      accountPassword: 'string',
+      DBInstanceName: 'string',
+      regionId: 'string',
+      securityAccountName: 'string',
+      securityAccountPassword: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetAccountPasswordResponseBody extends $dara.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 73559800-3c8c-11ec-bd40-99cfcff3fe1e
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetAccountPasswordResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetAccountPasswordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResetAccountPasswordResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartDBInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartDBInstanceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartDBInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestartDBInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RestartDBInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchDBInstanceHARequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  switchTime?: string;
+  switchTimeMode?: string;
+  targetPrimaryAzoneId?: string;
+  targetPrimaryRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      switchTime: 'SwitchTime',
+      switchTimeMode: 'SwitchTimeMode',
+      targetPrimaryAzoneId: 'TargetPrimaryAzoneId',
+      targetPrimaryRegionId: 'TargetPrimaryRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+      switchTime: 'string',
+      switchTimeMode: 'string',
+      targetPrimaryAzoneId: 'string',
+      targetPrimaryRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchDBInstanceHAResponseBody extends $dara.Model {
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchDBInstanceHAResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SwitchDBInstanceHAResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SwitchDBInstanceHAResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchGdnMemberRoleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-********
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  switchMode?: string;
+  taskTimeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      switchMode: 'SwitchMode',
+      taskTimeout: 'TaskTimeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+      switchMode: 'string',
+      taskTimeout: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchGdnMemberRoleResponseBody extends $dara.Model {
+  data?: SwitchGdnMemberRoleResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 9B2F3840-5C98-475C-B269-2D5C3A31797C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SwitchGdnMemberRoleResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchGdnMemberRoleResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SwitchGdnMemberRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SwitchGdnMemberRoleResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PolarDBXInstance
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * xxxx-xxxx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $dara.Model {
+  all?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PolarDBXInstance
+   */
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tagKey)) {
+      $dara.Model.validateArray(this.tagKey);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * RequestId
+   * 
+   * @example
+   * xxxxxx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBackupPolicyRequest extends $dara.Model {
+  /**
+   * @example
+   * 1001000
+   */
+  backupPeriod?: string;
+  /**
+   * @example
+   * 03:00Z
+   */
+  backupPlanBegin?: string;
+  /**
+   * @example
+   * 30
+   */
+  backupSetRetention?: number;
+  /**
+   * @example
+   * 0
+   */
+  backupType?: string;
+  /**
+   * @example
+   * P
+   */
+  backupWay?: string;
+  /**
+   * @example
+   * 30
+   */
+  coldDataBackupInterval?: number;
+  /**
+   * @example
+   * 30
+   */
+  coldDataBackupRetention?: number;
+  crossRegionDataBackupRetention?: number;
+  crossRegionLogBackupRetention?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasdyuoo
+   */
+  DBInstanceName?: string;
+  destCrossRegion?: string;
+  /**
+   * @example
+   * 1
+   */
+  forceCleanOnHighSpaceUsage?: number;
+  isCrossRegionDataBackupEnabled?: boolean;
+  isCrossRegionLogBackupEnabled?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  isEnabled?: number;
+  /**
+   * @example
+   * 7
+   */
+  localLogRetention?: number;
+  localLogRetentionNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  logLocalRetentionSpace?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 7
+   */
+  removeLogRetention?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backupPeriod: 'BackupPeriod',
+      backupPlanBegin: 'BackupPlanBegin',
+      backupSetRetention: 'BackupSetRetention',
+      backupType: 'BackupType',
+      backupWay: 'BackupWay',
+      coldDataBackupInterval: 'ColdDataBackupInterval',
+      coldDataBackupRetention: 'ColdDataBackupRetention',
+      crossRegionDataBackupRetention: 'CrossRegionDataBackupRetention',
+      crossRegionLogBackupRetention: 'CrossRegionLogBackupRetention',
+      DBInstanceName: 'DBInstanceName',
+      destCrossRegion: 'DestCrossRegion',
+      forceCleanOnHighSpaceUsage: 'ForceCleanOnHighSpaceUsage',
+      isCrossRegionDataBackupEnabled: 'IsCrossRegionDataBackupEnabled',
+      isCrossRegionLogBackupEnabled: 'IsCrossRegionLogBackupEnabled',
+      isEnabled: 'IsEnabled',
+      localLogRetention: 'LocalLogRetention',
+      localLogRetentionNumber: 'LocalLogRetentionNumber',
+      logLocalRetentionSpace: 'LogLocalRetentionSpace',
+      regionId: 'RegionId',
+      removeLogRetention: 'RemoveLogRetention',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupPeriod: 'string',
+      backupPlanBegin: 'string',
+      backupSetRetention: 'number',
+      backupType: 'string',
+      backupWay: 'string',
+      coldDataBackupInterval: 'number',
+      coldDataBackupRetention: 'number',
+      crossRegionDataBackupRetention: 'number',
+      crossRegionLogBackupRetention: 'number',
+      DBInstanceName: 'string',
+      destCrossRegion: 'string',
+      forceCleanOnHighSpaceUsage: 'number',
+      isCrossRegionDataBackupEnabled: 'boolean',
+      isCrossRegionLogBackupEnabled: 'boolean',
+      isEnabled: 'number',
+      localLogRetention: 'number',
+      localLogRetentionNumber: 'number',
+      logLocalRetentionSpace: 'number',
+      regionId: 'string',
+      removeLogRetention: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBackupPolicyResponseBody extends $dara.Model {
+  data?: UpdateBackupPolicyResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UpdateBackupPolicyResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBackupPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateBackupPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateBackupPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDBInstanceSSLRequest extends $dara.Model {
+  /**
+   * @example
+   * pxc-hzrqjarxdocd4t.polarx.rds.aliyuncs.com
+   */
+  certCommonName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  enableSSL?: boolean;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certCommonName: 'CertCommonName',
+      DBInstanceName: 'DBInstanceName',
+      enableSSL: 'EnableSSL',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certCommonName: 'string',
+      DBInstanceName: 'string',
+      enableSSL: 'boolean',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDBInstanceSSLResponseBody extends $dara.Model {
+  data?: UpdateDBInstanceSSLResponseBodyData;
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UpdateDBInstanceSSLResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDBInstanceSSLResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDBInstanceSSLResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDBInstanceSSLResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDBInstanceTDERequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * RkVBNURDMjAtNkQ4QS01OTc5LTk3QUEtRkM1NzU0Nk******
+   */
+  encryptionKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * acs:ram::1406926****:role/aliyunrdsinstanceencryptiondefaultrole
+   */
+  roleArn?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  TDEStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      encryptionKey: 'EncryptionKey',
+      regionId: 'RegionId',
+      roleArn: 'RoleArn',
+      TDEStatus: 'TDEStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      encryptionKey: 'string',
+      regionId: 'string',
+      roleArn: 'string',
+      TDEStatus: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDBInstanceTDEResponseBody extends $dara.Model {
+  data?: UpdateDBInstanceTDEResponseBodyData;
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UpdateDBInstanceTDEResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDBInstanceTDEResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDBInstanceTDEResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDBInstanceTDEResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePolarDBXInstanceNodeRequest extends $dara.Model {
+  addDNSpec?: string;
+  /**
+   * @example
+   * 2
+   */
+  CNNodeCount?: string;
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasdyuoo
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * 2
+   */
+  DNNodeCount?: string;
+  /**
+   * @example
+   * 3
+   */
+  dbInstanceNodeCount?: string;
+  deleteDNIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  storagePoolName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addDNSpec: 'AddDNSpec',
+      CNNodeCount: 'CNNodeCount',
+      clientToken: 'ClientToken',
+      DBInstanceName: 'DBInstanceName',
+      DNNodeCount: 'DNNodeCount',
+      dbInstanceNodeCount: 'DbInstanceNodeCount',
+      deleteDNIds: 'DeleteDNIds',
+      regionId: 'RegionId',
+      storagePoolName: 'StoragePoolName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addDNSpec: 'string',
+      CNNodeCount: 'string',
+      clientToken: 'string',
+      DBInstanceName: 'string',
+      DNNodeCount: 'string',
+      dbInstanceNodeCount: 'string',
+      deleteDNIds: 'string',
+      regionId: 'string',
+      storagePoolName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePolarDBXInstanceNodeResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 20211103105558
+   */
+  orderId?: string;
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePolarDBXInstanceNodeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePolarDBXInstanceNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePolarDBXInstanceNodeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeDBInstanceKernelVersionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * polarx-kernel_5.4.12-16349923_xcluster-20210926
+   */
+  minorVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 0
+   */
+  switchMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      minorVersion: 'MinorVersion',
+      regionId: 'RegionId',
+      switchMode: 'SwitchMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      minorVersion: 'string',
+      regionId: 'string',
+      switchMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeDBInstanceKernelVersionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * pxc-hzjasd****
+   */
+  DBInstanceName?: string;
+  /**
+   * @example
+   * FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+   */
+  requestId?: string;
+  /**
+   * @example
+   * polarx-kernel_5.4.7-16001481_xcluster-20200910
+   */
+  targetMinorVersion?: string;
+  /**
+   * @example
+   * 422922413
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      requestId: 'RequestId',
+      targetMinorVersion: 'TargetMinorVersion',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      requestId: 'string',
+      targetMinorVersion: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeDBInstanceKernelVersionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpgradeDBInstanceKernelVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpgradeDBInstanceKernelVersionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -13034,7 +14940,7 @@ export class UpdateDBInstanceTDEResponseBodyData extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
@@ -13090,15 +14996,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -13106,33 +15012,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AlignStoragePrimaryAzoneResponse
    */
-  async alignStoragePrimaryAzoneWithOptions(request: AlignStoragePrimaryAzoneRequest, runtime: $Util.RuntimeOptions): Promise<AlignStoragePrimaryAzoneResponse> {
-    Util.validateModel(request);
+  async alignStoragePrimaryAzoneWithOptions(request: AlignStoragePrimaryAzoneRequest, runtime: $dara.RuntimeOptions): Promise<AlignStoragePrimaryAzoneResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.storageInstanceName)) {
+    if (!$dara.isNull(request.storageInstanceName)) {
       query["StorageInstanceName"] = request.storageInstanceName;
     }
 
-    if (!Util.isUnset(request.switchTime)) {
+    if (!$dara.isNull(request.switchTime)) {
       query["SwitchTime"] = request.switchTime;
     }
 
-    if (!Util.isUnset(request.switchTimeMode)) {
+    if (!$dara.isNull(request.switchTimeMode)) {
       query["SwitchTimeMode"] = request.switchTimeMode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AlignStoragePrimaryAzone",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13143,7 +15049,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AlignStoragePrimaryAzoneResponse>(await this.callApi(params, req, runtime), new AlignStoragePrimaryAzoneResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AlignStoragePrimaryAzoneResponse>(await this.callApi(params, req, runtime), new AlignStoragePrimaryAzoneResponse({}));
+    } else {
+      return $dara.cast<AlignStoragePrimaryAzoneResponse>(await this.execute(params, req, runtime), new AlignStoragePrimaryAzoneResponse({}));
+    }
+
   }
 
   /**
@@ -13151,7 +15062,7 @@ export default class Client extends OpenApi {
    * @returns AlignStoragePrimaryAzoneResponse
    */
   async alignStoragePrimaryAzone(request: AlignStoragePrimaryAzoneRequest): Promise<AlignStoragePrimaryAzoneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.alignStoragePrimaryAzoneWithOptions(request, runtime);
   }
 
@@ -13162,21 +15073,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AllocateColdDataVolumeResponse
    */
-  async allocateColdDataVolumeWithOptions(request: AllocateColdDataVolumeRequest, runtime: $Util.RuntimeOptions): Promise<AllocateColdDataVolumeResponse> {
-    Util.validateModel(request);
+  async allocateColdDataVolumeWithOptions(request: AllocateColdDataVolumeRequest, runtime: $dara.RuntimeOptions): Promise<AllocateColdDataVolumeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AllocateColdDataVolume",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13187,7 +15098,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AllocateColdDataVolumeResponse>(await this.callApi(params, req, runtime), new AllocateColdDataVolumeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AllocateColdDataVolumeResponse>(await this.callApi(params, req, runtime), new AllocateColdDataVolumeResponse({}));
+    } else {
+      return $dara.cast<AllocateColdDataVolumeResponse>(await this.execute(params, req, runtime), new AllocateColdDataVolumeResponse({}));
+    }
+
   }
 
   /**
@@ -13197,7 +15113,7 @@ export default class Client extends OpenApi {
    * @returns AllocateColdDataVolumeResponse
    */
   async allocateColdDataVolume(request: AllocateColdDataVolumeRequest): Promise<AllocateColdDataVolumeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.allocateColdDataVolumeWithOptions(request, runtime);
   }
 
@@ -13206,45 +15122,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AllocateInstancePublicConnectionResponse
    */
-  async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
-    Util.validateModel(request);
+  async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $dara.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.connectionStringPrefix)) {
+    if (!$dara.isNull(request.connectionStringPrefix)) {
       query["ConnectionStringPrefix"] = request.connectionStringPrefix;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.port)) {
+    if (!$dara.isNull(request.port)) {
       query["Port"] = request.port;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AllocateInstancePublicConnection",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13255,7 +15171,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AllocateInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new AllocateInstancePublicConnectionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AllocateInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new AllocateInstancePublicConnectionResponse({}));
+    } else {
+      return $dara.cast<AllocateInstancePublicConnectionResponse>(await this.execute(params, req, runtime), new AllocateInstancePublicConnectionResponse({}));
+    }
+
   }
 
   /**
@@ -13263,7 +15184,7 @@ export default class Client extends OpenApi {
    * @returns AllocateInstancePublicConnectionResponse
    */
   async allocateInstancePublicConnection(request: AllocateInstancePublicConnectionRequest): Promise<AllocateInstancePublicConnectionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.allocateInstancePublicConnectionWithOptions(request, runtime);
   }
 
@@ -13274,13 +15195,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelActiveOperationTasksResponse
    */
-  async cancelActiveOperationTasksWithOptions(request: CancelActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<CancelActiveOperationTasksResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async cancelActiveOperationTasksWithOptions(request: CancelActiveOperationTasksRequest, runtime: $dara.RuntimeOptions): Promise<CancelActiveOperationTasksResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CancelActiveOperationTasks",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13291,7 +15212,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new CancelActiveOperationTasksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CancelActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new CancelActiveOperationTasksResponse({}));
+    } else {
+      return $dara.cast<CancelActiveOperationTasksResponse>(await this.execute(params, req, runtime), new CancelActiveOperationTasksResponse({}));
+    }
+
   }
 
   /**
@@ -13301,7 +15227,7 @@ export default class Client extends OpenApi {
    * @returns CancelActiveOperationTasksResponse
    */
   async cancelActiveOperationTasks(request: CancelActiveOperationTasksRequest): Promise<CancelActiveOperationTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelActiveOperationTasksWithOptions(request, runtime);
   }
 
@@ -13312,29 +15238,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeResourceGroupResponse
    */
-  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
-    Util.validateModel(request);
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.newResourceGroupId)) {
+    if (!$dara.isNull(request.newResourceGroupId)) {
       query["NewResourceGroupId"] = request.newResourceGroupId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChangeResourceGroup",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13345,7 +15271,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    } else {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.execute(params, req, runtime), new ChangeResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -13355,7 +15286,7 @@ export default class Client extends OpenApi {
    * @returns ChangeResourceGroupResponse
    */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
@@ -13364,25 +15295,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckCloudResourceAuthorizedResponse
    */
-  async checkCloudResourceAuthorizedWithOptions(request: CheckCloudResourceAuthorizedRequest, runtime: $Util.RuntimeOptions): Promise<CheckCloudResourceAuthorizedResponse> {
-    Util.validateModel(request);
+  async checkCloudResourceAuthorizedWithOptions(request: CheckCloudResourceAuthorizedRequest, runtime: $dara.RuntimeOptions): Promise<CheckCloudResourceAuthorizedResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.roleArn)) {
+    if (!$dara.isNull(request.roleArn)) {
       query["RoleArn"] = request.roleArn;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CheckCloudResourceAuthorized",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13393,7 +15324,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckCloudResourceAuthorizedResponse>(await this.callApi(params, req, runtime), new CheckCloudResourceAuthorizedResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CheckCloudResourceAuthorizedResponse>(await this.callApi(params, req, runtime), new CheckCloudResourceAuthorizedResponse({}));
+    } else {
+      return $dara.cast<CheckCloudResourceAuthorizedResponse>(await this.execute(params, req, runtime), new CheckCloudResourceAuthorizedResponse({}));
+    }
+
   }
 
   /**
@@ -13401,7 +15337,7 @@ export default class Client extends OpenApi {
    * @returns CheckCloudResourceAuthorizedResponse
    */
   async checkCloudResourceAuthorized(request: CheckCloudResourceAuthorizedRequest): Promise<CheckCloudResourceAuthorizedResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.checkCloudResourceAuthorizedWithOptions(request, runtime);
   }
 
@@ -13410,49 +15346,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAccountResponse
    */
-  async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
-    Util.validateModel(request);
+  async createAccountWithOptions(request: CreateAccountRequest, runtime: $dara.RuntimeOptions): Promise<CreateAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountDescription)) {
+    if (!$dara.isNull(request.accountDescription)) {
       query["AccountDescription"] = request.accountDescription;
     }
 
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.accountPassword)) {
+    if (!$dara.isNull(request.accountPassword)) {
       query["AccountPassword"] = request.accountPassword;
     }
 
-    if (!Util.isUnset(request.accountPrivilege)) {
+    if (!$dara.isNull(request.accountPrivilege)) {
       query["AccountPrivilege"] = request.accountPrivilege;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.DBName)) {
+    if (!$dara.isNull(request.DBName)) {
       query["DBName"] = request.DBName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.securityAccountName)) {
+    if (!$dara.isNull(request.securityAccountName)) {
       query["SecurityAccountName"] = request.securityAccountName;
     }
 
-    if (!Util.isUnset(request.securityAccountPassword)) {
+    if (!$dara.isNull(request.securityAccountPassword)) {
       query["SecurityAccountPassword"] = request.securityAccountPassword;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAccount",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13463,7 +15399,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
+    } else {
+      return $dara.cast<CreateAccountResponse>(await this.execute(params, req, runtime), new CreateAccountResponse({}));
+    }
+
   }
 
   /**
@@ -13471,7 +15412,7 @@ export default class Client extends OpenApi {
    * @returns CreateAccountResponse
    */
   async createAccount(request: CreateAccountRequest): Promise<CreateAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createAccountWithOptions(request, runtime);
   }
 
@@ -13480,25 +15421,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateBackupResponse
    */
-  async createBackupWithOptions(request: CreateBackupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupResponse> {
-    Util.validateModel(request);
+  async createBackupWithOptions(request: CreateBackupRequest, runtime: $dara.RuntimeOptions): Promise<CreateBackupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.backupType)) {
+    if (!$dara.isNull(request.backupType)) {
       query["BackupType"] = request.backupType;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateBackup",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13509,7 +15450,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateBackupResponse>(await this.callApi(params, req, runtime), new CreateBackupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateBackupResponse>(await this.callApi(params, req, runtime), new CreateBackupResponse({}));
+    } else {
+      return $dara.cast<CreateBackupResponse>(await this.execute(params, req, runtime), new CreateBackupResponse({}));
+    }
+
   }
 
   /**
@@ -13517,7 +15463,7 @@ export default class Client extends OpenApi {
    * @returns CreateBackupResponse
    */
   async createBackup(request: CreateBackupRequest): Promise<CreateBackupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createBackupWithOptions(request, runtime);
   }
 
@@ -13526,57 +15472,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDBResponse
    */
-  async createDBWithOptions(request: CreateDBRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBResponse> {
-    Util.validateModel(request);
+  async createDBWithOptions(request: CreateDBRequest, runtime: $dara.RuntimeOptions): Promise<CreateDBResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.accountPrivilege)) {
+    if (!$dara.isNull(request.accountPrivilege)) {
       query["AccountPrivilege"] = request.accountPrivilege;
     }
 
-    if (!Util.isUnset(request.charset)) {
+    if (!$dara.isNull(request.charset)) {
       query["Charset"] = request.charset;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.dbDescription)) {
+    if (!$dara.isNull(request.dbDescription)) {
       query["DbDescription"] = request.dbDescription;
     }
 
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.mode)) {
+    if (!$dara.isNull(request.mode)) {
       query["Mode"] = request.mode;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.securityAccountName)) {
+    if (!$dara.isNull(request.securityAccountName)) {
       query["SecurityAccountName"] = request.securityAccountName;
     }
 
-    if (!Util.isUnset(request.securityAccountPassword)) {
+    if (!$dara.isNull(request.securityAccountPassword)) {
       query["SecurityAccountPassword"] = request.securityAccountPassword;
     }
 
-    if (!Util.isUnset(request.storagePoolName)) {
+    if (!$dara.isNull(request.storagePoolName)) {
       query["StoragePoolName"] = request.storagePoolName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateDB",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13587,7 +15533,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateDBResponse>(await this.callApi(params, req, runtime), new CreateDBResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDBResponse>(await this.callApi(params, req, runtime), new CreateDBResponse({}));
+    } else {
+      return $dara.cast<CreateDBResponse>(await this.execute(params, req, runtime), new CreateDBResponse({}));
+    }
+
   }
 
   /**
@@ -13595,7 +15546,7 @@ export default class Client extends OpenApi {
    * @returns CreateDBResponse
    */
   async createDB(request: CreateDBRequest): Promise<CreateDBResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createDBWithOptions(request, runtime);
   }
 
@@ -13604,131 +15555,131 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDBInstanceResponse
    */
-  async createDBInstanceWithOptions(tmpReq: CreateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceResponse> {
-    Util.validateModel(tmpReq);
+  async createDBInstanceWithOptions(tmpReq: CreateDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<CreateDBInstanceResponse> {
+    tmpReq.validate();
     let request = new CreateDBInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.extraParams)) {
+    if (!$dara.isNull(tmpReq.extraParams)) {
       request.extraParamsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extraParams, "ExtraParams", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.autoRenew)) {
+    if (!$dara.isNull(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
     }
 
-    if (!Util.isUnset(request.CNNodeCount)) {
+    if (!$dara.isNull(request.CNNodeCount)) {
       query["CNNodeCount"] = request.CNNodeCount;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.cnClass)) {
+    if (!$dara.isNull(request.cnClass)) {
       query["CnClass"] = request.cnClass;
     }
 
-    if (!Util.isUnset(request.DBNodeClass)) {
+    if (!$dara.isNull(request.DBNodeClass)) {
       query["DBNodeClass"] = request.DBNodeClass;
     }
 
-    if (!Util.isUnset(request.DBNodeCount)) {
+    if (!$dara.isNull(request.DBNodeCount)) {
       query["DBNodeCount"] = request.DBNodeCount;
     }
 
-    if (!Util.isUnset(request.DNNodeCount)) {
+    if (!$dara.isNull(request.DNNodeCount)) {
       query["DNNodeCount"] = request.DNNodeCount;
     }
 
-    if (!Util.isUnset(request.dnClass)) {
+    if (!$dara.isNull(request.dnClass)) {
       query["DnClass"] = request.dnClass;
     }
 
-    if (!Util.isUnset(request.dnStorageSpace)) {
+    if (!$dara.isNull(request.dnStorageSpace)) {
       query["DnStorageSpace"] = request.dnStorageSpace;
     }
 
-    if (!Util.isUnset(request.engineVersion)) {
+    if (!$dara.isNull(request.engineVersion)) {
       query["EngineVersion"] = request.engineVersion;
     }
 
-    if (!Util.isUnset(request.extraParamsShrink)) {
+    if (!$dara.isNull(request.extraParamsShrink)) {
       query["ExtraParams"] = request.extraParamsShrink;
     }
 
-    if (!Util.isUnset(request.isColumnarReadDBInstance)) {
+    if (!$dara.isNull(request.isColumnarReadDBInstance)) {
       query["IsColumnarReadDBInstance"] = request.isColumnarReadDBInstance;
     }
 
-    if (!Util.isUnset(request.isReadDBInstance)) {
+    if (!$dara.isNull(request.isReadDBInstance)) {
       query["IsReadDBInstance"] = request.isReadDBInstance;
     }
 
-    if (!Util.isUnset(request.networkType)) {
+    if (!$dara.isNull(request.networkType)) {
       query["NetworkType"] = request.networkType;
     }
 
-    if (!Util.isUnset(request.payType)) {
+    if (!$dara.isNull(request.payType)) {
       query["PayType"] = request.payType;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.primaryDBInstanceName)) {
+    if (!$dara.isNull(request.primaryDBInstanceName)) {
       query["PrimaryDBInstanceName"] = request.primaryDBInstanceName;
     }
 
-    if (!Util.isUnset(request.primaryZone)) {
+    if (!$dara.isNull(request.primaryZone)) {
       query["PrimaryZone"] = request.primaryZone;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.secondaryZone)) {
+    if (!$dara.isNull(request.secondaryZone)) {
       query["SecondaryZone"] = request.secondaryZone;
     }
 
-    if (!Util.isUnset(request.series)) {
+    if (!$dara.isNull(request.series)) {
       query["Series"] = request.series;
     }
 
-    if (!Util.isUnset(request.tertiaryZone)) {
+    if (!$dara.isNull(request.tertiaryZone)) {
       query["TertiaryZone"] = request.tertiaryZone;
     }
 
-    if (!Util.isUnset(request.topologyType)) {
+    if (!$dara.isNull(request.topologyType)) {
       query["TopologyType"] = request.topologyType;
     }
 
-    if (!Util.isUnset(request.usedTime)) {
+    if (!$dara.isNull(request.usedTime)) {
       query["UsedTime"] = request.usedTime;
     }
 
-    if (!Util.isUnset(request.VPCId)) {
+    if (!$dara.isNull(request.VPCId)) {
       query["VPCId"] = request.VPCId;
     }
 
-    if (!Util.isUnset(request.vSwitchId)) {
+    if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
     }
 
-    if (!Util.isUnset(request.zoneId)) {
+    if (!$dara.isNull(request.zoneId)) {
       query["ZoneId"] = request.zoneId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateDBInstance",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13739,7 +15690,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateDBInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateDBInstanceResponse({}));
+    } else {
+      return $dara.cast<CreateDBInstanceResponse>(await this.execute(params, req, runtime), new CreateDBInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -13747,7 +15703,7 @@ export default class Client extends OpenApi {
    * @returns CreateDBInstanceResponse
    */
   async createDBInstance(request: CreateDBInstanceRequest): Promise<CreateDBInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createDBInstanceWithOptions(request, runtime);
   }
 
@@ -13756,33 +15712,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSuperAccountResponse
    */
-  async createSuperAccountWithOptions(request: CreateSuperAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateSuperAccountResponse> {
-    Util.validateModel(request);
+  async createSuperAccountWithOptions(request: CreateSuperAccountRequest, runtime: $dara.RuntimeOptions): Promise<CreateSuperAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountDescription)) {
+    if (!$dara.isNull(request.accountDescription)) {
       query["AccountDescription"] = request.accountDescription;
     }
 
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.accountPassword)) {
+    if (!$dara.isNull(request.accountPassword)) {
       query["AccountPassword"] = request.accountPassword;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateSuperAccount",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13793,7 +15749,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateSuperAccountResponse>(await this.callApi(params, req, runtime), new CreateSuperAccountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSuperAccountResponse>(await this.callApi(params, req, runtime), new CreateSuperAccountResponse({}));
+    } else {
+      return $dara.cast<CreateSuperAccountResponse>(await this.execute(params, req, runtime), new CreateSuperAccountResponse({}));
+    }
+
   }
 
   /**
@@ -13801,7 +15762,7 @@ export default class Client extends OpenApi {
    * @returns CreateSuperAccountResponse
    */
   async createSuperAccount(request: CreateSuperAccountRequest): Promise<CreateSuperAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createSuperAccountWithOptions(request, runtime);
   }
 
@@ -13810,33 +15771,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAccountResponse
    */
-  async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
-    Util.validateModel(request);
+  async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $dara.RuntimeOptions): Promise<DeleteAccountResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.securityAccountName)) {
+    if (!$dara.isNull(request.securityAccountName)) {
       query["SecurityAccountName"] = request.securityAccountName;
     }
 
-    if (!Util.isUnset(request.securityAccountPassword)) {
+    if (!$dara.isNull(request.securityAccountPassword)) {
       query["SecurityAccountPassword"] = request.securityAccountPassword;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAccount",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13847,7 +15808,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
+    } else {
+      return $dara.cast<DeleteAccountResponse>(await this.execute(params, req, runtime), new DeleteAccountResponse({}));
+    }
+
   }
 
   /**
@@ -13855,7 +15821,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAccountResponse
    */
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
   }
 
@@ -13864,25 +15830,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDBResponse
    */
-  async deleteDBWithOptions(request: DeleteDBRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBResponse> {
-    Util.validateModel(request);
+  async deleteDBWithOptions(request: DeleteDBRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDBResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDB",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13893,7 +15859,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDBResponse>(await this.callApi(params, req, runtime), new DeleteDBResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDBResponse>(await this.callApi(params, req, runtime), new DeleteDBResponse({}));
+    } else {
+      return $dara.cast<DeleteDBResponse>(await this.execute(params, req, runtime), new DeleteDBResponse({}));
+    }
+
   }
 
   /**
@@ -13901,7 +15872,7 @@ export default class Client extends OpenApi {
    * @returns DeleteDBResponse
    */
   async deleteDB(request: DeleteDBRequest): Promise<DeleteDBResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDBWithOptions(request, runtime);
   }
 
@@ -13910,21 +15881,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDBInstanceResponse
    */
-  async deleteDBInstanceWithOptions(request: DeleteDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstanceResponse> {
-    Util.validateModel(request);
+  async deleteDBInstanceWithOptions(request: DeleteDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDBInstanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDBInstance",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13935,7 +15906,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDBInstanceResponse>(await this.callApi(params, req, runtime), new DeleteDBInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDBInstanceResponse>(await this.callApi(params, req, runtime), new DeleteDBInstanceResponse({}));
+    } else {
+      return $dara.cast<DeleteDBInstanceResponse>(await this.execute(params, req, runtime), new DeleteDBInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -13943,7 +15919,7 @@ export default class Client extends OpenApi {
    * @returns DeleteDBInstanceResponse
    */
   async deleteDBInstance(request: DeleteDBInstanceRequest): Promise<DeleteDBInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDBInstanceWithOptions(request, runtime);
   }
 
@@ -13952,29 +15928,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAccountListResponse
    */
-  async describeAccountListWithOptions(request: DescribeAccountListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountListResponse> {
-    Util.validateModel(request);
+  async describeAccountListWithOptions(request: DescribeAccountListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeAccountListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.accountType)) {
+    if (!$dara.isNull(request.accountType)) {
       query["AccountType"] = request.accountType;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeAccountList",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -13985,7 +15961,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeAccountListResponse>(await this.callApi(params, req, runtime), new DescribeAccountListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeAccountListResponse>(await this.callApi(params, req, runtime), new DescribeAccountListResponse({}));
+    } else {
+      return $dara.cast<DescribeAccountListResponse>(await this.execute(params, req, runtime), new DescribeAccountListResponse({}));
+    }
+
   }
 
   /**
@@ -13993,7 +15974,7 @@ export default class Client extends OpenApi {
    * @returns DescribeAccountListResponse
    */
   async describeAccountList(request: DescribeAccountListRequest): Promise<DescribeAccountListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAccountListWithOptions(request, runtime);
   }
 
@@ -14004,17 +15985,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeActiveOperationMaintainConfResponse
    */
-  async describeActiveOperationMaintainConfWithOptions(request: DescribeActiveOperationMaintainConfRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationMaintainConfResponse> {
-    Util.validateModel(request);
+  async describeActiveOperationMaintainConfWithOptions(request: DescribeActiveOperationMaintainConfRequest, runtime: $dara.RuntimeOptions): Promise<DescribeActiveOperationMaintainConfResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeActiveOperationMaintainConf",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14025,7 +16006,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationMaintainConfResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationMaintainConfResponse({}));
+    } else {
+      return $dara.cast<DescribeActiveOperationMaintainConfResponse>(await this.execute(params, req, runtime), new DescribeActiveOperationMaintainConfResponse({}));
+    }
+
   }
 
   /**
@@ -14035,7 +16021,7 @@ export default class Client extends OpenApi {
    * @returns DescribeActiveOperationMaintainConfResponse
    */
   async describeActiveOperationMaintainConf(request: DescribeActiveOperationMaintainConfRequest): Promise<DescribeActiveOperationMaintainConfResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeActiveOperationMaintainConfWithOptions(request, runtime);
   }
 
@@ -14046,13 +16032,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeActiveOperationTaskCountResponse
    */
-  async describeActiveOperationTaskCountWithOptions(request: DescribeActiveOperationTaskCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTaskCountResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async describeActiveOperationTaskCountWithOptions(request: DescribeActiveOperationTaskCountRequest, runtime: $dara.RuntimeOptions): Promise<DescribeActiveOperationTaskCountResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeActiveOperationTaskCount",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14063,7 +16049,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeActiveOperationTaskCountResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTaskCountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeActiveOperationTaskCountResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTaskCountResponse({}));
+    } else {
+      return $dara.cast<DescribeActiveOperationTaskCountResponse>(await this.execute(params, req, runtime), new DescribeActiveOperationTaskCountResponse({}));
+    }
+
   }
 
   /**
@@ -14073,7 +16064,7 @@ export default class Client extends OpenApi {
    * @returns DescribeActiveOperationTaskCountResponse
    */
   async describeActiveOperationTaskCount(request: DescribeActiveOperationTaskCountRequest): Promise<DescribeActiveOperationTaskCountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeActiveOperationTaskCountWithOptions(request, runtime);
   }
 
@@ -14084,13 +16075,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeActiveOperationTasksResponse
    */
-  async describeActiveOperationTasksWithOptions(request: DescribeActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTasksResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async describeActiveOperationTasksWithOptions(request: DescribeActiveOperationTasksRequest, runtime: $dara.RuntimeOptions): Promise<DescribeActiveOperationTasksResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeActiveOperationTasks",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14101,7 +16092,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTasksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTasksResponse({}));
+    } else {
+      return $dara.cast<DescribeActiveOperationTasksResponse>(await this.execute(params, req, runtime), new DescribeActiveOperationTasksResponse({}));
+    }
+
   }
 
   /**
@@ -14111,7 +16107,7 @@ export default class Client extends OpenApi {
    * @returns DescribeActiveOperationTasksResponse
    */
   async describeActiveOperationTasks(request: DescribeActiveOperationTasksRequest): Promise<DescribeActiveOperationTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeActiveOperationTasksWithOptions(request, runtime);
   }
 
@@ -14122,41 +16118,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeArchiveTableListResponse
    */
-  async describeArchiveTableListWithOptions(request: DescribeArchiveTableListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeArchiveTableListResponse> {
-    Util.validateModel(request);
+  async describeArchiveTableListWithOptions(request: DescribeArchiveTableListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeArchiveTableListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.pageIndex)) {
+    if (!$dara.isNull(request.pageIndex)) {
       query["PageIndex"] = request.pageIndex;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.schemaName)) {
+    if (!$dara.isNull(request.schemaName)) {
       query["SchemaName"] = request.schemaName;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    if (!Util.isUnset(request.tableName)) {
+    if (!$dara.isNull(request.tableName)) {
       query["TableName"] = request.tableName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeArchiveTableList",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14167,7 +16163,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeArchiveTableListResponse>(await this.callApi(params, req, runtime), new DescribeArchiveTableListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeArchiveTableListResponse>(await this.callApi(params, req, runtime), new DescribeArchiveTableListResponse({}));
+    } else {
+      return $dara.cast<DescribeArchiveTableListResponse>(await this.execute(params, req, runtime), new DescribeArchiveTableListResponse({}));
+    }
+
   }
 
   /**
@@ -14177,7 +16178,7 @@ export default class Client extends OpenApi {
    * @returns DescribeArchiveTableListResponse
    */
   async describeArchiveTableList(request: DescribeArchiveTableListRequest): Promise<DescribeArchiveTableListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeArchiveTableListWithOptions(request, runtime);
   }
 
@@ -14186,21 +16187,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupPolicyResponse
    */
-  async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
-    Util.validateModel(request);
+  async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeBackupPolicy",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14211,7 +16212,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
+    } else {
+      return $dara.cast<DescribeBackupPolicyResponse>(await this.execute(params, req, runtime), new DescribeBackupPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -14219,7 +16225,7 @@ export default class Client extends OpenApi {
    * @returns DescribeBackupPolicyResponse
    */
   async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeBackupPolicyWithOptions(request, runtime);
   }
 
@@ -14230,29 +16236,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupSetResponse
    */
-  async describeBackupSetWithOptions(request: DescribeBackupSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupSetResponse> {
-    Util.validateModel(request);
+  async describeBackupSetWithOptions(request: DescribeBackupSetRequest, runtime: $dara.RuntimeOptions): Promise<DescribeBackupSetResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.backupSetId)) {
+    if (!$dara.isNull(request.backupSetId)) {
       query["BackupSetId"] = request.backupSetId;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.destCrossRegion)) {
+    if (!$dara.isNull(request.destCrossRegion)) {
       query["DestCrossRegion"] = request.destCrossRegion;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeBackupSet",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14263,7 +16269,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeBackupSetResponse>(await this.callApi(params, req, runtime), new DescribeBackupSetResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeBackupSetResponse>(await this.callApi(params, req, runtime), new DescribeBackupSetResponse({}));
+    } else {
+      return $dara.cast<DescribeBackupSetResponse>(await this.execute(params, req, runtime), new DescribeBackupSetResponse({}));
+    }
+
   }
 
   /**
@@ -14273,7 +16284,7 @@ export default class Client extends OpenApi {
    * @returns DescribeBackupSetResponse
    */
   async describeBackupSet(request: DescribeBackupSetRequest): Promise<DescribeBackupSetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeBackupSetWithOptions(request, runtime);
   }
 
@@ -14282,13 +16293,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupSetListResponse
    */
-  async describeBackupSetListWithOptions(request: DescribeBackupSetListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupSetListResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async describeBackupSetListWithOptions(request: DescribeBackupSetListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeBackupSetListResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeBackupSetList",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14299,7 +16310,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeBackupSetListResponse>(await this.callApi(params, req, runtime), new DescribeBackupSetListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeBackupSetListResponse>(await this.callApi(params, req, runtime), new DescribeBackupSetListResponse({}));
+    } else {
+      return $dara.cast<DescribeBackupSetListResponse>(await this.execute(params, req, runtime), new DescribeBackupSetListResponse({}));
+    }
+
   }
 
   /**
@@ -14307,7 +16323,7 @@ export default class Client extends OpenApi {
    * @returns DescribeBackupSetListResponse
    */
   async describeBackupSetList(request: DescribeBackupSetListRequest): Promise<DescribeBackupSetListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeBackupSetListWithOptions(request, runtime);
   }
 
@@ -14316,41 +16332,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBinaryLogListResponse
    */
-  async describeBinaryLogListWithOptions(request: DescribeBinaryLogListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBinaryLogListResponse> {
-    Util.validateModel(request);
+  async describeBinaryLogListWithOptions(request: DescribeBinaryLogListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeBinaryLogListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeBinaryLogList",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14361,7 +16377,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeBinaryLogListResponse>(await this.callApi(params, req, runtime), new DescribeBinaryLogListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeBinaryLogListResponse>(await this.callApi(params, req, runtime), new DescribeBinaryLogListResponse({}));
+    } else {
+      return $dara.cast<DescribeBinaryLogListResponse>(await this.execute(params, req, runtime), new DescribeBinaryLogListResponse({}));
+    }
+
   }
 
   /**
@@ -14369,7 +16390,7 @@ export default class Client extends OpenApi {
    * @returns DescribeBinaryLogListResponse
    */
   async describeBinaryLogList(request: DescribeBinaryLogListRequest): Promise<DescribeBinaryLogListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeBinaryLogListWithOptions(request, runtime);
   }
 
@@ -14378,21 +16399,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCharacterSetResponse
    */
-  async describeCharacterSetWithOptions(request: DescribeCharacterSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCharacterSetResponse> {
-    Util.validateModel(request);
+  async describeCharacterSetWithOptions(request: DescribeCharacterSetRequest, runtime: $dara.RuntimeOptions): Promise<DescribeCharacterSetResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeCharacterSet",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14403,7 +16424,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeCharacterSetResponse>(await this.callApi(params, req, runtime), new DescribeCharacterSetResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeCharacterSetResponse>(await this.callApi(params, req, runtime), new DescribeCharacterSetResponse({}));
+    } else {
+      return $dara.cast<DescribeCharacterSetResponse>(await this.execute(params, req, runtime), new DescribeCharacterSetResponse({}));
+    }
+
   }
 
   /**
@@ -14411,7 +16437,7 @@ export default class Client extends OpenApi {
    * @returns DescribeCharacterSetResponse
    */
   async describeCharacterSet(request: DescribeCharacterSetRequest): Promise<DescribeCharacterSetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCharacterSetWithOptions(request, runtime);
   }
 
@@ -14422,13 +16448,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeColdDataBasicInfoResponse
    */
-  async describeColdDataBasicInfoWithOptions(request: DescribeColdDataBasicInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeColdDataBasicInfoResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async describeColdDataBasicInfoWithOptions(request: DescribeColdDataBasicInfoRequest, runtime: $dara.RuntimeOptions): Promise<DescribeColdDataBasicInfoResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeColdDataBasicInfo",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14439,7 +16465,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeColdDataBasicInfoResponse>(await this.callApi(params, req, runtime), new DescribeColdDataBasicInfoResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeColdDataBasicInfoResponse>(await this.callApi(params, req, runtime), new DescribeColdDataBasicInfoResponse({}));
+    } else {
+      return $dara.cast<DescribeColdDataBasicInfoResponse>(await this.execute(params, req, runtime), new DescribeColdDataBasicInfoResponse({}));
+    }
+
   }
 
   /**
@@ -14449,7 +16480,7 @@ export default class Client extends OpenApi {
    * @returns DescribeColdDataBasicInfoResponse
    */
   async describeColdDataBasicInfo(request: DescribeColdDataBasicInfoRequest): Promise<DescribeColdDataBasicInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeColdDataBasicInfoWithOptions(request, runtime);
   }
 
@@ -14458,25 +16489,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstanceAttributeResponse
    */
-  async describeDBInstanceAttributeWithOptions(request: DescribeDBInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceAttributeResponse> {
-    Util.validateModel(request);
+  async describeDBInstanceAttributeWithOptions(request: DescribeDBInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDBInstanceAttributeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDBInstanceAttribute",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14487,7 +16518,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDBInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceAttributeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDBInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceAttributeResponse({}));
+    } else {
+      return $dara.cast<DescribeDBInstanceAttributeResponse>(await this.execute(params, req, runtime), new DescribeDBInstanceAttributeResponse({}));
+    }
+
   }
 
   /**
@@ -14495,7 +16531,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDBInstanceAttributeResponse
    */
   async describeDBInstanceAttribute(request: DescribeDBInstanceAttributeRequest): Promise<DescribeDBInstanceAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBInstanceAttributeWithOptions(request, runtime);
   }
 
@@ -14504,25 +16540,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstanceConfigResponse
    */
-  async describeDBInstanceConfigWithOptions(request: DescribeDBInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceConfigResponse> {
-    Util.validateModel(request);
+  async describeDBInstanceConfigWithOptions(request: DescribeDBInstanceConfigRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDBInstanceConfigResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.configName)) {
+    if (!$dara.isNull(request.configName)) {
       query["ConfigName"] = request.configName;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDBInstanceConfig",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14533,7 +16569,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDBInstanceConfigResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDBInstanceConfigResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceConfigResponse({}));
+    } else {
+      return $dara.cast<DescribeDBInstanceConfigResponse>(await this.execute(params, req, runtime), new DescribeDBInstanceConfigResponse({}));
+    }
+
   }
 
   /**
@@ -14541,7 +16582,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDBInstanceConfigResponse
    */
   async describeDBInstanceConfig(request: DescribeDBInstanceConfigRequest): Promise<DescribeDBInstanceConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBInstanceConfigWithOptions(request, runtime);
   }
 
@@ -14550,21 +16591,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstanceHAResponse
    */
-  async describeDBInstanceHAWithOptions(request: DescribeDBInstanceHARequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceHAResponse> {
-    Util.validateModel(request);
+  async describeDBInstanceHAWithOptions(request: DescribeDBInstanceHARequest, runtime: $dara.RuntimeOptions): Promise<DescribeDBInstanceHAResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDBInstanceHA",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14575,7 +16616,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDBInstanceHAResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceHAResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDBInstanceHAResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceHAResponse({}));
+    } else {
+      return $dara.cast<DescribeDBInstanceHAResponse>(await this.execute(params, req, runtime), new DescribeDBInstanceHAResponse({}));
+    }
+
   }
 
   /**
@@ -14583,7 +16629,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDBInstanceHAResponse
    */
   async describeDBInstanceHA(request: DescribeDBInstanceHARequest): Promise<DescribeDBInstanceHAResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBInstanceHAWithOptions(request, runtime);
   }
 
@@ -14592,21 +16638,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstanceSSLResponse
    */
-  async describeDBInstanceSSLWithOptions(request: DescribeDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSSLResponse> {
-    Util.validateModel(request);
+  async describeDBInstanceSSLWithOptions(request: DescribeDBInstanceSSLRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDBInstanceSSLResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDBInstanceSSL",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14617,7 +16663,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceSSLResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceSSLResponse({}));
+    } else {
+      return $dara.cast<DescribeDBInstanceSSLResponse>(await this.execute(params, req, runtime), new DescribeDBInstanceSSLResponse({}));
+    }
+
   }
 
   /**
@@ -14625,7 +16676,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDBInstanceSSLResponse
    */
   async describeDBInstanceSSL(request: DescribeDBInstanceSSLRequest): Promise<DescribeDBInstanceSSLResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBInstanceSSLWithOptions(request, runtime);
   }
 
@@ -14634,21 +16685,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstanceTDEResponse
    */
-  async describeDBInstanceTDEWithOptions(request: DescribeDBInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceTDEResponse> {
-    Util.validateModel(request);
+  async describeDBInstanceTDEWithOptions(request: DescribeDBInstanceTDERequest, runtime: $dara.RuntimeOptions): Promise<DescribeDBInstanceTDEResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDBInstanceTDE",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14659,7 +16710,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDBInstanceTDEResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceTDEResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDBInstanceTDEResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceTDEResponse({}));
+    } else {
+      return $dara.cast<DescribeDBInstanceTDEResponse>(await this.execute(params, req, runtime), new DescribeDBInstanceTDEResponse({}));
+    }
+
   }
 
   /**
@@ -14667,7 +16723,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDBInstanceTDEResponse
    */
   async describeDBInstanceTDE(request: DescribeDBInstanceTDERequest): Promise<DescribeDBInstanceTDEResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBInstanceTDEWithOptions(request, runtime);
   }
 
@@ -14676,33 +16732,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstanceTopologyResponse
    */
-  async describeDBInstanceTopologyWithOptions(request: DescribeDBInstanceTopologyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceTopologyResponse> {
-    Util.validateModel(request);
+  async describeDBInstanceTopologyWithOptions(request: DescribeDBInstanceTopologyRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDBInstanceTopologyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.minuteSimple)) {
+    if (!$dara.isNull(request.minuteSimple)) {
       query["MinuteSimple"] = request.minuteSimple;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDBInstanceTopology",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14713,7 +16769,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDBInstanceTopologyResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceTopologyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDBInstanceTopologyResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceTopologyResponse({}));
+    } else {
+      return $dara.cast<DescribeDBInstanceTopologyResponse>(await this.execute(params, req, runtime), new DescribeDBInstanceTopologyResponse({}));
+    }
+
   }
 
   /**
@@ -14721,7 +16782,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDBInstanceTopologyResponse
    */
   async describeDBInstanceTopology(request: DescribeDBInstanceTopologyRequest): Promise<DescribeDBInstanceTopologyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBInstanceTopologyWithOptions(request, runtime);
   }
 
@@ -14732,21 +16793,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstanceViaEndpointResponse
    */
-  async describeDBInstanceViaEndpointWithOptions(request: DescribeDBInstanceViaEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceViaEndpointResponse> {
-    Util.validateModel(request);
+  async describeDBInstanceViaEndpointWithOptions(request: DescribeDBInstanceViaEndpointRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDBInstanceViaEndpointResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.endpoint)) {
+    if (!$dara.isNull(request.endpoint)) {
       query["Endpoint"] = request.endpoint;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDBInstanceViaEndpoint",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14757,7 +16818,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDBInstanceViaEndpointResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceViaEndpointResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDBInstanceViaEndpointResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceViaEndpointResponse({}));
+    } else {
+      return $dara.cast<DescribeDBInstanceViaEndpointResponse>(await this.execute(params, req, runtime), new DescribeDBInstanceViaEndpointResponse({}));
+    }
+
   }
 
   /**
@@ -14767,7 +16833,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDBInstanceViaEndpointResponse
    */
   async describeDBInstanceViaEndpoint(request: DescribeDBInstanceViaEndpointRequest): Promise<DescribeDBInstanceViaEndpointResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBInstanceViaEndpointWithOptions(request, runtime);
   }
 
@@ -14776,49 +16842,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstancesResponse
    */
-  async describeDBInstancesWithOptions(request: DescribeDBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
-    Util.validateModel(request);
+  async describeDBInstancesWithOptions(request: DescribeDBInstancesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dbVersion)) {
+    if (!$dara.isNull(request.dbVersion)) {
       query["DbVersion"] = request.dbVersion;
     }
 
-    if (!Util.isUnset(request.instanceId)) {
+    if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
-    if (!Util.isUnset(request.mustHasCdc)) {
+    if (!$dara.isNull(request.mustHasCdc)) {
       query["MustHasCdc"] = request.mustHasCdc;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.series)) {
+    if (!$dara.isNull(request.series)) {
       query["Series"] = request.series;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       query["Tags"] = request.tags;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDBInstances",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14829,7 +16895,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDBInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDBInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesResponse({}));
+    } else {
+      return $dara.cast<DescribeDBInstancesResponse>(await this.execute(params, req, runtime), new DescribeDBInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -14837,7 +16908,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDBInstancesResponse
    */
   async describeDBInstances(request: DescribeDBInstancesRequest): Promise<DescribeDBInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBInstancesWithOptions(request, runtime);
   }
 
@@ -14846,45 +16917,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBNodePerformanceResponse
    */
-  async describeDBNodePerformanceWithOptions(request: DescribeDBNodePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBNodePerformanceResponse> {
-    Util.validateModel(request);
+  async describeDBNodePerformanceWithOptions(request: DescribeDBNodePerformanceRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDBNodePerformanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.characterType)) {
+    if (!$dara.isNull(request.characterType)) {
       query["CharacterType"] = request.characterType;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.DBNodeIds)) {
+    if (!$dara.isNull(request.DBNodeIds)) {
       query["DBNodeIds"] = request.DBNodeIds;
     }
 
-    if (!Util.isUnset(request.DBNodeRole)) {
+    if (!$dara.isNull(request.DBNodeRole)) {
       query["DBNodeRole"] = request.DBNodeRole;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.key)) {
+    if (!$dara.isNull(request.key)) {
       query["Key"] = request.key;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDBNodePerformance",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14895,7 +16966,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDBNodePerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBNodePerformanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDBNodePerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBNodePerformanceResponse({}));
+    } else {
+      return $dara.cast<DescribeDBNodePerformanceResponse>(await this.execute(params, req, runtime), new DescribeDBNodePerformanceResponse({}));
+    }
+
   }
 
   /**
@@ -14903,7 +16979,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDBNodePerformanceResponse
    */
   async describeDBNodePerformance(request: DescribeDBNodePerformanceRequest): Promise<DescribeDBNodePerformanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBNodePerformanceWithOptions(request, runtime);
   }
 
@@ -14912,25 +16988,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDbListResponse
    */
-  async describeDbListWithOptions(request: DescribeDbListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDbListResponse> {
-    Util.validateModel(request);
+  async describeDbListWithOptions(request: DescribeDbListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDbListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.DBName)) {
+    if (!$dara.isNull(request.DBName)) {
       query["DBName"] = request.DBName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDbList",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14941,7 +17017,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDbListResponse>(await this.callApi(params, req, runtime), new DescribeDbListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDbListResponse>(await this.callApi(params, req, runtime), new DescribeDbListResponse({}));
+    } else {
+      return $dara.cast<DescribeDbListResponse>(await this.execute(params, req, runtime), new DescribeDbListResponse({}));
+    }
+
   }
 
   /**
@@ -14949,7 +17030,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDbListResponse
    */
   async describeDbList(request: DescribeDbListRequest): Promise<DescribeDbListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDbListWithOptions(request, runtime);
   }
 
@@ -14958,25 +17039,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDistributeTableListResponse
    */
-  async describeDistributeTableListWithOptions(request: DescribeDistributeTableListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDistributeTableListResponse> {
-    Util.validateModel(request);
+  async describeDistributeTableListWithOptions(request: DescribeDistributeTableListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDistributeTableListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDistributeTableList",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -14987,7 +17068,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDistributeTableListResponse>(await this.callApi(params, req, runtime), new DescribeDistributeTableListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDistributeTableListResponse>(await this.callApi(params, req, runtime), new DescribeDistributeTableListResponse({}));
+    } else {
+      return $dara.cast<DescribeDistributeTableListResponse>(await this.execute(params, req, runtime), new DescribeDistributeTableListResponse({}));
+    }
+
   }
 
   /**
@@ -14995,7 +17081,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDistributeTableListResponse
    */
   async describeDistributeTableList(request: DescribeDistributeTableListRequest): Promise<DescribeDistributeTableListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDistributeTableListWithOptions(request, runtime);
   }
 
@@ -15006,13 +17092,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEventsResponse
    */
-  async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeEventsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeEvents",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15023,7 +17109,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
+    } else {
+      return $dara.cast<DescribeEventsResponse>(await this.execute(params, req, runtime), new DescribeEventsResponse({}));
+    }
+
   }
 
   /**
@@ -15033,7 +17124,7 @@ export default class Client extends OpenApi {
    * @returns DescribeEventsResponse
    */
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeEventsWithOptions(request, runtime);
   }
 
@@ -15044,37 +17135,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeGdnInstancesResponse
    */
-  async describeGdnInstancesWithOptions(request: DescribeGdnInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGdnInstancesResponse> {
-    Util.validateModel(request);
+  async describeGdnInstancesWithOptions(request: DescribeGdnInstancesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeGdnInstancesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.filterType)) {
+    if (!$dara.isNull(request.filterType)) {
       query["FilterType"] = request.filterType;
     }
 
-    if (!Util.isUnset(request.filterValue)) {
+    if (!$dara.isNull(request.filterValue)) {
       query["FilterValue"] = request.filterValue;
     }
 
-    if (!Util.isUnset(request.GDNId)) {
+    if (!$dara.isNull(request.GDNId)) {
       query["GDNId"] = request.GDNId;
     }
 
-    if (!Util.isUnset(request.pageNum)) {
+    if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeGdnInstances",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15085,7 +17176,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGdnInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGdnInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeGdnInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGdnInstancesResponse({}));
+    } else {
+      return $dara.cast<DescribeGdnInstancesResponse>(await this.execute(params, req, runtime), new DescribeGdnInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -15095,7 +17191,7 @@ export default class Client extends OpenApi {
    * @returns DescribeGdnInstancesResponse
    */
   async describeGdnInstances(request: DescribeGdnInstancesRequest): Promise<DescribeGdnInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeGdnInstancesWithOptions(request, runtime);
   }
 
@@ -15106,25 +17202,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOpenBackupSetResponse
    */
-  async describeOpenBackupSetWithOptions(request: DescribeOpenBackupSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOpenBackupSetResponse> {
-    Util.validateModel(request);
+  async describeOpenBackupSetWithOptions(request: DescribeOpenBackupSetRequest, runtime: $dara.RuntimeOptions): Promise<DescribeOpenBackupSetResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.restoreTime)) {
+    if (!$dara.isNull(request.restoreTime)) {
       query["RestoreTime"] = request.restoreTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeOpenBackupSet",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15135,7 +17231,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeOpenBackupSetResponse>(await this.callApi(params, req, runtime), new DescribeOpenBackupSetResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeOpenBackupSetResponse>(await this.callApi(params, req, runtime), new DescribeOpenBackupSetResponse({}));
+    } else {
+      return $dara.cast<DescribeOpenBackupSetResponse>(await this.execute(params, req, runtime), new DescribeOpenBackupSetResponse({}));
+    }
+
   }
 
   /**
@@ -15145,7 +17246,7 @@ export default class Client extends OpenApi {
    * @returns DescribeOpenBackupSetResponse
    */
   async describeOpenBackupSet(request: DescribeOpenBackupSetRequest): Promise<DescribeOpenBackupSetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeOpenBackupSetWithOptions(request, runtime);
   }
 
@@ -15154,29 +17255,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeParameterTemplatesResponse
    */
-  async describeParameterTemplatesWithOptions(request: DescribeParameterTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterTemplatesResponse> {
-    Util.validateModel(request);
+  async describeParameterTemplatesWithOptions(request: DescribeParameterTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeParameterTemplatesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
+    if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
-    if (!Util.isUnset(request.engineVersion)) {
+    if (!$dara.isNull(request.engineVersion)) {
       query["EngineVersion"] = request.engineVersion;
     }
 
-    if (!Util.isUnset(request.paramLevel)) {
+    if (!$dara.isNull(request.paramLevel)) {
       query["ParamLevel"] = request.paramLevel;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeParameterTemplates",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15187,7 +17288,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeParameterTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeParameterTemplatesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeParameterTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeParameterTemplatesResponse({}));
+    } else {
+      return $dara.cast<DescribeParameterTemplatesResponse>(await this.execute(params, req, runtime), new DescribeParameterTemplatesResponse({}));
+    }
+
   }
 
   /**
@@ -15195,7 +17301,7 @@ export default class Client extends OpenApi {
    * @returns DescribeParameterTemplatesResponse
    */
   async describeParameterTemplates(request: DescribeParameterTemplatesRequest): Promise<DescribeParameterTemplatesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeParameterTemplatesWithOptions(request, runtime);
   }
 
@@ -15204,25 +17310,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeParametersResponse
    */
-  async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
-    Util.validateModel(request);
+  async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $dara.RuntimeOptions): Promise<DescribeParametersResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
+    if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
-    if (!Util.isUnset(request.paramLevel)) {
+    if (!$dara.isNull(request.paramLevel)) {
       query["ParamLevel"] = request.paramLevel;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeParameters",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15233,7 +17339,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeParametersResponse>(await this.callApi(params, req, runtime), new DescribeParametersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeParametersResponse>(await this.callApi(params, req, runtime), new DescribeParametersResponse({}));
+    } else {
+      return $dara.cast<DescribeParametersResponse>(await this.execute(params, req, runtime), new DescribeParametersResponse({}));
+    }
+
   }
 
   /**
@@ -15241,7 +17352,7 @@ export default class Client extends OpenApi {
    * @returns DescribeParametersResponse
    */
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeParametersWithOptions(request, runtime);
   }
 
@@ -15250,9 +17361,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
-  async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async describeRegionsWithOptions(runtime: $dara.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRegions",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15263,14 +17374,19 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    } else {
+      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
+    }
+
   }
 
   /**
    * @returns DescribeRegionsResponse
    */
   async describeRegions(): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(runtime);
   }
 
@@ -15279,37 +17395,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeScaleOutMigrateTaskListResponse
    */
-  async describeScaleOutMigrateTaskListWithOptions(request: DescribeScaleOutMigrateTaskListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeScaleOutMigrateTaskListResponse> {
-    Util.validateModel(request);
+  async describeScaleOutMigrateTaskListWithOptions(request: DescribeScaleOutMigrateTaskListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeScaleOutMigrateTaskListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeScaleOutMigrateTaskList",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15320,7 +17436,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeScaleOutMigrateTaskListResponse>(await this.callApi(params, req, runtime), new DescribeScaleOutMigrateTaskListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeScaleOutMigrateTaskListResponse>(await this.callApi(params, req, runtime), new DescribeScaleOutMigrateTaskListResponse({}));
+    } else {
+      return $dara.cast<DescribeScaleOutMigrateTaskListResponse>(await this.execute(params, req, runtime), new DescribeScaleOutMigrateTaskListResponse({}));
+    }
+
   }
 
   /**
@@ -15328,7 +17449,7 @@ export default class Client extends OpenApi {
    * @returns DescribeScaleOutMigrateTaskListResponse
    */
   async describeScaleOutMigrateTaskList(request: DescribeScaleOutMigrateTaskListRequest): Promise<DescribeScaleOutMigrateTaskListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeScaleOutMigrateTaskListWithOptions(request, runtime);
   }
 
@@ -15337,21 +17458,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSecurityIpsResponse
    */
-  async describeSecurityIpsWithOptions(request: DescribeSecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityIpsResponse> {
-    Util.validateModel(request);
+  async describeSecurityIpsWithOptions(request: DescribeSecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSecurityIpsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeSecurityIps",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15362,7 +17483,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSecurityIpsResponse>(await this.callApi(params, req, runtime), new DescribeSecurityIpsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSecurityIpsResponse>(await this.callApi(params, req, runtime), new DescribeSecurityIpsResponse({}));
+    } else {
+      return $dara.cast<DescribeSecurityIpsResponse>(await this.execute(params, req, runtime), new DescribeSecurityIpsResponse({}));
+    }
+
   }
 
   /**
@@ -15370,7 +17496,7 @@ export default class Client extends OpenApi {
    * @returns DescribeSecurityIpsResponse
    */
   async describeSecurityIps(request: DescribeSecurityIpsRequest): Promise<DescribeSecurityIpsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSecurityIpsWithOptions(request, runtime);
   }
 
@@ -15381,49 +17507,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSlowLogRecordsResponse
    */
-  async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
-    Util.validateModel(request);
+  async describeSlowLogRecordsWithOptions(request: DescribeSlowLogRecordsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSlowLogRecordsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.characterType)) {
+    if (!$dara.isNull(request.characterType)) {
       query["CharacterType"] = request.characterType;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.DBName)) {
+    if (!$dara.isNull(request.DBName)) {
       query["DBName"] = request.DBName;
     }
 
-    if (!Util.isUnset(request.DBNodeIds)) {
+    if (!$dara.isNull(request.DBNodeIds)) {
       query["DBNodeIds"] = request.DBNodeIds;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.page)) {
+    if (!$dara.isNull(request.page)) {
       query["Page"] = request.page;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeSlowLogRecords",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15434,7 +17560,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSlowLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogRecordsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSlowLogRecordsResponse>(await this.callApi(params, req, runtime), new DescribeSlowLogRecordsResponse({}));
+    } else {
+      return $dara.cast<DescribeSlowLogRecordsResponse>(await this.execute(params, req, runtime), new DescribeSlowLogRecordsResponse({}));
+    }
+
   }
 
   /**
@@ -15444,7 +17575,7 @@ export default class Client extends OpenApi {
    * @returns DescribeSlowLogRecordsResponse
    */
   async describeSlowLogRecords(request: DescribeSlowLogRecordsRequest): Promise<DescribeSlowLogRecordsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSlowLogRecordsWithOptions(request, runtime);
   }
 
@@ -15455,25 +17586,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTagsResponse
    */
-  async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
-    Util.validateModel(request);
+  async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeTagsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeTags",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15484,7 +17615,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
+    } else {
+      return $dara.cast<DescribeTagsResponse>(await this.execute(params, req, runtime), new DescribeTagsResponse({}));
+    }
+
   }
 
   /**
@@ -15494,7 +17630,7 @@ export default class Client extends OpenApi {
    * @returns DescribeTagsResponse
    */
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeTagsWithOptions(request, runtime);
   }
 
@@ -15503,53 +17639,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTasksResponse
    */
-  async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
-    Util.validateModel(request);
+  async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $dara.RuntimeOptions): Promise<DescribeTasksResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
+    if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.ownerAccount)) {
+    if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
 
-    if (!Util.isUnset(request.ownerId)) {
+    if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
 
-    if (!Util.isUnset(request.resourceOwnerId)) {
+    if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeTasks",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15560,7 +17696,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeTasksResponse>(await this.callApi(params, req, runtime), new DescribeTasksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeTasksResponse>(await this.callApi(params, req, runtime), new DescribeTasksResponse({}));
+    } else {
+      return $dara.cast<DescribeTasksResponse>(await this.execute(params, req, runtime), new DescribeTasksResponse({}));
+    }
+
   }
 
   /**
@@ -15568,7 +17709,7 @@ export default class Client extends OpenApi {
    * @returns DescribeTasksResponse
    */
   async describeTasks(request: DescribeTasksRequest): Promise<DescribeTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeTasksWithOptions(request, runtime);
   }
 
@@ -15577,21 +17718,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUserEncryptionKeyListResponse
    */
-  async describeUserEncryptionKeyListWithOptions(request: DescribeUserEncryptionKeyListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserEncryptionKeyListResponse> {
-    Util.validateModel(request);
+  async describeUserEncryptionKeyListWithOptions(request: DescribeUserEncryptionKeyListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeUserEncryptionKeyListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeUserEncryptionKeyList",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15602,7 +17743,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeUserEncryptionKeyListResponse>(await this.callApi(params, req, runtime), new DescribeUserEncryptionKeyListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeUserEncryptionKeyListResponse>(await this.callApi(params, req, runtime), new DescribeUserEncryptionKeyListResponse({}));
+    } else {
+      return $dara.cast<DescribeUserEncryptionKeyListResponse>(await this.execute(params, req, runtime), new DescribeUserEncryptionKeyListResponse({}));
+    }
+
   }
 
   /**
@@ -15610,7 +17756,7 @@ export default class Client extends OpenApi {
    * @returns DescribeUserEncryptionKeyListResponse
    */
   async describeUserEncryptionKeyList(request: DescribeUserEncryptionKeyListRequest): Promise<DescribeUserEncryptionKeyListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeUserEncryptionKeyListWithOptions(request, runtime);
   }
 
@@ -15619,29 +17765,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableRightsSeparationResponse
    */
-  async disableRightsSeparationWithOptions(request: DisableRightsSeparationRequest, runtime: $Util.RuntimeOptions): Promise<DisableRightsSeparationResponse> {
-    Util.validateModel(request);
+  async disableRightsSeparationWithOptions(request: DisableRightsSeparationRequest, runtime: $dara.RuntimeOptions): Promise<DisableRightsSeparationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.dbaAccountName)) {
+    if (!$dara.isNull(request.dbaAccountName)) {
       query["DbaAccountName"] = request.dbaAccountName;
     }
 
-    if (!Util.isUnset(request.dbaAccountPassword)) {
+    if (!$dara.isNull(request.dbaAccountPassword)) {
       query["DbaAccountPassword"] = request.dbaAccountPassword;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DisableRightsSeparation",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15652,7 +17798,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DisableRightsSeparationResponse>(await this.callApi(params, req, runtime), new DisableRightsSeparationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DisableRightsSeparationResponse>(await this.callApi(params, req, runtime), new DisableRightsSeparationResponse({}));
+    } else {
+      return $dara.cast<DisableRightsSeparationResponse>(await this.execute(params, req, runtime), new DisableRightsSeparationResponse({}));
+    }
+
   }
 
   /**
@@ -15660,7 +17811,7 @@ export default class Client extends OpenApi {
    * @returns DisableRightsSeparationResponse
    */
   async disableRightsSeparation(request: DisableRightsSeparationRequest): Promise<DisableRightsSeparationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.disableRightsSeparationWithOptions(request, runtime);
   }
 
@@ -15671,45 +17822,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableRightsSeparationResponse
    */
-  async enableRightsSeparationWithOptions(request: EnableRightsSeparationRequest, runtime: $Util.RuntimeOptions): Promise<EnableRightsSeparationResponse> {
-    Util.validateModel(request);
+  async enableRightsSeparationWithOptions(request: EnableRightsSeparationRequest, runtime: $dara.RuntimeOptions): Promise<EnableRightsSeparationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.auditAccountDescription)) {
+    if (!$dara.isNull(request.auditAccountDescription)) {
       query["AuditAccountDescription"] = request.auditAccountDescription;
     }
 
-    if (!Util.isUnset(request.auditAccountName)) {
+    if (!$dara.isNull(request.auditAccountName)) {
       query["AuditAccountName"] = request.auditAccountName;
     }
 
-    if (!Util.isUnset(request.auditAccountPassword)) {
+    if (!$dara.isNull(request.auditAccountPassword)) {
       query["AuditAccountPassword"] = request.auditAccountPassword;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.securityAccountDescription)) {
+    if (!$dara.isNull(request.securityAccountDescription)) {
       query["SecurityAccountDescription"] = request.securityAccountDescription;
     }
 
-    if (!Util.isUnset(request.securityAccountName)) {
+    if (!$dara.isNull(request.securityAccountName)) {
       query["SecurityAccountName"] = request.securityAccountName;
     }
 
-    if (!Util.isUnset(request.securityAccountPassword)) {
+    if (!$dara.isNull(request.securityAccountPassword)) {
       query["SecurityAccountPassword"] = request.securityAccountPassword;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "EnableRightsSeparation",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15720,7 +17871,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EnableRightsSeparationResponse>(await this.callApi(params, req, runtime), new EnableRightsSeparationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<EnableRightsSeparationResponse>(await this.callApi(params, req, runtime), new EnableRightsSeparationResponse({}));
+    } else {
+      return $dara.cast<EnableRightsSeparationResponse>(await this.execute(params, req, runtime), new EnableRightsSeparationResponse({}));
+    }
+
   }
 
   /**
@@ -15730,7 +17886,7 @@ export default class Client extends OpenApi {
    * @returns EnableRightsSeparationResponse
    */
   async enableRightsSeparation(request: EnableRightsSeparationRequest): Promise<EnableRightsSeparationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.enableRightsSeparationWithOptions(request, runtime);
   }
 
@@ -15741,33 +17897,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15778,7 +17934,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -15788,7 +17949,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
@@ -15797,29 +17958,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAccountDescriptionResponse
    */
-  async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
-    Util.validateModel(request);
+  async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountDescription)) {
+    if (!$dara.isNull(request.accountDescription)) {
       query["AccountDescription"] = request.accountDescription;
     }
 
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyAccountDescription",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15830,7 +17991,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyAccountDescriptionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyAccountDescriptionResponse({}));
+    } else {
+      return $dara.cast<ModifyAccountDescriptionResponse>(await this.execute(params, req, runtime), new ModifyAccountDescriptionResponse({}));
+    }
+
   }
 
   /**
@@ -15838,7 +18004,7 @@ export default class Client extends OpenApi {
    * @returns ModifyAccountDescriptionResponse
    */
   async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
   }
 
@@ -15847,41 +18013,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAccountPrivilegeResponse
    */
-  async modifyAccountPrivilegeWithOptions(request: ModifyAccountPrivilegeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountPrivilegeResponse> {
-    Util.validateModel(request);
+  async modifyAccountPrivilegeWithOptions(request: ModifyAccountPrivilegeRequest, runtime: $dara.RuntimeOptions): Promise<ModifyAccountPrivilegeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.accountPrivilege)) {
+    if (!$dara.isNull(request.accountPrivilege)) {
       query["AccountPrivilege"] = request.accountPrivilege;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.securityAccountName)) {
+    if (!$dara.isNull(request.securityAccountName)) {
       query["SecurityAccountName"] = request.securityAccountName;
     }
 
-    if (!Util.isUnset(request.securityAccountPassword)) {
+    if (!$dara.isNull(request.securityAccountPassword)) {
       query["SecurityAccountPassword"] = request.securityAccountPassword;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyAccountPrivilege",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15892,7 +18058,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new ModifyAccountPrivilegeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyAccountPrivilegeResponse>(await this.callApi(params, req, runtime), new ModifyAccountPrivilegeResponse({}));
+    } else {
+      return $dara.cast<ModifyAccountPrivilegeResponse>(await this.execute(params, req, runtime), new ModifyAccountPrivilegeResponse({}));
+    }
+
   }
 
   /**
@@ -15900,7 +18071,7 @@ export default class Client extends OpenApi {
    * @returns ModifyAccountPrivilegeResponse
    */
   async modifyAccountPrivilege(request: ModifyAccountPrivilegeRequest): Promise<ModifyAccountPrivilegeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyAccountPrivilegeWithOptions(request, runtime);
   }
 
@@ -15911,13 +18082,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyActiveOperationMaintainConfResponse
    */
-  async modifyActiveOperationMaintainConfWithOptions(request: ModifyActiveOperationMaintainConfRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationMaintainConfResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async modifyActiveOperationMaintainConfWithOptions(request: ModifyActiveOperationMaintainConfRequest, runtime: $dara.RuntimeOptions): Promise<ModifyActiveOperationMaintainConfResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyActiveOperationMaintainConf",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15928,7 +18099,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationMaintainConfResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationMaintainConfResponse({}));
+    } else {
+      return $dara.cast<ModifyActiveOperationMaintainConfResponse>(await this.execute(params, req, runtime), new ModifyActiveOperationMaintainConfResponse({}));
+    }
+
   }
 
   /**
@@ -15938,7 +18114,7 @@ export default class Client extends OpenApi {
    * @returns ModifyActiveOperationMaintainConfResponse
    */
   async modifyActiveOperationMaintainConf(request: ModifyActiveOperationMaintainConfRequest): Promise<ModifyActiveOperationMaintainConfResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyActiveOperationMaintainConfWithOptions(request, runtime);
   }
 
@@ -15949,29 +18125,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyActiveOperationTasksResponse
    */
-  async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
-    Util.validateModel(request);
+  async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $dara.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.ids)) {
+    if (!$dara.isNull(request.ids)) {
       query["Ids"] = request.ids;
     }
 
-    if (!Util.isUnset(request.immediateStart)) {
+    if (!$dara.isNull(request.immediateStart)) {
       query["ImmediateStart"] = request.immediateStart;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.switchTime)) {
+    if (!$dara.isNull(request.switchTime)) {
       query["SwitchTime"] = request.switchTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyActiveOperationTasks",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -15982,7 +18158,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTasksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTasksResponse({}));
+    } else {
+      return $dara.cast<ModifyActiveOperationTasksResponse>(await this.execute(params, req, runtime), new ModifyActiveOperationTasksResponse({}));
+    }
+
   }
 
   /**
@@ -15992,7 +18173,7 @@ export default class Client extends OpenApi {
    * @returns ModifyActiveOperationTasksResponse
    */
   async modifyActiveOperationTasks(request: ModifyActiveOperationTasksRequest): Promise<ModifyActiveOperationTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyActiveOperationTasksWithOptions(request, runtime);
   }
 
@@ -16001,57 +18182,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDBInstanceClassResponse
    */
-  async modifyDBInstanceClassWithOptions(request: ModifyDBInstanceClassRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceClassResponse> {
-    Util.validateModel(request);
+  async modifyDBInstanceClassWithOptions(request: ModifyDBInstanceClassRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDBInstanceClassResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.cnClass)) {
+    if (!$dara.isNull(request.cnClass)) {
       query["CnClass"] = request.cnClass;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.dnClass)) {
+    if (!$dara.isNull(request.dnClass)) {
       query["DnClass"] = request.dnClass;
     }
 
-    if (!Util.isUnset(request.dnStorageSpace)) {
+    if (!$dara.isNull(request.dnStorageSpace)) {
       query["DnStorageSpace"] = request.dnStorageSpace;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.specifiedDNScale)) {
+    if (!$dara.isNull(request.specifiedDNScale)) {
       query["SpecifiedDNScale"] = request.specifiedDNScale;
     }
 
-    if (!Util.isUnset(request.specifiedDNSpecMapJson)) {
+    if (!$dara.isNull(request.specifiedDNSpecMapJson)) {
       query["SpecifiedDNSpecMapJson"] = request.specifiedDNSpecMapJson;
     }
 
-    if (!Util.isUnset(request.switchTime)) {
+    if (!$dara.isNull(request.switchTime)) {
       query["SwitchTime"] = request.switchTime;
     }
 
-    if (!Util.isUnset(request.switchTimeMode)) {
+    if (!$dara.isNull(request.switchTimeMode)) {
       query["SwitchTimeMode"] = request.switchTimeMode;
     }
 
-    if (!Util.isUnset(request.targetDBInstanceClass)) {
+    if (!$dara.isNull(request.targetDBInstanceClass)) {
       query["TargetDBInstanceClass"] = request.targetDBInstanceClass;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyDBInstanceClass",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16062,7 +18243,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyDBInstanceClassResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceClassResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyDBInstanceClassResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceClassResponse({}));
+    } else {
+      return $dara.cast<ModifyDBInstanceClassResponse>(await this.execute(params, req, runtime), new ModifyDBInstanceClassResponse({}));
+    }
+
   }
 
   /**
@@ -16070,7 +18256,7 @@ export default class Client extends OpenApi {
    * @returns ModifyDBInstanceClassResponse
    */
   async modifyDBInstanceClass(request: ModifyDBInstanceClassRequest): Promise<ModifyDBInstanceClassResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDBInstanceClassWithOptions(request, runtime);
   }
 
@@ -16081,29 +18267,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDBInstanceConfigResponse
    */
-  async modifyDBInstanceConfigWithOptions(request: ModifyDBInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConfigResponse> {
-    Util.validateModel(request);
+  async modifyDBInstanceConfigWithOptions(request: ModifyDBInstanceConfigRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDBInstanceConfigResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.configName)) {
+    if (!$dara.isNull(request.configName)) {
       query["ConfigName"] = request.configName;
     }
 
-    if (!Util.isUnset(request.configValue)) {
+    if (!$dara.isNull(request.configValue)) {
       query["ConfigValue"] = request.configValue;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyDBInstanceConfig",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16114,7 +18300,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyDBInstanceConfigResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyDBInstanceConfigResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConfigResponse({}));
+    } else {
+      return $dara.cast<ModifyDBInstanceConfigResponse>(await this.execute(params, req, runtime), new ModifyDBInstanceConfigResponse({}));
+    }
+
   }
 
   /**
@@ -16124,7 +18315,7 @@ export default class Client extends OpenApi {
    * @returns ModifyDBInstanceConfigResponse
    */
   async modifyDBInstanceConfig(request: ModifyDBInstanceConfigRequest): Promise<ModifyDBInstanceConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDBInstanceConfigWithOptions(request, runtime);
   }
 
@@ -16135,33 +18326,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDBInstanceConnectionStringResponse
    */
-  async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
-    Util.validateModel(request);
+  async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.connectionString)) {
+    if (!$dara.isNull(request.connectionString)) {
       query["ConnectionString"] = request.connectionString;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.newPort)) {
+    if (!$dara.isNull(request.newPort)) {
       query["NewPort"] = request.newPort;
     }
 
-    if (!Util.isUnset(request.newPrefix)) {
+    if (!$dara.isNull(request.newPrefix)) {
       query["NewPrefix"] = request.newPrefix;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyDBInstanceConnectionString",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16172,7 +18363,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyDBInstanceConnectionStringResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConnectionStringResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyDBInstanceConnectionStringResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConnectionStringResponse({}));
+    } else {
+      return $dara.cast<ModifyDBInstanceConnectionStringResponse>(await this.execute(params, req, runtime), new ModifyDBInstanceConnectionStringResponse({}));
+    }
+
   }
 
   /**
@@ -16182,7 +18378,7 @@ export default class Client extends OpenApi {
    * @returns ModifyDBInstanceConnectionStringResponse
    */
   async modifyDBInstanceConnectionString(request: ModifyDBInstanceConnectionStringRequest): Promise<ModifyDBInstanceConnectionStringResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDBInstanceConnectionStringWithOptions(request, runtime);
   }
 
@@ -16191,25 +18387,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDBInstanceDescriptionResponse
    */
-  async modifyDBInstanceDescriptionWithOptions(request: ModifyDBInstanceDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceDescriptionResponse> {
-    Util.validateModel(request);
+  async modifyDBInstanceDescriptionWithOptions(request: ModifyDBInstanceDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDBInstanceDescriptionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceDescription)) {
+    if (!$dara.isNull(request.DBInstanceDescription)) {
       query["DBInstanceDescription"] = request.DBInstanceDescription;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyDBInstanceDescription",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16220,7 +18416,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyDBInstanceDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceDescriptionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyDBInstanceDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceDescriptionResponse({}));
+    } else {
+      return $dara.cast<ModifyDBInstanceDescriptionResponse>(await this.execute(params, req, runtime), new ModifyDBInstanceDescriptionResponse({}));
+    }
+
   }
 
   /**
@@ -16228,7 +18429,7 @@ export default class Client extends OpenApi {
    * @returns ModifyDBInstanceDescriptionResponse
    */
   async modifyDBInstanceDescription(request: ModifyDBInstanceDescriptionRequest): Promise<ModifyDBInstanceDescriptionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDBInstanceDescriptionWithOptions(request, runtime);
   }
 
@@ -16237,29 +18438,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDatabaseDescriptionResponse
    */
-  async modifyDatabaseDescriptionWithOptions(request: ModifyDatabaseDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatabaseDescriptionResponse> {
-    Util.validateModel(request);
+  async modifyDatabaseDescriptionWithOptions(request: ModifyDatabaseDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDatabaseDescriptionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.dbDescription)) {
+    if (!$dara.isNull(request.dbDescription)) {
       query["DbDescription"] = request.dbDescription;
     }
 
-    if (!Util.isUnset(request.dbName)) {
+    if (!$dara.isNull(request.dbName)) {
       query["DbName"] = request.dbName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyDatabaseDescription",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16270,7 +18471,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyDatabaseDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDatabaseDescriptionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyDatabaseDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDatabaseDescriptionResponse({}));
+    } else {
+      return $dara.cast<ModifyDatabaseDescriptionResponse>(await this.execute(params, req, runtime), new ModifyDatabaseDescriptionResponse({}));
+    }
+
   }
 
   /**
@@ -16278,7 +18484,7 @@ export default class Client extends OpenApi {
    * @returns ModifyDatabaseDescriptionResponse
    */
   async modifyDatabaseDescription(request: ModifyDatabaseDescriptionRequest): Promise<ModifyDatabaseDescriptionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDatabaseDescriptionWithOptions(request, runtime);
   }
 
@@ -16287,37 +18493,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyParameterResponse
    */
-  async modifyParameterWithOptions(request: ModifyParameterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParameterResponse> {
-    Util.validateModel(request);
+  async modifyParameterWithOptions(request: ModifyParameterRequest, runtime: $dara.RuntimeOptions): Promise<ModifyParameterResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.DBInstanceId)) {
+    if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
-    if (!Util.isUnset(request.paramLevel)) {
+    if (!$dara.isNull(request.paramLevel)) {
       query["ParamLevel"] = request.paramLevel;
     }
 
-    if (!Util.isUnset(request.parameterGroupId)) {
+    if (!$dara.isNull(request.parameterGroupId)) {
       query["ParameterGroupId"] = request.parameterGroupId;
     }
 
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyParameter",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16328,7 +18534,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyParameterResponse>(await this.callApi(params, req, runtime), new ModifyParameterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyParameterResponse>(await this.callApi(params, req, runtime), new ModifyParameterResponse({}));
+    } else {
+      return $dara.cast<ModifyParameterResponse>(await this.execute(params, req, runtime), new ModifyParameterResponse({}));
+    }
+
   }
 
   /**
@@ -16336,7 +18547,7 @@ export default class Client extends OpenApi {
    * @returns ModifyParameterResponse
    */
   async modifyParameter(request: ModifyParameterRequest): Promise<ModifyParameterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyParameterWithOptions(request, runtime);
   }
 
@@ -16345,33 +18556,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifySecurityIpsResponse
    */
-  async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
-    Util.validateModel(request);
+  async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $dara.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.modifyMode)) {
+    if (!$dara.isNull(request.modifyMode)) {
       query["ModifyMode"] = request.modifyMode;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.securityIPList)) {
+    if (!$dara.isNull(request.securityIPList)) {
       query["SecurityIPList"] = request.securityIPList;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifySecurityIps",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16382,7 +18593,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifySecurityIpsResponse>(await this.callApi(params, req, runtime), new ModifySecurityIpsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifySecurityIpsResponse>(await this.callApi(params, req, runtime), new ModifySecurityIpsResponse({}));
+    } else {
+      return $dara.cast<ModifySecurityIpsResponse>(await this.execute(params, req, runtime), new ModifySecurityIpsResponse({}));
+    }
+
   }
 
   /**
@@ -16390,7 +18606,7 @@ export default class Client extends OpenApi {
    * @returns ModifySecurityIpsResponse
    */
   async modifySecurityIps(request: ModifySecurityIpsRequest): Promise<ModifySecurityIpsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifySecurityIpsWithOptions(request, runtime);
   }
 
@@ -16401,21 +18617,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReleaseColdDataVolumeResponse
    */
-  async releaseColdDataVolumeWithOptions(request: ReleaseColdDataVolumeRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseColdDataVolumeResponse> {
-    Util.validateModel(request);
+  async releaseColdDataVolumeWithOptions(request: ReleaseColdDataVolumeRequest, runtime: $dara.RuntimeOptions): Promise<ReleaseColdDataVolumeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReleaseColdDataVolume",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16426,7 +18642,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReleaseColdDataVolumeResponse>(await this.callApi(params, req, runtime), new ReleaseColdDataVolumeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ReleaseColdDataVolumeResponse>(await this.callApi(params, req, runtime), new ReleaseColdDataVolumeResponse({}));
+    } else {
+      return $dara.cast<ReleaseColdDataVolumeResponse>(await this.execute(params, req, runtime), new ReleaseColdDataVolumeResponse({}));
+    }
+
   }
 
   /**
@@ -16436,7 +18657,7 @@ export default class Client extends OpenApi {
    * @returns ReleaseColdDataVolumeResponse
    */
   async releaseColdDataVolume(request: ReleaseColdDataVolumeRequest): Promise<ReleaseColdDataVolumeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.releaseColdDataVolumeWithOptions(request, runtime);
   }
 
@@ -16445,25 +18666,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReleaseInstancePublicConnectionResponse
    */
-  async releaseInstancePublicConnectionWithOptions(request: ReleaseInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstancePublicConnectionResponse> {
-    Util.validateModel(request);
+  async releaseInstancePublicConnectionWithOptions(request: ReleaseInstancePublicConnectionRequest, runtime: $dara.RuntimeOptions): Promise<ReleaseInstancePublicConnectionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.currentConnectionString)) {
+    if (!$dara.isNull(request.currentConnectionString)) {
       query["CurrentConnectionString"] = request.currentConnectionString;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReleaseInstancePublicConnection",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16474,7 +18695,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReleaseInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseInstancePublicConnectionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ReleaseInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseInstancePublicConnectionResponse({}));
+    } else {
+      return $dara.cast<ReleaseInstancePublicConnectionResponse>(await this.execute(params, req, runtime), new ReleaseInstancePublicConnectionResponse({}));
+    }
+
   }
 
   /**
@@ -16482,7 +18708,7 @@ export default class Client extends OpenApi {
    * @returns ReleaseInstancePublicConnectionResponse
    */
   async releaseInstancePublicConnection(request: ReleaseInstancePublicConnectionRequest): Promise<ReleaseInstancePublicConnectionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.releaseInstancePublicConnectionWithOptions(request, runtime);
   }
 
@@ -16491,37 +18717,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResetAccountPasswordResponse
    */
-  async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
-    Util.validateModel(request);
+  async resetAccountPasswordWithOptions(request: ResetAccountPasswordRequest, runtime: $dara.RuntimeOptions): Promise<ResetAccountPasswordResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.accountName)) {
+    if (!$dara.isNull(request.accountName)) {
       query["AccountName"] = request.accountName;
     }
 
-    if (!Util.isUnset(request.accountPassword)) {
+    if (!$dara.isNull(request.accountPassword)) {
       query["AccountPassword"] = request.accountPassword;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.securityAccountName)) {
+    if (!$dara.isNull(request.securityAccountName)) {
       query["SecurityAccountName"] = request.securityAccountName;
     }
 
-    if (!Util.isUnset(request.securityAccountPassword)) {
+    if (!$dara.isNull(request.securityAccountPassword)) {
       query["SecurityAccountPassword"] = request.securityAccountPassword;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ResetAccountPassword",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16532,7 +18758,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new ResetAccountPasswordResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ResetAccountPasswordResponse>(await this.callApi(params, req, runtime), new ResetAccountPasswordResponse({}));
+    } else {
+      return $dara.cast<ResetAccountPasswordResponse>(await this.execute(params, req, runtime), new ResetAccountPasswordResponse({}));
+    }
+
   }
 
   /**
@@ -16540,7 +18771,7 @@ export default class Client extends OpenApi {
    * @returns ResetAccountPasswordResponse
    */
   async resetAccountPassword(request: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.resetAccountPasswordWithOptions(request, runtime);
   }
 
@@ -16549,21 +18780,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RestartDBInstanceResponse
    */
-  async restartDBInstanceWithOptions(request: RestartDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartDBInstanceResponse> {
-    Util.validateModel(request);
+  async restartDBInstanceWithOptions(request: RestartDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<RestartDBInstanceResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RestartDBInstance",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16574,7 +18805,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RestartDBInstanceResponse>(await this.callApi(params, req, runtime), new RestartDBInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RestartDBInstanceResponse>(await this.callApi(params, req, runtime), new RestartDBInstanceResponse({}));
+    } else {
+      return $dara.cast<RestartDBInstanceResponse>(await this.execute(params, req, runtime), new RestartDBInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -16582,7 +18818,7 @@ export default class Client extends OpenApi {
    * @returns RestartDBInstanceResponse
    */
   async restartDBInstance(request: RestartDBInstanceRequest): Promise<RestartDBInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.restartDBInstanceWithOptions(request, runtime);
   }
 
@@ -16591,37 +18827,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SwitchDBInstanceHAResponse
    */
-  async switchDBInstanceHAWithOptions(request: SwitchDBInstanceHARequest, runtime: $Util.RuntimeOptions): Promise<SwitchDBInstanceHAResponse> {
-    Util.validateModel(request);
+  async switchDBInstanceHAWithOptions(request: SwitchDBInstanceHARequest, runtime: $dara.RuntimeOptions): Promise<SwitchDBInstanceHAResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.switchTime)) {
+    if (!$dara.isNull(request.switchTime)) {
       query["SwitchTime"] = request.switchTime;
     }
 
-    if (!Util.isUnset(request.switchTimeMode)) {
+    if (!$dara.isNull(request.switchTimeMode)) {
       query["SwitchTimeMode"] = request.switchTimeMode;
     }
 
-    if (!Util.isUnset(request.targetPrimaryAzoneId)) {
+    if (!$dara.isNull(request.targetPrimaryAzoneId)) {
       query["TargetPrimaryAzoneId"] = request.targetPrimaryAzoneId;
     }
 
-    if (!Util.isUnset(request.targetPrimaryRegionId)) {
+    if (!$dara.isNull(request.targetPrimaryRegionId)) {
       query["TargetPrimaryRegionId"] = request.targetPrimaryRegionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SwitchDBInstanceHA",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16632,7 +18868,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SwitchDBInstanceHAResponse>(await this.callApi(params, req, runtime), new SwitchDBInstanceHAResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SwitchDBInstanceHAResponse>(await this.callApi(params, req, runtime), new SwitchDBInstanceHAResponse({}));
+    } else {
+      return $dara.cast<SwitchDBInstanceHAResponse>(await this.execute(params, req, runtime), new SwitchDBInstanceHAResponse({}));
+    }
+
   }
 
   /**
@@ -16640,7 +18881,7 @@ export default class Client extends OpenApi {
    * @returns SwitchDBInstanceHAResponse
    */
   async switchDBInstanceHA(request: SwitchDBInstanceHARequest): Promise<SwitchDBInstanceHAResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.switchDBInstanceHAWithOptions(request, runtime);
   }
 
@@ -16651,25 +18892,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SwitchGdnMemberRoleResponse
    */
-  async switchGdnMemberRoleWithOptions(request: SwitchGdnMemberRoleRequest, runtime: $Util.RuntimeOptions): Promise<SwitchGdnMemberRoleResponse> {
-    Util.validateModel(request);
+  async switchGdnMemberRoleWithOptions(request: SwitchGdnMemberRoleRequest, runtime: $dara.RuntimeOptions): Promise<SwitchGdnMemberRoleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.switchMode)) {
+    if (!$dara.isNull(request.switchMode)) {
       query["SwitchMode"] = request.switchMode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.taskTimeout)) {
+      query["TaskTimeout"] = request.taskTimeout;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SwitchGdnMemberRole",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16680,7 +18925,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SwitchGdnMemberRoleResponse>(await this.callApi(params, req, runtime), new SwitchGdnMemberRoleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SwitchGdnMemberRoleResponse>(await this.callApi(params, req, runtime), new SwitchGdnMemberRoleResponse({}));
+    } else {
+      return $dara.cast<SwitchGdnMemberRoleResponse>(await this.execute(params, req, runtime), new SwitchGdnMemberRoleResponse({}));
+    }
+
   }
 
   /**
@@ -16690,7 +18940,7 @@ export default class Client extends OpenApi {
    * @returns SwitchGdnMemberRoleResponse
    */
   async switchGdnMemberRole(request: SwitchGdnMemberRoleRequest): Promise<SwitchGdnMemberRoleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.switchGdnMemberRoleWithOptions(request, runtime);
   }
 
@@ -16701,29 +18951,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16734,7 +18984,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -16744,7 +18999,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
@@ -16755,33 +19010,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16792,7 +19047,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -16802,7 +19062,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
@@ -16811,93 +19071,93 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateBackupPolicyResponse
    */
-  async updateBackupPolicyWithOptions(request: UpdateBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBackupPolicyResponse> {
-    Util.validateModel(request);
+  async updateBackupPolicyWithOptions(request: UpdateBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<UpdateBackupPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.backupPeriod)) {
+    if (!$dara.isNull(request.backupPeriod)) {
       query["BackupPeriod"] = request.backupPeriod;
     }
 
-    if (!Util.isUnset(request.backupPlanBegin)) {
+    if (!$dara.isNull(request.backupPlanBegin)) {
       query["BackupPlanBegin"] = request.backupPlanBegin;
     }
 
-    if (!Util.isUnset(request.backupSetRetention)) {
+    if (!$dara.isNull(request.backupSetRetention)) {
       query["BackupSetRetention"] = request.backupSetRetention;
     }
 
-    if (!Util.isUnset(request.backupType)) {
+    if (!$dara.isNull(request.backupType)) {
       query["BackupType"] = request.backupType;
     }
 
-    if (!Util.isUnset(request.backupWay)) {
+    if (!$dara.isNull(request.backupWay)) {
       query["BackupWay"] = request.backupWay;
     }
 
-    if (!Util.isUnset(request.coldDataBackupInterval)) {
+    if (!$dara.isNull(request.coldDataBackupInterval)) {
       query["ColdDataBackupInterval"] = request.coldDataBackupInterval;
     }
 
-    if (!Util.isUnset(request.coldDataBackupRetention)) {
+    if (!$dara.isNull(request.coldDataBackupRetention)) {
       query["ColdDataBackupRetention"] = request.coldDataBackupRetention;
     }
 
-    if (!Util.isUnset(request.crossRegionDataBackupRetention)) {
+    if (!$dara.isNull(request.crossRegionDataBackupRetention)) {
       query["CrossRegionDataBackupRetention"] = request.crossRegionDataBackupRetention;
     }
 
-    if (!Util.isUnset(request.crossRegionLogBackupRetention)) {
+    if (!$dara.isNull(request.crossRegionLogBackupRetention)) {
       query["CrossRegionLogBackupRetention"] = request.crossRegionLogBackupRetention;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.destCrossRegion)) {
+    if (!$dara.isNull(request.destCrossRegion)) {
       query["DestCrossRegion"] = request.destCrossRegion;
     }
 
-    if (!Util.isUnset(request.forceCleanOnHighSpaceUsage)) {
+    if (!$dara.isNull(request.forceCleanOnHighSpaceUsage)) {
       query["ForceCleanOnHighSpaceUsage"] = request.forceCleanOnHighSpaceUsage;
     }
 
-    if (!Util.isUnset(request.isCrossRegionDataBackupEnabled)) {
+    if (!$dara.isNull(request.isCrossRegionDataBackupEnabled)) {
       query["IsCrossRegionDataBackupEnabled"] = request.isCrossRegionDataBackupEnabled;
     }
 
-    if (!Util.isUnset(request.isCrossRegionLogBackupEnabled)) {
+    if (!$dara.isNull(request.isCrossRegionLogBackupEnabled)) {
       query["IsCrossRegionLogBackupEnabled"] = request.isCrossRegionLogBackupEnabled;
     }
 
-    if (!Util.isUnset(request.isEnabled)) {
+    if (!$dara.isNull(request.isEnabled)) {
       query["IsEnabled"] = request.isEnabled;
     }
 
-    if (!Util.isUnset(request.localLogRetention)) {
+    if (!$dara.isNull(request.localLogRetention)) {
       query["LocalLogRetention"] = request.localLogRetention;
     }
 
-    if (!Util.isUnset(request.localLogRetentionNumber)) {
+    if (!$dara.isNull(request.localLogRetentionNumber)) {
       query["LocalLogRetentionNumber"] = request.localLogRetentionNumber;
     }
 
-    if (!Util.isUnset(request.logLocalRetentionSpace)) {
+    if (!$dara.isNull(request.logLocalRetentionSpace)) {
       query["LogLocalRetentionSpace"] = request.logLocalRetentionSpace;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.removeLogRetention)) {
+    if (!$dara.isNull(request.removeLogRetention)) {
       query["RemoveLogRetention"] = request.removeLogRetention;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateBackupPolicy",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16908,7 +19168,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateBackupPolicyResponse>(await this.callApi(params, req, runtime), new UpdateBackupPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateBackupPolicyResponse>(await this.callApi(params, req, runtime), new UpdateBackupPolicyResponse({}));
+    } else {
+      return $dara.cast<UpdateBackupPolicyResponse>(await this.execute(params, req, runtime), new UpdateBackupPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -16916,7 +19181,7 @@ export default class Client extends OpenApi {
    * @returns UpdateBackupPolicyResponse
    */
   async updateBackupPolicy(request: UpdateBackupPolicyRequest): Promise<UpdateBackupPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateBackupPolicyWithOptions(request, runtime);
   }
 
@@ -16925,29 +19190,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDBInstanceSSLResponse
    */
-  async updateDBInstanceSSLWithOptions(request: UpdateDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDBInstanceSSLResponse> {
-    Util.validateModel(request);
+  async updateDBInstanceSSLWithOptions(request: UpdateDBInstanceSSLRequest, runtime: $dara.RuntimeOptions): Promise<UpdateDBInstanceSSLResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.certCommonName)) {
+    if (!$dara.isNull(request.certCommonName)) {
       query["CertCommonName"] = request.certCommonName;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.enableSSL)) {
+    if (!$dara.isNull(request.enableSSL)) {
       query["EnableSSL"] = request.enableSSL;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateDBInstanceSSL",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -16958,7 +19223,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new UpdateDBInstanceSSLResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new UpdateDBInstanceSSLResponse({}));
+    } else {
+      return $dara.cast<UpdateDBInstanceSSLResponse>(await this.execute(params, req, runtime), new UpdateDBInstanceSSLResponse({}));
+    }
+
   }
 
   /**
@@ -16966,7 +19236,7 @@ export default class Client extends OpenApi {
    * @returns UpdateDBInstanceSSLResponse
    */
   async updateDBInstanceSSL(request: UpdateDBInstanceSSLRequest): Promise<UpdateDBInstanceSSLResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDBInstanceSSLWithOptions(request, runtime);
   }
 
@@ -16975,33 +19245,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateDBInstanceTDEResponse
    */
-  async updateDBInstanceTDEWithOptions(request: UpdateDBInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<UpdateDBInstanceTDEResponse> {
-    Util.validateModel(request);
+  async updateDBInstanceTDEWithOptions(request: UpdateDBInstanceTDERequest, runtime: $dara.RuntimeOptions): Promise<UpdateDBInstanceTDEResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.encryptionKey)) {
+    if (!$dara.isNull(request.encryptionKey)) {
       query["EncryptionKey"] = request.encryptionKey;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.roleArn)) {
+    if (!$dara.isNull(request.roleArn)) {
       query["RoleArn"] = request.roleArn;
     }
 
-    if (!Util.isUnset(request.TDEStatus)) {
+    if (!$dara.isNull(request.TDEStatus)) {
       query["TDEStatus"] = request.TDEStatus;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateDBInstanceTDE",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -17012,7 +19282,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateDBInstanceTDEResponse>(await this.callApi(params, req, runtime), new UpdateDBInstanceTDEResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateDBInstanceTDEResponse>(await this.callApi(params, req, runtime), new UpdateDBInstanceTDEResponse({}));
+    } else {
+      return $dara.cast<UpdateDBInstanceTDEResponse>(await this.execute(params, req, runtime), new UpdateDBInstanceTDEResponse({}));
+    }
+
   }
 
   /**
@@ -17020,7 +19295,7 @@ export default class Client extends OpenApi {
    * @returns UpdateDBInstanceTDEResponse
    */
   async updateDBInstanceTDE(request: UpdateDBInstanceTDERequest): Promise<UpdateDBInstanceTDEResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDBInstanceTDEWithOptions(request, runtime);
   }
 
@@ -17029,49 +19304,49 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdatePolarDBXInstanceNodeResponse
    */
-  async updatePolarDBXInstanceNodeWithOptions(request: UpdatePolarDBXInstanceNodeRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePolarDBXInstanceNodeResponse> {
-    Util.validateModel(request);
+  async updatePolarDBXInstanceNodeWithOptions(request: UpdatePolarDBXInstanceNodeRequest, runtime: $dara.RuntimeOptions): Promise<UpdatePolarDBXInstanceNodeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.addDNSpec)) {
+    if (!$dara.isNull(request.addDNSpec)) {
       query["AddDNSpec"] = request.addDNSpec;
     }
 
-    if (!Util.isUnset(request.CNNodeCount)) {
+    if (!$dara.isNull(request.CNNodeCount)) {
       query["CNNodeCount"] = request.CNNodeCount;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.DNNodeCount)) {
+    if (!$dara.isNull(request.DNNodeCount)) {
       query["DNNodeCount"] = request.DNNodeCount;
     }
 
-    if (!Util.isUnset(request.dbInstanceNodeCount)) {
+    if (!$dara.isNull(request.dbInstanceNodeCount)) {
       query["DbInstanceNodeCount"] = request.dbInstanceNodeCount;
     }
 
-    if (!Util.isUnset(request.deleteDNIds)) {
+    if (!$dara.isNull(request.deleteDNIds)) {
       query["DeleteDNIds"] = request.deleteDNIds;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.storagePoolName)) {
+    if (!$dara.isNull(request.storagePoolName)) {
       query["StoragePoolName"] = request.storagePoolName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdatePolarDBXInstanceNode",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -17082,7 +19357,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdatePolarDBXInstanceNodeResponse>(await this.callApi(params, req, runtime), new UpdatePolarDBXInstanceNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdatePolarDBXInstanceNodeResponse>(await this.callApi(params, req, runtime), new UpdatePolarDBXInstanceNodeResponse({}));
+    } else {
+      return $dara.cast<UpdatePolarDBXInstanceNodeResponse>(await this.execute(params, req, runtime), new UpdatePolarDBXInstanceNodeResponse({}));
+    }
+
   }
 
   /**
@@ -17090,7 +19370,7 @@ export default class Client extends OpenApi {
    * @returns UpdatePolarDBXInstanceNodeResponse
    */
   async updatePolarDBXInstanceNode(request: UpdatePolarDBXInstanceNodeRequest): Promise<UpdatePolarDBXInstanceNodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updatePolarDBXInstanceNodeWithOptions(request, runtime);
   }
 
@@ -17099,29 +19379,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpgradeDBInstanceKernelVersionResponse
    */
-  async upgradeDBInstanceKernelVersionWithOptions(request: UpgradeDBInstanceKernelVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceKernelVersionResponse> {
-    Util.validateModel(request);
+  async upgradeDBInstanceKernelVersionWithOptions(request: UpgradeDBInstanceKernelVersionRequest, runtime: $dara.RuntimeOptions): Promise<UpgradeDBInstanceKernelVersionResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.DBInstanceName)) {
+    if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
-    if (!Util.isUnset(request.minorVersion)) {
+    if (!$dara.isNull(request.minorVersion)) {
       query["MinorVersion"] = request.minorVersion;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.switchMode)) {
+    if (!$dara.isNull(request.switchMode)) {
       query["SwitchMode"] = request.switchMode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpgradeDBInstanceKernelVersion",
       version: "2020-02-02",
       protocol: "HTTPS",
@@ -17132,7 +19412,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpgradeDBInstanceKernelVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBInstanceKernelVersionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpgradeDBInstanceKernelVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBInstanceKernelVersionResponse({}));
+    } else {
+      return $dara.cast<UpgradeDBInstanceKernelVersionResponse>(await this.execute(params, req, runtime), new UpgradeDBInstanceKernelVersionResponse({}));
+    }
+
   }
 
   /**
@@ -17140,7 +19425,7 @@ export default class Client extends OpenApi {
    * @returns UpgradeDBInstanceKernelVersionResponse
    */
   async upgradeDBInstanceKernelVersion(request: UpgradeDBInstanceKernelVersionRequest): Promise<UpgradeDBInstanceKernelVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.upgradeDBInstanceKernelVersionWithOptions(request, runtime);
   }
 
