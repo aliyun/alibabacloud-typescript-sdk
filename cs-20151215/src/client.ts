@@ -15325,6 +15325,38 @@ export class Addon extends $dara.Model {
   }
 }
 
+export class ContainerdConfig extends $dara.Model {
+  insecureRegistries?: string[];
+  registryMirrors?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      insecureRegistries: 'insecureRegistries',
+      registryMirrors: 'registryMirrors',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      insecureRegistries: { 'type': 'array', 'itemType': 'string' },
+      registryMirrors: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.insecureRegistries)) {
+      $dara.Model.validateArray(this.insecureRegistries);
+    }
+    if(Array.isArray(this.registryMirrors)) {
+      $dara.Model.validateArray(this.registryMirrors);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DataDisk extends $dara.Model {
   /**
    * @example
@@ -29347,7 +29379,7 @@ export class ModifyClusterNodePoolResponse extends $dara.Model {
 export class ModifyClusterTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The data of the labels that you want to modify.
+   * The data of the tags that you want to modify.
    */
   body?: Tag[];
   static names(): { [key: string]: string } {
@@ -29404,9 +29436,10 @@ export class ModifyClusterTagsResponse extends $dara.Model {
 }
 
 export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
+  containerdConfig?: ContainerdConfig;
   /**
    * @remarks
-   * The kubelet configuration.
+   * The parameters of the kubelet.
    */
   kubeletConfig?: KubeletConfig;
   /**
@@ -29416,11 +29449,12 @@ export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
   osConfig?: ModifyNodePoolNodeConfigRequestOsConfig;
   /**
    * @remarks
-   * The rotation configuration.
+   * The rolling policy configuration.
    */
   rollingPolicy?: ModifyNodePoolNodeConfigRequestRollingPolicy;
   static names(): { [key: string]: string } {
     return {
+      containerdConfig: 'containerd_config',
       kubeletConfig: 'kubelet_config',
       osConfig: 'os_config',
       rollingPolicy: 'rolling_policy',
@@ -29429,6 +29463,7 @@ export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      containerdConfig: ContainerdConfig,
       kubeletConfig: KubeletConfig,
       osConfig: ModifyNodePoolNodeConfigRequestOsConfig,
       rollingPolicy: ModifyNodePoolNodeConfigRequestRollingPolicy,
@@ -29436,6 +29471,9 @@ export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.containerdConfig && typeof (this.containerdConfig as any).validate === 'function') {
+      (this.containerdConfig as any).validate();
+    }
     if(this.kubeletConfig && typeof (this.kubeletConfig as any).validate === 'function') {
       (this.kubeletConfig as any).validate();
     }
@@ -30179,6 +30217,8 @@ export class RepairClusterNodePoolRequest extends $dara.Model {
    * 
    * @example
    * true
+   * 
+   * @deprecated
    */
   autoRestart?: boolean;
   /**
@@ -31268,11 +31308,17 @@ export class StartAlertRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the alert rule set to be enabled.
+   * 
+   * @example
+   * sample
    */
   alertRuleGroupName?: string;
   /**
    * @remarks
    * The name of the alert rule to be enabled. If you do not specify an alert rule name, the alert rule set is enabled.
+   * 
+   * @example
+   * sample
    */
   alertRuleName?: string;
   static names(): { [key: string]: string } {
@@ -31377,11 +31423,17 @@ export class StopAlertRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the alert rule set to be disabled.
+   * 
+   * @example
+   * sample
    */
   alertRuleGroupName?: string;
   /**
    * @remarks
    * The name of the alert rule to be disabled. If you do not specify an alert rule name, the alert rule set is disabled.
+   * 
+   * @example
+   * sample
    */
   alertRuleName?: string;
   static names(): { [key: string]: string } {
@@ -39211,7 +39263,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
+   * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
    * 
    * @param request - ModifyClusterTagsRequest
    * @param headers - map
@@ -39244,7 +39296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
+   * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
    * 
    * @param request - ModifyClusterTagsRequest
    * @returns ModifyClusterTagsResponse
@@ -39269,6 +39321,10 @@ export default class Client extends OpenApi {
   async modifyNodePoolNodeConfigWithOptions(ClusterId: string, NodepoolId: string, request: ModifyNodePoolNodeConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ModifyNodePoolNodeConfigResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.containerdConfig)) {
+      body["containerd_config"] = request.containerdConfig;
+    }
+
     if (!$dara.isNull(request.kubeletConfig)) {
       body["kubelet_config"] = request.kubeletConfig;
     }
@@ -40384,6 +40440,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启用告警
+   * 
    * @param request - StartAlertRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40424,6 +40482,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启用告警
+   * 
    * @param request - StartAlertRequest
    * @returns StartAlertResponse
    */
