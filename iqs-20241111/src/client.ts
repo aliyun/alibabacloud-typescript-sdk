@@ -487,6 +487,11 @@ export class ScorePageItem extends $dara.Model {
    */
   siteLabel?: string;
   /**
+   * @example
+   * 100km/h-0制动能力上，仅有33.3m，不黑不吹，单看这个，小米SU7确实表现不错。而续航方面，101kWh电池容量，实现CLTC续航800km，还有现5分钟补能220km，15分钟补能510km的800V高压平台。而在...
+   */
+  snippet?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -511,6 +516,7 @@ export class ScorePageItem extends $dara.Model {
       publishTime: 'publishTime',
       score: 'score',
       siteLabel: 'siteLabel',
+      snippet: 'snippet',
       title: 'title',
     };
   }
@@ -532,6 +538,7 @@ export class ScorePageItem extends $dara.Model {
       publishTime: 'number',
       score: 'number',
       siteLabel: 'string',
+      snippet: 'string',
       title: 'string',
     };
   }
@@ -1017,7 +1024,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<AiSearchResponse>(await this.callApi(params, req, runtime), new AiSearchResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AiSearchResponse>(await this.callApi(params, req, runtime), new AiSearchResponse({}));
+    } else {
+      return $dara.cast<AiSearchResponse>(await this.execute(params, req, runtime), new AiSearchResponse({}));
+    }
+
   }
 
   /**
@@ -1070,7 +1082,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<GenericAdvancedSearchResponse>(await this.callApi(params, req, runtime), new GenericAdvancedSearchResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GenericAdvancedSearchResponse>(await this.callApi(params, req, runtime), new GenericAdvancedSearchResponse({}));
+    } else {
+      return $dara.cast<GenericAdvancedSearchResponse>(await this.execute(params, req, runtime), new GenericAdvancedSearchResponse({}));
+    }
+
   }
 
   /**
@@ -1131,7 +1148,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<GenericSearchResponse>(await this.callApi(params, req, runtime), new GenericSearchResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GenericSearchResponse>(await this.callApi(params, req, runtime), new GenericSearchResponse({}));
+    } else {
+      return $dara.cast<GenericSearchResponse>(await this.execute(params, req, runtime), new GenericSearchResponse({}));
+    }
+
   }
 
   /**
