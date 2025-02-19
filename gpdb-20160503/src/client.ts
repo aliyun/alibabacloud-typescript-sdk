@@ -10,6 +10,32 @@ import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import { Readable } from 'stream';
 import * as $dara from '@darabonba/typescript';
 
+export class CreateDBInstanceRequestAINodeSpecInfos extends $dara.Model {
+  AINodeNum?: string;
+  AINodeSpec?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AINodeNum: 'AINodeNum',
+      AINodeSpec: 'AINodeSpec',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AINodeNum: 'string',
+      AINodeSpec: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDBInstanceRequestTag extends $dara.Model {
   /**
    * @remarks
@@ -12642,6 +12668,7 @@ export class CreateCollectionResponse extends $dara.Model {
 }
 
 export class CreateDBInstanceRequest extends $dara.Model {
+  AINodeSpecInfos?: CreateDBInstanceRequestAINodeSpecInfos[];
   /**
    * @remarks
    * Backup set ID.
@@ -13126,6 +13153,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      AINodeSpecInfos: 'AINodeSpecInfos',
       backupId: 'BackupId',
       clientToken: 'ClientToken',
       createSampleData: 'CreateSampleData',
@@ -13175,6 +13203,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      AINodeSpecInfos: { 'type': 'array', 'itemType': CreateDBInstanceRequestAINodeSpecInfos },
       backupId: 'string',
       clientToken: 'string',
       createSampleData: 'boolean',
@@ -13223,6 +13252,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.AINodeSpecInfos)) {
+      $dara.Model.validateArray(this.AINodeSpecInfos);
+    }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
     }
@@ -40478,8 +40510,6 @@ export class ModifyMasterSpecRequest extends $dara.Model {
    * 
    * >  You are charged for coordinator node resources of more than 8 compute units (CUs).
    * 
-   * This parameter is required.
-   * 
    * @example
    * 8 CU
    */
@@ -50522,6 +50552,10 @@ export default class Client extends OpenApi {
   async createDBInstanceWithOptions(request: CreateDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<CreateDBInstanceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.AINodeSpecInfos)) {
+      query["AINodeSpecInfos"] = request.AINodeSpecInfos;
+    }
+
     if (!$dara.isNull(request.backupId)) {
       query["BackupId"] = request.backupId;
     }
