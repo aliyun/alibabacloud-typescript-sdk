@@ -1,8278 +1,13 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class DataTopicLagMapValue extends $tea.Model {
-  /**
-   * @remarks
-   * Ready message count
-   * 
-   * @example
-   * 1
-   */
-  readyCount?: number;
-  /**
-   * @remarks
-   * The number of messages being consumed.
-   * 
-   * @example
-   * 1
-   */
-  inflightCount?: number;
-  /**
-   * @remarks
-   * Delivery delay time, in seconds
-   * 
-   * @example
-   * 12
-   */
-  deliveryDuration?: number;
-  lastConsumeTimestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      readyCount: 'readyCount',
-      inflightCount: 'inflightCount',
-      deliveryDuration: 'deliveryDuration',
-      lastConsumeTimestamp: 'lastConsumeTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      readyCount: 'number',
-      inflightCount: 'number',
-      deliveryDuration: 'number',
-      lastConsumeTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDisasterRecoveryItemRequest extends $tea.Model {
-  topics?: AddDisasterRecoveryItemRequestTopics[];
-  static names(): { [key: string]: string } {
-    return {
-      topics: 'topics',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      topics: { 'type': 'array', 'itemType': AddDisasterRecoveryItemRequestTopics },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDisasterRecoveryItemResponseBody extends $tea.Model {
-  accessDeniedDetail?: string;
-  code?: string;
-  data?: number;
-  dynamicCode?: string;
-  dynamicMessage?: string;
-  httpStatusCode?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: 'number',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDisasterRecoveryItemResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddDisasterRecoveryItemResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddDisasterRecoveryItemResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the region in which the instance resides.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the instance is changed.
-   * 
-   * You can call the [ListResourceGroups](https://www.alibabacloud.com/help/resource-management/latest/listresourcegroups) operation to query existing resource groups.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rg-9gLOoK****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the resource. Set this parameter to the ID of the ApsaraMQ for RocketMQ instance whose resource group you want to change.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * c2c5d1274a8d4317a13bc5b0d4******
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The type of resource.
-   * 
-   * Set this parameter to **instance**. The value of this parameter cannot be changed.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * instance
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'regionId',
-      resourceGroupId: 'resourceGroupId',
-      resourceId: 'resourceId',
-      resourceType: 'resourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      resourceGroupId: 'string',
-      resourceId: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code returned if the call failed.
-   * 
-   * @example
-   * Instance.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned result.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code returned.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * AF9A8B10-C426-530F-A0DD-96320B39****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ChangeResourceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ChangeResourceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConsumerGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The consumption retry policy that you want to configure for the consumer group. For more information, see [Consumption retry](https://help.aliyun.com/document_detail/440356.html).
-   * 
-   * This parameter is required.
-   */
-  consumeRetryPolicy?: CreateConsumerGroupRequestConsumeRetryPolicy;
-  /**
-   * @remarks
-   * The message delivery order of the consumer group.
-   * 
-   * Valid values:
-   * 
-   * *   Concurrently: concurrent delivery
-   * *   Orderly: ordered delivery
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Concurrently
-   */
-  deliveryOrderType?: string;
-  maxReceiveTps?: number;
-  /**
-   * @remarks
-   * The remarks on the consumer group.
-   * 
-   * @example
-   * This is the remark for test.
-   */
-  remark?: string;
-  static names(): { [key: string]: string } {
-    return {
-      consumeRetryPolicy: 'consumeRetryPolicy',
-      deliveryOrderType: 'deliveryOrderType',
-      maxReceiveTps: 'maxReceiveTps',
-      remark: 'remark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      consumeRetryPolicy: CreateConsumerGroupRequestConsumeRetryPolicy,
-      deliveryOrderType: 'string',
-      maxReceiveTps: 'number',
-      remark: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConsumerGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidConsumerGroupId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The result data that is returned.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * ConsumerGroupId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * consumerGroupId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter consumerGroupId is invalid.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-   * 
-   * @example
-   * AF9A8B10-C426-530F-A0DD-96320B39****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call is successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConsumerGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateConsumerGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateConsumerGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable auto-renewal for the instance. This parameter takes effect only if you set paymentType to Subscription. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  autoRenew?: boolean;
-  /**
-   * @remarks
-   * The auto-renewal cycle of the instance. This parameter takes effect only if you set autoRenew to true. Unit: months.
-   * 
-   * Valid values:
-   * 
-   * *   Monthly renewal: 1, 2, 3, 6, and 12
-   * 
-   * @example
-   * 3
-   */
-  autoRenewPeriod?: number;
-  /**
-   * @remarks
-   * The commodity code. Valid values:
-   * 
-   * *   ons_rmqpost_public_intl: pay-as-you-go
-   * *   ons_rmqsub_public_intl: subscription
-   * 
-   * @example
-   * ons_ rmqpost_public_cn
-   */
-  commodityCode?: string;
-  /**
-   * @remarks
-   * The name of the instance that you want to create.
-   * 
-   * If you leave this parameter empty, the instance ID is used as the instance name.
-   * 
-   * @example
-   * rmq-cn-72u3048uxxx
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * The information about the network.
-   * 
-   * This parameter is required.
-   */
-  networkInfo?: CreateInstanceRequestNetworkInfo;
-  /**
-   * @remarks
-   * The billing method of the instance. ApsaraMQ for RocketMQ supports the subscription and pay-as-you-go billing methods.
-   * 
-   * Valid values:
-   * 
-   * *   PayAsYouGo: This billing method allows you to use resources before you pay for the resources.
-   * *   Subscription: This billing method allows you to use resources after you pay for the resources.
-   * 
-   * For more information, see [Billing methods](https://help.aliyun.com/document_detail/427234.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Subscription
-   */
-  paymentType?: string;
-  /**
-   * @remarks
-   * The subscription duration of the instance. This parameter takes effect only if you set paymentType to Subscription.
-   * 
-   * Valid values:
-   * 
-   * *   Monthly subscription: 1, 2, 3, 4, 5, and 6
-   * *   Yearly subscription: 1, 2, and 3
-   * 
-   * @example
-   * 3
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The unit of the subscription duration.
-   * 
-   * Valid values:
-   * 
-   * *   Month
-   * *   Year
-   * 
-   * @example
-   * Month
-   */
-  periodUnit?: string;
-  /**
-   * @remarks
-   * The information about the instance specifications.
-   */
-  productInfo?: CreateInstanceRequestProductInfo;
-  /**
-   * @remarks
-   * The instance description.
-   * 
-   * @example
-   * This is the remark for test.
-   */
-  remark?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-aekzy6pist7uuna
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The primary edition of the instance. For information about the differences among primary edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
-   * 
-   * Valid values:
-   * 
-   * *   standard: Standard Edition
-   * *   ultimate: Enterprise Platinum Edition
-   * *   professional: Professional Edition
-   * 
-   * >  After you create an instance, you can only upgrade the primary edition of the instance. The following editions are sorted in ascending order: Standard Edition, Professional Edition, Enterprise Platinum Edition. For example, you can upgrade an instance from Standard Edition to Professional Edition, but you cannot downgrade an instance from Professional Edition to Standard Edition.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * standard
-   */
-  seriesCode?: string;
-  /**
-   * @remarks
-   * The code of the service to which the instance belongs. The service code of ApsaraMQ for RocketMQ is rmq.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rmq
-   */
-  serviceCode?: string;
-  /**
-   * @remarks
-   * The sub-category edition of the instance. For information about the differences among sub-category edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
-   * 
-   * Valid values:
-   * 
-   * *   cluster_ha: Cluster High-availability Edition
-   * *   single_node: Standalone Edition
-   * *   serverless: serverless
-   * 
-   * If you set seriesCode to ultimate, you can set this parameter only to cluster_ha.
-   * 
-   * >  After you create an instance, you cannot change the sub-category edition of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   serverless: serverless
-   * *   cluster_ha: Cluster High-availability Edition
-   * *   single_node: Standalone Edition
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cluster_ha
-   */
-  subSeriesCode?: string;
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value of this parameter, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-   * 
-   * @example
-   * c2c5d1274a8d4317a13bc5b0d4******
-   */
-  clientToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoRenew: 'autoRenew',
-      autoRenewPeriod: 'autoRenewPeriod',
-      commodityCode: 'commodityCode',
-      instanceName: 'instanceName',
-      networkInfo: 'networkInfo',
-      paymentType: 'paymentType',
-      period: 'period',
-      periodUnit: 'periodUnit',
-      productInfo: 'productInfo',
-      remark: 'remark',
-      resourceGroupId: 'resourceGroupId',
-      seriesCode: 'seriesCode',
-      serviceCode: 'serviceCode',
-      subSeriesCode: 'subSeriesCode',
-      clientToken: 'clientToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoRenew: 'boolean',
-      autoRenewPeriod: 'number',
-      commodityCode: 'string',
-      instanceName: 'string',
-      networkInfo: CreateInstanceRequestNetworkInfo,
-      paymentType: 'string',
-      period: 'number',
-      periodUnit: 'string',
-      productInfo: CreateInstanceRequestProductInfo,
-      remark: 'string',
-      resourceGroupId: 'string',
-      seriesCode: 'string',
-      serviceCode: 'string',
-      subSeriesCode: 'string',
-      clientToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code returned if the call failed.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The ID of the created instance.
-   * 
-   * @example
-   * rmq-cn-7e22ody****
-   */
-  data?: string;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code returned.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Success
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * AF9A8B10-C426-530F-A0DD-96320B39****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The password of the account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * xxx
-   */
-  password?: string;
-  /**
-   * @remarks
-   * The username of the account.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * xxx
-   */
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      password: 'password',
-      username: 'username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      password: 'string',
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * No permission details
-   * 
-   * @example
-   * xxx
-   */
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The error code returned if the call failed.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned result.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-   * 
-   * @example
-   * 3AE0999C-8DBA-5CEE-8D9A-BE8D4A90DF8D
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateInstanceAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateInstanceAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceAclRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of operations that can be performed on the resource.
-   * 
-   * The following types of operations are supported based on the resource type:
-   * 
-   * *   Topic: Pub, Sub, and Pub|Sub
-   * *   Consumer group: Sub
-   * 
-   * Valid values:
-   * 
-   * *   SUB: subscribe
-   * *   Pub|Sub: publish and subscribe
-   * *   Pub: publish
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Pub
-   */
-  actions?: string;
-  /**
-   * @remarks
-   * The decision result of the authorization.
-   * 
-   * Valid values:
-   * 
-   * *   Deny
-   * *   Allow
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Allow
-   */
-  decision?: string;
-  /**
-   * @remarks
-   * The IP address whitelists.
-   */
-  ipWhitelists?: string[];
-  /**
-   * @remarks
-   * The name of the resource on which you want to grant permissions.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  resourceName?: string;
-  /**
-   * @remarks
-   * The type of the resource on which you want to grant permissions.
-   * 
-   * Valid values:
-   * 
-   * *   Group
-   * *   Topic
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Topic
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actions: 'actions',
-      decision: 'decision',
-      ipWhitelists: 'ipWhitelists',
-      resourceName: 'resourceName',
-      resourceType: 'resourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actions: 'string',
-      decision: 'string',
-      ipWhitelists: { 'type': 'array', 'itemType': 'string' },
-      resourceName: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceAclResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
-   * 
-   * @example
-   * xxx
-   */
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C7E8AE3A-219B-52EE-BE32-4036F5F88833
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceAclResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateInstanceAclResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateInstanceAclResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceIpWhitelistRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The IP address whitelists.
-   * 
-   * This parameter is required.
-   */
-  ipWhitelists?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      ipWhitelists: 'ipWhitelists',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipWhitelists: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceIpWhitelistResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
-   * 
-   * @example
-   * xxx
-   */
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * A07B41BD-6DD3-5349-9E76-00303DF04BBE
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInstanceIpWhitelistResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateInstanceIpWhitelistResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateInstanceIpWhitelistResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTopicRequest extends $tea.Model {
-  maxSendTps?: number;
-  /**
-   * @remarks
-   * The type of messages in the topic that you want to create.
-   * 
-   * Valid values:
-   * 
-   * *   TRANSACTION: transactional messages
-   * *   FIFO: ordered messages
-   * *   DELAY: scheduled messages or delayed Message
-   * *   NORMAL: normal messages
-   * 
-   * > The type of messages in the topic must be the same as the type of messages that you want to send. For example, if you create a topic whose message type is ordered messages, the topic can be used to send and receive only ordered messages.
-   * 
-   * @example
-   * NORMAL
-   */
-  messageType?: string;
-  /**
-   * @remarks
-   * The description of the topic that you want to create.
-   * 
-   * @example
-   * This is the remark for test.
-   */
-  remark?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxSendTps: 'maxSendTps',
-      messageType: 'messageType',
-      remark: 'remark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxSendTps: 'number',
-      messageType: 'string',
-      remark: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTopicResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code returned if the call failed.
-   * 
-   * @example
-   * Topic.Existed
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned result.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * TopicName
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * topicName
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code returned.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The topic already exists.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * AF9A8B10-C426-530F-A0DD-96320B39****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTopicResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateTopicResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateTopicResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteConsumerGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidConsumerGroupId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The result data that is returned.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * ConsumerGroupId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * consumerGroupId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter consumerGroupId is invalid.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-   * 
-   * @example
-   * C7F94090-3358-506A-97DC-34BC803C****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call is successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteConsumerGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteConsumerGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteConsumerGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteConsumerGroupSubscriptionRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The filter expression.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * *
-   */
-  filterExpression?: string;
-  /**
-   * @remarks
-   * The type of the filter expression. Valid values:
-   * 
-   * *   SQL: filters messages by using SQL expressions.
-   * *   TAG: filters messages by using tags.
-   * 
-   * Valid values:
-   * 
-   * *   TAG: filters messages by using SQL expressions.
-   * *   SQL: filters messages by using SQL expressions.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TAG
-   */
-  filterType?: string;
-  /**
-   * @remarks
-   * The topic name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * topic_test
-   */
-  topicName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filterExpression: 'filterExpression',
-      filterType: 'filterType',
-      topicName: 'topicName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filterExpression: 'string',
-      filterType: 'string',
-      topicName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteConsumerGroupSubscriptionResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
-   * 
-   * @example
-   * xxx
-   */
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 723CDA5C-E25C-5EAF-9601-08C286DF8A4D
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteConsumerGroupSubscriptionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteConsumerGroupSubscriptionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteConsumerGroupSubscriptionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDisasterRecoveryPlanResponseBody extends $tea.Model {
-  accessDeniedDetail?: string;
-  code?: string;
-  data?: boolean;
-  dynamicCode?: string;
-  dynamicMessage?: string;
-  httpStatusCode?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDisasterRecoveryPlanResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDisasterRecoveryPlanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDisasterRecoveryPlanResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code returned if the call failed.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned result.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code returned.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 048242AA-BADA-5F29-B2CD-ED9FA344467F
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
-   * 
-   * @example
-   * xxx
-   */
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Instance.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 157DF7D4-53FB-58C6-BEBC-A9400E7EF68A
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteInstanceAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteInstanceAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceAclRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The name of the resource on which the permissions are granted.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  resourceName?: string;
-  /**
-   * @remarks
-   * The type of the resource on which the permissions are granted.
-   * 
-   * Valid values:
-   * 
-   * *   Group
-   * *   Topic
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Topic
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceName: 'resourceName',
-      resourceType: 'resourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceName: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceAclResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
-   * 
-   * @example
-   * xxx
-   */
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 7358418D-83BD-507A-8079-611C63E05674
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceAclResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteInstanceAclResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteInstanceAclResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceIpWhitelistRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The IP address whitelist.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 0.0.0.0/0
-   */
-  ipWhitelist?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ipWhitelist: 'ipWhitelist',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipWhitelist: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceIpWhitelistResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
-   * 
-   * @example
-   * xxx
-   */
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 16425867-C948-5A0C-9A24-5259727BE727
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceIpWhitelistResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteInstanceIpWhitelistResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteInstanceIpWhitelistResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteTopicResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The result data that is returned.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * TopicName
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * topicName
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The topic cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-   * 
-   * @example
-   * AF9A8B10-C426-530F-A0DD-96320B39****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call is successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteTopicResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteTopicResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteTopicResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConsumerGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidConsumerGroupId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The result data that is returned.
-   */
-  data?: GetConsumerGroupResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * ConsumerGroupId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * consumerGroupId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter consumerGroupId is invalid.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-   * 
-   * @example
-   * C7F94090-3358-506A-97DC-34BC803C****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call is successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetConsumerGroupResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConsumerGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetConsumerGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetConsumerGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConsumerGroupLagResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Error code
-   * 
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: GetConsumerGroupLagResponseBodyData;
-  /**
-   * @remarks
-   * Dynamic error code
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * HTTP status code
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Error message
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * F5764C40-FB8C-53AE-B95D-96AB3D0E9375
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetConsumerGroupLagResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConsumerGroupLagResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetConsumerGroupLagResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetConsumerGroupLagResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConsumerGroupSubscriptionResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Instance.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: GetConsumerGroupSubscriptionResponseBodyData[];
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The response code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 157DF7D4-53FB-58C6-BEBC-A9400E7EF68A
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': GetConsumerGroupSubscriptionResponseBodyData },
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConsumerGroupSubscriptionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetConsumerGroupSubscriptionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetConsumerGroupSubscriptionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConsumerStackRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 172.26.76.48@Lqd7dImlp9KJ5V84
-   */
-  clientId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'clientId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConsumerStackResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: GetConsumerStackResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 30F2CBC7-F69D-5D78-9661-0254C9E1FBFA
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetConsumerStackResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConsumerStackResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetConsumerStackResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetConsumerStackResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code returned if the call failed.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: GetInstanceResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code returned.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 05AB7FBD-F1D3-5D87-BF78-BD782249****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetInstanceResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The username of the account.
-   * 
-   * If you do not configure this parameter, the default username of the instance is used.
-   * 
-   * @example
-   * test
-   */
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      username: 'username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: GetInstanceAccountResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * ConsumerGroupId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID, each request\\"s ID is unique and can be used for troubleshooting and problem localization.
-   * 
-   * @example
-   * B5C59E80-FCFC-5796-ABE4-D39EAAE578E4
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetInstanceAccountResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInstanceAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetInstanceAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetInstanceAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMessageDetailResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: GetMessageDetailResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * FAEBD71F-E839-52F9-BD7B-8F1290525841
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetMessageDetailResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetMessageDetailResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetMessageDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetMessageDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTopicResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The result data that is returned.
-   */
-  data?: GetTopicResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * TopicName
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * topicName
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The topic cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-   * 
-   * @example
-   * AF9A8B10-C426-530F-A0DD-96320B39****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call is successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetTopicResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTopicResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetTopicResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetTopicResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTraceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidConsumerGroupId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: GetTraceResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-   * 
-   * @example
-   * 7779A8FC-1BCD-5A1D-A603-C4A9BD8ADC49
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetTraceResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTraceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetTraceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetTraceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAvailableZonesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code returned if the call failed.
-   * 
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The result data that is returned.
-   */
-  data?: ListAvailableZonesResponseBodyData[];
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * AF9A8B10-C426-530F-A0DD-96320B39****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': ListAvailableZonesResponseBodyData },
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAvailableZonesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListAvailableZonesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListAvailableZonesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConsumerConnectionsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned error code.
-   * 
-   * @example
-   * MissingPageNumber
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: ListConsumerConnectionsResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * A3620115-6F1F-5CFB-AA3F-BBD4853B2EC4
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListConsumerConnectionsResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConsumerConnectionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListConsumerConnectionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListConsumerConnectionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConsumerGroupSubscriptionsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: ListConsumerGroupSubscriptionsResponseBodyData[];
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 5F4D9D5F-625B-59FF-BD4F-DA8284575DB4
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': ListConsumerGroupSubscriptionsResponseBodyData },
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConsumerGroupSubscriptionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListConsumerGroupSubscriptionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListConsumerGroupSubscriptionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConsumerGroupsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The condition that you want to use to filter consumer groups in the instance. If you leave this parameter empty, all consumer groups in the instance are queried.
-   * 
-   * @example
-   * CID-TEST
-   */
-  filter?: string;
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      filter: 'filter',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filter: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConsumerGroupsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The result data that is returned.
-   */
-  data?: ListConsumerGroupsResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter InstanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-   * 
-   * @example
-   * 5503A460-98ED-5543-92CF-4853DE28****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call is successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListConsumerGroupsResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConsumerGroupsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListConsumerGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListConsumerGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstanceAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The status of the account.
-   * 
-   * Valid values:
-   * 
-   * *   DISABLE
-   * *   ENABLE
-   * 
-   * @example
-   * ENABLE
-   */
-  accountStatus?: string;
-  /**
-   * @remarks
-   * The account type.
-   *   - CUSTOMER
-   *   - DEFAULT
-   * 
-   * @example
-   * CUSTOMER
-   */
-  accountType?: string;
-  /**
-   * @remarks
-   * The page number. Default value: 1.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Default value: 10.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The username of the account.
-   * 
-   * @example
-   * test
-   */
-  username?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountStatus: 'accountStatus',
-      accountType: 'accountType',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-      username: 'username',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountStatus: 'string',
-      accountType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      username: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstanceAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
-   * 
-   * @example
-   * xxx
-   */
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: ListInstanceAccountResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * C115601B-8736-5BBF-AC99-7FEAE1245A80
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: ListInstanceAccountResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstanceAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListInstanceAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListInstanceAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstanceAclRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The condition that you specify to filter the ACLs. If you do not specify this parameter, all ACLs are queried.
-   * 
-   * @example
-   * CID-TEST
-   */
-  filter?: string;
-  /**
-   * @remarks
-   * The page number. Pages start from page 1.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      filter: 'filter',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filter: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstanceAclResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
-   * 
-   * @example
-   * xxx
-   */
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: ListInstanceAclResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * DA4D2F89-E2C8-5F04-936B-60D55B055FA7
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: ListInstanceAclResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstanceAclResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListInstanceAclResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListInstanceAclResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstanceIpWhitelistRequest extends $tea.Model {
-  /**
-   * @remarks
-   * IP whitelist.
-   * 
-   * @example
-   * 0.0.0.0/0
-   */
-  ipWhitelist?: string;
-  /**
-   * @remarks
-   * The page number. Default value: 1.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ipWhitelist: 'ipWhitelist',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipWhitelist: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstanceIpWhitelistResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
-   * 
-   * @example
-   * xxx
-   */
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Instance.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: ListInstanceIpWhitelistResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 7358418D-83BD-507A-8079-611C63E05674
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: ListInstanceIpWhitelistResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstanceIpWhitelistResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListInstanceIpWhitelistResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListInstanceIpWhitelistResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The filter condition that is used to query instances. If you do not configure this parameter, all instances are queried.
-   * 
-   * @example
-   * rmq-cn-7e22ody****
-   */
-  filter?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * Valid values: 1 to 100000000.
-   * 
-   * If you set this parameter to a value smaller than 1, the system uses 1 as the value. If you set this parameter to a value greater than 100000000, the system uses 100000000 as the value.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * Value values: 10 to 200.
-   * 
-   * If you set this parameter to a value smaller than 10, the system uses 10 as the value. If you set this parameter to a value greater than 200, the system uses 200 as the value.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the resource group to which the instance belongs.
-   * 
-   * @example
-   * rg-acfmx7caj******
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The primary edition of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   standard: Standard Edition
-   * *   ultimate: Enterprise Platinum Edition
-   * *   professional: Professional Edition
-   */
-  seriesCodes?: string[];
-  /**
-   * @remarks
-   * The storage encryption key.
-   * 
-   * @example
-   * xxxxx
-   */
-  storageSecretKey?: string;
-  /**
-   * @remarks
-   * The tags that are used to filter instances.
-   * 
-   * @example
-   * [{"key": "rmq-test", "value": "test"}]
-   */
-  tags?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filter: 'filter',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-      resourceGroupId: 'resourceGroupId',
-      seriesCodes: 'seriesCodes',
-      storageSecretKey: 'storageSecretKey',
-      tags: 'tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filter: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      resourceGroupId: 'string',
-      seriesCodes: { 'type': 'array', 'itemType': 'string' },
-      storageSecretKey: 'string',
-      tags: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The filter condition that is used to query instances. If you do not configure this parameter, all instances are queried.
-   * 
-   * @example
-   * rmq-cn-7e22ody****
-   */
-  filter?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * Valid values: 1 to 100000000.
-   * 
-   * If you set this parameter to a value smaller than 1, the system uses 1 as the value. If you set this parameter to a value greater than 100000000, the system uses 100000000 as the value.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * Value values: 10 to 200.
-   * 
-   * If you set this parameter to a value smaller than 10, the system uses 10 as the value. If you set this parameter to a value greater than 200, the system uses 200 as the value.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the resource group to which the instance belongs.
-   * 
-   * @example
-   * rg-acfmx7caj******
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The primary edition of the instance.
-   * 
-   * Valid values:
-   * 
-   * *   standard: Standard Edition
-   * *   ultimate: Enterprise Platinum Edition
-   * *   professional: Professional Edition
-   */
-  seriesCodesShrink?: string;
-  /**
-   * @remarks
-   * The storage encryption key.
-   * 
-   * @example
-   * xxxxx
-   */
-  storageSecretKey?: string;
-  /**
-   * @remarks
-   * The tags that are used to filter instances.
-   * 
-   * @example
-   * [{"key": "rmq-test", "value": "test"}]
-   */
-  tags?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filter: 'filter',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-      resourceGroupId: 'resourceGroupId',
-      seriesCodesShrink: 'seriesCodes',
-      storageSecretKey: 'storageSecretKey',
-      tags: 'tags',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filter: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      resourceGroupId: 'string',
-      seriesCodesShrink: 'string',
-      storageSecretKey: 'string',
-      tags: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code returned if the call failed.
-   * 
-   * @example
-   * MissingPageNumber
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: ListInstancesResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * PageNumber
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * pageNumber
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code returned.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter pageNumber is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * 84445A20-2B50-5306-A3C0-AF99FC1833C6
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListInstancesResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstancesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMessagesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The end of the time range to query.
-   * 
-   * @example
-   * 2024-09-09 09:00:00
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * Message Id.
-   * 
-   * @example
-   * 7F00000100207A4F0F294A938F7807AE
-   */
-  messageId?: string;
-  /**
-   * @remarks
-   * Message key.
-   * 
-   * @example
-   * XSCBillResult
-   */
-  messageKey?: string;
-  /**
-   * @remarks
-   * The page number. Pages start from page 1.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The scroll ID of the request.
-   * 
-   * You do not need to configure this parameter for the first page. This parameter is included in the pagination request based on the result returned for the first page.
-   * 
-   * @example
-   * B13D0B07-F24B-4790-88D8-D47A38063D00
-   */
-  scrollId?: string;
-  /**
-   * @remarks
-   * The beginning of the time range to query.
-   * 
-   * @example
-   * 2024-09-09 08:00:00
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'endTime',
-      messageId: 'messageId',
-      messageKey: 'messageKey',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-      scrollId: 'scrollId',
-      startTime: 'startTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      messageId: 'string',
-      messageKey: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      scrollId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMessagesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: ListMessagesResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * A3531B6A-5A88-52BD-B3C4-A024C3D0AA2E
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListMessagesResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMessagesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMessagesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMessagesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMetricMetaRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMetricMetaResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  data?: ListMetricMetaResponseBodyData;
-  /**
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @example
-   * The topic already exists.
-   */
-  message?: string;
-  /**
-   * @example
-   * 8B459455-4A35-5796-BA9D-98EF1AB9A931
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListMetricMetaResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListMetricMetaResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListMetricMetaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListMetricMetaResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRegionsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingPageNumber
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: ListRegionsResponseBodyData[];
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * ConsumerGroupId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0B962390-D84B-5D44-8C11-79DF40299D41
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': ListRegionsResponseBodyData },
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRegionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The position from which the next query starts.
-   * 
-   * @example
-   * d09e2b63e1b12d905b7080ff70
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * Region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Resource group ID.
-   * 
-   * @example
-   * rg-acfmx7caj******
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * List of resource IDs, in JSON format.
-   * 
-   * @example
-   * ["rmq-cn-pe334n08h08"]
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * Resource type.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * instance
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * List of tags, in JSON format.
-   * 
-   * @example
-   * [{"key": "rmq-test", "value": "test"}]
-   */
-  tag?: string;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'nextToken',
-      regionId: 'regionId',
-      resourceGroupId: 'resourceGroupId',
-      resourceId: 'resourceId',
-      resourceType: 'resourceType',
-      tag: 'tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      resourceId: 'string',
-      resourceType: 'string',
-      tag: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Error code
-   * 
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * Return result
-   */
-  data?: ListTagResourcesResponseBodyData;
-  /**
-   * @remarks
-   * Dynamic error code
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * Dynamic error message
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * HTTP status code
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * Error message
-   * 
-   * @example
-   * The topic already exists.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Request ID
-   * 
-   * @example
-   * F00C6A70-C782-5DD6-9D11-0CFC710100C7
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Whether the operation was successful
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListTagResourcesResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTopicSubscriptionsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: ListTopicSubscriptionsResponseBodyData[];
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * Topic
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 92A9BE4E-B794-50C8-979C-0456E4D32943
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: { 'type': 'array', 'itemType': ListTopicSubscriptionsResponseBodyData },
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTopicSubscriptionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTopicSubscriptionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTopicSubscriptionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTopicsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The condition that you want to use to filter topics in the instance. If you leave this parameter empty, all topics in the instance are queried.
-   * 
-   * @example
-   * topic_test
-   */
-  filter?: string;
-  /**
-   * @remarks
-   * The message types of the topics.
-   */
-  messageTypes?: string[];
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * @example
-   * 3
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      filter: 'filter',
-      messageTypes: 'messageTypes',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filter: 'string',
-      messageTypes: { 'type': 'array', 'itemType': 'string' },
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTopicsShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The condition that you want to use to filter topics in the instance. If you leave this parameter empty, all topics in the instance are queried.
-   * 
-   * @example
-   * topic_test
-   */
-  filter?: string;
-  /**
-   * @remarks
-   * The message types of the topics.
-   */
-  messageTypesShrink?: string;
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page.
-   * 
-   * @example
-   * 3
-   */
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      filter: 'filter',
-      messageTypesShrink: 'messageTypes',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filter: 'string',
-      messageTypesShrink: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTopicsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The result data that is returned.
-   */
-  data?: ListTopicsResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * TopicName
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * topicName
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The topic cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-   * 
-   * @example
-   * AF9A8B10-C426-530F-A0DD-96320B39****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call is successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListTopicsResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTopicsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTopicsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTopicsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTracesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The end of the time range to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2023-05-19 10:10:09
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The message ID.
-   * 
-   * This parameter is required if you set queryType to MESSAGE_ID.
-   * 
-   * @example
-   * 0100163E0EC1F1965C04C7906700000000
-   */
-  messageId?: string;
-  /**
-   * @remarks
-   * The message key.
-   * 
-   * This parameter is required if you set queryType to MESSAGE_ID.
-   * 
-   * @example
-   * order_ceating
-   */
-  messageKey?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The query type.
-   * 
-   * Valid values:
-   * 
-   * *   MESSAGE_ID
-   * *   MESSAGE_KEY
-   * *   TOPIC
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * MESSAGE_ID
-   */
-  queryType?: string;
-  /**
-   * @remarks
-   * The beginning of the time range to query.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2023-05-10 10:42:11
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'endTime',
-      messageId: 'messageId',
-      messageKey: 'messageKey',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-      queryType: 'queryType',
-      startTime: 'startTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      messageId: 'string',
-      messageKey: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      queryType: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTracesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned result.
-   */
-  data?: ListTracesResponseBodyData;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * EDFF77E1-1ED1-5389-B6A8-651D9433BBE5
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListTracesResponseBodyData,
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTracesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTracesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTracesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetConsumeOffsetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the consumer offset is reset.
-   * 
-   * @example
-   * 2023-03-22 12:17:08
-   */
-  resetTime?: string;
-  /**
-   * @remarks
-   * The method that is used to reset the consumer offset. Valid values: LATEST_OFFSET and SPECIFIED_TIME.
-   * 
-   * @example
-   * LATEST_OFFSET
-   */
-  resetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resetTime: 'resetTime',
-      resetType: 'resetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resetTime: 'string',
-      resetType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetConsumeOffsetResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The returned dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The returned HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The returned error message.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * F9A95891-EAD4-5A2B-8A30-676CD18921AF
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request is successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ResetConsumeOffsetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ResetConsumeOffsetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ResetConsumeOffsetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDisasterRecoveryItemResponseBody extends $tea.Model {
-  accessDeniedDetail?: string;
-  code?: string;
-  data?: boolean;
-  dynamicCode?: string;
-  dynamicMessage?: string;
-  httpStatusCode?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDisasterRecoveryItemResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartDisasterRecoveryItemResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartDisasterRecoveryItemResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDisasterRecoveryItemResponseBody extends $tea.Model {
-  accessDeniedDetail?: string;
-  code?: string;
-  data?: boolean;
-  dynamicCode?: string;
-  dynamicMessage?: string;
-  httpStatusCode?: number;
-  message?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDisasterRecoveryItemResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopDisasterRecoveryItemResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopDisasterRecoveryItemResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The resource IDs, in the JSON format.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rmq-cn-pe3355cs707
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The type of resource.
-   * 
-   * Set this parameter to **instance**. The value of this parameter cannot be changed.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * instance
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * tag, in JSON format.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * [{"key": "rmq-test", "value": "test"}]
-   */
-  tag?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'regionId',
-      resourceId: 'resourceId',
-      resourceType: 'resourceType',
-      tag: 'tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      resourceId: 'string',
-      resourceType: 'string',
-      tag: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned result.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0B962390-D84B-5D44-8C11-79DF40299D41
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Whether to delete all tags.
-   * 
-   * @example
-   * true
-   */
-  all?: boolean;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The resource IDs, in the JSON format.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rmq-cn-pe3355cs707
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The type of resource.
-   * 
-   * Set this parameter to **instance**. The value of this parameter cannot be changed.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * instance
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The keys of tags.
-   * 
-   * @example
-   * ["key1", "key2"]
-   */
-  tagKey?: string;
-  static names(): { [key: string]: string } {
-    return {
-      all: 'all',
-      regionId: 'regionId',
-      resourceId: 'resourceId',
-      resourceType: 'resourceType',
-      tagKey: 'tagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      regionId: 'string',
-      resourceId: 'string',
-      resourceType: 'string',
-      tagKey: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter deliveryOrderType is invalid.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * A07B41BD-6DD3-5349-9E76-00303DF04BBE
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UntagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateConsumerGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The new consumption retry policy that you want to configure for the consumer group. For more information, see [Consumption retry](https://help.aliyun.com/document_detail/440356.html).
-   * 
-   * This parameter is required.
-   */
-  consumeRetryPolicy?: UpdateConsumerGroupRequestConsumeRetryPolicy;
-  /**
-   * @remarks
-   * The new message delivery order of the consumer group.
-   * 
-   * Valid values:
-   * 
-   * *   Concurrently: concurrent delivery
-   * *   Orderly: ordered delivery
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Concurrently
-   */
-  deliveryOrderType?: string;
-  maxReceiveTps?: number;
-  /**
-   * @remarks
-   * The new remarks on the consumer group.
-   * 
-   * @example
-   * This is the remark for test.
-   */
-  remark?: string;
-  static names(): { [key: string]: string } {
-    return {
-      consumeRetryPolicy: 'consumeRetryPolicy',
-      deliveryOrderType: 'deliveryOrderType',
-      maxReceiveTps: 'maxReceiveTps',
-      remark: 'remark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      consumeRetryPolicy: UpdateConsumerGroupRequestConsumeRetryPolicy,
-      deliveryOrderType: 'string',
-      maxReceiveTps: 'number',
-      remark: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateConsumerGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidDeliveryOrderType
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The result data that is returned.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * DeliveryOrderType
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * deliveryOrderType
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter deliveryOrderType is invalid.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-   * 
-   * @example
-   * C7F94090-3358-506A-97DC-34BC803C****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call is successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateConsumerGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateConsumerGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateConsumerGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The access control list for the instance.
-   */
-  aclInfo?: UpdateInstanceRequestAclInfo;
-  /**
-   * @remarks
-   * The updated name of the instance.
-   * 
-   * @example
-   * test_instance
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * The updated network information about the instance.
-   */
-  networkInfo?: UpdateInstanceRequestNetworkInfo;
-  /**
-   * @remarks
-   * Additional configurations of the instance.
-   */
-  productInfo?: UpdateInstanceRequestProductInfo;
-  /**
-   * @remarks
-   * The updated description of the instance.
-   * 
-   * @example
-   * This is the remark for test.
-   */
-  remark?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aclInfo: 'aclInfo',
-      instanceName: 'instanceName',
-      networkInfo: 'networkInfo',
-      productInfo: 'productInfo',
-      remark: 'remark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aclInfo: UpdateInstanceRequestAclInfo,
-      instanceName: 'string',
-      networkInfo: UpdateInstanceRequestNetworkInfo,
-      productInfo: UpdateInstanceRequestProductInfo,
-      remark: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The result data that is returned.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-   * 
-   * @example
-   * AA87DE09-DA44-52F4-9515-78B1B607****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call is successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateInstanceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceAccountRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The status of the account.
-   * 
-   * Valid values:
-   * 
-   * *   DISABLE
-   * *   ENABLE
-   * 
-   * @example
-   * ENABLE
-   */
-  accountStatus?: string;
-  /**
-   * @remarks
-   * The password of the account.
-   * 
-   * @example
-   * test
-   */
-  password?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountStatus: 'accountStatus',
-      password: 'password',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountStatus: 'string',
-      password: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceAccountResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
-   * 
-   * @example
-   * xxx
-   */
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Instance.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned result.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
-   * 
-   * @example
-   * AF9A8B10-C426-530F-A0DD-96320B39****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call is successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceAccountResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateInstanceAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateInstanceAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceAclRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The following items describe the types of permissions that can be granted based on the resource type:
-   * 
-   * *   Topic: Pub, Sub, and Pub|Sub
-   * *   Consumer group: Sub
-   * 
-   * Valid values:
-   * 
-   * *   SUB: subscribe
-   * *   Pub|Sub: publish and subscribe
-   * *   Pub: publish
-   * 
-   * @example
-   * Pub
-   */
-  actions?: string;
-  /**
-   * @remarks
-   * The decision result of the authorization.
-   * 
-   * Valid values:
-   * 
-   * *   Deny
-   * *   Allow
-   * 
-   * @example
-   * Allow
-   */
-  decision?: string;
-  /**
-   * @remarks
-   * The IP address whitelists.
-   */
-  ipWhitelists?: string[];
-  /**
-   * @remarks
-   * The name of the resource on which you want to grant permissions.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test
-   */
-  resourceName?: string;
-  /**
-   * @remarks
-   * The type of the resource on which you want to grant permissions.
-   * 
-   * Valid values:
-   * 
-   * *   Group
-   * *   Topic
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Topic
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actions: 'actions',
-      decision: 'decision',
-      ipWhitelists: 'ipWhitelists',
-      resourceName: 'resourceName',
-      resourceType: 'resourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actions: 'string',
-      decision: 'string',
-      ipWhitelists: { 'type': 'array', 'itemType': 'string' },
-      resourceName: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceAclResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
-   * 
-   * @example
-   * xxx
-   */
-  accessDeniedDetail?: string;
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * MissingInstanceId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C115601B-8736-5BBF-AC99-7FEAE1245A80
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      accessDeniedDetail: 'accessDeniedDetail',
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessDeniedDetail: 'string',
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateInstanceAclResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateInstanceAclResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateInstanceAclResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTopicRequest extends $tea.Model {
-  maxSendTps?: number;
-  /**
-   * @remarks
-   * The new remarks on the topic.
-   * 
-   * @example
-   * This is the remark for test.
-   */
-  remark?: string;
-  static names(): { [key: string]: string } {
-    return {
-      maxSendTps: 'maxSendTps',
-      remark: 'remark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxSendTps: 'number',
-      remark: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTopicResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The result data that is returned.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * TopicName
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * topicName
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 400
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The topic cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
-   * 
-   * @example
-   * AF9A8B10-C426-530F-A0DD-96320B39****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the call is successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTopicResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateTopicResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateTopicResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyConsumeMessageRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * zeekr-settlement-server-dc555456f-v2lcg@1@1@qfvorazqns
-   */
-  clientId?: string;
-  /**
-   * @remarks
-   * The ID of the consumer group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * TEST_FINANCE_STOCK_OUT_GROUP
-   */
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class AddDisasterRecoveryItemRequestTopics extends $dara.Model {
   consumerGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'clientId',
-      consumerGroupId: 'consumerGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      consumerGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyConsumeMessageResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * Topic.NotFound
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * true
-   */
-  data?: boolean;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * InstanceId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * instanceId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Parameter instanceId is mandatory for this action .
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 5304143F-AB0E-5AB4-A227-7C5489216FD5
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyConsumeMessageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: VerifyConsumeMessageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VerifyConsumeMessageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifySendMessageRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The message body.
-   * 
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The message key.
-   * 
-   * @example
-   * xx
-   */
-  messageKey?: string;
-  /**
-   * @remarks
-   * The message tag.
-   * 
-   * @example
-   * xx
-   */
-  messageTag?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'message',
-      messageKey: 'messageKey',
-      messageTag: 'messageTag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      messageKey: 'string',
-      messageTag: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifySendMessageResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The error code.
-   * 
-   * @example
-   * InvalidConsumerGroupId
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The returned data.
-   * 
-   * @example
-   * 0A64228900207A4F0F2931A4E0D40BE5
-   */
-  data?: string;
-  /**
-   * @remarks
-   * The dynamic error code.
-   * 
-   * @example
-   * ConsumerGroupId
-   */
-  dynamicCode?: string;
-  /**
-   * @remarks
-   * The dynamic error message.
-   * 
-   * @example
-   * consumerGroupId
-   */
-  dynamicMessage?: string;
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 200
-   */
-  httpStatusCode?: number;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * The instance cannot be found.
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 3BD2C19B-66DE-59C7-B2F6-FD1BE21DC8C1
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      dynamicCode: 'dynamicCode',
-      dynamicMessage: 'dynamicMessage',
-      httpStatusCode: 'httpStatusCode',
-      message: 'message',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      dynamicCode: 'string',
-      dynamicMessage: 'string',
-      httpStatusCode: 'number',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifySendMessageResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: VerifySendMessageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: VerifySendMessageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDisasterRecoveryItemRequestTopics extends $tea.Model {
-  consumerGroupId?: string;
+  deliveryOrderType?: string;
   instanceId?: string;
   /**
    * @example
@@ -8291,6 +26,7 @@ export class AddDisasterRecoveryItemRequestTopics extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       consumerGroupId: 'consumerGroupId',
+      deliveryOrderType: 'deliveryOrderType',
       instanceId: 'instanceId',
       instanceType: 'instanceType',
       regionId: 'regionId',
@@ -8301,6 +37,7 @@ export class AddDisasterRecoveryItemRequestTopics extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       consumerGroupId: 'string',
+      deliveryOrderType: 'string',
       instanceId: 'string',
       instanceType: 'string',
       regionId: 'string',
@@ -8308,12 +45,16 @@ export class AddDisasterRecoveryItemRequestTopics extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateConsumerGroupRequestConsumeRetryPolicy extends $tea.Model {
+export class CreateConsumerGroupRequestConsumeRetryPolicy extends $dara.Model {
   /**
    * @remarks
    * The dead-letter topic.
@@ -8363,12 +104,16 @@ export class CreateConsumerGroupRequestConsumeRetryPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceRequestNetworkInfoInternetInfo extends $tea.Model {
+export class CreateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
   /**
    * @remarks
    * The Internet bandwidth. Unit: MB/s.
@@ -8442,12 +187,19 @@ export class CreateInstanceRequestNetworkInfoInternetInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ipWhitelist)) {
+      $dara.Model.validateArray(this.ipWhitelist);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceRequestNetworkInfoVpcInfoVSwitches extends $tea.Model {
+export class CreateInstanceRequestNetworkInfoVpcInfoVSwitches extends $dara.Model {
   /**
    * @remarks
    * The ID of the vSwitch with which the instance is associated.
@@ -8468,12 +220,16 @@ export class CreateInstanceRequestNetworkInfoVpcInfoVSwitches extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceRequestNetworkInfoVpcInfo extends $tea.Model {
+export class CreateInstanceRequestNetworkInfoVpcInfo extends $dara.Model {
   /**
    * @remarks
    * The ID of the security group to which the instance belongs.
@@ -8535,12 +291,19 @@ export class CreateInstanceRequestNetworkInfoVpcInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.vSwitches)) {
+      $dara.Model.validateArray(this.vSwitches);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceRequestNetworkInfo extends $tea.Model {
+export class CreateInstanceRequestNetworkInfo extends $dara.Model {
   /**
    * @remarks
    * The Internet-related configurations.
@@ -8569,12 +332,22 @@ export class CreateInstanceRequestNetworkInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.internetInfo && typeof (this.internetInfo as any).validate === 'function') {
+      (this.internetInfo as any).validate();
+    }
+    if(this.vpcInfo && typeof (this.vpcInfo as any).validate === 'function') {
+      (this.vpcInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateInstanceRequestProductInfo extends $tea.Model {
+export class CreateInstanceRequestProductInfo extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the elastic TPS feature for the instance.
@@ -8592,27 +365,6 @@ export class CreateInstanceRequestProductInfo extends $tea.Model {
    * true
    */
   autoScaling?: boolean;
-  /**
-   * @remarks
-   * The billing method.
-   * 
-   * Valid values:
-   * 
-   * *   provisioned
-   * *   ondemand
-   * 
-   * @example
-   * provisioned
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * This parameter is no longer used. You do not need to configure this parameter.
-   * 
-   * @example
-   * xxxx
-   */
-  intranetSpec?: string;
   /**
    * @remarks
    * The retention period of messages. Unit: hours.
@@ -8666,8 +418,6 @@ export class CreateInstanceRequestProductInfo extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoScaling: 'autoScaling',
-      chargeType: 'chargeType',
-      intranetSpec: 'intranetSpec',
       messageRetentionTime: 'messageRetentionTime',
       msgProcessSpec: 'msgProcessSpec',
       sendReceiveRatio: 'sendReceiveRatio',
@@ -8679,8 +429,6 @@ export class CreateInstanceRequestProductInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoScaling: 'boolean',
-      chargeType: 'string',
-      intranetSpec: 'string',
       messageRetentionTime: 'number',
       msgProcessSpec: 'string',
       sendReceiveRatio: 'number',
@@ -8689,12 +437,42 @@ export class CreateInstanceRequestProductInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConsumerGroupResponseBodyDataConsumeRetryPolicy extends $tea.Model {
+export class CreateInstanceRequestTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsumerGroupResponseBodyDataConsumeRetryPolicy extends $dara.Model {
   /**
    * @remarks
    * The dead-letter topic.
@@ -8767,12 +545,16 @@ export class GetConsumerGroupResponseBodyDataConsumeRetryPolicy extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConsumerGroupResponseBodyData extends $tea.Model {
+export class GetConsumerGroupResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The consumption retry policy that you want to configure for the consumer group. For more information, see [Consumption retry](https://help.aliyun.com/document_detail/440356.html).
@@ -8836,6 +618,7 @@ export class GetConsumerGroupResponseBodyData extends $tea.Model {
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  maxReceiveTps?: number;
   /**
    * @remarks
    * The ID of the region in which the instance resides.
@@ -8905,6 +688,7 @@ export class GetConsumerGroupResponseBodyData extends $tea.Model {
       createTime: 'createTime',
       deliveryOrderType: 'deliveryOrderType',
       instanceId: 'instanceId',
+      maxReceiveTps: 'maxReceiveTps',
       regionId: 'regionId',
       remark: 'remark',
       status: 'status',
@@ -8919,6 +703,7 @@ export class GetConsumerGroupResponseBodyData extends $tea.Model {
       createTime: 'string',
       deliveryOrderType: 'string',
       instanceId: 'string',
+      maxReceiveTps: 'number',
       regionId: 'string',
       remark: 'string',
       status: 'string',
@@ -8926,12 +711,19 @@ export class GetConsumerGroupResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.consumeRetryPolicy && typeof (this.consumeRetryPolicy as any).validate === 'function') {
+      (this.consumeRetryPolicy as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConsumerGroupLagResponseBodyDataTotalLag extends $tea.Model {
+export class GetConsumerGroupLagResponseBodyDataTotalLag extends $dara.Model {
   /**
    * @remarks
    * Delivery delay time, in seconds
@@ -8975,12 +767,16 @@ export class GetConsumerGroupLagResponseBodyDataTotalLag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConsumerGroupLagResponseBodyData extends $tea.Model {
+export class GetConsumerGroupLagResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Consumer Group ID
@@ -9035,12 +831,22 @@ export class GetConsumerGroupLagResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.topicLagMap) {
+      $dara.Model.validateMap(this.topicLagMap);
+    }
+    if(this.totalLag && typeof (this.totalLag as any).validate === 'function') {
+      (this.totalLag as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConsumerGroupSubscriptionResponseBodyDataConnectionDTO extends $tea.Model {
+export class GetConsumerGroupSubscriptionResponseBodyDataConnectionDTO extends $dara.Model {
   /**
    * @remarks
    * The client ID.
@@ -9114,12 +920,16 @@ export class GetConsumerGroupSubscriptionResponseBodyDataConnectionDTO extends $
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConsumerGroupSubscriptionResponseBodyDataSubscriptionDTO extends $tea.Model {
+export class GetConsumerGroupSubscriptionResponseBodyDataSubscriptionDTO extends $dara.Model {
   /**
    * @remarks
    * The consumer group ID.
@@ -9199,12 +1009,16 @@ export class GetConsumerGroupSubscriptionResponseBodyDataSubscriptionDTO extends
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConsumerGroupSubscriptionResponseBodyData extends $tea.Model {
+export class GetConsumerGroupSubscriptionResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The connection details.
@@ -9229,12 +1043,22 @@ export class GetConsumerGroupSubscriptionResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.connectionDTO && typeof (this.connectionDTO as any).validate === 'function') {
+      (this.connectionDTO as any).validate();
+    }
+    if(this.subscriptionDTO && typeof (this.subscriptionDTO as any).validate === 'function') {
+      (this.subscriptionDTO as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConsumerStackResponseBodyDataStacks extends $tea.Model {
+export class GetConsumerStackResponseBodyDataStacks extends $dara.Model {
   /**
    * @remarks
    * Thread id.
@@ -9262,12 +1086,19 @@ export class GetConsumerStackResponseBodyDataStacks extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tracks)) {
+      $dara.Model.validateArray(this.tracks);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConsumerStackResponseBodyData extends $tea.Model {
+export class GetConsumerStackResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The ID of the consumer group.
@@ -9315,12 +1146,19 @@ export class GetConsumerStackResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.stacks)) {
+      $dara.Model.validateArray(this.stacks);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBodyDataAccountInfo extends $tea.Model {
+export class GetInstanceResponseBodyDataAccountInfo extends $dara.Model {
   /**
    * @remarks
    * The username of the instance. If you access a ApsaraMQ for RocketMQ instance over the Internet, you must configure the username and password of the instance in the SDK code for authentication.
@@ -9341,12 +1179,16 @@ export class GetInstanceResponseBodyDataAccountInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBodyDataAclInfo extends $tea.Model {
+export class GetInstanceResponseBodyDataAclInfo extends $dara.Model {
   /**
    * @remarks
    * The authentication type of the instance. This parameter is no longer in use. We recommend that you configure aclTypes.
@@ -9410,12 +1252,19 @@ export class GetInstanceResponseBodyDataAclInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.aclTypes)) {
+      $dara.Model.validateArray(this.aclTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBodyDataExtConfig extends $tea.Model {
+export class GetInstanceResponseBodyDataExtConfig extends $dara.Model {
   /**
    * @remarks
    * The authentication type of the instance.
@@ -9553,12 +1402,16 @@ export class GetInstanceResponseBodyDataExtConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBodyDataInstanceQuotas extends $tea.Model {
+export class GetInstanceResponseBodyDataInstanceQuotas extends $dara.Model {
   /**
    * @remarks
    * The number of topics that are free of charge on the instance.
@@ -9613,12 +1466,16 @@ export class GetInstanceResponseBodyDataInstanceQuotas extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $tea.Model {
+export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $dara.Model {
   /**
    * @remarks
    * The type of the endpoint that is used to access the instance.
@@ -9669,12 +1526,19 @@ export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $tea.Model 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ipWhitelist)) {
+      $dara.Model.validateArray(this.ipWhitelist);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBodyDataNetworkInfoInternetInfo extends $tea.Model {
+export class GetInstanceResponseBodyDataNetworkInfoInternetInfo extends $dara.Model {
   /**
    * @remarks
    * The Internet bandwidth. Unit: MB/s.
@@ -9737,12 +1601,19 @@ export class GetInstanceResponseBodyDataNetworkInfoInternetInfo extends $tea.Mod
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ipWhitelist)) {
+      $dara.Model.validateArray(this.ipWhitelist);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBodyDataNetworkInfoVpcInfoVSwitches extends $tea.Model {
+export class GetInstanceResponseBodyDataNetworkInfoVpcInfoVSwitches extends $dara.Model {
   /**
    * @remarks
    * The vSwitch ID.
@@ -9773,12 +1644,16 @@ export class GetInstanceResponseBodyDataNetworkInfoVpcInfoVSwitches extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBodyDataNetworkInfoVpcInfo extends $tea.Model {
+export class GetInstanceResponseBodyDataNetworkInfoVpcInfo extends $dara.Model {
   /**
    * @remarks
    * The security group ID.
@@ -9828,12 +1703,19 @@ export class GetInstanceResponseBodyDataNetworkInfoVpcInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.vSwitches)) {
+      $dara.Model.validateArray(this.vSwitches);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBodyDataNetworkInfo extends $tea.Model {
+export class GetInstanceResponseBodyDataNetworkInfo extends $dara.Model {
   /**
    * @remarks
    * The endpoints.
@@ -9865,12 +1747,25 @@ export class GetInstanceResponseBodyDataNetworkInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.endpoints)) {
+      $dara.Model.validateArray(this.endpoints);
+    }
+    if(this.internetInfo && typeof (this.internetInfo as any).validate === 'function') {
+      (this.internetInfo as any).validate();
+    }
+    if(this.vpcInfo && typeof (this.vpcInfo as any).validate === 'function') {
+      (this.vpcInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBodyDataProductInfo extends $tea.Model {
+export class GetInstanceResponseBodyDataProductInfo extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the elastic TPS feature for the instance.
@@ -9986,12 +1881,16 @@ export class GetInstanceResponseBodyDataProductInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBodyDataSoftware extends $tea.Model {
+export class GetInstanceResponseBodyDataSoftware extends $dara.Model {
   /**
    * @remarks
    * The period of upgrade time.
@@ -10038,12 +1937,16 @@ export class GetInstanceResponseBodyDataSoftware extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBodyDataTags extends $tea.Model {
+export class GetInstanceResponseBodyDataTags extends $dara.Model {
   /**
    * @remarks
    * The tag key of the resource.
@@ -10074,12 +1977,16 @@ export class GetInstanceResponseBodyDataTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceResponseBodyData extends $tea.Model {
+export class GetInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The account information.
@@ -10372,12 +2279,41 @@ export class GetInstanceResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.accountInfo && typeof (this.accountInfo as any).validate === 'function') {
+      (this.accountInfo as any).validate();
+    }
+    if(this.aclInfo && typeof (this.aclInfo as any).validate === 'function') {
+      (this.aclInfo as any).validate();
+    }
+    if(this.extConfig && typeof (this.extConfig as any).validate === 'function') {
+      (this.extConfig as any).validate();
+    }
+    if(Array.isArray(this.instanceQuotas)) {
+      $dara.Model.validateArray(this.instanceQuotas);
+    }
+    if(this.networkInfo && typeof (this.networkInfo as any).validate === 'function') {
+      (this.networkInfo as any).validate();
+    }
+    if(this.productInfo && typeof (this.productInfo as any).validate === 'function') {
+      (this.productInfo as any).validate();
+    }
+    if(this.software && typeof (this.software as any).validate === 'function') {
+      (this.software as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceAccountResponseBodyData extends $tea.Model {
+export class GetInstanceAccountResponseBodyData extends $dara.Model {
+  accountStatus?: string;
   /**
    * @remarks
    * The password of the account.
@@ -10396,6 +2332,7 @@ export class GetInstanceAccountResponseBodyData extends $tea.Model {
   username?: string;
   static names(): { [key: string]: string } {
     return {
+      accountStatus: 'accountStatus',
       password: 'password',
       username: 'username',
     };
@@ -10403,9 +2340,14 @@ export class GetInstanceAccountResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountStatus: 'string',
       password: 'string',
       username: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -10413,7 +2355,128 @@ export class GetInstanceAccountResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetMessageDetailResponseBodyData extends $tea.Model {
+export class GetInstanceAclResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * apache_acl
+   */
+  aclType?: string;
+  actions?: string[];
+  /**
+   * @example
+   * Allow
+   */
+  decision?: string;
+  /**
+   * @example
+   * rmq-cn-7e22ody****
+   */
+  instanceId?: string;
+  ipWhitelists?: string[];
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * test
+   */
+  resourceName?: string;
+  /**
+   * @example
+   * Topic
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * abc
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclType: 'aclType',
+      actions: 'actions',
+      decision: 'decision',
+      instanceId: 'instanceId',
+      ipWhitelists: 'ipWhitelists',
+      regionId: 'regionId',
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclType: 'string',
+      actions: { 'type': 'array', 'itemType': 'string' },
+      decision: 'string',
+      instanceId: 'string',
+      ipWhitelists: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.actions)) {
+      $dara.Model.validateArray(this.actions);
+    }
+    if(Array.isArray(this.ipWhitelists)) {
+      $dara.Model.validateArray(this.ipWhitelists);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceIpWhitelistResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * rmq-cn-7e22ody****
+   */
+  instanceId?: string;
+  ipWhitelists?: string[];
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'instanceId',
+      ipWhitelists: 'ipWhitelists',
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ipWhitelists: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipWhitelists)) {
+      $dara.Model.validateArray(this.ipWhitelists);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The message body.
@@ -10575,12 +2638,25 @@ export class GetMessageDetailResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageKeys)) {
+      $dara.Model.validateArray(this.messageKeys);
+    }
+    if(this.systemProperties) {
+      $dara.Model.validateMap(this.systemProperties);
+    }
+    if(this.userProperties) {
+      $dara.Model.validateMap(this.userProperties);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTopicResponseBodyData extends $tea.Model {
+export class GetTopicResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The time when the topic was created.
@@ -10686,12 +2762,16 @@ export class GetTopicResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTraceResponseBodyDataBrokerInfoOperations extends $tea.Model {
+export class GetTraceResponseBodyDataBrokerInfoOperations extends $dara.Model {
   /**
    * @remarks
    * Operation time.
@@ -10722,12 +2802,16 @@ export class GetTraceResponseBodyDataBrokerInfoOperations extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTraceResponseBodyDataBrokerInfo extends $tea.Model {
+export class GetTraceResponseBodyDataBrokerInfo extends $dara.Model {
   /**
    * @remarks
    * Delay status.
@@ -10749,11 +2833,13 @@ export class GetTraceResponseBodyDataBrokerInfo extends $tea.Model {
    * 2023-03-22 12:17:08
    */
   presetDelayTime?: string;
+  recallResult?: string;
   static names(): { [key: string]: string } {
     return {
       delayStatus: 'delayStatus',
       operations: 'operations',
       presetDelayTime: 'presetDelayTime',
+      recallResult: 'recallResult',
     };
   }
 
@@ -10762,7 +2848,15 @@ export class GetTraceResponseBodyDataBrokerInfo extends $tea.Model {
       delayStatus: 'string',
       operations: { 'type': 'array', 'itemType': GetTraceResponseBodyDataBrokerInfoOperations },
       presetDelayTime: 'string',
+      recallResult: 'string',
     };
+  }
+
+  validate() {
+    if(Array.isArray(this.operations)) {
+      $dara.Model.validateArray(this.operations);
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -10770,7 +2864,7 @@ export class GetTraceResponseBodyDataBrokerInfo extends $tea.Model {
   }
 }
 
-export class GetTraceResponseBodyDataConsumerInfosDeadLetterInfo extends $tea.Model {
+export class GetTraceResponseBodyDataConsumerInfosDeadLetterInfo extends $dara.Model {
   /**
    * @remarks
    * MessageId.
@@ -10811,12 +2905,16 @@ export class GetTraceResponseBodyDataConsumerInfosDeadLetterInfo extends $tea.Mo
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTraceResponseBodyDataConsumerInfosRecordsOperations extends $tea.Model {
+export class GetTraceResponseBodyDataConsumerInfosRecordsOperations extends $dara.Model {
   /**
    * @remarks
    * Whether it is a dead letter message.
@@ -10867,12 +2965,16 @@ export class GetTraceResponseBodyDataConsumerInfosRecordsOperations extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTraceResponseBodyDataConsumerInfosRecords extends $tea.Model {
+export class GetTraceResponseBodyDataConsumerInfosRecords extends $dara.Model {
   /**
    * @remarks
    * Client host.
@@ -10940,12 +3042,19 @@ export class GetTraceResponseBodyDataConsumerInfosRecords extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.operations)) {
+      $dara.Model.validateArray(this.operations);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTraceResponseBodyDataConsumerInfos extends $tea.Model {
+export class GetTraceResponseBodyDataConsumerInfos extends $dara.Model {
   /**
    * @remarks
    * Consume status.
@@ -11000,12 +3109,22 @@ export class GetTraceResponseBodyDataConsumerInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.deadLetterInfo && typeof (this.deadLetterInfo as any).validate === 'function') {
+      (this.deadLetterInfo as any).validate();
+    }
+    if(Array.isArray(this.records)) {
+      $dara.Model.validateArray(this.records);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTraceResponseBodyDataMessageInfo extends $tea.Model {
+export class GetTraceResponseBodyDataMessageInfo extends $dara.Model {
   /**
    * @remarks
    * Message body.
@@ -11160,12 +3279,22 @@ export class GetTraceResponseBodyDataMessageInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageKeys)) {
+      $dara.Model.validateArray(this.messageKeys);
+    }
+    if(this.userProperties) {
+      $dara.Model.validateMap(this.userProperties);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTraceResponseBodyDataProducerInfoRecords extends $tea.Model {
+export class GetTraceResponseBodyDataProducerInfoRecords extends $dara.Model {
   /**
    * @remarks
    * Arrive time.
@@ -11230,6 +3359,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $tea.Model {
    * 2023-03-22 12:17:08
    */
   produceTime?: string;
+  recallTime?: string;
   /**
    * @remarks
    * Producer name.
@@ -11248,6 +3378,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $tea.Model {
       produceDuration: 'produceDuration',
       produceStatus: 'produceStatus',
       produceTime: 'produceTime',
+      recallTime: 'recallTime',
       userName: 'userName',
     };
   }
@@ -11262,8 +3393,13 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $tea.Model {
       produceDuration: 'number',
       produceStatus: 'string',
       produceTime: 'string',
+      recallTime: 'string',
       userName: 'string',
     };
+  }
+
+  validate() {
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -11271,7 +3407,7 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $tea.Model {
   }
 }
 
-export class GetTraceResponseBodyDataProducerInfo extends $tea.Model {
+export class GetTraceResponseBodyDataProducerInfo extends $dara.Model {
   /**
    * @remarks
    * Producer record list.
@@ -11289,12 +3425,19 @@ export class GetTraceResponseBodyDataProducerInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.records)) {
+      $dara.Model.validateArray(this.records);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTraceResponseBodyData extends $tea.Model {
+export class GetTraceResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Broker trace info.
@@ -11363,12 +3506,28 @@ export class GetTraceResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.brokerInfo && typeof (this.brokerInfo as any).validate === 'function') {
+      (this.brokerInfo as any).validate();
+    }
+    if(Array.isArray(this.consumerInfos)) {
+      $dara.Model.validateArray(this.consumerInfos);
+    }
+    if(this.messageInfo && typeof (this.messageInfo as any).validate === 'function') {
+      (this.messageInfo as any).validate();
+    }
+    if(this.producerInfo && typeof (this.producerInfo as any).validate === 'function') {
+      (this.producerInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAvailableZonesResponseBodyData extends $tea.Model {
+export class ListAvailableZonesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The time when the zone was created.
@@ -11419,12 +3578,16 @@ export class ListAvailableZonesResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConsumerConnectionsResponseBodyDataConnections extends $tea.Model {
+export class ListConsumerConnectionsResponseBodyDataConnections extends $dara.Model {
   /**
    * @remarks
    * The ID of the client.
@@ -11497,12 +3660,16 @@ export class ListConsumerConnectionsResponseBodyDataConnections extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConsumerConnectionsResponseBodyData extends $tea.Model {
+export class ListConsumerConnectionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The client connection list
@@ -11550,12 +3717,19 @@ export class ListConsumerConnectionsResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.connections)) {
+      $dara.Model.validateArray(this.connections);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConsumerGroupSubscriptionsResponseBodyData extends $tea.Model {
+export class ListConsumerGroupSubscriptionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether message consumption is consistent. Valid values:
@@ -11658,12 +3832,16 @@ export class ListConsumerGroupSubscriptionsResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConsumerGroupsResponseBodyDataList extends $tea.Model {
+export class ListConsumerGroupsResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The ID of the consumer group.
@@ -11777,12 +3955,16 @@ export class ListConsumerGroupsResponseBodyDataList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConsumerGroupsResponseBodyData extends $tea.Model {
+export class ListConsumerGroupsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The paginated data.
@@ -11830,12 +4012,19 @@ export class ListConsumerGroupsResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstanceAccountResponseBodyDataList extends $tea.Model {
+export class ListInstanceAccountResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The status of the account.
@@ -11901,12 +4090,16 @@ export class ListInstanceAccountResponseBodyDataList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstanceAccountResponseBodyData extends $tea.Model {
+export class ListInstanceAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The pagination information.
@@ -11954,12 +4147,19 @@ export class ListInstanceAccountResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstanceAclResponseBodyDataList extends $tea.Model {
+export class ListInstanceAclResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The ACL type.
@@ -12068,12 +4268,22 @@ export class ListInstanceAclResponseBodyDataList extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.actions)) {
+      $dara.Model.validateArray(this.actions);
+    }
+    if(Array.isArray(this.ipWhitelists)) {
+      $dara.Model.validateArray(this.ipWhitelists);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstanceAclResponseBodyData extends $tea.Model {
+export class ListInstanceAclResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The pagination information.
@@ -12121,12 +4331,19 @@ export class ListInstanceAclResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstanceIpWhitelistResponseBodyData extends $tea.Model {
+export class ListInstanceIpWhitelistResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The pagination information.
@@ -12174,12 +4391,19 @@ export class ListInstanceIpWhitelistResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesResponseBodyDataListProductInfo extends $tea.Model {
+export class ListInstancesResponseBodyDataListProductInfo extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the message trace feature is enabled. Valid values:
@@ -12205,12 +4429,16 @@ export class ListInstancesResponseBodyDataListProductInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesResponseBodyDataListTags extends $tea.Model {
+export class ListInstancesResponseBodyDataListTags extends $dara.Model {
   /**
    * @remarks
    * The tag key of the resource.
@@ -12241,12 +4469,16 @@ export class ListInstancesResponseBodyDataListTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesResponseBodyDataList extends $tea.Model {
+export class ListInstancesResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The commodity code of the instance. The commodity code of ApsaraMQ for RocketMQ 5.0 instances has a similar format to ons_rmqsub_public_cn.
@@ -12485,12 +4717,22 @@ export class ListInstancesResponseBodyDataList extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.productInfo && typeof (this.productInfo as any).validate === 'function') {
+      (this.productInfo as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesResponseBodyData extends $tea.Model {
+export class ListInstancesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The pagination information.
@@ -12538,12 +4780,19 @@ export class ListInstancesResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListMessagesResponseBodyDataList extends $tea.Model {
+export class ListMessagesResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * Message body.
@@ -12698,12 +4947,22 @@ export class ListMessagesResponseBodyDataList extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageKeys)) {
+      $dara.Model.validateArray(this.messageKeys);
+    }
+    if(this.userProperties) {
+      $dara.Model.validateMap(this.userProperties);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListMessagesResponseBodyData extends $tea.Model {
+export class ListMessagesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The pagination information.
@@ -12763,12 +5022,19 @@ export class ListMessagesResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListMetricMetaResponseBodyDataList extends $tea.Model {
+export class ListMetricMetaResponseBodyDataList extends $dara.Model {
   /**
    * @example
    * Bug
@@ -12800,12 +5066,16 @@ export class ListMetricMetaResponseBodyDataList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListMetricMetaResponseBodyData extends $tea.Model {
+export class ListMetricMetaResponseBodyData extends $dara.Model {
   list?: ListMetricMetaResponseBodyDataList[];
   /**
    * @example
@@ -12840,12 +5110,19 @@ export class ListMetricMetaResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRegionsResponseBodyDataTags extends $tea.Model {
+export class ListRegionsResponseBodyDataTags extends $dara.Model {
   /**
    * @remarks
    * The tag code.
@@ -12876,12 +5153,16 @@ export class ListRegionsResponseBodyDataTags extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListRegionsResponseBodyData extends $tea.Model {
+export class ListRegionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The time when the ApsaraMQ for RocketMQ instance was created.
@@ -12959,12 +5240,19 @@ export class ListRegionsResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBodyDataTagResources extends $tea.Model {
+export class ListTagResourcesResponseBodyDataTagResources extends $dara.Model {
   /**
    * @remarks
    * UID of the resource owner.
@@ -13045,12 +5333,16 @@ export class ListTagResourcesResponseBodyDataTagResources extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBodyData extends $tea.Model {
+export class ListTagResourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The position from which the next query starts.
@@ -13088,12 +5380,19 @@ export class ListTagResourcesResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagResources)) {
+      $dara.Model.validateArray(this.tagResources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTopicSubscriptionsResponseBodyData extends $tea.Model {
+export class ListTopicSubscriptionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether message consumption is consistent. Valid values:
@@ -13177,12 +5476,16 @@ export class ListTopicSubscriptionsResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTopicsResponseBodyDataList extends $tea.Model {
+export class ListTopicsResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The time when the topic was created.
@@ -13356,12 +5659,16 @@ export class ListTopicsResponseBodyDataList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTopicsResponseBodyData extends $tea.Model {
+export class ListTopicsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The paginated data.
@@ -13409,12 +5716,19 @@ export class ListTopicsResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTracesResponseBodyDataList extends $tea.Model {
+export class ListTracesResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * Message born time.
@@ -13492,12 +5806,19 @@ export class ListTracesResponseBodyDataList extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.messageKeys)) {
+      $dara.Model.validateArray(this.messageKeys);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTracesResponseBodyData extends $tea.Model {
+export class ListTracesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Trace list.
@@ -13545,12 +5866,19 @@ export class ListTracesResponseBodyData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.list)) {
+      $dara.Model.validateArray(this.list);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateConsumerGroupRequestConsumeRetryPolicy extends $tea.Model {
+export class UpdateConsumerGroupRequestConsumeRetryPolicy extends $dara.Model {
   /**
    * @remarks
    * The dead-letter topic.
@@ -13600,12 +5928,16 @@ export class UpdateConsumerGroupRequestConsumeRetryPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceRequestAclInfo extends $tea.Model {
+export class UpdateInstanceRequestAclInfo extends $dara.Model {
   /**
    * @remarks
    * The authentication type of the instance.
@@ -13637,12 +5969,19 @@ export class UpdateInstanceRequestAclInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.aclTypes)) {
+      $dara.Model.validateArray(this.aclTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceRequestNetworkInfoInternetInfo extends $tea.Model {
+export class UpdateInstanceRequestNetworkInfoInternetInfo extends $dara.Model {
   /**
    * @remarks
    * The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
@@ -13663,12 +6002,19 @@ export class UpdateInstanceRequestNetworkInfoInternetInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.ipWhitelist)) {
+      $dara.Model.validateArray(this.ipWhitelist);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceRequestNetworkInfo extends $tea.Model {
+export class UpdateInstanceRequestNetworkInfo extends $dara.Model {
   /**
    * @remarks
    * The information about the Internet over which the instance is accessed. This parameter takes effect only if the Internet access feature is enabled for the instance.
@@ -13686,12 +6032,19 @@ export class UpdateInstanceRequestNetworkInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.internetInfo && typeof (this.internetInfo as any).validate === 'function') {
+      (this.internetInfo as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateInstanceRequestProductInfo extends $tea.Model {
+export class UpdateInstanceRequestProductInfo extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the elastic transactions per second (TPS) feature for the instance.
@@ -13762,6 +6115,9628 @@ export class UpdateInstanceRequestProductInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DataTopicLagMapValue extends $dara.Model {
+  /**
+   * @remarks
+   * Ready message count
+   * 
+   * @example
+   * 1
+   */
+  readyCount?: number;
+  /**
+   * @remarks
+   * The number of messages being consumed.
+   * 
+   * @example
+   * 1
+   */
+  inflightCount?: number;
+  /**
+   * @remarks
+   * Delivery delay time, in seconds
+   * 
+   * @example
+   * 12
+   */
+  deliveryDuration?: number;
+  lastConsumeTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      readyCount: 'readyCount',
+      inflightCount: 'inflightCount',
+      deliveryDuration: 'deliveryDuration',
+      lastConsumeTimestamp: 'lastConsumeTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      readyCount: 'number',
+      inflightCount: 'number',
+      deliveryDuration: 'number',
+      lastConsumeTimestamp: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDisasterRecoveryItemRequest extends $dara.Model {
+  topics?: AddDisasterRecoveryItemRequestTopics[];
+  static names(): { [key: string]: string } {
+    return {
+      topics: 'topics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      topics: { 'type': 'array', 'itemType': AddDisasterRecoveryItemRequestTopics },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.topics)) {
+      $dara.Model.validateArray(this.topics);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDisasterRecoveryItemResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: number;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'number',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDisasterRecoveryItemResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddDisasterRecoveryItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddDisasterRecoveryItemResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the region in which the instance resides.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance is changed.
+   * 
+   * You can call the [ListResourceGroups](https://www.alibabacloud.com/help/resource-management/latest/listresourcegroups) operation to query existing resource groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rg-9gLOoK****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the resource. Set this parameter to the ID of the ApsaraMQ for RocketMQ instance whose resource group you want to change.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c2c5d1274a8d4317a13bc5b0d4******
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The type of resource.
+   * 
+   * Set this parameter to **instance**. The value of this parameter cannot be changed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'regionId',
+      resourceGroupId: 'resourceGroupId',
+      resourceId: 'resourceId',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code returned if the call failed.
+   * 
+   * @example
+   * Instance.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConsumerGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The consumption retry policy that you want to configure for the consumer group. For more information, see [Consumption retry](https://help.aliyun.com/document_detail/440356.html).
+   * 
+   * This parameter is required.
+   */
+  consumeRetryPolicy?: CreateConsumerGroupRequestConsumeRetryPolicy;
+  /**
+   * @remarks
+   * The message delivery order of the consumer group.
+   * 
+   * Valid values:
+   * 
+   * *   Concurrently: concurrent delivery
+   * *   Orderly: ordered delivery
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Concurrently
+   */
+  deliveryOrderType?: string;
+  maxReceiveTps?: number;
+  /**
+   * @remarks
+   * The remarks on the consumer group.
+   * 
+   * @example
+   * This is the remark for test.
+   */
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumeRetryPolicy: 'consumeRetryPolicy',
+      deliveryOrderType: 'deliveryOrderType',
+      maxReceiveTps: 'maxReceiveTps',
+      remark: 'remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumeRetryPolicy: CreateConsumerGroupRequestConsumeRetryPolicy,
+      deliveryOrderType: 'string',
+      maxReceiveTps: 'number',
+      remark: 'string',
+    };
+  }
+
+  validate() {
+    if(this.consumeRetryPolicy && typeof (this.consumeRetryPolicy as any).validate === 'function') {
+      (this.consumeRetryPolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConsumerGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidConsumerGroupId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The result data that is returned.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * ConsumerGroupId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * consumerGroupId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter consumerGroupId is invalid.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConsumerGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConsumerGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateConsumerGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal for the instance. This parameter takes effect only if you set paymentType to Subscription. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * The auto-renewal cycle of the instance. This parameter takes effect only if you set autoRenew to true. Unit: months.
+   * 
+   * Valid values:
+   * 
+   * *   Monthly renewal: 1, 2, 3, 6, and 12
+   * 
+   * @example
+   * 3
+   */
+  autoRenewPeriod?: number;
+  /**
+   * @remarks
+   * The commodity code. Valid values:
+   * 
+   * *   ons_rmqpost_public_intl: pay-as-you-go
+   * *   ons_rmqsub_public_intl: subscription
+   * 
+   * @example
+   * ons_ rmqpost_public_cn
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * The name of the instance that you want to create.
+   * 
+   * If you leave this parameter empty, the instance ID is used as the instance name.
+   * 
+   * @example
+   * rmq-cn-72u3048uxxx
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The information about the network.
+   * 
+   * This parameter is required.
+   */
+  networkInfo?: CreateInstanceRequestNetworkInfo;
+  /**
+   * @remarks
+   * The billing method of the instance. ApsaraMQ for RocketMQ supports the subscription and pay-as-you-go billing methods.
+   * 
+   * Valid values:
+   * 
+   * *   PayAsYouGo: This billing method allows you to use resources before you pay for the resources.
+   * *   Subscription: This billing method allows you to use resources after you pay for the resources.
+   * 
+   * For more information, see [Billing methods](https://help.aliyun.com/document_detail/427234.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Subscription
+   */
+  paymentType?: string;
+  /**
+   * @remarks
+   * The subscription duration of the instance. This parameter takes effect only if you set paymentType to Subscription.
+   * 
+   * Valid values:
+   * 
+   * *   Monthly subscription: 1, 2, 3, 4, 5, and 6
+   * *   Yearly subscription: 1, 2, and 3
+   * 
+   * @example
+   * 3
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration.
+   * 
+   * Valid values:
+   * 
+   * *   Month
+   * *   Year
+   * 
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * The information about the instance specifications.
+   */
+  productInfo?: CreateInstanceRequestProductInfo;
+  /**
+   * @remarks
+   * The instance description.
+   * 
+   * @example
+   * This is the remark for test.
+   */
+  remark?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aekzy6pist7uuna
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The primary edition of the instance. For information about the differences among primary edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
+   * 
+   * Valid values:
+   * 
+   * *   standard: Standard Edition
+   * *   ultimate: Enterprise Platinum Edition
+   * *   professional: Professional Edition
+   * 
+   * >  After you create an instance, you can only upgrade the primary edition of the instance. The following editions are sorted in ascending order: Standard Edition, Professional Edition, Enterprise Platinum Edition. For example, you can upgrade an instance from Standard Edition to Professional Edition, but you cannot downgrade an instance from Professional Edition to Standard Edition.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * standard
+   */
+  seriesCode?: string;
+  /**
+   * @remarks
+   * The code of the service to which the instance belongs. The service code of ApsaraMQ for RocketMQ is rmq.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rmq
+   */
+  serviceCode?: string;
+  /**
+   * @remarks
+   * The sub-category edition of the instance. For information about the differences among sub-category edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
+   * 
+   * Valid values:
+   * 
+   * *   cluster_ha: Cluster High-availability Edition
+   * *   single_node: Standalone Edition
+   * *   serverless: serverless
+   * 
+   * If you set seriesCode to ultimate, you can set this parameter only to cluster_ha.
+   * 
+   * >  After you create an instance, you cannot change the sub-category edition of the instance.
+   * 
+   * Valid values:
+   * 
+   * *   serverless: serverless
+   * *   cluster_ha: Cluster High-availability Edition
+   * *   single_node: Standalone Edition
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cluster_ha
+   */
+  subSeriesCode?: string;
+  tags?: CreateInstanceRequestTags[];
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value of this parameter, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * c2c5d1274a8d4317a13bc5b0d4******
+   */
+  clientToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'autoRenew',
+      autoRenewPeriod: 'autoRenewPeriod',
+      commodityCode: 'commodityCode',
+      instanceName: 'instanceName',
+      networkInfo: 'networkInfo',
+      paymentType: 'paymentType',
+      period: 'period',
+      periodUnit: 'periodUnit',
+      productInfo: 'productInfo',
+      remark: 'remark',
+      resourceGroupId: 'resourceGroupId',
+      seriesCode: 'seriesCode',
+      serviceCode: 'serviceCode',
+      subSeriesCode: 'subSeriesCode',
+      tags: 'tags',
+      clientToken: 'clientToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      autoRenewPeriod: 'number',
+      commodityCode: 'string',
+      instanceName: 'string',
+      networkInfo: CreateInstanceRequestNetworkInfo,
+      paymentType: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      productInfo: CreateInstanceRequestProductInfo,
+      remark: 'string',
+      resourceGroupId: 'string',
+      seriesCode: 'string',
+      serviceCode: 'string',
+      subSeriesCode: 'string',
+      tags: { 'type': 'array', 'itemType': CreateInstanceRequestTags },
+      clientToken: 'string',
+    };
+  }
+
+  validate() {
+    if(this.networkInfo && typeof (this.networkInfo as any).validate === 'function') {
+      (this.networkInfo as any).validate();
+    }
+    if(this.productInfo && typeof (this.productInfo as any).validate === 'function') {
+      (this.productInfo as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code returned if the call failed.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The ID of the created instance.
+   * 
+   * @example
+   * rmq-cn-7e22ody****
+   */
+  data?: string;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The password of the account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The username of the account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      password: 'password',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      password: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * No permission details
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code returned if the call failed.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
+   * @example
+   * 3AE0999C-8DBA-5CEE-8D9A-BE8D4A90DF8D
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateInstanceAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceAclRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of operations that can be performed on the resource.
+   * 
+   * The following types of operations are supported based on the resource type:
+   * 
+   * *   Topic: Pub, Sub, and Pub|Sub
+   * *   Consumer group: Sub
+   * 
+   * Valid values:
+   * 
+   * *   SUB: subscribe
+   * *   Pub|Sub: publish and subscribe
+   * *   Pub: publish
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Pub
+   */
+  actions?: string[];
+  /**
+   * @remarks
+   * The decision result of the authorization.
+   * 
+   * Valid values:
+   * 
+   * *   Deny
+   * *   Allow
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Allow
+   */
+  decision?: string;
+  /**
+   * @remarks
+   * The IP address whitelists.
+   */
+  ipWhitelists?: string[];
+  /**
+   * @remarks
+   * The name of the resource on which you want to grant permissions.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The type of the resource on which you want to grant permissions.
+   * 
+   * Valid values:
+   * 
+   * *   Group
+   * *   Topic
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Topic
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'actions',
+      decision: 'decision',
+      ipWhitelists: 'ipWhitelists',
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': 'string' },
+      decision: 'string',
+      ipWhitelists: { 'type': 'array', 'itemType': 'string' },
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.actions)) {
+      $dara.Model.validateArray(this.actions);
+    }
+    if(Array.isArray(this.ipWhitelists)) {
+      $dara.Model.validateArray(this.ipWhitelists);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceAclResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C7E8AE3A-219B-52EE-BE32-4036F5F88833
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceAclResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateInstanceAclResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceIpWhitelistRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address whitelists.
+   * 
+   * This parameter is required.
+   */
+  ipWhitelists?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipWhitelists: 'ipWhitelists',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipWhitelists: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipWhitelists)) {
+      $dara.Model.validateArray(this.ipWhitelists);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceIpWhitelistResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A07B41BD-6DD3-5349-9E76-00303DF04BBE
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateInstanceIpWhitelistResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateInstanceIpWhitelistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateInstanceIpWhitelistResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTopicRequest extends $dara.Model {
+  maxSendTps?: number;
+  /**
+   * @remarks
+   * The type of messages in the topic that you want to create.
+   * 
+   * Valid values:
+   * 
+   * *   TRANSACTION: transactional messages
+   * *   FIFO: ordered messages
+   * *   DELAY: scheduled messages or delayed Message
+   * *   NORMAL: normal messages
+   * 
+   * > The type of messages in the topic must be the same as the type of messages that you want to send. For example, if you create a topic whose message type is ordered messages, the topic can be used to send and receive only ordered messages.
+   * 
+   * @example
+   * NORMAL
+   */
+  messageType?: string;
+  /**
+   * @remarks
+   * The description of the topic that you want to create.
+   * 
+   * @example
+   * This is the remark for test.
+   */
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxSendTps: 'maxSendTps',
+      messageType: 'messageType',
+      remark: 'remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxSendTps: 'number',
+      messageType: 'string',
+      remark: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTopicResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code returned if the call failed.
+   * 
+   * @example
+   * Topic.Existed
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * TopicName
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * topicName
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The topic already exists.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTopicResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTopicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTopicResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConsumerGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidConsumerGroupId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The result data that is returned.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * ConsumerGroupId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * consumerGroupId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter consumerGroupId is invalid.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
+   * @example
+   * C7F94090-3358-506A-97DC-34BC803C****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConsumerGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConsumerGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteConsumerGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConsumerGroupSubscriptionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter expression.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * *
+   */
+  filterExpression?: string;
+  /**
+   * @remarks
+   * The type of the filter expression. Valid values:
+   * 
+   * *   SQL: filters messages by using SQL expressions.
+   * *   TAG: filters messages by using tags.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TAG
+   */
+  filterType?: string;
+  /**
+   * @remarks
+   * The topic name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * topic_test
+   */
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterExpression: 'filterExpression',
+      filterType: 'filterType',
+      topicName: 'topicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterExpression: 'string',
+      filterType: 'string',
+      topicName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConsumerGroupSubscriptionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 723CDA5C-E25C-5EAF-9601-******
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteConsumerGroupSubscriptionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteConsumerGroupSubscriptionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteConsumerGroupSubscriptionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDisasterRecoveryPlanResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDisasterRecoveryPlanResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDisasterRecoveryPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDisasterRecoveryPlanResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code returned if the call failed.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 048242AA-BADA-5F29-B2CD-ED9FA344467F
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Instance.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 157DF7D4-53FB-58C6-BEBC-A9400E7EF68A
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteInstanceAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceAclRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the resource on which the permissions are granted.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The type of the resource on which the permissions are granted.
+   * 
+   * Valid values:
+   * 
+   * *   Group
+   * *   Topic
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Topic
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceAclResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7358418D-83BD-507A-8079-*****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceAclResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteInstanceAclResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceIpWhitelistRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address whitelist.
+   * 
+   * @example
+   * 0.0.0.0/0
+   * 
+   * @deprecated
+   */
+  ipWhitelist?: string;
+  ipWhitelists?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipWhitelist: 'ipWhitelist',
+      ipWhitelists: 'ipWhitelists',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipWhitelist: 'string',
+      ipWhitelists: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipWhitelists)) {
+      $dara.Model.validateArray(this.ipWhitelists);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceIpWhitelistShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IP address whitelist.
+   * 
+   * @example
+   * 0.0.0.0/0
+   * 
+   * @deprecated
+   */
+  ipWhitelist?: string;
+  ipWhitelistsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipWhitelist: 'ipWhitelist',
+      ipWhitelistsShrink: 'ipWhitelists',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipWhitelist: 'string',
+      ipWhitelistsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceIpWhitelistResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 16425867-C948-5A0C-9A24-5259727BE727
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceIpWhitelistResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceIpWhitelistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteInstanceIpWhitelistResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTopicResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The result data that is returned.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * TopicName
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * topicName
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The topic cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTopicResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteTopicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteTopicResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsumerGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidConsumerGroupId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The result data that is returned.
+   */
+  data?: GetConsumerGroupResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * ConsumerGroupId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * consumerGroupId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter consumerGroupId is invalid.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
+   * @example
+   * C7F94090-3358-506A-97DC-34BC803C****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetConsumerGroupResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsumerGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConsumerGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetConsumerGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsumerGroupLagRequest extends $dara.Model {
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      topicName: 'topicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      topicName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsumerGroupLagResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Error code
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: GetConsumerGroupLagResponseBodyData;
+  /**
+   * @remarks
+   * Dynamic error code
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * HTTP status code
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F5764C40-FB8C-53AE-B95D-96AB3D0E9375
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetConsumerGroupLagResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsumerGroupLagResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConsumerGroupLagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetConsumerGroupLagResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsumerGroupSubscriptionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Instance.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: GetConsumerGroupSubscriptionResponseBodyData[];
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 157DF7D4-53FB-58C6-BEBC-A9400E7EF68A
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetConsumerGroupSubscriptionResponseBodyData },
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsumerGroupSubscriptionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConsumerGroupSubscriptionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetConsumerGroupSubscriptionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsumerStackRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 172.26.76.48@Lqd7dImlp9KJ5V84
+   */
+  clientId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'clientId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsumerStackResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: GetConsumerStackResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 30F2CBC7-F69D-5D78-9661-0254C9E1FBFA
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetConsumerStackResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetConsumerStackResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConsumerStackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetConsumerStackResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code returned if the call failed.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: GetInstanceResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 05AB7FBD-F1D3-5D87-BF78-BD782249****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetInstanceResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The username of the account.
+   * 
+   * If you do not configure this parameter, the default username of the instance is used.
+   * 
+   * @example
+   * test
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: GetInstanceAccountResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * ConsumerGroupId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID, each request\\"s ID is unique and can be used for troubleshooting and problem localization.
+   * 
+   * @example
+   * B5C59E80-FCFC-5796-ABE4-D39EAAE578E4
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetInstanceAccountResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInstanceAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceAclRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Topic
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceAclResponseBody extends $dara.Model {
+  /**
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  data?: GetInstanceAclResponseBodyData;
+  /**
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetInstanceAclResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceAclResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInstanceAclResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceIpWhitelistRequest extends $dara.Model {
+  ipWhitelists?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ipWhitelists: 'ipWhitelists',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipWhitelists: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipWhitelists)) {
+      $dara.Model.validateArray(this.ipWhitelists);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceIpWhitelistShrinkRequest extends $dara.Model {
+  ipWhitelistsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipWhitelistsShrink: 'ipWhitelists',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipWhitelistsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceIpWhitelistResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Instance.NotFound
+   */
+  code?: string;
+  data?: GetInstanceIpWhitelistResponseBodyData;
+  /**
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * xxx
+   */
+  message?: string;
+  /**
+   * @example
+   * 0B962390-D84B-5D44-8C11-79DF40299D41
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetInstanceIpWhitelistResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceIpWhitelistResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceIpWhitelistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInstanceIpWhitelistResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageDetailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: GetMessageDetailResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * FAEBD71F-E839-52F9-BD7B-8F1290525841
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetMessageDetailResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMessageDetailResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMessageDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMessageDetailResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The result data that is returned.
+   */
+  data?: GetTopicResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * TopicName
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * topicName
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The topic cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetTopicResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTopicResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTopicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTopicResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTraceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidConsumerGroupId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: GetTraceResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
+   * @example
+   * 7779A8FC-1BCD-5A1D-A603-C4A9BD8ADC49
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetTraceResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTraceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTraceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTraceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableZonesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code returned if the call failed.
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The result data that is returned.
+   */
+  data?: ListAvailableZonesResponseBodyData[];
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListAvailableZonesResponseBodyData },
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableZonesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAvailableZonesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAvailableZonesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConsumerConnectionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned error code.
+   * 
+   * @example
+   * MissingPageNumber
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: ListConsumerConnectionsResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * A3620115-6F1F-5CFB-AA3F-BBD4853B2EC4
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListConsumerConnectionsResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConsumerConnectionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConsumerConnectionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListConsumerConnectionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConsumerGroupSubscriptionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: ListConsumerGroupSubscriptionsResponseBodyData[];
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5F4D9D5F-625B-59FF-BD4F-DA8284575DB4
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListConsumerGroupSubscriptionsResponseBodyData },
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConsumerGroupSubscriptionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConsumerGroupSubscriptionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListConsumerGroupSubscriptionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConsumerGroupsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The condition that you want to use to filter consumer groups in the instance. If you leave this parameter empty, all consumer groups in the instance are queried.
+   * 
+   * @example
+   * CID-TEST
+   */
+  filter?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'filter',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConsumerGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The result data that is returned.
+   */
+  data?: ListConsumerGroupsResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter InstanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
+   * @example
+   * 5503A460-98ED-5543-92CF-4853DE28****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListConsumerGroupsResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConsumerGroupsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListConsumerGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListConsumerGroupsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The status of the account.
+   * 
+   * Valid values:
+   * 
+   * *   DISABLE
+   * *   ENABLE
+   * 
+   * @example
+   * ENABLE
+   */
+  accountStatus?: string;
+  /**
+   * @remarks
+   * The account type.
+   *   - CUSTOMER
+   *   - DEFAULT
+   * 
+   * @example
+   * CUSTOMER
+   */
+  accountType?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The username of the account.
+   * 
+   * @example
+   * test
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountStatus: 'accountStatus',
+      accountType: 'accountType',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountStatus: 'string',
+      accountType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: ListInstanceAccountResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * C115601B-8736-5BBF-AC99-7FEAE1245A80
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: ListInstanceAccountResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstanceAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstanceAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceAclRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The condition that you specify to filter the ACLs. If you do not specify this parameter, all ACLs are queried.
+   * 
+   * @example
+   * CID-TEST
+   */
+  filter?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'filter',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceAclResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: ListInstanceAclResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DA4D2F89-E2C8-5F04-936B-60D55B055FA7
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: ListInstanceAclResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceAclResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstanceAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstanceAclResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceIpWhitelistRequest extends $dara.Model {
+  /**
+   * @remarks
+   * IP whitelist.
+   * 
+   * @example
+   * 0.0.0.0/0
+   */
+  ipWhitelist?: string;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ipWhitelist: 'ipWhitelist',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipWhitelist: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceIpWhitelistResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Instance.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: ListInstanceIpWhitelistResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 7358418D-83BD-507A-8079-611C63E05674
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: ListInstanceIpWhitelistResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceIpWhitelistResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstanceIpWhitelistResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstanceIpWhitelistResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter condition that is used to query instances. If you do not configure this parameter, all instances are queried.
+   * 
+   * @example
+   * rmq-cn-7e22ody****
+   */
+  filter?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * Valid values: 1 to 100000000.
+   * 
+   * If you set this parameter to a value smaller than 1, the system uses 1 as the value. If you set this parameter to a value greater than 100000000, the system uses 100000000 as the value.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Value values: 10 to 200.
+   * 
+   * If you set this parameter to a value smaller than 10, the system uses 10 as the value. If you set this parameter to a value greater than 200, the system uses 200 as the value.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * rg-acfmx7caj******
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The primary edition of the instance.
+   * 
+   * Valid values:
+   * 
+   * *   standard: Standard Edition
+   * *   ultimate: Enterprise Platinum Edition
+   * *   professional: Professional Edition
+   */
+  seriesCodes?: string[];
+  /**
+   * @remarks
+   * The storage encryption key.
+   * 
+   * @example
+   * xxxxx
+   */
+  storageSecretKey?: string;
+  /**
+   * @remarks
+   * The tags that are used to filter instances.
+   * 
+   * @example
+   * [{"key": "rmq-test", "value": "test"}]
+   */
+  tags?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'filter',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      resourceGroupId: 'resourceGroupId',
+      seriesCodes: 'seriesCodes',
+      storageSecretKey: 'storageSecretKey',
+      tags: 'tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceGroupId: 'string',
+      seriesCodes: { 'type': 'array', 'itemType': 'string' },
+      storageSecretKey: 'string',
+      tags: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.seriesCodes)) {
+      $dara.Model.validateArray(this.seriesCodes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter condition that is used to query instances. If you do not configure this parameter, all instances are queried.
+   * 
+   * @example
+   * rmq-cn-7e22ody****
+   */
+  filter?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * Valid values: 1 to 100000000.
+   * 
+   * If you set this parameter to a value smaller than 1, the system uses 1 as the value. If you set this parameter to a value greater than 100000000, the system uses 100000000 as the value.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Value values: 10 to 200.
+   * 
+   * If you set this parameter to a value smaller than 10, the system uses 10 as the value. If you set this parameter to a value greater than 200, the system uses 200 as the value.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the resource group to which the instance belongs.
+   * 
+   * @example
+   * rg-acfmx7caj******
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The primary edition of the instance.
+   * 
+   * Valid values:
+   * 
+   * *   standard: Standard Edition
+   * *   ultimate: Enterprise Platinum Edition
+   * *   professional: Professional Edition
+   */
+  seriesCodesShrink?: string;
+  /**
+   * @remarks
+   * The storage encryption key.
+   * 
+   * @example
+   * xxxxx
+   */
+  storageSecretKey?: string;
+  /**
+   * @remarks
+   * The tags that are used to filter instances.
+   * 
+   * @example
+   * [{"key": "rmq-test", "value": "test"}]
+   */
+  tags?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'filter',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      resourceGroupId: 'resourceGroupId',
+      seriesCodesShrink: 'seriesCodes',
+      storageSecretKey: 'storageSecretKey',
+      tags: 'tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceGroupId: 'string',
+      seriesCodesShrink: 'string',
+      storageSecretKey: 'string',
+      tags: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code returned if the call failed.
+   * 
+   * @example
+   * MissingPageNumber
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: ListInstancesResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * PageNumber
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * pageNumber
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter pageNumber is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 84445A20-2B50-5306-A3C0-AF99FC1833C6
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListInstancesResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessagesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * @example
+   * 2024-09-09 09:00:00
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * Message Id.
+   * 
+   * @example
+   * 7F00000100207A4F0F294A938F7807AE
+   */
+  messageId?: string;
+  /**
+   * @remarks
+   * Message key.
+   * 
+   * @example
+   * XSCBillResult
+   */
+  messageKey?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The scroll ID of the request.
+   * 
+   * You do not need to configure this parameter for the first page. This parameter is included in the pagination request based on the result returned for the first page.
+   * 
+   * @example
+   * B13D0B07-F24B-4790-88D8-D47A38063D00
+   */
+  scrollId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * @example
+   * 2024-09-09 08:00:00
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      messageId: 'messageId',
+      messageKey: 'messageKey',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      scrollId: 'scrollId',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      messageId: 'string',
+      messageKey: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      scrollId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessagesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: ListMessagesResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * A3531B6A-5A88-52BD-B3C4-A024C3D0AA2E
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListMessagesResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessagesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMessagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMessagesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetricMetaRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetricMetaResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  data?: ListMetricMetaResponseBodyData;
+  /**
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * The topic already exists.
+   */
+  message?: string;
+  /**
+   * @example
+   * 8B459455-4A35-5796-BA9D-98EF1AB9A931
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListMetricMetaResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMetricMetaResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMetricMetaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMetricMetaResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingPageNumber
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: ListRegionsResponseBodyData[];
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * ConsumerGroupId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0B962390-D84B-5D44-8C11-79DF40299D41
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListRegionsResponseBodyData },
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRegionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRegionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The position from which the next query starts.
+   * 
+   * @example
+   * d09e2b63e1b12d905b7080ff70
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Resource group ID.
+   * 
+   * @example
+   * rg-acfmx7caj******
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * List of resource IDs, in JSON format.
+   * 
+   * @example
+   * ["rmq-cn-pe334n08h08"]
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * Resource type.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * List of tags, in JSON format.
+   * 
+   * @example
+   * [{"key": "rmq-test", "value": "test"}]
+   */
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'nextToken',
+      regionId: 'regionId',
+      resourceGroupId: 'resourceGroupId',
+      resourceId: 'resourceId',
+      resourceType: 'resourceType',
+      tag: 'tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      tag: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Error code
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Return result
+   */
+  data?: ListTagResourcesResponseBodyData;
+  /**
+   * @remarks
+   * Dynamic error code
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * Dynamic error message
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * HTTP status code
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * The topic already exists.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * F00C6A70-C782-5DD6-9D11-0CFC710100C7
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the operation was successful
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListTagResourcesResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicSubscriptionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: ListTopicSubscriptionsResponseBodyData[];
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * Topic
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 92A9BE4E-B794-50C8-979C-0456E4D32943
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListTopicSubscriptionsResponseBodyData },
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicSubscriptionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTopicSubscriptionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTopicSubscriptionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The condition that you want to use to filter topics in the instance. If you leave this parameter empty, all topics in the instance are queried.
+   * 
+   * @example
+   * topic_test
+   */
+  filter?: string;
+  /**
+   * @remarks
+   * The message types of the topics.
+   */
+  messageTypes?: string[];
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 3
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'filter',
+      messageTypes: 'messageTypes',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: 'string',
+      messageTypes: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.messageTypes)) {
+      $dara.Model.validateArray(this.messageTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The condition that you want to use to filter topics in the instance. If you leave this parameter empty, all topics in the instance are queried.
+   * 
+   * @example
+   * topic_test
+   */
+  filter?: string;
+  /**
+   * @remarks
+   * The message types of the topics.
+   */
+  messageTypesShrink?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 3
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'filter',
+      messageTypesShrink: 'messageTypes',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: 'string',
+      messageTypesShrink: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The result data that is returned.
+   */
+  data?: ListTopicsResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * TopicName
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * topicName
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The topic cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListTopicsResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTopicsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTopicsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTopicsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTracesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-05-19 10:10:09
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The message ID.
+   * 
+   * This parameter is required if you set queryType to MESSAGE_ID.
+   * 
+   * @example
+   * 0100163E0EC1F1965C04C7906700000000
+   */
+  messageId?: string;
+  /**
+   * @remarks
+   * The message key.
+   * 
+   * This parameter is required if you set queryType to MESSAGE_ID.
+   * 
+   * @example
+   * order_ceating
+   */
+  messageKey?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The query type.
+   * 
+   * Valid values:
+   * 
+   * *   MESSAGE_ID
+   * *   MESSAGE_KEY
+   * *   TOPIC
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MESSAGE_ID
+   */
+  queryType?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2023-05-10 10:42:11
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'endTime',
+      messageId: 'messageId',
+      messageKey: 'messageKey',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      queryType: 'queryType',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      messageId: 'string',
+      messageKey: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      queryType: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTracesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
+  data?: ListTracesResponseBodyData;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EDFF77E1-1ED1-5389-B6A8-651D9433BBE5
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListTracesResponseBodyData,
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTracesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTracesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTracesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetConsumeOffsetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the consumer offset is reset.
+   * 
+   * @example
+   * 2023-03-22 12:17:08
+   */
+  resetTime?: string;
+  /**
+   * @remarks
+   * The method that is used to reset the consumer offset. Valid values: LATEST_OFFSET and SPECIFIED_TIME.
+   * 
+   * @example
+   * LATEST_OFFSET
+   */
+  resetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resetTime: 'resetTime',
+      resetType: 'resetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resetTime: 'string',
+      resetType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetConsumeOffsetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The returned dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The returned HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The returned error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F9A95891-EAD4-5A2B-8A30-676CD18921AF
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetConsumeOffsetResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetConsumeOffsetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResetConsumeOffsetResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDisasterRecoveryItemResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDisasterRecoveryItemResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartDisasterRecoveryItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartDisasterRecoveryItemResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDisasterRecoveryItemResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: boolean;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDisasterRecoveryItemResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDisasterRecoveryItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopDisasterRecoveryItemResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource IDs, in the JSON format.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rmq-cn-pe3355cs707
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The type of resource.
+   * 
+   * Set this parameter to **instance**. The value of this parameter cannot be changed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * tag, in JSON format.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * [{"key": "rmq-test", "value": "test"}]
+   */
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'regionId',
+      resourceId: 'resourceId',
+      resourceType: 'resourceType',
+      tag: 'tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      tag: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0B962390-D84B-5D44-8C11-79DF40299D41
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to delete all tags.
+   * 
+   * @example
+   * true
+   */
+  all?: boolean;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource IDs, in the JSON format.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rmq-cn-pe3355cs707
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The type of resource.
+   * 
+   * Set this parameter to **instance**. The value of this parameter cannot be changed.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The keys of tags.
+   * 
+   * @example
+   * ["key1", "key2"]
+   */
+  tagKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      all: 'all',
+      regionId: 'regionId',
+      resourceId: 'resourceId',
+      resourceType: 'resourceType',
+      tagKey: 'tagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter deliveryOrderType is invalid.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * A07B41BD-6DD3-5349-9E76-00303DF04BBE
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConsumerGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The new consumption retry policy that you want to configure for the consumer group. For more information, see [Consumption retry](https://help.aliyun.com/document_detail/440356.html).
+   * 
+   * This parameter is required.
+   */
+  consumeRetryPolicy?: UpdateConsumerGroupRequestConsumeRetryPolicy;
+  /**
+   * @remarks
+   * The new message delivery order of the consumer group.
+   * 
+   * Valid values:
+   * 
+   * *   Concurrently: concurrent delivery
+   * *   Orderly: ordered delivery
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Concurrently
+   */
+  deliveryOrderType?: string;
+  maxReceiveTps?: number;
+  /**
+   * @remarks
+   * The new remarks on the consumer group.
+   * 
+   * @example
+   * This is the remark for test.
+   */
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumeRetryPolicy: 'consumeRetryPolicy',
+      deliveryOrderType: 'deliveryOrderType',
+      maxReceiveTps: 'maxReceiveTps',
+      remark: 'remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumeRetryPolicy: UpdateConsumerGroupRequestConsumeRetryPolicy,
+      deliveryOrderType: 'string',
+      maxReceiveTps: 'number',
+      remark: 'string',
+    };
+  }
+
+  validate() {
+    if(this.consumeRetryPolicy && typeof (this.consumeRetryPolicy as any).validate === 'function') {
+      (this.consumeRetryPolicy as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConsumerGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidDeliveryOrderType
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The result data that is returned.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * DeliveryOrderType
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * deliveryOrderType
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter deliveryOrderType is invalid.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
+   * @example
+   * C7F94090-3358-506A-97DC-34BC803C****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateConsumerGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateConsumerGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateConsumerGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The access control list for the instance.
+   */
+  aclInfo?: UpdateInstanceRequestAclInfo;
+  /**
+   * @remarks
+   * The updated name of the instance.
+   * 
+   * @example
+   * test_instance
+   */
+  instanceName?: string;
+  /**
+   * @remarks
+   * The updated network information about the instance.
+   */
+  networkInfo?: UpdateInstanceRequestNetworkInfo;
+  /**
+   * @remarks
+   * Additional configurations of the instance.
+   */
+  productInfo?: UpdateInstanceRequestProductInfo;
+  /**
+   * @remarks
+   * The updated description of the instance.
+   * 
+   * @example
+   * This is the remark for test.
+   */
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclInfo: 'aclInfo',
+      instanceName: 'instanceName',
+      networkInfo: 'networkInfo',
+      productInfo: 'productInfo',
+      remark: 'remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aclInfo: UpdateInstanceRequestAclInfo,
+      instanceName: 'string',
+      networkInfo: UpdateInstanceRequestNetworkInfo,
+      productInfo: UpdateInstanceRequestProductInfo,
+      remark: 'string',
+    };
+  }
+
+  validate() {
+    if(this.aclInfo && typeof (this.aclInfo as any).validate === 'function') {
+      (this.aclInfo as any).validate();
+    }
+    if(this.networkInfo && typeof (this.networkInfo as any).validate === 'function') {
+      (this.networkInfo as any).validate();
+    }
+    if(this.productInfo && typeof (this.productInfo as any).validate === 'function') {
+      (this.productInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The result data that is returned.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
+   * @example
+   * AA87DE09-DA44-52F4-9515-78B1B607****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceAccountRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The status of the account.
+   * 
+   * Valid values:
+   * 
+   * *   DISABLE
+   * *   ENABLE
+   * 
+   * @example
+   * ENABLE
+   */
+  accountStatus?: string;
+  /**
+   * @remarks
+   * The password of the account.
+   * 
+   * @example
+   * test
+   */
+  password?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountStatus: 'accountStatus',
+      password: 'password',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountStatus: 'string',
+      password: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Instance.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceAccountResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateInstanceAccountResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceAclRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The following items describe the types of permissions that can be granted based on the resource type:
+   * 
+   * *   Topic: Pub, Sub, and Pub|Sub
+   * *   Consumer group: Sub
+   * 
+   * Valid values:
+   * 
+   * *   SUB: subscribe
+   * *   Pub|Sub: publish and subscribe
+   * *   Pub: publish
+   * 
+   * @example
+   * Pub
+   */
+  actions?: string[];
+  /**
+   * @remarks
+   * The decision result of the authorization.
+   * 
+   * Valid values:
+   * 
+   * *   Deny
+   * *   Allow
+   * 
+   * @example
+   * Allow
+   */
+  decision?: string;
+  /**
+   * @remarks
+   * The IP address whitelists.
+   */
+  ipWhitelists?: string[];
+  /**
+   * @remarks
+   * The name of the resource on which you want to grant permissions.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The type of the resource on which you want to grant permissions.
+   * 
+   * Valid values:
+   * 
+   * *   Group
+   * *   Topic
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Topic
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'actions',
+      decision: 'decision',
+      ipWhitelists: 'ipWhitelists',
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': 'string' },
+      decision: 'string',
+      ipWhitelists: { 'type': 'array', 'itemType': 'string' },
+      resourceName: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.actions)) {
+      $dara.Model.validateArray(this.actions);
+    }
+    if(Array.isArray(this.ipWhitelists)) {
+      $dara.Model.validateArray(this.ipWhitelists);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceAclResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * MissingInstanceId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C115601B-8736-5BBF-AC99-7FEAE1245A80
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceAclResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateInstanceAclResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateInstanceAclResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTopicRequest extends $dara.Model {
+  maxSendTps?: number;
+  /**
+   * @remarks
+   * The new remarks on the topic.
+   * 
+   * @example
+   * This is the remark for test.
+   */
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxSendTps: 'maxSendTps',
+      remark: 'remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxSendTps: 'number',
+      remark: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTopicResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The result data that is returned.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * TopicName
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * topicName
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 400
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The topic cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
+   * @example
+   * AF9A8B10-C426-530F-A0DD-96320B39****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTopicResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTopicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTopicResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyConsumeMessageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * zeekr-settlement-server-dc555456f-v2lcg@1@1@qfvorazqns
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * The ID of the consumer group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * TEST_FINANCE_STOCK_OUT_GROUP
+   */
+  consumerGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'clientId',
+      consumerGroupId: 'consumerGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      consumerGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyConsumeMessageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * Topic.NotFound
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * InstanceId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * instanceId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Parameter instanceId is mandatory for this action .
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5304143F-AB0E-5AB4-A227-7C5489216FD5
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyConsumeMessageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VerifyConsumeMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VerifyConsumeMessageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifySendMessageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The message body.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The message key.
+   * 
+   * @example
+   * xx
+   */
+  messageKey?: string;
+  /**
+   * @remarks
+   * The message tag.
+   * 
+   * @example
+   * xx
+   */
+  messageTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'message',
+      messageKey: 'messageKey',
+      messageTag: 'messageTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      messageKey: 'string',
+      messageTag: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifySendMessageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * InvalidConsumerGroupId
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   * 
+   * @example
+   * 0A64228900207A4F0F2931A4E0D40BE5
+   */
+  data?: string;
+  /**
+   * @remarks
+   * The dynamic error code.
+   * 
+   * @example
+   * ConsumerGroupId
+   */
+  dynamicCode?: string;
+  /**
+   * @remarks
+   * The dynamic error message.
+   * 
+   * @example
+   * consumerGroupId
+   */
+  dynamicMessage?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * The instance cannot be found.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3BD2C19B-66DE-59C7-B2F6-FD1BE21DC8C1
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifySendMessageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: VerifySendMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: VerifySendMessageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -13770,7 +15745,7 @@ export class UpdateInstanceRequestProductInfo extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -13779,15 +15754,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -13798,29 +15773,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddDisasterRecoveryItemResponse
    */
-  async addDisasterRecoveryItemWithOptions(planId: string, request: AddDisasterRecoveryItemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddDisasterRecoveryItemResponse> {
-    Util.validateModel(request);
+  async addDisasterRecoveryItemWithOptions(planId: string, request: AddDisasterRecoveryItemRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<AddDisasterRecoveryItemResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.topics)) {
+    if (!$dara.isNull(request.topics)) {
       body["topics"] = request.topics;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddDisasterRecoveryItem",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/disaster_recovery/${OpenApiUtil.getEncodeParam(planId)}/items`,
+      pathname: `/disaster_recovery/${$dara.URL.percentEncode(planId)}/items`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<AddDisasterRecoveryItemResponse>(await this.callApi(params, req, runtime), new AddDisasterRecoveryItemResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddDisasterRecoveryItemResponse>(await this.callApi(params, req, runtime), new AddDisasterRecoveryItemResponse({}));
+    } else {
+      return $dara.cast<AddDisasterRecoveryItemResponse>(await this.execute(params, req, runtime), new AddDisasterRecoveryItemResponse({}));
+    }
+
   }
 
   /**
@@ -13830,7 +15810,7 @@ export default class Client extends OpenApi {
    * @returns AddDisasterRecoveryItemResponse
    */
   async addDisasterRecoveryItem(planId: string, request: AddDisasterRecoveryItemRequest): Promise<AddDisasterRecoveryItemResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addDisasterRecoveryItemWithOptions(planId, request, headers, runtime);
   }
@@ -13843,30 +15823,30 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeResourceGroupResponse
    */
-  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
-    Util.validateModel(request);
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["resourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["resourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["resourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChangeResourceGroup",
       version: "2022-08-01",
       protocol: "HTTPS",
@@ -13877,7 +15857,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    } else {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.execute(params, req, runtime), new ChangeResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -13887,7 +15872,7 @@ export default class Client extends OpenApi {
    * @returns ChangeResourceGroupResponse
    */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.changeResourceGroupWithOptions(request, headers, runtime);
   }
@@ -13903,41 +15888,46 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateConsumerGroupResponse
    */
-  async createConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, request: CreateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
-    Util.validateModel(request);
+  async createConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, request: CreateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateConsumerGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.consumeRetryPolicy)) {
+    if (!$dara.isNull(request.consumeRetryPolicy)) {
       body["consumeRetryPolicy"] = request.consumeRetryPolicy;
     }
 
-    if (!Util.isUnset(request.deliveryOrderType)) {
+    if (!$dara.isNull(request.deliveryOrderType)) {
       body["deliveryOrderType"] = request.deliveryOrderType;
     }
 
-    if (!Util.isUnset(request.maxReceiveTps)) {
+    if (!$dara.isNull(request.maxReceiveTps)) {
       body["maxReceiveTps"] = request.maxReceiveTps;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       body["remark"] = request.remark;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateConsumerGroup",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/consumerGroups/${$dara.URL.percentEncode(consumerGroupId)}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateConsumerGroupResponse>(await this.callApi(params, req, runtime), new CreateConsumerGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateConsumerGroupResponse>(await this.callApi(params, req, runtime), new CreateConsumerGroupResponse({}));
+    } else {
+      return $dara.cast<CreateConsumerGroupResponse>(await this.execute(params, req, runtime), new CreateConsumerGroupResponse({}));
+    }
+
   }
 
   /**
@@ -13950,7 +15940,7 @@ export default class Client extends OpenApi {
    * @returns CreateConsumerGroupResponse
    */
   async createConsumerGroup(instanceId: string, consumerGroupId: string, request: CreateConsumerGroupRequest): Promise<CreateConsumerGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
   }
@@ -13966,76 +15956,80 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateInstanceResponse
    */
-  async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
-    Util.validateModel(request);
+  async createInstanceWithOptions(request: CreateInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateInstanceResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["clientToken"] = request.clientToken;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.autoRenew)) {
+    if (!$dara.isNull(request.autoRenew)) {
       body["autoRenew"] = request.autoRenew;
     }
 
-    if (!Util.isUnset(request.autoRenewPeriod)) {
+    if (!$dara.isNull(request.autoRenewPeriod)) {
       body["autoRenewPeriod"] = request.autoRenewPeriod;
     }
 
-    if (!Util.isUnset(request.commodityCode)) {
+    if (!$dara.isNull(request.commodityCode)) {
       body["commodityCode"] = request.commodityCode;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["instanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.networkInfo)) {
+    if (!$dara.isNull(request.networkInfo)) {
       body["networkInfo"] = request.networkInfo;
     }
 
-    if (!Util.isUnset(request.paymentType)) {
+    if (!$dara.isNull(request.paymentType)) {
       body["paymentType"] = request.paymentType;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       body["period"] = request.period;
     }
 
-    if (!Util.isUnset(request.periodUnit)) {
+    if (!$dara.isNull(request.periodUnit)) {
       body["periodUnit"] = request.periodUnit;
     }
 
-    if (!Util.isUnset(request.productInfo)) {
+    if (!$dara.isNull(request.productInfo)) {
       body["productInfo"] = request.productInfo;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       body["remark"] = request.remark;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       body["resourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.seriesCode)) {
+    if (!$dara.isNull(request.seriesCode)) {
       body["seriesCode"] = request.seriesCode;
     }
 
-    if (!Util.isUnset(request.serviceCode)) {
+    if (!$dara.isNull(request.serviceCode)) {
       body["serviceCode"] = request.serviceCode;
     }
 
-    if (!Util.isUnset(request.subSeriesCode)) {
+    if (!$dara.isNull(request.subSeriesCode)) {
       body["subSeriesCode"] = request.subSeriesCode;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.tags)) {
+      body["tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateInstance",
       version: "2022-08-01",
       protocol: "HTTPS",
@@ -14046,7 +16040,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+    } else {
+      return $dara.cast<CreateInstanceResponse>(await this.execute(params, req, runtime), new CreateInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -14059,7 +16058,7 @@ export default class Client extends OpenApi {
    * @returns CreateInstanceResponse
    */
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceWithOptions(request, headers, runtime);
   }
@@ -14072,33 +16071,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateInstanceAccountResponse
    */
-  async createInstanceAccountWithOptions(instanceId: string, request: CreateInstanceAccountRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceAccountResponse> {
-    Util.validateModel(request);
+  async createInstanceAccountWithOptions(instanceId: string, request: CreateInstanceAccountRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateInstanceAccountResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.password)) {
+    if (!$dara.isNull(request.password)) {
       body["password"] = request.password;
     }
 
-    if (!Util.isUnset(request.username)) {
+    if (!$dara.isNull(request.username)) {
       body["username"] = request.username;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateInstanceAccount",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/accounts`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/accounts`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateInstanceAccountResponse>(await this.callApi(params, req, runtime), new CreateInstanceAccountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateInstanceAccountResponse>(await this.callApi(params, req, runtime), new CreateInstanceAccountResponse({}));
+    } else {
+      return $dara.cast<CreateInstanceAccountResponse>(await this.execute(params, req, runtime), new CreateInstanceAccountResponse({}));
+    }
+
   }
 
   /**
@@ -14108,7 +16112,7 @@ export default class Client extends OpenApi {
    * @returns CreateInstanceAccountResponse
    */
   async createInstanceAccount(instanceId: string, request: CreateInstanceAccountRequest): Promise<CreateInstanceAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceAccountWithOptions(instanceId, request, headers, runtime);
   }
@@ -14121,45 +16125,50 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateInstanceAclResponse
    */
-  async createInstanceAclWithOptions(instanceId: string, username: string, request: CreateInstanceAclRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceAclResponse> {
-    Util.validateModel(request);
+  async createInstanceAclWithOptions(instanceId: string, username: string, request: CreateInstanceAclRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateInstanceAclResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.actions)) {
+    if (!$dara.isNull(request.actions)) {
       body["actions"] = request.actions;
     }
 
-    if (!Util.isUnset(request.decision)) {
+    if (!$dara.isNull(request.decision)) {
       body["decision"] = request.decision;
     }
 
-    if (!Util.isUnset(request.ipWhitelists)) {
+    if (!$dara.isNull(request.ipWhitelists)) {
       body["ipWhitelists"] = request.ipWhitelists;
     }
 
-    if (!Util.isUnset(request.resourceName)) {
+    if (!$dara.isNull(request.resourceName)) {
       body["resourceName"] = request.resourceName;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       body["resourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateInstanceAcl",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/acl/account/${OpenApiUtil.getEncodeParam(username)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/acl/account/${$dara.URL.percentEncode(username)}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateInstanceAclResponse>(await this.callApi(params, req, runtime), new CreateInstanceAclResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateInstanceAclResponse>(await this.callApi(params, req, runtime), new CreateInstanceAclResponse({}));
+    } else {
+      return $dara.cast<CreateInstanceAclResponse>(await this.execute(params, req, runtime), new CreateInstanceAclResponse({}));
+    }
+
   }
 
   /**
@@ -14169,7 +16178,7 @@ export default class Client extends OpenApi {
    * @returns CreateInstanceAclResponse
    */
   async createInstanceAcl(instanceId: string, username: string, request: CreateInstanceAclRequest): Promise<CreateInstanceAclResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceAclWithOptions(instanceId, username, request, headers, runtime);
   }
@@ -14182,29 +16191,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateInstanceIpWhitelistResponse
    */
-  async createInstanceIpWhitelistWithOptions(instanceId: string, request: CreateInstanceIpWhitelistRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInstanceIpWhitelistResponse> {
-    Util.validateModel(request);
+  async createInstanceIpWhitelistWithOptions(instanceId: string, request: CreateInstanceIpWhitelistRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateInstanceIpWhitelistResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ipWhitelists)) {
+    if (!$dara.isNull(request.ipWhitelists)) {
       body["ipWhitelists"] = request.ipWhitelists;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateInstanceIpWhitelist",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/ip/whitelist`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/ip/whitelist`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateInstanceIpWhitelistResponse>(await this.callApi(params, req, runtime), new CreateInstanceIpWhitelistResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateInstanceIpWhitelistResponse>(await this.callApi(params, req, runtime), new CreateInstanceIpWhitelistResponse({}));
+    } else {
+      return $dara.cast<CreateInstanceIpWhitelistResponse>(await this.execute(params, req, runtime), new CreateInstanceIpWhitelistResponse({}));
+    }
+
   }
 
   /**
@@ -14214,7 +16228,7 @@ export default class Client extends OpenApi {
    * @returns CreateInstanceIpWhitelistResponse
    */
   async createInstanceIpWhitelist(instanceId: string, request: CreateInstanceIpWhitelistRequest): Promise<CreateInstanceIpWhitelistResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createInstanceIpWhitelistWithOptions(instanceId, request, headers, runtime);
   }
@@ -14227,37 +16241,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateTopicResponse
    */
-  async createTopicWithOptions(instanceId: string, topicName: string, request: CreateTopicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTopicResponse> {
-    Util.validateModel(request);
+  async createTopicWithOptions(instanceId: string, topicName: string, request: CreateTopicRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateTopicResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxSendTps)) {
+    if (!$dara.isNull(request.maxSendTps)) {
       body["maxSendTps"] = request.maxSendTps;
     }
 
-    if (!Util.isUnset(request.messageType)) {
+    if (!$dara.isNull(request.messageType)) {
       body["messageType"] = request.messageType;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       body["remark"] = request.remark;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateTopic",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/topics/${$dara.URL.percentEncode(topicName)}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateTopicResponse>(await this.callApi(params, req, runtime), new CreateTopicResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateTopicResponse>(await this.callApi(params, req, runtime), new CreateTopicResponse({}));
+    } else {
+      return $dara.cast<CreateTopicResponse>(await this.execute(params, req, runtime), new CreateTopicResponse({}));
+    }
+
   }
 
   /**
@@ -14267,7 +16286,7 @@ export default class Client extends OpenApi {
    * @returns CreateTopicResponse
    */
   async createTopic(instanceId: string, topicName: string, request: CreateTopicRequest): Promise<CreateTopicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTopicWithOptions(instanceId, topicName, request, headers, runtime);
   }
@@ -14283,22 +16302,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteConsumerGroupResponse
    */
-  async deleteConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteConsumerGroup",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/consumerGroups/${$dara.URL.percentEncode(consumerGroupId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteConsumerGroupResponse>(await this.callApi(params, req, runtime), new DeleteConsumerGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteConsumerGroupResponse>(await this.callApi(params, req, runtime), new DeleteConsumerGroupResponse({}));
+    } else {
+      return $dara.cast<DeleteConsumerGroupResponse>(await this.execute(params, req, runtime), new DeleteConsumerGroupResponse({}));
+    }
+
   }
 
   /**
@@ -14310,7 +16334,7 @@ export default class Client extends OpenApi {
    * @returns DeleteConsumerGroupResponse
    */
   async deleteConsumerGroup(instanceId: string, consumerGroupId: string): Promise<DeleteConsumerGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteConsumerGroupWithOptions(instanceId, consumerGroupId, headers, runtime);
   }
@@ -14323,37 +16347,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteConsumerGroupSubscriptionResponse
    */
-  async deleteConsumerGroupSubscriptionWithOptions(instanceId: string, consumerGroupId: string, request: DeleteConsumerGroupSubscriptionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupSubscriptionResponse> {
-    Util.validateModel(request);
+  async deleteConsumerGroupSubscriptionWithOptions(instanceId: string, consumerGroupId: string, request: DeleteConsumerGroupSubscriptionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteConsumerGroupSubscriptionResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.filterExpression)) {
+    if (!$dara.isNull(request.filterExpression)) {
       query["filterExpression"] = request.filterExpression;
     }
 
-    if (!Util.isUnset(request.filterType)) {
+    if (!$dara.isNull(request.filterType)) {
       query["filterType"] = request.filterType;
     }
 
-    if (!Util.isUnset(request.topicName)) {
+    if (!$dara.isNull(request.topicName)) {
       query["topicName"] = request.topicName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteConsumerGroupSubscription",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}/subscriptions`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/consumerGroups/${$dara.URL.percentEncode(consumerGroupId)}/subscriptions`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteConsumerGroupSubscriptionResponse>(await this.callApi(params, req, runtime), new DeleteConsumerGroupSubscriptionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteConsumerGroupSubscriptionResponse>(await this.callApi(params, req, runtime), new DeleteConsumerGroupSubscriptionResponse({}));
+    } else {
+      return $dara.cast<DeleteConsumerGroupSubscriptionResponse>(await this.execute(params, req, runtime), new DeleteConsumerGroupSubscriptionResponse({}));
+    }
+
   }
 
   /**
@@ -14363,7 +16392,7 @@ export default class Client extends OpenApi {
    * @returns DeleteConsumerGroupSubscriptionResponse
    */
   async deleteConsumerGroupSubscription(instanceId: string, consumerGroupId: string, request: DeleteConsumerGroupSubscriptionRequest): Promise<DeleteConsumerGroupSubscriptionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteConsumerGroupSubscriptionWithOptions(instanceId, consumerGroupId, request, headers, runtime);
   }
@@ -14375,22 +16404,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDisasterRecoveryPlanResponse
    */
-  async deleteDisasterRecoveryPlanWithOptions(planId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteDisasterRecoveryPlanResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteDisasterRecoveryPlanWithOptions(planId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteDisasterRecoveryPlanResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDisasterRecoveryPlan",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/disaster_recovery/${OpenApiUtil.getEncodeParam(planId)}`,
+      pathname: `/disaster_recovery/${$dara.URL.percentEncode(planId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDisasterRecoveryPlanResponse>(await this.callApi(params, req, runtime), new DeleteDisasterRecoveryPlanResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDisasterRecoveryPlanResponse>(await this.callApi(params, req, runtime), new DeleteDisasterRecoveryPlanResponse({}));
+    } else {
+      return $dara.cast<DeleteDisasterRecoveryPlanResponse>(await this.execute(params, req, runtime), new DeleteDisasterRecoveryPlanResponse({}));
+    }
+
   }
 
   /**
@@ -14398,7 +16432,7 @@ export default class Client extends OpenApi {
    * @returns DeleteDisasterRecoveryPlanResponse
    */
   async deleteDisasterRecoveryPlan(planId: string): Promise<DeleteDisasterRecoveryPlanResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteDisasterRecoveryPlanWithOptions(planId, headers, runtime);
   }
@@ -14415,22 +16449,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceResponse
    */
-  async deleteInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteInstanceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteInstance",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+    } else {
+      return $dara.cast<DeleteInstanceResponse>(await this.execute(params, req, runtime), new DeleteInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -14443,7 +16482,7 @@ export default class Client extends OpenApi {
    * @returns DeleteInstanceResponse
    */
   async deleteInstance(instanceId: string): Promise<DeleteInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceWithOptions(instanceId, headers, runtime);
   }
@@ -14455,22 +16494,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceAccountResponse
    */
-  async deleteInstanceAccountWithOptions(instanceId: string, username: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceAccountResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteInstanceAccountWithOptions(instanceId: string, username: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteInstanceAccountResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteInstanceAccount",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/accounts/${OpenApiUtil.getEncodeParam(username)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/accounts/${$dara.URL.percentEncode(username)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteInstanceAccountResponse>(await this.callApi(params, req, runtime), new DeleteInstanceAccountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteInstanceAccountResponse>(await this.callApi(params, req, runtime), new DeleteInstanceAccountResponse({}));
+    } else {
+      return $dara.cast<DeleteInstanceAccountResponse>(await this.execute(params, req, runtime), new DeleteInstanceAccountResponse({}));
+    }
+
   }
 
   /**
@@ -14478,7 +16522,7 @@ export default class Client extends OpenApi {
    * @returns DeleteInstanceAccountResponse
    */
   async deleteInstanceAccount(instanceId: string, username: string): Promise<DeleteInstanceAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceAccountWithOptions(instanceId, username, headers, runtime);
   }
@@ -14491,33 +16535,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceAclResponse
    */
-  async deleteInstanceAclWithOptions(instanceId: string, username: string, request: DeleteInstanceAclRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceAclResponse> {
-    Util.validateModel(request);
+  async deleteInstanceAclWithOptions(instanceId: string, username: string, request: DeleteInstanceAclRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteInstanceAclResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resourceName)) {
+    if (!$dara.isNull(request.resourceName)) {
       query["resourceName"] = request.resourceName;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["resourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteInstanceAcl",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/acl/account/${OpenApiUtil.getEncodeParam(username)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/acl/account/${$dara.URL.percentEncode(username)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteInstanceAclResponse>(await this.callApi(params, req, runtime), new DeleteInstanceAclResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteInstanceAclResponse>(await this.callApi(params, req, runtime), new DeleteInstanceAclResponse({}));
+    } else {
+      return $dara.cast<DeleteInstanceAclResponse>(await this.execute(params, req, runtime), new DeleteInstanceAclResponse({}));
+    }
+
   }
 
   /**
@@ -14527,7 +16576,7 @@ export default class Client extends OpenApi {
    * @returns DeleteInstanceAclResponse
    */
   async deleteInstanceAcl(instanceId: string, username: string, request: DeleteInstanceAclRequest): Promise<DeleteInstanceAclResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceAclWithOptions(instanceId, username, request, headers, runtime);
   }
@@ -14535,34 +16584,49 @@ export default class Client extends OpenApi {
   /**
    * Deletes a specific IP address whitelist from an instance.
    * 
-   * @param request - DeleteInstanceIpWhitelistRequest
+   * @param tmpReq - DeleteInstanceIpWhitelistRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceIpWhitelistResponse
    */
-  async deleteInstanceIpWhitelistWithOptions(instanceId: string, request: DeleteInstanceIpWhitelistRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceIpWhitelistResponse> {
-    Util.validateModel(request);
+  async deleteInstanceIpWhitelistWithOptions(instanceId: string, tmpReq: DeleteInstanceIpWhitelistRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteInstanceIpWhitelistResponse> {
+    tmpReq.validate();
+    let request = new DeleteInstanceIpWhitelistShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ipWhitelists)) {
+      request.ipWhitelistsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipWhitelists, "ipWhitelists", "simple");
+    }
+
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ipWhitelist)) {
+    if (!$dara.isNull(request.ipWhitelist)) {
       query["ipWhitelist"] = request.ipWhitelist;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    if (!$dara.isNull(request.ipWhitelistsShrink)) {
+      query["ipWhitelists"] = request.ipWhitelistsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteInstanceIpWhitelist",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/ip/whitelist`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/ip/whitelist`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteInstanceIpWhitelistResponse>(await this.callApi(params, req, runtime), new DeleteInstanceIpWhitelistResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteInstanceIpWhitelistResponse>(await this.callApi(params, req, runtime), new DeleteInstanceIpWhitelistResponse({}));
+    } else {
+      return $dara.cast<DeleteInstanceIpWhitelistResponse>(await this.execute(params, req, runtime), new DeleteInstanceIpWhitelistResponse({}));
+    }
+
   }
 
   /**
@@ -14572,7 +16636,7 @@ export default class Client extends OpenApi {
    * @returns DeleteInstanceIpWhitelistResponse
    */
   async deleteInstanceIpWhitelist(instanceId: string, request: DeleteInstanceIpWhitelistRequest): Promise<DeleteInstanceIpWhitelistResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstanceIpWhitelistWithOptions(instanceId, request, headers, runtime);
   }
@@ -14587,22 +16651,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteTopicResponse
    */
-  async deleteTopicWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTopicResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteTopicWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteTopicResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteTopic",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/topics/${$dara.URL.percentEncode(topicName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteTopicResponse>(await this.callApi(params, req, runtime), new DeleteTopicResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteTopicResponse>(await this.callApi(params, req, runtime), new DeleteTopicResponse({}));
+    } else {
+      return $dara.cast<DeleteTopicResponse>(await this.execute(params, req, runtime), new DeleteTopicResponse({}));
+    }
+
   }
 
   /**
@@ -14613,7 +16682,7 @@ export default class Client extends OpenApi {
    * @returns DeleteTopicResponse
    */
   async deleteTopic(instanceId: string, topicName: string): Promise<DeleteTopicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTopicWithOptions(instanceId, topicName, headers, runtime);
   }
@@ -14628,22 +16697,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConsumerGroupResponse
    */
-  async getConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConsumerGroupResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetConsumerGroupResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetConsumerGroup",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/consumerGroups/${$dara.URL.percentEncode(consumerGroupId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetConsumerGroupResponse>(await this.callApi(params, req, runtime), new GetConsumerGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetConsumerGroupResponse>(await this.callApi(params, req, runtime), new GetConsumerGroupResponse({}));
+    } else {
+      return $dara.cast<GetConsumerGroupResponse>(await this.execute(params, req, runtime), new GetConsumerGroupResponse({}));
+    }
+
   }
 
   /**
@@ -14654,7 +16728,7 @@ export default class Client extends OpenApi {
    * @returns GetConsumerGroupResponse
    */
   async getConsumerGroup(instanceId: string, consumerGroupId: string): Promise<GetConsumerGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getConsumerGroupWithOptions(instanceId, consumerGroupId, headers, runtime);
   }
@@ -14662,36 +16736,51 @@ export default class Client extends OpenApi {
   /**
    * Query Consumer Group Backlog Information
    * 
+   * @param request - GetConsumerGroupLagRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConsumerGroupLagResponse
    */
-  async getConsumerGroupLagWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConsumerGroupLagResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getConsumerGroupLagWithOptions(instanceId: string, consumerGroupId: string, request: GetConsumerGroupLagRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetConsumerGroupLagResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.topicName)) {
+      query["topicName"] = request.topicName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetConsumerGroupLag",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}/lag`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/consumerGroups/${$dara.URL.percentEncode(consumerGroupId)}/lag`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetConsumerGroupLagResponse>(await this.callApi(params, req, runtime), new GetConsumerGroupLagResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetConsumerGroupLagResponse>(await this.callApi(params, req, runtime), new GetConsumerGroupLagResponse({}));
+    } else {
+      return $dara.cast<GetConsumerGroupLagResponse>(await this.execute(params, req, runtime), new GetConsumerGroupLagResponse({}));
+    }
+
   }
 
   /**
    * Query Consumer Group Backlog Information
+   * 
+   * @param request - GetConsumerGroupLagRequest
    * @returns GetConsumerGroupLagResponse
    */
-  async getConsumerGroupLag(instanceId: string, consumerGroupId: string): Promise<GetConsumerGroupLagResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+  async getConsumerGroupLag(instanceId: string, consumerGroupId: string, request: GetConsumerGroupLagRequest): Promise<GetConsumerGroupLagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getConsumerGroupLagWithOptions(instanceId, consumerGroupId, headers, runtime);
+    return await this.getConsumerGroupLagWithOptions(instanceId, consumerGroupId, request, headers, runtime);
   }
 
   /**
@@ -14701,22 +16790,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConsumerGroupSubscriptionResponse
    */
-  async getConsumerGroupSubscriptionWithOptions(instanceId: string, consumerGroupId: string, topicName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConsumerGroupSubscriptionResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getConsumerGroupSubscriptionWithOptions(instanceId: string, consumerGroupId: string, topicName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetConsumerGroupSubscriptionResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetConsumerGroupSubscription",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}/subscriptions/${OpenApiUtil.getEncodeParam(topicName)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/consumerGroups/${$dara.URL.percentEncode(consumerGroupId)}/subscriptions/${$dara.URL.percentEncode(topicName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetConsumerGroupSubscriptionResponse>(await this.callApi(params, req, runtime), new GetConsumerGroupSubscriptionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetConsumerGroupSubscriptionResponse>(await this.callApi(params, req, runtime), new GetConsumerGroupSubscriptionResponse({}));
+    } else {
+      return $dara.cast<GetConsumerGroupSubscriptionResponse>(await this.execute(params, req, runtime), new GetConsumerGroupSubscriptionResponse({}));
+    }
+
   }
 
   /**
@@ -14724,7 +16818,7 @@ export default class Client extends OpenApi {
    * @returns GetConsumerGroupSubscriptionResponse
    */
   async getConsumerGroupSubscription(instanceId: string, consumerGroupId: string, topicName: string): Promise<GetConsumerGroupSubscriptionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getConsumerGroupSubscriptionWithOptions(instanceId, consumerGroupId, topicName, headers, runtime);
   }
@@ -14737,29 +16831,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConsumerStackResponse
    */
-  async getConsumerStackWithOptions(instanceId: string, consumerGroupId: string, request: GetConsumerStackRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConsumerStackResponse> {
-    Util.validateModel(request);
+  async getConsumerStackWithOptions(instanceId: string, consumerGroupId: string, request: GetConsumerStackRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetConsumerStackResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["clientId"] = request.clientId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetConsumerStack",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}/stack`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/consumerGroups/${$dara.URL.percentEncode(consumerGroupId)}/stack`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetConsumerStackResponse>(await this.callApi(params, req, runtime), new GetConsumerStackResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetConsumerStackResponse>(await this.callApi(params, req, runtime), new GetConsumerStackResponse({}));
+    } else {
+      return $dara.cast<GetConsumerStackResponse>(await this.execute(params, req, runtime), new GetConsumerStackResponse({}));
+    }
+
   }
 
   /**
@@ -14769,7 +16868,7 @@ export default class Client extends OpenApi {
    * @returns GetConsumerStackResponse
    */
   async getConsumerStack(instanceId: string, consumerGroupId: string, request: GetConsumerStackRequest): Promise<GetConsumerStackResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getConsumerStackWithOptions(instanceId, consumerGroupId, request, headers, runtime);
   }
@@ -14784,22 +16883,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceResponse
    */
-  async getInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getInstanceWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetInstanceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetInstance",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
+    } else {
+      return $dara.cast<GetInstanceResponse>(await this.execute(params, req, runtime), new GetInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -14810,7 +16914,7 @@ export default class Client extends OpenApi {
    * @returns GetInstanceResponse
    */
   async getInstance(instanceId: string): Promise<GetInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceWithOptions(instanceId, headers, runtime);
   }
@@ -14823,29 +16927,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceAccountResponse
    */
-  async getInstanceAccountWithOptions(instanceId: string, request: GetInstanceAccountRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInstanceAccountResponse> {
-    Util.validateModel(request);
+  async getInstanceAccountWithOptions(instanceId: string, request: GetInstanceAccountRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetInstanceAccountResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.username)) {
+    if (!$dara.isNull(request.username)) {
       query["username"] = request.username;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetInstanceAccount",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/account`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/account`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetInstanceAccountResponse>(await this.callApi(params, req, runtime), new GetInstanceAccountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetInstanceAccountResponse>(await this.callApi(params, req, runtime), new GetInstanceAccountResponse({}));
+    } else {
+      return $dara.cast<GetInstanceAccountResponse>(await this.execute(params, req, runtime), new GetInstanceAccountResponse({}));
+    }
+
   }
 
   /**
@@ -14855,9 +16964,119 @@ export default class Client extends OpenApi {
    * @returns GetInstanceAccountResponse
    */
   async getInstanceAccount(instanceId: string, request: GetInstanceAccountRequest): Promise<GetInstanceAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceAccountWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取访问控制acl数据
+   * 
+   * @param request - GetInstanceAclRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceAclResponse
+   */
+  async getInstanceAclWithOptions(instanceId: string, username: string, request: GetInstanceAclRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetInstanceAclResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.resourceName)) {
+      query["resourceName"] = request.resourceName;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["resourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceAcl",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/acl/account/${$dara.URL.percentEncode(username)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetInstanceAclResponse>(await this.callApi(params, req, runtime), new GetInstanceAclResponse({}));
+    } else {
+      return $dara.cast<GetInstanceAclResponse>(await this.execute(params, req, runtime), new GetInstanceAclResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取访问控制acl数据
+   * 
+   * @param request - GetInstanceAclRequest
+   * @returns GetInstanceAclResponse
+   */
+  async getInstanceAcl(instanceId: string, username: string, request: GetInstanceAclRequest): Promise<GetInstanceAclResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getInstanceAclWithOptions(instanceId, username, request, headers, runtime);
+  }
+
+  /**
+   * 获取实例ip白名单
+   * 
+   * @param tmpReq - GetInstanceIpWhitelistRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceIpWhitelistResponse
+   */
+  async getInstanceIpWhitelistWithOptions(instanceId: string, tmpReq: GetInstanceIpWhitelistRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetInstanceIpWhitelistResponse> {
+    tmpReq.validate();
+    let request = new GetInstanceIpWhitelistShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ipWhitelists)) {
+      request.ipWhitelistsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipWhitelists, "ipWhitelists", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ipWhitelistsShrink)) {
+      query["ipWhitelists"] = request.ipWhitelistsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceIpWhitelist",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/ip/whitelists`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetInstanceIpWhitelistResponse>(await this.callApi(params, req, runtime), new GetInstanceIpWhitelistResponse({}));
+    } else {
+      return $dara.cast<GetInstanceIpWhitelistResponse>(await this.execute(params, req, runtime), new GetInstanceIpWhitelistResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取实例ip白名单
+   * 
+   * @param request - GetInstanceIpWhitelistRequest
+   * @returns GetInstanceIpWhitelistResponse
+   */
+  async getInstanceIpWhitelist(instanceId: string, request: GetInstanceIpWhitelistRequest): Promise<GetInstanceIpWhitelistResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getInstanceIpWhitelistWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -14867,22 +17086,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMessageDetailResponse
    */
-  async getMessageDetailWithOptions(instanceId: string, topicName: string, messageId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMessageDetailResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getMessageDetailWithOptions(instanceId: string, topicName: string, messageId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetMessageDetailResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetMessageDetail",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}/messages/${OpenApiUtil.getEncodeParam(messageId)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/topics/${$dara.URL.percentEncode(topicName)}/messages/${$dara.URL.percentEncode(messageId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetMessageDetailResponse>(await this.callApi(params, req, runtime), new GetMessageDetailResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMessageDetailResponse>(await this.callApi(params, req, runtime), new GetMessageDetailResponse({}));
+    } else {
+      return $dara.cast<GetMessageDetailResponse>(await this.execute(params, req, runtime), new GetMessageDetailResponse({}));
+    }
+
   }
 
   /**
@@ -14890,7 +17114,7 @@ export default class Client extends OpenApi {
    * @returns GetMessageDetailResponse
    */
   async getMessageDetail(instanceId: string, topicName: string, messageId: string): Promise<GetMessageDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getMessageDetailWithOptions(instanceId, topicName, messageId, headers, runtime);
   }
@@ -14902,22 +17126,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTopicResponse
    */
-  async getTopicWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTopicResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getTopicWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetTopicResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTopic",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/topics/${$dara.URL.percentEncode(topicName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTopicResponse>(await this.callApi(params, req, runtime), new GetTopicResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTopicResponse>(await this.callApi(params, req, runtime), new GetTopicResponse({}));
+    } else {
+      return $dara.cast<GetTopicResponse>(await this.execute(params, req, runtime), new GetTopicResponse({}));
+    }
+
   }
 
   /**
@@ -14925,7 +17154,7 @@ export default class Client extends OpenApi {
    * @returns GetTopicResponse
    */
   async getTopic(instanceId: string, topicName: string): Promise<GetTopicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTopicWithOptions(instanceId, topicName, headers, runtime);
   }
@@ -14937,22 +17166,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTraceResponse
    */
-  async getTraceWithOptions(instanceId: string, topicName: string, messageId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTraceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getTraceWithOptions(instanceId: string, topicName: string, messageId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetTraceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTrace",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}/traces/${OpenApiUtil.getEncodeParam(messageId)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/topics/${$dara.URL.percentEncode(topicName)}/traces/${$dara.URL.percentEncode(messageId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTraceResponse>(await this.callApi(params, req, runtime), new GetTraceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTraceResponse>(await this.callApi(params, req, runtime), new GetTraceResponse({}));
+    } else {
+      return $dara.cast<GetTraceResponse>(await this.execute(params, req, runtime), new GetTraceResponse({}));
+    }
+
   }
 
   /**
@@ -14960,7 +17194,7 @@ export default class Client extends OpenApi {
    * @returns GetTraceResponse
    */
   async getTrace(instanceId: string, topicName: string, messageId: string): Promise<GetTraceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTraceWithOptions(instanceId, topicName, messageId, headers, runtime);
   }
@@ -14972,11 +17206,11 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAvailableZonesResponse
    */
-  async listAvailableZonesWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAvailableZonesResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async listAvailableZonesWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListAvailableZonesResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAvailableZones",
       version: "2022-08-01",
       protocol: "HTTPS",
@@ -14987,7 +17221,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListAvailableZonesResponse>(await this.callApi(params, req, runtime), new ListAvailableZonesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAvailableZonesResponse>(await this.callApi(params, req, runtime), new ListAvailableZonesResponse({}));
+    } else {
+      return $dara.cast<ListAvailableZonesResponse>(await this.execute(params, req, runtime), new ListAvailableZonesResponse({}));
+    }
+
   }
 
   /**
@@ -14995,7 +17234,7 @@ export default class Client extends OpenApi {
    * @returns ListAvailableZonesResponse
    */
   async listAvailableZones(): Promise<ListAvailableZonesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAvailableZonesWithOptions(headers, runtime);
   }
@@ -15007,22 +17246,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListConsumerConnectionsResponse
    */
-  async listConsumerConnectionsWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerConnectionsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async listConsumerConnectionsWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListConsumerConnectionsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListConsumerConnections",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}/connections`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/consumerGroups/${$dara.URL.percentEncode(consumerGroupId)}/connections`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListConsumerConnectionsResponse>(await this.callApi(params, req, runtime), new ListConsumerConnectionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListConsumerConnectionsResponse>(await this.callApi(params, req, runtime), new ListConsumerConnectionsResponse({}));
+    } else {
+      return $dara.cast<ListConsumerConnectionsResponse>(await this.execute(params, req, runtime), new ListConsumerConnectionsResponse({}));
+    }
+
   }
 
   /**
@@ -15030,7 +17274,7 @@ export default class Client extends OpenApi {
    * @returns ListConsumerConnectionsResponse
    */
   async listConsumerConnections(instanceId: string, consumerGroupId: string): Promise<ListConsumerConnectionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConsumerConnectionsWithOptions(instanceId, consumerGroupId, headers, runtime);
   }
@@ -15042,22 +17286,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListConsumerGroupSubscriptionsResponse
    */
-  async listConsumerGroupSubscriptionsWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerGroupSubscriptionsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async listConsumerGroupSubscriptionsWithOptions(instanceId: string, consumerGroupId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListConsumerGroupSubscriptionsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListConsumerGroupSubscriptions",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}/subscriptions`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/consumerGroups/${$dara.URL.percentEncode(consumerGroupId)}/subscriptions`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListConsumerGroupSubscriptionsResponse>(await this.callApi(params, req, runtime), new ListConsumerGroupSubscriptionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListConsumerGroupSubscriptionsResponse>(await this.callApi(params, req, runtime), new ListConsumerGroupSubscriptionsResponse({}));
+    } else {
+      return $dara.cast<ListConsumerGroupSubscriptionsResponse>(await this.execute(params, req, runtime), new ListConsumerGroupSubscriptionsResponse({}));
+    }
+
   }
 
   /**
@@ -15065,7 +17314,7 @@ export default class Client extends OpenApi {
    * @returns ListConsumerGroupSubscriptionsResponse
    */
   async listConsumerGroupSubscriptions(instanceId: string, consumerGroupId: string): Promise<ListConsumerGroupSubscriptionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConsumerGroupSubscriptionsWithOptions(instanceId, consumerGroupId, headers, runtime);
   }
@@ -15081,37 +17330,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListConsumerGroupsResponse
    */
-  async listConsumerGroupsWithOptions(instanceId: string, request: ListConsumerGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConsumerGroupsResponse> {
-    Util.validateModel(request);
+  async listConsumerGroupsWithOptions(instanceId: string, request: ListConsumerGroupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListConsumerGroupsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.filter)) {
+    if (!$dara.isNull(request.filter)) {
       query["filter"] = request.filter;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListConsumerGroups",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/consumerGroups`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListConsumerGroupsResponse>(await this.callApi(params, req, runtime), new ListConsumerGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListConsumerGroupsResponse>(await this.callApi(params, req, runtime), new ListConsumerGroupsResponse({}));
+    } else {
+      return $dara.cast<ListConsumerGroupsResponse>(await this.execute(params, req, runtime), new ListConsumerGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -15124,7 +17378,7 @@ export default class Client extends OpenApi {
    * @returns ListConsumerGroupsResponse
    */
   async listConsumerGroups(instanceId: string, request: ListConsumerGroupsRequest): Promise<ListConsumerGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConsumerGroupsWithOptions(instanceId, request, headers, runtime);
   }
@@ -15137,45 +17391,50 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstanceAccountResponse
    */
-  async listInstanceAccountWithOptions(instanceId: string, request: ListInstanceAccountRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceAccountResponse> {
-    Util.validateModel(request);
+  async listInstanceAccountWithOptions(instanceId: string, request: ListInstanceAccountRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListInstanceAccountResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountStatus)) {
+    if (!$dara.isNull(request.accountStatus)) {
       query["accountStatus"] = request.accountStatus;
     }
 
-    if (!Util.isUnset(request.accountType)) {
+    if (!$dara.isNull(request.accountType)) {
       query["accountType"] = request.accountType;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.username)) {
+    if (!$dara.isNull(request.username)) {
       query["username"] = request.username;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListInstanceAccount",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/accounts`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/accounts`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListInstanceAccountResponse>(await this.callApi(params, req, runtime), new ListInstanceAccountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstanceAccountResponse>(await this.callApi(params, req, runtime), new ListInstanceAccountResponse({}));
+    } else {
+      return $dara.cast<ListInstanceAccountResponse>(await this.execute(params, req, runtime), new ListInstanceAccountResponse({}));
+    }
+
   }
 
   /**
@@ -15185,7 +17444,7 @@ export default class Client extends OpenApi {
    * @returns ListInstanceAccountResponse
    */
   async listInstanceAccount(instanceId: string, request: ListInstanceAccountRequest): Promise<ListInstanceAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstanceAccountWithOptions(instanceId, request, headers, runtime);
   }
@@ -15198,37 +17457,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstanceAclResponse
    */
-  async listInstanceAclWithOptions(instanceId: string, request: ListInstanceAclRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceAclResponse> {
-    Util.validateModel(request);
+  async listInstanceAclWithOptions(instanceId: string, request: ListInstanceAclRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListInstanceAclResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.filter)) {
+    if (!$dara.isNull(request.filter)) {
       query["filter"] = request.filter;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListInstanceAcl",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/acl`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/acl`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListInstanceAclResponse>(await this.callApi(params, req, runtime), new ListInstanceAclResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstanceAclResponse>(await this.callApi(params, req, runtime), new ListInstanceAclResponse({}));
+    } else {
+      return $dara.cast<ListInstanceAclResponse>(await this.execute(params, req, runtime), new ListInstanceAclResponse({}));
+    }
+
   }
 
   /**
@@ -15238,7 +17502,7 @@ export default class Client extends OpenApi {
    * @returns ListInstanceAclResponse
    */
   async listInstanceAcl(instanceId: string, request: ListInstanceAclRequest): Promise<ListInstanceAclResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstanceAclWithOptions(instanceId, request, headers, runtime);
   }
@@ -15251,37 +17515,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstanceIpWhitelistResponse
    */
-  async listInstanceIpWhitelistWithOptions(instanceId: string, request: ListInstanceIpWhitelistRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstanceIpWhitelistResponse> {
-    Util.validateModel(request);
+  async listInstanceIpWhitelistWithOptions(instanceId: string, request: ListInstanceIpWhitelistRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListInstanceIpWhitelistResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.ipWhitelist)) {
+    if (!$dara.isNull(request.ipWhitelist)) {
       query["ipWhitelist"] = request.ipWhitelist;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListInstanceIpWhitelist",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/ip/whitelist`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/ip/whitelist`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListInstanceIpWhitelistResponse>(await this.callApi(params, req, runtime), new ListInstanceIpWhitelistResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstanceIpWhitelistResponse>(await this.callApi(params, req, runtime), new ListInstanceIpWhitelistResponse({}));
+    } else {
+      return $dara.cast<ListInstanceIpWhitelistResponse>(await this.execute(params, req, runtime), new ListInstanceIpWhitelistResponse({}));
+    }
+
   }
 
   /**
@@ -15291,7 +17560,7 @@ export default class Client extends OpenApi {
    * @returns ListInstanceIpWhitelistResponse
    */
   async listInstanceIpWhitelist(instanceId: string, request: ListInstanceIpWhitelistRequest): Promise<ListInstanceIpWhitelistResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstanceIpWhitelistWithOptions(instanceId, request, headers, runtime);
   }
@@ -15307,48 +17576,48 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstancesResponse
    */
-  async listInstancesWithOptions(tmpReq: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
-    Util.validateModel(tmpReq);
+  async listInstancesWithOptions(tmpReq: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListInstancesResponse> {
+    tmpReq.validate();
     let request = new ListInstancesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.seriesCodes)) {
+    if (!$dara.isNull(tmpReq.seriesCodes)) {
       request.seriesCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.seriesCodes, "seriesCodes", "simple");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.filter)) {
+    if (!$dara.isNull(request.filter)) {
       query["filter"] = request.filter;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["resourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.seriesCodesShrink)) {
+    if (!$dara.isNull(request.seriesCodesShrink)) {
       query["seriesCodes"] = request.seriesCodesShrink;
     }
 
-    if (!Util.isUnset(request.storageSecretKey)) {
+    if (!$dara.isNull(request.storageSecretKey)) {
       query["storageSecretKey"] = request.storageSecretKey;
     }
 
-    if (!Util.isUnset(request.tags)) {
+    if (!$dara.isNull(request.tags)) {
       query["tags"] = request.tags;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListInstances",
       version: "2022-08-01",
       protocol: "HTTPS",
@@ -15359,7 +17628,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+    } else {
+      return $dara.cast<ListInstancesResponse>(await this.execute(params, req, runtime), new ListInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -15372,7 +17646,7 @@ export default class Client extends OpenApi {
    * @returns ListInstancesResponse
    */
   async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(request, headers, runtime);
   }
@@ -15385,53 +17659,58 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMessagesResponse
    */
-  async listMessagesWithOptions(instanceId: string, topicName: string, request: ListMessagesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMessagesResponse> {
-    Util.validateModel(request);
+  async listMessagesWithOptions(instanceId: string, topicName: string, request: ListMessagesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListMessagesResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["endTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.messageId)) {
+    if (!$dara.isNull(request.messageId)) {
       query["messageId"] = request.messageId;
     }
 
-    if (!Util.isUnset(request.messageKey)) {
+    if (!$dara.isNull(request.messageKey)) {
       query["messageKey"] = request.messageKey;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.scrollId)) {
+    if (!$dara.isNull(request.scrollId)) {
       query["scrollId"] = request.scrollId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["startTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMessages",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}/messages`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/topics/${$dara.URL.percentEncode(topicName)}/messages`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListMessagesResponse>(await this.callApi(params, req, runtime), new ListMessagesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListMessagesResponse>(await this.callApi(params, req, runtime), new ListMessagesResponse({}));
+    } else {
+      return $dara.cast<ListMessagesResponse>(await this.execute(params, req, runtime), new ListMessagesResponse({}));
+    }
+
   }
 
   /**
@@ -15441,7 +17720,7 @@ export default class Client extends OpenApi {
    * @returns ListMessagesResponse
    */
   async listMessages(instanceId: string, topicName: string, request: ListMessagesRequest): Promise<ListMessagesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMessagesWithOptions(instanceId, topicName, request, headers, runtime);
   }
@@ -15454,22 +17733,22 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMetricMetaResponse
    */
-  async listMetricMetaWithOptions(request: ListMetricMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMetricMetaResponse> {
-    Util.validateModel(request);
+  async listMetricMetaWithOptions(request: ListMetricMetaRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListMetricMetaResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListMetricMeta",
       version: "2022-08-01",
       protocol: "HTTPS",
@@ -15480,7 +17759,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListMetricMetaResponse>(await this.callApi(params, req, runtime), new ListMetricMetaResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListMetricMetaResponse>(await this.callApi(params, req, runtime), new ListMetricMetaResponse({}));
+    } else {
+      return $dara.cast<ListMetricMetaResponse>(await this.execute(params, req, runtime), new ListMetricMetaResponse({}));
+    }
+
   }
 
   /**
@@ -15490,7 +17774,7 @@ export default class Client extends OpenApi {
    * @returns ListMetricMetaResponse
    */
   async listMetricMeta(request: ListMetricMetaRequest): Promise<ListMetricMetaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMetricMetaWithOptions(request, headers, runtime);
   }
@@ -15502,11 +17786,11 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRegionsResponse
    */
-  async listRegionsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async listRegionsWithOptions(headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListRegionsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListRegions",
       version: "2022-08-01",
       protocol: "HTTPS",
@@ -15517,7 +17801,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
+    } else {
+      return $dara.cast<ListRegionsResponse>(await this.execute(params, req, runtime), new ListRegionsResponse({}));
+    }
+
   }
 
   /**
@@ -15525,7 +17814,7 @@ export default class Client extends OpenApi {
    * @returns ListRegionsResponse
    */
   async listRegions(): Promise<ListRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listRegionsWithOptions(headers, runtime);
   }
@@ -15538,38 +17827,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["resourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["resourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["resourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2022-08-01",
       protocol: "HTTPS",
@@ -15580,7 +17869,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -15590,7 +17884,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTagResourcesWithOptions(request, headers, runtime);
   }
@@ -15602,22 +17896,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTopicSubscriptionsResponse
    */
-  async listTopicSubscriptionsWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTopicSubscriptionsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async listTopicSubscriptionsWithOptions(instanceId: string, topicName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListTopicSubscriptionsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTopicSubscriptions",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}/subscriptions`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/topics/${$dara.URL.percentEncode(topicName)}/subscriptions`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTopicSubscriptionsResponse>(await this.callApi(params, req, runtime), new ListTopicSubscriptionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTopicSubscriptionsResponse>(await this.callApi(params, req, runtime), new ListTopicSubscriptionsResponse({}));
+    } else {
+      return $dara.cast<ListTopicSubscriptionsResponse>(await this.execute(params, req, runtime), new ListTopicSubscriptionsResponse({}));
+    }
+
   }
 
   /**
@@ -15625,7 +17924,7 @@ export default class Client extends OpenApi {
    * @returns ListTopicSubscriptionsResponse
    */
   async listTopicSubscriptions(instanceId: string, topicName: string): Promise<ListTopicSubscriptionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTopicSubscriptionsWithOptions(instanceId, topicName, headers, runtime);
   }
@@ -15638,47 +17937,52 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTopicsResponse
    */
-  async listTopicsWithOptions(instanceId: string, tmpReq: ListTopicsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTopicsResponse> {
-    Util.validateModel(tmpReq);
+  async listTopicsWithOptions(instanceId: string, tmpReq: ListTopicsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListTopicsResponse> {
+    tmpReq.validate();
     let request = new ListTopicsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.messageTypes)) {
+    if (!$dara.isNull(tmpReq.messageTypes)) {
       request.messageTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messageTypes, "messageTypes", "simple");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.filter)) {
+    if (!$dara.isNull(request.filter)) {
       query["filter"] = request.filter;
     }
 
-    if (!Util.isUnset(request.messageTypesShrink)) {
+    if (!$dara.isNull(request.messageTypesShrink)) {
       query["messageTypes"] = request.messageTypesShrink;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTopics",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/topics`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTopicsResponse>(await this.callApi(params, req, runtime), new ListTopicsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTopicsResponse>(await this.callApi(params, req, runtime), new ListTopicsResponse({}));
+    } else {
+      return $dara.cast<ListTopicsResponse>(await this.execute(params, req, runtime), new ListTopicsResponse({}));
+    }
+
   }
 
   /**
@@ -15688,7 +17992,7 @@ export default class Client extends OpenApi {
    * @returns ListTopicsResponse
    */
   async listTopics(instanceId: string, request: ListTopicsRequest): Promise<ListTopicsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTopicsWithOptions(instanceId, request, headers, runtime);
   }
@@ -15701,53 +18005,58 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTracesResponse
    */
-  async listTracesWithOptions(instanceId: string, topicName: string, request: ListTracesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTracesResponse> {
-    Util.validateModel(request);
+  async listTracesWithOptions(instanceId: string, topicName: string, request: ListTracesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListTracesResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["endTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.messageId)) {
+    if (!$dara.isNull(request.messageId)) {
       query["messageId"] = request.messageId;
     }
 
-    if (!Util.isUnset(request.messageKey)) {
+    if (!$dara.isNull(request.messageKey)) {
       query["messageKey"] = request.messageKey;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["pageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.queryType)) {
+    if (!$dara.isNull(request.queryType)) {
       query["queryType"] = request.queryType;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["startTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTraces",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}/traces`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/topics/${$dara.URL.percentEncode(topicName)}/traces`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTracesResponse>(await this.callApi(params, req, runtime), new ListTracesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTracesResponse>(await this.callApi(params, req, runtime), new ListTracesResponse({}));
+    } else {
+      return $dara.cast<ListTracesResponse>(await this.execute(params, req, runtime), new ListTracesResponse({}));
+    }
+
   }
 
   /**
@@ -15757,7 +18066,7 @@ export default class Client extends OpenApi {
    * @returns ListTracesResponse
    */
   async listTraces(instanceId: string, topicName: string, request: ListTracesRequest): Promise<ListTracesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTracesWithOptions(instanceId, topicName, request, headers, runtime);
   }
@@ -15770,33 +18079,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResetConsumeOffsetResponse
    */
-  async resetConsumeOffsetWithOptions(instanceId: string, consumerGroupId: string, topicName: string, request: ResetConsumeOffsetRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResetConsumeOffsetResponse> {
-    Util.validateModel(request);
+  async resetConsumeOffsetWithOptions(instanceId: string, consumerGroupId: string, topicName: string, request: ResetConsumeOffsetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ResetConsumeOffsetResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.resetTime)) {
+    if (!$dara.isNull(request.resetTime)) {
       body["resetTime"] = request.resetTime;
     }
 
-    if (!Util.isUnset(request.resetType)) {
+    if (!$dara.isNull(request.resetType)) {
       body["resetType"] = request.resetType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ResetConsumeOffset",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}/consumeOffsets/${OpenApiUtil.getEncodeParam(topicName)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/consumerGroups/${$dara.URL.percentEncode(consumerGroupId)}/consumeOffsets/${$dara.URL.percentEncode(topicName)}`,
       method: "PATCH",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ResetConsumeOffsetResponse>(await this.callApi(params, req, runtime), new ResetConsumeOffsetResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ResetConsumeOffsetResponse>(await this.callApi(params, req, runtime), new ResetConsumeOffsetResponse({}));
+    } else {
+      return $dara.cast<ResetConsumeOffsetResponse>(await this.execute(params, req, runtime), new ResetConsumeOffsetResponse({}));
+    }
+
   }
 
   /**
@@ -15806,7 +18120,7 @@ export default class Client extends OpenApi {
    * @returns ResetConsumeOffsetResponse
    */
   async resetConsumeOffset(instanceId: string, consumerGroupId: string, topicName: string, request: ResetConsumeOffsetRequest): Promise<ResetConsumeOffsetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.resetConsumeOffsetWithOptions(instanceId, consumerGroupId, topicName, request, headers, runtime);
   }
@@ -15818,22 +18132,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartDisasterRecoveryItemResponse
    */
-  async startDisasterRecoveryItemWithOptions(planId: string, itemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartDisasterRecoveryItemResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async startDisasterRecoveryItemWithOptions(planId: string, itemId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<StartDisasterRecoveryItemResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartDisasterRecoveryItem",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/disaster_recovery/${OpenApiUtil.getEncodeParam(planId)}/items/${OpenApiUtil.getEncodeParam(itemId)}/start`,
+      pathname: `/disaster_recovery/${$dara.URL.percentEncode(planId)}/items/${$dara.URL.percentEncode(itemId)}/start`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StartDisasterRecoveryItemResponse>(await this.callApi(params, req, runtime), new StartDisasterRecoveryItemResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartDisasterRecoveryItemResponse>(await this.callApi(params, req, runtime), new StartDisasterRecoveryItemResponse({}));
+    } else {
+      return $dara.cast<StartDisasterRecoveryItemResponse>(await this.execute(params, req, runtime), new StartDisasterRecoveryItemResponse({}));
+    }
+
   }
 
   /**
@@ -15841,7 +18160,7 @@ export default class Client extends OpenApi {
    * @returns StartDisasterRecoveryItemResponse
    */
   async startDisasterRecoveryItem(planId: string, itemId: string): Promise<StartDisasterRecoveryItemResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startDisasterRecoveryItemWithOptions(planId, itemId, headers, runtime);
   }
@@ -15853,22 +18172,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopDisasterRecoveryItemResponse
    */
-  async stopDisasterRecoveryItemWithOptions(planId: string, itemId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopDisasterRecoveryItemResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async stopDisasterRecoveryItemWithOptions(planId: string, itemId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<StopDisasterRecoveryItemResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopDisasterRecoveryItem",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/disaster_recovery/${OpenApiUtil.getEncodeParam(planId)}/items/${OpenApiUtil.getEncodeParam(itemId)}/stop`,
+      pathname: `/disaster_recovery/${$dara.URL.percentEncode(planId)}/items/${$dara.URL.percentEncode(itemId)}/stop`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StopDisasterRecoveryItemResponse>(await this.callApi(params, req, runtime), new StopDisasterRecoveryItemResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopDisasterRecoveryItemResponse>(await this.callApi(params, req, runtime), new StopDisasterRecoveryItemResponse({}));
+    } else {
+      return $dara.cast<StopDisasterRecoveryItemResponse>(await this.execute(params, req, runtime), new StopDisasterRecoveryItemResponse({}));
+    }
+
   }
 
   /**
@@ -15876,7 +18200,7 @@ export default class Client extends OpenApi {
    * @returns StopDisasterRecoveryItemResponse
    */
   async stopDisasterRecoveryItem(planId: string, itemId: string): Promise<StopDisasterRecoveryItemResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopDisasterRecoveryItemWithOptions(planId, itemId, headers, runtime);
   }
@@ -15889,30 +18213,30 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["resourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["resourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2022-08-01",
       protocol: "HTTPS",
@@ -15923,7 +18247,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -15933,7 +18262,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.tagResourcesWithOptions(request, headers, runtime);
   }
@@ -15946,34 +18275,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["all"] = request.all;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["resourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["resourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["tagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2022-08-01",
       protocol: "HTTPS",
@@ -15984,7 +18313,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -15994,7 +18328,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.untagResourcesWithOptions(request, headers, runtime);
   }
@@ -16010,41 +18344,46 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateConsumerGroupResponse
    */
-  async updateConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, request: UpdateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateConsumerGroupResponse> {
-    Util.validateModel(request);
+  async updateConsumerGroupWithOptions(instanceId: string, consumerGroupId: string, request: UpdateConsumerGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateConsumerGroupResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.consumeRetryPolicy)) {
+    if (!$dara.isNull(request.consumeRetryPolicy)) {
       body["consumeRetryPolicy"] = request.consumeRetryPolicy;
     }
 
-    if (!Util.isUnset(request.deliveryOrderType)) {
+    if (!$dara.isNull(request.deliveryOrderType)) {
       body["deliveryOrderType"] = request.deliveryOrderType;
     }
 
-    if (!Util.isUnset(request.maxReceiveTps)) {
+    if (!$dara.isNull(request.maxReceiveTps)) {
       body["maxReceiveTps"] = request.maxReceiveTps;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       body["remark"] = request.remark;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateConsumerGroup",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/consumerGroups/${OpenApiUtil.getEncodeParam(consumerGroupId)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/consumerGroups/${$dara.URL.percentEncode(consumerGroupId)}`,
       method: "PATCH",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateConsumerGroupResponse>(await this.callApi(params, req, runtime), new UpdateConsumerGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateConsumerGroupResponse>(await this.callApi(params, req, runtime), new UpdateConsumerGroupResponse({}));
+    } else {
+      return $dara.cast<UpdateConsumerGroupResponse>(await this.execute(params, req, runtime), new UpdateConsumerGroupResponse({}));
+    }
+
   }
 
   /**
@@ -16057,7 +18396,7 @@ export default class Client extends OpenApi {
    * @returns UpdateConsumerGroupResponse
    */
   async updateConsumerGroup(instanceId: string, consumerGroupId: string, request: UpdateConsumerGroupRequest): Promise<UpdateConsumerGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateConsumerGroupWithOptions(instanceId, consumerGroupId, request, headers, runtime);
   }
@@ -16073,45 +18412,50 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateInstanceResponse
    */
-  async updateInstanceWithOptions(instanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceResponse> {
-    Util.validateModel(request);
+  async updateInstanceWithOptions(instanceId: string, request: UpdateInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateInstanceResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.aclInfo)) {
+    if (!$dara.isNull(request.aclInfo)) {
       body["aclInfo"] = request.aclInfo;
     }
 
-    if (!Util.isUnset(request.instanceName)) {
+    if (!$dara.isNull(request.instanceName)) {
       body["instanceName"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.networkInfo)) {
+    if (!$dara.isNull(request.networkInfo)) {
       body["networkInfo"] = request.networkInfo;
     }
 
-    if (!Util.isUnset(request.productInfo)) {
+    if (!$dara.isNull(request.productInfo)) {
       body["productInfo"] = request.productInfo;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       body["remark"] = request.remark;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateInstance",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}`,
       method: "PATCH",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
+    } else {
+      return $dara.cast<UpdateInstanceResponse>(await this.execute(params, req, runtime), new UpdateInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -16124,7 +18468,7 @@ export default class Client extends OpenApi {
    * @returns UpdateInstanceResponse
    */
   async updateInstance(instanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceWithOptions(instanceId, request, headers, runtime);
   }
@@ -16137,33 +18481,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateInstanceAccountResponse
    */
-  async updateInstanceAccountWithOptions(instanceId: string, username: string, request: UpdateInstanceAccountRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceAccountResponse> {
-    Util.validateModel(request);
+  async updateInstanceAccountWithOptions(instanceId: string, username: string, request: UpdateInstanceAccountRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateInstanceAccountResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.accountStatus)) {
+    if (!$dara.isNull(request.accountStatus)) {
       query["accountStatus"] = request.accountStatus;
     }
 
-    if (!Util.isUnset(request.password)) {
+    if (!$dara.isNull(request.password)) {
       query["password"] = request.password;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateInstanceAccount",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/accounts/${OpenApiUtil.getEncodeParam(username)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/accounts/${$dara.URL.percentEncode(username)}`,
       method: "PATCH",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateInstanceAccountResponse>(await this.callApi(params, req, runtime), new UpdateInstanceAccountResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateInstanceAccountResponse>(await this.callApi(params, req, runtime), new UpdateInstanceAccountResponse({}));
+    } else {
+      return $dara.cast<UpdateInstanceAccountResponse>(await this.execute(params, req, runtime), new UpdateInstanceAccountResponse({}));
+    }
+
   }
 
   /**
@@ -16173,7 +18522,7 @@ export default class Client extends OpenApi {
    * @returns UpdateInstanceAccountResponse
    */
   async updateInstanceAccount(instanceId: string, username: string, request: UpdateInstanceAccountRequest): Promise<UpdateInstanceAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceAccountWithOptions(instanceId, username, request, headers, runtime);
   }
@@ -16186,45 +18535,50 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateInstanceAclResponse
    */
-  async updateInstanceAclWithOptions(instanceId: string, username: string, request: UpdateInstanceAclRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceAclResponse> {
-    Util.validateModel(request);
+  async updateInstanceAclWithOptions(instanceId: string, username: string, request: UpdateInstanceAclRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateInstanceAclResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.actions)) {
+    if (!$dara.isNull(request.actions)) {
       body["actions"] = request.actions;
     }
 
-    if (!Util.isUnset(request.decision)) {
+    if (!$dara.isNull(request.decision)) {
       body["decision"] = request.decision;
     }
 
-    if (!Util.isUnset(request.ipWhitelists)) {
+    if (!$dara.isNull(request.ipWhitelists)) {
       body["ipWhitelists"] = request.ipWhitelists;
     }
 
-    if (!Util.isUnset(request.resourceName)) {
+    if (!$dara.isNull(request.resourceName)) {
       body["resourceName"] = request.resourceName;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       body["resourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateInstanceAcl",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/acl/account/${OpenApiUtil.getEncodeParam(username)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/acl/account/${$dara.URL.percentEncode(username)}`,
       method: "PATCH",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateInstanceAclResponse>(await this.callApi(params, req, runtime), new UpdateInstanceAclResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateInstanceAclResponse>(await this.callApi(params, req, runtime), new UpdateInstanceAclResponse({}));
+    } else {
+      return $dara.cast<UpdateInstanceAclResponse>(await this.execute(params, req, runtime), new UpdateInstanceAclResponse({}));
+    }
+
   }
 
   /**
@@ -16234,7 +18588,7 @@ export default class Client extends OpenApi {
    * @returns UpdateInstanceAclResponse
    */
   async updateInstanceAcl(instanceId: string, username: string, request: UpdateInstanceAclRequest): Promise<UpdateInstanceAclResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceAclWithOptions(instanceId, username, request, headers, runtime);
   }
@@ -16247,33 +18601,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateTopicResponse
    */
-  async updateTopicWithOptions(instanceId: string, topicName: string, request: UpdateTopicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTopicResponse> {
-    Util.validateModel(request);
+  async updateTopicWithOptions(instanceId: string, topicName: string, request: UpdateTopicRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateTopicResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.maxSendTps)) {
+    if (!$dara.isNull(request.maxSendTps)) {
       body["maxSendTps"] = request.maxSendTps;
     }
 
-    if (!Util.isUnset(request.remark)) {
+    if (!$dara.isNull(request.remark)) {
       body["remark"] = request.remark;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateTopic",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/topics/${$dara.URL.percentEncode(topicName)}`,
       method: "PATCH",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateTopicResponse>(await this.callApi(params, req, runtime), new UpdateTopicResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateTopicResponse>(await this.callApi(params, req, runtime), new UpdateTopicResponse({}));
+    } else {
+      return $dara.cast<UpdateTopicResponse>(await this.execute(params, req, runtime), new UpdateTopicResponse({}));
+    }
+
   }
 
   /**
@@ -16283,7 +18642,7 @@ export default class Client extends OpenApi {
    * @returns UpdateTopicResponse
    */
   async updateTopic(instanceId: string, topicName: string, request: UpdateTopicRequest): Promise<UpdateTopicResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateTopicWithOptions(instanceId, topicName, request, headers, runtime);
   }
@@ -16296,33 +18655,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VerifyConsumeMessageResponse
    */
-  async verifyConsumeMessageWithOptions(instanceId: string, topicName: string, messageId: string, request: VerifyConsumeMessageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VerifyConsumeMessageResponse> {
-    Util.validateModel(request);
+  async verifyConsumeMessageWithOptions(instanceId: string, topicName: string, messageId: string, request: VerifyConsumeMessageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<VerifyConsumeMessageResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.clientId)) {
+    if (!$dara.isNull(request.clientId)) {
       query["clientId"] = request.clientId;
     }
 
-    if (!Util.isUnset(request.consumerGroupId)) {
+    if (!$dara.isNull(request.consumerGroupId)) {
       query["consumerGroupId"] = request.consumerGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "VerifyConsumeMessage",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}/messages/${OpenApiUtil.getEncodeParam(messageId)}/action/verifyConsume`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/topics/${$dara.URL.percentEncode(topicName)}/messages/${$dara.URL.percentEncode(messageId)}/action/verifyConsume`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<VerifyConsumeMessageResponse>(await this.callApi(params, req, runtime), new VerifyConsumeMessageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<VerifyConsumeMessageResponse>(await this.callApi(params, req, runtime), new VerifyConsumeMessageResponse({}));
+    } else {
+      return $dara.cast<VerifyConsumeMessageResponse>(await this.execute(params, req, runtime), new VerifyConsumeMessageResponse({}));
+    }
+
   }
 
   /**
@@ -16332,7 +18696,7 @@ export default class Client extends OpenApi {
    * @returns VerifyConsumeMessageResponse
    */
   async verifyConsumeMessage(instanceId: string, topicName: string, messageId: string, request: VerifyConsumeMessageRequest): Promise<VerifyConsumeMessageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.verifyConsumeMessageWithOptions(instanceId, topicName, messageId, request, headers, runtime);
   }
@@ -16345,37 +18709,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns VerifySendMessageResponse
    */
-  async verifySendMessageWithOptions(instanceId: string, topicName: string, request: VerifySendMessageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<VerifySendMessageResponse> {
-    Util.validateModel(request);
+  async verifySendMessageWithOptions(instanceId: string, topicName: string, request: VerifySendMessageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<VerifySendMessageResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.message)) {
+    if (!$dara.isNull(request.message)) {
       body["message"] = request.message;
     }
 
-    if (!Util.isUnset(request.messageKey)) {
+    if (!$dara.isNull(request.messageKey)) {
       body["messageKey"] = request.messageKey;
     }
 
-    if (!Util.isUnset(request.messageTag)) {
+    if (!$dara.isNull(request.messageTag)) {
       body["messageTag"] = request.messageTag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "VerifySendMessage",
       version: "2022-08-01",
       protocol: "HTTPS",
-      pathname: `/instances/${OpenApiUtil.getEncodeParam(instanceId)}/topics/${OpenApiUtil.getEncodeParam(topicName)}/messages`,
+      pathname: `/instances/${$dara.URL.percentEncode(instanceId)}/topics/${$dara.URL.percentEncode(topicName)}/messages`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<VerifySendMessageResponse>(await this.callApi(params, req, runtime), new VerifySendMessageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<VerifySendMessageResponse>(await this.callApi(params, req, runtime), new VerifySendMessageResponse({}));
+    } else {
+      return $dara.cast<VerifySendMessageResponse>(await this.execute(params, req, runtime), new VerifySendMessageResponse({}));
+    }
+
   }
 
   /**
@@ -16385,7 +18754,7 @@ export default class Client extends OpenApi {
    * @returns VerifySendMessageResponse
    */
   async verifySendMessage(instanceId: string, topicName: string, request: VerifySendMessageRequest): Promise<VerifySendMessageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.verifySendMessageWithOptions(instanceId, topicName, request, headers, runtime);
   }
