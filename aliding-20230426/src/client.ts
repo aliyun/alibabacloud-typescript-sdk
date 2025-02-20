@@ -5325,6 +5325,79 @@ export class CreateTodoTaskRequestTenantContext extends $dara.Model {
   }
 }
 
+export class CreateTodoTaskRequestActionListParam extends $dara.Model {
+  body?: string;
+  header?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+      header: 'header',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: 'string',
+      header: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  validate() {
+    if(this.header) {
+      $dara.Model.validateMap(this.header);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTodoTaskRequestActionList extends $dara.Model {
+  actionKey?: string;
+  actionType?: number;
+  buttonStyleType?: number;
+  param?: CreateTodoTaskRequestActionListParam;
+  pcUrl?: string;
+  title?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionKey: 'actionKey',
+      actionType: 'actionType',
+      buttonStyleType: 'buttonStyleType',
+      param: 'param',
+      pcUrl: 'pcUrl',
+      title: 'title',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionKey: 'string',
+      actionType: 'number',
+      buttonStyleType: 'number',
+      param: CreateTodoTaskRequestActionListParam,
+      pcUrl: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    if(this.param && typeof (this.param as any).validate === 'function') {
+      (this.param as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTodoTaskRequestContentFieldList extends $dara.Model {
   /**
    * @remarks
@@ -29095,6 +29168,63 @@ export class SubscribeCalendarHeadersAccountContext extends $dara.Model {
   }
 }
 
+export class SubscribeEventHeadersAccountContext extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeEventRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SyncDingTypeHeadersAccountContext extends $dara.Model {
   /**
    * @remarks
@@ -29359,6 +29489,63 @@ export class UnsubscribeCalendarHeadersAccountContext extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnsubscribeEventHeadersAccountContext extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnsubscribeEventRequestTenantContext extends $dara.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
     };
   }
 
@@ -41730,6 +41917,7 @@ export class CreateTodoTaskShrinkHeaders extends $dara.Model {
 
 export class CreateTodoTaskRequest extends $dara.Model {
   tenantContext?: CreateTodoTaskRequestTenantContext;
+  actionList?: CreateTodoTaskRequestActionList[];
   contentFieldList?: CreateTodoTaskRequestContentFieldList[];
   /**
    * @example
@@ -41781,6 +41969,7 @@ export class CreateTodoTaskRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       tenantContext: 'TenantContext',
+      actionList: 'actionList',
       contentFieldList: 'contentFieldList',
       creatorId: 'creatorId',
       description: 'description',
@@ -41800,6 +41989,7 @@ export class CreateTodoTaskRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       tenantContext: CreateTodoTaskRequestTenantContext,
+      actionList: { 'type': 'array', 'itemType': CreateTodoTaskRequestActionList },
       contentFieldList: { 'type': 'array', 'itemType': CreateTodoTaskRequestContentFieldList },
       creatorId: 'string',
       description: 'string',
@@ -41819,6 +42009,9 @@ export class CreateTodoTaskRequest extends $dara.Model {
   validate() {
     if(this.tenantContext && typeof (this.tenantContext as any).validate === 'function') {
       (this.tenantContext as any).validate();
+    }
+    if(Array.isArray(this.actionList)) {
+      $dara.Model.validateArray(this.actionList);
     }
     if(Array.isArray(this.contentFieldList)) {
       $dara.Model.validateArray(this.contentFieldList);
@@ -41845,6 +42038,7 @@ export class CreateTodoTaskRequest extends $dara.Model {
 
 export class CreateTodoTaskShrinkRequest extends $dara.Model {
   tenantContextShrink?: string;
+  actionListShrink?: string;
   contentFieldListShrink?: string;
   /**
    * @example
@@ -41896,6 +42090,7 @@ export class CreateTodoTaskShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       tenantContextShrink: 'TenantContext',
+      actionListShrink: 'actionList',
       contentFieldListShrink: 'contentFieldList',
       creatorId: 'creatorId',
       description: 'description',
@@ -41915,6 +42110,7 @@ export class CreateTodoTaskShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       tenantContextShrink: 'string',
+      actionListShrink: 'string',
       contentFieldListShrink: 'string',
       creatorId: 'string',
       description: 'string',
@@ -80923,6 +81119,235 @@ export class SubscribeCalendarResponse extends $dara.Model {
   }
 }
 
+export class SubscribeEventHeaders extends $dara.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: SubscribeEventHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: SubscribeEventHeadersAccountContext,
+    };
+  }
+
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    if(this.accountContext && typeof (this.accountContext as any).validate === 'function') {
+      (this.accountContext as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeEventShrinkHeaders extends $dara.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeEventRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SPACE
+   */
+  scope?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 233456
+   */
+  scopeId?: string;
+  tenantContext?: SubscribeEventRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      scope: 'Scope',
+      scopeId: 'ScopeId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scope: 'string',
+      scopeId: 'string',
+      tenantContext: SubscribeEventRequestTenantContext,
+    };
+  }
+
+  validate() {
+    if(this.tenantContext && typeof (this.tenantContext as any).validate === 'function') {
+      (this.tenantContext as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeEventShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SPACE
+   */
+  scope?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 233456
+   */
+  scopeId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scope: 'Scope',
+      scopeId: 'ScopeId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scope: 'string',
+      scopeId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeEventResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  success?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      success: 'success',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeEventResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubscribeEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubscribeEventResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SyncDingTypeHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: SyncDingTypeHeadersAccountContext;
@@ -81773,6 +82198,235 @@ export class UnsubscribeCalendarResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UnsubscribeCalendarResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnsubscribeEventHeaders extends $dara.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: UnsubscribeEventHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: UnsubscribeEventHeadersAccountContext,
+    };
+  }
+
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    if(this.accountContext && typeof (this.accountContext as any).validate === 'function') {
+      (this.accountContext as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnsubscribeEventShrinkHeaders extends $dara.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnsubscribeEventRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SPACE
+   */
+  scope?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23456
+   */
+  scopeId?: string;
+  tenantContext?: UnsubscribeEventRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      scope: 'Scope',
+      scopeId: 'ScopeId',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scope: 'string',
+      scopeId: 'string',
+      tenantContext: UnsubscribeEventRequestTenantContext,
+    };
+  }
+
+  validate() {
+    if(this.tenantContext && typeof (this.tenantContext as any).validate === 'function') {
+      (this.tenantContext as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnsubscribeEventShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SPACE
+   */
+  scope?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23456
+   */
+  scopeId?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scope: 'Scope',
+      scopeId: 'ScopeId',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scope: 'string',
+      scopeId: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnsubscribeEventResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  success?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      success: 'success',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnsubscribeEventResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnsubscribeEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnsubscribeEventResponseBody,
     };
   }
 
@@ -90114,6 +90768,10 @@ export default class Client extends OpenApi {
       request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
     }
 
+    if (!$dara.isNull(tmpReq.actionList)) {
+      request.actionListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.actionList, "actionList", "json");
+    }
+
     if (!$dara.isNull(tmpReq.contentFieldList)) {
       request.contentFieldListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contentFieldList, "contentFieldList", "json");
     }
@@ -90142,6 +90800,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.tenantContextShrink)) {
       body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.actionListShrink)) {
+      body["actionList"] = request.actionListShrink;
     }
 
     if (!$dara.isNull(request.contentFieldListShrink)) {
@@ -103834,6 +104496,85 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 订阅文件变更事件
+   * 
+   * @param tmpReq - SubscribeEventRequest
+   * @param tmpHeader - SubscribeEventHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubscribeEventResponse
+   */
+  async subscribeEventWithOptions(tmpReq: SubscribeEventRequest, tmpHeader: SubscribeEventHeaders, runtime: $dara.RuntimeOptions): Promise<SubscribeEventResponse> {
+    tmpReq.validate();
+    let request = new SubscribeEventShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new SubscribeEventShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scope)) {
+      body["Scope"] = request.scope;
+    }
+
+    if (!$dara.isNull(request.scopeId)) {
+      body["ScopeId"] = request.scopeId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubscribeEvent",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/subscribeEvent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SubscribeEventResponse>(await this.callApi(params, req, runtime), new SubscribeEventResponse({}));
+    } else {
+      return $dara.cast<SubscribeEventResponse>(await this.execute(params, req, runtime), new SubscribeEventResponse({}));
+    }
+
+  }
+
+  /**
+   * 订阅文件变更事件
+   * 
+   * @param request - SubscribeEventRequest
+   * @returns SubscribeEventResponse
+   */
+  async subscribeEvent(request: SubscribeEventRequest): Promise<SubscribeEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new SubscribeEventHeaders({ });
+    return await this.subscribeEventWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 同步钉钉账号类型
    * 
    * @param tmpReq - SyncDingTypeRequest
@@ -104163,6 +104904,85 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new UnsubscribeCalendarHeaders({ });
     return await this.unsubscribeCalendarWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 取消订阅文件变更事件
+   * 
+   * @param tmpReq - UnsubscribeEventRequest
+   * @param tmpHeader - UnsubscribeEventHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnsubscribeEventResponse
+   */
+  async unsubscribeEventWithOptions(tmpReq: UnsubscribeEventRequest, tmpHeader: UnsubscribeEventHeaders, runtime: $dara.RuntimeOptions): Promise<UnsubscribeEventResponse> {
+    tmpReq.validate();
+    let request = new UnsubscribeEventShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new UnsubscribeEventShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scope)) {
+      body["Scope"] = request.scope;
+    }
+
+    if (!$dara.isNull(request.scopeId)) {
+      body["ScopeId"] = request.scopeId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnsubscribeEvent",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/documents/unsubscribeEvent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnsubscribeEventResponse>(await this.callApi(params, req, runtime), new UnsubscribeEventResponse({}));
+    } else {
+      return $dara.cast<UnsubscribeEventResponse>(await this.execute(params, req, runtime), new UnsubscribeEventResponse({}));
+    }
+
+  }
+
+  /**
+   * 取消订阅文件变更事件
+   * 
+   * @param request - UnsubscribeEventRequest
+   * @returns UnsubscribeEventResponse
+   */
+  async unsubscribeEvent(request: UnsubscribeEventRequest): Promise<UnsubscribeEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new UnsubscribeEventHeaders({ });
+    return await this.unsubscribeEventWithOptions(request, headers, runtime);
   }
 
   /**
