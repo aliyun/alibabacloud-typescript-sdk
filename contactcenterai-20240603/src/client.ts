@@ -774,6 +774,70 @@ export class CreateTaskResponseBodyData extends $dara.Model {
   }
 }
 
+export class CreateVocabRequestWordWeightList extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  weight?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  word?: string;
+  static names(): { [key: string]: string } {
+    return {
+      weight: 'weight',
+      word: 'word',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      weight: 'number',
+      word: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVocabResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * f3d82*******7
+   */
+  vocabularyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vocabularyId: 'vocabularyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vocabularyId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTaskResultResponseBodyDataAsrResult extends $dara.Model {
   begin?: number;
   emotionValue?: number;
@@ -852,6 +916,158 @@ export class GetTaskResultResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.asrResult)) {
       $dara.Model.validateArray(this.asrResult);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVocabResponseBodyDataWordWeightList extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  weight?: number;
+  word?: string;
+  static names(): { [key: string]: string } {
+    return {
+      weight: 'weight',
+      word: 'word',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      weight: 'number',
+      word: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVocabResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * nls
+   */
+  audioModelCode?: string;
+  description?: string;
+  name?: string;
+  /**
+   * @example
+   * rrbe***jrvrdd
+   */
+  vocabularyId?: string;
+  wordWeightList?: GetVocabResponseBodyDataWordWeightList[];
+  static names(): { [key: string]: string } {
+    return {
+      audioModelCode: 'audioModelCode',
+      description: 'description',
+      name: 'name',
+      vocabularyId: 'vocabularyId',
+      wordWeightList: 'wordWeightList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioModelCode: 'string',
+      description: 'string',
+      name: 'string',
+      vocabularyId: 'string',
+      wordWeightList: { 'type': 'array', 'itemType': GetVocabResponseBodyDataWordWeightList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.wordWeightList)) {
+      $dara.Model.validateArray(this.wordWeightList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVocabResponseBodyDataWordWeightList extends $dara.Model {
+  /**
+   * @example
+   * 3
+   */
+  weight?: number;
+  word?: string;
+  static names(): { [key: string]: string } {
+    return {
+      weight: 'weight',
+      word: 'word',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      weight: 'number',
+      word: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVocabResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * nls
+   */
+  audioModelCode?: string;
+  description?: string;
+  name?: string;
+  /**
+   * @example
+   * dv*****erverve
+   */
+  vocabularyId?: string;
+  wordWeightList?: ListVocabResponseBodyDataWordWeightList[];
+  static names(): { [key: string]: string } {
+    return {
+      audioModelCode: 'audioModelCode',
+      description: 'description',
+      name: 'name',
+      vocabularyId: 'vocabularyId',
+      wordWeightList: 'wordWeightList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioModelCode: 'string',
+      description: 'string',
+      name: 'string',
+      vocabularyId: 'string',
+      wordWeightList: { 'type': 'array', 'itemType': ListVocabResponseBodyDataWordWeightList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.wordWeightList)) {
+      $dara.Model.validateArray(this.wordWeightList);
     }
     super.validate();
   }
@@ -1094,6 +1310,43 @@ export class RunCompletionMessageRequestMessages extends $dara.Model {
     return {
       content: 'string',
       role: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVocabRequestWordWeightList extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
+  weight?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  word?: string;
+  static names(): { [key: string]: string } {
+    return {
+      weight: 'weight',
+      word: 'word',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      weight: 'number',
+      word: 'string',
     };
   }
 
@@ -1601,6 +1854,258 @@ export class CreateTaskResponse extends $dara.Model {
   }
 }
 
+export class CreateVocabRequest extends $dara.Model {
+  /**
+   * @example
+   * nls
+   */
+  audioModelCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  wordWeightList?: CreateVocabRequestWordWeightList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-9****me1
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioModelCode: 'audioModelCode',
+      description: 'description',
+      name: 'name',
+      wordWeightList: 'wordWeightList',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioModelCode: 'string',
+      description: 'string',
+      name: 'string',
+      wordWeightList: { 'type': 'array', 'itemType': CreateVocabRequestWordWeightList },
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.wordWeightList)) {
+      $dara.Model.validateArray(this.wordWeightList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVocabResponseBody extends $dara.Model {
+  data?: CreateVocabResponseBodyData;
+  /**
+   * @example
+   * 968A8634-FA2C-5381-9B3E-*******F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateVocabResponseBodyData,
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVocabResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateVocabResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateVocabResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVocabRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ern*******rve
+   */
+  vocabularyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-0*****jlg8s
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vocabularyId: 'vocabularyId',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vocabularyId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVocabResponseBody extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  data?: string;
+  /**
+   * @example
+   * 968A8634-FA2C-5381-9B3E-*******F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteVocabResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteVocabResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteVocabResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTaskResultRequest extends $dara.Model {
   requiredFieldList?: string[];
   /**
@@ -1721,6 +2226,226 @@ export class GetTaskResultResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetTaskResultResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVocabRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dhbf***rbrdb
+   */
+  vocabularyId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-9864***1
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vocabularyId: 'vocabularyId',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vocabularyId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVocabResponseBody extends $dara.Model {
+  data?: GetVocabResponseBodyData;
+  /**
+   * @example
+   * 968A8634-FA2C-5381-9B3E-*******F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetVocabResponseBodyData,
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVocabResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetVocabResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetVocabResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVocabRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-jhfr****8v
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVocabResponseBody extends $dara.Model {
+  data?: ListVocabResponseBodyData[];
+  /**
+   * @example
+   * 968A8634-FA2C-5381-9B3E-*******F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListVocabResponseBodyData },
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListVocabResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListVocabResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListVocabResponseBody,
     };
   }
 
@@ -2003,6 +2728,134 @@ export class RunCompletionMessageResponse extends $dara.Model {
   }
 }
 
+export class UpdateVocabRequest extends $dara.Model {
+  description?: string;
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dsvsv***dsvv
+   */
+  vocabularyId?: string;
+  wordWeightList?: UpdateVocabRequestWordWeightList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-jhfr****w8v
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      name: 'name',
+      vocabularyId: 'vocabularyId',
+      wordWeightList: 'wordWeightList',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      vocabularyId: 'string',
+      wordWeightList: { 'type': 'array', 'itemType': UpdateVocabRequestWordWeightList },
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.wordWeightList)) {
+      $dara.Model.validateArray(this.wordWeightList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVocabResponseBody extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  data?: string;
+  /**
+   * @example
+   * 968A8634-FA2C-5381-9B3E-*******F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVocabResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVocabResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateVocabResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -2265,6 +3118,126 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建热词
+   * 
+   * @param request - CreateVocabRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVocabResponse
+   */
+  async createVocabWithOptions(request: CreateVocabRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateVocabResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.audioModelCode)) {
+      body["audioModelCode"] = request.audioModelCode;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.wordWeightList)) {
+      body["wordWeightList"] = request.wordWeightList;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVocab",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/vocab/createVocab`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateVocabResponse>(await this.callApi(params, req, runtime), new CreateVocabResponse({}));
+    } else {
+      return $dara.cast<CreateVocabResponse>(await this.execute(params, req, runtime), new CreateVocabResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建热词
+   * 
+   * @param request - CreateVocabRequest
+   * @returns CreateVocabResponse
+   */
+  async createVocab(request: CreateVocabRequest): Promise<CreateVocabResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createVocabWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删删除热词
+   * 
+   * @param request - DeleteVocabRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVocabResponse
+   */
+  async deleteVocabWithOptions(request: DeleteVocabRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteVocabResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.vocabularyId)) {
+      body["vocabularyId"] = request.vocabularyId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVocab",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/vocab/deleteVocab`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteVocabResponse>(await this.callApi(params, req, runtime), new DeleteVocabResponse({}));
+    } else {
+      return $dara.cast<DeleteVocabResponse>(await this.execute(params, req, runtime), new DeleteVocabResponse({}));
+    }
+
+  }
+
+  /**
+   * 删删除热词
+   * 
+   * @param request - DeleteVocabRequest
+   * @returns DeleteVocabResponse
+   */
+  async deleteVocab(request: DeleteVocabRequest): Promise<DeleteVocabResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteVocabWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 语音文件调用大模型获取结果
    * 
    * @param tmpReq - GetTaskResultRequest
@@ -2322,6 +3295,110 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTaskResultWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取热词
+   * 
+   * @param request - GetVocabRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVocabResponse
+   */
+  async getVocabWithOptions(request: GetVocabRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetVocabResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.vocabularyId)) {
+      body["vocabularyId"] = request.vocabularyId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVocab",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/vocab/getVocab`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetVocabResponse>(await this.callApi(params, req, runtime), new GetVocabResponse({}));
+    } else {
+      return $dara.cast<GetVocabResponse>(await this.execute(params, req, runtime), new GetVocabResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取热词
+   * 
+   * @param request - GetVocabRequest
+   * @returns GetVocabResponse
+   */
+  async getVocab(request: GetVocabRequest): Promise<GetVocabResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getVocabWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 热词列表
+   * 
+   * @param request - ListVocabRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVocabResponse
+   */
+  async listVocabWithOptions(request: ListVocabRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListVocabResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVocab",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/vocab/listVocab`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVocabResponse>(await this.callApi(params, req, runtime), new ListVocabResponse({}));
+    } else {
+      return $dara.cast<ListVocabResponse>(await this.execute(params, req, runtime), new ListVocabResponse({}));
+    }
+
+  }
+
+  /**
+   * 热词列表
+   * 
+   * @param request - ListVocabRequest
+   * @returns ListVocabResponse
+   */
+  async listVocab(request: ListVocabRequest): Promise<ListVocabResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listVocabWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2450,6 +3527,72 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runCompletionMessageWithOptions(workspaceId, appId, request, headers, runtime);
+  }
+
+  /**
+   * 修改热词
+   * 
+   * @param request - UpdateVocabRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVocabResponse
+   */
+  async updateVocabWithOptions(request: UpdateVocabRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateVocabResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.vocabularyId)) {
+      body["vocabularyId"] = request.vocabularyId;
+    }
+
+    if (!$dara.isNull(request.wordWeightList)) {
+      body["wordWeightList"] = request.wordWeightList;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVocab",
+      version: "2024-06-03",
+      protocol: "HTTPS",
+      pathname: `/vocab/updateVocab`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateVocabResponse>(await this.callApi(params, req, runtime), new UpdateVocabResponse({}));
+    } else {
+      return $dara.cast<UpdateVocabResponse>(await this.execute(params, req, runtime), new UpdateVocabResponse({}));
+    }
+
+  }
+
+  /**
+   * 修改热词
+   * 
+   * @param request - UpdateVocabRequest
+   * @returns UpdateVocabResponse
+   */
+  async updateVocab(request: UpdateVocabRequest): Promise<UpdateVocabResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateVocabWithOptions(request, headers, runtime);
   }
 
 }
