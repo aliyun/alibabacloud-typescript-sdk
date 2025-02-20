@@ -698,6 +698,7 @@ export class CreateTaskRequestTranscription extends $dara.Model {
    */
   serviceChannel?: number;
   serviceChannelKeywords?: string[];
+  vocabularyId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -715,6 +716,7 @@ export class CreateTaskRequestTranscription extends $dara.Model {
       level: 'level',
       serviceChannel: 'serviceChannel',
       serviceChannelKeywords: 'serviceChannelKeywords',
+      vocabularyId: 'vocabularyId',
       voiceFileUrl: 'voiceFileUrl',
     };
   }
@@ -728,6 +730,7 @@ export class CreateTaskRequestTranscription extends $dara.Model {
       level: 'string',
       serviceChannel: 'number',
       serviceChannelKeywords: { 'type': 'array', 'itemType': 'string' },
+      vocabularyId: 'string',
       voiceFileUrl: 'string',
     };
   }
@@ -2101,7 +2104,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<AnalyzeConversationResponse>(await this.callApi(params, req, runtime), new AnalyzeConversationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AnalyzeConversationResponse>(await this.callApi(params, req, runtime), new AnalyzeConversationResponse({}));
+    } else {
+      return $dara.cast<AnalyzeConversationResponse>(await this.execute(params, req, runtime), new AnalyzeConversationResponse({}));
+    }
+
   }
 
   /**
@@ -2154,7 +2162,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<AnalyzeImageResponse>(await this.callApi(params, req, runtime), new AnalyzeImageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AnalyzeImageResponse>(await this.callApi(params, req, runtime), new AnalyzeImageResponse({}));
+    } else {
+      return $dara.cast<AnalyzeImageResponse>(await this.execute(params, req, runtime), new AnalyzeImageResponse({}));
+    }
+
   }
 
   /**
@@ -2231,7 +2244,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
+    } else {
+      return $dara.cast<CreateTaskResponse>(await this.execute(params, req, runtime), new CreateTaskResponse({}));
+    }
+
   }
 
   /**
@@ -2286,7 +2304,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<GetTaskResultResponse>(await this.callApi(params, req, runtime), new GetTaskResultResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTaskResultResponse>(await this.callApi(params, req, runtime), new GetTaskResultResponse({}));
+    } else {
+      return $dara.cast<GetTaskResultResponse>(await this.execute(params, req, runtime), new GetTaskResultResponse({}));
+    }
+
   }
 
   /**
@@ -2351,7 +2374,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<RunCompletionResponse>(await this.callApi(params, req, runtime), new RunCompletionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RunCompletionResponse>(await this.callApi(params, req, runtime), new RunCompletionResponse({}));
+    } else {
+      return $dara.cast<RunCompletionResponse>(await this.execute(params, req, runtime), new RunCompletionResponse({}));
+    }
+
   }
 
   /**
@@ -2404,7 +2432,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $dara.cast<RunCompletionMessageResponse>(await this.callApi(params, req, runtime), new RunCompletionMessageResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RunCompletionMessageResponse>(await this.callApi(params, req, runtime), new RunCompletionMessageResponse({}));
+    } else {
+      return $dara.cast<RunCompletionMessageResponse>(await this.execute(params, req, runtime), new RunCompletionMessageResponse({}));
+    }
+
   }
 
   /**
