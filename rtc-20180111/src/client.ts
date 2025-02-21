@@ -7698,6 +7698,7 @@ export class StartCloudRecordRequestPanes extends $dara.Model {
    * 0
    */
   paneId?: number;
+  reservePaneForOfflineUser?: boolean;
   /**
    * @remarks
    * source
@@ -7712,15 +7713,22 @@ export class StartCloudRecordRequestPanes extends $dara.Model {
    */
   sourceType?: string;
   texts?: StartCloudRecordRequestPanesTexts[];
+  /**
+   * @example
+   * cameraFirst
+   */
+  videoOrder?: string;
   whiteboard?: StartCloudRecordRequestPanesWhiteboard;
   static names(): { [key: string]: string } {
     return {
       images: 'Images',
       paneCropMode: 'PaneCropMode',
       paneId: 'PaneId',
+      reservePaneForOfflineUser: 'ReservePaneForOfflineUser',
       source: 'Source',
       sourceType: 'SourceType',
       texts: 'Texts',
+      videoOrder: 'VideoOrder',
       whiteboard: 'Whiteboard',
     };
   }
@@ -7730,9 +7738,11 @@ export class StartCloudRecordRequestPanes extends $dara.Model {
       images: { 'type': 'array', 'itemType': StartCloudRecordRequestPanesImages },
       paneCropMode: 'number',
       paneId: 'number',
+      reservePaneForOfflineUser: 'boolean',
       source: 'string',
       sourceType: 'string',
       texts: { 'type': 'array', 'itemType': StartCloudRecordRequestPanesTexts },
+      videoOrder: 'string',
       whiteboard: StartCloudRecordRequestPanesWhiteboard,
     };
   }
@@ -7818,6 +7828,11 @@ export class StartCloudRecordRequestStorageConfig extends $dara.Model {
    */
   bucket?: string;
   /**
+   * @example
+   * https://aliyuns.dalian.oss.com
+   */
+  endpoint?: string;
+  /**
    * @remarks
    * region
    * 
@@ -7851,6 +7866,7 @@ export class StartCloudRecordRequestStorageConfig extends $dara.Model {
     return {
       accessKey: 'AccessKey',
       bucket: 'Bucket',
+      endpoint: 'Endpoint',
       region: 'Region',
       secretKey: 'SecretKey',
       vendor: 'Vendor',
@@ -7861,6 +7877,7 @@ export class StartCloudRecordRequestStorageConfig extends $dara.Model {
     return {
       accessKey: 'string',
       bucket: 'string',
+      endpoint: 'string',
       region: 'number',
       secretKey: 'string',
       vendor: 'number',
@@ -8757,6 +8774,7 @@ export class StartCloudRecordShrinkRequestPanes extends $dara.Model {
    * 0
    */
   paneId?: number;
+  reservePaneForOfflineUser?: boolean;
   /**
    * @remarks
    * source
@@ -8771,15 +8789,22 @@ export class StartCloudRecordShrinkRequestPanes extends $dara.Model {
    */
   sourceType?: string;
   texts?: StartCloudRecordShrinkRequestPanesTexts[];
+  /**
+   * @example
+   * cameraFirst
+   */
+  videoOrder?: string;
   whiteboard?: StartCloudRecordShrinkRequestPanesWhiteboard;
   static names(): { [key: string]: string } {
     return {
       images: 'Images',
       paneCropMode: 'PaneCropMode',
       paneId: 'PaneId',
+      reservePaneForOfflineUser: 'ReservePaneForOfflineUser',
       source: 'Source',
       sourceType: 'SourceType',
       texts: 'Texts',
+      videoOrder: 'VideoOrder',
       whiteboard: 'Whiteboard',
     };
   }
@@ -8789,9 +8814,11 @@ export class StartCloudRecordShrinkRequestPanes extends $dara.Model {
       images: { 'type': 'array', 'itemType': StartCloudRecordShrinkRequestPanesImages },
       paneCropMode: 'number',
       paneId: 'number',
+      reservePaneForOfflineUser: 'boolean',
       source: 'string',
       sourceType: 'string',
       texts: { 'type': 'array', 'itemType': StartCloudRecordShrinkRequestPanesTexts },
+      videoOrder: 'string',
       whiteboard: StartCloudRecordShrinkRequestPanesWhiteboard,
     };
   }
@@ -8877,6 +8904,11 @@ export class StartCloudRecordShrinkRequestStorageConfig extends $dara.Model {
    */
   bucket?: string;
   /**
+   * @example
+   * https://aliyuns.dalian.oss.com
+   */
+  endpoint?: string;
+  /**
    * @remarks
    * region
    * 
@@ -8910,6 +8942,7 @@ export class StartCloudRecordShrinkRequestStorageConfig extends $dara.Model {
     return {
       accessKey: 'AccessKey',
       bucket: 'Bucket',
+      endpoint: 'Endpoint',
       region: 'Region',
       secretKey: 'SecretKey',
       vendor: 'Vendor',
@@ -8920,6 +8953,7 @@ export class StartCloudRecordShrinkRequestStorageConfig extends $dara.Model {
     return {
       accessKey: 'string',
       bucket: 'string',
+      endpoint: 'string',
       region: 'number',
       secretKey: 'string',
       vendor: 'number',
@@ -10558,6 +10592,7 @@ export class StartStreamingOutRequestPanes extends $dara.Model {
    * 0
    */
   paneId?: string;
+  reservePaneForOfflineUser?: boolean;
   /**
    * @example
    * 1811****
@@ -10569,15 +10604,22 @@ export class StartStreamingOutRequestPanes extends $dara.Model {
    */
   sourceType?: string;
   texts?: StartStreamingOutRequestPanesTexts[];
+  /**
+   * @example
+   * cameraFirst
+   */
+  videoOrder?: string;
   whiteboard?: StartStreamingOutRequestPanesWhiteboard;
   static names(): { [key: string]: string } {
     return {
       images: 'Images',
       paneCropMode: 'PaneCropMode',
       paneId: 'PaneId',
+      reservePaneForOfflineUser: 'ReservePaneForOfflineUser',
       source: 'Source',
       sourceType: 'SourceType',
       texts: 'Texts',
+      videoOrder: 'VideoOrder',
       whiteboard: 'Whiteboard',
     };
   }
@@ -10587,9 +10629,11 @@ export class StartStreamingOutRequestPanes extends $dara.Model {
       images: { 'type': 'array', 'itemType': StartStreamingOutRequestPanesImages },
       paneCropMode: 'number',
       paneId: 'string',
+      reservePaneForOfflineUser: 'boolean',
       source: 'string',
       sourceType: 'string',
       texts: { 'type': 'array', 'itemType': StartStreamingOutRequestPanesTexts },
+      videoOrder: 'string',
       whiteboard: StartStreamingOutRequestPanesWhiteboard,
     };
   }
@@ -11532,6 +11576,7 @@ export class StartStreamingOutShrinkRequestPanes extends $dara.Model {
    * 0
    */
   paneId?: string;
+  reservePaneForOfflineUser?: boolean;
   /**
    * @example
    * 1811****
@@ -11543,15 +11588,22 @@ export class StartStreamingOutShrinkRequestPanes extends $dara.Model {
    */
   sourceType?: string;
   texts?: StartStreamingOutShrinkRequestPanesTexts[];
+  /**
+   * @example
+   * cameraFirst
+   */
+  videoOrder?: string;
   whiteboard?: StartStreamingOutShrinkRequestPanesWhiteboard;
   static names(): { [key: string]: string } {
     return {
       images: 'Images',
       paneCropMode: 'PaneCropMode',
       paneId: 'PaneId',
+      reservePaneForOfflineUser: 'ReservePaneForOfflineUser',
       source: 'Source',
       sourceType: 'SourceType',
       texts: 'Texts',
+      videoOrder: 'VideoOrder',
       whiteboard: 'Whiteboard',
     };
   }
@@ -11561,9 +11613,11 @@ export class StartStreamingOutShrinkRequestPanes extends $dara.Model {
       images: { 'type': 'array', 'itemType': StartStreamingOutShrinkRequestPanesImages },
       paneCropMode: 'number',
       paneId: 'string',
+      reservePaneForOfflineUser: 'boolean',
       source: 'string',
       sourceType: 'string',
       texts: { 'type': 'array', 'itemType': StartStreamingOutShrinkRequestPanesTexts },
+      videoOrder: 'string',
       whiteboard: StartStreamingOutShrinkRequestPanesWhiteboard,
     };
   }
@@ -12573,6 +12627,7 @@ export class UpdateCloudRecordRequestPanes extends $dara.Model {
    * 0
    */
   paneId?: number;
+  reservePaneForOfflineUser?: boolean;
   /**
    * @example
    * 22
@@ -12584,15 +12639,22 @@ export class UpdateCloudRecordRequestPanes extends $dara.Model {
    */
   sourceType?: string;
   texts?: UpdateCloudRecordRequestPanesTexts[];
+  /**
+   * @example
+   * cameraFirst
+   */
+  videoOrder?: string;
   whiteboard?: UpdateCloudRecordRequestPanesWhiteboard;
   static names(): { [key: string]: string } {
     return {
       images: 'Images',
       paneCropMode: 'PaneCropMode',
       paneId: 'PaneId',
+      reservePaneForOfflineUser: 'ReservePaneForOfflineUser',
       source: 'Source',
       sourceType: 'SourceType',
       texts: 'Texts',
+      videoOrder: 'VideoOrder',
       whiteboard: 'Whiteboard',
     };
   }
@@ -12602,9 +12664,11 @@ export class UpdateCloudRecordRequestPanes extends $dara.Model {
       images: { 'type': 'array', 'itemType': UpdateCloudRecordRequestPanesImages },
       paneCropMode: 'number',
       paneId: 'number',
+      reservePaneForOfflineUser: 'boolean',
       source: 'string',
       sourceType: 'string',
       texts: { 'type': 'array', 'itemType': UpdateCloudRecordRequestPanesTexts },
+      videoOrder: 'string',
       whiteboard: UpdateCloudRecordRequestPanesWhiteboard,
     };
   }
@@ -13506,6 +13570,7 @@ export class UpdateCloudRecordShrinkRequestPanes extends $dara.Model {
    * 0
    */
   paneId?: number;
+  reservePaneForOfflineUser?: boolean;
   /**
    * @example
    * 22
@@ -13517,15 +13582,22 @@ export class UpdateCloudRecordShrinkRequestPanes extends $dara.Model {
    */
   sourceType?: string;
   texts?: UpdateCloudRecordShrinkRequestPanesTexts[];
+  /**
+   * @example
+   * cameraFirst
+   */
+  videoOrder?: string;
   whiteboard?: UpdateCloudRecordShrinkRequestPanesWhiteboard;
   static names(): { [key: string]: string } {
     return {
       images: 'Images',
       paneCropMode: 'PaneCropMode',
       paneId: 'PaneId',
+      reservePaneForOfflineUser: 'ReservePaneForOfflineUser',
       source: 'Source',
       sourceType: 'SourceType',
       texts: 'Texts',
+      videoOrder: 'VideoOrder',
       whiteboard: 'Whiteboard',
     };
   }
@@ -13535,9 +13607,11 @@ export class UpdateCloudRecordShrinkRequestPanes extends $dara.Model {
       images: { 'type': 'array', 'itemType': UpdateCloudRecordShrinkRequestPanesImages },
       paneCropMode: 'number',
       paneId: 'number',
+      reservePaneForOfflineUser: 'boolean',
       source: 'string',
       sourceType: 'string',
       texts: { 'type': 'array', 'itemType': UpdateCloudRecordShrinkRequestPanesTexts },
+      videoOrder: 'string',
       whiteboard: UpdateCloudRecordShrinkRequestPanesWhiteboard,
     };
   }
@@ -15360,6 +15434,7 @@ export class UpdateStreamingOutRequestPanes extends $dara.Model {
    * 1
    */
   paneId?: number;
+  reservePaneForOfflineUser?: boolean;
   /**
    * @example
    * 22
@@ -15371,15 +15446,22 @@ export class UpdateStreamingOutRequestPanes extends $dara.Model {
    */
   sourceType?: string;
   texts?: UpdateStreamingOutRequestPanesTexts[];
+  /**
+   * @example
+   * cameraFirst
+   */
+  videoOrder?: string;
   whiteboard?: UpdateStreamingOutRequestPanesWhiteboard;
   static names(): { [key: string]: string } {
     return {
       images: 'Images',
       paneCropMode: 'PaneCropMode',
       paneId: 'PaneId',
+      reservePaneForOfflineUser: 'ReservePaneForOfflineUser',
       source: 'Source',
       sourceType: 'SourceType',
       texts: 'Texts',
+      videoOrder: 'VideoOrder',
       whiteboard: 'Whiteboard',
     };
   }
@@ -15389,9 +15471,11 @@ export class UpdateStreamingOutRequestPanes extends $dara.Model {
       images: { 'type': 'array', 'itemType': UpdateStreamingOutRequestPanesImages },
       paneCropMode: 'number',
       paneId: 'number',
+      reservePaneForOfflineUser: 'boolean',
       source: 'string',
       sourceType: 'string',
       texts: { 'type': 'array', 'itemType': UpdateStreamingOutRequestPanesTexts },
+      videoOrder: 'string',
       whiteboard: UpdateStreamingOutRequestPanesWhiteboard,
     };
   }
@@ -16290,6 +16374,7 @@ export class UpdateStreamingOutShrinkRequestPanes extends $dara.Model {
    * 1
    */
   paneId?: number;
+  reservePaneForOfflineUser?: boolean;
   /**
    * @example
    * 22
@@ -16301,15 +16386,22 @@ export class UpdateStreamingOutShrinkRequestPanes extends $dara.Model {
    */
   sourceType?: string;
   texts?: UpdateStreamingOutShrinkRequestPanesTexts[];
+  /**
+   * @example
+   * cameraFirst
+   */
+  videoOrder?: string;
   whiteboard?: UpdateStreamingOutShrinkRequestPanesWhiteboard;
   static names(): { [key: string]: string } {
     return {
       images: 'Images',
       paneCropMode: 'PaneCropMode',
       paneId: 'PaneId',
+      reservePaneForOfflineUser: 'ReservePaneForOfflineUser',
       source: 'Source',
       sourceType: 'SourceType',
       texts: 'Texts',
+      videoOrder: 'VideoOrder',
       whiteboard: 'Whiteboard',
     };
   }
@@ -16319,9 +16411,11 @@ export class UpdateStreamingOutShrinkRequestPanes extends $dara.Model {
       images: { 'type': 'array', 'itemType': UpdateStreamingOutShrinkRequestPanesImages },
       paneCropMode: 'number',
       paneId: 'number',
+      reservePaneForOfflineUser: 'boolean',
       source: 'string',
       sourceType: 'string',
       texts: { 'type': 'array', 'itemType': UpdateStreamingOutShrinkRequestPanesTexts },
+      videoOrder: 'string',
       whiteboard: UpdateStreamingOutShrinkRequestPanesWhiteboard,
     };
   }
@@ -28359,6 +28453,7 @@ export class StartCloudRecordRequest extends $dara.Model {
    */
   panes?: StartCloudRecordRequestPanes[];
   regionColor?: StartCloudRecordRequestRegionColor;
+  reservePaneForNoCameraUser?: boolean;
   /**
    * @remarks
    * storageConfig
@@ -28396,6 +28491,7 @@ export class StartCloudRecordRequest extends $dara.Model {
       layoutSpecifiedUsers: 'LayoutSpecifiedUsers',
       panes: 'Panes',
       regionColor: 'RegionColor',
+      reservePaneForNoCameraUser: 'ReservePaneForNoCameraUser',
       storageConfig: 'StorageConfig',
       taskId: 'TaskId',
       templateId: 'TemplateId',
@@ -28414,6 +28510,7 @@ export class StartCloudRecordRequest extends $dara.Model {
       layoutSpecifiedUsers: StartCloudRecordRequestLayoutSpecifiedUsers,
       panes: { 'type': 'array', 'itemType': StartCloudRecordRequestPanes },
       regionColor: StartCloudRecordRequestRegionColor,
+      reservePaneForNoCameraUser: 'boolean',
       storageConfig: StartCloudRecordRequestStorageConfig,
       taskId: 'string',
       templateId: 'string',
@@ -28490,6 +28587,7 @@ export class StartCloudRecordShrinkRequest extends $dara.Model {
    */
   panes?: StartCloudRecordShrinkRequestPanes[];
   regionColor?: StartCloudRecordShrinkRequestRegionColor;
+  reservePaneForNoCameraUser?: boolean;
   /**
    * @remarks
    * storageConfig
@@ -28527,6 +28625,7 @@ export class StartCloudRecordShrinkRequest extends $dara.Model {
       layoutSpecifiedUsersShrink: 'LayoutSpecifiedUsers',
       panes: 'Panes',
       regionColor: 'RegionColor',
+      reservePaneForNoCameraUser: 'ReservePaneForNoCameraUser',
       storageConfig: 'StorageConfig',
       taskId: 'TaskId',
       templateId: 'TemplateId',
@@ -28545,6 +28644,7 @@ export class StartCloudRecordShrinkRequest extends $dara.Model {
       layoutSpecifiedUsersShrink: 'string',
       panes: { 'type': 'array', 'itemType': StartCloudRecordShrinkRequestPanes },
       regionColor: StartCloudRecordShrinkRequestRegionColor,
+      reservePaneForNoCameraUser: 'boolean',
       storageConfig: StartCloudRecordShrinkRequestStorageConfig,
       taskId: 'string',
       templateId: 'string',
@@ -29234,6 +29334,13 @@ export class StartStreamingOutRequest extends $dara.Model {
   layoutSpecifiedUsers?: StartStreamingOutRequestLayoutSpecifiedUsers;
   panes?: StartStreamingOutRequestPanes[];
   regionColor?: StartStreamingOutRequestRegionColor;
+  reservePaneForNoCameraUser?: boolean;
+  startWithoutChannel?: boolean;
+  /**
+   * @example
+   * 30
+   */
+  startWithoutChannelWaitTime?: number;
   /**
    * @example
    * 123
@@ -29267,6 +29374,9 @@ export class StartStreamingOutRequest extends $dara.Model {
       layoutSpecifiedUsers: 'LayoutSpecifiedUsers',
       panes: 'Panes',
       regionColor: 'RegionColor',
+      reservePaneForNoCameraUser: 'ReservePaneForNoCameraUser',
+      startWithoutChannel: 'StartWithoutChannel',
+      startWithoutChannelWaitTime: 'StartWithoutChannelWaitTime',
       taskId: 'TaskId',
       templateId: 'TemplateId',
       texts: 'Texts',
@@ -29285,6 +29395,9 @@ export class StartStreamingOutRequest extends $dara.Model {
       layoutSpecifiedUsers: StartStreamingOutRequestLayoutSpecifiedUsers,
       panes: { 'type': 'array', 'itemType': StartStreamingOutRequestPanes },
       regionColor: StartStreamingOutRequestRegionColor,
+      reservePaneForNoCameraUser: 'boolean',
+      startWithoutChannel: 'boolean',
+      startWithoutChannelWaitTime: 'number',
       taskId: 'string',
       templateId: 'string',
       texts: { 'type': 'array', 'itemType': StartStreamingOutRequestTexts },
@@ -29350,6 +29463,13 @@ export class StartStreamingOutShrinkRequest extends $dara.Model {
   layoutSpecifiedUsersShrink?: string;
   panes?: StartStreamingOutShrinkRequestPanes[];
   regionColor?: StartStreamingOutShrinkRequestRegionColor;
+  reservePaneForNoCameraUser?: boolean;
+  startWithoutChannel?: boolean;
+  /**
+   * @example
+   * 30
+   */
+  startWithoutChannelWaitTime?: number;
   /**
    * @example
    * 123
@@ -29383,6 +29503,9 @@ export class StartStreamingOutShrinkRequest extends $dara.Model {
       layoutSpecifiedUsersShrink: 'LayoutSpecifiedUsers',
       panes: 'Panes',
       regionColor: 'RegionColor',
+      reservePaneForNoCameraUser: 'ReservePaneForNoCameraUser',
+      startWithoutChannel: 'StartWithoutChannel',
+      startWithoutChannelWaitTime: 'StartWithoutChannelWaitTime',
       taskId: 'TaskId',
       templateId: 'TemplateId',
       texts: 'Texts',
@@ -29401,6 +29524,9 @@ export class StartStreamingOutShrinkRequest extends $dara.Model {
       layoutSpecifiedUsersShrink: 'string',
       panes: { 'type': 'array', 'itemType': StartStreamingOutShrinkRequestPanes },
       regionColor: StartStreamingOutShrinkRequestRegionColor,
+      reservePaneForNoCameraUser: 'boolean',
+      startWithoutChannel: 'boolean',
+      startWithoutChannelWaitTime: 'number',
       taskId: 'string',
       templateId: 'string',
       texts: { 'type': 'array', 'itemType': StartStreamingOutShrinkRequestTexts },
@@ -36718,6 +36844,10 @@ export default class Client extends OpenApi {
       query["RegionColor"] = request.regionColor;
     }
 
+    if (!$dara.isNull(request.reservePaneForNoCameraUser)) {
+      query["ReservePaneForNoCameraUser"] = request.reservePaneForNoCameraUser;
+    }
+
     if (!$dara.isNull(request.storageConfig)) {
       query["StorageConfig"] = request.storageConfig;
     }
@@ -37102,6 +37232,18 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionColor)) {
       query["RegionColor"] = request.regionColor;
+    }
+
+    if (!$dara.isNull(request.reservePaneForNoCameraUser)) {
+      query["ReservePaneForNoCameraUser"] = request.reservePaneForNoCameraUser;
+    }
+
+    if (!$dara.isNull(request.startWithoutChannel)) {
+      query["StartWithoutChannel"] = request.startWithoutChannel;
+    }
+
+    if (!$dara.isNull(request.startWithoutChannelWaitTime)) {
+      query["StartWithoutChannelWaitTime"] = request.startWithoutChannelWaitTime;
     }
 
     if (!$dara.isNull(request.taskId)) {
