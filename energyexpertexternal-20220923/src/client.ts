@@ -189,6 +189,176 @@ export class OrgEmissionModuleEmissionList extends $dara.Model {
   }
 }
 
+export class AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence extends $dara.Model {
+  /**
+   * @remarks
+   * Key confidence
+   * 
+   * @example
+   * 0.9994202852249146
+   */
+  keyConfidence?: number;
+  /**
+   * @remarks
+   * Value confidence
+   * 
+   * @example
+   * 0.9794202852249146
+   */
+  valueConfidence?: number;
+  static names(): { [key: string]: string } {
+    return {
+      keyConfidence: 'keyConfidence',
+      valueConfidence: 'valueConfidence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyConfidence: 'number',
+      valueConfidence: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeVlRealtimeResponseBodyDataKvListInfoContext extends $dara.Model {
+  /**
+   * @remarks
+   * Confidence
+   */
+  confidence?: AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence;
+  /**
+   * @remarks
+   * Key recall information details
+   */
+  key?: ContentItem[];
+  /**
+   * @remarks
+   * Value recall information details
+   */
+  value?: ContentItem[];
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'confidence',
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: AnalyzeVlRealtimeResponseBodyDataKvListInfoContextConfidence,
+      key: { 'type': 'array', 'itemType': ContentItem },
+      value: { 'type': 'array', 'itemType': ContentItem },
+    };
+  }
+
+  validate() {
+    if(this.confidence && typeof (this.confidence as any).validate === 'function') {
+      (this.confidence as any).validate();
+    }
+    if(Array.isArray(this.key)) {
+      $dara.Model.validateArray(this.key);
+    }
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeVlRealtimeResponseBodyDataKvListInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Recall content
+   */
+  context?: AnalyzeVlRealtimeResponseBodyDataKvListInfoContext;
+  /**
+   * @remarks
+   * Field Key name
+   * 
+   * @example
+   * username
+   */
+  keyName?: string;
+  /**
+   * @remarks
+   * Field key value
+   * 
+   * @example
+   * bob
+   */
+  keyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      context: 'context',
+      keyName: 'keyName',
+      keyValue: 'keyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      context: AnalyzeVlRealtimeResponseBodyDataKvListInfoContext,
+      keyName: 'string',
+      keyValue: 'string',
+    };
+  }
+
+  validate() {
+    if(this.context && typeof (this.context as any).validate === 'function') {
+      (this.context as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeVlRealtimeResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Document parsing result details
+   */
+  kvListInfo?: AnalyzeVlRealtimeResponseBodyDataKvListInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      kvListInfo: 'kvListInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kvListInfo: { 'type': 'array', 'itemType': AnalyzeVlRealtimeResponseBodyDataKvListInfo },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.kvListInfo)) {
+      $dara.Model.validateArray(this.kvListInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EditProhibitedDevicesRequestHvacDeviceConfigVOList extends $dara.Model {
   /**
    * @example
@@ -4835,6 +5005,205 @@ export class OrgEmission extends $dara.Model {
     }
     if(Array.isArray(this.subEmissionItems)) {
       $dara.Model.validateArray(this.subEmissionItems);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeVlRealtimeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Choose one of fileUrl or fileUrlObject:
+   * 
+   * - fileUrl: Use in the form of a document URL, for a single document (supports up to 1000 pages and 100MB)
+   * 
+   * - fileUrlObject: Use when calling the interface with local file upload, for a single document (supports up to 1000 pages and 100 MB)
+   * 
+   * > The relationship between file parsing methods and supported document types
+   * > - Long Text RAG: Supports pdf, doc/docx, up to 1000 pages
+   * > - Image Processing: Supports pdf, jpg, jpeg, png, bmp
+   * > - Long Text Understanding: Supports pdf, doc/docx, xls/xlsx
+   * 
+   * @example
+   * fileUrl：https://example.com/example.pdf
+   * fileUrlObject：本地文件生成的FileInputStream
+   */
+  fileUrl?: string;
+  /**
+   * @remarks
+   * Language, parameters that can be passed
+   * - zh-CN: Chinese (default)
+   * - en-US: English
+   * 
+   * @example
+   * zh-CN
+   */
+  language?: string;
+  /**
+   * @remarks
+   * A unique parsing template ID used to specify the key-value pairs to be extracted from the document. You need to log in to the template management page, configure the template, and then get the corresponding template ID.
+   * 
+   * @example
+   * 572d24k0c95a
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'fileUrl',
+      language: 'language',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      language: 'string',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeVlRealtimeAdvanceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Choose one of fileUrl or fileUrlObject:
+   * 
+   * - fileUrl: Use in the form of a document URL, for a single document (supports up to 1000 pages and 100MB)
+   * 
+   * - fileUrlObject: Use when calling the interface with local file upload, for a single document (supports up to 1000 pages and 100 MB)
+   * 
+   * > The relationship between file parsing methods and supported document types
+   * > - Long Text RAG: Supports pdf, doc/docx, up to 1000 pages
+   * > - Image Processing: Supports pdf, jpg, jpeg, png, bmp
+   * > - Long Text Understanding: Supports pdf, doc/docx, xls/xlsx
+   * 
+   * @example
+   * fileUrl：https://example.com/example.pdf
+   * fileUrlObject：本地文件生成的FileInputStream
+   */
+  fileUrlObject?: Readable;
+  /**
+   * @remarks
+   * Language, parameters that can be passed
+   * - zh-CN: Chinese (default)
+   * - en-US: English
+   * 
+   * @example
+   * zh-CN
+   */
+  language?: string;
+  /**
+   * @remarks
+   * A unique parsing template ID used to specify the key-value pairs to be extracted from the document. You need to log in to the template management page, configure the template, and then get the corresponding template ID.
+   * 
+   * @example
+   * 572d24k0c95a
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrlObject: 'fileUrl',
+      language: 'language',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrlObject: 'Readable',
+      language: 'string',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeVlRealtimeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Return result.
+   */
+  data?: AnalyzeVlRealtimeResponseBodyData;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 83A5A7DD-8974-5769-952E-590A97BEA34E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: AnalyzeVlRealtimeResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeVlRealtimeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AnalyzeVlRealtimeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AnalyzeVlRealtimeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
     }
     super.validate();
   }
@@ -9771,6 +10140,145 @@ export default class Client extends OpenApi {
     }
 
     return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * Get Document Results
+   * 
+   * @remarks
+   * Users obtain real-time VL results by uploading a document URL.
+   * 
+   * @param request - AnalyzeVlRealtimeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AnalyzeVlRealtimeResponse
+   */
+  async analyzeVlRealtimeWithOptions(request: AnalyzeVlRealtimeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<AnalyzeVlRealtimeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileUrl)) {
+      query["fileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["templateId"] = request.templateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AnalyzeVlRealtime",
+      version: "2022-09-23",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aidoc/document/analyzeVlRealtime`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AnalyzeVlRealtimeResponse>(await this.callApi(params, req, runtime), new AnalyzeVlRealtimeResponse({}));
+    } else {
+      return $dara.cast<AnalyzeVlRealtimeResponse>(await this.execute(params, req, runtime), new AnalyzeVlRealtimeResponse({}));
+    }
+
+  }
+
+  /**
+   * Get Document Results
+   * 
+   * @remarks
+   * Users obtain real-time VL results by uploading a document URL.
+   * 
+   * @param request - AnalyzeVlRealtimeRequest
+   * @returns AnalyzeVlRealtimeResponse
+   */
+  async analyzeVlRealtime(request: AnalyzeVlRealtimeRequest): Promise<AnalyzeVlRealtimeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.analyzeVlRealtimeWithOptions(request, headers, runtime);
+  }
+
+  async analyzeVlRealtimeAdvance(request: AnalyzeVlRealtimeAdvanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<AnalyzeVlRealtimeResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "energyExpertExternal",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = new OSS(ossConfig);
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let analyzeVlRealtimeReq = new AnalyzeVlRealtimeRequest({ });
+    OpenApiUtil.convert(request, analyzeVlRealtimeReq);
+    if (!$dara.isNull(request.fileUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.body.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.body.endpoint, authResponse.body.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.body.objectKey,
+        content: request.fileUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.body.accessKeyId,
+        policy: authResponse.body.encodedPolicy,
+        signature: authResponse.body.signature,
+        key: authResponse.body.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.body.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      analyzeVlRealtimeReq.fileUrl = `http://${authResponse.body.bucket}.${authResponse.body.endpoint}/${authResponse.body.objectKey}`;
+    }
+
+    let analyzeVlRealtimeResp = await this.analyzeVlRealtimeWithOptions(analyzeVlRealtimeReq, headers, runtime);
+    return analyzeVlRealtimeResp;
   }
 
   /**
