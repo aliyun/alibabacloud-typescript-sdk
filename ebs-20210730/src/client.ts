@@ -1,8162 +1,11 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
-
-export class AddDiskReplicaPairRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The region ID of the replication pair-consistent group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pg-myreplica****
-   */
-  replicaGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the IDs of existing replication pairs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pair-cn-dsa****
-   */
-  replicaPairId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      regionId: 'RegionId',
-      replicaGroupId: 'ReplicaGroupId',
-      replicaPairId: 'ReplicaPairId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      regionId: 'string',
-      replicaGroupId: 'string',
-      replicaPairId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDiskReplicaPairResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddDiskReplicaPairResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: AddDiskReplicaPairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: AddDiskReplicaPairResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApplyLensServiceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ApplyLensServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ApplyLensServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ApplyLensServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindEnterpriseSnapshotPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The list of disks.
-   */
-  diskTargets?: string[];
-  /**
-   * @remarks
-   * The id of the policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * esp-xxx
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      diskTargets: 'DiskTargets',
-      policyId: 'PolicyId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      diskTargets: { 'type': 'array', 'itemType': 'string' },
-      policyId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * EF4CA176-3358-5B74-B317-B1908B4B1F7D
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindEnterpriseSnapshotPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BindEnterpriseSnapshotPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BindEnterpriseSnapshotPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelLensServiceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CancelLensServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CancelLensServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CancelLensServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The ID of the new resource group. You can view the available resource groups in the Resource Management console. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rg-123
-   */
-  newResourceGroupId?: string;
-  /**
-   * @remarks
-   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource. For example, if you set ResourceType to diskreplicapair, set this parameter to the ID of a replication pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pair-123
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   dedicatedblockstoragecluster: dedicated block storage cluster.
-   * *   diskreplicapair: replication pair.
-   * *   diskreplicagroup: replication pair-consistent group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * diskreplicapair
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      newResourceGroupId: 'NewResourceGroupId',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      newResourceGroupId: 'string',
-      regionId: 'string',
-      resourceId: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ChangeResourceGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ChangeResourceGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ChangeResourceGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClearPairDrillRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the drill. You can call the [DescribePairDrills](https://help.aliyun.com/document_detail/2584480.html) operation to query the disaster recovery drills that were performed on replication pairs in a specific region.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * drill-xxxx
-   */
-  drillId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the most recent list of replication pairs, including replication pair IDs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pair-xxxx
-   */
-  pairId?: string;
-  /**
-   * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      drillId: 'DrillId',
-      pairId: 'PairId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      drillId: 'string',
-      pairId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClearPairDrillResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 20758A-585D-4A41-A9B2-28DA8F4F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClearPairDrillResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ClearPairDrillResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ClearPairDrillResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClearReplicaGroupDrillRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the drill. You can call the [DescribeReplicaGroupDrills](https://help.aliyun.com/document_detail/2584481.html) operation to query disaster recovery drills that were performed on replication pairs in a specific region.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pg-drill-xxxx
-   */
-  drillId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the most recent list of replication pair-consistent groups, including group IDs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pg-xxxx
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      drillId: 'DrillId',
-      groupId: 'GroupId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      drillId: 'string',
-      groupId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClearReplicaGroupDrillResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClearReplicaGroupDrillResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ClearReplicaGroupDrillResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ClearReplicaGroupDrillResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDedicatedBlockStorageClusterRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the zone in which to create the dedicated block storage cluster. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-heyuan-b
-   */
-  azone?: string;
-  /**
-   * @remarks
-   * The capacity of the dedicated block storage cluster. Valid values: 61440 to 2334720. Unit: GiB. 2,334,720 GiB is equal to 2,280 TiB. The capacity increases in a minimum increment of 12,288 GiB.
-   * 
-   * >  If the capacity of a dedicated block storage cluster is less than 576 TiB, the maximum throughput per TiB cannot exceed 52 MB/s. If the capacity of a dedicated block storage cluster is greater than 576 TiB, the maximum throughput per TiB cannot exceed 26 MB/s.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 61440
-   */
-  capacity?: number;
-  /**
-   * @remarks
-   * This parameter is deprecated.
-   * 
-   * @example
-   * test1233
-   * 
-   * **if can be null:**
-   * true
-   * 
-   * @deprecated
-   */
-  dbscId?: string;
-  /**
-   * @remarks
-   * The name of the dedicated block storage cluster.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * myDBSCCluster
-   */
-  dbscName?: string;
-  /**
-   * @remarks
-   * The subscription duration of the dedicated block storage cluster. Valid values: 6, 7, 8, 9, 10, 11, 12, 24, and 36.
-   * 
-   * @example
-   * 12
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The unit of the subscription duration specified by `Period`. Set the value to Month.
-   * 
-   * @example
-   * Month
-   */
-  periodUnit?: string;
-  /**
-   * @remarks
-   * The ID of the region in which to create the dedicated block storage cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-heyuan
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which to assign the dedicated block storage cluster.
-   * 
-   * @example
-   * rg-acfmvs*******
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The tags to add to the dedicated block storage cluster. You can specify up to 20 tags.
-   */
-  tag?: CreateDedicatedBlockStorageClusterRequestTag[];
-  /**
-   * @remarks
-   * The type of the dedicated block storage cluster. Valid values:
-   * 
-   * *   Standard: basic dedicated block storage cluster. Enterprise SSDs (ESSDs) at performance level 0 (PL0 ESSDs) can be created in basic dedicated block storage clusters.
-   * *   Premium: performance dedicated block storage cluster. ESSDs at performance level 1 (PL1 ESSDs) can be created in performance dedicated block storage clusters.
-   * 
-   * Default value: Premium.
-   * 
-   * For more information about ESSDs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * Premium
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      azone: 'Azone',
-      capacity: 'Capacity',
-      dbscId: 'DbscId',
-      dbscName: 'DbscName',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      azone: 'string',
-      capacity: 'number',
-      dbscId: 'string',
-      dbscName: 'string',
-      period: 'number',
-      periodUnit: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateDedicatedBlockStorageClusterRequestTag },
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDedicatedBlockStorageClusterResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the dedicated block storage cluster.
-   * 
-   * @example
-   * dbsc-f8z4d3k4nsgg9okb****
-   */
-  dbscId?: string;
-  /**
-   * @remarks
-   * The order ID.
-   * 
-   * @example
-   * 50155660025****
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 20758A-585D-4A41-A9B2-28DA8F4F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dbscId: 'DbscId',
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbscId: 'string',
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDedicatedBlockStorageClusterResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDedicatedBlockStorageClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDedicatedBlockStorageClusterResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiskReplicaGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The bandwidth value. Unit: Mbit/s.
-   * 
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * 10240
-   */
-  bandwidth?: number;
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The description of the replication pair-consistent group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-   * 
-   * @example
-   * This is description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The region ID of the secondary site.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  destinationRegionId?: string;
-  /**
-   * @remarks
-   * The zone ID of the secondary site.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shanghai-e
-   */
-  destinationZoneId?: string;
-  /**
-   * @remarks
-   * The name of the replication pair-consistent group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-   * 
-   * @example
-   * myreplicagrouptest
-   */
-  groupName?: string;
-  /**
-   * @remarks
-   * The RPO of the replication pair-consistent group. Unit: seconds. Valid value: 900.
-   * 
-   * @example
-   * 900
-   */
-  RPO?: number;
-  /**
-   * @remarks
-   * The ID of the region in which to create the replication pair-consistent group. The primary site is deployed in the specified region.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the replication pair-consistent group belongs.
-   * 
-   * @example
-   * rg-acfmvs*******
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The zone ID of the primary site.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing-f
-   */
-  sourceZoneId?: string;
-  /**
-   * @remarks
-   * The tags. Up to 20 tags are supported.
-   */
-  tag?: CreateDiskReplicaGroupRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      bandwidth: 'Bandwidth',
-      clientToken: 'ClientToken',
-      description: 'Description',
-      destinationRegionId: 'DestinationRegionId',
-      destinationZoneId: 'DestinationZoneId',
-      groupName: 'GroupName',
-      RPO: 'RPO',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      sourceZoneId: 'SourceZoneId',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bandwidth: 'number',
-      clientToken: 'string',
-      description: 'string',
-      destinationRegionId: 'string',
-      destinationZoneId: 'string',
-      groupName: 'string',
-      RPO: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      sourceZoneId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateDiskReplicaGroupRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiskReplicaGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group.
-   * 
-   * @example
-   * pg-xxxxxxx
-   */
-  replicaGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      replicaGroupId: 'ReplicaGroupId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      replicaGroupId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiskReplicaGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDiskReplicaGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDiskReplicaGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiskReplicaPairRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The bandwidth to use to asynchronously replicate data between the primary disk and secondary disk. Unit: Kbit/s. Valid values:
-   * 
-   * *   10240 : equal to 10 Mbit/s
-   * *   20480 : equal to 20 Mbit/s
-   * *   51200 : equal to 50 Mbit/s
-   * *   102400 : equal to 100 Mbit/s
-   * 
-   * Default value: 10240.
-   * 
-   * When you set the ChargeType parameter to POSTPAY, the Bandwidth parameter is automatically set to 0 and cannot be modified. The value 0 indicates that bandwidth is dynamically allocated based on the volume of data that is asynchronously replicated from the primary disk to the secondary disk.
-   * 
-   * @example
-   * 10240
-   */
-  bandwidth?: number;
-  /**
-   * @remarks
-   * The billing method of the replication pair. Valid values:
-   * 
-   * *   PREPAY: subscription
-   * *   POSTPAY: pay-as-you-go
-   * 
-   * Default value: POSTPAY.
-   * 
-   * @example
-   * PREPAY
-   */
-  chargeType?: string;
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The description of the replication pair. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-   * 
-   * @example
-   * This is description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The ID of the secondary disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * d-sa1f82p58p1tdw9g****
-   */
-  destinationDiskId?: string;
-  /**
-   * @remarks
-   * The region ID of the secondary disk. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  destinationRegionId?: string;
-  /**
-   * @remarks
-   * The zone ID of the secondary disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shanghai-e
-   */
-  destinationZoneId?: string;
-  /**
-   * @remarks
-   * The ID of the primary disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * d-iq80sgp4d0xbk24q****
-   */
-  diskId?: string;
-  /**
-   * @remarks
-   * The name of the replication pair. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
-   * 
-   * @example
-   * TestReplicaPair
-   */
-  pairName?: string;
-  /**
-   * @remarks
-   * The subscription duration of the replication pair. This parameter is required when the `ChargeType` parameter is set to PREPAY. The unit of the subscription duration is specified by the `PeriodUnit` parameter.
-   * 
-   * *   Valid values when the `PeriodUnit` parameter is set to Week: 1, 2, 3, and 4.
-   * *   Valid values when the `PeriodUnit` parameter is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
-   * 
-   * @example
-   * 1
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The unit of the subscription duration of the replication pair. Valid values:
-   * 
-   * *   Week.
-   * *   Month
-   * 
-   * Default value: Month.
-   * 
-   * @example
-   * Month
-   */
-  periodUnit?: string;
-  /**
-   * @remarks
-   * The recovery point objective (RPO) of the replication pair. Unit: seconds. Set the value to 900.
-   * 
-   * @example
-   * 900
-   */
-  RPO?: number;
-  /**
-   * @remarks
-   * The ID of the region in which to create the replication pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which to assign the replication group.
-   * 
-   * @example
-   * rg-acfmvs****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The zone ID of the primary disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing-f
-   */
-  sourceZoneId?: string;
-  /**
-   * @remarks
-   * The resource tags. You can specify up to 20 tags.
-   */
-  tag?: CreateDiskReplicaPairRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      bandwidth: 'Bandwidth',
-      chargeType: 'ChargeType',
-      clientToken: 'ClientToken',
-      description: 'Description',
-      destinationDiskId: 'DestinationDiskId',
-      destinationRegionId: 'DestinationRegionId',
-      destinationZoneId: 'DestinationZoneId',
-      diskId: 'DiskId',
-      pairName: 'PairName',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      RPO: 'RPO',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      sourceZoneId: 'SourceZoneId',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bandwidth: 'number',
-      chargeType: 'string',
-      clientToken: 'string',
-      description: 'string',
-      destinationDiskId: 'string',
-      destinationRegionId: 'string',
-      destinationZoneId: 'string',
-      diskId: 'string',
-      pairName: 'string',
-      period: 'number',
-      periodUnit: 'string',
-      RPO: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      sourceZoneId: 'string',
-      tag: { 'type': 'array', 'itemType': CreateDiskReplicaPairRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiskReplicaPairResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the order.
-   * 
-   * @example
-   * 123456****
-   */
-  orderId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair.
-   * 
-   * @example
-   * pair-cn-dsa****
-   */
-  replicaPairId?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      replicaPairId: 'ReplicaPairId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'string',
-      replicaPairId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiskReplicaPairResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDiskReplicaPairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDiskReplicaPairResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEnterpriseSnapshotPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * Snapshot replication destination information.
-   */
-  crossRegionCopyInfo?: CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo;
-  /**
-   * @remarks
-   * The description of the policy.
-   * 
-   * @example
-   * xxx
-   */
-  desc?: string;
-  /**
-   * @remarks
-   * The name of the policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * xx
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which to assign the snapshot policy.
-   * 
-   * @example
-   * xxx
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The snapshot retention rule.
-   * 
-   * This parameter is required.
-   */
-  retainRule?: CreateEnterpriseSnapshotPolicyRequestRetainRule;
-  /**
-   * @remarks
-   * The rule for scheduling.
-   * 
-   * This parameter is required.
-   */
-  schedule?: CreateEnterpriseSnapshotPolicyRequestSchedule;
-  /**
-   * @remarks
-   * The special snapshot retention rules.
-   */
-  specialRetainRules?: CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules;
-  /**
-   * @remarks
-   * The status of the policy. Valid values:
-   * 
-   * - ENABLED: Enable snapshot policy execution.
-   * 
-   * - DISABLED: Disable snapshot policy execution.
-   * 
-   * @example
-   * ENABLED
-   */
-  state?: string;
-  /**
-   * @remarks
-   * Advanced snapshot features.
-   */
-  storageRule?: CreateEnterpriseSnapshotPolicyRequestStorageRule;
-  /**
-   * @remarks
-   * The list of tags.
-   */
-  tag?: CreateEnterpriseSnapshotPolicyRequestTag[];
-  /**
-   * @remarks
-   * Binding target type, valid value:
-   * 
-   * - DISK
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * DISK
-   */
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      crossRegionCopyInfo: 'CrossRegionCopyInfo',
-      desc: 'Desc',
-      name: 'Name',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      retainRule: 'RetainRule',
-      schedule: 'Schedule',
-      specialRetainRules: 'SpecialRetainRules',
-      state: 'State',
-      storageRule: 'StorageRule',
-      tag: 'Tag',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      crossRegionCopyInfo: CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo,
-      desc: 'string',
-      name: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      retainRule: CreateEnterpriseSnapshotPolicyRequestRetainRule,
-      schedule: CreateEnterpriseSnapshotPolicyRequestSchedule,
-      specialRetainRules: CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules,
-      state: 'string',
-      storageRule: CreateEnterpriseSnapshotPolicyRequestStorageRule,
-      tag: { 'type': 'array', 'itemType': CreateEnterpriseSnapshotPolicyRequestTag },
-      targetType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEnterpriseSnapshotPolicyShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * Snapshot replication destination information.
-   */
-  crossRegionCopyInfoShrink?: string;
-  /**
-   * @remarks
-   * The description of the policy.
-   * 
-   * @example
-   * xxx
-   */
-  desc?: string;
-  /**
-   * @remarks
-   * The name of the policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * xx
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which to assign the snapshot policy.
-   * 
-   * @example
-   * xxx
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The snapshot retention rule.
-   * 
-   * This parameter is required.
-   */
-  retainRuleShrink?: string;
-  /**
-   * @remarks
-   * The rule for scheduling.
-   * 
-   * This parameter is required.
-   */
-  scheduleShrink?: string;
-  /**
-   * @remarks
-   * The special snapshot retention rules.
-   */
-  specialRetainRulesShrink?: string;
-  /**
-   * @remarks
-   * The status of the policy. Valid values:
-   * 
-   * - ENABLED: Enable snapshot policy execution.
-   * 
-   * - DISABLED: Disable snapshot policy execution.
-   * 
-   * @example
-   * ENABLED
-   */
-  state?: string;
-  /**
-   * @remarks
-   * Advanced snapshot features.
-   */
-  storageRuleShrink?: string;
-  /**
-   * @remarks
-   * The list of tags.
-   */
-  tag?: CreateEnterpriseSnapshotPolicyShrinkRequestTag[];
-  /**
-   * @remarks
-   * Binding target type, valid value:
-   * 
-   * - DISK
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * DISK
-   */
-  targetType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      crossRegionCopyInfoShrink: 'CrossRegionCopyInfo',
-      desc: 'Desc',
-      name: 'Name',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      retainRuleShrink: 'RetainRule',
-      scheduleShrink: 'Schedule',
-      specialRetainRulesShrink: 'SpecialRetainRules',
-      state: 'State',
-      storageRuleShrink: 'StorageRule',
-      tag: 'Tag',
-      targetType: 'TargetType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      crossRegionCopyInfoShrink: 'string',
-      desc: 'string',
-      name: 'string',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      retainRuleShrink: 'string',
-      scheduleShrink: 'string',
-      specialRetainRulesShrink: 'string',
-      state: 'string',
-      storageRuleShrink: 'string',
-      tag: { 'type': 'array', 'itemType': CreateEnterpriseSnapshotPolicyShrinkRequestTag },
-      targetType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The id of a policy.
-   * 
-   * @example
-   * esp-xxx
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 7A8959DA-1E04-5724-8288-58334031454E
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyId: 'PolicyId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateEnterpriseSnapshotPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateEnterpriseSnapshotPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateEnterpriseSnapshotPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDiskReplicaGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The region ID of the replication pair-consistent group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pg-myreplica****
-   */
-  replicaGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      regionId: 'RegionId',
-      replicaGroupId: 'ReplicaGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      regionId: 'string',
-      replicaGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDiskReplicaGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDiskReplicaGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDiskReplicaGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDiskReplicaGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDiskReplicaPairRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The region ID of the primary disk in the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the region information of replication pairs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pair-cn-dsa****
-   */
-  replicaPairId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      regionId: 'RegionId',
-      replicaPairId: 'ReplicaPairId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      regionId: 'string',
-      replicaPairId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDiskReplicaPairResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * A37597A6-BB99-19B3-85EA-4C2B91F0****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDiskReplicaPairResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteDiskReplicaPairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteDiskReplicaPairResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEnterpriseSnapshotPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The id of the policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * esp-xxx
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      policyId: 'PolicyId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      policyId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * B9F716DF-FAFD-50FD-B962-BCE0C837639A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteEnterpriseSnapshotPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteEnterpriseSnapshotPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteEnterpriseSnapshotPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDedicatedBlockStorageClusterDisksRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the dedicated block storage cluster.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * dbsc-cn-od43bf****
-   */
-  dbscId?: string;
-  /**
-   * @remarks
-   * The maximum number of entries to return on each page. Maximum value: 500.
-   * 
-   * Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The query token. Set the value to the NextToken value returned in the previous call to the DescribeDedicatedBlockStorageClusterDisks operation. Leave this parameter empty the first time you call this operation.
-   * 
-   * @example
-   * AAAAAdDWBF2
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the region where the dedicated block storage cluster resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-heyuan
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dbscId: 'DbscId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbscId: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDedicatedBlockStorageClusterDisksResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Details about the cloud disks.
-   */
-  disks?: DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks;
-  /**
-   * @remarks
-   * The query token returned in this call.
-   * 
-   * @example
-   * AAAAAdDWBF2
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 11B55F58-D3A4-4A9B-9596-342420D0****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      disks: 'Disks',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      disks: DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks,
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDedicatedBlockStorageClusterDisksResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDedicatedBlockStorageClusterDisksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDedicatedBlockStorageClusterDisksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDedicatedBlockStorageClustersRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The zone ID of the dedicated block storage cluster. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
-   * 
-   * @example
-   * cn-heyuan-b
-   */
-  azoneId?: string;
-  /**
-   * @remarks
-   * The category of disks that can be created in the dedicated block storage cluster.
-   * 
-   * Set the value to cloud_essd. Only enhanced SSDs (ESSDs) can be created in dedicated block storage clusters.
-   * 
-   * @example
-   * cloud_essd
-   */
-  category?: string;
-  clientToken?: string;
-  dedicatedBlockStorageClusterId?: string[];
-  maxResults?: number;
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID of the dedicated block storage cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-heyuan
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the dedicated block storage cluster belongs.
-   * 
-   * @example
-   * rg-acfmvs4****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The states of dedicated block storage clusters. Valid values:
-   * 
-   * *   Preparing
-   * *   Running
-   * *   Expired
-   * *   Offline
-   * 
-   * Multiple states can be specified. Valid values of N: 1, 2, 3, and 4.
-   */
-  status?: string[];
-  /**
-   * @remarks
-   * The tags. Up to 20 tags are supported.
-   */
-  tag?: DescribeDedicatedBlockStorageClustersRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      azoneId: 'AzoneId',
-      category: 'Category',
-      clientToken: 'ClientToken',
-      dedicatedBlockStorageClusterId: 'DedicatedBlockStorageClusterId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      status: 'Status',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      azoneId: 'string',
-      category: 'string',
-      clientToken: 'string',
-      dedicatedBlockStorageClusterId: { 'type': 'array', 'itemType': 'string' },
-      maxResults: 'number',
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      status: { 'type': 'array', 'itemType': 'string' },
-      tag: { 'type': 'array', 'itemType': DescribeDedicatedBlockStorageClustersRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDedicatedBlockStorageClustersResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Details about the dedicated block storage clusters.
-   */
-  dedicatedBlockStorageClusters?: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters[];
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
-   * 
-   * @example
-   * AAAAAdDWBF2
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 11B55F58-D3A4-4A9B-9596-342420D0****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 20
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dedicatedBlockStorageClusters: 'DedicatedBlockStorageClusters',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dedicatedBlockStorageClusters: { 'type': 'array', 'itemType': DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters },
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDedicatedBlockStorageClustersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDedicatedBlockStorageClustersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDedicatedBlockStorageClustersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskEventsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the disk. Valid values:
-   * 
-   * *   cloud_efficiency: ultra disk.
-   * *   cloud_ssd: standard SSD.
-   * *   cloud_essd: enhanced SSD (ESSD).
-   * 
-   * @example
-   * cloud_essd
-   */
-  diskCategory?: string;
-  /**
-   * @remarks
-   * The ID of the disk.
-   * 
-   * @example
-   * d-bp67acfmxazb4p****
-   */
-  diskId?: string;
-  /**
-   * @remarks
-   * The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
-   * @example
-   * 2022-06-01T05:00:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 100.
-   * 
-   * Default values:
-   * 
-   * *   If this parameter is not specified or is set to a value smaller than 10, the default value is 10.
-   * *   If this parameter is set to a value greater than 100, the default value is 100.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in this request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The region ID of the disk. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the list of regions that support CloudLens for EBS.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
-   * @example
-   * 2022-06-01T03:00:00Z
-   */
-  startTime?: string;
-  /**
-   * @remarks
-   * The event type. Set the value to DataNeedProtect, which indicates that the disk data needs to be protected.
-   * 
-   * @example
-   * DataNeedProtect
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskCategory: 'DiskCategory',
-      diskId: 'DiskId',
-      endTime: 'EndTime',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskCategory: 'string',
-      diskId: 'string',
-      endTime: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      regionId: 'string',
-      startTime: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskEventsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The risk events of the disk.
-   */
-  diskEvents?: DescribeDiskEventsResponseBodyDiskEvents[];
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 20
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      diskEvents: 'DiskEvents',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskEvents: { 'type': 'array', 'itemType': DescribeDiskEventsResponseBodyDiskEvents },
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskEventsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDiskEventsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDiskEventsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskMonitorDataRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * d-bp67acfmxazb4p****
-   */
-  diskId?: string;
-  /**
-   * @remarks
-   * The end of the time range during which you want to query the near real-time monitoring data of the disk. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2022-06-01T05:00:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The interval at which the near real-time monitoring data is collected. Unit: seconds. Valid values:
-   * 
-   * *   5
-   * *   60
-   * 
-   * Default value: 5.
-   * 
-   * @example
-   * 5
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The region ID of the disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The beginning of the time range during which you want to query the near real-time monitoring data of the disk. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2022-06-01T03:00:00Z
-   */
-  startTime?: string;
-  /**
-   * @remarks
-   * The type of the monitoring data. Valid values:
-   * 
-   * *   basic: baseline performance data.
-   * *   pro: burst performance data, such as burst I/O operations.
-   * 
-   * @example
-   * basic
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskId: 'DiskId',
-      endTime: 'EndTime',
-      period: 'Period',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskId: 'string',
-      endTime: 'string',
-      period: 'number',
-      regionId: 'string',
-      startTime: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskMonitorDataResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The near real-time monitoring data of the disk.
-   */
-  monitorData?: DescribeDiskMonitorDataResponseBodyMonitorData[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 15
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      monitorData: 'MonitorData',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      monitorData: { 'type': 'array', 'itemType': DescribeDiskMonitorDataResponseBodyMonitorData },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskMonitorDataResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDiskMonitorDataResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDiskMonitorDataResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskMonitorDataListRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The IDs of the disks. The value is a JSON array that contains multiple disk IDs. Separate the IDs with commas (,).
-   * 
-   * @example
-   * ["d-bp67acfmxazb4p****","d-bp67acfmxazs5t****"]
-   */
-  diskIds?: string;
-  /**
-   * @remarks
-   * The end of the time range during which you want to query the near real-time monitoring data of the disks. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2022-06-01T05:00:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The number of entries per page. If you specify this parameter, both `MaxResults` and `NextToken` are used for a paged query.
-   * 
-   * Valid values: 1 to 100.
-   * 
-   * Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: string;
-  /**
-   * @remarks
-   * The pagination token that is used in this request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
-   * 
-   * @example
-   * e71d8a535bd9c****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the list of regions that support CloudLens for EBS.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The beginning of the time range during which you want to query the near real-time monitoring data of the disks. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2022-06-01T03:00:00Z
-   */
-  startTime?: string;
-  /**
-   * @remarks
-   * The type of the monitoring data. Set the value to pro.
-   * 
-   * pro: burst performance data, such as burst I/O operations.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pro
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskIds: 'DiskIds',
-      endTime: 'EndTime',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskIds: 'string',
-      endTime: 'string',
-      maxResults: 'string',
-      nextToken: 'string',
-      regionId: 'string',
-      startTime: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskMonitorDataListResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The near real-time monitoring data of the disks.
-   */
-  monitorData?: DescribeDiskMonitorDataListResponseBodyMonitorData[];
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * e71d8a535bd9c****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 3
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      monitorData: 'MonitorData',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      monitorData: { 'type': 'array', 'itemType': DescribeDiskMonitorDataListResponseBodyMonitorData },
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskMonitorDataListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDiskMonitorDataListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDiskMonitorDataListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskReplicaGroupsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The IDs of the replication pair-consistent groups. You can specify the IDs of one or more replication pair-consistent groups. Separate the IDs with commas (,).
-   * 
-   * This parameter is empty by default, which indicates that all replication pair-consistent groups in the specified region are queried. You can specify up to the IDs of 100 replication pair-consistent groups.
-   * 
-   * @example
-   * AAAAAdDWBF2****
-   */
-  groupIds?: string;
-  /**
-   * @remarks
-   * The maximum number of entries per page. You can use this parameter together with NextToken.
-   * 
-   * Valid values: 1 to 500.
-   * 
-   * Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The name of the replication pair-consistent group. You can perform a fuzzy search.
-   * 
-   * @example
-   * pg-name***
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
-   * 
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The number of the page to return.
-   * 
-   * @example
-   * 5
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the region to which the replication pair-consistent group belongs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the replication pair-consistent group belongs.
-   * 
-   * @example
-   * rg-aekz*****
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The type of the site from which the information of replication pair-consistent groups is retrieved. This parameter is used for scenarios where data is replicated across zones in replication pairs.
-   * 
-   * *   If this parameter is not specified, information such as the status of replication pair-consistent groups at the primary site is queried and returned.
-   * 
-   * *   Otherwise, information such as the state of replication pairs at the site specified by the Site parameter is queried and returned. Valid values:
-   * 
-   *     *   production: primary site
-   *     *   backup: secondary site
-   * 
-   * @example
-   * production
-   */
-  site?: string;
-  /**
-   * @remarks
-   * The tags to add to the replication pair-consistent group. You can specify up to 20 tags.
-   */
-  tag?: DescribeDiskReplicaGroupsRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      groupIds: 'GroupIds',
-      maxResults: 'MaxResults',
-      name: 'Name',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      site: 'Site',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupIds: 'string',
-      maxResults: 'number',
-      name: 'string',
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      resourceGroupId: 'string',
-      site: 'string',
-      tag: { 'type': 'array', 'itemType': DescribeDiskReplicaGroupsRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskReplicaGroupsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * A pagination token.
-   * 
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The information about the replication pair-consistent groups.
-   */
-  replicaGroups?: DescribeDiskReplicaGroupsResponseBodyReplicaGroups[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 60
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      replicaGroups: 'ReplicaGroups',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      replicaGroups: { 'type': 'array', 'itemType': DescribeDiskReplicaGroupsResponseBodyReplicaGroups },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskReplicaGroupsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDiskReplicaGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDiskReplicaGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskReplicaPairProgressRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The region ID of the replication pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html)operation to query the IDs of existing replication pairs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pair-cn-tl32ribst0z
-   */
-  replicaPairId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      replicaPairId: 'ReplicaPairId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      replicaPairId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskReplicaPairProgressResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The replication progress of the replication pair.
-   * 
-   * @example
-   * 100
-   */
-  progress?: number;
-  /**
-   * @remarks
-   * The timestamp that indicates the last recovery point in time. The value is returned only after the replication pair works for replicating data.
-   * 
-   * @example
-   * 1661917424
-   */
-  recoverPoint?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      progress: 'Progress',
-      recoverPoint: 'RecoverPoint',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      progress: 'number',
-      recoverPoint: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskReplicaPairProgressResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDiskReplicaPairProgressResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDiskReplicaPairProgressResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskReplicaPairsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The maximum number of entries per page. You can use this parameter together with NextToken.
-   * 
-   * Valid values: 1 to 500.
-   * 
-   * Default value: 10.
-   * 
-   * @example
-   * 1
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The name of the replication pair. Fuzzy search is supported.
-   * 
-   * @example
-   * name***
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
-   * 
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 5
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The IDs of replication pairs. You can specify the IDs of one or more replication pairs and separate the IDs with commas (,). Example: `pair-cn-dsa****,pair-cn-asd****`.
-   * 
-   * This parameter is empty by default, which indicates that all replication pairs in the specified region are queried. You can specify a maximum of 100 replication pair IDs.
-   * 
-   * @example
-   * pair-cn-dsa****
-   */
-  pairIds?: string;
-  /**
-   * @remarks
-   * The region ID of the primary or secondary disk in the replication pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group. You can specify the ID of a replication pair-consistent group to query the replication pairs in the group. Example: `pg-****`.
-   * 
-   * This parameter is empty by default, which indicates that all replication pairs in the specified region are queried.
-   * 
-   * >  If this parameter is set to`-`, replication pairs that are not added to any replication pair-consistent groups are returned.
-   * 
-   * @example
-   * pg-****
-   */
-  replicaGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group to which the replication pair belongs.
-   * 
-   * @example
-   * rg-acfmvs******
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The type of the site from which the information of replication pairs is retrieved. Valid value:
-   * 
-   * *   production: primary site
-   * *   backup: secondary site
-   * 
-   * Default value: production.
-   * 
-   * @example
-   * production
-   */
-  site?: string;
-  /**
-   * @remarks
-   * The tags. Up to 20 tags are supported.
-   */
-  tag?: DescribeDiskReplicaPairsRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      maxResults: 'MaxResults',
-      name: 'Name',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      pairIds: 'PairIds',
-      regionId: 'RegionId',
-      replicaGroupId: 'ReplicaGroupId',
-      resourceGroupId: 'ResourceGroupId',
-      site: 'Site',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxResults: 'number',
-      name: 'string',
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      pairIds: 'string',
-      regionId: 'string',
-      replicaGroupId: 'string',
-      resourceGroupId: 'string',
-      site: 'string',
-      tag: { 'type': 'array', 'itemType': DescribeDiskReplicaPairsRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskReplicaPairsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Details about the replication pairs.
-   */
-  replicaPairs?: DescribeDiskReplicaPairsResponseBodyReplicaPairs[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 60
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      replicaPairs: 'ReplicaPairs',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      replicaPairs: { 'type': 'array', 'itemType': DescribeDiskReplicaPairsResponseBodyReplicaPairs },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDiskReplicaPairsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeDiskReplicaPairsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeDiskReplicaPairsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEnterpriseSnapshotPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request.
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The IDs of disks.
-   */
-  diskIds?: string[];
-  /**
-   * @remarks
-   * The maximum number of entries per page.
-   * 
-   * @example
-   * 100
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
-   * 
-   * @example
-   * xxx
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The IDs of enterprise-level snapshot policies.
-   */
-  policyIds?: string[];
-  /**
-   * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * xxx
-   */
-  resourceGroupId?: string;
-  /**
-   * @remarks
-   * The tags of the enterprise-level snapshot policies. Valid values of N: 1 to 20.
-   */
-  tag?: DescribeEnterpriseSnapshotPolicyRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      diskIds: 'DiskIds',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      policyIds: 'PolicyIds',
-      regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      diskIds: { 'type': 'array', 'itemType': 'string' },
-      maxResults: 'number',
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      policyIds: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
-      resourceGroupId: 'string',
-      tag: { 'type': 'array', 'itemType': DescribeEnterpriseSnapshotPolicyRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * AAAAAdDWBF2
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The returned snapshot policies.
-   */
-  policies?: DescribeEnterpriseSnapshotPolicyResponseBodyPolicies[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 5CA35A83-8D8A-5B67-BAA0-2E124F194DA4
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 10
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      policies: 'Policies',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      policies: { 'type': 'array', 'itemType': DescribeEnterpriseSnapshotPolicyResponseBodyPolicies },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEnterpriseSnapshotPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeEnterpriseSnapshotPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeEnterpriseSnapshotPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
-   * @example
-   * 2023-06-01T04:00:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The severity level of the event. Valid values:
-   * 
-   * *   **INFO**
-   * *   **WARN**
-   * *   **CRITICAL**
-   * 
-   * @example
-   * WARN
-   */
-  eventLevel?: string;
-  /**
-   * @remarks
-   * The name of the event. Valid values:
-   * 
-   * *   NoSnapshot: indicates the event that is triggered because no snapshot is created for a disk to protect data on the disk.
-   * *   BurstIOTriggered: indicates the event that is triggered when a burst I/O operation is performed on a disk.
-   * *   CostOptimizationNeeded: indicates the event that is triggered when cost optimization is required.
-   * *   DiskSpecNotMatchedWithInstance: indicates the event that is triggered because the specifications of a disk do not match the instance to which the disk is attached.
-   * *   DiskIONo4kAligned: indicates the event that is triggered because the physical and logical sectors involved in a read or write operation are not 4K aligned.
-   * *   DiskIOHang: indicates the event that is triggered when an I/O hang occurs on a disk.
-   * *   InstanceIOPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of IOPS on an instance reaches the upper limit.
-   * *   InstanceBPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of BPS on an instance reaches the upper limit.
-   * *   DiskIOPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of IOPS on a disk reaches the upper limit for the associated instance.
-   * *   DiskBPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of BPS on a disk reaches the upper limit for the associated instance.
-   * *   DiskIOPSExceedDiskMaxLimit: indicates the event that is triggered when the number of IOPS on a disk reaches the upper limit for the disk.
-   * *   DiskBPSExceedDiskMaxLimit: indicates the event that is triggered when the number of BPS on a disk reaches the upper limit for the disk.
-   * 
-   * @example
-   * DiskIOHang
-   */
-  eventName?: string;
-  /**
-   * @remarks
-   * The number of entries to return on each page. If you specify MaxResults, `MaxResults` and `NextToken` are used for a paged query.
-   * 
-   * Valid values: 1 to 100.
-   * 
-   * Default value: 10
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
-   * 
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * d-bp67acfmxazb4p****
-   */
-  resourceId?: string;
-  /**
-   * @remarks
-   * The type of resource. Valid values:
-   * 
-   * *   disk.
-   * 
-   * Default value: disk.
-   * 
-   * @example
-   * disk
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
-   * @example
-   * 2023-06-01T03:00:00Z
-   */
-  startTime?: string;
-  /**
-   * @remarks
-   * The status of event. Valid values:
-   * 
-   * - WillExecute
-   * - Executing
-   * - Executed
-   * - Ignore
-   * - Expired
-   * - Deleted
-   * 
-   * @example
-   * WillExecute
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      eventLevel: 'EventLevel',
-      eventName: 'EventName',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      startTime: 'StartTime',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'string',
-      eventLevel: 'string',
-      eventName: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      regionId: 'string',
-      resourceId: 'string',
-      resourceType: 'string',
-      startTime: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
-   * 
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The events.
-   */
-  resourceEvents?: DescribeEventsResponseBodyResourceEvents[];
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      resourceEvents: 'ResourceEvents',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      resourceEvents: { 'type': 'array', 'itemType': DescribeEventsResponseBodyResourceEvents },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeEventsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeEventsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeEventsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLensMonitorDisksRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The type of the disk. Valid values:
-   * - cloud
-   * - cloud_efficiency
-   * - cloud_ssd
-   * - cloud_essd
-   * - cloud_auto
-   * - cloud_essd_entry
-   * 
-   * @example
-   * cloud_auto
-   */
-  diskCategory?: string;
-  diskIdPattern?: string;
-  /**
-   * @remarks
-   * The list of disks.
-   * 
-   * @example
-   * [\\"d-1\\", \\"d-2\\"]
-   */
-  diskIds?: string[];
-  /**
-   * @remarks
-   * Event tags of the disk, which are used to filter the disks on which the events associated with the specified tags occurred in the previous 24 hours. Valid values:
-   * 
-   * *   NoSnapshot: specifies the event that is triggered because no snapshot is created for the disk to protect data on the disk.
-   * *   BurstIOTriggered: specifies the event that is triggered when a burst I/O operation is performed on the disk.
-   * *   CostOptimizationNeeded: specifies the event that is triggered when cost optimization is required.
-   * *   DiskSpecNotMatchedWithInstance: specifies the event that is triggered if the disk specifications do not match the instance to which the disk is attached.
-   * *   DiskIONo4kAligned: specifies the event that is triggered if the physical and logical sectors involved in a read or write operation are not 4K aligned.
-   * *   DiskIOHang: specifies the event that is triggered when an I/O hang occurs on the disk.
-   * *   InstanceIOPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of IOPS on the instance reaches the upper limit.
-   * *   InstanceBPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of BPS on the instance reaches the upper limit.
-   * *   DiskIOPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of IOPS on the disk reaches the upper limit of the instance.
-   * *   DiskBPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of BPS on the disk reaches the upper limit of the instance.
-   * *   DiskIOPSExceedDiskMaxLimit: specifies the event that is triggered when the number of IOPS on the disk reaches the upper limit of the disk.
-   * *   DiskBPSExceedDiskMaxLimit: specifies the event that is triggered when the number of BPS on the disk reaches the upper limit of the disk.
-   * *   DiskSlowIOTriggerred: specifies the event that is triggered when the I/O speed on the disk is slow.
-   */
-  lensTags?: string[];
-  /**
-   * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The token used to start the next query to retrieve more results.
-   * 
-   * >The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      diskCategory: 'DiskCategory',
-      diskIdPattern: 'DiskIdPattern',
-      diskIds: 'DiskIds',
-      lensTags: 'LensTags',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskCategory: 'string',
-      diskIdPattern: 'string',
-      diskIds: { 'type': 'array', 'itemType': 'string' },
-      lensTags: { 'type': 'array', 'itemType': 'string' },
-      maxResults: 'number',
-      nextToken: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLensMonitorDisksResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Cloud disk information list.
-   */
-  diskInfos?: DescribeLensMonitorDisksResponseBodyDiskInfos[];
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 6
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      diskInfos: 'DiskInfos',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      diskInfos: { 'type': 'array', 'itemType': DescribeLensMonitorDisksResponseBodyDiskInfos },
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLensMonitorDisksResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeLensMonitorDisksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeLensMonitorDisksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLensServiceStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The state of CloudLens for EBS. Valid values:
-   * 
-   * *   Applying
-   * *   UnAvailable
-   * *   Available
-   * 
-   * @example
-   * Available
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLensServiceStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeLensServiceStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeLensServiceStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMetricDataRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Aggregation method in time dimension. Valid values:
-   * 
-   * - SUM
-   * - COUNT
-   * - AVG
-   * - MAX
-   * - MIN
-   * 
-   * @example
-   * SUM
-   */
-  aggreOps?: string;
-  /**
-   * @remarks
-   * The dimension map in the JSON format. A dimension is a key-value pair. Valid dimension key: diskId.
-   * 
-   * @example
-   * {"diskId":["d-bp14xxxx","d-bp11xxxx"]}
-   */
-  dimensions?: string;
-  /**
-   * @remarks
-   * The end of the time range to query. The specified time must be later than the current time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
-   * @example
-   * 2023-11-21T02:00:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The name of the metric. Valid values:
-   * 
-   * *   disk_bps_percent
-   * *   disk_iops_percent
-   * *   disk_read_block_size
-   * *   disk_read_bps
-   * *   disk_read_iops
-   * *   disk_read_latency
-   * *   disk_write_block_size
-   * *   disk_write_bps
-   * *   disk_write_iops
-   * *   disk_write_latency
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * disk_bps_percent
-   */
-  metricName?: string;
-  /**
-   * @remarks
-   * The interval at which metric data is collected. Unit: seconds. Default value: 60. Valid values: 60, 300, 600, and 3600, which support queries for time ranges of up to 2 hours, 2 hours, 1 day, and 7 days, respectively. For example, if you set Period to 60, the end time is less than 2 hours from the end time.
-   * 
-   * @example
-   * 60
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The beginning of the time range to query. You can specify a point in time that is up to one year apart from the current time. If StartTime and EndTime are both unspecified, the monitoring metric data of the last Period value is queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-   * 
-   * @example
-   * 2023-11-21T01:50:00Z
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aggreOps: 'AggreOps',
-      dimensions: 'Dimensions',
-      endTime: 'EndTime',
-      metricName: 'MetricName',
-      period: 'Period',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aggreOps: 'string',
-      dimensions: 'string',
-      endTime: 'string',
-      metricName: 'string',
-      period: 'number',
-      regionId: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMetricDataResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The disk monitoring data.
-   */
-  dataList?: DescribeMetricDataResponseBodyDataList[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 11B55F58-D3A4-4A9B-9596-342420D0****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of data entries queried.
-   * 
-   * @example
-   * 3
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dataList: 'DataList',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataList: { 'type': 'array', 'itemType': DescribeMetricDataResponseBodyDataList },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeMetricDataResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeMetricDataResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeMetricDataResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePairDrillsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the drill.
-   * 
-   * @example
-   * drill-xxxx
-   */
-  drillId?: string;
-  /**
-   * @remarks
-   * The maximum number of entries to be returned. You can use this parameter together with NextToken.
-   * 
-   * Valid values: 1 to 500.
-   * 
-   * Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Set the value to the NextToken value returned in the previous call to the DescribeDiskReplicaPairs operation. Leave this parameter empty the first time you call this operation. When you specify NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
-   * 
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query a list of asynchronous replication pairs, including replication pair IDs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pair-xxxx
-   */
-  pairId?: string;
-  /**
-   * @remarks
-   * The region ID of the primary or secondary disk in the async replication pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      drillId: 'DrillId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      pairId: 'PairId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      drillId: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      pairId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePairDrillsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of disaster recovery drills that were performed on the replication pair.
-   */
-  drills?: DescribePairDrillsResponseBodyDrills[];
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
-   * 
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C46FF5A8-C5F0-4024-8262-B16B6392****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      drills: 'Drills',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      drills: { 'type': 'array', 'itemType': DescribePairDrillsResponseBodyDrills },
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePairDrillsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribePairDrillsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribePairDrillsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The language in which the regions and zones are named. This parameter corresponds to the `LocalName` response parameter. Valid values:
-   * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
-   * *   ja: Japanese
-   * 
-   * Default value: zh-CN.
-   * 
-   * @example
-   * zh-CN
-   */
-  acceptLanguage?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The type of resource. Valid values:
-   * 
-   * *   ear: async replication
-   * *   lens: CloudLens for EBS
-   * *   dbsc: Dedicated Block Storage Cluster
-   * 
-   * Default value: ear.
-   * 
-   * @example
-   * ear
-   */
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acceptLanguage: 'AcceptLanguage',
-      regionId: 'RegionId',
-      resourceType: 'ResourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acceptLanguage: 'string',
-      regionId: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Details about the regions.
-   */
-  regions?: DescribeRegionsResponseBodyRegions[];
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 17EE62D8-064E-5404-8B0D-72122478****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regions: 'Regions',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeRegionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeRegionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeReplicaGroupDrillsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the drill.
-   * 
-   * @example
-   * pg-drill-xxxx
-   */
-  drillId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query a list of async replication pair-consistent groups, including group IDs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pg-xxxx
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The maximum number of entries to be returned. You can use this parameter together with NextToken.
-   * 
-   * Valid values: 1 to 500.
-   * 
-   * Default value: 10.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. When you specify NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
-   * 
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 5
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The region ID of the primary or secondary disk in the async replication pair-consistent group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      drillId: 'DrillId',
-      groupId: 'GroupId',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      drillId: 'string',
-      groupId: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeReplicaGroupDrillsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The information of disaster recovery drills that were performed on the replication pair-consistent group.
-   */
-  drills?: DescribeReplicaGroupDrillsResponseBodyDrills[];
-  /**
-   * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-   * 
-   * @example
-   * AAAAAdDWBF2****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      drills: 'Drills',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      drills: { 'type': 'array', 'itemType': DescribeReplicaGroupDrillsResponseBodyDrills },
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeReplicaGroupDrillsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeReplicaGroupDrillsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeReplicaGroupDrillsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSolutionInstanceConfigurationRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The parameters.
-   */
-  parameters?: DescribeSolutionInstanceConfigurationRequestParameters[];
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the solution.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * sln-xxxxx
-   */
-  solutionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      parameters: 'Parameters',
-      regionId: 'RegionId',
-      solutionId: 'SolutionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      parameters: { 'type': 'array', 'itemType': DescribeSolutionInstanceConfigurationRequestParameters },
-      regionId: 'string',
-      solutionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSolutionInstanceConfigurationResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: { [key: string]: any }[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 11B55F58-D3A4-4A9B-9596-342420D0****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSolutionInstanceConfigurationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeSolutionInstanceConfigurationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeSolutionInstanceConfigurationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FailoverDiskReplicaGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The region ID of the secondary site of the replication pair-consistent group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * group-myreplica****
-   */
-  replicaGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      regionId: 'RegionId',
-      replicaGroupId: 'ReplicaGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      regionId: 'string',
-      replicaGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FailoverDiskReplicaGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FailoverDiskReplicaGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FailoverDiskReplicaGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FailoverDiskReplicaGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FailoverDiskReplicaPairRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The region ID of the secondary disk in the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query region IDs of secondary disks in replication pairs.
-   * 
-   * >  The failover feature must be enabled for the region where the secondary disk is located.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pair-cn-dsa****
-   */
-  replicaPairId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      regionId: 'RegionId',
-      replicaPairId: 'ReplicaPairId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      regionId: 'string',
-      replicaPairId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FailoverDiskReplicaPairResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class FailoverDiskReplicaPairResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: FailoverDiskReplicaPairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: FailoverDiskReplicaPairResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReportRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Optional, AppName only takes effect when ReportType=present.
-   * 
-   * @example
-   * App1
-   */
-  appName?: string;
-  /**
-   * @remarks
-   * Region name.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * When ReportType=history, ReportId is required to query historical reports based on ReportId.
-   * 
-   * @example
-   * report-74fbea80e802xxxx
-   */
-  reportId?: string;
-  /**
-   * @remarks
-   * Optional values: history/present.
-   * 
-   * @example
-   * history
-   */
-  reportType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      regionId: 'RegionId',
-      reportId: 'ReportId',
-      reportType: 'ReportType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      regionId: 'string',
-      reportId: 'string',
-      reportType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReportResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Data Details.
-   */
-  datas?: GetReportResponseBodyDatas[];
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      datas: 'Datas',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      datas: { 'type': 'array', 'itemType': GetReportResponseBodyDatas },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetReportResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListReportsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * App name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * App1
-   */
-  appName?: string;
-  /**
-   * @remarks
-   * Maximum number of items for Token-based pagination.
-   * 
-   * @example
-   * 10
-   */
-  maxResults?: number;
-  /**
-   * @remarks
-   * Query token (Token), the value is the NextToken parameter value returned from the previous API call.
-   * 
-   * @example
-   * a6792e832ff0XXXXX
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * Page number for paginated queries.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * Number of rows per page when performing paginated queries.
-   * 
-   * @example
-   * 100
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) to query the list of regions supported by Block Storage Data Insights.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListReportsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Historical reports.
-   */
-  historyReports?: ListReportsResponseBodyHistoryReports[];
-  /**
-   * @remarks
-   * Query token (Token), the value is the NextToken parameter value returned from the previous API call.
-   * 
-   * @example
-   * a6792e832ff0XXXX
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * Page number for paginated queries.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * Number of records per page for paginated queries.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * Request ID, an identifier generated by Alibaba Cloud for this request.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Total count.
-   * 
-   * @example
-   * 1
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      historyReports: 'HistoryReports',
-      nextToken: 'NextToken',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      historyReports: { 'type': 'array', 'itemType': ListReportsResponseBodyHistoryReports },
-      nextToken: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListReportsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListReportsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListReportsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 0c593ea1-3bea-11e9-b96b-88e9fe63****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The token used to start the next query.
-   * 
-   * @example
-   * token123
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID list of the resource. You can specify up to 50 resource IDs in each call.
-   * 
-   * @example
-   * disk-123
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   dedicatedblockstoragecluster: dedicated block storage cluster
-   * *   diskreplicapair: replication pair
-   * *   diskreplicagroup: replication pair-consistent group
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * diskreplicagroup
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The information about the tags.
-   * 
-   * You can specify at most 20 tags in each call.
-   */
-  tag?: ListTagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      nextToken: 'NextToken',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      nextToken: 'string',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The token used to start the next query.
-   * 
-   * @example
-   * caeba0bbb2be03f84eb48b699f0a****
-   */
-  nextToken?: string;
-  /**
-   * @remarks
-   * The ID of the request. The request ID is returned regardless of whether the call is successful.
-   * 
-   * @example
-   * 484256DA-D816-44D2-9D86-B6EE4D5B****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Details about the resources and tags, including resource IDs, resource types, and tag key-value pairs.
-   */
-  tagResources?: ListTagResourcesResponseBodyTagResources[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      tagResources: 'TagResources',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListTagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListTagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDedicatedBlockStorageClusterAttributeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
-   * 
-   * The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure idempotence ](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The ID of the dedicated block storage cluster.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * dbsc-cn-od43bf****
-   */
-  dbscId?: string;
-  /**
-   * @remarks
-   * The new name of the dedicated block storage cluster.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * my-test-dbsc
-   */
-  dbscName?: string;
-  /**
-   * @remarks
-   * The new description of dedicated block storage cluster.
-   * 
-   * @example
-   * test
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The region ID of the dedicated block storage cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-heyuan
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      dbscId: 'DbscId',
-      dbscName: 'DbscName',
-      description: 'Description',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      dbscId: 'string',
-      dbscName: 'string',
-      description: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDedicatedBlockStorageClusterAttributeResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 11B55F58-D3A4-4A9B-9596-342420D0****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDedicatedBlockStorageClusterAttributeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDedicatedBlockStorageClusterAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDedicatedBlockStorageClusterAttributeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDiskReplicaGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The bandwidth value. Unit: Kbit/s.
-   * 
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * -
-   */
-  bandwidth?: number;
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The description of the replication pair-consistent group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-   * 
-   * @example
-   * This is description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The name of the replication pair-consistent group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-   * 
-   * @example
-   * myreplicagrouptest
-   */
-  groupName?: string;
-  /**
-   * @remarks
-   * The RPO of the replication pair-consistent group. Unit: seconds. Valid value: 900.
-   * 
-   * @example
-   * 900
-   */
-  RPO?: number;
-  /**
-   * @remarks
-   * The region ID of the replication pair-consistent group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pg-myreplica****
-   */
-  replicaGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bandwidth: 'Bandwidth',
-      clientToken: 'ClientToken',
-      description: 'Description',
-      groupName: 'GroupName',
-      RPO: 'RPO',
-      regionId: 'RegionId',
-      replicaGroupId: 'ReplicaGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bandwidth: 'number',
-      clientToken: 'string',
-      description: 'string',
-      groupName: 'string',
-      RPO: 'number',
-      regionId: 'string',
-      replicaGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDiskReplicaGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDiskReplicaGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDiskReplicaGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDiskReplicaGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDiskReplicaPairRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The bandwidth value. Unit: Kbit/s.
-   * 
-   * >  This parameter is not publicly available.
-   * 
-   * @example
-   * 10240
-   */
-  bandwidth?: number;
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The description of the replication pair.
-   * 
-   * @example
-   * This is description.
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The name of the replication pair.
-   * 
-   * @example
-   * TestReplicaPair
-   */
-  pairName?: string;
-  /**
-   * @remarks
-   * The recovery point objective (RPO) of the replication pair-consistent group. Unit: seconds. Valid value: 900.
-   * 
-   * @example
-   * 900
-   */
-  RPO?: number;
-  /**
-   * @remarks
-   * The region ID of the primary or secondary disk in the replication pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pair-cn-dsa****
-   */
-  replicaPairId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bandwidth: 'Bandwidth',
-      clientToken: 'ClientToken',
-      description: 'Description',
-      pairName: 'PairName',
-      RPO: 'RPO',
-      regionId: 'RegionId',
-      replicaPairId: 'ReplicaPairId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bandwidth: 'number',
-      clientToken: 'string',
-      description: 'string',
-      pairName: 'string',
-      RPO: 'number',
-      regionId: 'string',
-      replicaPairId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDiskReplicaPairResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyDiskReplicaPairResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ModifyDiskReplicaPairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ModifyDiskReplicaPairResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The ID of the request of SetDedicatedBlockStorageClusterDiskThroughput api.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * A37597B5-BB99-19B3-85EA-4C2B91F0****
-   */
-  qosRequestId?: string;
-  /**
-   * @remarks
-   * The region ID of the dedicated block storage cluster.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      qosRequestId: 'QosRequestId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      qosRequestId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDedicatedBlockStorageClusterDiskThroughputStatusResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * A37597A6-BB99-19B3-85EA-4C2B91F0****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The status of the throughput after setting the throughput by SetDedicatedBlockStorageClusterDiskThroughput api.
-   * 
-   * - SUCCESS: The throughput has been successfully set.
-   * - RUNNING: The throughput is currently being set.
-   * - WAIT(): The throughput is waiting to be set.
-   * - FAIL(): The throughput setting has failed.
-   * 
-   * @example
-   * RUNNING
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDedicatedBlockStorageClusterDiskThroughputStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDedicatedBlockStorageClusterDiskThroughputStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDedicatedBlockStorageClusterInventoryDataRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
-   * 
-   * The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure idempotence ](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The ID of the dedicated block storage cluster.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * dbsc-xxx
-   */
-  dbscId?: string;
-  /**
-   * @remarks
-   * End timestamp of trend data.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1606403800
-   */
-  endTime?: number;
-  /**
-   * @remarks
-   * The time interval (seconds) between data retrieval points.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 60
-   */
-  period?: number;
-  /**
-   * @remarks
-   * The region ID of the dedicated block storage cluster.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shenzhen
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Start timestamp of trend data.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1606303800
-   */
-  startTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      dbscId: 'DbscId',
-      endTime: 'EndTime',
-      period: 'Period',
-      regionId: 'RegionId',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      dbscId: 'string',
-      endTime: 'number',
-      period: 'number',
-      regionId: 'string',
-      startTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDedicatedBlockStorageClusterInventoryDataResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
-  data?: QueryDedicatedBlockStorageClusterInventoryDataResponseBodyData[];
-  /**
-   * @remarks
-   * The ID of the dedicated block storage cluster.
-   * 
-   * @example
-   * dbsc-xxx
-   */
-  dbscId?: string;
-  /**
-   * @remarks
-   * The name of the dedicated block storage cluster.
-   * 
-   * @example
-   * myDBSCCluster
-   */
-  dbscName?: string;
-  /**
-   * @remarks
-   * The type of the disk. Valid values:
-   * 
-   * *   cloud_essd: enhanced SSD (ESSD).
-   * 
-   * @example
-   * cloud_essd
-   */
-  diskCategory?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * F1A4258A-0C8C-5329-B495-BC5AD7AD****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 60
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      dbscId: 'DbscId',
-      dbscName: 'DbscName',
-      diskCategory: 'DiskCategory',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': QueryDedicatedBlockStorageClusterInventoryDataResponseBodyData },
-      dbscId: 'string',
-      dbscName: 'string',
-      diskCategory: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDedicatedBlockStorageClusterInventoryDataResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: QueryDedicatedBlockStorageClusterInventoryDataResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: QueryDedicatedBlockStorageClusterInventoryDataResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveDiskReplicaPairRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The region ID of the replication pair-consistent group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group.
-   * 
-   * You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pg-myreplica****
-   */
-  replicaGroupId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pair-cn-dsa****
-   */
-  replicaPairId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      regionId: 'RegionId',
-      replicaGroupId: 'ReplicaGroupId',
-      replicaPairId: 'ReplicaPairId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      regionId: 'string',
-      replicaGroupId: 'string',
-      replicaPairId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveDiskReplicaPairResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RemoveDiskReplicaPairResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RemoveDiskReplicaPairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RemoveDiskReplicaPairResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReprotectDiskReplicaGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pg-myreplica****
-   */
-  replicaGroupId?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the reverse replication sub-feature. Valid values: true and false. Default value: true.
-   * 
-   * @example
-   * true
-   */
-  reverseReplicate?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      regionId: 'RegionId',
-      replicaGroupId: 'ReplicaGroupId',
-      reverseReplicate: 'ReverseReplicate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      regionId: 'string',
-      replicaGroupId: 'string',
-      reverseReplicate: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReprotectDiskReplicaGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReprotectDiskReplicaGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReprotectDiskReplicaGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReprotectDiskReplicaGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReprotectDiskReplicaPairRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The region ID of the secondary disk in the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query region IDs of secondary disks in replication pairs.
-   * 
-   * >  The reverse replication feature must be enabled from the region where the secondary disk is located.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-shanghai
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pair-cn-dsa****
-   */
-  replicaPairId?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the reverse replication sub-feature. Valid values: true and false. Default value: true.
-   * 
-   * @example
-   * true
-   */
-  reverseReplicate?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      regionId: 'RegionId',
-      replicaPairId: 'ReplicaPairId',
-      reverseReplicate: 'ReverseReplicate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      regionId: 'string',
-      replicaPairId: 'string',
-      reverseReplicate: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReprotectDiskReplicaPairResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReprotectDiskReplicaPairResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ReprotectDiskReplicaPairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ReprotectDiskReplicaPairResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDedicatedBlockStorageClusterDiskThroughputRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Target throughput.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 100
-   */
-  bps?: number;
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The ID of the disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * d-bp67acfmxazb4p****
-   */
-  diskId?: string;
-  /**
-   * @remarks
-   * The region ID of disk.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bps: 'Bps',
-      clientToken: 'ClientToken',
-      diskId: 'DiskId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bps: 'number',
-      clientToken: 'string',
-      diskId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDedicatedBlockStorageClusterDiskThroughputResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 17EE62D8-064E-5404-8B0D-72122478****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetDedicatedBlockStorageClusterDiskThroughputResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetDedicatedBlockStorageClusterDiskThroughputResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetDedicatedBlockStorageClusterDiskThroughputResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDiskReplicaGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * Specifies whether to immediately synchronize data once. Valid values:
-   * 
-   * *   true: immediately synchronizes data once.
-   * *   false: synchronizes data based on the RPO of the replication pair-consistent group.
-   * 
-   * Default value: false.
-   * 
-   * @example
-   * false
-   */
-  oneShot?: boolean;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pg-myreplica****
-   */
-  replicaGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      oneShot: 'OneShot',
-      regionId: 'RegionId',
-      replicaGroupId: 'ReplicaGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      oneShot: 'boolean',
-      regionId: 'string',
-      replicaGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDiskReplicaGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDiskReplicaGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartDiskReplicaGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartDiskReplicaGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDiskReplicaPairRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * Specifies whether to immediately synchronize data. Valid values:
-   * 
-   * *   true: immediately synchronizes data.
-   * *   false: synchronizes data based on the recovery point objective (RPO).
-   * 
-   * Default value: false.
-   * 
-   * @example
-   * false
-   */
-  oneShot?: boolean;
-  /**
-   * @remarks
-   * The region ID of the primary or secondary disk in the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the region information of replication pairs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pair-cn-dsa****
-   */
-  replicaPairId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      oneShot: 'OneShot',
-      regionId: 'RegionId',
-      replicaPairId: 'ReplicaPairId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      oneShot: 'boolean',
-      regionId: 'string',
-      replicaPairId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDiskReplicaPairResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * A37597A6-BB99-19B3-85EA-4C2B91F0****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDiskReplicaPairResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartDiskReplicaPairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartDiskReplicaPairResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartPairDrillRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query a list of replication pairs, including replication pair IDs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pair-xxxx
-   */
-  pairId?: string;
-  /**
-   * @remarks
-   * The region ID of the secondary disk in the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the region in which the secondary disk of the replication pair resides.
-   * 
-   * >  You must enable the disaster recovery drill feature in the region in which the secondary site resides.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      pairId: 'PairId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      pairId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartPairDrillResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The drill ID.
-   * 
-   * @example
-   * drill-xxx
-   */
-  drillId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      drillId: 'DrillId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      drillId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartPairDrillResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartPairDrillResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartPairDrillResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartReplicaGroupDrillRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group ID. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation the most recent list of async replication pair-consistent groups, including group IDs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pg-xxxx
-   */
-  groupId?: string;
-  /**
-   * @remarks
-   * The ID of the region where the secondary site in the replication pair-consistent group is located. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the region where the secondary site in the replication pair-consistent group is located.
-   * 
-   * >  You must enable the disaster recovery drill feature in the region in which the secondary site resides.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      groupId: 'GroupId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      groupId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartReplicaGroupDrillResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The drill ID.
-   * 
-   * @example
-   * pg-drill-xxxx
-   */
-  drillId?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      drillId: 'DrillId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      drillId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartReplicaGroupDrillResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StartReplicaGroupDrillResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StartReplicaGroupDrillResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDiskReplicaGroupRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The region ID of the replication pair-consistent group.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pg-myreplica****
-   */
-  replicaGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      regionId: 'RegionId',
-      replicaGroupId: 'ReplicaGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      regionId: 'string',
-      replicaGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDiskReplicaGroupResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C123F94F-4E38-19AE-942A-A8D6F44F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDiskReplicaGroupResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopDiskReplicaGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopDiskReplicaGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDiskReplicaPairRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The region ID of the primary or secondary disk in the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the region information of replication pairs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the replication pair.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * pair-cn-dsa****
-   */
-  replicaPairId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      regionId: 'RegionId',
-      replicaPairId: 'ReplicaPairId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      regionId: 'string',
-      replicaPairId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDiskReplicaPairResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * A37597A6-BB99-19B3-85EA-4C2B91F0****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopDiskReplicaPairResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopDiskReplicaPairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopDiskReplicaPairResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 0c593ea1-3bea-11e9-b96b-88e9fe63****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID list of the resources. You can specify up to 50 IDs in each request.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * disk-123
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   dedicatedblockstoragecluster: dedicated block storage cluster
-   * *   diskreplicapair: replication pair
-   * *   diskreplicagroup: replication pair-consistent group
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * diskreplicagroup
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The resource tags. You can specify up to 20 tags.
-   * 
-   * This parameter is required.
-   */
-  tag?: TagResourcesRequestTag[];
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. The request ID is returned regardless of whether the call is successful.
-   * 
-   * @example
-   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class TagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: TagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: TagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindEnterpriseSnapshotPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The list of disks.
-   */
-  diskTargets?: string[];
-  /**
-   * @remarks
-   * The id of the policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * esp-xxs
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      diskTargets: 'DiskTargets',
-      policyId: 'PolicyId',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      diskTargets: { 'type': 'array', 'itemType': 'string' },
-      policyId: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 061DE1AB-08BA-5ACD-A03A-440117C6939A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindEnterpriseSnapshotPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UnbindEnterpriseSnapshotPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UnbindEnterpriseSnapshotPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to remove all tags from the resource. This parameter is valid only when the TagKey.N parameter is not specified. Valid values:
-   * 
-   * *   true: removes all tags from the resource.
-   * *   false: does not remove all tags from the resource.
-   * 
-   * Default value: false.
-   * 
-   * @example
-   * false
-   */
-  all?: boolean;
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 0c593ea1-3bea-11e9-b96b-88e9fe63****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID list of the resource. You can specify up to 50 resource IDs in each call.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * disk-123
-   */
-  resourceId?: string[];
-  /**
-   * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   dedicatedblockstoragecluster: dedicated block storage cluster
-   * *   diskreplicapair: the replication pair.
-   * *   diskreplicagroup: replication pair-consistent group
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * diskreplicapair
-   */
-  resourceType?: string;
-  /**
-   * @remarks
-   * The list of tag keys. You can specify up to 20 tag keys in the list.
-   * 
-   * @example
-   * disk-123
-   */
-  tagKey?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      all: 'All',
-      clientToken: 'ClientToken',
-      regionId: 'RegionId',
-      resourceId: 'ResourceId',
-      resourceType: 'ResourceType',
-      tagKey: 'TagKey',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      all: 'boolean',
-      clientToken: 'string',
-      regionId: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
-      resourceType: 'string',
-      tagKey: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request. The request ID is returned regardless of whether the call is successful.
-   * 
-   * @example
-   * C46FF5A8-C5F0-4024-8262-B16B6392****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UntagResourcesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UntagResourcesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UntagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateEnterpriseSnapshotPolicyRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * Snapshot replication destination information.
-   */
-  crossRegionCopyInfo?: UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo;
-  /**
-   * @remarks
-   * The description of the policy.
-   * 
-   * @example
-   * xxx
-   */
-  desc?: string;
-  /**
-   * @remarks
-   * The name of the policy.
-   * 
-   * @example
-   * xxx
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The id of the policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * esp-xxx
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Snapshot retention rule.
-   */
-  retainRule?: UpdateEnterpriseSnapshotPolicyRequestRetainRule;
-  /**
-   * @remarks
-   * The rule for scheduling.
-   */
-  schedule?: UpdateEnterpriseSnapshotPolicyRequestSchedule;
-  /**
-   * @remarks
-   * The special snapshot retention rules.
-   */
-  specialRetainRules?: UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRules;
-  /**
-   * @remarks
-   * The status of the policy. Valid values:
-   * 
-   * *   **ENABLED**: Enable snapshot policy execution.
-   * *   **DISABLED**: Disable snapshot policy execution.
-   * 
-   * @example
-   * ENABLED
-   */
-  state?: string;
-  /**
-   * @remarks
-   * Advanced snapshot features.
-   */
-  storageRule?: UpdateEnterpriseSnapshotPolicyRequestStorageRule;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      crossRegionCopyInfo: 'CrossRegionCopyInfo',
-      desc: 'Desc',
-      name: 'Name',
-      policyId: 'PolicyId',
-      regionId: 'RegionId',
-      retainRule: 'RetainRule',
-      schedule: 'Schedule',
-      specialRetainRules: 'SpecialRetainRules',
-      state: 'State',
-      storageRule: 'StorageRule',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      crossRegionCopyInfo: UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo,
-      desc: 'string',
-      name: 'string',
-      policyId: 'string',
-      regionId: 'string',
-      retainRule: UpdateEnterpriseSnapshotPolicyRequestRetainRule,
-      schedule: UpdateEnterpriseSnapshotPolicyRequestSchedule,
-      specialRetainRules: UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRules,
-      state: 'string',
-      storageRule: UpdateEnterpriseSnapshotPolicyRequestStorageRule,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateEnterpriseSnapshotPolicyShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * Snapshot replication destination information.
-   */
-  crossRegionCopyInfoShrink?: string;
-  /**
-   * @remarks
-   * The description of the policy.
-   * 
-   * @example
-   * xxx
-   */
-  desc?: string;
-  /**
-   * @remarks
-   * The name of the policy.
-   * 
-   * @example
-   * xxx
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The id of the policy.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * esp-xxx
-   */
-  policyId?: string;
-  /**
-   * @remarks
-   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * Snapshot retention rule.
-   */
-  retainRuleShrink?: string;
-  /**
-   * @remarks
-   * The rule for scheduling.
-   */
-  scheduleShrink?: string;
-  /**
-   * @remarks
-   * The special snapshot retention rules.
-   */
-  specialRetainRulesShrink?: string;
-  /**
-   * @remarks
-   * The status of the policy. Valid values:
-   * 
-   * *   **ENABLED**: Enable snapshot policy execution.
-   * *   **DISABLED**: Disable snapshot policy execution.
-   * 
-   * @example
-   * ENABLED
-   */
-  state?: string;
-  /**
-   * @remarks
-   * Advanced snapshot features.
-   */
-  storageRuleShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      crossRegionCopyInfoShrink: 'CrossRegionCopyInfo',
-      desc: 'Desc',
-      name: 'Name',
-      policyId: 'PolicyId',
-      regionId: 'RegionId',
-      retainRuleShrink: 'RetainRule',
-      scheduleShrink: 'Schedule',
-      specialRetainRulesShrink: 'SpecialRetainRules',
-      state: 'State',
-      storageRuleShrink: 'StorageRule',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      crossRegionCopyInfoShrink: 'string',
-      desc: 'string',
-      name: 'string',
-      policyId: 'string',
-      regionId: 'string',
-      retainRuleShrink: 'string',
-      scheduleShrink: 'string',
-      specialRetainRulesShrink: 'string',
-      state: 'string',
-      storageRuleShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateEnterpriseSnapshotPolicyResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * BA903E56-48CE-5B81-9611-ED7962EED3DF
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateEnterpriseSnapshotPolicyResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateEnterpriseSnapshotPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateEnterpriseSnapshotPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSolutionInstanceAttributeRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-   * 
-   * @example
-   * 123e4567-e89b-12d3-a456-42665544****
-   */
-  clientToken?: string;
-  /**
-   * @remarks
-   * The description of the instance.
-   * 
-   * @example
-   * defaultDescription
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The name of the instance.
-   * 
-   * @example
-   * defaultName
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The ID of the region where the dedicated block storage cluster resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-beijing
-   */
-  regionId?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * inst-***
-   */
-  solutionInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      description: 'Description',
-      name: 'Name',
-      regionId: 'RegionId',
-      solutionInstanceId: 'SolutionInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      description: 'string',
-      name: 'string',
-      regionId: 'string',
-      solutionInstanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSolutionInstanceAttributeResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 20758A-585D-4A41-A9B2-28DA8F4F****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSolutionInstanceAttributeResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateSolutionInstanceAttributeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateSolutionInstanceAttributeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDedicatedBlockStorageClusterRequestTag extends $tea.Model {
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
+
+export class CreateDedicatedBlockStorageClusterRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of tag N to add to the dedicated block storage cluster.
@@ -8191,12 +40,16 @@ export class CreateDedicatedBlockStorageClusterRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDiskReplicaGroupRequestTag extends $tea.Model {
+export class CreateDiskReplicaGroupRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of tag N of the replication pair-consistent group.
@@ -8227,12 +80,16 @@ export class CreateDiskReplicaGroupRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateDiskReplicaPairRequestTag extends $tea.Model {
+export class CreateDiskReplicaPairRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of tag N to add to the resource. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. It cannot start with `acs:` or `aliyun`.
@@ -8263,12 +120,16 @@ export class CreateDiskReplicaPairRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions extends $tea.Model {
+export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions extends $dara.Model {
   /**
    * @remarks
    * The region ID of the destination. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
@@ -8299,12 +160,16 @@ export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo extends $tea.Model {
+export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo extends $dara.Model {
   /**
    * @remarks
    * Whether cross-region replication is enabled. The range of values:
@@ -8336,12 +201,19 @@ export class CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo extends $t
     };
   }
 
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateEnterpriseSnapshotPolicyRequestRetainRule extends $tea.Model {
+export class CreateEnterpriseSnapshotPolicyRequestRetainRule extends $dara.Model {
   /**
    * @remarks
    * Maximum number of retained snapshots.
@@ -8386,12 +258,16 @@ export class CreateEnterpriseSnapshotPolicyRequestRetainRule extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateEnterpriseSnapshotPolicyRequestSchedule extends $tea.Model {
+export class CreateEnterpriseSnapshotPolicyRequestSchedule extends $dara.Model {
   /**
    * @remarks
    * The time when the policy will to be scheduled. Valid values: Set the parameter in a cron expression.
@@ -8413,12 +289,16 @@ export class CreateEnterpriseSnapshotPolicyRequestSchedule extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules extends $tea.Model {
+export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules extends $dara.Model {
   /**
    * @remarks
    * The periodic unit for specially retained snapshots. If configured to WEEKS, it provides special retention for the first snapshot of each week. The retention period is determined by TimeUnit and TimeInterval. The range of values are:
@@ -8466,12 +346,16 @@ export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules extend
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules extends $tea.Model {
+export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the special retention is enabled.
@@ -8502,12 +386,19 @@ export class CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules extends $te
     };
   }
 
+  validate() {
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateEnterpriseSnapshotPolicyRequestStorageRule extends $tea.Model {
+export class CreateEnterpriseSnapshotPolicyRequestStorageRule extends $dara.Model {
   /**
    * @remarks
    * Whether to enable the rapid availability of snapshots. The range of values:
@@ -8532,12 +423,16 @@ export class CreateEnterpriseSnapshotPolicyRequestStorageRule extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateEnterpriseSnapshotPolicyRequestTag extends $tea.Model {
+export class CreateEnterpriseSnapshotPolicyRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag.
@@ -8576,12 +471,16 @@ export class CreateEnterpriseSnapshotPolicyRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateEnterpriseSnapshotPolicyShrinkRequestTag extends $tea.Model {
+export class CreateEnterpriseSnapshotPolicyShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag.
@@ -8620,12 +519,16 @@ export class CreateEnterpriseSnapshotPolicyShrinkRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags extends $tea.Model {
+export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags extends $dara.Model {
   /**
    * @remarks
    * The tag key of the cloud disk.
@@ -8656,12 +559,16 @@ export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDiskTags 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk extends $tea.Model {
+export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk extends $dara.Model {
   /**
    * @remarks
    * The time when the cloud disk was last attached. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
@@ -9046,12 +953,19 @@ export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisksDisk exte
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks extends $tea.Model {
+export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks extends $dara.Model {
   /**
    * @remarks
    * Details about the cloud disks.
@@ -9069,12 +983,19 @@ export class DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks extends 
     };
   }
 
+  validate() {
+    if(Array.isArray(this.disk)) {
+      $dara.Model.validateArray(this.disk);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDedicatedBlockStorageClustersRequestTag extends $tea.Model {
+export class DescribeDedicatedBlockStorageClustersRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key of the dedicated block storage cluster.
@@ -9105,12 +1026,16 @@ export class DescribeDedicatedBlockStorageClustersRequestTag extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity extends $tea.Model {
+export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity extends $dara.Model {
   /**
    * @remarks
    * The available capacity of the dedicated block storage cluster. Unit: GiB.
@@ -9241,12 +1166,16 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersTags extends $tea.Model {
+export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersTags extends $dara.Model {
   /**
    * @remarks
    * The tag key of the dedicated block storage cluster.
@@ -9277,12 +1206,16 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters extends $tea.Model {
+export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters extends $dara.Model {
   /**
    * @remarks
    * The user ID.
@@ -9492,12 +1425,22 @@ export class DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStor
     };
   }
 
+  validate() {
+    if(this.dedicatedBlockStorageClusterCapacity && typeof (this.dedicatedBlockStorageClusterCapacity as any).validate === 'function') {
+      (this.dedicatedBlockStorageClusterCapacity as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDiskEventsResponseBodyDiskEvents extends $tea.Model {
+export class DescribeDiskEventsResponseBodyDiskEvents extends $dara.Model {
   /**
    * @remarks
    * The description of the event.
@@ -9585,12 +1528,16 @@ export class DescribeDiskEventsResponseBodyDiskEvents extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDiskMonitorDataResponseBodyMonitorData extends $tea.Model {
+export class DescribeDiskMonitorDataResponseBodyMonitorData extends $dara.Model {
   /**
    * @remarks
    * The percentage of BPS.
@@ -9731,12 +1678,16 @@ export class DescribeDiskMonitorDataResponseBodyMonitorData extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDiskMonitorDataListResponseBodyMonitorData extends $tea.Model {
+export class DescribeDiskMonitorDataListResponseBodyMonitorData extends $dara.Model {
   /**
    * @remarks
    * The number of burst I/O operations.
@@ -9777,12 +1728,16 @@ export class DescribeDiskMonitorDataListResponseBodyMonitorData extends $tea.Mod
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDiskReplicaGroupsRequestTag extends $tea.Model {
+export class DescribeDiskReplicaGroupsRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of tag N of the replication pair-consistent group.
@@ -9813,12 +1768,16 @@ export class DescribeDiskReplicaGroupsRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDiskReplicaGroupsResponseBodyReplicaGroupsTags extends $tea.Model {
+export class DescribeDiskReplicaGroupsResponseBodyReplicaGroupsTags extends $dara.Model {
   /**
    * @remarks
    * The tag key of the replication pair-consistent group.
@@ -9849,12 +1808,16 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroupsTags extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Model {
+export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $dara.Model {
   /**
    * @remarks
    * The bandwidth value. Unit: Kbit/s. This parameter is not publicly available and has a system-preset value.
@@ -10081,12 +2044,22 @@ export class DescribeDiskReplicaGroupsResponseBodyReplicaGroups extends $tea.Mod
     };
   }
 
+  validate() {
+    if(Array.isArray(this.pairIds)) {
+      $dara.Model.validateArray(this.pairIds);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDiskReplicaPairsRequestTag extends $tea.Model {
+export class DescribeDiskReplicaPairsRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of the tag.
@@ -10117,12 +2090,16 @@ export class DescribeDiskReplicaPairsRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDiskReplicaPairsResponseBodyReplicaPairsTags extends $tea.Model {
+export class DescribeDiskReplicaPairsResponseBodyReplicaPairsTags extends $dara.Model {
   /**
    * @remarks
    * The key of the tag.
@@ -10153,12 +2130,16 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairsTags extends $tea.M
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model {
+export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $dara.Model {
   /**
    * @remarks
    * The bandwidth used to asynchronously replicate data from the primary disk to the secondary disk. Unit: Kbit/s.
@@ -10459,12 +2440,19 @@ export class DescribeDiskReplicaPairsResponseBodyReplicaPairs extends $tea.Model
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEnterpriseSnapshotPolicyRequestTag extends $tea.Model {
+export class DescribeEnterpriseSnapshotPolicyRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of tag N of the enterprise-level snapshot policy.
@@ -10499,12 +2487,16 @@ export class DescribeEnterpriseSnapshotPolicyRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfoRegions extends $tea.Model {
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfoRegions extends $dara.Model {
   /**
    * @remarks
    * The ID of the destination region.
@@ -10535,12 +2527,16 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopy
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfo extends $tea.Model {
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopyInfo extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the cross-region replication feature is enabled.
@@ -10568,12 +2564,19 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesCrossRegionCopy
     };
   }
 
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesRetainRule extends $tea.Model {
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesRetainRule extends $dara.Model {
   /**
    * @remarks
    * The maximum number of snapshots that can be retained.
@@ -10614,12 +2617,16 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesRetainRule exte
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSchedule extends $tea.Model {
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSchedule extends $dara.Model {
   /**
    * @remarks
    * The cron expression of the enterprise-level snapshot policy.
@@ -10637,12 +2644,16 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSchedule extend
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRulesRules extends $tea.Model {
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRulesRules extends $dara.Model {
   /**
    * @remarks
    * The unit of the special retention period.
@@ -10683,12 +2694,16 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRu
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRules extends $tea.Model {
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRules extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the special retention period is enabled.
@@ -10716,12 +2731,19 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesSpecialRetainRu
     };
   }
 
+  validate() {
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesStorageRule extends $tea.Model {
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesStorageRule extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the instant access feature is enabled.
@@ -10742,12 +2764,16 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesStorageRule ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesTags extends $tea.Model {
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesTags extends $dara.Model {
   /**
    * @remarks
    * The key of the tag of the enterprise-level snapshot policy.
@@ -10778,12 +2804,16 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPoliciesTags extends $t
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $tea.Model {
+export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $dara.Model {
   /**
    * @remarks
    * The time when the enterprise-level snapshot policy was created.
@@ -10933,12 +2963,37 @@ export class DescribeEnterpriseSnapshotPolicyResponseBodyPolicies extends $tea.M
     };
   }
 
+  validate() {
+    if(this.crossRegionCopyInfo && typeof (this.crossRegionCopyInfo as any).validate === 'function') {
+      (this.crossRegionCopyInfo as any).validate();
+    }
+    if(Array.isArray(this.diskIds)) {
+      $dara.Model.validateArray(this.diskIds);
+    }
+    if(this.retainRule && typeof (this.retainRule as any).validate === 'function') {
+      (this.retainRule as any).validate();
+    }
+    if(this.schedule && typeof (this.schedule as any).validate === 'function') {
+      (this.schedule as any).validate();
+    }
+    if(this.specialRetainRules && typeof (this.specialRetainRules as any).validate === 'function') {
+      (this.specialRetainRules as any).validate();
+    }
+    if(this.storageRule && typeof (this.storageRule as any).validate === 'function') {
+      (this.storageRule as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeEventsResponseBodyResourceEvents extends $tea.Model {
+export class DescribeEventsResponseBodyResourceEvents extends $dara.Model {
   /**
    * @remarks
    * The description of the event.
@@ -11106,12 +3161,16 @@ export class DescribeEventsResponseBodyResourceEvents extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeLensMonitorDisksResponseBodyDiskInfosTags extends $tea.Model {
+export class DescribeLensMonitorDisksResponseBodyDiskInfosTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
@@ -11142,12 +3201,16 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfosTags extends $tea.Mode
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $tea.Model {
+export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $dara.Model {
   /**
    * @remarks
    * The BPS.
@@ -11248,11 +3311,11 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $tea.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
+   * The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
    * 
-   * Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}
+   * Baseline performance = min{1,800 + 50 × Capacity, 50,000}
    * 
-   * >  This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://www.alibabacloud.com/help/en/ecs/user-guide/essd-autopl-disks)
+   * This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
    * 
    * @example
    * 4000
@@ -11327,12 +3390,22 @@ export class DescribeLensMonitorDisksResponseBodyDiskInfos extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.lensTags)) {
+      $dara.Model.validateArray(this.lensTags);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeMetricDataResponseBodyDataList extends $tea.Model {
+export class DescribeMetricDataResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
    * The datapoints that consist of consecutive timestamps in seconds and metric values that were recorded at these time points.
@@ -11375,12 +3448,16 @@ export class DescribeMetricDataResponseBodyDataList extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribePairDrillsResponseBodyDrills extends $tea.Model {
+export class DescribePairDrillsResponseBodyDrills extends $dara.Model {
   /**
    * @remarks
    * The ID of the drill disk.
@@ -11474,12 +3551,16 @@ export class DescribePairDrillsResponseBodyDrills extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponseBodyRegionsZones extends $tea.Model {
+export class DescribeRegionsResponseBodyRegionsZones extends $dara.Model {
   /**
    * @remarks
    * The name of the zone.
@@ -11517,12 +3598,19 @@ export class DescribeRegionsResponseBodyRegionsZones extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceTypes)) {
+      $dara.Model.validateArray(this.resourceTypes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
    * The name of the region.
@@ -11570,12 +3658,19 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.zones)) {
+      $dara.Model.validateArray(this.zones);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo extends $tea.Model {
+export class DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo extends $dara.Model {
   /**
    * @remarks
    * The ID of the drill disk.
@@ -11623,12 +3718,16 @@ export class DescribeReplicaGroupDrillsResponseBodyDrillsPairsInfo extends $tea.
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeReplicaGroupDrillsResponseBodyDrills extends $tea.Model {
+export class DescribeReplicaGroupDrillsResponseBodyDrills extends $dara.Model {
   /**
    * @remarks
    * The ID of the drill.
@@ -11712,12 +3811,19 @@ export class DescribeReplicaGroupDrillsResponseBodyDrills extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.pairsInfo)) {
+      $dara.Model.validateArray(this.pairsInfo);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeSolutionInstanceConfigurationRequestParameters extends $tea.Model {
+export class DescribeSolutionInstanceConfigurationRequestParameters extends $dara.Model {
   /**
    * @remarks
    * The key of the parameter.
@@ -11754,12 +3860,16 @@ export class DescribeSolutionInstanceConfigurationRequestParameters extends $tea
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetReportResponseBodyDatasData extends $tea.Model {
+export class GetReportResponseBodyDatasData extends $dara.Model {
   /**
    * @remarks
    * Data Points.
@@ -11801,12 +3911,22 @@ export class GetReportResponseBodyDatasData extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.dataPoints) {
+      $dara.Model.validateMap(this.dataPoints);
+    }
+    if(this.labels) {
+      $dara.Model.validateMap(this.labels);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetReportResponseBodyDatas extends $tea.Model {
+export class GetReportResponseBodyDatas extends $dara.Model {
   /**
    * @remarks
    * Data.
@@ -11834,12 +3954,19 @@ export class GetReportResponseBodyDatas extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListReportsResponseBodyHistoryReports extends $tea.Model {
+export class ListReportsResponseBodyHistoryReports extends $dara.Model {
   /**
    * @remarks
    * Application name.
@@ -11900,12 +4027,16 @@ export class ListReportsResponseBodyHistoryReports extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequestTag extends $tea.Model {
+export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of tag N used for exact search of EBS resources. The tag key must be 1 to 128 characters in length. Valid values of N: 1 to 20.
@@ -11942,12 +4073,16 @@ export class ListTagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
    * The ID of the resource.
@@ -12002,12 +4137,16 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryDedicatedBlockStorageClusterInventoryDataResponseBodyDataMonitorItems extends $tea.Model {
+export class QueryDedicatedBlockStorageClusterInventoryDataResponseBodyDataMonitorItems extends $dara.Model {
   /**
    * @remarks
    * Available capacity size of the dedicated block storage cluster.
@@ -12038,12 +4177,16 @@ export class QueryDedicatedBlockStorageClusterInventoryDataResponseBodyDataMonit
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class QueryDedicatedBlockStorageClusterInventoryDataResponseBodyData extends $tea.Model {
+export class QueryDedicatedBlockStorageClusterInventoryDataResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The returned metrics.
@@ -12081,12 +4224,19 @@ export class QueryDedicatedBlockStorageClusterInventoryDataResponseBodyData exte
     };
   }
 
+  validate() {
+    if(this.monitorItems && typeof (this.monitorItems as any).validate === 'function') {
+      (this.monitorItems as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequestTag extends $tea.Model {
+export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
    * The key of tag N to add to the resource. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. It cannot start with `acs:` or `aliyun`.
@@ -12121,12 +4271,16 @@ export class TagResourcesRequestTag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions extends $tea.Model {
+export class UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions extends $dara.Model {
   /**
    * @remarks
    * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
@@ -12157,12 +4311,16 @@ export class UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfoRegions ext
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo extends $tea.Model {
+export class UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo extends $dara.Model {
   /**
    * @remarks
    * Whether cross-region replication is enabled. The range of values:
@@ -12194,12 +4352,19 @@ export class UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo extends $t
     };
   }
 
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateEnterpriseSnapshotPolicyRequestRetainRule extends $tea.Model {
+export class UpdateEnterpriseSnapshotPolicyRequestRetainRule extends $dara.Model {
   /**
    * @remarks
    * Maximum number of retained snapshots.
@@ -12243,12 +4408,16 @@ export class UpdateEnterpriseSnapshotPolicyRequestRetainRule extends $tea.Model 
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateEnterpriseSnapshotPolicyRequestSchedule extends $tea.Model {
+export class UpdateEnterpriseSnapshotPolicyRequestSchedule extends $dara.Model {
   /**
    * @remarks
    * The time when the policy will to be scheduled. Valid values: Set the parameter in a cron expression.
@@ -12270,12 +4439,16 @@ export class UpdateEnterpriseSnapshotPolicyRequestSchedule extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules extends $tea.Model {
+export class UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules extends $dara.Model {
   /**
    * @remarks
    * The periodic unit for specially retained snapshots. If configured to WEEKS, it provides special retention for the first snapshot of each week. The retention period is determined by TimeUnit and TimeInterval. The range of values are:
@@ -12323,12 +4496,16 @@ export class UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRulesRules extend
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRules extends $tea.Model {
+export class UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRules extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the special retention is enabled.
@@ -12359,12 +4536,19 @@ export class UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRules extends $te
     };
   }
 
+  validate() {
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateEnterpriseSnapshotPolicyRequestStorageRule extends $tea.Model {
+export class UpdateEnterpriseSnapshotPolicyRequestStorageRule extends $dara.Model {
   /**
    * @remarks
    * Whether to enable the rapid availability of snapshots. The range of values:
@@ -12389,6 +4573,9672 @@ export class UpdateEnterpriseSnapshotPolicyRequestStorageRule extends $tea.Model
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDiskReplicaPairRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The region ID of the replication pair-consistent group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pg-myreplica****
+   */
+  replicaGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the IDs of existing replication pairs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pair-cn-dsa****
+   */
+  replicaPairId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+      replicaPairId: 'ReplicaPairId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaGroupId: 'string',
+      replicaPairId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDiskReplicaPairResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDiskReplicaPairResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddDiskReplicaPairResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddDiskReplicaPairResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyLensServiceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApplyLensServiceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ApplyLensServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ApplyLensServiceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindEnterpriseSnapshotPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The list of disks.
+   */
+  diskTargets?: string[];
+  /**
+   * @remarks
+   * The id of the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * esp-xxx
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      diskTargets: 'DiskTargets',
+      policyId: 'PolicyId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      diskTargets: { 'type': 'array', 'itemType': 'string' },
+      policyId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.diskTargets)) {
+      $dara.Model.validateArray(this.diskTargets);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindEnterpriseSnapshotPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EF4CA176-3358-5B74-B317-B1908B4B1F7D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindEnterpriseSnapshotPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BindEnterpriseSnapshotPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BindEnterpriseSnapshotPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelLensServiceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelLensServiceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelLensServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelLensServiceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the new resource group. You can view the available resource groups in the Resource Management console. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rg-123
+   */
+  newResourceGroupId?: string;
+  /**
+   * @remarks
+   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource. For example, if you set ResourceType to diskreplicapair, set this parameter to the ID of a replication pair.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pair-123
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   dedicatedblockstoragecluster: dedicated block storage cluster.
+   * *   diskreplicapair: replication pair.
+   * *   diskreplicagroup: replication pair-consistent group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * diskreplicapair
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      newResourceGroupId: 'NewResourceGroupId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      newResourceGroupId: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChangeResourceGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearPairDrillRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the drill. You can call the [DescribePairDrills](https://help.aliyun.com/document_detail/2584480.html) operation to query the disaster recovery drills that were performed on replication pairs in a specific region.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * drill-xxxx
+   */
+  drillId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the most recent list of replication pairs, including replication pair IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pair-xxxx
+   */
+  pairId?: string;
+  /**
+   * @remarks
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillId: 'DrillId',
+      pairId: 'PairId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillId: 'string',
+      pairId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearPairDrillResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 20758A-585D-4A41-A9B2-28DA8F4F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearPairDrillResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ClearPairDrillResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ClearPairDrillResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearReplicaGroupDrillRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the drill. You can call the [DescribeReplicaGroupDrills](https://help.aliyun.com/document_detail/2584481.html) operation to query disaster recovery drills that were performed on replication pairs in a specific region.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pg-drill-xxxx
+   */
+  drillId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the most recent list of replication pair-consistent groups, including group IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pg-xxxx
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillId: 'DrillId',
+      groupId: 'GroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillId: 'string',
+      groupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearReplicaGroupDrillResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClearReplicaGroupDrillResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ClearReplicaGroupDrillResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ClearReplicaGroupDrillResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDedicatedBlockStorageClusterRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the zone in which to create the dedicated block storage cluster. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-heyuan-b
+   */
+  azone?: string;
+  /**
+   * @remarks
+   * The capacity of the dedicated block storage cluster. Valid values: 61440 to 2334720. Unit: GiB. 2,334,720 GiB is equal to 2,280 TiB. The capacity increases in a minimum increment of 12,288 GiB.
+   * 
+   * >  If the capacity of a dedicated block storage cluster is less than 576 TiB, the maximum throughput per TiB cannot exceed 52 MB/s. If the capacity of a dedicated block storage cluster is greater than 576 TiB, the maximum throughput per TiB cannot exceed 26 MB/s.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 61440
+   */
+  capacity?: number;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * test1233
+   * 
+   * **if can be null:**
+   * true
+   * 
+   * @deprecated
+   */
+  dbscId?: string;
+  /**
+   * @remarks
+   * The name of the dedicated block storage cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myDBSCCluster
+   */
+  dbscName?: string;
+  /**
+   * @remarks
+   * The subscription duration of the dedicated block storage cluster. Valid values: 6, 7, 8, 9, 10, 11, 12, 24, and 36.
+   * 
+   * @example
+   * 12
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration specified by `Period`. Set the value to Month.
+   * 
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * The ID of the region in which to create the dedicated block storage cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-heyuan
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which to assign the dedicated block storage cluster.
+   * 
+   * @example
+   * rg-acfmvs*******
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags to add to the dedicated block storage cluster. You can specify up to 20 tags.
+   */
+  tag?: CreateDedicatedBlockStorageClusterRequestTag[];
+  /**
+   * @remarks
+   * The type of the dedicated block storage cluster. Valid values:
+   * 
+   * *   Standard: basic dedicated block storage cluster. Enterprise SSDs (ESSDs) at performance level 0 (PL0 ESSDs) can be created in basic dedicated block storage clusters.
+   * *   Premium: performance dedicated block storage cluster. ESSDs at performance level 1 (PL1 ESSDs) can be created in performance dedicated block storage clusters.
+   * 
+   * Default value: Premium.
+   * 
+   * For more information about ESSDs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Premium
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      azone: 'Azone',
+      capacity: 'Capacity',
+      dbscId: 'DbscId',
+      dbscName: 'DbscName',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      azone: 'string',
+      capacity: 'number',
+      dbscId: 'string',
+      dbscName: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateDedicatedBlockStorageClusterRequestTag },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDedicatedBlockStorageClusterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the dedicated block storage cluster.
+   * 
+   * @example
+   * dbsc-f8z4d3k4nsgg9okb****
+   */
+  dbscId?: string;
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 50155660025****
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 20758A-585D-4A41-A9B2-28DA8F4F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbscId: 'DbscId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbscId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDedicatedBlockStorageClusterResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDedicatedBlockStorageClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDedicatedBlockStorageClusterResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiskReplicaGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The bandwidth value. Unit: Mbit/s.
+   * 
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * 10240
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the replication pair-consistent group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
+   * @example
+   * This is description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The region ID of the secondary site.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  destinationRegionId?: string;
+  /**
+   * @remarks
+   * The zone ID of the secondary site.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai-e
+   */
+  destinationZoneId?: string;
+  /**
+   * @remarks
+   * The name of the replication pair-consistent group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * myreplicagrouptest
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * The RPO of the replication pair-consistent group. Unit: seconds. Valid value: 900.
+   * 
+   * @example
+   * 900
+   */
+  RPO?: number;
+  /**
+   * @remarks
+   * The ID of the region in which to create the replication pair-consistent group. The primary site is deployed in the specified region.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the replication pair-consistent group belongs.
+   * 
+   * @example
+   * rg-acfmvs*******
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The zone ID of the primary site.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing-f
+   */
+  sourceZoneId?: string;
+  /**
+   * @remarks
+   * The tags. Up to 20 tags are supported.
+   */
+  tag?: CreateDiskReplicaGroupRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      destinationRegionId: 'DestinationRegionId',
+      destinationZoneId: 'DestinationZoneId',
+      groupName: 'GroupName',
+      RPO: 'RPO',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      sourceZoneId: 'SourceZoneId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      clientToken: 'string',
+      description: 'string',
+      destinationRegionId: 'string',
+      destinationZoneId: 'string',
+      groupName: 'string',
+      RPO: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      sourceZoneId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateDiskReplicaGroupRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiskReplicaGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group.
+   * 
+   * @example
+   * pg-xxxxxxx
+   */
+  replicaGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      replicaGroupId: 'ReplicaGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      replicaGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiskReplicaGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDiskReplicaGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiskReplicaPairRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The bandwidth to use to asynchronously replicate data between the primary disk and secondary disk. Unit: Kbit/s. Valid values:
+   * 
+   * *   10240 : equal to 10 Mbit/s
+   * *   20480 : equal to 20 Mbit/s
+   * *   51200 : equal to 50 Mbit/s
+   * *   102400 : equal to 100 Mbit/s
+   * 
+   * Default value: 10240.
+   * 
+   * When you set the ChargeType parameter to POSTPAY, the Bandwidth parameter is automatically set to 0 and cannot be modified. The value 0 indicates that bandwidth is dynamically allocated based on the volume of data that is asynchronously replicated from the primary disk to the secondary disk.
+   * 
+   * @example
+   * 10240
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
+   * The billing method of the replication pair. Valid values:
+   * 
+   * *   PREPAY: subscription
+   * *   POSTPAY: pay-as-you-go
+   * 
+   * Default value: POSTPAY.
+   * 
+   * @example
+   * PREPAY
+   */
+  chargeType?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the replication pair. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
+   * @example
+   * This is description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The ID of the secondary disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * d-sa1f82p58p1tdw9g****
+   */
+  destinationDiskId?: string;
+  /**
+   * @remarks
+   * The region ID of the secondary disk. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  destinationRegionId?: string;
+  /**
+   * @remarks
+   * The zone ID of the secondary disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai-e
+   */
+  destinationZoneId?: string;
+  /**
+   * @remarks
+   * The ID of the primary disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * d-iq80sgp4d0xbk24q****
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * The name of the replication pair. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * 
+   * @example
+   * TestReplicaPair
+   */
+  pairName?: string;
+  /**
+   * @remarks
+   * The subscription duration of the replication pair. This parameter is required when the `ChargeType` parameter is set to PREPAY. The unit of the subscription duration is specified by the `PeriodUnit` parameter.
+   * 
+   * *   Valid values when the `PeriodUnit` parameter is set to Week: 1, 2, 3, and 4.
+   * *   Valid values when the `PeriodUnit` parameter is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration of the replication pair. Valid values:
+   * 
+   * *   Week.
+   * *   Month
+   * 
+   * Default value: Month.
+   * 
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * The recovery point objective (RPO) of the replication pair. Unit: seconds. Set the value to 900.
+   * 
+   * @example
+   * 900
+   */
+  RPO?: number;
+  /**
+   * @remarks
+   * The ID of the region in which to create the replication pair.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which to assign the replication group.
+   * 
+   * @example
+   * rg-acfmvs****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The zone ID of the primary disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing-f
+   */
+  sourceZoneId?: string;
+  /**
+   * @remarks
+   * The resource tags. You can specify up to 20 tags.
+   */
+  tag?: CreateDiskReplicaPairRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      chargeType: 'ChargeType',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      destinationDiskId: 'DestinationDiskId',
+      destinationRegionId: 'DestinationRegionId',
+      destinationZoneId: 'DestinationZoneId',
+      diskId: 'DiskId',
+      pairName: 'PairName',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      RPO: 'RPO',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      sourceZoneId: 'SourceZoneId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      chargeType: 'string',
+      clientToken: 'string',
+      description: 'string',
+      destinationDiskId: 'string',
+      destinationRegionId: 'string',
+      destinationZoneId: 'string',
+      diskId: 'string',
+      pairName: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      RPO: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      sourceZoneId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateDiskReplicaPairRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiskReplicaPairResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 123456****
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair.
+   * 
+   * @example
+   * pair-cn-dsa****
+   */
+  replicaPairId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      replicaPairId: 'ReplicaPairId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      replicaPairId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDiskReplicaPairResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDiskReplicaPairResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDiskReplicaPairResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Snapshot replication destination information.
+   */
+  crossRegionCopyInfo?: CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo;
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * @example
+   * xxx
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xx
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which to assign the snapshot policy.
+   * 
+   * @example
+   * xxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The snapshot retention rule.
+   * 
+   * This parameter is required.
+   */
+  retainRule?: CreateEnterpriseSnapshotPolicyRequestRetainRule;
+  /**
+   * @remarks
+   * The rule for scheduling.
+   * 
+   * This parameter is required.
+   */
+  schedule?: CreateEnterpriseSnapshotPolicyRequestSchedule;
+  /**
+   * @remarks
+   * The special snapshot retention rules.
+   */
+  specialRetainRules?: CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules;
+  /**
+   * @remarks
+   * The status of the policy. Valid values:
+   * 
+   * - ENABLED: Enable snapshot policy execution.
+   * 
+   * - DISABLED: Disable snapshot policy execution.
+   * 
+   * @example
+   * ENABLED
+   */
+  state?: string;
+  /**
+   * @remarks
+   * Advanced snapshot features.
+   */
+  storageRule?: CreateEnterpriseSnapshotPolicyRequestStorageRule;
+  /**
+   * @remarks
+   * The list of tags.
+   */
+  tag?: CreateEnterpriseSnapshotPolicyRequestTag[];
+  /**
+   * @remarks
+   * Binding target type, valid value:
+   * 
+   * - DISK
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DISK
+   */
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      crossRegionCopyInfo: 'CrossRegionCopyInfo',
+      desc: 'Desc',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      retainRule: 'RetainRule',
+      schedule: 'Schedule',
+      specialRetainRules: 'SpecialRetainRules',
+      state: 'State',
+      storageRule: 'StorageRule',
+      tag: 'Tag',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      crossRegionCopyInfo: CreateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo,
+      desc: 'string',
+      name: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      retainRule: CreateEnterpriseSnapshotPolicyRequestRetainRule,
+      schedule: CreateEnterpriseSnapshotPolicyRequestSchedule,
+      specialRetainRules: CreateEnterpriseSnapshotPolicyRequestSpecialRetainRules,
+      state: 'string',
+      storageRule: CreateEnterpriseSnapshotPolicyRequestStorageRule,
+      tag: { 'type': 'array', 'itemType': CreateEnterpriseSnapshotPolicyRequestTag },
+      targetType: 'string',
+    };
+  }
+
+  validate() {
+    if(this.crossRegionCopyInfo && typeof (this.crossRegionCopyInfo as any).validate === 'function') {
+      (this.crossRegionCopyInfo as any).validate();
+    }
+    if(this.retainRule && typeof (this.retainRule as any).validate === 'function') {
+      (this.retainRule as any).validate();
+    }
+    if(this.schedule && typeof (this.schedule as any).validate === 'function') {
+      (this.schedule as any).validate();
+    }
+    if(this.specialRetainRules && typeof (this.specialRetainRules as any).validate === 'function') {
+      (this.specialRetainRules as any).validate();
+    }
+    if(this.storageRule && typeof (this.storageRule as any).validate === 'function') {
+      (this.storageRule as any).validate();
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Snapshot replication destination information.
+   */
+  crossRegionCopyInfoShrink?: string;
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * @example
+   * xxx
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xx
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which to assign the snapshot policy.
+   * 
+   * @example
+   * xxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The snapshot retention rule.
+   * 
+   * This parameter is required.
+   */
+  retainRuleShrink?: string;
+  /**
+   * @remarks
+   * The rule for scheduling.
+   * 
+   * This parameter is required.
+   */
+  scheduleShrink?: string;
+  /**
+   * @remarks
+   * The special snapshot retention rules.
+   */
+  specialRetainRulesShrink?: string;
+  /**
+   * @remarks
+   * The status of the policy. Valid values:
+   * 
+   * - ENABLED: Enable snapshot policy execution.
+   * 
+   * - DISABLED: Disable snapshot policy execution.
+   * 
+   * @example
+   * ENABLED
+   */
+  state?: string;
+  /**
+   * @remarks
+   * Advanced snapshot features.
+   */
+  storageRuleShrink?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
+  tag?: CreateEnterpriseSnapshotPolicyShrinkRequestTag[];
+  /**
+   * @remarks
+   * Binding target type, valid value:
+   * 
+   * - DISK
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * DISK
+   */
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      crossRegionCopyInfoShrink: 'CrossRegionCopyInfo',
+      desc: 'Desc',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      retainRuleShrink: 'RetainRule',
+      scheduleShrink: 'Schedule',
+      specialRetainRulesShrink: 'SpecialRetainRules',
+      state: 'State',
+      storageRuleShrink: 'StorageRule',
+      tag: 'Tag',
+      targetType: 'TargetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      crossRegionCopyInfoShrink: 'string',
+      desc: 'string',
+      name: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      retainRuleShrink: 'string',
+      scheduleShrink: 'string',
+      specialRetainRulesShrink: 'string',
+      state: 'string',
+      storageRuleShrink: 'string',
+      tag: { 'type': 'array', 'itemType': CreateEnterpriseSnapshotPolicyShrinkRequestTag },
+      targetType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The id of a policy.
+   * 
+   * @example
+   * esp-xxx
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7A8959DA-1E04-5724-8288-58334031454E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEnterpriseSnapshotPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateEnterpriseSnapshotPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateEnterpriseSnapshotPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskReplicaGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The region ID of the replication pair-consistent group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pg-myreplica****
+   */
+  replicaGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskReplicaGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskReplicaGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDiskReplicaGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskReplicaPairRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The region ID of the primary disk in the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the region information of replication pairs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pair-cn-dsa****
+   */
+  replicaPairId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaPairId: 'ReplicaPairId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaPairId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskReplicaPairResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A37597A6-BB99-19B3-85EA-4C2B91F0****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDiskReplicaPairResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDiskReplicaPairResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDiskReplicaPairResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnterpriseSnapshotPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The id of the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * esp-xxx
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      policyId: 'PolicyId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      policyId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnterpriseSnapshotPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * B9F716DF-FAFD-50FD-B962-BCE0C837639A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEnterpriseSnapshotPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEnterpriseSnapshotPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEnterpriseSnapshotPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClusterDisksRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the dedicated block storage cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dbsc-cn-od43bf****
+   */
+  dbscId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to return on each page. Maximum value: 500.
+   * 
+   * Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The query token. Set the value to the NextToken value returned in the previous call to the DescribeDedicatedBlockStorageClusterDisks operation. Leave this parameter empty the first time you call this operation.
+   * 
+   * @example
+   * AAAAAdDWBF2
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region where the dedicated block storage cluster resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-heyuan
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbscId: 'DbscId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbscId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClusterDisksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details about the cloud disks.
+   */
+  disks?: DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks;
+  /**
+   * @remarks
+   * The query token returned in this call.
+   * 
+   * @example
+   * AAAAAdDWBF2
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 11B55F58-D3A4-4A9B-9596-342420D0****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disks: 'Disks',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disks: DescribeDedicatedBlockStorageClusterDisksResponseBodyDisks,
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.disks && typeof (this.disks as any).validate === 'function') {
+      (this.disks as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClusterDisksResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedBlockStorageClusterDisksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDedicatedBlockStorageClusterDisksResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClustersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The zone ID of the dedicated block storage cluster. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
+   * 
+   * @example
+   * cn-heyuan-b
+   */
+  azoneId?: string;
+  /**
+   * @remarks
+   * The category of disks that can be created in the dedicated block storage cluster.
+   * 
+   * Set the value to cloud_essd. Only enhanced SSDs (ESSDs) can be created in dedicated block storage clusters.
+   * 
+   * @example
+   * cloud_essd
+   */
+  category?: string;
+  clientToken?: string;
+  dedicatedBlockStorageClusterId?: string[];
+  maxResults?: number;
+  nextToken?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the dedicated block storage cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-heyuan
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the dedicated block storage cluster belongs.
+   * 
+   * @example
+   * rg-acfmvs4****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The states of dedicated block storage clusters. Valid values:
+   * 
+   * *   Preparing
+   * *   Running
+   * *   Expired
+   * *   Offline
+   * 
+   * Multiple states can be specified. Valid values of N: 1, 2, 3, and 4.
+   */
+  status?: string[];
+  /**
+   * @remarks
+   * The tags. Up to 20 tags are supported.
+   */
+  tag?: DescribeDedicatedBlockStorageClustersRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      azoneId: 'AzoneId',
+      category: 'Category',
+      clientToken: 'ClientToken',
+      dedicatedBlockStorageClusterId: 'DedicatedBlockStorageClusterId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      azoneId: 'string',
+      category: 'string',
+      clientToken: 'string',
+      dedicatedBlockStorageClusterId: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      status: { 'type': 'array', 'itemType': 'string' },
+      tag: { 'type': 'array', 'itemType': DescribeDedicatedBlockStorageClustersRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dedicatedBlockStorageClusterId)) {
+      $dara.Model.validateArray(this.dedicatedBlockStorageClusterId);
+    }
+    if(Array.isArray(this.status)) {
+      $dara.Model.validateArray(this.status);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClustersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details about the dedicated block storage clusters.
+   */
+  dedicatedBlockStorageClusters?: DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AAAAAdDWBF2
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 11B55F58-D3A4-4A9B-9596-342420D0****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dedicatedBlockStorageClusters: 'DedicatedBlockStorageClusters',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dedicatedBlockStorageClusters: { 'type': 'array', 'itemType': DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters },
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dedicatedBlockStorageClusters)) {
+      $dara.Model.validateArray(this.dedicatedBlockStorageClusters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDedicatedBlockStorageClustersResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDedicatedBlockStorageClustersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDedicatedBlockStorageClustersResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskEventsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the disk. Valid values:
+   * 
+   * *   cloud_efficiency: ultra disk.
+   * *   cloud_ssd: standard SSD.
+   * *   cloud_essd: enhanced SSD (ESSD).
+   * 
+   * @example
+   * cloud_essd
+   */
+  diskCategory?: string;
+  /**
+   * @remarks
+   * The ID of the disk.
+   * 
+   * @example
+   * d-bp67acfmxazb4p****
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2022-06-01T05:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The maximum number of entries per page. Valid values: 1 to 100.
+   * 
+   * Default values:
+   * 
+   * *   If this parameter is not specified or is set to a value smaller than 10, the default value is 10.
+   * *   If this parameter is set to a value greater than 100, the default value is 100.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in this request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The region ID of the disk. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the list of regions that support CloudLens for EBS.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2022-06-01T03:00:00Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * The event type. Set the value to DataNeedProtect, which indicates that the disk data needs to be protected.
+   * 
+   * @example
+   * DataNeedProtect
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskCategory: 'DiskCategory',
+      diskId: 'DiskId',
+      endTime: 'EndTime',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskCategory: 'string',
+      diskId: 'string',
+      endTime: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      startTime: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskEventsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The risk events of the disk.
+   */
+  diskEvents?: DescribeDiskEventsResponseBodyDiskEvents[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      diskEvents: 'DiskEvents',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskEvents: { 'type': 'array', 'itemType': DescribeDiskEventsResponseBodyDiskEvents },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.diskEvents)) {
+      $dara.Model.validateArray(this.diskEvents);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskEventsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiskEventsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskMonitorDataRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * d-bp67acfmxazb4p****
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * The end of the time range during which you want to query the near real-time monitoring data of the disk. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-06-01T05:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The interval at which the near real-time monitoring data is collected. Unit: seconds. Valid values:
+   * 
+   * *   5
+   * *   60
+   * 
+   * Default value: 5.
+   * 
+   * @example
+   * 5
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The region ID of the disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range during which you want to query the near real-time monitoring data of the disk. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-06-01T03:00:00Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * The type of the monitoring data. Valid values:
+   * 
+   * *   basic: baseline performance data.
+   * *   pro: burst performance data, such as burst I/O operations.
+   * 
+   * @example
+   * basic
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskId: 'DiskId',
+      endTime: 'EndTime',
+      period: 'Period',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+      endTime: 'string',
+      period: 'number',
+      regionId: 'string',
+      startTime: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskMonitorDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The near real-time monitoring data of the disk.
+   */
+  monitorData?: DescribeDiskMonitorDataResponseBodyMonitorData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 15
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      monitorData: 'MonitorData',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorData: { 'type': 'array', 'itemType': DescribeDiskMonitorDataResponseBodyMonitorData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.monitorData)) {
+      $dara.Model.validateArray(this.monitorData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskMonitorDataResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskMonitorDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiskMonitorDataResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskMonitorDataListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the disks. The value is a JSON array that contains multiple disk IDs. Separate the IDs with commas (,).
+   * 
+   * @example
+   * ["d-bp67acfmxazb4p****","d-bp67acfmxazs5t****"]
+   */
+  diskIds?: string;
+  /**
+   * @remarks
+   * The end of the time range during which you want to query the near real-time monitoring data of the disks. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-06-01T05:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The number of entries per page. If you specify this parameter, both `MaxResults` and `NextToken` are used for a paged query.
+   * 
+   * Valid values: 1 to 100.
+   * 
+   * Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in this request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * e71d8a535bd9c****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the list of regions that support CloudLens for EBS.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range during which you want to query the near real-time monitoring data of the disks. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-06-01T03:00:00Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * The type of the monitoring data. Set the value to pro.
+   * 
+   * pro: burst performance data, such as burst I/O operations.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pro
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskIds: 'DiskIds',
+      endTime: 'EndTime',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskIds: 'string',
+      endTime: 'string',
+      maxResults: 'string',
+      nextToken: 'string',
+      regionId: 'string',
+      startTime: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskMonitorDataListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The near real-time monitoring data of the disks.
+   */
+  monitorData?: DescribeDiskMonitorDataListResponseBodyMonitorData[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
+   * @example
+   * e71d8a535bd9c****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 3
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      monitorData: 'MonitorData',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monitorData: { 'type': 'array', 'itemType': DescribeDiskMonitorDataListResponseBodyMonitorData },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.monitorData)) {
+      $dara.Model.validateArray(this.monitorData);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskMonitorDataListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskMonitorDataListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiskMonitorDataListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaGroupsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the replication pair-consistent groups. You can specify the IDs of one or more replication pair-consistent groups. Separate the IDs with commas (,).
+   * 
+   * This parameter is empty by default, which indicates that all replication pair-consistent groups in the specified region are queried. You can specify up to the IDs of 100 replication pair-consistent groups.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
+  groupIds?: string;
+  /**
+   * @remarks
+   * The maximum number of entries per page. You can use this parameter together with NextToken.
+   * 
+   * Valid values: 1 to 500.
+   * 
+   * Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The name of the replication pair-consistent group. You can perform a fuzzy search.
+   * 
+   * @example
+   * pg-name***
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The number of the page to return.
+   * 
+   * @example
+   * 5
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the region to which the replication pair-consistent group belongs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the replication pair-consistent group belongs.
+   * 
+   * @example
+   * rg-aekz*****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The type of the site from which the information of replication pair-consistent groups is retrieved. This parameter is used for scenarios where data is replicated across zones in replication pairs.
+   * 
+   * *   If this parameter is not specified, information such as the status of replication pair-consistent groups at the primary site is queried and returned.
+   * 
+   * *   Otherwise, information such as the state of replication pairs at the site specified by the Site parameter is queried and returned. Valid values:
+   * 
+   *     *   production: primary site
+   *     *   backup: secondary site
+   * 
+   * @example
+   * production
+   */
+  site?: string;
+  /**
+   * @remarks
+   * The tags to add to the replication pair-consistent group. You can specify up to 20 tags.
+   */
+  tag?: DescribeDiskReplicaGroupsRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      groupIds: 'GroupIds',
+      maxResults: 'MaxResults',
+      name: 'Name',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      site: 'Site',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupIds: 'string',
+      maxResults: 'number',
+      name: 'string',
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      site: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeDiskReplicaGroupsRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The information about the replication pair-consistent groups.
+   */
+  replicaGroups?: DescribeDiskReplicaGroupsResponseBodyReplicaGroups[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 60
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      replicaGroups: 'ReplicaGroups',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      replicaGroups: { 'type': 'array', 'itemType': DescribeDiskReplicaGroupsResponseBodyReplicaGroups },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.replicaGroups)) {
+      $dara.Model.validateArray(this.replicaGroups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaGroupsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskReplicaGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiskReplicaGroupsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaPairProgressRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID of the replication pair.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html)operation to query the IDs of existing replication pairs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pair-cn-tl32ribst0z
+   */
+  replicaPairId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      replicaPairId: 'ReplicaPairId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      replicaPairId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaPairProgressResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The replication progress of the replication pair.
+   * 
+   * @example
+   * 100
+   */
+  progress?: number;
+  /**
+   * @remarks
+   * The timestamp that indicates the last recovery point in time. The value is returned only after the replication pair works for replicating data.
+   * 
+   * @example
+   * 1661917424
+   */
+  recoverPoint?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      progress: 'Progress',
+      recoverPoint: 'RecoverPoint',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      progress: 'number',
+      recoverPoint: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaPairProgressResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskReplicaPairProgressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiskReplicaPairProgressResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaPairsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of entries per page. You can use this parameter together with NextToken.
+   * 
+   * Valid values: 1 to 500.
+   * 
+   * Default value: 10.
+   * 
+   * @example
+   * 1
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The name of the replication pair. Fuzzy search is supported.
+   * 
+   * @example
+   * name***
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 5
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The IDs of replication pairs. You can specify the IDs of one or more replication pairs and separate the IDs with commas (,). Example: `pair-cn-dsa****,pair-cn-asd****`.
+   * 
+   * This parameter is empty by default, which indicates that all replication pairs in the specified region are queried. You can specify a maximum of 100 replication pair IDs.
+   * 
+   * @example
+   * pair-cn-dsa****
+   */
+  pairIds?: string;
+  /**
+   * @remarks
+   * The region ID of the primary or secondary disk in the replication pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group. You can specify the ID of a replication pair-consistent group to query the replication pairs in the group. Example: `pg-****`.
+   * 
+   * This parameter is empty by default, which indicates that all replication pairs in the specified region are queried.
+   * 
+   * >  If this parameter is set to`-`, replication pairs that are not added to any replication pair-consistent groups are returned.
+   * 
+   * @example
+   * pg-****
+   */
+  replicaGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the replication pair belongs.
+   * 
+   * @example
+   * rg-acfmvs******
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The type of the site from which the information of replication pairs is retrieved. Valid value:
+   * 
+   * *   production: primary site
+   * *   backup: secondary site
+   * 
+   * Default value: production.
+   * 
+   * @example
+   * production
+   */
+  site?: string;
+  /**
+   * @remarks
+   * The tags. Up to 20 tags are supported.
+   */
+  tag?: DescribeDiskReplicaPairsRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      name: 'Name',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      pairIds: 'PairIds',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+      resourceGroupId: 'ResourceGroupId',
+      site: 'Site',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      name: 'string',
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      pairIds: 'string',
+      regionId: 'string',
+      replicaGroupId: 'string',
+      resourceGroupId: 'string',
+      site: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeDiskReplicaPairsRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaPairsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Details about the replication pairs.
+   */
+  replicaPairs?: DescribeDiskReplicaPairsResponseBodyReplicaPairs[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 60
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      replicaPairs: 'ReplicaPairs',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      replicaPairs: { 'type': 'array', 'itemType': DescribeDiskReplicaPairsResponseBodyReplicaPairs },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.replicaPairs)) {
+      $dara.Model.validateArray(this.replicaPairs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDiskReplicaPairsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeDiskReplicaPairsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeDiskReplicaPairsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The IDs of disks.
+   */
+  diskIds?: string[];
+  /**
+   * @remarks
+   * The maximum number of entries per page.
+   * 
+   * @example
+   * 100
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
+   * 
+   * @example
+   * xxx
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The IDs of enterprise-level snapshot policies.
+   */
+  policyIds?: string[];
+  /**
+   * @remarks
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * xxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags of the enterprise-level snapshot policies. Valid values of N: 1 to 20.
+   */
+  tag?: DescribeEnterpriseSnapshotPolicyRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      diskIds: 'DiskIds',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      policyIds: 'PolicyIds',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      diskIds: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      policyIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeEnterpriseSnapshotPolicyRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.diskIds)) {
+      $dara.Model.validateArray(this.diskIds);
+    }
+    if(Array.isArray(this.policyIds)) {
+      $dara.Model.validateArray(this.policyIds);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
+   * @example
+   * AAAAAdDWBF2
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The returned snapshot policies.
+   */
+  policies?: DescribeEnterpriseSnapshotPolicyResponseBodyPolicies[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5CA35A83-8D8A-5B67-BAA0-2E124F194DA4
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      policies: 'Policies',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      policies: { 'type': 'array', 'itemType': DescribeEnterpriseSnapshotPolicyResponseBodyPolicies },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policies)) {
+      $dara.Model.validateArray(this.policies);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnterpriseSnapshotPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEnterpriseSnapshotPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEnterpriseSnapshotPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2023-06-01T04:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The severity level of the event. Valid values:
+   * 
+   * *   **INFO**
+   * *   **WARN**
+   * *   **CRITICAL**
+   * 
+   * @example
+   * WARN
+   */
+  eventLevel?: string;
+  /**
+   * @remarks
+   * The name of the event. Valid values:
+   * 
+   * *   NoSnapshot: indicates the event that is triggered because no snapshot is created for a disk to protect data on the disk.
+   * *   BurstIOTriggered: indicates the event that is triggered when a burst I/O operation is performed on a disk.
+   * *   CostOptimizationNeeded: indicates the event that is triggered when cost optimization is required.
+   * *   DiskSpecNotMatchedWithInstance: indicates the event that is triggered because the specifications of a disk do not match the instance to which the disk is attached.
+   * *   DiskIONo4kAligned: indicates the event that is triggered because the physical and logical sectors involved in a read or write operation are not 4K aligned.
+   * *   DiskIOHang: indicates the event that is triggered when an I/O hang occurs on a disk.
+   * *   InstanceIOPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of IOPS on an instance reaches the upper limit.
+   * *   InstanceBPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of BPS on an instance reaches the upper limit.
+   * *   DiskIOPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of IOPS on a disk reaches the upper limit for the associated instance.
+   * *   DiskBPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of BPS on a disk reaches the upper limit for the associated instance.
+   * *   DiskIOPSExceedDiskMaxLimit: indicates the event that is triggered when the number of IOPS on a disk reaches the upper limit for the disk.
+   * *   DiskBPSExceedDiskMaxLimit: indicates the event that is triggered when the number of BPS on a disk reaches the upper limit for the disk.
+   * 
+   * @example
+   * DiskIOHang
+   */
+  eventName?: string;
+  /**
+   * @remarks
+   * The number of entries to return on each page. If you specify MaxResults, `MaxResults` and `NextToken` are used for a paged query.
+   * 
+   * Valid values: 1 to 100.
+   * 
+   * Default value: 10
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * d-bp67acfmxazb4p****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The type of resource. Valid values:
+   * 
+   * *   disk.
+   * 
+   * Default value: disk.
+   * 
+   * @example
+   * disk
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2023-06-01T03:00:00Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * The status of event. Valid values:
+   * 
+   * - WillExecute
+   * - Executing
+   * - Executed
+   * - Ignore
+   * - Expired
+   * - Deleted
+   * 
+   * @example
+   * WillExecute
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      eventLevel: 'EventLevel',
+      eventName: 'EventName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      eventLevel: 'string',
+      eventName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The events.
+   */
+  resourceEvents?: DescribeEventsResponseBodyResourceEvents[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      resourceEvents: 'ResourceEvents',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      resourceEvents: { 'type': 'array', 'itemType': DescribeEventsResponseBodyResourceEvents },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceEvents)) {
+      $dara.Model.validateArray(this.resourceEvents);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEventsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEventsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLensMonitorDisksRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the disk. Valid values:
+   * - cloud
+   * - cloud_efficiency
+   * - cloud_ssd
+   * - cloud_essd
+   * - cloud_auto
+   * - cloud_essd_entry
+   * 
+   * @example
+   * cloud_auto
+   */
+  diskCategory?: string;
+  /**
+   * @remarks
+   * Regular matching fuzzy query to filter cloud disk IDs.
+   * 
+   * @example
+   * d-cd40hxfu0v**
+   */
+  diskIdPattern?: string;
+  /**
+   * @remarks
+   * The list of disks.
+   * 
+   * @example
+   * [\\"d-1\\", \\"d-2\\"]
+   */
+  diskIds?: string[];
+  /**
+   * @remarks
+   * Event tags of the disk, which are used to filter the disks on which the events associated with the specified tags occurred in the previous 24 hours. Valid values:
+   * 
+   * *   NoSnapshot: specifies the event that is triggered because no snapshot is created for the disk to protect data on the disk.
+   * *   BurstIOTriggered: specifies the event that is triggered when a burst I/O operation is performed on the disk.
+   * *   CostOptimizationNeeded: specifies the event that is triggered when cost optimization is required.
+   * *   DiskSpecNotMatchedWithInstance: specifies the event that is triggered if the disk specifications do not match the instance to which the disk is attached.
+   * *   DiskIONo4kAligned: specifies the event that is triggered if the physical and logical sectors involved in a read or write operation are not 4K aligned.
+   * *   DiskIOHang: specifies the event that is triggered when an I/O hang occurs on the disk.
+   * *   InstanceIOPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of IOPS on the instance reaches the upper limit.
+   * *   InstanceBPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of BPS on the instance reaches the upper limit.
+   * *   DiskIOPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of IOPS on the disk reaches the upper limit of the instance.
+   * *   DiskBPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of BPS on the disk reaches the upper limit of the instance.
+   * *   DiskIOPSExceedDiskMaxLimit: specifies the event that is triggered when the number of IOPS on the disk reaches the upper limit of the disk.
+   * *   DiskBPSExceedDiskMaxLimit: specifies the event that is triggered when the number of BPS on the disk reaches the upper limit of the disk.
+   */
+  lensTags?: string[];
+  /**
+   * @remarks
+   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The token used to start the next query to retrieve more results.
+   * 
+   * >The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskCategory: 'DiskCategory',
+      diskIdPattern: 'DiskIdPattern',
+      diskIds: 'DiskIds',
+      lensTags: 'LensTags',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskCategory: 'string',
+      diskIdPattern: 'string',
+      diskIds: { 'type': 'array', 'itemType': 'string' },
+      lensTags: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.diskIds)) {
+      $dara.Model.validateArray(this.diskIds);
+    }
+    if(Array.isArray(this.lensTags)) {
+      $dara.Model.validateArray(this.lensTags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLensMonitorDisksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the disks.
+   */
+  diskInfos?: DescribeLensMonitorDisksResponseBodyDiskInfos[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 6
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      diskInfos: 'DiskInfos',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskInfos: { 'type': 'array', 'itemType': DescribeLensMonitorDisksResponseBodyDiskInfos },
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.diskInfos)) {
+      $dara.Model.validateArray(this.diskInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLensMonitorDisksResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLensMonitorDisksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLensMonitorDisksResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLensServiceStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The state of CloudLens for EBS. Valid values:
+   * 
+   * *   Applying
+   * *   UnAvailable
+   * *   Available
+   * 
+   * @example
+   * Available
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLensServiceStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLensServiceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLensServiceStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMetricDataRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Aggregation method in time dimension. Valid values:
+   * 
+   * - SUM
+   * - COUNT
+   * - AVG
+   * - MAX
+   * - MIN
+   * 
+   * @example
+   * SUM
+   */
+  aggreOps?: string;
+  /**
+   * @remarks
+   * The dimension map in the JSON format. A dimension is a key-value pair. Valid dimension key: diskId.
+   * 
+   * @example
+   * {"diskId":["d-bp14xxxx","d-bp11xxxx"]}
+   */
+  dimensions?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The specified time must be later than the current time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2023-11-21T02:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The name of the metric. Valid values:
+   * 
+   * *   disk_bps_percent
+   * *   disk_iops_percent
+   * *   disk_read_block_size
+   * *   disk_read_bps
+   * *   disk_read_iops
+   * *   disk_read_latency
+   * *   disk_write_block_size
+   * *   disk_write_bps
+   * *   disk_write_iops
+   * *   disk_write_latency
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * disk_bps_percent
+   */
+  metricName?: string;
+  /**
+   * @remarks
+   * The interval at which metric data is collected. Unit: seconds. Default value: 60. Valid values: 60, 300, 600, and 3600, which support queries for time ranges of up to 2 hours, 2 hours, 1 day, and 7 days, respectively. For example, if you set Period to 60, the end time is less than 2 hours from the end time.
+   * 
+   * @example
+   * 60
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. You can specify a point in time that is up to one year apart from the current time. If StartTime and EndTime are both unspecified, the monitoring metric data of the last Period value is queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * @example
+   * 2023-11-21T01:50:00Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggreOps: 'AggreOps',
+      dimensions: 'Dimensions',
+      endTime: 'EndTime',
+      metricName: 'MetricName',
+      period: 'Period',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggreOps: 'string',
+      dimensions: 'string',
+      endTime: 'string',
+      metricName: 'string',
+      period: 'number',
+      regionId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMetricDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The disk monitoring data.
+   */
+  dataList?: DescribeMetricDataResponseBodyDataList[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 11B55F58-D3A4-4A9B-9596-342420D0****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of data entries queried.
+   * 
+   * @example
+   * 3
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataList: 'DataList',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataList: { 'type': 'array', 'itemType': DescribeMetricDataResponseBodyDataList },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dataList)) {
+      $dara.Model.validateArray(this.dataList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMetricDataResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMetricDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeMetricDataResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePairDrillsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the drill.
+   * 
+   * @example
+   * drill-xxxx
+   */
+  drillId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to be returned. You can use this parameter together with NextToken.
+   * 
+   * Valid values: 1 to 500.
+   * 
+   * Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Set the value to the NextToken value returned in the previous call to the DescribeDiskReplicaPairs operation. Leave this parameter empty the first time you call this operation. When you specify NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query a list of asynchronous replication pairs, including replication pair IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pair-xxxx
+   */
+  pairId?: string;
+  /**
+   * @remarks
+   * The region ID of the primary or secondary disk in the async replication pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillId: 'DrillId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      pairId: 'PairId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      pairId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePairDrillsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of disaster recovery drills that were performed on the replication pair.
+   */
+  drills?: DescribePairDrillsResponseBodyDrills[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C46FF5A8-C5F0-4024-8262-B16B6392****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      drills: 'Drills',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drills: { 'type': 'array', 'itemType': DescribePairDrillsResponseBodyDrills },
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.drills)) {
+      $dara.Model.validateArray(this.drills);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePairDrillsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePairDrillsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePairDrillsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The language in which the regions and zones are named. This parameter corresponds to the `LocalName` response parameter. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * *   ja: Japanese
+   * 
+   * Default value: zh-CN.
+   * 
+   * @example
+   * zh-CN
+   */
+  acceptLanguage?: string;
+  /**
+   * @remarks
+   * The ID of the region.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The type of resource. Valid values:
+   * 
+   * *   ear: async replication
+   * *   lens: CloudLens for EBS
+   * *   dbsc: Dedicated Block Storage Cluster
+   * 
+   * Default value: ear.
+   * 
+   * @example
+   * ear
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      regionId: 'RegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      regionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details about the regions.
+   */
+  regions?: DescribeRegionsResponseBodyRegions[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 17EE62D8-064E-5404-8B0D-72122478****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.regions)) {
+      $dara.Model.validateArray(this.regions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRegionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicaGroupDrillsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the drill.
+   * 
+   * @example
+   * pg-drill-xxxx
+   */
+  drillId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query a list of async replication pair-consistent groups, including group IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pg-xxxx
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The maximum number of entries to be returned. You can use this parameter together with NextToken.
+   * 
+   * Valid values: 1 to 500.
+   * 
+   * Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. When you specify NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 5
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the primary or secondary disk in the async replication pair-consistent group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillId: 'DrillId',
+      groupId: 'GroupId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillId: 'string',
+      groupId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicaGroupDrillsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information of disaster recovery drills that were performed on the replication pair-consistent group.
+   */
+  drills?: DescribeReplicaGroupDrillsResponseBodyDrills[];
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
+   * @example
+   * AAAAAdDWBF2****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      drills: 'Drills',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drills: { 'type': 'array', 'itemType': DescribeReplicaGroupDrillsResponseBodyDrills },
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.drills)) {
+      $dara.Model.validateArray(this.drills);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeReplicaGroupDrillsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeReplicaGroupDrillsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeReplicaGroupDrillsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSolutionInstanceConfigurationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The parameters.
+   */
+  parameters?: DescribeSolutionInstanceConfigurationRequestParameters[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the solution.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * sln-xxxxx
+   */
+  solutionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      solutionId: 'SolutionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      parameters: { 'type': 'array', 'itemType': DescribeSolutionInstanceConfigurationRequestParameters },
+      regionId: 'string',
+      solutionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSolutionInstanceConfigurationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 11B55F58-D3A4-4A9B-9596-342420D0****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSolutionInstanceConfigurationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSolutionInstanceConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSolutionInstanceConfigurationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserTagKeysRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Number of items per page in paginated queries. The maximum value is 100.
+   * 
+   * Default value:
+   * 
+   * - If no value is set or the set value is less than 10, the default is 10.
+   * 
+   * - If the set value is greater than 100, the default is 100.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The query token returned by this call (Token).
+   * 
+   * @example
+   * f07b150eadfa1d7a
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the region to which the resource belongs. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to view the latest list of Alibaba Cloud regions.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The tagKey for filtering the query.
+   * 
+   * @example
+   * tagKey
+   */
+  tagFilterKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      tagFilterKey: 'TagFilterKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      tagFilterKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserTagKeysResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Number of items per page in paginated queries. The maximum value is 100.
+   * 
+   * Default value:
+   * 
+   * - If no value is set or the set value is less than 10, the default is 10.
+   * 
+   * - If the set value is greater than 100, the default is 100.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The token for the next query. An empty NextToken indicates there are no more results.
+   * 
+   * @example
+   * f07b150eadfa1d7a
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * List of matching tag keys.
+   */
+  tagKeys?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagKeys: 'TagKeys',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      tagKeys: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagKeys)) {
+      $dara.Model.validateArray(this.tagKeys);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserTagKeysResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserTagKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserTagKeysResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserTagValuesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Number of items per page in a paginated query. The maximum value is 100.
+   * 
+   * Default value:
+   * 
+   * - If no value is set or the set value is less than 10, the default value is 10.
+   * 
+   * - If the set value is greater than 100, the default value is 100.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * Query token (Token). The value should be the NextToken parameter value from the previous call to this interface. This parameter is not required for the initial call. If NextToken is set, the PageSize and PageNumber request parameters become invalid, and the TotalCount in the response data is also invalid.
+   * 
+   * @example
+   * AAAAAdDWBF2
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The region ID of the consistency replication group.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Tag content filter
+   * 
+   * @example
+   * keyValue
+   */
+  tagFilterValue?: string;
+  /**
+   * @remarks
+   * Tag key.
+   * 
+   * @example
+   * TestKey
+   */
+  tagKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      tagFilterValue: 'TagFilterValue',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      tagFilterValue: 'string',
+      tagKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserTagValuesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Number of items per page in a paginated query. The maximum value is 100.
+   * 
+   * Default value:
+   * 
+   * - If no value is set or the set value is less than 10, the default value is 10.
+   * 
+   * - If the set value is greater than 100, the default value is 100.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * Query token (Token). The value should be the NextToken parameter value from the previous call to this interface. This parameter is not required for the initial call. If NextToken is set, the PageSize and PageNumber request parameters become invalid, and the TotalCount in the response data is also invalid.
+   * 
+   * @example
+   * NextToken
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Request ID. We return the request ID regardless of whether the API call was successful or not.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Tag values corresponding to the tag key.
+   */
+  tagValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagValues: 'TagValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      tagValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagValues)) {
+      $dara.Model.validateArray(this.tagValues);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserTagValuesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserTagValuesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserTagValuesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FailoverDiskReplicaGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The region ID of the secondary site of the replication pair-consistent group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * group-myreplica****
+   */
+  replicaGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FailoverDiskReplicaGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FailoverDiskReplicaGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FailoverDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FailoverDiskReplicaGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FailoverDiskReplicaPairRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The region ID of the secondary disk in the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query region IDs of secondary disks in replication pairs.
+   * 
+   * >  The failover feature must be enabled for the region where the secondary disk is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pair-cn-dsa****
+   */
+  replicaPairId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaPairId: 'ReplicaPairId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaPairId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FailoverDiskReplicaPairResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FailoverDiskReplicaPairResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FailoverDiskReplicaPairResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FailoverDiskReplicaPairResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetReportRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Optional, AppName only takes effect when ReportType=present.
+   * 
+   * @example
+   * App1
+   */
+  appName?: string;
+  /**
+   * @remarks
+   * Region name.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * When ReportType=history, ReportId is required to query historical reports based on ReportId.
+   * 
+   * @example
+   * report-74fbea80e802xxxx
+   */
+  reportId?: string;
+  /**
+   * @remarks
+   * Optional values: history/present.
+   * 
+   * @example
+   * history
+   */
+  reportType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      regionId: 'RegionId',
+      reportId: 'ReportId',
+      reportType: 'ReportType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      regionId: 'string',
+      reportId: 'string',
+      reportType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetReportResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Data Details.
+   */
+  datas?: GetReportResponseBodyDatas[];
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datas: 'Datas',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datas: { 'type': 'array', 'itemType': GetReportResponseBodyDatas },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.datas)) {
+      $dara.Model.validateArray(this.datas);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetReportResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetReportResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListReportsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * App name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * App1
+   */
+  appName?: string;
+  /**
+   * @remarks
+   * Maximum number of items for Token-based pagination.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * Query token (Token), the value is the NextToken parameter value returned from the previous API call.
+   * 
+   * @example
+   * a6792e832ff0XXXXX
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Page number for paginated queries.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Number of rows per page when performing paginated queries.
+   * 
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) to query the list of regions supported by Block Storage Data Insights.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListReportsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Historical reports.
+   */
+  historyReports?: ListReportsResponseBodyHistoryReports[];
+  /**
+   * @remarks
+   * Query token (Token), the value is the NextToken parameter value returned from the previous API call.
+   * 
+   * @example
+   * a6792e832ff0XXXX
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Page number for paginated queries.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Number of records per page for paginated queries.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Request ID, an identifier generated by Alibaba Cloud for this request.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Total count.
+   * 
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      historyReports: 'HistoryReports',
+      nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      historyReports: { 'type': 'array', 'itemType': ListReportsResponseBodyHistoryReports },
+      nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.historyReports)) {
+      $dara.Model.validateArray(this.historyReports);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListReportsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListReportsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListReportsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 0c593ea1-3bea-11e9-b96b-88e9fe63****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The token used to start the next query.
+   * 
+   * @example
+   * token123
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID list of the resource. You can specify up to 50 resource IDs in each call.
+   * 
+   * @example
+   * disk-123
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   dedicatedblockstoragecluster: dedicated block storage cluster
+   * *   diskreplicapair: replication pair
+   * *   diskreplicagroup: replication pair-consistent group
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * diskreplicagroup
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The information about the tags.
+   * 
+   * You can specify at most 20 tags in each call.
+   */
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The token used to start the next query.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request. The request ID is returned regardless of whether the call is successful.
+   * 
+   * @example
+   * 484256DA-D816-44D2-9D86-B6EE4D5B****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Details about the resources and tags, including resource IDs, resource types, and tag key-value pairs.
+   */
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagResources)) {
+      $dara.Model.validateArray(this.tagResources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDedicatedBlockStorageClusterAttributeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
+   * 
+   * The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure idempotence ](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the dedicated block storage cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dbsc-cn-od43bf****
+   */
+  dbscId?: string;
+  /**
+   * @remarks
+   * The new name of the dedicated block storage cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * my-test-dbsc
+   */
+  dbscName?: string;
+  /**
+   * @remarks
+   * The new description of dedicated block storage cluster.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The region ID of the dedicated block storage cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-heyuan
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dbscId: 'DbscId',
+      dbscName: 'DbscName',
+      description: 'Description',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dbscId: 'string',
+      dbscName: 'string',
+      description: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDedicatedBlockStorageClusterAttributeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 11B55F58-D3A4-4A9B-9596-342420D0****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDedicatedBlockStorageClusterAttributeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDedicatedBlockStorageClusterAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDedicatedBlockStorageClusterAttributeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDiskReplicaGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The bandwidth value. Unit: Kbit/s.
+   * 
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * -
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the replication pair-consistent group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
+   * @example
+   * This is description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The name of the replication pair-consistent group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * 
+   * @example
+   * myreplicagrouptest
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * The RPO of the replication pair-consistent group. Unit: seconds. Valid value: 900.
+   * 
+   * @example
+   * 900
+   */
+  RPO?: number;
+  /**
+   * @remarks
+   * The region ID of the replication pair-consistent group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pg-myreplica****
+   */
+  replicaGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      groupName: 'GroupName',
+      RPO: 'RPO',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      clientToken: 'string',
+      description: 'string',
+      groupName: 'string',
+      RPO: 'number',
+      regionId: 'string',
+      replicaGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDiskReplicaGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDiskReplicaGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDiskReplicaGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDiskReplicaPairRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The bandwidth value. Unit: Kbit/s.
+   * 
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * 10240
+   */
+  bandwidth?: number;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the replication pair.
+   * 
+   * @example
+   * This is description.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The name of the replication pair.
+   * 
+   * @example
+   * TestReplicaPair
+   */
+  pairName?: string;
+  /**
+   * @remarks
+   * The recovery point objective (RPO) of the replication pair-consistent group. Unit: seconds. Valid value: 900.
+   * 
+   * @example
+   * 900
+   */
+  RPO?: number;
+  /**
+   * @remarks
+   * The region ID of the primary or secondary disk in the replication pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which async replication is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pair-cn-dsa****
+   */
+  replicaPairId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      pairName: 'PairName',
+      RPO: 'RPO',
+      regionId: 'RegionId',
+      replicaPairId: 'ReplicaPairId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      clientToken: 'string',
+      description: 'string',
+      pairName: 'string',
+      RPO: 'number',
+      regionId: 'string',
+      replicaPairId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDiskReplicaPairResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDiskReplicaPairResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDiskReplicaPairResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDiskReplicaPairResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the request of SetDedicatedBlockStorageClusterDiskThroughput api.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * A37597B5-BB99-19B3-85EA-4C2B91F0****
+   */
+  qosRequestId?: string;
+  /**
+   * @remarks
+   * The region ID of the dedicated block storage cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      qosRequestId: 'QosRequestId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      qosRequestId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDedicatedBlockStorageClusterDiskThroughputStatusResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A37597A6-BB99-19B3-85EA-4C2B91F0****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The status of the throughput after setting the throughput by SetDedicatedBlockStorageClusterDiskThroughput api.
+   * 
+   * - SUCCESS: The throughput has been successfully set.
+   * - RUNNING: The throughput is currently being set.
+   * - WAIT(): The throughput is waiting to be set.
+   * - FAIL(): The throughput setting has failed.
+   * 
+   * @example
+   * RUNNING
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDedicatedBlockStorageClusterDiskThroughputStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDedicatedBlockStorageClusterDiskThroughputStatusResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDedicatedBlockStorageClusterInventoryDataRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
+   * 
+   * The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure idempotence ](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the dedicated block storage cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * dbsc-xxx
+   */
+  dbscId?: string;
+  /**
+   * @remarks
+   * End timestamp of trend data.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1606403800
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The time interval (seconds) between data retrieval points.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 60
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The region ID of the dedicated block storage cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Start timestamp of trend data.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1606303800
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dbscId: 'DbscId',
+      endTime: 'EndTime',
+      period: 'Period',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dbscId: 'string',
+      endTime: 'number',
+      period: 'number',
+      regionId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDedicatedBlockStorageClusterInventoryDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
+  data?: QueryDedicatedBlockStorageClusterInventoryDataResponseBodyData[];
+  /**
+   * @remarks
+   * The ID of the dedicated block storage cluster.
+   * 
+   * @example
+   * dbsc-xxx
+   */
+  dbscId?: string;
+  /**
+   * @remarks
+   * The name of the dedicated block storage cluster.
+   * 
+   * @example
+   * myDBSCCluster
+   */
+  dbscName?: string;
+  /**
+   * @remarks
+   * The type of the disk. Valid values:
+   * 
+   * *   cloud_essd: enhanced SSD (ESSD).
+   * 
+   * @example
+   * cloud_essd
+   */
+  diskCategory?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * F1A4258A-0C8C-5329-B495-BC5AD7AD****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 60
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      dbscId: 'DbscId',
+      dbscName: 'DbscName',
+      diskCategory: 'DiskCategory',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryDedicatedBlockStorageClusterInventoryDataResponseBodyData },
+      dbscId: 'string',
+      dbscName: 'string',
+      diskCategory: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDedicatedBlockStorageClusterInventoryDataResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryDedicatedBlockStorageClusterInventoryDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryDedicatedBlockStorageClusterInventoryDataResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveDiskReplicaPairRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The region ID of the replication pair-consistent group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group.
+   * 
+   * You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pg-myreplica****
+   */
+  replicaGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pair-cn-dsa****
+   */
+  replicaPairId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+      replicaPairId: 'ReplicaPairId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaGroupId: 'string',
+      replicaPairId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveDiskReplicaPairResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveDiskReplicaPairResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveDiskReplicaPairResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveDiskReplicaPairResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReprotectDiskReplicaGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pg-myreplica****
+   */
+  replicaGroupId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the reverse replication sub-feature. Valid values: true and false. Default value: true.
+   * 
+   * @example
+   * true
+   */
+  reverseReplicate?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+      reverseReplicate: 'ReverseReplicate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaGroupId: 'string',
+      reverseReplicate: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReprotectDiskReplicaGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReprotectDiskReplicaGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReprotectDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReprotectDiskReplicaGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReprotectDiskReplicaPairRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The region ID of the secondary disk in the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query region IDs of secondary disks in replication pairs.
+   * 
+   * >  The reverse replication feature must be enabled from the region where the secondary disk is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pair-cn-dsa****
+   */
+  replicaPairId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the reverse replication sub-feature. Valid values: true and false. Default value: true.
+   * 
+   * @example
+   * true
+   */
+  reverseReplicate?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaPairId: 'ReplicaPairId',
+      reverseReplicate: 'ReverseReplicate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaPairId: 'string',
+      reverseReplicate: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReprotectDiskReplicaPairResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReprotectDiskReplicaPairResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReprotectDiskReplicaPairResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReprotectDiskReplicaPairResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDedicatedBlockStorageClusterDiskThroughputRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Target throughput.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  bps?: number;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * d-bp67acfmxazb4p****
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * The region ID of disk.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bps: 'Bps',
+      clientToken: 'ClientToken',
+      diskId: 'DiskId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bps: 'number',
+      clientToken: 'string',
+      diskId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDedicatedBlockStorageClusterDiskThroughputResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 17EE62D8-064E-5404-8B0D-72122478****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetDedicatedBlockStorageClusterDiskThroughputResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetDedicatedBlockStorageClusterDiskThroughputResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetDedicatedBlockStorageClusterDiskThroughputResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDiskReplicaGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to immediately synchronize data once. Valid values:
+   * 
+   * *   true: immediately synchronizes data once.
+   * *   false: synchronizes data based on the RPO of the replication pair-consistent group.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  oneShot?: boolean;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pg-myreplica****
+   */
+  replicaGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      oneShot: 'OneShot',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      oneShot: 'boolean',
+      regionId: 'string',
+      replicaGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDiskReplicaGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDiskReplicaGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartDiskReplicaGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDiskReplicaPairRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to immediately synchronize data. Valid values:
+   * 
+   * *   true: immediately synchronizes data.
+   * *   false: synchronizes data based on the recovery point objective (RPO).
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  oneShot?: boolean;
+  /**
+   * @remarks
+   * The region ID of the primary or secondary disk in the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the region information of replication pairs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pair-cn-dsa****
+   */
+  replicaPairId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      oneShot: 'OneShot',
+      regionId: 'RegionId',
+      replicaPairId: 'ReplicaPairId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      oneShot: 'boolean',
+      regionId: 'string',
+      replicaPairId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDiskReplicaPairResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A37597A6-BB99-19B3-85EA-4C2B91F0****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartDiskReplicaPairResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartDiskReplicaPairResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartDiskReplicaPairResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartPairDrillRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query a list of replication pairs, including replication pair IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pair-xxxx
+   */
+  pairId?: string;
+  /**
+   * @remarks
+   * The region ID of the secondary disk in the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the region in which the secondary disk of the replication pair resides.
+   * 
+   * >  You must enable the disaster recovery drill feature in the region in which the secondary site resides.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      pairId: 'PairId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      pairId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartPairDrillResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The drill ID.
+   * 
+   * @example
+   * drill-xxx
+   */
+  drillId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillId: 'DrillId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartPairDrillResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartPairDrillResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartPairDrillResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartReplicaGroupDrillRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group ID. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation the most recent list of async replication pair-consistent groups, including group IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pg-xxxx
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the region where the secondary site in the replication pair-consistent group is located. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the region where the secondary site in the replication pair-consistent group is located.
+   * 
+   * >  You must enable the disaster recovery drill feature in the region in which the secondary site resides.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      groupId: 'GroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      groupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartReplicaGroupDrillResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The drill ID.
+   * 
+   * @example
+   * pg-drill-xxxx
+   */
+  drillId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      drillId: 'DrillId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      drillId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartReplicaGroupDrillResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartReplicaGroupDrillResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartReplicaGroupDrillResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDiskReplicaGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The region ID of the replication pair-consistent group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](https://help.aliyun.com/document_detail/426614.html) operation to query the IDs of replication pair-consistent groups.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pg-myreplica****
+   */
+  replicaGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaGroupId: 'ReplicaGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDiskReplicaGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C123F94F-4E38-19AE-942A-A8D6F44F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDiskReplicaGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDiskReplicaGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopDiskReplicaGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDiskReplicaPairRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The region ID of the primary or secondary disk in the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) operation to query the region information of replication pairs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the replication pair.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * pair-cn-dsa****
+   */
+  replicaPairId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      replicaPairId: 'ReplicaPairId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      replicaPairId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDiskReplicaPairResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * A37597A6-BB99-19B3-85EA-4C2B91F0****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopDiskReplicaPairResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopDiskReplicaPairResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopDiskReplicaPairResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 0c593ea1-3bea-11e9-b96b-88e9fe63****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID list of the resources. You can specify up to 50 IDs in each request.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * disk-123
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   dedicatedblockstoragecluster: dedicated block storage cluster
+   * *   diskreplicapair: replication pair
+   * *   diskreplicagroup: replication pair-consistent group
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * diskreplicagroup
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The resource tags. You can specify up to 20 tags.
+   * 
+   * This parameter is required.
+   */
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. The request ID is returned regardless of whether the call is successful.
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindEnterpriseSnapshotPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The list of disks.
+   */
+  diskTargets?: string[];
+  /**
+   * @remarks
+   * The id of the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * esp-xxs
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      diskTargets: 'DiskTargets',
+      policyId: 'PolicyId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      diskTargets: { 'type': 'array', 'itemType': 'string' },
+      policyId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.diskTargets)) {
+      $dara.Model.validateArray(this.diskTargets);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindEnterpriseSnapshotPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 061DE1AB-08BA-5ACD-A03A-440117C6939A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindEnterpriseSnapshotPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnbindEnterpriseSnapshotPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnbindEnterpriseSnapshotPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to remove all tags from the resource. This parameter is valid only when the TagKey.N parameter is not specified. Valid values:
+   * 
+   * *   true: removes all tags from the resource.
+   * *   false: does not remove all tags from the resource.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
+  all?: boolean;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 0c593ea1-3bea-11e9-b96b-88e9fe63****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID list of the resource. You can specify up to 50 resource IDs in each call.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * disk-123
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   dedicatedblockstoragecluster: dedicated block storage cluster
+   * *   diskreplicapair: the replication pair.
+   * *   diskreplicagroup: replication pair-consistent group
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * diskreplicapair
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The list of tag keys. You can specify up to 20 tag keys in the list.
+   * 
+   * @example
+   * disk-123
+   */
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      clientToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tagKey)) {
+      $dara.Model.validateArray(this.tagKey);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request. The request ID is returned regardless of whether the call is successful.
+   * 
+   * @example
+   * C46FF5A8-C5F0-4024-8262-B16B6392****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseSnapshotPolicyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Snapshot replication destination information.
+   */
+  crossRegionCopyInfo?: UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo;
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * @example
+   * xxx
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * xxx
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The id of the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * esp-xxx
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Snapshot retention rule.
+   */
+  retainRule?: UpdateEnterpriseSnapshotPolicyRequestRetainRule;
+  /**
+   * @remarks
+   * The rule for scheduling.
+   */
+  schedule?: UpdateEnterpriseSnapshotPolicyRequestSchedule;
+  /**
+   * @remarks
+   * The special snapshot retention rules.
+   */
+  specialRetainRules?: UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRules;
+  /**
+   * @remarks
+   * The status of the policy. Valid values:
+   * 
+   * *   **ENABLED**: Enable snapshot policy execution.
+   * *   **DISABLED**: Disable snapshot policy execution.
+   * 
+   * @example
+   * ENABLED
+   */
+  state?: string;
+  /**
+   * @remarks
+   * Advanced snapshot features.
+   */
+  storageRule?: UpdateEnterpriseSnapshotPolicyRequestStorageRule;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      crossRegionCopyInfo: 'CrossRegionCopyInfo',
+      desc: 'Desc',
+      name: 'Name',
+      policyId: 'PolicyId',
+      regionId: 'RegionId',
+      retainRule: 'RetainRule',
+      schedule: 'Schedule',
+      specialRetainRules: 'SpecialRetainRules',
+      state: 'State',
+      storageRule: 'StorageRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      crossRegionCopyInfo: UpdateEnterpriseSnapshotPolicyRequestCrossRegionCopyInfo,
+      desc: 'string',
+      name: 'string',
+      policyId: 'string',
+      regionId: 'string',
+      retainRule: UpdateEnterpriseSnapshotPolicyRequestRetainRule,
+      schedule: UpdateEnterpriseSnapshotPolicyRequestSchedule,
+      specialRetainRules: UpdateEnterpriseSnapshotPolicyRequestSpecialRetainRules,
+      state: 'string',
+      storageRule: UpdateEnterpriseSnapshotPolicyRequestStorageRule,
+    };
+  }
+
+  validate() {
+    if(this.crossRegionCopyInfo && typeof (this.crossRegionCopyInfo as any).validate === 'function') {
+      (this.crossRegionCopyInfo as any).validate();
+    }
+    if(this.retainRule && typeof (this.retainRule as any).validate === 'function') {
+      (this.retainRule as any).validate();
+    }
+    if(this.schedule && typeof (this.schedule as any).validate === 'function') {
+      (this.schedule as any).validate();
+    }
+    if(this.specialRetainRules && typeof (this.specialRetainRules as any).validate === 'function') {
+      (this.specialRetainRules as any).validate();
+    }
+    if(this.storageRule && typeof (this.storageRule as any).validate === 'function') {
+      (this.storageRule as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseSnapshotPolicyShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * Snapshot replication destination information.
+   */
+  crossRegionCopyInfoShrink?: string;
+  /**
+   * @remarks
+   * The description of the policy.
+   * 
+   * @example
+   * xxx
+   */
+  desc?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * xxx
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The id of the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * esp-xxx
+   */
+  policyId?: string;
+  /**
+   * @remarks
+   * The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Snapshot retention rule.
+   */
+  retainRuleShrink?: string;
+  /**
+   * @remarks
+   * The rule for scheduling.
+   */
+  scheduleShrink?: string;
+  /**
+   * @remarks
+   * The special snapshot retention rules.
+   */
+  specialRetainRulesShrink?: string;
+  /**
+   * @remarks
+   * The status of the policy. Valid values:
+   * 
+   * *   **ENABLED**: Enable snapshot policy execution.
+   * *   **DISABLED**: Disable snapshot policy execution.
+   * 
+   * @example
+   * ENABLED
+   */
+  state?: string;
+  /**
+   * @remarks
+   * Advanced snapshot features.
+   */
+  storageRuleShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      crossRegionCopyInfoShrink: 'CrossRegionCopyInfo',
+      desc: 'Desc',
+      name: 'Name',
+      policyId: 'PolicyId',
+      regionId: 'RegionId',
+      retainRuleShrink: 'RetainRule',
+      scheduleShrink: 'Schedule',
+      specialRetainRulesShrink: 'SpecialRetainRules',
+      state: 'State',
+      storageRuleShrink: 'StorageRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      crossRegionCopyInfoShrink: 'string',
+      desc: 'string',
+      name: 'string',
+      policyId: 'string',
+      regionId: 'string',
+      retainRuleShrink: 'string',
+      scheduleShrink: 'string',
+      specialRetainRulesShrink: 'string',
+      state: 'string',
+      storageRuleShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseSnapshotPolicyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * BA903E56-48CE-5B81-9611-ED7962EED3DF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEnterpriseSnapshotPolicyResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateEnterpriseSnapshotPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateEnterpriseSnapshotPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSolutionInstanceAttributeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-42665544****
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * defaultDescription
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * defaultName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The ID of the region where the dedicated block storage cluster resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * inst-***
+   */
+  solutionInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      name: 'Name',
+      regionId: 'RegionId',
+      solutionInstanceId: 'SolutionInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      name: 'string',
+      regionId: 'string',
+      solutionInstanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSolutionInstanceAttributeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 20758A-585D-4A41-A9B2-28DA8F4F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSolutionInstanceAttributeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSolutionInstanceAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSolutionInstanceAttributeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
@@ -12397,7 +14247,7 @@ export class UpdateEnterpriseSnapshotPolicyRequestStorageRule extends $tea.Model
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -12406,15 +14256,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -12432,29 +14282,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddDiskReplicaPairResponse
    */
-  async addDiskReplicaPairWithOptions(request: AddDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<AddDiskReplicaPairResponse> {
-    Util.validateModel(request);
+  async addDiskReplicaPairWithOptions(request: AddDiskReplicaPairRequest, runtime: $dara.RuntimeOptions): Promise<AddDiskReplicaPairResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaGroupId)) {
+    if (!$dara.isNull(request.replicaGroupId)) {
       query["ReplicaGroupId"] = request.replicaGroupId;
     }
 
-    if (!Util.isUnset(request.replicaPairId)) {
+    if (!$dara.isNull(request.replicaPairId)) {
       query["ReplicaPairId"] = request.replicaPairId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "AddDiskReplicaPair",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -12465,7 +14315,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new AddDiskReplicaPairResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AddDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new AddDiskReplicaPairResponse({}));
+    } else {
+      return $dara.cast<AddDiskReplicaPairResponse>(await this.execute(params, req, runtime), new AddDiskReplicaPairResponse({}));
+    }
+
   }
 
   /**
@@ -12483,7 +14338,7 @@ export default class Client extends OpenApi {
    * @returns AddDiskReplicaPairResponse
    */
   async addDiskReplicaPair(request: AddDiskReplicaPairRequest): Promise<AddDiskReplicaPairResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.addDiskReplicaPairWithOptions(request, runtime);
   }
 
@@ -12498,9 +14353,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ApplyLensServiceResponse
    */
-  async applyLensServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<ApplyLensServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async applyLensServiceWithOptions(runtime: $dara.RuntimeOptions): Promise<ApplyLensServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "ApplyLensService",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -12511,7 +14366,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ApplyLensServiceResponse>(await this.callApi(params, req, runtime), new ApplyLensServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ApplyLensServiceResponse>(await this.callApi(params, req, runtime), new ApplyLensServiceResponse({}));
+    } else {
+      return $dara.cast<ApplyLensServiceResponse>(await this.execute(params, req, runtime), new ApplyLensServiceResponse({}));
+    }
+
   }
 
   /**
@@ -12523,7 +14383,7 @@ export default class Client extends OpenApi {
    * @returns ApplyLensServiceResponse
    */
   async applyLensService(): Promise<ApplyLensServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.applyLensServiceWithOptions(runtime);
   }
 
@@ -12534,29 +14394,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BindEnterpriseSnapshotPolicyResponse
    */
-  async bindEnterpriseSnapshotPolicyWithOptions(request: BindEnterpriseSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<BindEnterpriseSnapshotPolicyResponse> {
-    Util.validateModel(request);
+  async bindEnterpriseSnapshotPolicyWithOptions(request: BindEnterpriseSnapshotPolicyRequest, runtime: $dara.RuntimeOptions): Promise<BindEnterpriseSnapshotPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.diskTargets)) {
+    if (!$dara.isNull(request.diskTargets)) {
       query["DiskTargets"] = request.diskTargets;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "BindEnterpriseSnapshotPolicy",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -12567,7 +14427,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BindEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new BindEnterpriseSnapshotPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<BindEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new BindEnterpriseSnapshotPolicyResponse({}));
+    } else {
+      return $dara.cast<BindEnterpriseSnapshotPolicyResponse>(await this.execute(params, req, runtime), new BindEnterpriseSnapshotPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -12577,7 +14442,7 @@ export default class Client extends OpenApi {
    * @returns BindEnterpriseSnapshotPolicyResponse
    */
   async bindEnterpriseSnapshotPolicy(request: BindEnterpriseSnapshotPolicyRequest): Promise<BindEnterpriseSnapshotPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.bindEnterpriseSnapshotPolicyWithOptions(request, runtime);
   }
 
@@ -12592,9 +14457,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelLensServiceResponse
    */
-  async cancelLensServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<CancelLensServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async cancelLensServiceWithOptions(runtime: $dara.RuntimeOptions): Promise<CancelLensServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "CancelLensService",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -12605,7 +14470,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelLensServiceResponse>(await this.callApi(params, req, runtime), new CancelLensServiceResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CancelLensServiceResponse>(await this.callApi(params, req, runtime), new CancelLensServiceResponse({}));
+    } else {
+      return $dara.cast<CancelLensServiceResponse>(await this.execute(params, req, runtime), new CancelLensServiceResponse({}));
+    }
+
   }
 
   /**
@@ -12617,7 +14487,7 @@ export default class Client extends OpenApi {
    * @returns CancelLensServiceResponse
    */
   async cancelLensService(): Promise<CancelLensServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.cancelLensServiceWithOptions(runtime);
   }
 
@@ -12628,33 +14498,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeResourceGroupResponse
    */
-  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
-    Util.validateModel(request);
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.newResourceGroupId)) {
+    if (!$dara.isNull(request.newResourceGroupId)) {
       query["NewResourceGroupId"] = request.newResourceGroupId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ChangeResourceGroup",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -12665,7 +14535,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    } else {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.execute(params, req, runtime), new ChangeResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -12675,7 +14550,7 @@ export default class Client extends OpenApi {
    * @returns ChangeResourceGroupResponse
    */
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
@@ -12686,25 +14561,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ClearPairDrillResponse
    */
-  async clearPairDrillWithOptions(request: ClearPairDrillRequest, runtime: $Util.RuntimeOptions): Promise<ClearPairDrillResponse> {
-    Util.validateModel(request);
+  async clearPairDrillWithOptions(request: ClearPairDrillRequest, runtime: $dara.RuntimeOptions): Promise<ClearPairDrillResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.drillId)) {
+    if (!$dara.isNull(request.drillId)) {
       query["DrillId"] = request.drillId;
     }
 
-    if (!Util.isUnset(request.pairId)) {
+    if (!$dara.isNull(request.pairId)) {
       query["PairId"] = request.pairId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ClearPairDrill",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -12715,7 +14590,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ClearPairDrillResponse>(await this.callApi(params, req, runtime), new ClearPairDrillResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ClearPairDrillResponse>(await this.callApi(params, req, runtime), new ClearPairDrillResponse({}));
+    } else {
+      return $dara.cast<ClearPairDrillResponse>(await this.execute(params, req, runtime), new ClearPairDrillResponse({}));
+    }
+
   }
 
   /**
@@ -12725,7 +14605,7 @@ export default class Client extends OpenApi {
    * @returns ClearPairDrillResponse
    */
   async clearPairDrill(request: ClearPairDrillRequest): Promise<ClearPairDrillResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.clearPairDrillWithOptions(request, runtime);
   }
 
@@ -12736,25 +14616,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ClearReplicaGroupDrillResponse
    */
-  async clearReplicaGroupDrillWithOptions(request: ClearReplicaGroupDrillRequest, runtime: $Util.RuntimeOptions): Promise<ClearReplicaGroupDrillResponse> {
-    Util.validateModel(request);
+  async clearReplicaGroupDrillWithOptions(request: ClearReplicaGroupDrillRequest, runtime: $dara.RuntimeOptions): Promise<ClearReplicaGroupDrillResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.drillId)) {
+    if (!$dara.isNull(request.drillId)) {
       query["DrillId"] = request.drillId;
     }
 
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ClearReplicaGroupDrill",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -12765,7 +14645,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ClearReplicaGroupDrillResponse>(await this.callApi(params, req, runtime), new ClearReplicaGroupDrillResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ClearReplicaGroupDrillResponse>(await this.callApi(params, req, runtime), new ClearReplicaGroupDrillResponse({}));
+    } else {
+      return $dara.cast<ClearReplicaGroupDrillResponse>(await this.execute(params, req, runtime), new ClearReplicaGroupDrillResponse({}));
+    }
+
   }
 
   /**
@@ -12775,7 +14660,7 @@ export default class Client extends OpenApi {
    * @returns ClearReplicaGroupDrillResponse
    */
   async clearReplicaGroupDrill(request: ClearReplicaGroupDrillRequest): Promise<ClearReplicaGroupDrillResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.clearReplicaGroupDrillWithOptions(request, runtime);
   }
 
@@ -12793,53 +14678,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDedicatedBlockStorageClusterResponse
    */
-  async createDedicatedBlockStorageClusterWithOptions(request: CreateDedicatedBlockStorageClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateDedicatedBlockStorageClusterResponse> {
-    Util.validateModel(request);
+  async createDedicatedBlockStorageClusterWithOptions(request: CreateDedicatedBlockStorageClusterRequest, runtime: $dara.RuntimeOptions): Promise<CreateDedicatedBlockStorageClusterResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.azone)) {
+    if (!$dara.isNull(request.azone)) {
       query["Azone"] = request.azone;
     }
 
-    if (!Util.isUnset(request.capacity)) {
+    if (!$dara.isNull(request.capacity)) {
       query["Capacity"] = request.capacity;
     }
 
-    if (!Util.isUnset(request.dbscId)) {
+    if (!$dara.isNull(request.dbscId)) {
       query["DbscId"] = request.dbscId;
     }
 
-    if (!Util.isUnset(request.dbscName)) {
+    if (!$dara.isNull(request.dbscName)) {
       query["DbscName"] = request.dbscName;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.periodUnit)) {
+    if (!$dara.isNull(request.periodUnit)) {
       query["PeriodUnit"] = request.periodUnit;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateDedicatedBlockStorageCluster",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -12850,7 +14735,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateDedicatedBlockStorageClusterResponse>(await this.callApi(params, req, runtime), new CreateDedicatedBlockStorageClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDedicatedBlockStorageClusterResponse>(await this.callApi(params, req, runtime), new CreateDedicatedBlockStorageClusterResponse({}));
+    } else {
+      return $dara.cast<CreateDedicatedBlockStorageClusterResponse>(await this.execute(params, req, runtime), new CreateDedicatedBlockStorageClusterResponse({}));
+    }
+
   }
 
   /**
@@ -12867,7 +14757,7 @@ export default class Client extends OpenApi {
    * @returns CreateDedicatedBlockStorageClusterResponse
    */
   async createDedicatedBlockStorageCluster(request: CreateDedicatedBlockStorageClusterRequest): Promise<CreateDedicatedBlockStorageClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createDedicatedBlockStorageClusterWithOptions(request, runtime);
   }
 
@@ -12887,57 +14777,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDiskReplicaGroupResponse
    */
-  async createDiskReplicaGroupWithOptions(request: CreateDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiskReplicaGroupResponse> {
-    Util.validateModel(request);
+  async createDiskReplicaGroupWithOptions(request: CreateDiskReplicaGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreateDiskReplicaGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bandwidth)) {
+    if (!$dara.isNull(request.bandwidth)) {
       query["Bandwidth"] = request.bandwidth;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.destinationRegionId)) {
+    if (!$dara.isNull(request.destinationRegionId)) {
       query["DestinationRegionId"] = request.destinationRegionId;
     }
 
-    if (!Util.isUnset(request.destinationZoneId)) {
+    if (!$dara.isNull(request.destinationZoneId)) {
       query["DestinationZoneId"] = request.destinationZoneId;
     }
 
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.RPO)) {
+    if (!$dara.isNull(request.RPO)) {
       query["RPO"] = request.RPO;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.sourceZoneId)) {
+    if (!$dara.isNull(request.sourceZoneId)) {
       query["SourceZoneId"] = request.sourceZoneId;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateDiskReplicaGroup",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -12948,7 +14838,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new CreateDiskReplicaGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new CreateDiskReplicaGroupResponse({}));
+    } else {
+      return $dara.cast<CreateDiskReplicaGroupResponse>(await this.execute(params, req, runtime), new CreateDiskReplicaGroupResponse({}));
+    }
+
   }
 
   /**
@@ -12967,7 +14862,7 @@ export default class Client extends OpenApi {
    * @returns CreateDiskReplicaGroupResponse
    */
   async createDiskReplicaGroup(request: CreateDiskReplicaGroupRequest): Promise<CreateDiskReplicaGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createDiskReplicaGroupWithOptions(request, runtime);
   }
 
@@ -12986,77 +14881,77 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDiskReplicaPairResponse
    */
-  async createDiskReplicaPairWithOptions(request: CreateDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiskReplicaPairResponse> {
-    Util.validateModel(request);
+  async createDiskReplicaPairWithOptions(request: CreateDiskReplicaPairRequest, runtime: $dara.RuntimeOptions): Promise<CreateDiskReplicaPairResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bandwidth)) {
+    if (!$dara.isNull(request.bandwidth)) {
       query["Bandwidth"] = request.bandwidth;
     }
 
-    if (!Util.isUnset(request.chargeType)) {
+    if (!$dara.isNull(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.destinationDiskId)) {
+    if (!$dara.isNull(request.destinationDiskId)) {
       query["DestinationDiskId"] = request.destinationDiskId;
     }
 
-    if (!Util.isUnset(request.destinationRegionId)) {
+    if (!$dara.isNull(request.destinationRegionId)) {
       query["DestinationRegionId"] = request.destinationRegionId;
     }
 
-    if (!Util.isUnset(request.destinationZoneId)) {
+    if (!$dara.isNull(request.destinationZoneId)) {
       query["DestinationZoneId"] = request.destinationZoneId;
     }
 
-    if (!Util.isUnset(request.diskId)) {
+    if (!$dara.isNull(request.diskId)) {
       query["DiskId"] = request.diskId;
     }
 
-    if (!Util.isUnset(request.pairName)) {
+    if (!$dara.isNull(request.pairName)) {
       query["PairName"] = request.pairName;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.periodUnit)) {
+    if (!$dara.isNull(request.periodUnit)) {
       query["PeriodUnit"] = request.periodUnit;
     }
 
-    if (!Util.isUnset(request.RPO)) {
+    if (!$dara.isNull(request.RPO)) {
       query["RPO"] = request.RPO;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.sourceZoneId)) {
+    if (!$dara.isNull(request.sourceZoneId)) {
       query["SourceZoneId"] = request.sourceZoneId;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateDiskReplicaPair",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -13067,7 +14962,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new CreateDiskReplicaPairResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new CreateDiskReplicaPairResponse({}));
+    } else {
+      return $dara.cast<CreateDiskReplicaPairResponse>(await this.execute(params, req, runtime), new CreateDiskReplicaPairResponse({}));
+    }
+
   }
 
   /**
@@ -13085,7 +14985,7 @@ export default class Client extends OpenApi {
    * @returns CreateDiskReplicaPairResponse
    */
   async createDiskReplicaPair(request: CreateDiskReplicaPairRequest): Promise<CreateDiskReplicaPairResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createDiskReplicaPairWithOptions(request, runtime);
   }
 
@@ -13096,87 +14996,87 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateEnterpriseSnapshotPolicyResponse
    */
-  async createEnterpriseSnapshotPolicyWithOptions(tmpReq: CreateEnterpriseSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateEnterpriseSnapshotPolicyResponse> {
-    Util.validateModel(tmpReq);
+  async createEnterpriseSnapshotPolicyWithOptions(tmpReq: CreateEnterpriseSnapshotPolicyRequest, runtime: $dara.RuntimeOptions): Promise<CreateEnterpriseSnapshotPolicyResponse> {
+    tmpReq.validate();
     let request = new CreateEnterpriseSnapshotPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.crossRegionCopyInfo)) {
+    if (!$dara.isNull(tmpReq.crossRegionCopyInfo)) {
       request.crossRegionCopyInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.crossRegionCopyInfo, "CrossRegionCopyInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.retainRule)) {
+    if (!$dara.isNull(tmpReq.retainRule)) {
       request.retainRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.retainRule, "RetainRule", "json");
     }
 
-    if (!Util.isUnset(tmpReq.schedule)) {
+    if (!$dara.isNull(tmpReq.schedule)) {
       request.scheduleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.schedule, "Schedule", "json");
     }
 
-    if (!Util.isUnset(tmpReq.specialRetainRules)) {
+    if (!$dara.isNull(tmpReq.specialRetainRules)) {
       request.specialRetainRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.specialRetainRules, "SpecialRetainRules", "json");
     }
 
-    if (!Util.isUnset(tmpReq.storageRule)) {
+    if (!$dara.isNull(tmpReq.storageRule)) {
       request.storageRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storageRule, "StorageRule", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.crossRegionCopyInfoShrink)) {
+    if (!$dara.isNull(request.crossRegionCopyInfoShrink)) {
       query["CrossRegionCopyInfo"] = request.crossRegionCopyInfoShrink;
     }
 
-    if (!Util.isUnset(request.desc)) {
+    if (!$dara.isNull(request.desc)) {
       query["Desc"] = request.desc;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.retainRuleShrink)) {
+    if (!$dara.isNull(request.retainRuleShrink)) {
       query["RetainRule"] = request.retainRuleShrink;
     }
 
-    if (!Util.isUnset(request.scheduleShrink)) {
+    if (!$dara.isNull(request.scheduleShrink)) {
       query["Schedule"] = request.scheduleShrink;
     }
 
-    if (!Util.isUnset(request.specialRetainRulesShrink)) {
+    if (!$dara.isNull(request.specialRetainRulesShrink)) {
       query["SpecialRetainRules"] = request.specialRetainRulesShrink;
     }
 
-    if (!Util.isUnset(request.state)) {
+    if (!$dara.isNull(request.state)) {
       query["State"] = request.state;
     }
 
-    if (!Util.isUnset(request.storageRuleShrink)) {
+    if (!$dara.isNull(request.storageRuleShrink)) {
       query["StorageRule"] = request.storageRuleShrink;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    if (!Util.isUnset(request.targetType)) {
+    if (!$dara.isNull(request.targetType)) {
       query["TargetType"] = request.targetType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateEnterpriseSnapshotPolicy",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -13187,7 +15087,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new CreateEnterpriseSnapshotPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new CreateEnterpriseSnapshotPolicyResponse({}));
+    } else {
+      return $dara.cast<CreateEnterpriseSnapshotPolicyResponse>(await this.execute(params, req, runtime), new CreateEnterpriseSnapshotPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -13197,7 +15102,7 @@ export default class Client extends OpenApi {
    * @returns CreateEnterpriseSnapshotPolicyResponse
    */
   async createEnterpriseSnapshotPolicy(request: CreateEnterpriseSnapshotPolicyRequest): Promise<CreateEnterpriseSnapshotPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createEnterpriseSnapshotPolicyWithOptions(request, runtime);
   }
 
@@ -13214,25 +15119,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDiskReplicaGroupResponse
    */
-  async deleteDiskReplicaGroupWithOptions(request: DeleteDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiskReplicaGroupResponse> {
-    Util.validateModel(request);
+  async deleteDiskReplicaGroupWithOptions(request: DeleteDiskReplicaGroupRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDiskReplicaGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaGroupId)) {
+    if (!$dara.isNull(request.replicaGroupId)) {
       query["ReplicaGroupId"] = request.replicaGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDiskReplicaGroup",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -13243,7 +15148,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new DeleteDiskReplicaGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new DeleteDiskReplicaGroupResponse({}));
+    } else {
+      return $dara.cast<DeleteDiskReplicaGroupResponse>(await this.execute(params, req, runtime), new DeleteDiskReplicaGroupResponse({}));
+    }
+
   }
 
   /**
@@ -13259,7 +15169,7 @@ export default class Client extends OpenApi {
    * @returns DeleteDiskReplicaGroupResponse
    */
   async deleteDiskReplicaGroup(request: DeleteDiskReplicaGroupRequest): Promise<DeleteDiskReplicaGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDiskReplicaGroupWithOptions(request, runtime);
   }
 
@@ -13276,25 +15186,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDiskReplicaPairResponse
    */
-  async deleteDiskReplicaPairWithOptions(request: DeleteDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDiskReplicaPairResponse> {
-    Util.validateModel(request);
+  async deleteDiskReplicaPairWithOptions(request: DeleteDiskReplicaPairRequest, runtime: $dara.RuntimeOptions): Promise<DeleteDiskReplicaPairResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaPairId)) {
+    if (!$dara.isNull(request.replicaPairId)) {
       query["ReplicaPairId"] = request.replicaPairId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteDiskReplicaPair",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -13305,7 +15215,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new DeleteDiskReplicaPairResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new DeleteDiskReplicaPairResponse({}));
+    } else {
+      return $dara.cast<DeleteDiskReplicaPairResponse>(await this.execute(params, req, runtime), new DeleteDiskReplicaPairResponse({}));
+    }
+
   }
 
   /**
@@ -13321,7 +15236,7 @@ export default class Client extends OpenApi {
    * @returns DeleteDiskReplicaPairResponse
    */
   async deleteDiskReplicaPair(request: DeleteDiskReplicaPairRequest): Promise<DeleteDiskReplicaPairResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDiskReplicaPairWithOptions(request, runtime);
   }
 
@@ -13332,25 +15247,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteEnterpriseSnapshotPolicyResponse
    */
-  async deleteEnterpriseSnapshotPolicyWithOptions(request: DeleteEnterpriseSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEnterpriseSnapshotPolicyResponse> {
-    Util.validateModel(request);
+  async deleteEnterpriseSnapshotPolicyWithOptions(request: DeleteEnterpriseSnapshotPolicyRequest, runtime: $dara.RuntimeOptions): Promise<DeleteEnterpriseSnapshotPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteEnterpriseSnapshotPolicy",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -13361,7 +15276,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new DeleteEnterpriseSnapshotPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new DeleteEnterpriseSnapshotPolicyResponse({}));
+    } else {
+      return $dara.cast<DeleteEnterpriseSnapshotPolicyResponse>(await this.execute(params, req, runtime), new DeleteEnterpriseSnapshotPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -13371,7 +15291,7 @@ export default class Client extends OpenApi {
    * @returns DeleteEnterpriseSnapshotPolicyResponse
    */
   async deleteEnterpriseSnapshotPolicy(request: DeleteEnterpriseSnapshotPolicyRequest): Promise<DeleteEnterpriseSnapshotPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteEnterpriseSnapshotPolicyWithOptions(request, runtime);
   }
 
@@ -13390,29 +15310,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDedicatedBlockStorageClusterDisksResponse
    */
-  async describeDedicatedBlockStorageClusterDisksWithOptions(request: DescribeDedicatedBlockStorageClusterDisksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedBlockStorageClusterDisksResponse> {
-    Util.validateModel(request);
+  async describeDedicatedBlockStorageClusterDisksWithOptions(request: DescribeDedicatedBlockStorageClusterDisksRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDedicatedBlockStorageClusterDisksResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.dbscId)) {
+    if (!$dara.isNull(request.dbscId)) {
       query["DbscId"] = request.dbscId;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDedicatedBlockStorageClusterDisks",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -13423,7 +15343,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDedicatedBlockStorageClusterDisksResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedBlockStorageClusterDisksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDedicatedBlockStorageClusterDisksResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedBlockStorageClusterDisksResponse({}));
+    } else {
+      return $dara.cast<DescribeDedicatedBlockStorageClusterDisksResponse>(await this.execute(params, req, runtime), new DescribeDedicatedBlockStorageClusterDisksResponse({}));
+    }
+
   }
 
   /**
@@ -13441,7 +15366,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDedicatedBlockStorageClusterDisksResponse
    */
   async describeDedicatedBlockStorageClusterDisks(request: DescribeDedicatedBlockStorageClusterDisksRequest): Promise<DescribeDedicatedBlockStorageClusterDisksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDedicatedBlockStorageClusterDisksWithOptions(request, runtime);
   }
 
@@ -13458,63 +15383,63 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDedicatedBlockStorageClustersResponse
    */
-  async describeDedicatedBlockStorageClustersWithOptions(request: DescribeDedicatedBlockStorageClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDedicatedBlockStorageClustersResponse> {
-    Util.validateModel(request);
+  async describeDedicatedBlockStorageClustersWithOptions(request: DescribeDedicatedBlockStorageClustersRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDedicatedBlockStorageClustersResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.dedicatedBlockStorageClusterId)) {
+    if (!$dara.isNull(request.dedicatedBlockStorageClusterId)) {
       query["DedicatedBlockStorageClusterId"] = request.dedicatedBlockStorageClusterId;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.azoneId)) {
+    if (!$dara.isNull(request.azoneId)) {
       body["AzoneId"] = request.azoneId;
     }
 
-    if (!Util.isUnset(request.category)) {
+    if (!$dara.isNull(request.category)) {
       body["Category"] = request.category;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       body["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDedicatedBlockStorageClusters",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -13525,7 +15450,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDedicatedBlockStorageClustersResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedBlockStorageClustersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDedicatedBlockStorageClustersResponse>(await this.callApi(params, req, runtime), new DescribeDedicatedBlockStorageClustersResponse({}));
+    } else {
+      return $dara.cast<DescribeDedicatedBlockStorageClustersResponse>(await this.execute(params, req, runtime), new DescribeDedicatedBlockStorageClustersResponse({}));
+    }
+
   }
 
   /**
@@ -13541,7 +15471,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDedicatedBlockStorageClustersResponse
    */
   async describeDedicatedBlockStorageClusters(request: DescribeDedicatedBlockStorageClustersRequest): Promise<DescribeDedicatedBlockStorageClustersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDedicatedBlockStorageClustersWithOptions(request, runtime);
   }
 
@@ -13556,45 +15486,45 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDiskEventsResponse
    */
-  async describeDiskEventsWithOptions(request: DescribeDiskEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskEventsResponse> {
-    Util.validateModel(request);
+  async describeDiskEventsWithOptions(request: DescribeDiskEventsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDiskEventsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.diskCategory)) {
+    if (!$dara.isNull(request.diskCategory)) {
       query["DiskCategory"] = request.diskCategory;
     }
 
-    if (!Util.isUnset(request.diskId)) {
+    if (!$dara.isNull(request.diskId)) {
       query["DiskId"] = request.diskId;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDiskEvents",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -13605,7 +15535,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDiskEventsResponse>(await this.callApi(params, req, runtime), new DescribeDiskEventsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDiskEventsResponse>(await this.callApi(params, req, runtime), new DescribeDiskEventsResponse({}));
+    } else {
+      return $dara.cast<DescribeDiskEventsResponse>(await this.execute(params, req, runtime), new DescribeDiskEventsResponse({}));
+    }
+
   }
 
   /**
@@ -13619,7 +15554,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDiskEventsResponse
    */
   async describeDiskEvents(request: DescribeDiskEventsRequest): Promise<DescribeDiskEventsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDiskEventsWithOptions(request, runtime);
   }
 
@@ -13636,37 +15571,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDiskMonitorDataResponse
    */
-  async describeDiskMonitorDataWithOptions(request: DescribeDiskMonitorDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskMonitorDataResponse> {
-    Util.validateModel(request);
+  async describeDiskMonitorDataWithOptions(request: DescribeDiskMonitorDataRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDiskMonitorDataResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.diskId)) {
+    if (!$dara.isNull(request.diskId)) {
       query["DiskId"] = request.diskId;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDiskMonitorData",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -13677,7 +15612,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDiskMonitorDataResponse>(await this.callApi(params, req, runtime), new DescribeDiskMonitorDataResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDiskMonitorDataResponse>(await this.callApi(params, req, runtime), new DescribeDiskMonitorDataResponse({}));
+    } else {
+      return $dara.cast<DescribeDiskMonitorDataResponse>(await this.execute(params, req, runtime), new DescribeDiskMonitorDataResponse({}));
+    }
+
   }
 
   /**
@@ -13693,7 +15633,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDiskMonitorDataResponse
    */
   async describeDiskMonitorData(request: DescribeDiskMonitorDataRequest): Promise<DescribeDiskMonitorDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDiskMonitorDataWithOptions(request, runtime);
   }
 
@@ -13708,41 +15648,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDiskMonitorDataListResponse
    */
-  async describeDiskMonitorDataListWithOptions(request: DescribeDiskMonitorDataListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskMonitorDataListResponse> {
-    Util.validateModel(request);
+  async describeDiskMonitorDataListWithOptions(request: DescribeDiskMonitorDataListRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDiskMonitorDataListResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.diskIds)) {
+    if (!$dara.isNull(request.diskIds)) {
       query["DiskIds"] = request.diskIds;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDiskMonitorDataList",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -13753,7 +15693,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDiskMonitorDataListResponse>(await this.callApi(params, req, runtime), new DescribeDiskMonitorDataListResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDiskMonitorDataListResponse>(await this.callApi(params, req, runtime), new DescribeDiskMonitorDataListResponse({}));
+    } else {
+      return $dara.cast<DescribeDiskMonitorDataListResponse>(await this.execute(params, req, runtime), new DescribeDiskMonitorDataListResponse({}));
+    }
+
   }
 
   /**
@@ -13767,7 +15712,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDiskMonitorDataListResponse
    */
   async describeDiskMonitorDataList(request: DescribeDiskMonitorDataListRequest): Promise<DescribeDiskMonitorDataListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDiskMonitorDataListWithOptions(request, runtime);
   }
 
@@ -13783,53 +15728,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDiskReplicaGroupsResponse
    */
-  async describeDiskReplicaGroupsWithOptions(request: DescribeDiskReplicaGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskReplicaGroupsResponse> {
-    Util.validateModel(request);
+  async describeDiskReplicaGroupsWithOptions(request: DescribeDiskReplicaGroupsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDiskReplicaGroupsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.groupIds)) {
+    if (!$dara.isNull(request.groupIds)) {
       query["GroupIds"] = request.groupIds;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.site)) {
+    if (!$dara.isNull(request.site)) {
       query["Site"] = request.site;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDiskReplicaGroups",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -13840,7 +15785,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDiskReplicaGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDiskReplicaGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDiskReplicaGroupsResponse>(await this.callApi(params, req, runtime), new DescribeDiskReplicaGroupsResponse({}));
+    } else {
+      return $dara.cast<DescribeDiskReplicaGroupsResponse>(await this.execute(params, req, runtime), new DescribeDiskReplicaGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -13855,7 +15805,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDiskReplicaGroupsResponse
    */
   async describeDiskReplicaGroups(request: DescribeDiskReplicaGroupsRequest): Promise<DescribeDiskReplicaGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDiskReplicaGroupsWithOptions(request, runtime);
   }
 
@@ -13866,21 +15816,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDiskReplicaPairProgressResponse
    */
-  async describeDiskReplicaPairProgressWithOptions(request: DescribeDiskReplicaPairProgressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskReplicaPairProgressResponse> {
-    Util.validateModel(request);
+  async describeDiskReplicaPairProgressWithOptions(request: DescribeDiskReplicaPairProgressRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDiskReplicaPairProgressResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaPairId)) {
+    if (!$dara.isNull(request.replicaPairId)) {
       query["ReplicaPairId"] = request.replicaPairId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDiskReplicaPairProgress",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -13891,7 +15841,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDiskReplicaPairProgressResponse>(await this.callApi(params, req, runtime), new DescribeDiskReplicaPairProgressResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDiskReplicaPairProgressResponse>(await this.callApi(params, req, runtime), new DescribeDiskReplicaPairProgressResponse({}));
+    } else {
+      return $dara.cast<DescribeDiskReplicaPairProgressResponse>(await this.execute(params, req, runtime), new DescribeDiskReplicaPairProgressResponse({}));
+    }
+
   }
 
   /**
@@ -13901,7 +15856,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDiskReplicaPairProgressResponse
    */
   async describeDiskReplicaPairProgress(request: DescribeDiskReplicaPairProgressRequest): Promise<DescribeDiskReplicaPairProgressResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDiskReplicaPairProgressWithOptions(request, runtime);
   }
 
@@ -13918,57 +15873,57 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDiskReplicaPairsResponse
    */
-  async describeDiskReplicaPairsWithOptions(request: DescribeDiskReplicaPairsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDiskReplicaPairsResponse> {
-    Util.validateModel(request);
+  async describeDiskReplicaPairsWithOptions(request: DescribeDiskReplicaPairsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDiskReplicaPairsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.pairIds)) {
+    if (!$dara.isNull(request.pairIds)) {
       query["PairIds"] = request.pairIds;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaGroupId)) {
+    if (!$dara.isNull(request.replicaGroupId)) {
       query["ReplicaGroupId"] = request.replicaGroupId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.site)) {
+    if (!$dara.isNull(request.site)) {
       query["Site"] = request.site;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeDiskReplicaPairs",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -13979,7 +15934,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDiskReplicaPairsResponse>(await this.callApi(params, req, runtime), new DescribeDiskReplicaPairsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeDiskReplicaPairsResponse>(await this.callApi(params, req, runtime), new DescribeDiskReplicaPairsResponse({}));
+    } else {
+      return $dara.cast<DescribeDiskReplicaPairsResponse>(await this.execute(params, req, runtime), new DescribeDiskReplicaPairsResponse({}));
+    }
+
   }
 
   /**
@@ -13995,7 +15955,7 @@ export default class Client extends OpenApi {
    * @returns DescribeDiskReplicaPairsResponse
    */
   async describeDiskReplicaPairs(request: DescribeDiskReplicaPairsRequest): Promise<DescribeDiskReplicaPairsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDiskReplicaPairsWithOptions(request, runtime);
   }
 
@@ -14006,53 +15966,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEnterpriseSnapshotPolicyResponse
    */
-  async describeEnterpriseSnapshotPolicyWithOptions(request: DescribeEnterpriseSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEnterpriseSnapshotPolicyResponse> {
-    Util.validateModel(request);
+  async describeEnterpriseSnapshotPolicyWithOptions(request: DescribeEnterpriseSnapshotPolicyRequest, runtime: $dara.RuntimeOptions): Promise<DescribeEnterpriseSnapshotPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.diskIds)) {
+    if (!$dara.isNull(request.diskIds)) {
       query["DiskIds"] = request.diskIds;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.policyIds)) {
+    if (!$dara.isNull(request.policyIds)) {
       query["PolicyIds"] = request.policyIds;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
+    if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeEnterpriseSnapshotPolicy",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14063,7 +16023,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new DescribeEnterpriseSnapshotPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new DescribeEnterpriseSnapshotPolicyResponse({}));
+    } else {
+      return $dara.cast<DescribeEnterpriseSnapshotPolicyResponse>(await this.execute(params, req, runtime), new DescribeEnterpriseSnapshotPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -14073,7 +16038,7 @@ export default class Client extends OpenApi {
    * @returns DescribeEnterpriseSnapshotPolicyResponse
    */
   async describeEnterpriseSnapshotPolicy(request: DescribeEnterpriseSnapshotPolicyRequest): Promise<DescribeEnterpriseSnapshotPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeEnterpriseSnapshotPolicyWithOptions(request, runtime);
   }
 
@@ -14084,53 +16049,53 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEventsResponse
    */
-  async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
-    Util.validateModel(request);
+  async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeEventsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.eventLevel)) {
+    if (!$dara.isNull(request.eventLevel)) {
       query["EventLevel"] = request.eventLevel;
     }
 
-    if (!Util.isUnset(request.eventName)) {
+    if (!$dara.isNull(request.eventName)) {
       query["EventName"] = request.eventName;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeEvents",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14141,7 +16106,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
+    } else {
+      return $dara.cast<DescribeEventsResponse>(await this.execute(params, req, runtime), new DescribeEventsResponse({}));
+    }
+
   }
 
   /**
@@ -14151,7 +16121,7 @@ export default class Client extends OpenApi {
    * @returns DescribeEventsResponse
    */
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeEventsWithOptions(request, runtime);
   }
 
@@ -14162,41 +16132,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLensMonitorDisksResponse
    */
-  async describeLensMonitorDisksWithOptions(request: DescribeLensMonitorDisksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLensMonitorDisksResponse> {
-    Util.validateModel(request);
+  async describeLensMonitorDisksWithOptions(request: DescribeLensMonitorDisksRequest, runtime: $dara.RuntimeOptions): Promise<DescribeLensMonitorDisksResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.diskCategory)) {
+    if (!$dara.isNull(request.diskCategory)) {
       query["DiskCategory"] = request.diskCategory;
     }
 
-    if (!Util.isUnset(request.diskIdPattern)) {
+    if (!$dara.isNull(request.diskIdPattern)) {
       query["DiskIdPattern"] = request.diskIdPattern;
     }
 
-    if (!Util.isUnset(request.diskIds)) {
+    if (!$dara.isNull(request.diskIds)) {
       query["DiskIds"] = request.diskIds;
     }
 
-    if (!Util.isUnset(request.lensTags)) {
+    if (!$dara.isNull(request.lensTags)) {
       query["LensTags"] = request.lensTags;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeLensMonitorDisks",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14207,7 +16177,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeLensMonitorDisksResponse>(await this.callApi(params, req, runtime), new DescribeLensMonitorDisksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeLensMonitorDisksResponse>(await this.callApi(params, req, runtime), new DescribeLensMonitorDisksResponse({}));
+    } else {
+      return $dara.cast<DescribeLensMonitorDisksResponse>(await this.execute(params, req, runtime), new DescribeLensMonitorDisksResponse({}));
+    }
+
   }
 
   /**
@@ -14217,7 +16192,7 @@ export default class Client extends OpenApi {
    * @returns DescribeLensMonitorDisksResponse
    */
   async describeLensMonitorDisks(request: DescribeLensMonitorDisksRequest): Promise<DescribeLensMonitorDisksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeLensMonitorDisksWithOptions(request, runtime);
   }
 
@@ -14232,9 +16207,9 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLensServiceStatusResponse
    */
-  async describeLensServiceStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeLensServiceStatusResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
+  async describeLensServiceStatusWithOptions(runtime: $dara.RuntimeOptions): Promise<DescribeLensServiceStatusResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
       action: "DescribeLensServiceStatus",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14245,7 +16220,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeLensServiceStatusResponse>(await this.callApi(params, req, runtime), new DescribeLensServiceStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeLensServiceStatusResponse>(await this.callApi(params, req, runtime), new DescribeLensServiceStatusResponse({}));
+    } else {
+      return $dara.cast<DescribeLensServiceStatusResponse>(await this.execute(params, req, runtime), new DescribeLensServiceStatusResponse({}));
+    }
+
   }
 
   /**
@@ -14257,7 +16237,7 @@ export default class Client extends OpenApi {
    * @returns DescribeLensServiceStatusResponse
    */
   async describeLensServiceStatus(): Promise<DescribeLensServiceStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeLensServiceStatusWithOptions(runtime);
   }
 
@@ -14268,41 +16248,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeMetricDataResponse
    */
-  async describeMetricDataWithOptions(request: DescribeMetricDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMetricDataResponse> {
-    Util.validateModel(request);
+  async describeMetricDataWithOptions(request: DescribeMetricDataRequest, runtime: $dara.RuntimeOptions): Promise<DescribeMetricDataResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.aggreOps)) {
+    if (!$dara.isNull(request.aggreOps)) {
       query["AggreOps"] = request.aggreOps;
     }
 
-    if (!Util.isUnset(request.dimensions)) {
+    if (!$dara.isNull(request.dimensions)) {
       query["Dimensions"] = request.dimensions;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.metricName)) {
+    if (!$dara.isNull(request.metricName)) {
       query["MetricName"] = request.metricName;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeMetricData",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14313,7 +16293,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeMetricDataResponse>(await this.callApi(params, req, runtime), new DescribeMetricDataResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeMetricDataResponse>(await this.callApi(params, req, runtime), new DescribeMetricDataResponse({}));
+    } else {
+      return $dara.cast<DescribeMetricDataResponse>(await this.execute(params, req, runtime), new DescribeMetricDataResponse({}));
+    }
+
   }
 
   /**
@@ -14323,7 +16308,7 @@ export default class Client extends OpenApi {
    * @returns DescribeMetricDataResponse
    */
   async describeMetricData(request: DescribeMetricDataRequest): Promise<DescribeMetricDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeMetricDataWithOptions(request, runtime);
   }
 
@@ -14334,41 +16319,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePairDrillsResponse
    */
-  async describePairDrillsWithOptions(request: DescribePairDrillsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePairDrillsResponse> {
-    Util.validateModel(request);
+  async describePairDrillsWithOptions(request: DescribePairDrillsRequest, runtime: $dara.RuntimeOptions): Promise<DescribePairDrillsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.drillId)) {
+    if (!$dara.isNull(request.drillId)) {
       query["DrillId"] = request.drillId;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.pairId)) {
+    if (!$dara.isNull(request.pairId)) {
       query["PairId"] = request.pairId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribePairDrills",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14379,7 +16364,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePairDrillsResponse>(await this.callApi(params, req, runtime), new DescribePairDrillsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribePairDrillsResponse>(await this.callApi(params, req, runtime), new DescribePairDrillsResponse({}));
+    } else {
+      return $dara.cast<DescribePairDrillsResponse>(await this.execute(params, req, runtime), new DescribePairDrillsResponse({}));
+    }
+
   }
 
   /**
@@ -14389,7 +16379,7 @@ export default class Client extends OpenApi {
    * @returns DescribePairDrillsResponse
    */
   async describePairDrills(request: DescribePairDrillsRequest): Promise<DescribePairDrillsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describePairDrillsWithOptions(request, runtime);
   }
 
@@ -14400,25 +16390,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.acceptLanguage)) {
+    if (!$dara.isNull(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeRegions",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14429,7 +16419,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    } else {
+      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
+    }
+
   }
 
   /**
@@ -14439,7 +16434,7 @@ export default class Client extends OpenApi {
    * @returns DescribeRegionsResponse
    */
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
   }
 
@@ -14450,41 +16445,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeReplicaGroupDrillsResponse
    */
-  async describeReplicaGroupDrillsWithOptions(request: DescribeReplicaGroupDrillsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeReplicaGroupDrillsResponse> {
-    Util.validateModel(request);
+  async describeReplicaGroupDrillsWithOptions(request: DescribeReplicaGroupDrillsRequest, runtime: $dara.RuntimeOptions): Promise<DescribeReplicaGroupDrillsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.drillId)) {
+    if (!$dara.isNull(request.drillId)) {
       query["DrillId"] = request.drillId;
     }
 
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeReplicaGroupDrills",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14495,7 +16490,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeReplicaGroupDrillsResponse>(await this.callApi(params, req, runtime), new DescribeReplicaGroupDrillsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeReplicaGroupDrillsResponse>(await this.callApi(params, req, runtime), new DescribeReplicaGroupDrillsResponse({}));
+    } else {
+      return $dara.cast<DescribeReplicaGroupDrillsResponse>(await this.execute(params, req, runtime), new DescribeReplicaGroupDrillsResponse({}));
+    }
+
   }
 
   /**
@@ -14505,7 +16505,7 @@ export default class Client extends OpenApi {
    * @returns DescribeReplicaGroupDrillsResponse
    */
   async describeReplicaGroupDrills(request: DescribeReplicaGroupDrillsRequest): Promise<DescribeReplicaGroupDrillsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeReplicaGroupDrillsWithOptions(request, runtime);
   }
 
@@ -14516,29 +16516,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSolutionInstanceConfigurationResponse
    */
-  async describeSolutionInstanceConfigurationWithOptions(request: DescribeSolutionInstanceConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSolutionInstanceConfigurationResponse> {
-    Util.validateModel(request);
+  async describeSolutionInstanceConfigurationWithOptions(request: DescribeSolutionInstanceConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<DescribeSolutionInstanceConfigurationResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.parameters)) {
+    if (!$dara.isNull(request.parameters)) {
       query["Parameters"] = request.parameters;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.solutionId)) {
+    if (!$dara.isNull(request.solutionId)) {
       query["SolutionId"] = request.solutionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeSolutionInstanceConfiguration",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14549,7 +16549,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSolutionInstanceConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeSolutionInstanceConfigurationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSolutionInstanceConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeSolutionInstanceConfigurationResponse({}));
+    } else {
+      return $dara.cast<DescribeSolutionInstanceConfigurationResponse>(await this.execute(params, req, runtime), new DescribeSolutionInstanceConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -14559,8 +16564,150 @@ export default class Client extends OpenApi {
    * @returns DescribeSolutionInstanceConfigurationResponse
    */
   async describeSolutionInstanceConfiguration(request: DescribeSolutionInstanceConfigurationRequest): Promise<DescribeSolutionInstanceConfigurationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSolutionInstanceConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * Centralized Role: Query User Disk Snapshot tagKeys
+   * 
+   * @remarks
+   * ## Interface Description
+   * Query the tag key-value pairs of user\\"s cloud disk and snapshot. The search scope can be narrowed down by using filterTagKey.
+   * 
+   * @param request - DescribeUserTagKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserTagKeysResponse
+   */
+  async describeUserTagKeysWithOptions(request: DescribeUserTagKeysRequest, runtime: $dara.RuntimeOptions): Promise<DescribeUserTagKeysResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tagFilterKey)) {
+      body["TagFilterKey"] = request.tagFilterKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUserTagKeys",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeUserTagKeysResponse>(await this.callApi(params, req, runtime), new DescribeUserTagKeysResponse({}));
+    } else {
+      return $dara.cast<DescribeUserTagKeysResponse>(await this.execute(params, req, runtime), new DescribeUserTagKeysResponse({}));
+    }
+
+  }
+
+  /**
+   * Centralized Role: Query User Disk Snapshot tagKeys
+   * 
+   * @remarks
+   * ## Interface Description
+   * Query the tag key-value pairs of user\\"s cloud disk and snapshot. The search scope can be narrowed down by using filterTagKey.
+   * 
+   * @param request - DescribeUserTagKeysRequest
+   * @returns DescribeUserTagKeysResponse
+   */
+  async describeUserTagKeys(request: DescribeUserTagKeysRequest): Promise<DescribeUserTagKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUserTagKeysWithOptions(request, runtime);
+  }
+
+  /**
+   * Centralized Role: Query User Disk and Snapshot tagValues
+   * 
+   * @remarks
+   * ## Interface Description
+   * > The dedicated block storage cluster feature is currently supported in the following regions: South China 2 (Heyuan), Indonesia (Jakarta), and South China 1 (Shenzhen).
+   * - The request parameters act as a filter, with a logical AND relationship. If any parameter is empty, the filter does not take effect.
+   * - For paginated queries, it is recommended to use the MaxResults and NextToken parameters. Usage instructions: When querying the first page, set only MaxResults to limit the number of returned entries. The NextToken in the response will serve as the token for querying subsequent pages. When querying subsequent pages, set the NextToken parameter to the value obtained from the previous response, and set MaxResults to limit the number of returned entries.
+   * 
+   * @param request - DescribeUserTagValuesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserTagValuesResponse
+   */
+  async describeUserTagValuesWithOptions(request: DescribeUserTagValuesRequest, runtime: $dara.RuntimeOptions): Promise<DescribeUserTagValuesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tagFilterValue)) {
+      body["TagFilterValue"] = request.tagFilterValue;
+    }
+
+    if (!$dara.isNull(request.tagKey)) {
+      body["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUserTagValues",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeUserTagValuesResponse>(await this.callApi(params, req, runtime), new DescribeUserTagValuesResponse({}));
+    } else {
+      return $dara.cast<DescribeUserTagValuesResponse>(await this.execute(params, req, runtime), new DescribeUserTagValuesResponse({}));
+    }
+
+  }
+
+  /**
+   * Centralized Role: Query User Disk and Snapshot tagValues
+   * 
+   * @remarks
+   * ## Interface Description
+   * > The dedicated block storage cluster feature is currently supported in the following regions: South China 2 (Heyuan), Indonesia (Jakarta), and South China 1 (Shenzhen).
+   * - The request parameters act as a filter, with a logical AND relationship. If any parameter is empty, the filter does not take effect.
+   * - For paginated queries, it is recommended to use the MaxResults and NextToken parameters. Usage instructions: When querying the first page, set only MaxResults to limit the number of returned entries. The NextToken in the response will serve as the token for querying subsequent pages. When querying subsequent pages, set the NextToken parameter to the value obtained from the previous response, and set MaxResults to limit the number of returned entries.
+   * 
+   * @param request - DescribeUserTagValuesRequest
+   * @returns DescribeUserTagValuesResponse
+   */
+  async describeUserTagValues(request: DescribeUserTagValuesRequest): Promise<DescribeUserTagValuesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUserTagValuesWithOptions(request, runtime);
   }
 
   /**
@@ -14577,25 +16724,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FailoverDiskReplicaGroupResponse
    */
-  async failoverDiskReplicaGroupWithOptions(request: FailoverDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<FailoverDiskReplicaGroupResponse> {
-    Util.validateModel(request);
+  async failoverDiskReplicaGroupWithOptions(request: FailoverDiskReplicaGroupRequest, runtime: $dara.RuntimeOptions): Promise<FailoverDiskReplicaGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaGroupId)) {
+    if (!$dara.isNull(request.replicaGroupId)) {
       query["ReplicaGroupId"] = request.replicaGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "FailoverDiskReplicaGroup",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14606,7 +16753,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<FailoverDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new FailoverDiskReplicaGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<FailoverDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new FailoverDiskReplicaGroupResponse({}));
+    } else {
+      return $dara.cast<FailoverDiskReplicaGroupResponse>(await this.execute(params, req, runtime), new FailoverDiskReplicaGroupResponse({}));
+    }
+
   }
 
   /**
@@ -14623,7 +16775,7 @@ export default class Client extends OpenApi {
    * @returns FailoverDiskReplicaGroupResponse
    */
   async failoverDiskReplicaGroup(request: FailoverDiskReplicaGroupRequest): Promise<FailoverDiskReplicaGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.failoverDiskReplicaGroupWithOptions(request, runtime);
   }
 
@@ -14640,25 +16792,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FailoverDiskReplicaPairResponse
    */
-  async failoverDiskReplicaPairWithOptions(request: FailoverDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<FailoverDiskReplicaPairResponse> {
-    Util.validateModel(request);
+  async failoverDiskReplicaPairWithOptions(request: FailoverDiskReplicaPairRequest, runtime: $dara.RuntimeOptions): Promise<FailoverDiskReplicaPairResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaPairId)) {
+    if (!$dara.isNull(request.replicaPairId)) {
       query["ReplicaPairId"] = request.replicaPairId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "FailoverDiskReplicaPair",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14669,7 +16821,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<FailoverDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new FailoverDiskReplicaPairResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<FailoverDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new FailoverDiskReplicaPairResponse({}));
+    } else {
+      return $dara.cast<FailoverDiskReplicaPairResponse>(await this.execute(params, req, runtime), new FailoverDiskReplicaPairResponse({}));
+    }
+
   }
 
   /**
@@ -14685,7 +16842,7 @@ export default class Client extends OpenApi {
    * @returns FailoverDiskReplicaPairResponse
    */
   async failoverDiskReplicaPair(request: FailoverDiskReplicaPairRequest): Promise<FailoverDiskReplicaPairResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.failoverDiskReplicaPairWithOptions(request, runtime);
   }
 
@@ -14696,31 +16853,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetReportResponse
    */
-  async getReportWithOptions(request: GetReportRequest, runtime: $Util.RuntimeOptions): Promise<GetReportResponse> {
-    Util.validateModel(request);
+  async getReportWithOptions(request: GetReportRequest, runtime: $dara.RuntimeOptions): Promise<GetReportResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.appName)) {
+    if (!$dara.isNull(request.appName)) {
       query["AppName"] = request.appName;
     }
 
-    if (!Util.isUnset(request.reportType)) {
+    if (!$dara.isNull(request.reportType)) {
       query["ReportType"] = request.reportType;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.reportId)) {
+    if (!$dara.isNull(request.reportId)) {
       body["ReportId"] = request.reportId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetReport",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14731,7 +16888,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetReportResponse>(await this.callApi(params, req, runtime), new GetReportResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetReportResponse>(await this.callApi(params, req, runtime), new GetReportResponse({}));
+    } else {
+      return $dara.cast<GetReportResponse>(await this.execute(params, req, runtime), new GetReportResponse({}));
+    }
+
   }
 
   /**
@@ -14741,7 +16903,7 @@ export default class Client extends OpenApi {
    * @returns GetReportResponse
    */
   async getReport(request: GetReportRequest): Promise<GetReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getReportWithOptions(request, runtime);
   }
 
@@ -14752,39 +16914,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListReportsResponse
    */
-  async listReportsWithOptions(request: ListReportsRequest, runtime: $Util.RuntimeOptions): Promise<ListReportsResponse> {
-    Util.validateModel(request);
+  async listReportsWithOptions(request: ListReportsRequest, runtime: $dara.RuntimeOptions): Promise<ListReportsResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.maxResults)) {
+    if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.pageNumber)) {
+    if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
 
-    if (!Util.isUnset(request.pageSize)) {
+    if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.appName)) {
+    if (!$dara.isNull(request.appName)) {
       body["AppName"] = request.appName;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListReports",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14795,7 +16957,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListReportsResponse>(await this.callApi(params, req, runtime), new ListReportsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListReportsResponse>(await this.callApi(params, req, runtime), new ListReportsResponse({}));
+    } else {
+      return $dara.cast<ListReportsResponse>(await this.execute(params, req, runtime), new ListReportsResponse({}));
+    }
+
   }
 
   /**
@@ -14805,7 +16972,7 @@ export default class Client extends OpenApi {
    * @returns ListReportsResponse
    */
   async listReports(request: ListReportsRequest): Promise<ListReportsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listReportsWithOptions(request, runtime);
   }
 
@@ -14822,37 +16989,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14863,7 +17030,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -14879,7 +17051,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
   }
 
@@ -14893,33 +17065,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDedicatedBlockStorageClusterAttributeResponse
    */
-  async modifyDedicatedBlockStorageClusterAttributeWithOptions(request: ModifyDedicatedBlockStorageClusterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDedicatedBlockStorageClusterAttributeResponse> {
-    Util.validateModel(request);
+  async modifyDedicatedBlockStorageClusterAttributeWithOptions(request: ModifyDedicatedBlockStorageClusterAttributeRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDedicatedBlockStorageClusterAttributeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.dbscId)) {
+    if (!$dara.isNull(request.dbscId)) {
       query["DbscId"] = request.dbscId;
     }
 
-    if (!Util.isUnset(request.dbscName)) {
+    if (!$dara.isNull(request.dbscName)) {
       query["DbscName"] = request.dbscName;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyDedicatedBlockStorageClusterAttribute",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -14930,7 +17102,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyDedicatedBlockStorageClusterAttributeResponse>(await this.callApi(params, req, runtime), new ModifyDedicatedBlockStorageClusterAttributeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyDedicatedBlockStorageClusterAttributeResponse>(await this.callApi(params, req, runtime), new ModifyDedicatedBlockStorageClusterAttributeResponse({}));
+    } else {
+      return $dara.cast<ModifyDedicatedBlockStorageClusterAttributeResponse>(await this.execute(params, req, runtime), new ModifyDedicatedBlockStorageClusterAttributeResponse({}));
+    }
+
   }
 
   /**
@@ -14943,7 +17120,7 @@ export default class Client extends OpenApi {
    * @returns ModifyDedicatedBlockStorageClusterAttributeResponse
    */
   async modifyDedicatedBlockStorageClusterAttribute(request: ModifyDedicatedBlockStorageClusterAttributeRequest): Promise<ModifyDedicatedBlockStorageClusterAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDedicatedBlockStorageClusterAttributeWithOptions(request, runtime);
   }
 
@@ -14959,41 +17136,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDiskReplicaGroupResponse
    */
-  async modifyDiskReplicaGroupWithOptions(request: ModifyDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDiskReplicaGroupResponse> {
-    Util.validateModel(request);
+  async modifyDiskReplicaGroupWithOptions(request: ModifyDiskReplicaGroupRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDiskReplicaGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bandwidth)) {
+    if (!$dara.isNull(request.bandwidth)) {
       query["Bandwidth"] = request.bandwidth;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.groupName)) {
+    if (!$dara.isNull(request.groupName)) {
       query["GroupName"] = request.groupName;
     }
 
-    if (!Util.isUnset(request.RPO)) {
+    if (!$dara.isNull(request.RPO)) {
       query["RPO"] = request.RPO;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaGroupId)) {
+    if (!$dara.isNull(request.replicaGroupId)) {
       query["ReplicaGroupId"] = request.replicaGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyDiskReplicaGroup",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15004,7 +17181,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new ModifyDiskReplicaGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new ModifyDiskReplicaGroupResponse({}));
+    } else {
+      return $dara.cast<ModifyDiskReplicaGroupResponse>(await this.execute(params, req, runtime), new ModifyDiskReplicaGroupResponse({}));
+    }
+
   }
 
   /**
@@ -15019,7 +17201,7 @@ export default class Client extends OpenApi {
    * @returns ModifyDiskReplicaGroupResponse
    */
   async modifyDiskReplicaGroup(request: ModifyDiskReplicaGroupRequest): Promise<ModifyDiskReplicaGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDiskReplicaGroupWithOptions(request, runtime);
   }
 
@@ -15035,41 +17217,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDiskReplicaPairResponse
    */
-  async modifyDiskReplicaPairWithOptions(request: ModifyDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDiskReplicaPairResponse> {
-    Util.validateModel(request);
+  async modifyDiskReplicaPairWithOptions(request: ModifyDiskReplicaPairRequest, runtime: $dara.RuntimeOptions): Promise<ModifyDiskReplicaPairResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.bandwidth)) {
+    if (!$dara.isNull(request.bandwidth)) {
       query["Bandwidth"] = request.bandwidth;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.pairName)) {
+    if (!$dara.isNull(request.pairName)) {
       query["PairName"] = request.pairName;
     }
 
-    if (!Util.isUnset(request.RPO)) {
+    if (!$dara.isNull(request.RPO)) {
       query["RPO"] = request.RPO;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaPairId)) {
+    if (!$dara.isNull(request.replicaPairId)) {
       query["ReplicaPairId"] = request.replicaPairId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ModifyDiskReplicaPair",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15080,7 +17262,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new ModifyDiskReplicaPairResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new ModifyDiskReplicaPairResponse({}));
+    } else {
+      return $dara.cast<ModifyDiskReplicaPairResponse>(await this.execute(params, req, runtime), new ModifyDiskReplicaPairResponse({}));
+    }
+
   }
 
   /**
@@ -15095,7 +17282,7 @@ export default class Client extends OpenApi {
    * @returns ModifyDiskReplicaPairResponse
    */
   async modifyDiskReplicaPair(request: ModifyDiskReplicaPairRequest): Promise<ModifyDiskReplicaPairResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyDiskReplicaPairWithOptions(request, runtime);
   }
 
@@ -15106,27 +17293,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse
    */
-  async queryDedicatedBlockStorageClusterDiskThroughputStatusWithOptions(request: QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse> {
-    Util.validateModel(request);
+  async queryDedicatedBlockStorageClusterDiskThroughputStatusWithOptions(request: QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest, runtime: $dara.RuntimeOptions): Promise<QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.qosRequestId)) {
+    if (!$dara.isNull(request.qosRequestId)) {
       body["QosRequestId"] = request.qosRequestId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDedicatedBlockStorageClusterDiskThroughputStatus",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15137,7 +17324,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse>(await this.callApi(params, req, runtime), new QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse>(await this.callApi(params, req, runtime), new QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse({}));
+    } else {
+      return $dara.cast<QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse>(await this.execute(params, req, runtime), new QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse({}));
+    }
+
   }
 
   /**
@@ -15147,7 +17339,7 @@ export default class Client extends OpenApi {
    * @returns QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse
    */
   async queryDedicatedBlockStorageClusterDiskThroughputStatus(request: QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest): Promise<QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDedicatedBlockStorageClusterDiskThroughputStatusWithOptions(request, runtime);
   }
 
@@ -15161,39 +17353,39 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryDedicatedBlockStorageClusterInventoryDataResponse
    */
-  async queryDedicatedBlockStorageClusterInventoryDataWithOptions(request: QueryDedicatedBlockStorageClusterInventoryDataRequest, runtime: $Util.RuntimeOptions): Promise<QueryDedicatedBlockStorageClusterInventoryDataResponse> {
-    Util.validateModel(request);
+  async queryDedicatedBlockStorageClusterInventoryDataWithOptions(request: QueryDedicatedBlockStorageClusterInventoryDataRequest, runtime: $dara.RuntimeOptions): Promise<QueryDedicatedBlockStorageClusterInventoryDataResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dbscId)) {
+    if (!$dara.isNull(request.dbscId)) {
       body["DbscId"] = request.dbscId;
     }
 
-    if (!Util.isUnset(request.endTime)) {
+    if (!$dara.isNull(request.endTime)) {
       body["EndTime"] = request.endTime;
     }
 
-    if (!Util.isUnset(request.period)) {
+    if (!$dara.isNull(request.period)) {
       body["Period"] = request.period;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.startTime)) {
+    if (!$dara.isNull(request.startTime)) {
       body["StartTime"] = request.startTime;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "QueryDedicatedBlockStorageClusterInventoryData",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15204,7 +17396,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryDedicatedBlockStorageClusterInventoryDataResponse>(await this.callApi(params, req, runtime), new QueryDedicatedBlockStorageClusterInventoryDataResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<QueryDedicatedBlockStorageClusterInventoryDataResponse>(await this.callApi(params, req, runtime), new QueryDedicatedBlockStorageClusterInventoryDataResponse({}));
+    } else {
+      return $dara.cast<QueryDedicatedBlockStorageClusterInventoryDataResponse>(await this.execute(params, req, runtime), new QueryDedicatedBlockStorageClusterInventoryDataResponse({}));
+    }
+
   }
 
   /**
@@ -15217,7 +17414,7 @@ export default class Client extends OpenApi {
    * @returns QueryDedicatedBlockStorageClusterInventoryDataResponse
    */
   async queryDedicatedBlockStorageClusterInventoryData(request: QueryDedicatedBlockStorageClusterInventoryDataRequest): Promise<QueryDedicatedBlockStorageClusterInventoryDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.queryDedicatedBlockStorageClusterInventoryDataWithOptions(request, runtime);
   }
 
@@ -15233,29 +17430,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveDiskReplicaPairResponse
    */
-  async removeDiskReplicaPairWithOptions(request: RemoveDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<RemoveDiskReplicaPairResponse> {
-    Util.validateModel(request);
+  async removeDiskReplicaPairWithOptions(request: RemoveDiskReplicaPairRequest, runtime: $dara.RuntimeOptions): Promise<RemoveDiskReplicaPairResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaGroupId)) {
+    if (!$dara.isNull(request.replicaGroupId)) {
       query["ReplicaGroupId"] = request.replicaGroupId;
     }
 
-    if (!Util.isUnset(request.replicaPairId)) {
+    if (!$dara.isNull(request.replicaPairId)) {
       query["ReplicaPairId"] = request.replicaPairId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "RemoveDiskReplicaPair",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15266,7 +17463,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RemoveDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new RemoveDiskReplicaPairResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RemoveDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new RemoveDiskReplicaPairResponse({}));
+    } else {
+      return $dara.cast<RemoveDiskReplicaPairResponse>(await this.execute(params, req, runtime), new RemoveDiskReplicaPairResponse({}));
+    }
+
   }
 
   /**
@@ -15281,7 +17483,7 @@ export default class Client extends OpenApi {
    * @returns RemoveDiskReplicaPairResponse
    */
   async removeDiskReplicaPair(request: RemoveDiskReplicaPairRequest): Promise<RemoveDiskReplicaPairResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.removeDiskReplicaPairWithOptions(request, runtime);
   }
 
@@ -15300,29 +17502,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReprotectDiskReplicaGroupResponse
    */
-  async reprotectDiskReplicaGroupWithOptions(request: ReprotectDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<ReprotectDiskReplicaGroupResponse> {
-    Util.validateModel(request);
+  async reprotectDiskReplicaGroupWithOptions(request: ReprotectDiskReplicaGroupRequest, runtime: $dara.RuntimeOptions): Promise<ReprotectDiskReplicaGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaGroupId)) {
+    if (!$dara.isNull(request.replicaGroupId)) {
       query["ReplicaGroupId"] = request.replicaGroupId;
     }
 
-    if (!Util.isUnset(request.reverseReplicate)) {
+    if (!$dara.isNull(request.reverseReplicate)) {
       query["ReverseReplicate"] = request.reverseReplicate;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReprotectDiskReplicaGroup",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15333,7 +17535,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReprotectDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new ReprotectDiskReplicaGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ReprotectDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new ReprotectDiskReplicaGroupResponse({}));
+    } else {
+      return $dara.cast<ReprotectDiskReplicaGroupResponse>(await this.execute(params, req, runtime), new ReprotectDiskReplicaGroupResponse({}));
+    }
+
   }
 
   /**
@@ -15351,7 +17558,7 @@ export default class Client extends OpenApi {
    * @returns ReprotectDiskReplicaGroupResponse
    */
   async reprotectDiskReplicaGroup(request: ReprotectDiskReplicaGroupRequest): Promise<ReprotectDiskReplicaGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.reprotectDiskReplicaGroupWithOptions(request, runtime);
   }
 
@@ -15370,29 +17577,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReprotectDiskReplicaPairResponse
    */
-  async reprotectDiskReplicaPairWithOptions(request: ReprotectDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<ReprotectDiskReplicaPairResponse> {
-    Util.validateModel(request);
+  async reprotectDiskReplicaPairWithOptions(request: ReprotectDiskReplicaPairRequest, runtime: $dara.RuntimeOptions): Promise<ReprotectDiskReplicaPairResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaPairId)) {
+    if (!$dara.isNull(request.replicaPairId)) {
       query["ReplicaPairId"] = request.replicaPairId;
     }
 
-    if (!Util.isUnset(request.reverseReplicate)) {
+    if (!$dara.isNull(request.reverseReplicate)) {
       query["ReverseReplicate"] = request.reverseReplicate;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReprotectDiskReplicaPair",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15403,7 +17610,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReprotectDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new ReprotectDiskReplicaPairResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ReprotectDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new ReprotectDiskReplicaPairResponse({}));
+    } else {
+      return $dara.cast<ReprotectDiskReplicaPairResponse>(await this.execute(params, req, runtime), new ReprotectDiskReplicaPairResponse({}));
+    }
+
   }
 
   /**
@@ -15421,7 +17633,7 @@ export default class Client extends OpenApi {
    * @returns ReprotectDiskReplicaPairResponse
    */
   async reprotectDiskReplicaPair(request: ReprotectDiskReplicaPairRequest): Promise<ReprotectDiskReplicaPairResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.reprotectDiskReplicaPairWithOptions(request, runtime);
   }
 
@@ -15432,31 +17644,31 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetDedicatedBlockStorageClusterDiskThroughputResponse
    */
-  async setDedicatedBlockStorageClusterDiskThroughputWithOptions(request: SetDedicatedBlockStorageClusterDiskThroughputRequest, runtime: $Util.RuntimeOptions): Promise<SetDedicatedBlockStorageClusterDiskThroughputResponse> {
-    Util.validateModel(request);
+  async setDedicatedBlockStorageClusterDiskThroughputWithOptions(request: SetDedicatedBlockStorageClusterDiskThroughputRequest, runtime: $dara.RuntimeOptions): Promise<SetDedicatedBlockStorageClusterDiskThroughputResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.bps)) {
+    if (!$dara.isNull(request.bps)) {
       body["Bps"] = request.bps;
     }
 
-    if (!Util.isUnset(request.diskId)) {
+    if (!$dara.isNull(request.diskId)) {
       body["DiskId"] = request.diskId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       body["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "SetDedicatedBlockStorageClusterDiskThroughput",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15467,7 +17679,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetDedicatedBlockStorageClusterDiskThroughputResponse>(await this.callApi(params, req, runtime), new SetDedicatedBlockStorageClusterDiskThroughputResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SetDedicatedBlockStorageClusterDiskThroughputResponse>(await this.callApi(params, req, runtime), new SetDedicatedBlockStorageClusterDiskThroughputResponse({}));
+    } else {
+      return $dara.cast<SetDedicatedBlockStorageClusterDiskThroughputResponse>(await this.execute(params, req, runtime), new SetDedicatedBlockStorageClusterDiskThroughputResponse({}));
+    }
+
   }
 
   /**
@@ -15477,7 +17694,7 @@ export default class Client extends OpenApi {
    * @returns SetDedicatedBlockStorageClusterDiskThroughputResponse
    */
   async setDedicatedBlockStorageClusterDiskThroughput(request: SetDedicatedBlockStorageClusterDiskThroughputRequest): Promise<SetDedicatedBlockStorageClusterDiskThroughputResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.setDedicatedBlockStorageClusterDiskThroughputWithOptions(request, runtime);
   }
 
@@ -15495,29 +17712,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartDiskReplicaGroupResponse
    */
-  async startDiskReplicaGroupWithOptions(request: StartDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<StartDiskReplicaGroupResponse> {
-    Util.validateModel(request);
+  async startDiskReplicaGroupWithOptions(request: StartDiskReplicaGroupRequest, runtime: $dara.RuntimeOptions): Promise<StartDiskReplicaGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.oneShot)) {
+    if (!$dara.isNull(request.oneShot)) {
       query["OneShot"] = request.oneShot;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaGroupId)) {
+    if (!$dara.isNull(request.replicaGroupId)) {
       query["ReplicaGroupId"] = request.replicaGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartDiskReplicaGroup",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15528,7 +17745,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new StartDiskReplicaGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new StartDiskReplicaGroupResponse({}));
+    } else {
+      return $dara.cast<StartDiskReplicaGroupResponse>(await this.execute(params, req, runtime), new StartDiskReplicaGroupResponse({}));
+    }
+
   }
 
   /**
@@ -15545,7 +17767,7 @@ export default class Client extends OpenApi {
    * @returns StartDiskReplicaGroupResponse
    */
   async startDiskReplicaGroup(request: StartDiskReplicaGroupRequest): Promise<StartDiskReplicaGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startDiskReplicaGroupWithOptions(request, runtime);
   }
 
@@ -15562,29 +17784,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartDiskReplicaPairResponse
    */
-  async startDiskReplicaPairWithOptions(request: StartDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<StartDiskReplicaPairResponse> {
-    Util.validateModel(request);
+  async startDiskReplicaPairWithOptions(request: StartDiskReplicaPairRequest, runtime: $dara.RuntimeOptions): Promise<StartDiskReplicaPairResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.oneShot)) {
+    if (!$dara.isNull(request.oneShot)) {
       query["OneShot"] = request.oneShot;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaPairId)) {
+    if (!$dara.isNull(request.replicaPairId)) {
       query["ReplicaPairId"] = request.replicaPairId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartDiskReplicaPair",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15595,7 +17817,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new StartDiskReplicaPairResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new StartDiskReplicaPairResponse({}));
+    } else {
+      return $dara.cast<StartDiskReplicaPairResponse>(await this.execute(params, req, runtime), new StartDiskReplicaPairResponse({}));
+    }
+
   }
 
   /**
@@ -15611,7 +17838,7 @@ export default class Client extends OpenApi {
    * @returns StartDiskReplicaPairResponse
    */
   async startDiskReplicaPair(request: StartDiskReplicaPairRequest): Promise<StartDiskReplicaPairResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startDiskReplicaPairWithOptions(request, runtime);
   }
 
@@ -15625,25 +17852,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartPairDrillResponse
    */
-  async startPairDrillWithOptions(request: StartPairDrillRequest, runtime: $Util.RuntimeOptions): Promise<StartPairDrillResponse> {
-    Util.validateModel(request);
+  async startPairDrillWithOptions(request: StartPairDrillRequest, runtime: $dara.RuntimeOptions): Promise<StartPairDrillResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.pairId)) {
+    if (!$dara.isNull(request.pairId)) {
       query["PairId"] = request.pairId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartPairDrill",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15654,7 +17881,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartPairDrillResponse>(await this.callApi(params, req, runtime), new StartPairDrillResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartPairDrillResponse>(await this.callApi(params, req, runtime), new StartPairDrillResponse({}));
+    } else {
+      return $dara.cast<StartPairDrillResponse>(await this.execute(params, req, runtime), new StartPairDrillResponse({}));
+    }
+
   }
 
   /**
@@ -15667,7 +17899,7 @@ export default class Client extends OpenApi {
    * @returns StartPairDrillResponse
    */
   async startPairDrill(request: StartPairDrillRequest): Promise<StartPairDrillResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startPairDrillWithOptions(request, runtime);
   }
 
@@ -15681,25 +17913,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartReplicaGroupDrillResponse
    */
-  async startReplicaGroupDrillWithOptions(request: StartReplicaGroupDrillRequest, runtime: $Util.RuntimeOptions): Promise<StartReplicaGroupDrillResponse> {
-    Util.validateModel(request);
+  async startReplicaGroupDrillWithOptions(request: StartReplicaGroupDrillRequest, runtime: $dara.RuntimeOptions): Promise<StartReplicaGroupDrillResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.groupId)) {
+    if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartReplicaGroupDrill",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15710,7 +17942,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartReplicaGroupDrillResponse>(await this.callApi(params, req, runtime), new StartReplicaGroupDrillResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartReplicaGroupDrillResponse>(await this.callApi(params, req, runtime), new StartReplicaGroupDrillResponse({}));
+    } else {
+      return $dara.cast<StartReplicaGroupDrillResponse>(await this.execute(params, req, runtime), new StartReplicaGroupDrillResponse({}));
+    }
+
   }
 
   /**
@@ -15723,7 +17960,7 @@ export default class Client extends OpenApi {
    * @returns StartReplicaGroupDrillResponse
    */
   async startReplicaGroupDrill(request: StartReplicaGroupDrillRequest): Promise<StartReplicaGroupDrillResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startReplicaGroupDrillWithOptions(request, runtime);
   }
 
@@ -15740,25 +17977,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopDiskReplicaGroupResponse
    */
-  async stopDiskReplicaGroupWithOptions(request: StopDiskReplicaGroupRequest, runtime: $Util.RuntimeOptions): Promise<StopDiskReplicaGroupResponse> {
-    Util.validateModel(request);
+  async stopDiskReplicaGroupWithOptions(request: StopDiskReplicaGroupRequest, runtime: $dara.RuntimeOptions): Promise<StopDiskReplicaGroupResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaGroupId)) {
+    if (!$dara.isNull(request.replicaGroupId)) {
       query["ReplicaGroupId"] = request.replicaGroupId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopDiskReplicaGroup",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15769,7 +18006,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StopDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new StopDiskReplicaGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopDiskReplicaGroupResponse>(await this.callApi(params, req, runtime), new StopDiskReplicaGroupResponse({}));
+    } else {
+      return $dara.cast<StopDiskReplicaGroupResponse>(await this.execute(params, req, runtime), new StopDiskReplicaGroupResponse({}));
+    }
+
   }
 
   /**
@@ -15785,7 +18027,7 @@ export default class Client extends OpenApi {
    * @returns StopDiskReplicaGroupResponse
    */
   async stopDiskReplicaGroup(request: StopDiskReplicaGroupRequest): Promise<StopDiskReplicaGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.stopDiskReplicaGroupWithOptions(request, runtime);
   }
 
@@ -15801,25 +18043,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopDiskReplicaPairResponse
    */
-  async stopDiskReplicaPairWithOptions(request: StopDiskReplicaPairRequest, runtime: $Util.RuntimeOptions): Promise<StopDiskReplicaPairResponse> {
-    Util.validateModel(request);
+  async stopDiskReplicaPairWithOptions(request: StopDiskReplicaPairRequest, runtime: $dara.RuntimeOptions): Promise<StopDiskReplicaPairResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.replicaPairId)) {
+    if (!$dara.isNull(request.replicaPairId)) {
       query["ReplicaPairId"] = request.replicaPairId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopDiskReplicaPair",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15830,7 +18072,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StopDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new StopDiskReplicaPairResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopDiskReplicaPairResponse>(await this.callApi(params, req, runtime), new StopDiskReplicaPairResponse({}));
+    } else {
+      return $dara.cast<StopDiskReplicaPairResponse>(await this.execute(params, req, runtime), new StopDiskReplicaPairResponse({}));
+    }
+
   }
 
   /**
@@ -15845,7 +18092,7 @@ export default class Client extends OpenApi {
    * @returns StopDiskReplicaPairResponse
    */
   async stopDiskReplicaPair(request: StopDiskReplicaPairRequest): Promise<StopDiskReplicaPairResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.stopDiskReplicaPairWithOptions(request, runtime);
   }
 
@@ -15859,33 +18106,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tag)) {
+    if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15896,7 +18143,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -15909,7 +18161,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.tagResourcesWithOptions(request, runtime);
   }
 
@@ -15920,29 +18172,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnbindEnterpriseSnapshotPolicyResponse
    */
-  async unbindEnterpriseSnapshotPolicyWithOptions(request: UnbindEnterpriseSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UnbindEnterpriseSnapshotPolicyResponse> {
-    Util.validateModel(request);
+  async unbindEnterpriseSnapshotPolicyWithOptions(request: UnbindEnterpriseSnapshotPolicyRequest, runtime: $dara.RuntimeOptions): Promise<UnbindEnterpriseSnapshotPolicyResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.diskTargets)) {
+    if (!$dara.isNull(request.diskTargets)) {
       query["DiskTargets"] = request.diskTargets;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UnbindEnterpriseSnapshotPolicy",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -15953,7 +18205,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UnbindEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new UnbindEnterpriseSnapshotPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UnbindEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new UnbindEnterpriseSnapshotPolicyResponse({}));
+    } else {
+      return $dara.cast<UnbindEnterpriseSnapshotPolicyResponse>(await this.execute(params, req, runtime), new UnbindEnterpriseSnapshotPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -15963,7 +18220,7 @@ export default class Client extends OpenApi {
    * @returns UnbindEnterpriseSnapshotPolicyResponse
    */
   async unbindEnterpriseSnapshotPolicy(request: UnbindEnterpriseSnapshotPolicyRequest): Promise<UnbindEnterpriseSnapshotPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindEnterpriseSnapshotPolicyWithOptions(request, runtime);
   }
 
@@ -15978,37 +18235,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(request);
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.resourceId)) {
+    if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKey)) {
+    if (!$dara.isNull(request.tagKey)) {
       query["TagKey"] = request.tagKey;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -16019,7 +18276,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -16033,7 +18295,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
   }
 
@@ -16044,79 +18306,79 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateEnterpriseSnapshotPolicyResponse
    */
-  async updateEnterpriseSnapshotPolicyWithOptions(tmpReq: UpdateEnterpriseSnapshotPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEnterpriseSnapshotPolicyResponse> {
-    Util.validateModel(tmpReq);
+  async updateEnterpriseSnapshotPolicyWithOptions(tmpReq: UpdateEnterpriseSnapshotPolicyRequest, runtime: $dara.RuntimeOptions): Promise<UpdateEnterpriseSnapshotPolicyResponse> {
+    tmpReq.validate();
     let request = new UpdateEnterpriseSnapshotPolicyShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.crossRegionCopyInfo)) {
+    if (!$dara.isNull(tmpReq.crossRegionCopyInfo)) {
       request.crossRegionCopyInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.crossRegionCopyInfo, "CrossRegionCopyInfo", "json");
     }
 
-    if (!Util.isUnset(tmpReq.retainRule)) {
+    if (!$dara.isNull(tmpReq.retainRule)) {
       request.retainRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.retainRule, "RetainRule", "json");
     }
 
-    if (!Util.isUnset(tmpReq.schedule)) {
+    if (!$dara.isNull(tmpReq.schedule)) {
       request.scheduleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.schedule, "Schedule", "json");
     }
 
-    if (!Util.isUnset(tmpReq.specialRetainRules)) {
+    if (!$dara.isNull(tmpReq.specialRetainRules)) {
       request.specialRetainRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.specialRetainRules, "SpecialRetainRules", "json");
     }
 
-    if (!Util.isUnset(tmpReq.storageRule)) {
+    if (!$dara.isNull(tmpReq.storageRule)) {
       request.storageRuleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storageRule, "StorageRule", "json");
     }
 
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.crossRegionCopyInfoShrink)) {
+    if (!$dara.isNull(request.crossRegionCopyInfoShrink)) {
       query["CrossRegionCopyInfo"] = request.crossRegionCopyInfoShrink;
     }
 
-    if (!Util.isUnset(request.desc)) {
+    if (!$dara.isNull(request.desc)) {
       query["Desc"] = request.desc;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.policyId)) {
+    if (!$dara.isNull(request.policyId)) {
       query["PolicyId"] = request.policyId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.retainRuleShrink)) {
+    if (!$dara.isNull(request.retainRuleShrink)) {
       query["RetainRule"] = request.retainRuleShrink;
     }
 
-    if (!Util.isUnset(request.scheduleShrink)) {
+    if (!$dara.isNull(request.scheduleShrink)) {
       query["Schedule"] = request.scheduleShrink;
     }
 
-    if (!Util.isUnset(request.specialRetainRulesShrink)) {
+    if (!$dara.isNull(request.specialRetainRulesShrink)) {
       query["SpecialRetainRules"] = request.specialRetainRulesShrink;
     }
 
-    if (!Util.isUnset(request.state)) {
+    if (!$dara.isNull(request.state)) {
       query["State"] = request.state;
     }
 
-    if (!Util.isUnset(request.storageRuleShrink)) {
+    if (!$dara.isNull(request.storageRuleShrink)) {
       query["StorageRule"] = request.storageRuleShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateEnterpriseSnapshotPolicy",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -16127,7 +18389,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new UpdateEnterpriseSnapshotPolicyResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateEnterpriseSnapshotPolicyResponse>(await this.callApi(params, req, runtime), new UpdateEnterpriseSnapshotPolicyResponse({}));
+    } else {
+      return $dara.cast<UpdateEnterpriseSnapshotPolicyResponse>(await this.execute(params, req, runtime), new UpdateEnterpriseSnapshotPolicyResponse({}));
+    }
+
   }
 
   /**
@@ -16137,7 +18404,7 @@ export default class Client extends OpenApi {
    * @returns UpdateEnterpriseSnapshotPolicyResponse
    */
   async updateEnterpriseSnapshotPolicy(request: UpdateEnterpriseSnapshotPolicyRequest): Promise<UpdateEnterpriseSnapshotPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateEnterpriseSnapshotPolicyWithOptions(request, runtime);
   }
 
@@ -16148,33 +18415,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSolutionInstanceAttributeResponse
    */
-  async updateSolutionInstanceAttributeWithOptions(request: UpdateSolutionInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSolutionInstanceAttributeResponse> {
-    Util.validateModel(request);
+  async updateSolutionInstanceAttributeWithOptions(request: UpdateSolutionInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSolutionInstanceAttributeResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.clientToken)) {
+    if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.regionId)) {
+    if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
-    if (!Util.isUnset(request.solutionInstanceId)) {
+    if (!$dara.isNull(request.solutionInstanceId)) {
       query["SolutionInstanceId"] = request.solutionInstanceId;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateSolutionInstanceAttribute",
       version: "2021-07-30",
       protocol: "HTTPS",
@@ -16185,7 +18452,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateSolutionInstanceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateSolutionInstanceAttributeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateSolutionInstanceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateSolutionInstanceAttributeResponse({}));
+    } else {
+      return $dara.cast<UpdateSolutionInstanceAttributeResponse>(await this.execute(params, req, runtime), new UpdateSolutionInstanceAttributeResponse({}));
+    }
+
   }
 
   /**
@@ -16195,7 +18467,7 @@ export default class Client extends OpenApi {
    * @returns UpdateSolutionInstanceAttributeResponse
    */
   async updateSolutionInstanceAttribute(request: UpdateSolutionInstanceAttributeRequest): Promise<UpdateSolutionInstanceAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSolutionInstanceAttributeWithOptions(request, runtime);
   }
 
