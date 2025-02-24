@@ -11920,6 +11920,328 @@ export class RunExpandContentResponseBodyPayload extends $dara.Model {
   }
 }
 
+export class RunGenerateQuestionsResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * success
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * finished
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * 3cd10828-0e42-471c-8f1a-931cde20b035
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * d3be9981-ca2d-4e17-bf31-1c0a628e9f99
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 0bc3b4b417362160345997589e5f6e
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunGenerateQuestionsResponseBodyPayloadOutput extends $dara.Model {
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunGenerateQuestionsResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunGenerateQuestionsResponseBodyPayload extends $dara.Model {
+  output?: RunGenerateQuestionsResponseBodyPayloadOutput;
+  usage?: RunGenerateQuestionsResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunGenerateQuestionsResponseBodyPayloadOutput,
+      usage: RunGenerateQuestionsResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotwordResponseBodyHeader extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * success
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * finished
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * 92e16ccb-92b6-4894-abbf-fc6e2929a0df
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 0abb7e3217356108993888059ee72b
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotwordResponseBodyPayloadOutput extends $dara.Model {
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotwordResponseBodyPayloadUsage extends $dara.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 1
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 101
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotwordResponseBodyPayload extends $dara.Model {
+  output?: RunHotwordResponseBodyPayloadOutput;
+  usage?: RunHotwordResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunHotwordResponseBodyPayloadOutput,
+      usage: RunHotwordResponseBodyPayloadUsage,
+    };
+  }
+
+  validate() {
+    if(this.output && typeof (this.output as any).validate === 'function') {
+      (this.output as any).validate();
+    }
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunKeywordsExtractionGenerationRequestReferenceData extends $dara.Model {
   /**
    * @remarks
@@ -37311,6 +37633,257 @@ export class RunExpandContentResponse extends $dara.Model {
   }
 }
 
+export class RunGenerateQuestionsRequest extends $dara.Model {
+  /**
+   * @example
+   * oOgIwodFANW1u5MnqxysOh1rtld3xn
+   */
+  docId?: string;
+  referenceContent?: string;
+  /**
+   * @example
+   * f486c4e2-b773-4d65-88f8-2ba540610456
+   */
+  sessionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-w335gauzlbba2vze
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      referenceContent: 'ReferenceContent',
+      sessionId: 'SessionId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      referenceContent: 'string',
+      sessionId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunGenerateQuestionsResponseBody extends $dara.Model {
+  header?: RunGenerateQuestionsResponseBodyHeader;
+  payload?: RunGenerateQuestionsResponseBodyPayload;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunGenerateQuestionsResponseBodyHeader,
+      payload: RunGenerateQuestionsResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunGenerateQuestionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunGenerateQuestionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunGenerateQuestionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotwordRequest extends $dara.Model {
+  /**
+   * @example
+   * 84ufBYEeLMZOjRFo84HJ7ySL3Efr55
+   */
+  docId?: string;
+  prompt?: string;
+  referenceContent?: string;
+  /**
+   * @example
+   * e32a1a3f-1f7e-41dd-b888-ef1d91b96d1e
+   */
+  sessionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-baw8as25ll3wnzjr
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      prompt: 'Prompt',
+      referenceContent: 'ReferenceContent',
+      sessionId: 'SessionId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      prompt: 'string',
+      referenceContent: 'string',
+      sessionId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotwordResponseBody extends $dara.Model {
+  header?: RunHotwordResponseBodyHeader;
+  payload?: RunHotwordResponseBodyPayload;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunHotwordResponseBodyHeader,
+      payload: RunHotwordResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.header && typeof (this.header as any).validate === 'function') {
+      (this.header as any).validate();
+    }
+    if(this.payload && typeof (this.payload as any).validate === 'function') {
+      (this.payload as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotwordResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunHotwordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunHotwordResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunKeywordsExtractionGenerationRequest extends $dara.Model {
   /**
    * @remarks
@@ -49624,6 +50197,128 @@ export default class Client extends OpenApi {
   async runExpandContent(request: RunExpandContentRequest): Promise<RunExpandContentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.runExpandContentWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙读猜你想问接口
+   * 
+   * @param request - RunGenerateQuestionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunGenerateQuestionsResponse
+   */
+  async runGenerateQuestionsWithOptions(request: RunGenerateQuestionsRequest, runtime: $dara.RuntimeOptions): Promise<RunGenerateQuestionsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.docId)) {
+      body["DocId"] = request.docId;
+    }
+
+    if (!$dara.isNull(request.referenceContent)) {
+      body["ReferenceContent"] = request.referenceContent;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunGenerateQuestions",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RunGenerateQuestionsResponse>(await this.callApi(params, req, runtime), new RunGenerateQuestionsResponse({}));
+    } else {
+      return $dara.cast<RunGenerateQuestionsResponse>(await this.execute(params, req, runtime), new RunGenerateQuestionsResponse({}));
+    }
+
+  }
+
+  /**
+   * 妙读猜你想问接口
+   * 
+   * @param request - RunGenerateQuestionsRequest
+   * @returns RunGenerateQuestionsResponse
+   */
+  async runGenerateQuestions(request: RunGenerateQuestionsRequest): Promise<RunGenerateQuestionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runGenerateQuestionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙读文档关键词抽取接口
+   * 
+   * @param request - RunHotwordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunHotwordResponse
+   */
+  async runHotwordWithOptions(request: RunHotwordRequest, runtime: $dara.RuntimeOptions): Promise<RunHotwordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.docId)) {
+      body["DocId"] = request.docId;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.referenceContent)) {
+      body["ReferenceContent"] = request.referenceContent;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunHotword",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RunHotwordResponse>(await this.callApi(params, req, runtime), new RunHotwordResponse({}));
+    } else {
+      return $dara.cast<RunHotwordResponse>(await this.execute(params, req, runtime), new RunHotwordResponse({}));
+    }
+
+  }
+
+  /**
+   * 妙读文档关键词抽取接口
+   * 
+   * @param request - RunHotwordRequest
+   * @returns RunHotwordResponse
+   */
+  async runHotword(request: RunHotwordRequest): Promise<RunHotwordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runHotwordWithOptions(request, runtime);
   }
 
   /**
