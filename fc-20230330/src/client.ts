@@ -1,14 +1,108 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import { Readable } from 'stream';
-import * as $tea from '@alicloud/tea-typescript';
+import * as $dara from '@darabonba/typescript';
 
-export class AccelerationInfo extends $tea.Model {
+export class OpenStructDescribeRegionsOutputRegionsRegion extends $dara.Model {
+  localName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'LocalName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenStructDescribeRegionsOutputRegions extends $dara.Model {
+  region?: OpenStructDescribeRegionsOutputRegionsRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: { 'type': 'array', 'itemType': OpenStructDescribeRegionsOutputRegionsRegion },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.region)) {
+      $dara.Model.validateArray(this.region);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * The tag key can be up to 64 characters in length, and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * k1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * The tag value can be up to 128 characters in length and can be an empty string.
+   * 
+   * @example
+   * v1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AccelerationInfo extends $dara.Model {
   /**
    * @example
    * deprecated
@@ -26,12 +120,16 @@ export class AccelerationInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Alias extends $tea.Model {
+export class Alias extends $dara.Model {
   additionalVersionWeight?: { [key: string]: number };
   /**
    * @example
@@ -80,12 +178,19 @@ export class Alias extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.additionalVersionWeight) {
+      $dara.Model.validateMap(this.additionalVersionWeight);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AsyncConfig extends $tea.Model {
+export class AsyncConfig extends $dara.Model {
   /**
    * @example
    * true
@@ -141,12 +246,19 @@ export class AsyncConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.destinationConfig && typeof (this.destinationConfig as any).validate === 'function') {
+      (this.destinationConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AsyncTask extends $tea.Model {
+export class AsyncTask extends $dara.Model {
   /**
    * @example
    * 3
@@ -258,12 +370,19 @@ export class AsyncTask extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AsyncTaskEvent extends $tea.Model {
+export class AsyncTaskEvent extends $dara.Model {
   /**
    * @example
    * body
@@ -302,12 +421,16 @@ export class AsyncTaskEvent extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class AuthConfig extends $tea.Model {
+export class AuthConfig extends $dara.Model {
   /**
    * @example
    * {}
@@ -332,12 +455,16 @@ export class AuthConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class BatchWindow extends $tea.Model {
+export class BatchWindow extends $dara.Model {
   /**
    * @example
    * 100
@@ -362,12 +489,16 @@ export class BatchWindow extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CDNTriggerConfig extends $tea.Model {
+export class CDNTriggerConfig extends $dara.Model {
   /**
    * @example
    * CdnDomainStarted
@@ -402,12 +533,19 @@ export class CDNTriggerConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.filter) {
+      $dara.Model.validateMap(this.filter);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CertConfig extends $tea.Model {
+export class CertConfig extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -448,12 +586,16 @@ export class CertConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ConcurrencyConfig extends $tea.Model {
+export class ConcurrencyConfig extends $dara.Model {
   /**
    * @example
    * acs:fc:cn-shanghai:123:functions/demo
@@ -478,12 +620,16 @@ export class ConcurrencyConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAliasInput extends $tea.Model {
+export class CreateAliasInput extends $dara.Model {
   additionalVersionWeight?: { [key: string]: number };
   /**
    * @remarks
@@ -524,12 +670,19 @@ export class CreateAliasInput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.additionalVersionWeight) {
+      $dara.Model.validateMap(this.additionalVersionWeight);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateCustomDomainInput extends $tea.Model {
+export class CreateCustomDomainInput extends $dara.Model {
   authConfig?: AuthConfig;
   certConfig?: CertConfig;
   /**
@@ -572,12 +725,31 @@ export class CreateCustomDomainInput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.authConfig && typeof (this.authConfig as any).validate === 'function') {
+      (this.authConfig as any).validate();
+    }
+    if(this.certConfig && typeof (this.certConfig as any).validate === 'function') {
+      (this.certConfig as any).validate();
+    }
+    if(this.routeConfig && typeof (this.routeConfig as any).validate === 'function') {
+      (this.routeConfig as any).validate();
+    }
+    if(this.tlsConfig && typeof (this.tlsConfig as any).validate === 'function') {
+      (this.tlsConfig as any).validate();
+    }
+    if(this.wafConfig && typeof (this.wafConfig as any).validate === 'function') {
+      (this.wafConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateFunctionInput extends $tea.Model {
+export class CreateFunctionInput extends $dara.Model {
   code?: InputCodeLocation;
   /**
    * @example
@@ -716,12 +888,58 @@ export class CreateFunctionInput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.code && typeof (this.code as any).validate === 'function') {
+      (this.code as any).validate();
+    }
+    if(this.customContainerConfig && typeof (this.customContainerConfig as any).validate === 'function') {
+      (this.customContainerConfig as any).validate();
+    }
+    if(this.customDNS && typeof (this.customDNS as any).validate === 'function') {
+      (this.customDNS as any).validate();
+    }
+    if(this.customRuntimeConfig && typeof (this.customRuntimeConfig as any).validate === 'function') {
+      (this.customRuntimeConfig as any).validate();
+    }
+    if(this.environmentVariables) {
+      $dara.Model.validateMap(this.environmentVariables);
+    }
+    if(this.gpuConfig && typeof (this.gpuConfig as any).validate === 'function') {
+      (this.gpuConfig as any).validate();
+    }
+    if(this.instanceLifecycleConfig && typeof (this.instanceLifecycleConfig as any).validate === 'function') {
+      (this.instanceLifecycleConfig as any).validate();
+    }
+    if(Array.isArray(this.layers)) {
+      $dara.Model.validateArray(this.layers);
+    }
+    if(this.logConfig && typeof (this.logConfig as any).validate === 'function') {
+      (this.logConfig as any).validate();
+    }
+    if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
+      (this.nasConfig as any).validate();
+    }
+    if(this.ossMountConfig && typeof (this.ossMountConfig as any).validate === 'function') {
+      (this.ossMountConfig as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(this.tracingConfig && typeof (this.tracingConfig as any).validate === 'function') {
+      (this.tracingConfig as any).validate();
+    }
+    if(this.vpcConfig && typeof (this.vpcConfig as any).validate === 'function') {
+      (this.vpcConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateLayerVersionInput extends $tea.Model {
+export class CreateLayerVersionInput extends $dara.Model {
   code?: InputCodeLocation;
   compatibleRuntime?: string[];
   /**
@@ -752,12 +970,22 @@ export class CreateLayerVersionInput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.code && typeof (this.code as any).validate === 'function') {
+      (this.code as any).validate();
+    }
+    if(Array.isArray(this.compatibleRuntime)) {
+      $dara.Model.validateArray(this.compatibleRuntime);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTriggerInput extends $tea.Model {
+export class CreateTriggerInput extends $dara.Model {
   /**
    * @example
    * trigger for test
@@ -826,12 +1054,16 @@ export class CreateTriggerInput extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVpcBindingInput extends $tea.Model {
+export class CreateVpcBindingInput extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -852,12 +1084,16 @@ export class CreateVpcBindingInput extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CustomContainerConfig extends $tea.Model {
+export class CustomContainerConfig extends $dara.Model {
   accelerationInfo?: AccelerationInfo;
   /**
    * @example
@@ -918,12 +1154,31 @@ export class CustomContainerConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.accelerationInfo && typeof (this.accelerationInfo as any).validate === 'function') {
+      (this.accelerationInfo as any).validate();
+    }
+    if(Array.isArray(this.command)) {
+      $dara.Model.validateArray(this.command);
+    }
+    if(Array.isArray(this.entrypoint)) {
+      $dara.Model.validateArray(this.entrypoint);
+    }
+    if(this.healthCheckConfig && typeof (this.healthCheckConfig as any).validate === 'function') {
+      (this.healthCheckConfig as any).validate();
+    }
+    if(this.registryConfig && typeof (this.registryConfig as any).validate === 'function') {
+      (this.registryConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CustomDNS extends $tea.Model {
+export class CustomDNS extends $dara.Model {
   dnsOptions?: DNSOption[];
   nameServers?: string[];
   searches?: string[];
@@ -943,12 +1198,25 @@ export class CustomDNS extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.dnsOptions)) {
+      $dara.Model.validateArray(this.dnsOptions);
+    }
+    if(Array.isArray(this.nameServers)) {
+      $dara.Model.validateArray(this.nameServers);
+    }
+    if(Array.isArray(this.searches)) {
+      $dara.Model.validateArray(this.searches);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CustomDomain extends $tea.Model {
+export class CustomDomain extends $dara.Model {
   accountId?: string;
   /**
    * @example
@@ -1019,12 +1287,31 @@ export class CustomDomain extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.authConfig && typeof (this.authConfig as any).validate === 'function') {
+      (this.authConfig as any).validate();
+    }
+    if(this.certConfig && typeof (this.certConfig as any).validate === 'function') {
+      (this.certConfig as any).validate();
+    }
+    if(this.routeConfig && typeof (this.routeConfig as any).validate === 'function') {
+      (this.routeConfig as any).validate();
+    }
+    if(this.tlsConfig && typeof (this.tlsConfig as any).validate === 'function') {
+      (this.tlsConfig as any).validate();
+    }
+    if(this.wafConfig && typeof (this.wafConfig as any).validate === 'function') {
+      (this.wafConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CustomHealthCheckConfig extends $tea.Model {
+export class CustomHealthCheckConfig extends $dara.Model {
   /**
    * @example
    * 1
@@ -1077,12 +1364,16 @@ export class CustomHealthCheckConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CustomRuntimeConfig extends $tea.Model {
+export class CustomRuntimeConfig extends $dara.Model {
   args?: string[];
   command?: string[];
   healthCheckConfig?: CustomHealthCheckConfig;
@@ -1109,12 +1400,25 @@ export class CustomRuntimeConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.args)) {
+      $dara.Model.validateArray(this.args);
+    }
+    if(Array.isArray(this.command)) {
+      $dara.Model.validateArray(this.command);
+    }
+    if(this.healthCheckConfig && typeof (this.healthCheckConfig as any).validate === 'function') {
+      (this.healthCheckConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DNSOption extends $tea.Model {
+export class DNSOption extends $dara.Model {
   /**
    * @example
    * ndots
@@ -1139,12 +1443,16 @@ export class DNSOption extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeadLetterQueue extends $tea.Model {
+export class DeadLetterQueue extends $dara.Model {
   arn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1158,12 +1466,16 @@ export class DeadLetterQueue extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeliveryOption extends $tea.Model {
+export class DeliveryOption extends $dara.Model {
   /**
    * @example
    * 2
@@ -1188,12 +1500,16 @@ export class DeliveryOption extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Destination extends $tea.Model {
+export class Destination extends $dara.Model {
   /**
    * @example
    * acs:fc:cn-shanghai:xxx:functions/f1
@@ -1211,12 +1527,16 @@ export class Destination extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DestinationConfig extends $tea.Model {
+export class DestinationConfig extends $dara.Model {
   onFailure?: Destination;
   onSuccess?: Destination;
   static names(): { [key: string]: string } {
@@ -1233,12 +1553,22 @@ export class DestinationConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.onFailure && typeof (this.onFailure as any).validate === 'function') {
+      (this.onFailure as any).validate();
+    }
+    if(this.onSuccess && typeof (this.onSuccess as any).validate === 'function') {
+      (this.onSuccess as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EqualRule extends $tea.Model {
+export class EqualRule extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -1269,12 +1599,16 @@ export class EqualRule extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Error extends $tea.Model {
+export class Error extends $dara.Model {
   /**
    * @example
    * FunctionNotFound
@@ -1306,12 +1640,16 @@ export class Error extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EventBridgeTriggerConfig extends $tea.Model {
+export class EventBridgeTriggerConfig extends $dara.Model {
   asyncInvocationType?: boolean;
   /**
    * @example
@@ -1348,12 +1686,25 @@ export class EventBridgeTriggerConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.eventSinkConfig && typeof (this.eventSinkConfig as any).validate === 'function') {
+      (this.eventSinkConfig as any).validate();
+    }
+    if(this.eventSourceConfig && typeof (this.eventSourceConfig as any).validate === 'function') {
+      (this.eventSourceConfig as any).validate();
+    }
+    if(this.runOptions && typeof (this.runOptions as any).validate === 'function') {
+      (this.runOptions as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EventSinkConfig extends $tea.Model {
+export class EventSinkConfig extends $dara.Model {
   deliveryOption?: DeliveryOption;
   static names(): { [key: string]: string } {
     return {
@@ -1367,12 +1718,19 @@ export class EventSinkConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.deliveryOption && typeof (this.deliveryOption as any).validate === 'function') {
+      (this.deliveryOption as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EventSourceConfig extends $tea.Model {
+export class EventSourceConfig extends $dara.Model {
   eventSourceParameters?: EventSourceParameters;
   /**
    * @example
@@ -1393,12 +1751,19 @@ export class EventSourceConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.eventSourceParameters && typeof (this.eventSourceParameters as any).validate === 'function') {
+      (this.eventSourceParameters as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class EventSourceParameters extends $tea.Model {
+export class EventSourceParameters extends $dara.Model {
   sourceDTSParameters?: SourceDTSParameters;
   sourceKafkaParameters?: SourceKafkaParameters;
   sourceMNSParameters?: SourceMNSParameters;
@@ -1427,12 +1792,34 @@ export class EventSourceParameters extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.sourceDTSParameters && typeof (this.sourceDTSParameters as any).validate === 'function') {
+      (this.sourceDTSParameters as any).validate();
+    }
+    if(this.sourceKafkaParameters && typeof (this.sourceKafkaParameters as any).validate === 'function') {
+      (this.sourceKafkaParameters as any).validate();
+    }
+    if(this.sourceMNSParameters && typeof (this.sourceMNSParameters as any).validate === 'function') {
+      (this.sourceMNSParameters as any).validate();
+    }
+    if(this.sourceMQTTParameters && typeof (this.sourceMQTTParameters as any).validate === 'function') {
+      (this.sourceMQTTParameters as any).validate();
+    }
+    if(this.sourceRabbitMQParameters && typeof (this.sourceRabbitMQParameters as any).validate === 'function') {
+      (this.sourceRabbitMQParameters as any).validate();
+    }
+    if(this.sourceRocketMQParameters && typeof (this.sourceRocketMQParameters as any).validate === 'function') {
+      (this.sourceRocketMQParameters as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Filter extends $tea.Model {
+export class Filter extends $dara.Model {
   key?: Key;
   static names(): { [key: string]: string } {
     return {
@@ -1446,12 +1833,19 @@ export class Filter extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.key && typeof (this.key as any).validate === 'function') {
+      (this.key as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Function extends $tea.Model {
+export class Function extends $dara.Model {
   /**
    * @example
    * 2825179536350****
@@ -1662,12 +2056,55 @@ export class Function extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.customContainerConfig && typeof (this.customContainerConfig as any).validate === 'function') {
+      (this.customContainerConfig as any).validate();
+    }
+    if(this.customDNS && typeof (this.customDNS as any).validate === 'function') {
+      (this.customDNS as any).validate();
+    }
+    if(this.customRuntimeConfig && typeof (this.customRuntimeConfig as any).validate === 'function') {
+      (this.customRuntimeConfig as any).validate();
+    }
+    if(this.environmentVariables) {
+      $dara.Model.validateMap(this.environmentVariables);
+    }
+    if(this.gpuConfig && typeof (this.gpuConfig as any).validate === 'function') {
+      (this.gpuConfig as any).validate();
+    }
+    if(this.instanceLifecycleConfig && typeof (this.instanceLifecycleConfig as any).validate === 'function') {
+      (this.instanceLifecycleConfig as any).validate();
+    }
+    if(Array.isArray(this.layers)) {
+      $dara.Model.validateArray(this.layers);
+    }
+    if(this.logConfig && typeof (this.logConfig as any).validate === 'function') {
+      (this.logConfig as any).validate();
+    }
+    if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
+      (this.nasConfig as any).validate();
+    }
+    if(this.ossMountConfig && typeof (this.ossMountConfig as any).validate === 'function') {
+      (this.ossMountConfig as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    if(this.tracingConfig && typeof (this.tracingConfig as any).validate === 'function') {
+      (this.tracingConfig as any).validate();
+    }
+    if(this.vpcConfig && typeof (this.vpcConfig as any).validate === 'function') {
+      (this.vpcConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class FunctionLayer extends $tea.Model {
+export class FunctionLayer extends $dara.Model {
   /**
    * @example
    * acs:fc:cn-beijing:186824xxxxxx:layers/fc_layer/versions/1
@@ -1692,12 +2129,16 @@ export class FunctionLayer extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GPUConfig extends $tea.Model {
+export class GPUConfig extends $dara.Model {
   /**
    * @example
    * 2048
@@ -1722,12 +2163,16 @@ export class GPUConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetInstanceLifecycleEventsOutput extends $tea.Model {
+export class GetInstanceLifecycleEventsOutput extends $dara.Model {
   events?: InstanceEventItem[];
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -1744,12 +2189,19 @@ export class GetInstanceLifecycleEventsOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetResourceTagsOutput extends $tea.Model {
+export class GetResourceTagsOutput extends $dara.Model {
   /**
    * @example
    * ALIYUN::FC::FUNCTION
@@ -1777,12 +2229,19 @@ export class GetResourceTagsOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HTTPTrigger extends $tea.Model {
+export class HTTPTrigger extends $dara.Model {
   /**
    * @example
    * https://svc-func-xxxxxxxx.cn-hangzhou.fcapp.run
@@ -1807,12 +2266,16 @@ export class HTTPTrigger extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class HTTPTriggerConfig extends $tea.Model {
+export class HTTPTriggerConfig extends $dara.Model {
   /**
    * @example
    * {"JWKS":{"foo":"bar"},"TokenLookup":"header:Authorization:Bearer,cookie:AuthorizationCookie","ClaimPassBy":"query:uid:uid,header:name:name"}
@@ -1847,12 +2310,19 @@ export class HTTPTriggerConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.methods)) {
+      $dara.Model.validateArray(this.methods);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InputCodeLocation extends $tea.Model {
+export class InputCodeLocation extends $dara.Model {
   /**
    * @example
    * 2825179536350****
@@ -1891,12 +2361,16 @@ export class InputCodeLocation extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InstanceEventItem extends $tea.Model {
+export class InstanceEventItem extends $dara.Model {
   children?: InstanceEventItem[];
   level?: string;
   message?: string;
@@ -1922,12 +2396,19 @@ export class InstanceEventItem extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.children)) {
+      $dara.Model.validateArray(this.children);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InstanceInfo extends $tea.Model {
+export class InstanceInfo extends $dara.Model {
   createdTimeMs?: number;
   destroyedTimeMs?: number;
   /**
@@ -1960,12 +2441,16 @@ export class InstanceInfo extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InstanceLifecycleConfig extends $tea.Model {
+export class InstanceLifecycleConfig extends $dara.Model {
   initializer?: LifecycleHook;
   preStop?: LifecycleHook;
   static names(): { [key: string]: string } {
@@ -1982,12 +2467,22 @@ export class InstanceLifecycleConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.initializer && typeof (this.initializer as any).validate === 'function') {
+      (this.initializer as any).validate();
+    }
+    if(this.preStop && typeof (this.preStop as any).validate === 'function') {
+      (this.preStop as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class JobConfig extends $tea.Model {
+export class JobConfig extends $dara.Model {
   /**
    * @example
    * 3
@@ -2012,12 +2507,16 @@ export class JobConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Key extends $tea.Model {
+export class Key extends $dara.Model {
   /**
    * @example
    * serverless_
@@ -2042,12 +2541,16 @@ export class Key extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Layer extends $tea.Model {
+export class Layer extends $dara.Model {
   /**
    * @example
    * 0
@@ -2130,12 +2633,22 @@ export class Layer extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.code && typeof (this.code as any).validate === 'function') {
+      (this.code as any).validate();
+    }
+    if(Array.isArray(this.compatibleRuntime)) {
+      $dara.Model.validateArray(this.compatibleRuntime);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LifecycleHook extends $tea.Model {
+export class LifecycleHook extends $dara.Model {
   /**
    * @example
    * index.initializer
@@ -2160,12 +2673,16 @@ export class LifecycleHook extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAliasesOutput extends $tea.Model {
+export class ListAliasesOutput extends $dara.Model {
   aliases?: Alias[];
   /**
    * @example
@@ -2186,12 +2703,19 @@ export class ListAliasesOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.aliases)) {
+      $dara.Model.validateArray(this.aliases);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAsyncInvokeConfigOutput extends $tea.Model {
+export class ListAsyncInvokeConfigOutput extends $dara.Model {
   configs?: AsyncConfig[];
   /**
    * @example
@@ -2212,12 +2736,19 @@ export class ListAsyncInvokeConfigOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.configs)) {
+      $dara.Model.validateArray(this.configs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAsyncTaskOutput extends $tea.Model {
+export class ListAsyncTaskOutput extends $dara.Model {
   nextToken?: string;
   tasks?: AsyncTask[];
   static names(): { [key: string]: string } {
@@ -2234,12 +2765,19 @@ export class ListAsyncTaskOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tasks)) {
+      $dara.Model.validateArray(this.tasks);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConcurrencyConfigsOutput extends $tea.Model {
+export class ListConcurrencyConfigsOutput extends $dara.Model {
   configs?: ConcurrencyConfig[];
   /**
    * @example
@@ -2260,12 +2798,19 @@ export class ListConcurrencyConfigsOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.configs)) {
+      $dara.Model.validateArray(this.configs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListCustomDomainOutput extends $tea.Model {
+export class ListCustomDomainOutput extends $dara.Model {
   customDomains?: CustomDomain[];
   /**
    * @example
@@ -2286,12 +2831,19 @@ export class ListCustomDomainOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.customDomains)) {
+      $dara.Model.validateArray(this.customDomains);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFunctionsOutput extends $tea.Model {
+export class ListFunctionsOutput extends $dara.Model {
   functions?: Function[];
   /**
    * @example
@@ -2312,12 +2864,19 @@ export class ListFunctionsOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.functions)) {
+      $dara.Model.validateArray(this.functions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesOutput extends $tea.Model {
+export class ListInstancesOutput extends $dara.Model {
   instances?: InstanceInfo[];
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -2334,12 +2893,19 @@ export class ListInstancesOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListLayerVersionOutput extends $tea.Model {
+export class ListLayerVersionOutput extends $dara.Model {
   layers?: Layer[];
   /**
    * @example
@@ -2360,12 +2926,19 @@ export class ListLayerVersionOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.layers)) {
+      $dara.Model.validateArray(this.layers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListLayersOutput extends $tea.Model {
+export class ListLayersOutput extends $dara.Model {
   layers?: Layer[];
   /**
    * @example
@@ -2386,12 +2959,19 @@ export class ListLayersOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.layers)) {
+      $dara.Model.validateArray(this.layers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListProvisionConfigsOutput extends $tea.Model {
+export class ListProvisionConfigsOutput extends $dara.Model {
   /**
    * @example
    * next_token
@@ -2412,12 +2992,19 @@ export class ListProvisionConfigsOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.provisionConfigs)) {
+      $dara.Model.validateArray(this.provisionConfigs);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesOutput extends $tea.Model {
+export class ListTagResourcesOutput extends $dara.Model {
   /**
    * @example
    * next_token
@@ -2441,12 +3028,19 @@ export class ListTagResourcesOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.tagResources)) {
+      $dara.Model.validateArray(this.tagResources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTaggedResourcesOutput extends $tea.Model {
+export class ListTaggedResourcesOutput extends $dara.Model {
   /**
    * @example
    * next_token
@@ -2467,12 +3061,19 @@ export class ListTaggedResourcesOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTriggersOutput extends $tea.Model {
+export class ListTriggersOutput extends $dara.Model {
   /**
    * @example
    * next_token
@@ -2493,12 +3094,19 @@ export class ListTriggersOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.triggers)) {
+      $dara.Model.validateArray(this.triggers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVersionsOutput extends $tea.Model {
+export class ListVersionsOutput extends $dara.Model {
   /**
    * @example
    * FORWARD
@@ -2526,12 +3134,19 @@ export class ListVersionsOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.versions)) {
+      $dara.Model.validateArray(this.versions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVpcBindingsOutput extends $tea.Model {
+export class ListVpcBindingsOutput extends $dara.Model {
   vpcIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2545,12 +3160,19 @@ export class ListVpcBindingsOutput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.vpcIds)) {
+      $dara.Model.validateArray(this.vpcIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class LogConfig extends $tea.Model {
+export class LogConfig extends $dara.Model {
   /**
    * @example
    * true
@@ -2596,12 +3218,16 @@ export class LogConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class MNSTopicTriggerConfig extends $tea.Model {
+export class MNSTopicTriggerConfig extends $dara.Model {
   /**
    * @example
    * serverless
@@ -2633,12 +3259,16 @@ export class MNSTopicTriggerConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class NASConfig extends $tea.Model {
+export class NASConfig extends $dara.Model {
   /**
    * @example
    * 100
@@ -2666,12 +3296,19 @@ export class NASConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.mountPoints)) {
+      $dara.Model.validateArray(this.mountPoints);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class NASMountConfig extends $tea.Model {
+export class NASMountConfig extends $dara.Model {
   enableTLS?: boolean;
   /**
    * @example
@@ -2699,12 +3336,16 @@ export class NASMountConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OSSMountConfig extends $tea.Model {
+export class OSSMountConfig extends $dara.Model {
   mountPoints?: OSSMountPoint[];
   static names(): { [key: string]: string } {
     return {
@@ -2718,12 +3359,19 @@ export class OSSMountConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.mountPoints)) {
+      $dara.Model.validateArray(this.mountPoints);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OSSMountPoint extends $tea.Model {
+export class OSSMountPoint extends $dara.Model {
   /**
    * @example
    * my-bucket
@@ -2769,12 +3417,16 @@ export class OSSMountPoint extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OSSTriggerConfig extends $tea.Model {
+export class OSSTriggerConfig extends $dara.Model {
   events?: string[];
   filter?: Filter;
   static names(): { [key: string]: string } {
@@ -2791,12 +3443,22 @@ export class OSSTriggerConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    if(this.filter && typeof (this.filter as any).validate === 'function') {
+      (this.filter as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OutputCodeLocation extends $tea.Model {
+export class OutputCodeLocation extends $dara.Model {
   /**
    * @example
    * https://xyz.oss-cn-shanghai.aliyuncs.com/xxx/xxx/xxx
@@ -2821,12 +3483,16 @@ export class OutputCodeLocation extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class OutputFuncCode extends $tea.Model {
+export class OutputFuncCode extends $dara.Model {
   /**
    * @example
    * 1234567890
@@ -2851,12 +3517,16 @@ export class OutputFuncCode extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PathConfig extends $tea.Model {
+export class PathConfig extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -2900,12 +3570,22 @@ export class PathConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.methods)) {
+      $dara.Model.validateArray(this.methods);
+    }
+    if(this.rewriteConfig && typeof (this.rewriteConfig as any).validate === 'function') {
+      (this.rewriteConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ProvisionConfig extends $tea.Model {
+export class ProvisionConfig extends $dara.Model {
   /**
    * @example
    * true
@@ -2933,7 +3613,7 @@ export class ProvisionConfig extends $tea.Model {
   defaultTarget?: number;
   /**
    * @example
-   * acs:fc:cn-shanghai:124:functions/myFunction
+   * acs:fc:cn-shanghai:124:functions/myFunction/prod
    */
   functionArn?: string;
   scheduledActions?: ScheduledAction[];
@@ -2971,12 +3651,22 @@ export class ProvisionConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.scheduledActions)) {
+      $dara.Model.validateArray(this.scheduledActions);
+    }
+    if(Array.isArray(this.targetTrackingPolicies)) {
+      $dara.Model.validateArray(this.targetTrackingPolicies);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PublishVersionInput extends $tea.Model {
+export class PublishVersionInput extends $dara.Model {
   /**
    * @example
    * my version
@@ -2994,12 +3684,16 @@ export class PublishVersionInput extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PutAsyncInvokeConfigInput extends $tea.Model {
+export class PutAsyncInvokeConfigInput extends $dara.Model {
   /**
    * @example
    * true
@@ -3034,12 +3728,19 @@ export class PutAsyncInvokeConfigInput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.destinationConfig && typeof (this.destinationConfig as any).validate === 'function') {
+      (this.destinationConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PutConcurrencyInput extends $tea.Model {
+export class PutConcurrencyInput extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3060,12 +3761,16 @@ export class PutConcurrencyInput extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PutProvisionConfigInput extends $tea.Model {
+export class PutProvisionConfigInput extends $dara.Model {
   /**
    * @example
    * true
@@ -3118,12 +3823,22 @@ export class PutProvisionConfigInput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.scheduledActions)) {
+      $dara.Model.validateArray(this.scheduledActions);
+    }
+    if(Array.isArray(this.targetTrackingPolicies)) {
+      $dara.Model.validateArray(this.targetTrackingPolicies);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegexRule extends $tea.Model {
+export class RegexRule extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -3154,12 +3869,16 @@ export class RegexRule extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegistryAuthConfig extends $tea.Model {
+export class RegistryAuthConfig extends $dara.Model {
   /**
    * @example
    * abc***
@@ -3184,12 +3903,16 @@ export class RegistryAuthConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegistryCertConfig extends $tea.Model {
+export class RegistryCertConfig extends $dara.Model {
   insecure?: boolean;
   /**
    * @example
@@ -3210,12 +3933,16 @@ export class RegistryCertConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegistryConfig extends $tea.Model {
+export class RegistryConfig extends $dara.Model {
   authConfig?: RegistryAuthConfig;
   certConfig?: RegistryCertConfig;
   networkConfig?: RegistryNetworkConfig;
@@ -3235,12 +3962,25 @@ export class RegistryConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.authConfig && typeof (this.authConfig as any).validate === 'function') {
+      (this.authConfig as any).validate();
+    }
+    if(this.certConfig && typeof (this.certConfig as any).validate === 'function') {
+      (this.certConfig as any).validate();
+    }
+    if(this.networkConfig && typeof (this.networkConfig as any).validate === 'function') {
+      (this.networkConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RegistryNetworkConfig extends $tea.Model {
+export class RegistryNetworkConfig extends $dara.Model {
   /**
    * @example
    * sg-xxxxxxxxxxxxxx
@@ -3272,12 +4012,16 @@ export class RegistryNetworkConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Resource extends $tea.Model {
+export class Resource extends $dara.Model {
   /**
    * @example
    * ALIYUN::FC::FUNCTION
@@ -3305,12 +4049,19 @@ export class Resource extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RetryStrategy extends $tea.Model {
+export class RetryStrategy extends $dara.Model {
   /**
    * @example
    * BACKOFF_RETRY
@@ -3328,12 +4079,16 @@ export class RetryStrategy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RewriteConfig extends $tea.Model {
+export class RewriteConfig extends $dara.Model {
   equalRules?: EqualRule[];
   regexRules?: RegexRule[];
   wildcardRules?: WildcardRule[];
@@ -3353,12 +4108,25 @@ export class RewriteConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.equalRules)) {
+      $dara.Model.validateArray(this.equalRules);
+    }
+    if(Array.isArray(this.regexRules)) {
+      $dara.Model.validateArray(this.regexRules);
+    }
+    if(Array.isArray(this.wildcardRules)) {
+      $dara.Model.validateArray(this.wildcardRules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RouteConfig extends $tea.Model {
+export class RouteConfig extends $dara.Model {
   routes?: PathConfig[];
   static names(): { [key: string]: string } {
     return {
@@ -3372,12 +4140,19 @@ export class RouteConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.routes)) {
+      $dara.Model.validateArray(this.routes);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class RunOptions extends $tea.Model {
+export class RunOptions extends $dara.Model {
   batchWindow?: BatchWindow;
   deadLetterQueue?: DeadLetterQueue;
   /**
@@ -3411,12 +4186,25 @@ export class RunOptions extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.batchWindow && typeof (this.batchWindow as any).validate === 'function') {
+      (this.batchWindow as any).validate();
+    }
+    if(this.deadLetterQueue && typeof (this.deadLetterQueue as any).validate === 'function') {
+      (this.deadLetterQueue as any).validate();
+    }
+    if(this.retryStrategy && typeof (this.retryStrategy as any).validate === 'function') {
+      (this.retryStrategy as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SLSTriggerConfig extends $tea.Model {
+export class SLSTriggerConfig extends $dara.Model {
   /**
    * @example
    * true
@@ -3446,12 +4234,28 @@ export class SLSTriggerConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.functionParameter) {
+      $dara.Model.validateMap(this.functionParameter);
+    }
+    if(this.jobConfig && typeof (this.jobConfig as any).validate === 'function') {
+      (this.jobConfig as any).validate();
+    }
+    if(this.logConfig && typeof (this.logConfig as any).validate === 'function') {
+      (this.logConfig as any).validate();
+    }
+    if(this.sourceConfig && typeof (this.sourceConfig as any).validate === 'function') {
+      (this.sourceConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SLSTriggerLogConfig extends $tea.Model {
+export class SLSTriggerLogConfig extends $dara.Model {
   /**
    * @example
    * my-sls-logstore-name
@@ -3476,12 +4280,16 @@ export class SLSTriggerLogConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ScheduledAction extends $tea.Model {
+export class ScheduledAction extends $dara.Model {
   /**
    * @example
    * 2024-03-10T10:10:10
@@ -3543,12 +4351,16 @@ export class ScheduledAction extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SourceConfig extends $tea.Model {
+export class SourceConfig extends $dara.Model {
   /**
    * @example
    * my-sls-logstore-name
@@ -3573,12 +4385,16 @@ export class SourceConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SourceDTSParameters extends $tea.Model {
+export class SourceDTSParameters extends $dara.Model {
   /**
    * @example
    * dts-cn-shanghai-vpc.com:18003
@@ -3645,12 +4461,16 @@ export class SourceDTSParameters extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SourceKafkaParameters extends $tea.Model {
+export class SourceKafkaParameters extends $dara.Model {
   /**
    * @example
    * DEFAULT_GROUP
@@ -3724,12 +4544,16 @@ export class SourceKafkaParameters extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SourceMNSParameters extends $tea.Model {
+export class SourceMNSParameters extends $dara.Model {
   /**
    * @example
    * true
@@ -3761,12 +4585,16 @@ export class SourceMNSParameters extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SourceMQTTParameters extends $tea.Model {
+export class SourceMQTTParameters extends $dara.Model {
   /**
    * @example
    * mqtt-****
@@ -3798,12 +4626,16 @@ export class SourceMQTTParameters extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SourceRabbitMQParameters extends $tea.Model {
+export class SourceRabbitMQParameters extends $dara.Model {
   /**
    * @example
    * amqp-cn-nif22u74****
@@ -3842,12 +4674,16 @@ export class SourceRabbitMQParameters extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class SourceRocketMQParameters extends $tea.Model {
+export class SourceRocketMQParameters extends $dara.Model {
   /**
    * @example
    * ACL
@@ -3977,12 +4813,16 @@ export class SourceRocketMQParameters extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TLSConfig extends $tea.Model {
+export class TLSConfig extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4017,12 +4857,19 @@ export class TLSConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.cipherSuites)) {
+      $dara.Model.validateArray(this.cipherSuites);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Tag extends $tea.Model {
+export class Tag extends $dara.Model {
   /**
    * @example
    * k1
@@ -4047,12 +4894,16 @@ export class Tag extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResource extends $tea.Model {
+export class TagResource extends $dara.Model {
   /**
    * @example
    * acs:fc:cn-shanghai:****:functions/demo
@@ -4091,12 +4942,16 @@ export class TagResource extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourceInput extends $tea.Model {
+export class TagResourceInput extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4124,12 +4979,19 @@ export class TagResourceInput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.tags) {
+      $dara.Model.validateMap(this.tags);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesInput extends $tea.Model {
+export class TagResourcesInput extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4161,12 +5023,22 @@ export class TagResourcesInput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TargetTrackingPolicy extends $tea.Model {
+export class TargetTrackingPolicy extends $dara.Model {
   /**
    * @example
    * 2024-03-10T10:10:10
@@ -4248,12 +5120,16 @@ export class TargetTrackingPolicy extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TimerTriggerConfig extends $tea.Model {
+export class TimerTriggerConfig extends $dara.Model {
   /**
    * @example
    * 0 0 4 * * *
@@ -4285,12 +5161,16 @@ export class TimerTriggerConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TracingConfig extends $tea.Model {
+export class TracingConfig extends $dara.Model {
   params?: { [key: string]: string };
   /**
    * @example
@@ -4311,12 +5191,19 @@ export class TracingConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.params) {
+      $dara.Model.validateMap(this.params);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Trigger extends $tea.Model {
+export class Trigger extends $dara.Model {
   createdTime?: string;
   description?: string;
   httpTrigger?: HTTPTrigger;
@@ -4366,12 +5253,19 @@ export class Trigger extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.httpTrigger && typeof (this.httpTrigger as any).validate === 'function') {
+      (this.httpTrigger as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAliasInput extends $tea.Model {
+export class UpdateAliasInput extends $dara.Model {
   additionalVersionWeight?: { [key: string]: number };
   /**
    * @example
@@ -4399,12 +5293,19 @@ export class UpdateAliasInput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.additionalVersionWeight) {
+      $dara.Model.validateMap(this.additionalVersionWeight);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateCustomDomainInput extends $tea.Model {
+export class UpdateCustomDomainInput extends $dara.Model {
   authConfig?: AuthConfig;
   certConfig?: CertConfig;
   /**
@@ -4437,12 +5338,31 @@ export class UpdateCustomDomainInput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.authConfig && typeof (this.authConfig as any).validate === 'function') {
+      (this.authConfig as any).validate();
+    }
+    if(this.certConfig && typeof (this.certConfig as any).validate === 'function') {
+      (this.certConfig as any).validate();
+    }
+    if(this.routeConfig && typeof (this.routeConfig as any).validate === 'function') {
+      (this.routeConfig as any).validate();
+    }
+    if(this.tlsConfig && typeof (this.tlsConfig as any).validate === 'function') {
+      (this.tlsConfig as any).validate();
+    }
+    if(this.wafConfig && typeof (this.wafConfig as any).validate === 'function') {
+      (this.wafConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateFunctionInput extends $tea.Model {
+export class UpdateFunctionInput extends $dara.Model {
   code?: InputCodeLocation;
   /**
    * @example
@@ -4558,12 +5478,55 @@ export class UpdateFunctionInput extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.code && typeof (this.code as any).validate === 'function') {
+      (this.code as any).validate();
+    }
+    if(this.customContainerConfig && typeof (this.customContainerConfig as any).validate === 'function') {
+      (this.customContainerConfig as any).validate();
+    }
+    if(this.customDNS && typeof (this.customDNS as any).validate === 'function') {
+      (this.customDNS as any).validate();
+    }
+    if(this.customRuntimeConfig && typeof (this.customRuntimeConfig as any).validate === 'function') {
+      (this.customRuntimeConfig as any).validate();
+    }
+    if(this.environmentVariables) {
+      $dara.Model.validateMap(this.environmentVariables);
+    }
+    if(this.gpuConfig && typeof (this.gpuConfig as any).validate === 'function') {
+      (this.gpuConfig as any).validate();
+    }
+    if(this.instanceLifecycleConfig && typeof (this.instanceLifecycleConfig as any).validate === 'function') {
+      (this.instanceLifecycleConfig as any).validate();
+    }
+    if(Array.isArray(this.layers)) {
+      $dara.Model.validateArray(this.layers);
+    }
+    if(this.logConfig && typeof (this.logConfig as any).validate === 'function') {
+      (this.logConfig as any).validate();
+    }
+    if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
+      (this.nasConfig as any).validate();
+    }
+    if(this.ossMountConfig && typeof (this.ossMountConfig as any).validate === 'function') {
+      (this.ossMountConfig as any).validate();
+    }
+    if(this.tracingConfig && typeof (this.tracingConfig as any).validate === 'function') {
+      (this.tracingConfig as any).validate();
+    }
+    if(this.vpcConfig && typeof (this.vpcConfig as any).validate === 'function') {
+      (this.vpcConfig as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTriggerInput extends $tea.Model {
+export class UpdateTriggerInput extends $dara.Model {
   /**
    * @example
    * trigger for test
@@ -4602,12 +5565,16 @@ export class UpdateTriggerInput extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class VPCConfig extends $tea.Model {
+export class VPCConfig extends $dara.Model {
   /**
    * @example
    * acs:ram::188077086902****:role/fc-test
@@ -4642,12 +5609,19 @@ export class VPCConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class Version extends $tea.Model {
+export class Version extends $dara.Model {
   /**
    * @example
    * 2006-01-02T15:04:05Z07:00
@@ -4686,12 +5660,16 @@ export class Version extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class WAFConfig extends $tea.Model {
+export class WAFConfig extends $dara.Model {
   /**
    * @example
    * true
@@ -4709,12 +5687,16 @@ export class WAFConfig extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class WildcardRule extends $tea.Model {
+export class WildcardRule extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -4745,12 +5727,42 @@ export class WildcardRule extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAliasRequest extends $tea.Model {
+export class OpenStructDescribeRegionsOutput extends $dara.Model {
+  regions?: OpenStructDescribeRegionsOutputRegions;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: OpenStructDescribeRegionsOutputRegions,
+    };
+  }
+
+  validate() {
+    if(this.regions && typeof (this.regions as any).validate === 'function') {
+      (this.regions as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAliasRequest extends $dara.Model {
   /**
    * @remarks
    * The request parameters for creating an alias.
@@ -4770,12 +5782,19 @@ export class CreateAliasRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateAliasResponse extends $tea.Model {
+export class CreateAliasResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Alias;
@@ -4795,12 +5814,22 @@ export class CreateAliasResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateCustomDomainRequest extends $tea.Model {
+export class CreateCustomDomainRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the custom domain name.
@@ -4820,12 +5849,19 @@ export class CreateCustomDomainRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateCustomDomainResponse extends $tea.Model {
+export class CreateCustomDomainResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CustomDomain;
@@ -4845,12 +5881,22 @@ export class CreateCustomDomainResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateFunctionRequest extends $tea.Model {
+export class CreateFunctionRequest extends $dara.Model {
   /**
    * @remarks
    * The information about function configurations.
@@ -4870,12 +5916,19 @@ export class CreateFunctionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateFunctionResponse extends $tea.Model {
+export class CreateFunctionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Function;
@@ -4895,12 +5948,22 @@ export class CreateFunctionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateLayerVersionRequest extends $tea.Model {
+export class CreateLayerVersionRequest extends $dara.Model {
   /**
    * @remarks
    * The information about layer configurations.
@@ -4920,12 +5983,19 @@ export class CreateLayerVersionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateLayerVersionResponse extends $tea.Model {
+export class CreateLayerVersionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Layer;
@@ -4945,12 +6015,22 @@ export class CreateLayerVersionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTriggerRequest extends $tea.Model {
+export class CreateTriggerRequest extends $dara.Model {
   /**
    * @remarks
    * The trigger configurations.
@@ -4970,12 +6050,19 @@ export class CreateTriggerRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateTriggerResponse extends $tea.Model {
+export class CreateTriggerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Trigger;
@@ -4995,12 +6082,22 @@ export class CreateTriggerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVpcBindingRequest extends $tea.Model {
+export class CreateVpcBindingRequest extends $dara.Model {
   /**
    * @remarks
    * The VPC binding configurations.
@@ -5020,12 +6117,19 @@ export class CreateVpcBindingRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateVpcBindingResponse extends $tea.Model {
+export class CreateVpcBindingResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -5042,12 +6146,19 @@ export class CreateVpcBindingResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAliasResponse extends $tea.Model {
+export class DeleteAliasResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -5064,12 +6175,19 @@ export class DeleteAliasResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAsyncInvokeConfigRequest extends $tea.Model {
+export class DeleteAsyncInvokeConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The version or alias of the function.
@@ -5090,12 +6208,16 @@ export class DeleteAsyncInvokeConfigRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteAsyncInvokeConfigResponse extends $tea.Model {
+export class DeleteAsyncInvokeConfigResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -5112,12 +6234,19 @@ export class DeleteAsyncInvokeConfigResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteConcurrencyConfigResponse extends $tea.Model {
+export class DeleteConcurrencyConfigResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -5134,12 +6263,19 @@ export class DeleteConcurrencyConfigResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteCustomDomainResponse extends $tea.Model {
+export class DeleteCustomDomainResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -5156,12 +6292,19 @@ export class DeleteCustomDomainResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteFunctionResponse extends $tea.Model {
+export class DeleteFunctionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -5178,12 +6321,19 @@ export class DeleteFunctionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteFunctionVersionResponse extends $tea.Model {
+export class DeleteFunctionVersionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -5200,12 +6350,19 @@ export class DeleteFunctionVersionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteLayerVersionResponse extends $tea.Model {
+export class DeleteLayerVersionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -5222,12 +6379,19 @@ export class DeleteLayerVersionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteProvisionConfigRequest extends $tea.Model {
+export class DeleteProvisionConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The function alias or LATEST.
@@ -5248,12 +6412,16 @@ export class DeleteProvisionConfigRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteProvisionConfigResponse extends $tea.Model {
+export class DeleteProvisionConfigResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -5270,12 +6438,19 @@ export class DeleteProvisionConfigResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteTriggerResponse extends $tea.Model {
+export class DeleteTriggerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -5292,12 +6467,19 @@ export class DeleteTriggerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteVpcBindingResponse extends $tea.Model {
+export class DeleteVpcBindingResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -5314,12 +6496,19 @@ export class DeleteVpcBindingResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAliasResponse extends $tea.Model {
+export class GetAliasResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Alias;
@@ -5339,12 +6528,22 @@ export class GetAliasResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAsyncInvokeConfigRequest extends $tea.Model {
+export class GetAsyncInvokeConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The version or alias of the function.
@@ -5365,12 +6564,16 @@ export class GetAsyncInvokeConfigRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAsyncInvokeConfigResponse extends $tea.Model {
+export class GetAsyncInvokeConfigResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AsyncConfig;
@@ -5390,12 +6593,22 @@ export class GetAsyncInvokeConfigResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAsyncTaskRequest extends $tea.Model {
+export class GetAsyncTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The version or alias of the function.
@@ -5416,12 +6629,16 @@ export class GetAsyncTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetAsyncTaskResponse extends $tea.Model {
+export class GetAsyncTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AsyncTask;
@@ -5441,12 +6658,22 @@ export class GetAsyncTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetConcurrencyConfigResponse extends $tea.Model {
+export class GetConcurrencyConfigResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ConcurrencyConfig;
@@ -5466,12 +6693,22 @@ export class GetConcurrencyConfigResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetCustomDomainResponse extends $tea.Model {
+export class GetCustomDomainResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CustomDomain;
@@ -5491,12 +6728,22 @@ export class GetCustomDomainResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFunctionRequest extends $tea.Model {
+export class GetFunctionRequest extends $dara.Model {
   /**
    * @remarks
    * 2023-03-10T10:10:10Z
@@ -5517,12 +6764,16 @@ export class GetFunctionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFunctionResponse extends $tea.Model {
+export class GetFunctionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Function;
@@ -5542,12 +6793,22 @@ export class GetFunctionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFunctionCodeRequest extends $tea.Model {
+export class GetFunctionCodeRequest extends $dara.Model {
   /**
    * @remarks
    * The version or alias of the function.
@@ -5568,12 +6829,16 @@ export class GetFunctionCodeRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetFunctionCodeResponse extends $tea.Model {
+export class GetFunctionCodeResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: OutputFuncCode;
@@ -5593,12 +6858,22 @@ export class GetFunctionCodeResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetLayerVersionResponse extends $tea.Model {
+export class GetLayerVersionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Layer;
@@ -5618,12 +6893,22 @@ export class GetLayerVersionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetLayerVersionByArnResponse extends $tea.Model {
+export class GetLayerVersionByArnResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Layer;
@@ -5643,12 +6928,22 @@ export class GetLayerVersionByArnResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetProvisionConfigRequest extends $tea.Model {
+export class GetProvisionConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The function alias or LATEST.
@@ -5669,12 +6964,16 @@ export class GetProvisionConfigRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetProvisionConfigResponse extends $tea.Model {
+export class GetProvisionConfigResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ProvisionConfig;
@@ -5694,12 +6993,22 @@ export class GetProvisionConfigResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetTriggerResponse extends $tea.Model {
+export class GetTriggerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Trigger;
@@ -5719,12 +7028,22 @@ export class GetTriggerResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InvokeFunctionHeaders extends $tea.Model {
+export class InvokeFunctionHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
@@ -5770,12 +7089,19 @@ export class InvokeFunctionHeaders extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InvokeFunctionRequest extends $tea.Model {
+export class InvokeFunctionRequest extends $dara.Model {
   /**
    * @remarks
    * The request parameters of function invocation.
@@ -5806,12 +7132,16 @@ export class InvokeFunctionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class InvokeFunctionResponse extends $tea.Model {
+export class InvokeFunctionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Readable;
@@ -5831,12 +7161,19 @@ export class InvokeFunctionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAliasesRequest extends $tea.Model {
+export class ListAliasesRequest extends $dara.Model {
   /**
    * @remarks
    * The number of aliases returned.
@@ -5877,12 +7214,16 @@ export class ListAliasesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAliasesResponse extends $tea.Model {
+export class ListAliasesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAliasesOutput;
@@ -5902,12 +7243,22 @@ export class ListAliasesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAsyncInvokeConfigsRequest extends $tea.Model {
+export class ListAsyncInvokeConfigsRequest extends $dara.Model {
   /**
    * @remarks
    * The function name. If you do not configure this parameter, the asynchronous invocation configurations of all functions are displayed.
@@ -5948,12 +7299,16 @@ export class ListAsyncInvokeConfigsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAsyncInvokeConfigsResponse extends $tea.Model {
+export class ListAsyncInvokeConfigsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAsyncInvokeConfigOutput;
@@ -5973,12 +7328,22 @@ export class ListAsyncInvokeConfigsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAsyncTasksRequest extends $tea.Model {
+export class ListAsyncTasksRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to return input parameters of the asynchronous tasks. Valid values:
@@ -6097,12 +7462,16 @@ export class ListAsyncTasksRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListAsyncTasksResponse extends $tea.Model {
+export class ListAsyncTasksResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListAsyncTaskOutput;
@@ -6122,12 +7491,22 @@ export class ListAsyncTasksResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConcurrencyConfigsRequest extends $tea.Model {
+export class ListConcurrencyConfigsRequest extends $dara.Model {
   /**
    * @remarks
    * The function name. If you leave this parameter empty, the concurrency configurations of all functions are returned.
@@ -6168,12 +7547,16 @@ export class ListConcurrencyConfigsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListConcurrencyConfigsResponse extends $tea.Model {
+export class ListConcurrencyConfigsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListConcurrencyConfigsOutput;
@@ -6193,12 +7576,22 @@ export class ListConcurrencyConfigsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListCustomDomainsRequest extends $tea.Model {
+export class ListCustomDomainsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of custom domain names returned.
@@ -6239,12 +7632,16 @@ export class ListCustomDomainsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListCustomDomainsResponse extends $tea.Model {
+export class ListCustomDomainsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListCustomDomainOutput;
@@ -6264,12 +7661,22 @@ export class ListCustomDomainsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFunctionVersionsRequest extends $tea.Model {
+export class ListFunctionVersionsRequest extends $dara.Model {
   /**
    * @remarks
    * The sorting mode of function versions. Valid values: BACKWARD and FORWARD.
@@ -6310,12 +7717,16 @@ export class ListFunctionVersionsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFunctionVersionsResponse extends $tea.Model {
+export class ListFunctionVersionsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListVersionsOutput;
@@ -6335,12 +7746,22 @@ export class ListFunctionVersionsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFunctionsRequest extends $tea.Model {
+export class ListFunctionsRequest extends $dara.Model {
   /**
    * @remarks
    * The version of Function Compute to which the functions belong. Valid values: v3 and v2. v3: only lists functions of Function Compute 3.0. v2: only lists functions of Function Compute 2.0. By default, this parameter is left empty and functions in both Function Compute 2.0 and Function Compute 3.0 are listed.
@@ -6391,12 +7812,16 @@ export class ListFunctionsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFunctionsResponse extends $tea.Model {
+export class ListFunctionsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListFunctionsOutput;
@@ -6416,12 +7841,22 @@ export class ListFunctionsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesRequest extends $tea.Model {
+export class ListInstancesRequest extends $dara.Model {
   endTimeMs?: number;
   instanceIds?: string[];
   instanceStatus?: string[];
@@ -6470,12 +7905,22 @@ export class ListInstancesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
+    if(Array.isArray(this.instanceStatus)) {
+      $dara.Model.validateArray(this.instanceStatus);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesShrinkRequest extends $tea.Model {
+export class ListInstancesShrinkRequest extends $dara.Model {
   endTimeMs?: number;
   instanceIdsShrink?: string;
   instanceStatusShrink?: string;
@@ -6524,12 +7969,16 @@ export class ListInstancesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListInstancesResponse extends $tea.Model {
+export class ListInstancesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListInstancesOutput;
@@ -6549,12 +7998,22 @@ export class ListInstancesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListLayerVersionsRequest extends $tea.Model {
+export class ListLayerVersionsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of versions to be returned.
@@ -6585,12 +8044,16 @@ export class ListLayerVersionsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListLayerVersionsResponse extends $tea.Model {
+export class ListLayerVersionsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListLayerVersionOutput;
@@ -6610,12 +8073,22 @@ export class ListLayerVersionsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListLayersRequest extends $tea.Model {
+export class ListLayersRequest extends $dara.Model {
   /**
    * @remarks
    * The number of layers that are returned
@@ -6676,12 +8149,16 @@ export class ListLayersRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListLayersResponse extends $tea.Model {
+export class ListLayersResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListLayersOutput;
@@ -6701,12 +8178,22 @@ export class ListLayersResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListProvisionConfigsRequest extends $tea.Model {
+export class ListProvisionConfigsRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the function. If this parameter is not specified, the provisioned configurations of all functions are listed.
@@ -6747,12 +8234,16 @@ export class ListProvisionConfigsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListProvisionConfigsResponse extends $tea.Model {
+export class ListProvisionConfigsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListProvisionConfigsOutput;
@@ -6772,12 +8263,22 @@ export class ListProvisionConfigsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesRequest extends $tea.Model {
+export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The number of resources to return.
@@ -6836,12 +8337,22 @@ export class ListTagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesShrinkRequest extends $tea.Model {
+export class ListTagResourcesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The number of resources to return.
@@ -6900,12 +8411,16 @@ export class ListTagResourcesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTagResourcesResponse extends $tea.Model {
+export class ListTagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTagResourcesOutput;
@@ -6925,12 +8440,22 @@ export class ListTagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTriggersRequest extends $tea.Model {
+export class ListTriggersRequest extends $dara.Model {
   /**
    * @remarks
    * The number of triggers returned.
@@ -6971,12 +8496,16 @@ export class ListTriggersRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListTriggersResponse extends $tea.Model {
+export class ListTriggersResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListTriggersOutput;
@@ -6996,12 +8525,22 @@ export class ListTriggersResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListVpcBindingsResponse extends $tea.Model {
+export class ListVpcBindingsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListVpcBindingsOutput;
@@ -7021,12 +8560,22 @@ export class ListVpcBindingsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PublishFunctionVersionRequest extends $tea.Model {
+export class PublishFunctionVersionRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the function version.
@@ -7046,12 +8595,19 @@ export class PublishFunctionVersionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PublishFunctionVersionResponse extends $tea.Model {
+export class PublishFunctionVersionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Version;
@@ -7071,12 +8627,22 @@ export class PublishFunctionVersionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PutAsyncInvokeConfigRequest extends $tea.Model {
+export class PutAsyncInvokeConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The asynchronous invocation configurations.
@@ -7106,12 +8672,19 @@ export class PutAsyncInvokeConfigRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PutAsyncInvokeConfigResponse extends $tea.Model {
+export class PutAsyncInvokeConfigResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: AsyncConfig;
@@ -7131,12 +8704,22 @@ export class PutAsyncInvokeConfigResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PutConcurrencyConfigRequest extends $tea.Model {
+export class PutConcurrencyConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The concurrency configurations.
@@ -7156,12 +8739,19 @@ export class PutConcurrencyConfigRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PutConcurrencyConfigResponse extends $tea.Model {
+export class PutConcurrencyConfigResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ConcurrencyConfig;
@@ -7181,12 +8771,22 @@ export class PutConcurrencyConfigResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PutLayerACLRequest extends $tea.Model {
+export class PutLayerACLRequest extends $dara.Model {
   /**
    * @remarks
    * Specify the access permission of the layer. A value of 1 indicates public and a value of 0 indicates private. The default value is 0.
@@ -7219,12 +8819,16 @@ export class PutLayerACLRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PutLayerACLResponse extends $tea.Model {
+export class PutLayerACLResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -7241,12 +8845,19 @@ export class PutLayerACLResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PutProvisionConfigRequest extends $tea.Model {
+export class PutProvisionConfigRequest extends $dara.Model {
   /**
    * @remarks
    * The provisioned instance configurations.
@@ -7276,12 +8887,19 @@ export class PutProvisionConfigRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class PutProvisionConfigResponse extends $tea.Model {
+export class PutProvisionConfigResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ProvisionConfig;
@@ -7301,12 +8919,22 @@ export class PutProvisionConfigResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopAsyncTaskRequest extends $tea.Model {
+export class StopAsyncTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The version or alias of the function.
@@ -7327,12 +8955,16 @@ export class StopAsyncTaskRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopAsyncTaskResponse extends $tea.Model {
+export class StopAsyncTaskResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -7349,12 +8981,19 @@ export class StopAsyncTaskResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesRequest extends $tea.Model {
+export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The configuration of the resource tag.
@@ -7374,12 +9013,19 @@ export class TagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class TagResourcesResponse extends $tea.Model {
+export class TagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -7396,12 +9042,19 @@ export class TagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesRequest extends $tea.Model {
+export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to delete all tags.
@@ -7450,12 +9103,22 @@ export class UntagResourcesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tagKey)) {
+      $dara.Model.validateArray(this.tagKey);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesShrinkRequest extends $tea.Model {
+export class UntagResourcesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to delete all tags.
@@ -7504,12 +9167,16 @@ export class UntagResourcesShrinkRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UntagResourcesResponse extends $tea.Model {
+export class UntagResourcesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -7526,12 +9193,19 @@ export class UntagResourcesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAliasRequest extends $tea.Model {
+export class UpdateAliasRequest extends $dara.Model {
   /**
    * @remarks
    * The alias information to be updated.
@@ -7551,12 +9225,19 @@ export class UpdateAliasRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateAliasResponse extends $tea.Model {
+export class UpdateAliasResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Alias;
@@ -7576,12 +9257,22 @@ export class UpdateAliasResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateCustomDomainRequest extends $tea.Model {
+export class UpdateCustomDomainRequest extends $dara.Model {
   /**
    * @remarks
    * The information about the custom domain name.
@@ -7601,12 +9292,19 @@ export class UpdateCustomDomainRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateCustomDomainResponse extends $tea.Model {
+export class UpdateCustomDomainResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CustomDomain;
@@ -7626,12 +9324,22 @@ export class UpdateCustomDomainResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateFunctionRequest extends $tea.Model {
+export class UpdateFunctionRequest extends $dara.Model {
   /**
    * @remarks
    * The function information
@@ -7651,12 +9359,19 @@ export class UpdateFunctionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateFunctionResponse extends $tea.Model {
+export class UpdateFunctionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Function;
@@ -7676,12 +9391,22 @@ export class UpdateFunctionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTriggerRequest extends $tea.Model {
+export class UpdateTriggerRequest extends $dara.Model {
   /**
    * @remarks
    * The trigger configurations.
@@ -7701,12 +9426,19 @@ export class UpdateTriggerRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateTriggerResponse extends $tea.Model {
+export class UpdateTriggerResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: Trigger;
@@ -7726,44 +9458,14 @@ export class UpdateTriggerResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTagResourcesRequestTag extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * The tag key can be up to 64 characters in length, and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
-   * 
-   * @example
-   * k1
-   */
-  key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * The tag value can be up to 128 characters in length and can be an empty string.
-   * 
-   * @example
-   * v1
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'Key',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -7774,7 +9476,7 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._endpointRule = "";
     this.checkConfig(config);
@@ -7783,15 +9485,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -7802,24 +9504,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAliasResponse
    */
-  async createAliasWithOptions(functionName: string, request: CreateAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAliasResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async createAliasWithOptions(functionName: string, request: CreateAliasRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateAliasResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateAlias",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/aliases`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/aliases`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateAliasResponse>(await this.callApi(params, req, runtime), new CreateAliasResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateAliasResponse>(await this.callApi(params, req, runtime), new CreateAliasResponse({}));
+    } else {
+      return $dara.cast<CreateAliasResponse>(await this.execute(params, req, runtime), new CreateAliasResponse({}));
+    }
+
   }
 
   /**
@@ -7829,7 +9536,7 @@ export default class Client extends OpenApi {
    * @returns CreateAliasResponse
    */
   async createAlias(functionName: string, request: CreateAliasRequest): Promise<CreateAliasResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createAliasWithOptions(functionName, request, headers, runtime);
   }
@@ -7845,13 +9552,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateCustomDomainResponse
    */
-  async createCustomDomainWithOptions(request: CreateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCustomDomainResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async createCustomDomainWithOptions(request: CreateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateCustomDomainResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateCustomDomain",
       version: "2023-03-30",
       protocol: "HTTPS",
@@ -7862,7 +9569,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateCustomDomainResponse>(await this.callApi(params, req, runtime), new CreateCustomDomainResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateCustomDomainResponse>(await this.callApi(params, req, runtime), new CreateCustomDomainResponse({}));
+    } else {
+      return $dara.cast<CreateCustomDomainResponse>(await this.execute(params, req, runtime), new CreateCustomDomainResponse({}));
+    }
+
   }
 
   /**
@@ -7875,7 +9587,7 @@ export default class Client extends OpenApi {
    * @returns CreateCustomDomainResponse
    */
   async createCustomDomain(request: CreateCustomDomainRequest): Promise<CreateCustomDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createCustomDomainWithOptions(request, headers, runtime);
   }
@@ -7891,13 +9603,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateFunctionResponse
    */
-  async createFunctionWithOptions(request: CreateFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFunctionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async createFunctionWithOptions(request: CreateFunctionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateFunctionResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateFunction",
       version: "2023-03-30",
       protocol: "HTTPS",
@@ -7908,7 +9620,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateFunctionResponse>(await this.callApi(params, req, runtime), new CreateFunctionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateFunctionResponse>(await this.callApi(params, req, runtime), new CreateFunctionResponse({}));
+    } else {
+      return $dara.cast<CreateFunctionResponse>(await this.execute(params, req, runtime), new CreateFunctionResponse({}));
+    }
+
   }
 
   /**
@@ -7921,7 +9638,7 @@ export default class Client extends OpenApi {
    * @returns CreateFunctionResponse
    */
   async createFunction(request: CreateFunctionRequest): Promise<CreateFunctionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createFunctionWithOptions(request, headers, runtime);
   }
@@ -7934,24 +9651,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateLayerVersionResponse
    */
-  async createLayerVersionWithOptions(layerName: string, request: CreateLayerVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLayerVersionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async createLayerVersionWithOptions(layerName: string, request: CreateLayerVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateLayerVersionResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateLayerVersion",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/layers/${OpenApiUtil.getEncodeParam(layerName)}/versions`,
+      pathname: `/2023-03-30/layers/${$dara.URL.percentEncode(layerName)}/versions`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateLayerVersionResponse>(await this.callApi(params, req, runtime), new CreateLayerVersionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateLayerVersionResponse>(await this.callApi(params, req, runtime), new CreateLayerVersionResponse({}));
+    } else {
+      return $dara.cast<CreateLayerVersionResponse>(await this.execute(params, req, runtime), new CreateLayerVersionResponse({}));
+    }
+
   }
 
   /**
@@ -7961,7 +9683,7 @@ export default class Client extends OpenApi {
    * @returns CreateLayerVersionResponse
    */
   async createLayerVersion(layerName: string, request: CreateLayerVersionRequest): Promise<CreateLayerVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createLayerVersionWithOptions(layerName, request, headers, runtime);
   }
@@ -7974,24 +9696,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateTriggerResponse
    */
-  async createTriggerWithOptions(functionName: string, request: CreateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async createTriggerWithOptions(functionName: string, request: CreateTriggerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateTriggerResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateTrigger",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/triggers`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
+    } else {
+      return $dara.cast<CreateTriggerResponse>(await this.execute(params, req, runtime), new CreateTriggerResponse({}));
+    }
+
   }
 
   /**
@@ -8001,7 +9728,7 @@ export default class Client extends OpenApi {
    * @returns CreateTriggerResponse
    */
   async createTrigger(functionName: string, request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTriggerWithOptions(functionName, request, headers, runtime);
   }
@@ -8014,24 +9741,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateVpcBindingResponse
    */
-  async createVpcBindingWithOptions(functionName: string, request: CreateVpcBindingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVpcBindingResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async createVpcBindingWithOptions(functionName: string, request: CreateVpcBindingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateVpcBindingResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateVpcBinding",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/vpc-bindings`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/vpc-bindings`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<CreateVpcBindingResponse>(await this.callApi(params, req, runtime), new CreateVpcBindingResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateVpcBindingResponse>(await this.callApi(params, req, runtime), new CreateVpcBindingResponse({}));
+    } else {
+      return $dara.cast<CreateVpcBindingResponse>(await this.execute(params, req, runtime), new CreateVpcBindingResponse({}));
+    }
+
   }
 
   /**
@@ -8041,7 +9773,7 @@ export default class Client extends OpenApi {
    * @returns CreateVpcBindingResponse
    */
   async createVpcBinding(functionName: string, request: CreateVpcBindingRequest): Promise<CreateVpcBindingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createVpcBindingWithOptions(functionName, request, headers, runtime);
   }
@@ -8053,22 +9785,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAliasResponse
    */
-  async deleteAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAliasResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteAliasResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAlias",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/aliases/${OpenApiUtil.getEncodeParam(aliasName)}`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/aliases/${$dara.URL.percentEncode(aliasName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteAliasResponse>(await this.callApi(params, req, runtime), new DeleteAliasResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAliasResponse>(await this.callApi(params, req, runtime), new DeleteAliasResponse({}));
+    } else {
+      return $dara.cast<DeleteAliasResponse>(await this.execute(params, req, runtime), new DeleteAliasResponse({}));
+    }
+
   }
 
   /**
@@ -8076,7 +9813,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAliasResponse
    */
   async deleteAlias(functionName: string, aliasName: string): Promise<DeleteAliasResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAliasWithOptions(functionName, aliasName, headers, runtime);
   }
@@ -8089,29 +9826,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAsyncInvokeConfigResponse
    */
-  async deleteAsyncInvokeConfigWithOptions(functionName: string, request: DeleteAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAsyncInvokeConfigResponse> {
-    Util.validateModel(request);
+  async deleteAsyncInvokeConfigWithOptions(functionName: string, request: DeleteAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteAsyncInvokeConfigResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.qualifier)) {
+    if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteAsyncInvokeConfig",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-invoke-config`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/async-invoke-config`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new DeleteAsyncInvokeConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new DeleteAsyncInvokeConfigResponse({}));
+    } else {
+      return $dara.cast<DeleteAsyncInvokeConfigResponse>(await this.execute(params, req, runtime), new DeleteAsyncInvokeConfigResponse({}));
+    }
+
   }
 
   /**
@@ -8121,7 +9863,7 @@ export default class Client extends OpenApi {
    * @returns DeleteAsyncInvokeConfigResponse
    */
   async deleteAsyncInvokeConfig(functionName: string, request: DeleteAsyncInvokeConfigRequest): Promise<DeleteAsyncInvokeConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
   }
@@ -8133,22 +9875,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteConcurrencyConfigResponse
    */
-  async deleteConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteConcurrencyConfigResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteConcurrencyConfigResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteConcurrencyConfig",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/concurrency`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/concurrency`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new DeleteConcurrencyConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new DeleteConcurrencyConfigResponse({}));
+    } else {
+      return $dara.cast<DeleteConcurrencyConfigResponse>(await this.execute(params, req, runtime), new DeleteConcurrencyConfigResponse({}));
+    }
+
   }
 
   /**
@@ -8156,7 +9903,7 @@ export default class Client extends OpenApi {
    * @returns DeleteConcurrencyConfigResponse
    */
   async deleteConcurrencyConfig(functionName: string): Promise<DeleteConcurrencyConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteConcurrencyConfigWithOptions(functionName, headers, runtime);
   }
@@ -8168,22 +9915,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCustomDomainResponse
    */
-  async deleteCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCustomDomainResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteCustomDomainResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteCustomDomain",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/custom-domains/${OpenApiUtil.getEncodeParam(domainName)}`,
+      pathname: `/2023-03-30/custom-domains/${$dara.URL.percentEncode(domainName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteCustomDomainResponse>(await this.callApi(params, req, runtime), new DeleteCustomDomainResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteCustomDomainResponse>(await this.callApi(params, req, runtime), new DeleteCustomDomainResponse({}));
+    } else {
+      return $dara.cast<DeleteCustomDomainResponse>(await this.execute(params, req, runtime), new DeleteCustomDomainResponse({}));
+    }
+
   }
 
   /**
@@ -8191,7 +9943,7 @@ export default class Client extends OpenApi {
    * @returns DeleteCustomDomainResponse
    */
   async deleteCustomDomain(domainName: string): Promise<DeleteCustomDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteCustomDomainWithOptions(domainName, headers, runtime);
   }
@@ -8203,22 +9955,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFunctionResponse
    */
-  async deleteFunctionWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteFunctionWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteFunctionResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteFunction",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteFunctionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteFunctionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionResponse({}));
+    } else {
+      return $dara.cast<DeleteFunctionResponse>(await this.execute(params, req, runtime), new DeleteFunctionResponse({}));
+    }
+
   }
 
   /**
@@ -8226,7 +9983,7 @@ export default class Client extends OpenApi {
    * @returns DeleteFunctionResponse
    */
   async deleteFunction(functionName: string): Promise<DeleteFunctionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteFunctionWithOptions(functionName, headers, runtime);
   }
@@ -8238,22 +9995,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFunctionVersionResponse
    */
-  async deleteFunctionVersionWithOptions(functionName: string, versionId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionVersionResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteFunctionVersionWithOptions(functionName: string, versionId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteFunctionVersionResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteFunctionVersion",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/versions/${OpenApiUtil.getEncodeParam(versionId)}`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/versions/${$dara.URL.percentEncode(versionId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteFunctionVersionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionVersionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteFunctionVersionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionVersionResponse({}));
+    } else {
+      return $dara.cast<DeleteFunctionVersionResponse>(await this.execute(params, req, runtime), new DeleteFunctionVersionResponse({}));
+    }
+
   }
 
   /**
@@ -8261,7 +10023,7 @@ export default class Client extends OpenApi {
    * @returns DeleteFunctionVersionResponse
    */
   async deleteFunctionVersion(functionName: string, versionId: string): Promise<DeleteFunctionVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteFunctionVersionWithOptions(functionName, versionId, headers, runtime);
   }
@@ -8273,22 +10035,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteLayerVersionResponse
    */
-  async deleteLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLayerVersionResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteLayerVersionResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteLayerVersion",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/layers/${OpenApiUtil.getEncodeParam(layerName)}/versions/${OpenApiUtil.getEncodeParam(version)}`,
+      pathname: `/2023-03-30/layers/${$dara.URL.percentEncode(layerName)}/versions/${$dara.URL.percentEncode(version)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteLayerVersionResponse>(await this.callApi(params, req, runtime), new DeleteLayerVersionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteLayerVersionResponse>(await this.callApi(params, req, runtime), new DeleteLayerVersionResponse({}));
+    } else {
+      return $dara.cast<DeleteLayerVersionResponse>(await this.execute(params, req, runtime), new DeleteLayerVersionResponse({}));
+    }
+
   }
 
   /**
@@ -8296,7 +10063,7 @@ export default class Client extends OpenApi {
    * @returns DeleteLayerVersionResponse
    */
   async deleteLayerVersion(layerName: string, version: string): Promise<DeleteLayerVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteLayerVersionWithOptions(layerName, version, headers, runtime);
   }
@@ -8309,29 +10076,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteProvisionConfigResponse
    */
-  async deleteProvisionConfigWithOptions(functionName: string, request: DeleteProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProvisionConfigResponse> {
-    Util.validateModel(request);
+  async deleteProvisionConfigWithOptions(functionName: string, request: DeleteProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteProvisionConfigResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.qualifier)) {
+    if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteProvisionConfig",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/provision-config`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/provision-config`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteProvisionConfigResponse>(await this.callApi(params, req, runtime), new DeleteProvisionConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteProvisionConfigResponse>(await this.callApi(params, req, runtime), new DeleteProvisionConfigResponse({}));
+    } else {
+      return $dara.cast<DeleteProvisionConfigResponse>(await this.execute(params, req, runtime), new DeleteProvisionConfigResponse({}));
+    }
+
   }
 
   /**
@@ -8341,7 +10113,7 @@ export default class Client extends OpenApi {
    * @returns DeleteProvisionConfigResponse
    */
   async deleteProvisionConfig(functionName: string, request: DeleteProvisionConfigRequest): Promise<DeleteProvisionConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteProvisionConfigWithOptions(functionName, request, headers, runtime);
   }
@@ -8353,22 +10125,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteTriggerResponse
    */
-  async deleteTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTriggerResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteTriggerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteTrigger",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers/${OpenApiUtil.getEncodeParam(triggerName)}`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/triggers/${$dara.URL.percentEncode(triggerName)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteTriggerResponse>(await this.callApi(params, req, runtime), new DeleteTriggerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteTriggerResponse>(await this.callApi(params, req, runtime), new DeleteTriggerResponse({}));
+    } else {
+      return $dara.cast<DeleteTriggerResponse>(await this.execute(params, req, runtime), new DeleteTriggerResponse({}));
+    }
+
   }
 
   /**
@@ -8376,7 +10153,7 @@ export default class Client extends OpenApi {
    * @returns DeleteTriggerResponse
    */
   async deleteTrigger(functionName: string, triggerName: string): Promise<DeleteTriggerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteTriggerWithOptions(functionName, triggerName, headers, runtime);
   }
@@ -8388,22 +10165,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVpcBindingResponse
    */
-  async deleteVpcBindingWithOptions(functionName: string, vpcId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVpcBindingResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async deleteVpcBindingWithOptions(functionName: string, vpcId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DeleteVpcBindingResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteVpcBinding",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/vpc-bindings/${OpenApiUtil.getEncodeParam(vpcId)}`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/vpc-bindings/${$dara.URL.percentEncode(vpcId)}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<DeleteVpcBindingResponse>(await this.callApi(params, req, runtime), new DeleteVpcBindingResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteVpcBindingResponse>(await this.callApi(params, req, runtime), new DeleteVpcBindingResponse({}));
+    } else {
+      return $dara.cast<DeleteVpcBindingResponse>(await this.execute(params, req, runtime), new DeleteVpcBindingResponse({}));
+    }
+
   }
 
   /**
@@ -8411,7 +10193,7 @@ export default class Client extends OpenApi {
    * @returns DeleteVpcBindingResponse
    */
   async deleteVpcBinding(functionName: string, vpcId: string): Promise<DeleteVpcBindingResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteVpcBindingWithOptions(functionName, vpcId, headers, runtime);
   }
@@ -8423,22 +10205,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAliasResponse
    */
-  async getAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAliasResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetAliasResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAlias",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/aliases/${OpenApiUtil.getEncodeParam(aliasName)}`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/aliases/${$dara.URL.percentEncode(aliasName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetAliasResponse>(await this.callApi(params, req, runtime), new GetAliasResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAliasResponse>(await this.callApi(params, req, runtime), new GetAliasResponse({}));
+    } else {
+      return $dara.cast<GetAliasResponse>(await this.execute(params, req, runtime), new GetAliasResponse({}));
+    }
+
   }
 
   /**
@@ -8446,7 +10233,7 @@ export default class Client extends OpenApi {
    * @returns GetAliasResponse
    */
   async getAlias(functionName: string, aliasName: string): Promise<GetAliasResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAliasWithOptions(functionName, aliasName, headers, runtime);
   }
@@ -8459,29 +10246,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAsyncInvokeConfigResponse
    */
-  async getAsyncInvokeConfigWithOptions(functionName: string, request: GetAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAsyncInvokeConfigResponse> {
-    Util.validateModel(request);
+  async getAsyncInvokeConfigWithOptions(functionName: string, request: GetAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetAsyncInvokeConfigResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.qualifier)) {
+    if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAsyncInvokeConfig",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-invoke-config`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/async-invoke-config`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new GetAsyncInvokeConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new GetAsyncInvokeConfigResponse({}));
+    } else {
+      return $dara.cast<GetAsyncInvokeConfigResponse>(await this.execute(params, req, runtime), new GetAsyncInvokeConfigResponse({}));
+    }
+
   }
 
   /**
@@ -8491,7 +10283,7 @@ export default class Client extends OpenApi {
    * @returns GetAsyncInvokeConfigResponse
    */
   async getAsyncInvokeConfig(functionName: string, request: GetAsyncInvokeConfigRequest): Promise<GetAsyncInvokeConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
   }
@@ -8504,29 +10296,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAsyncTaskResponse
    */
-  async getAsyncTaskWithOptions(functionName: string, taskId: string, request: GetAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAsyncTaskResponse> {
-    Util.validateModel(request);
+  async getAsyncTaskWithOptions(functionName: string, taskId: string, request: GetAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetAsyncTaskResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.qualifier)) {
+    if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetAsyncTask",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-tasks/${OpenApiUtil.getEncodeParam(taskId)}`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/async-tasks/${$dara.URL.percentEncode(taskId)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetAsyncTaskResponse>(await this.callApi(params, req, runtime), new GetAsyncTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAsyncTaskResponse>(await this.callApi(params, req, runtime), new GetAsyncTaskResponse({}));
+    } else {
+      return $dara.cast<GetAsyncTaskResponse>(await this.execute(params, req, runtime), new GetAsyncTaskResponse({}));
+    }
+
   }
 
   /**
@@ -8536,7 +10333,7 @@ export default class Client extends OpenApi {
    * @returns GetAsyncTaskResponse
    */
   async getAsyncTask(functionName: string, taskId: string, request: GetAsyncTaskRequest): Promise<GetAsyncTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAsyncTaskWithOptions(functionName, taskId, request, headers, runtime);
   }
@@ -8548,22 +10345,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConcurrencyConfigResponse
    */
-  async getConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetConcurrencyConfigResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetConcurrencyConfigResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetConcurrencyConfig",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/concurrency`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/concurrency`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new GetConcurrencyConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new GetConcurrencyConfigResponse({}));
+    } else {
+      return $dara.cast<GetConcurrencyConfigResponse>(await this.execute(params, req, runtime), new GetConcurrencyConfigResponse({}));
+    }
+
   }
 
   /**
@@ -8571,7 +10373,7 @@ export default class Client extends OpenApi {
    * @returns GetConcurrencyConfigResponse
    */
   async getConcurrencyConfig(functionName: string): Promise<GetConcurrencyConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getConcurrencyConfigWithOptions(functionName, headers, runtime);
   }
@@ -8583,22 +10385,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCustomDomainResponse
    */
-  async getCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCustomDomainResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetCustomDomainResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetCustomDomain",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/custom-domains/${OpenApiUtil.getEncodeParam(domainName)}`,
+      pathname: `/2023-03-30/custom-domains/${$dara.URL.percentEncode(domainName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetCustomDomainResponse>(await this.callApi(params, req, runtime), new GetCustomDomainResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetCustomDomainResponse>(await this.callApi(params, req, runtime), new GetCustomDomainResponse({}));
+    } else {
+      return $dara.cast<GetCustomDomainResponse>(await this.execute(params, req, runtime), new GetCustomDomainResponse({}));
+    }
+
   }
 
   /**
@@ -8606,7 +10413,7 @@ export default class Client extends OpenApi {
    * @returns GetCustomDomainResponse
    */
   async getCustomDomain(domainName: string): Promise<GetCustomDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCustomDomainWithOptions(domainName, headers, runtime);
   }
@@ -8619,29 +10426,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFunctionResponse
    */
-  async getFunctionWithOptions(functionName: string, request: GetFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionResponse> {
-    Util.validateModel(request);
+  async getFunctionWithOptions(functionName: string, request: GetFunctionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetFunctionResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.qualifier)) {
+    if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetFunction",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetFunctionResponse>(await this.callApi(params, req, runtime), new GetFunctionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetFunctionResponse>(await this.callApi(params, req, runtime), new GetFunctionResponse({}));
+    } else {
+      return $dara.cast<GetFunctionResponse>(await this.execute(params, req, runtime), new GetFunctionResponse({}));
+    }
+
   }
 
   /**
@@ -8651,7 +10463,7 @@ export default class Client extends OpenApi {
    * @returns GetFunctionResponse
    */
   async getFunction(functionName: string, request: GetFunctionRequest): Promise<GetFunctionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFunctionWithOptions(functionName, request, headers, runtime);
   }
@@ -8664,29 +10476,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFunctionCodeResponse
    */
-  async getFunctionCodeWithOptions(functionName: string, request: GetFunctionCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionCodeResponse> {
-    Util.validateModel(request);
+  async getFunctionCodeWithOptions(functionName: string, request: GetFunctionCodeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetFunctionCodeResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.qualifier)) {
+    if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetFunctionCode",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/code`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/code`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetFunctionCodeResponse>(await this.callApi(params, req, runtime), new GetFunctionCodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetFunctionCodeResponse>(await this.callApi(params, req, runtime), new GetFunctionCodeResponse({}));
+    } else {
+      return $dara.cast<GetFunctionCodeResponse>(await this.execute(params, req, runtime), new GetFunctionCodeResponse({}));
+    }
+
   }
 
   /**
@@ -8696,7 +10513,7 @@ export default class Client extends OpenApi {
    * @returns GetFunctionCodeResponse
    */
   async getFunctionCode(functionName: string, request: GetFunctionCodeRequest): Promise<GetFunctionCodeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFunctionCodeWithOptions(functionName, request, headers, runtime);
   }
@@ -8708,22 +10525,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLayerVersionResponse
    */
-  async getLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetLayerVersionResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetLayerVersion",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/layers/${OpenApiUtil.getEncodeParam(layerName)}/versions/${OpenApiUtil.getEncodeParam(version)}`,
+      pathname: `/2023-03-30/layers/${$dara.URL.percentEncode(layerName)}/versions/${$dara.URL.percentEncode(version)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetLayerVersionResponse>(await this.callApi(params, req, runtime), new GetLayerVersionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetLayerVersionResponse>(await this.callApi(params, req, runtime), new GetLayerVersionResponse({}));
+    } else {
+      return $dara.cast<GetLayerVersionResponse>(await this.execute(params, req, runtime), new GetLayerVersionResponse({}));
+    }
+
   }
 
   /**
@@ -8731,7 +10553,7 @@ export default class Client extends OpenApi {
    * @returns GetLayerVersionResponse
    */
   async getLayerVersion(layerName: string, version: string): Promise<GetLayerVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLayerVersionWithOptions(layerName, version, headers, runtime);
   }
@@ -8743,22 +10565,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLayerVersionByArnResponse
    */
-  async getLayerVersionByArnWithOptions(arn: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionByArnResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getLayerVersionByArnWithOptions(arn: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetLayerVersionByArnResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetLayerVersionByArn",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/layerarn/${OpenApiUtil.getEncodeParam(arn)}`,
+      pathname: `/2023-03-30/layerarn/${$dara.URL.percentEncode(arn)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetLayerVersionByArnResponse>(await this.callApi(params, req, runtime), new GetLayerVersionByArnResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetLayerVersionByArnResponse>(await this.callApi(params, req, runtime), new GetLayerVersionByArnResponse({}));
+    } else {
+      return $dara.cast<GetLayerVersionByArnResponse>(await this.execute(params, req, runtime), new GetLayerVersionByArnResponse({}));
+    }
+
   }
 
   /**
@@ -8766,7 +10593,7 @@ export default class Client extends OpenApi {
    * @returns GetLayerVersionByArnResponse
    */
   async getLayerVersionByArn(arn: string): Promise<GetLayerVersionByArnResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLayerVersionByArnWithOptions(arn, headers, runtime);
   }
@@ -8779,29 +10606,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetProvisionConfigResponse
    */
-  async getProvisionConfigWithOptions(functionName: string, request: GetProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProvisionConfigResponse> {
-    Util.validateModel(request);
+  async getProvisionConfigWithOptions(functionName: string, request: GetProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetProvisionConfigResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.qualifier)) {
+    if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetProvisionConfig",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/provision-config`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/provision-config`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetProvisionConfigResponse>(await this.callApi(params, req, runtime), new GetProvisionConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetProvisionConfigResponse>(await this.callApi(params, req, runtime), new GetProvisionConfigResponse({}));
+    } else {
+      return $dara.cast<GetProvisionConfigResponse>(await this.execute(params, req, runtime), new GetProvisionConfigResponse({}));
+    }
+
   }
 
   /**
@@ -8811,7 +10643,7 @@ export default class Client extends OpenApi {
    * @returns GetProvisionConfigResponse
    */
   async getProvisionConfig(functionName: string, request: GetProvisionConfigRequest): Promise<GetProvisionConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getProvisionConfigWithOptions(functionName, request, headers, runtime);
   }
@@ -8823,22 +10655,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTriggerResponse
    */
-  async getTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTriggerResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async getTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetTriggerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetTrigger",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers/${OpenApiUtil.getEncodeParam(triggerName)}`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/triggers/${$dara.URL.percentEncode(triggerName)}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTriggerResponse>(await this.callApi(params, req, runtime), new GetTriggerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetTriggerResponse>(await this.callApi(params, req, runtime), new GetTriggerResponse({}));
+    } else {
+      return $dara.cast<GetTriggerResponse>(await this.execute(params, req, runtime), new GetTriggerResponse({}));
+    }
+
   }
 
   /**
@@ -8846,7 +10683,7 @@ export default class Client extends OpenApi {
    * @returns GetTriggerResponse
    */
   async getTrigger(functionName: string, triggerName: string): Promise<GetTriggerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTriggerWithOptions(functionName, triggerName, headers, runtime);
   }
@@ -8859,41 +10696,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InvokeFunctionResponse
    */
-  async invokeFunctionWithOptions(functionName: string, request: InvokeFunctionRequest, headers: InvokeFunctionHeaders, runtime: $Util.RuntimeOptions): Promise<InvokeFunctionResponse> {
-    Util.validateModel(request);
+  async invokeFunctionWithOptions(functionName: string, request: InvokeFunctionRequest, headers: InvokeFunctionHeaders, runtime: $dara.RuntimeOptions): Promise<InvokeFunctionResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.qualifier)) {
+    if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }
 
     let realHeaders : {[key: string ]: string} = { };
-    if (!Util.isUnset(headers.commonHeaders)) {
+    if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xFcAsyncTaskId)) {
-      realHeaders["x-fc-async-task-id"] = Util.toJSONString(headers.xFcAsyncTaskId);
+    if (!$dara.isNull(headers.xFcAsyncTaskId)) {
+      realHeaders["x-fc-async-task-id"] = JSON.stringify(headers.xFcAsyncTaskId);
     }
 
-    if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["x-fc-invocation-type"] = Util.toJSONString(headers.xFcInvocationType);
+    if (!$dara.isNull(headers.xFcInvocationType)) {
+      realHeaders["x-fc-invocation-type"] = JSON.stringify(headers.xFcInvocationType);
     }
 
-    if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["x-fc-log-type"] = Util.toJSONString(headers.xFcLogType);
+    if (!$dara.isNull(headers.xFcLogType)) {
+      realHeaders["x-fc-log-type"] = JSON.stringify(headers.xFcLogType);
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
       body: request.body,
       stream: request.body,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "InvokeFunction",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/invocations`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/invocations`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -8901,19 +10738,19 @@ export default class Client extends OpenApi {
       bodyType: "binary",
     });
     let res = new InvokeFunctionResponse({ });
-    let tmp = Util.assertAsMap(await this.callApi(params, req, runtime));
-    if (!Util.isUnset(tmp["body"])) {
-      let respBody = Util.assertAsReadable(tmp["body"]);
+    let tmp = await this.callApi(params, req, runtime);
+    if (!$dara.isNull(tmp["body"])) {
+      let respBody = Readable.from(tmp["body"]);
       res.body = respBody;
     }
 
-    if (!Util.isUnset(tmp["headers"])) {
-      let respHeaders = Util.assertAsMap(tmp["headers"]);
-      res.headers = Util.stringifyMapValue(respHeaders);
+    if (!$dara.isNull(tmp["headers"])) {
+      let respHeaders = tmp["headers"];
+      res.headers = OpenApiUtil.stringifyMapValue(respHeaders);
     }
 
-    if (!Util.isUnset(tmp["statusCode"])) {
-      let statusCode = Util.assertAsInteger(tmp["statusCode"]);
+    if (!$dara.isNull(tmp["statusCode"])) {
+      let statusCode = parseInt(tmp["statusCode"]);
       res.statusCode = statusCode;
     }
 
@@ -8927,7 +10764,7 @@ export default class Client extends OpenApi {
    * @returns InvokeFunctionResponse
    */
   async invokeFunction(functionName: string, request: InvokeFunctionRequest): Promise<InvokeFunctionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers = new InvokeFunctionHeaders({ });
     return await this.invokeFunctionWithOptions(functionName, request, headers, runtime);
   }
@@ -8940,37 +10777,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAliasesResponse
    */
-  async listAliasesWithOptions(functionName: string, request: ListAliasesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAliasesResponse> {
-    Util.validateModel(request);
+  async listAliasesWithOptions(functionName: string, request: ListAliasesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListAliasesResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.prefix)) {
+    if (!$dara.isNull(request.prefix)) {
       query["prefix"] = request.prefix;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAliases",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/aliases`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/aliases`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListAliasesResponse>(await this.callApi(params, req, runtime), new ListAliasesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAliasesResponse>(await this.callApi(params, req, runtime), new ListAliasesResponse({}));
+    } else {
+      return $dara.cast<ListAliasesResponse>(await this.execute(params, req, runtime), new ListAliasesResponse({}));
+    }
+
   }
 
   /**
@@ -8980,7 +10822,7 @@ export default class Client extends OpenApi {
    * @returns ListAliasesResponse
    */
   async listAliases(functionName: string, request: ListAliasesRequest): Promise<ListAliasesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAliasesWithOptions(functionName, request, headers, runtime);
   }
@@ -8993,26 +10835,26 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAsyncInvokeConfigsResponse
    */
-  async listAsyncInvokeConfigsWithOptions(request: ListAsyncInvokeConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAsyncInvokeConfigsResponse> {
-    Util.validateModel(request);
+  async listAsyncInvokeConfigsWithOptions(request: ListAsyncInvokeConfigsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListAsyncInvokeConfigsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.functionName)) {
+    if (!$dara.isNull(request.functionName)) {
       query["functionName"] = request.functionName;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAsyncInvokeConfigs",
       version: "2023-03-30",
       protocol: "HTTPS",
@@ -9023,7 +10865,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListAsyncInvokeConfigsResponse>(await this.callApi(params, req, runtime), new ListAsyncInvokeConfigsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAsyncInvokeConfigsResponse>(await this.callApi(params, req, runtime), new ListAsyncInvokeConfigsResponse({}));
+    } else {
+      return $dara.cast<ListAsyncInvokeConfigsResponse>(await this.execute(params, req, runtime), new ListAsyncInvokeConfigsResponse({}));
+    }
+
   }
 
   /**
@@ -9033,7 +10880,7 @@ export default class Client extends OpenApi {
    * @returns ListAsyncInvokeConfigsResponse
    */
   async listAsyncInvokeConfigs(request: ListAsyncInvokeConfigsRequest): Promise<ListAsyncInvokeConfigsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAsyncInvokeConfigsWithOptions(request, headers, runtime);
   }
@@ -9046,61 +10893,66 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAsyncTasksResponse
    */
-  async listAsyncTasksWithOptions(functionName: string, request: ListAsyncTasksRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAsyncTasksResponse> {
-    Util.validateModel(request);
+  async listAsyncTasksWithOptions(functionName: string, request: ListAsyncTasksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListAsyncTasksResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.includePayload)) {
+    if (!$dara.isNull(request.includePayload)) {
       query["includePayload"] = request.includePayload;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.prefix)) {
+    if (!$dara.isNull(request.prefix)) {
       query["prefix"] = request.prefix;
     }
 
-    if (!Util.isUnset(request.qualifier)) {
+    if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }
 
-    if (!Util.isUnset(request.sortOrderByTime)) {
+    if (!$dara.isNull(request.sortOrderByTime)) {
       query["sortOrderByTime"] = request.sortOrderByTime;
     }
 
-    if (!Util.isUnset(request.startedTimeBegin)) {
+    if (!$dara.isNull(request.startedTimeBegin)) {
       query["startedTimeBegin"] = request.startedTimeBegin;
     }
 
-    if (!Util.isUnset(request.startedTimeEnd)) {
+    if (!$dara.isNull(request.startedTimeEnd)) {
       query["startedTimeEnd"] = request.startedTimeEnd;
     }
 
-    if (!Util.isUnset(request.status)) {
+    if (!$dara.isNull(request.status)) {
       query["status"] = request.status;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListAsyncTasks",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-tasks`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/async-tasks`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListAsyncTasksResponse>(await this.callApi(params, req, runtime), new ListAsyncTasksResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListAsyncTasksResponse>(await this.callApi(params, req, runtime), new ListAsyncTasksResponse({}));
+    } else {
+      return $dara.cast<ListAsyncTasksResponse>(await this.execute(params, req, runtime), new ListAsyncTasksResponse({}));
+    }
+
   }
 
   /**
@@ -9110,7 +10962,7 @@ export default class Client extends OpenApi {
    * @returns ListAsyncTasksResponse
    */
   async listAsyncTasks(functionName: string, request: ListAsyncTasksRequest): Promise<ListAsyncTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listAsyncTasksWithOptions(functionName, request, headers, runtime);
   }
@@ -9123,26 +10975,26 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListConcurrencyConfigsResponse
    */
-  async listConcurrencyConfigsWithOptions(request: ListConcurrencyConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListConcurrencyConfigsResponse> {
-    Util.validateModel(request);
+  async listConcurrencyConfigsWithOptions(request: ListConcurrencyConfigsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListConcurrencyConfigsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.functionName)) {
+    if (!$dara.isNull(request.functionName)) {
       query["functionName"] = request.functionName;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListConcurrencyConfigs",
       version: "2023-03-30",
       protocol: "HTTPS",
@@ -9153,7 +11005,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListConcurrencyConfigsResponse>(await this.callApi(params, req, runtime), new ListConcurrencyConfigsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListConcurrencyConfigsResponse>(await this.callApi(params, req, runtime), new ListConcurrencyConfigsResponse({}));
+    } else {
+      return $dara.cast<ListConcurrencyConfigsResponse>(await this.execute(params, req, runtime), new ListConcurrencyConfigsResponse({}));
+    }
+
   }
 
   /**
@@ -9163,7 +11020,7 @@ export default class Client extends OpenApi {
    * @returns ListConcurrencyConfigsResponse
    */
   async listConcurrencyConfigs(request: ListConcurrencyConfigsRequest): Promise<ListConcurrencyConfigsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listConcurrencyConfigsWithOptions(request, headers, runtime);
   }
@@ -9176,26 +11033,26 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCustomDomainsResponse
    */
-  async listCustomDomainsWithOptions(request: ListCustomDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCustomDomainsResponse> {
-    Util.validateModel(request);
+  async listCustomDomainsWithOptions(request: ListCustomDomainsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListCustomDomainsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.prefix)) {
+    if (!$dara.isNull(request.prefix)) {
       query["prefix"] = request.prefix;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListCustomDomains",
       version: "2023-03-30",
       protocol: "HTTPS",
@@ -9206,7 +11063,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListCustomDomainsResponse>(await this.callApi(params, req, runtime), new ListCustomDomainsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListCustomDomainsResponse>(await this.callApi(params, req, runtime), new ListCustomDomainsResponse({}));
+    } else {
+      return $dara.cast<ListCustomDomainsResponse>(await this.execute(params, req, runtime), new ListCustomDomainsResponse({}));
+    }
+
   }
 
   /**
@@ -9216,7 +11078,7 @@ export default class Client extends OpenApi {
    * @returns ListCustomDomainsResponse
    */
   async listCustomDomains(request: ListCustomDomainsRequest): Promise<ListCustomDomainsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listCustomDomainsWithOptions(request, headers, runtime);
   }
@@ -9229,37 +11091,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFunctionVersionsResponse
    */
-  async listFunctionVersionsWithOptions(functionName: string, request: ListFunctionVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionVersionsResponse> {
-    Util.validateModel(request);
+  async listFunctionVersionsWithOptions(functionName: string, request: ListFunctionVersionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListFunctionVersionsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.direction)) {
+    if (!$dara.isNull(request.direction)) {
       query["direction"] = request.direction;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListFunctionVersions",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/versions`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/versions`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListFunctionVersionsResponse>(await this.callApi(params, req, runtime), new ListFunctionVersionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListFunctionVersionsResponse>(await this.callApi(params, req, runtime), new ListFunctionVersionsResponse({}));
+    } else {
+      return $dara.cast<ListFunctionVersionsResponse>(await this.execute(params, req, runtime), new ListFunctionVersionsResponse({}));
+    }
+
   }
 
   /**
@@ -9269,7 +11136,7 @@ export default class Client extends OpenApi {
    * @returns ListFunctionVersionsResponse
    */
   async listFunctionVersions(functionName: string, request: ListFunctionVersionsRequest): Promise<ListFunctionVersionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFunctionVersionsWithOptions(functionName, request, headers, runtime);
   }
@@ -9282,30 +11149,30 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFunctionsResponse
    */
-  async listFunctionsWithOptions(request: ListFunctionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionsResponse> {
-    Util.validateModel(request);
+  async listFunctionsWithOptions(request: ListFunctionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListFunctionsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.fcVersion)) {
+    if (!$dara.isNull(request.fcVersion)) {
       query["fcVersion"] = request.fcVersion;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.prefix)) {
+    if (!$dara.isNull(request.prefix)) {
       query["prefix"] = request.prefix;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListFunctions",
       version: "2023-03-30",
       protocol: "HTTPS",
@@ -9316,7 +11183,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
+    } else {
+      return $dara.cast<ListFunctionsResponse>(await this.execute(params, req, runtime), new ListFunctionsResponse({}));
+    }
+
   }
 
   /**
@@ -9326,7 +11198,7 @@ export default class Client extends OpenApi {
    * @returns ListFunctionsResponse
    */
   async listFunctions(request: ListFunctionsRequest): Promise<ListFunctionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFunctionsWithOptions(request, headers, runtime);
   }
@@ -9339,67 +11211,72 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstancesResponse
    */
-  async listInstancesWithOptions(functionName: string, tmpReq: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
-    Util.validateModel(tmpReq);
+  async listInstancesWithOptions(functionName: string, tmpReq: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListInstancesResponse> {
+    tmpReq.validate();
     let request = new ListInstancesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.instanceIds)) {
+    if (!$dara.isNull(tmpReq.instanceIds)) {
       request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "instanceIds", "json");
     }
 
-    if (!Util.isUnset(tmpReq.instanceStatus)) {
+    if (!$dara.isNull(tmpReq.instanceStatus)) {
       request.instanceStatusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceStatus, "instanceStatus", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endTimeMs)) {
+    if (!$dara.isNull(request.endTimeMs)) {
       query["endTimeMs"] = request.endTimeMs;
     }
 
-    if (!Util.isUnset(request.instanceIdsShrink)) {
+    if (!$dara.isNull(request.instanceIdsShrink)) {
       query["instanceIds"] = request.instanceIdsShrink;
     }
 
-    if (!Util.isUnset(request.instanceStatusShrink)) {
+    if (!$dara.isNull(request.instanceStatusShrink)) {
       query["instanceStatus"] = request.instanceStatusShrink;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.qualifier)) {
+    if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }
 
-    if (!Util.isUnset(request.startKey)) {
+    if (!$dara.isNull(request.startKey)) {
       query["startKey"] = request.startKey;
     }
 
-    if (!Util.isUnset(request.startTimeMs)) {
+    if (!$dara.isNull(request.startTimeMs)) {
       query["startTimeMs"] = request.startTimeMs;
     }
 
-    if (!Util.isUnset(request.withAllActive)) {
+    if (!$dara.isNull(request.withAllActive)) {
       query["withAllActive"] = request.withAllActive;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListInstances",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/instances`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/instances`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+    } else {
+      return $dara.cast<ListInstancesResponse>(await this.execute(params, req, runtime), new ListInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -9409,7 +11286,7 @@ export default class Client extends OpenApi {
    * @returns ListInstancesResponse
    */
   async listInstances(functionName: string, request: ListInstancesRequest): Promise<ListInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(functionName, request, headers, runtime);
   }
@@ -9422,33 +11299,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListLayerVersionsResponse
    */
-  async listLayerVersionsWithOptions(layerName: string, request: ListLayerVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayerVersionsResponse> {
-    Util.validateModel(request);
+  async listLayerVersionsWithOptions(layerName: string, request: ListLayerVersionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListLayerVersionsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.startVersion)) {
+    if (!$dara.isNull(request.startVersion)) {
       query["startVersion"] = request.startVersion;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListLayerVersions",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/layers/${OpenApiUtil.getEncodeParam(layerName)}/versions`,
+      pathname: `/2023-03-30/layers/${$dara.URL.percentEncode(layerName)}/versions`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListLayerVersionsResponse>(await this.callApi(params, req, runtime), new ListLayerVersionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListLayerVersionsResponse>(await this.callApi(params, req, runtime), new ListLayerVersionsResponse({}));
+    } else {
+      return $dara.cast<ListLayerVersionsResponse>(await this.execute(params, req, runtime), new ListLayerVersionsResponse({}));
+    }
+
   }
 
   /**
@@ -9458,7 +11340,7 @@ export default class Client extends OpenApi {
    * @returns ListLayerVersionsResponse
    */
   async listLayerVersions(layerName: string, request: ListLayerVersionsRequest): Promise<ListLayerVersionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLayerVersionsWithOptions(layerName, request, headers, runtime);
   }
@@ -9471,34 +11353,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListLayersResponse
    */
-  async listLayersWithOptions(request: ListLayersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayersResponse> {
-    Util.validateModel(request);
+  async listLayersWithOptions(request: ListLayersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListLayersResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.official)) {
+    if (!$dara.isNull(request.official)) {
       query["official"] = request.official;
     }
 
-    if (!Util.isUnset(request.prefix)) {
+    if (!$dara.isNull(request.prefix)) {
       query["prefix"] = request.prefix;
     }
 
-    if (!Util.isUnset(request.public)) {
+    if (!$dara.isNull(request.public)) {
       query["public"] = request.public;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListLayers",
       version: "2023-03-30",
       protocol: "HTTPS",
@@ -9509,7 +11391,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListLayersResponse>(await this.callApi(params, req, runtime), new ListLayersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListLayersResponse>(await this.callApi(params, req, runtime), new ListLayersResponse({}));
+    } else {
+      return $dara.cast<ListLayersResponse>(await this.execute(params, req, runtime), new ListLayersResponse({}));
+    }
+
   }
 
   /**
@@ -9519,7 +11406,7 @@ export default class Client extends OpenApi {
    * @returns ListLayersResponse
    */
   async listLayers(request: ListLayersRequest): Promise<ListLayersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listLayersWithOptions(request, headers, runtime);
   }
@@ -9532,26 +11419,26 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListProvisionConfigsResponse
    */
-  async listProvisionConfigsWithOptions(request: ListProvisionConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProvisionConfigsResponse> {
-    Util.validateModel(request);
+  async listProvisionConfigsWithOptions(request: ListProvisionConfigsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListProvisionConfigsResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.functionName)) {
+    if (!$dara.isNull(request.functionName)) {
       query["functionName"] = request.functionName;
     }
 
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListProvisionConfigs",
       version: "2023-03-30",
       protocol: "HTTPS",
@@ -9562,7 +11449,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListProvisionConfigsResponse>(await this.callApi(params, req, runtime), new ListProvisionConfigsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListProvisionConfigsResponse>(await this.callApi(params, req, runtime), new ListProvisionConfigsResponse({}));
+    } else {
+      return $dara.cast<ListProvisionConfigsResponse>(await this.execute(params, req, runtime), new ListProvisionConfigsResponse({}));
+    }
+
   }
 
   /**
@@ -9572,7 +11464,7 @@ export default class Client extends OpenApi {
    * @returns ListProvisionConfigsResponse
    */
   async listProvisionConfigs(request: ListProvisionConfigsRequest): Promise<ListProvisionConfigsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listProvisionConfigsWithOptions(request, headers, runtime);
   }
@@ -9585,44 +11477,44 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
    */
-  async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(tmpReq);
+  async listTagResourcesWithOptions(tmpReq: ListTagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    tmpReq.validate();
     let request = new ListTagResourcesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.resourceId)) {
+    if (!$dara.isNull(tmpReq.resourceId)) {
       request.resourceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceId, "ResourceId", "json");
     }
 
-    if (!Util.isUnset(tmpReq.tag)) {
+    if (!$dara.isNull(tmpReq.tag)) {
       request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["Limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.resourceIdShrink)) {
+    if (!$dara.isNull(request.resourceIdShrink)) {
       query["ResourceId"] = request.resourceIdShrink;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagShrink)) {
+    if (!$dara.isNull(request.tagShrink)) {
       query["Tag"] = request.tagShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTagResources",
       version: "2023-03-30",
       protocol: "HTTPS",
@@ -9633,7 +11525,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -9643,7 +11540,7 @@ export default class Client extends OpenApi {
    * @returns ListTagResourcesResponse
    */
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTagResourcesWithOptions(request, headers, runtime);
   }
@@ -9656,37 +11553,42 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTriggersResponse
    */
-  async listTriggersWithOptions(functionName: string, request: ListTriggersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTriggersResponse> {
-    Util.validateModel(request);
+  async listTriggersWithOptions(functionName: string, request: ListTriggersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListTriggersResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.limit)) {
+    if (!$dara.isNull(request.limit)) {
       query["limit"] = request.limit;
     }
 
-    if (!Util.isUnset(request.nextToken)) {
+    if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
     }
 
-    if (!Util.isUnset(request.prefix)) {
+    if (!$dara.isNull(request.prefix)) {
       query["prefix"] = request.prefix;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListTriggers",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/triggers`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTriggersResponse>(await this.callApi(params, req, runtime), new ListTriggersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTriggersResponse>(await this.callApi(params, req, runtime), new ListTriggersResponse({}));
+    } else {
+      return $dara.cast<ListTriggersResponse>(await this.execute(params, req, runtime), new ListTriggersResponse({}));
+    }
+
   }
 
   /**
@@ -9696,7 +11598,7 @@ export default class Client extends OpenApi {
    * @returns ListTriggersResponse
    */
   async listTriggers(functionName: string, request: ListTriggersRequest): Promise<ListTriggersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listTriggersWithOptions(functionName, request, headers, runtime);
   }
@@ -9708,22 +11610,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVpcBindingsResponse
    */
-  async listVpcBindingsWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVpcBindingsResponse> {
-    let req = new $OpenApi.OpenApiRequest({
+  async listVpcBindingsWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListVpcBindingsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListVpcBindings",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/vpc-bindings`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/vpc-bindings`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListVpcBindingsResponse>(await this.callApi(params, req, runtime), new ListVpcBindingsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListVpcBindingsResponse>(await this.callApi(params, req, runtime), new ListVpcBindingsResponse({}));
+    } else {
+      return $dara.cast<ListVpcBindingsResponse>(await this.execute(params, req, runtime), new ListVpcBindingsResponse({}));
+    }
+
   }
 
   /**
@@ -9731,7 +11638,7 @@ export default class Client extends OpenApi {
    * @returns ListVpcBindingsResponse
    */
   async listVpcBindings(functionName: string): Promise<ListVpcBindingsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listVpcBindingsWithOptions(functionName, headers, runtime);
   }
@@ -9744,24 +11651,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PublishFunctionVersionResponse
    */
-  async publishFunctionVersionWithOptions(functionName: string, request: PublishFunctionVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishFunctionVersionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async publishFunctionVersionWithOptions(functionName: string, request: PublishFunctionVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<PublishFunctionVersionResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PublishFunctionVersion",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/versions`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/versions`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<PublishFunctionVersionResponse>(await this.callApi(params, req, runtime), new PublishFunctionVersionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PublishFunctionVersionResponse>(await this.callApi(params, req, runtime), new PublishFunctionVersionResponse({}));
+    } else {
+      return $dara.cast<PublishFunctionVersionResponse>(await this.execute(params, req, runtime), new PublishFunctionVersionResponse({}));
+    }
+
   }
 
   /**
@@ -9771,7 +11683,7 @@ export default class Client extends OpenApi {
    * @returns PublishFunctionVersionResponse
    */
   async publishFunctionVersion(functionName: string, request: PublishFunctionVersionRequest): Promise<PublishFunctionVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.publishFunctionVersionWithOptions(functionName, request, headers, runtime);
   }
@@ -9784,30 +11696,35 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PutAsyncInvokeConfigResponse
    */
-  async putAsyncInvokeConfigWithOptions(functionName: string, request: PutAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutAsyncInvokeConfigResponse> {
-    Util.validateModel(request);
+  async putAsyncInvokeConfigWithOptions(functionName: string, request: PutAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<PutAsyncInvokeConfigResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.qualifier)) {
+    if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PutAsyncInvokeConfig",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-invoke-config`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/async-invoke-config`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<PutAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new PutAsyncInvokeConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PutAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new PutAsyncInvokeConfigResponse({}));
+    } else {
+      return $dara.cast<PutAsyncInvokeConfigResponse>(await this.execute(params, req, runtime), new PutAsyncInvokeConfigResponse({}));
+    }
+
   }
 
   /**
@@ -9817,7 +11734,7 @@ export default class Client extends OpenApi {
    * @returns PutAsyncInvokeConfigResponse
    */
   async putAsyncInvokeConfig(functionName: string, request: PutAsyncInvokeConfigRequest): Promise<PutAsyncInvokeConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putAsyncInvokeConfigWithOptions(functionName, request, headers, runtime);
   }
@@ -9830,24 +11747,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PutConcurrencyConfigResponse
    */
-  async putConcurrencyConfigWithOptions(functionName: string, request: PutConcurrencyConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutConcurrencyConfigResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async putConcurrencyConfigWithOptions(functionName: string, request: PutConcurrencyConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<PutConcurrencyConfigResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PutConcurrencyConfig",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/concurrency`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/concurrency`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<PutConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new PutConcurrencyConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PutConcurrencyConfigResponse>(await this.callApi(params, req, runtime), new PutConcurrencyConfigResponse({}));
+    } else {
+      return $dara.cast<PutConcurrencyConfigResponse>(await this.execute(params, req, runtime), new PutConcurrencyConfigResponse({}));
+    }
+
   }
 
   /**
@@ -9857,7 +11779,7 @@ export default class Client extends OpenApi {
    * @returns PutConcurrencyConfigResponse
    */
   async putConcurrencyConfig(functionName: string, request: PutConcurrencyConfigRequest): Promise<PutConcurrencyConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putConcurrencyConfigWithOptions(functionName, request, headers, runtime);
   }
@@ -9870,33 +11792,38 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PutLayerACLResponse
    */
-  async putLayerACLWithOptions(layerName: string, request: PutLayerACLRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutLayerACLResponse> {
-    Util.validateModel(request);
+  async putLayerACLWithOptions(layerName: string, request: PutLayerACLRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<PutLayerACLResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.acl)) {
+    if (!$dara.isNull(request.acl)) {
       query["acl"] = request.acl;
     }
 
-    if (!Util.isUnset(request.public)) {
+    if (!$dara.isNull(request.public)) {
       query["public"] = request.public;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PutLayerACL",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/layers/${OpenApiUtil.getEncodeParam(layerName)}/acl`,
+      pathname: `/2023-03-30/layers/${$dara.URL.percentEncode(layerName)}/acl`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<PutLayerACLResponse>(await this.callApi(params, req, runtime), new PutLayerACLResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PutLayerACLResponse>(await this.callApi(params, req, runtime), new PutLayerACLResponse({}));
+    } else {
+      return $dara.cast<PutLayerACLResponse>(await this.execute(params, req, runtime), new PutLayerACLResponse({}));
+    }
+
   }
 
   /**
@@ -9906,7 +11833,7 @@ export default class Client extends OpenApi {
    * @returns PutLayerACLResponse
    */
   async putLayerACL(layerName: string, request: PutLayerACLRequest): Promise<PutLayerACLResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putLayerACLWithOptions(layerName, request, headers, runtime);
   }
@@ -9919,30 +11846,35 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PutProvisionConfigResponse
    */
-  async putProvisionConfigWithOptions(functionName: string, request: PutProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutProvisionConfigResponse> {
-    Util.validateModel(request);
+  async putProvisionConfigWithOptions(functionName: string, request: PutProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<PutProvisionConfigResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.qualifier)) {
+    if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "PutProvisionConfig",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/provision-config`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/provision-config`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<PutProvisionConfigResponse>(await this.callApi(params, req, runtime), new PutProvisionConfigResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<PutProvisionConfigResponse>(await this.callApi(params, req, runtime), new PutProvisionConfigResponse({}));
+    } else {
+      return $dara.cast<PutProvisionConfigResponse>(await this.execute(params, req, runtime), new PutProvisionConfigResponse({}));
+    }
+
   }
 
   /**
@@ -9952,7 +11884,7 @@ export default class Client extends OpenApi {
    * @returns PutProvisionConfigResponse
    */
   async putProvisionConfig(functionName: string, request: PutProvisionConfigRequest): Promise<PutProvisionConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putProvisionConfigWithOptions(functionName, request, headers, runtime);
   }
@@ -9965,29 +11897,34 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopAsyncTaskResponse
    */
-  async stopAsyncTaskWithOptions(functionName: string, taskId: string, request: StopAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopAsyncTaskResponse> {
-    Util.validateModel(request);
+  async stopAsyncTaskWithOptions(functionName: string, taskId: string, request: StopAsyncTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<StopAsyncTaskResponse> {
+    request.validate();
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.qualifier)) {
+    if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopAsyncTask",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/async-tasks/${OpenApiUtil.getEncodeParam(taskId)}/stop`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/async-tasks/${$dara.URL.percentEncode(taskId)}/stop`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<StopAsyncTaskResponse>(await this.callApi(params, req, runtime), new StopAsyncTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopAsyncTaskResponse>(await this.callApi(params, req, runtime), new StopAsyncTaskResponse({}));
+    } else {
+      return $dara.cast<StopAsyncTaskResponse>(await this.execute(params, req, runtime), new StopAsyncTaskResponse({}));
+    }
+
   }
 
   /**
@@ -9997,7 +11934,7 @@ export default class Client extends OpenApi {
    * @returns StopAsyncTaskResponse
    */
   async stopAsyncTask(functionName: string, taskId: string, request: StopAsyncTaskRequest): Promise<StopAsyncTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopAsyncTaskWithOptions(functionName, taskId, request, headers, runtime);
   }
@@ -10013,13 +11950,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TagResourcesResponse
    */
-  async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async tagResourcesWithOptions(request: TagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<TagResourcesResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "TagResources",
       version: "2023-03-30",
       protocol: "HTTPS",
@@ -10030,7 +11967,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -10043,7 +11985,7 @@ export default class Client extends OpenApi {
    * @returns TagResourcesResponse
    */
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.tagResourcesWithOptions(request, headers, runtime);
   }
@@ -10056,40 +11998,40 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
    */
-  async untagResourcesWithOptions(tmpReq: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
-    Util.validateModel(tmpReq);
+  async untagResourcesWithOptions(tmpReq: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UntagResourcesResponse> {
+    tmpReq.validate();
     let request = new UntagResourcesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.resourceId)) {
+    if (!$dara.isNull(tmpReq.resourceId)) {
       request.resourceIdShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceId, "ResourceId", "json");
     }
 
-    if (!Util.isUnset(tmpReq.tagKey)) {
+    if (!$dara.isNull(tmpReq.tagKey)) {
       request.tagKeyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagKey, "TagKey", "json");
     }
 
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.all)) {
+    if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
     }
 
-    if (!Util.isUnset(request.resourceIdShrink)) {
+    if (!$dara.isNull(request.resourceIdShrink)) {
       query["ResourceId"] = request.resourceIdShrink;
     }
 
-    if (!Util.isUnset(request.resourceType)) {
+    if (!$dara.isNull(request.resourceType)) {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.tagKeyShrink)) {
+    if (!$dara.isNull(request.tagKeyShrink)) {
       query["TagKey"] = request.tagKeyShrink;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UntagResources",
       version: "2023-03-30",
       protocol: "HTTPS",
@@ -10100,7 +12042,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "none",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -10110,7 +12057,7 @@ export default class Client extends OpenApi {
    * @returns UntagResourcesResponse
    */
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.untagResourcesWithOptions(request, headers, runtime);
   }
@@ -10123,24 +12070,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAliasResponse
    */
-  async updateAliasWithOptions(functionName: string, aliasName: string, request: UpdateAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAliasResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async updateAliasWithOptions(functionName: string, aliasName: string, request: UpdateAliasRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateAliasResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateAlias",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/aliases/${OpenApiUtil.getEncodeParam(aliasName)}`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/aliases/${$dara.URL.percentEncode(aliasName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAliasResponse>(await this.callApi(params, req, runtime), new UpdateAliasResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateAliasResponse>(await this.callApi(params, req, runtime), new UpdateAliasResponse({}));
+    } else {
+      return $dara.cast<UpdateAliasResponse>(await this.execute(params, req, runtime), new UpdateAliasResponse({}));
+    }
+
   }
 
   /**
@@ -10150,7 +12102,7 @@ export default class Client extends OpenApi {
    * @returns UpdateAliasResponse
    */
   async updateAlias(functionName: string, aliasName: string, request: UpdateAliasRequest): Promise<UpdateAliasResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAliasWithOptions(functionName, aliasName, request, headers, runtime);
   }
@@ -10163,24 +12115,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCustomDomainResponse
    */
-  async updateCustomDomainWithOptions(domainName: string, request: UpdateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCustomDomainResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async updateCustomDomainWithOptions(domainName: string, request: UpdateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateCustomDomainResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateCustomDomain",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/custom-domains/${OpenApiUtil.getEncodeParam(domainName)}`,
+      pathname: `/2023-03-30/custom-domains/${$dara.URL.percentEncode(domainName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCustomDomainResponse>(await this.callApi(params, req, runtime), new UpdateCustomDomainResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateCustomDomainResponse>(await this.callApi(params, req, runtime), new UpdateCustomDomainResponse({}));
+    } else {
+      return $dara.cast<UpdateCustomDomainResponse>(await this.execute(params, req, runtime), new UpdateCustomDomainResponse({}));
+    }
+
   }
 
   /**
@@ -10190,7 +12147,7 @@ export default class Client extends OpenApi {
    * @returns UpdateCustomDomainResponse
    */
   async updateCustomDomain(domainName: string, request: UpdateCustomDomainRequest): Promise<UpdateCustomDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateCustomDomainWithOptions(domainName, request, headers, runtime);
   }
@@ -10203,24 +12160,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateFunctionResponse
    */
-  async updateFunctionWithOptions(functionName: string, request: UpdateFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFunctionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async updateFunctionWithOptions(functionName: string, request: UpdateFunctionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateFunctionResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateFunction",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateFunctionResponse>(await this.callApi(params, req, runtime), new UpdateFunctionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateFunctionResponse>(await this.callApi(params, req, runtime), new UpdateFunctionResponse({}));
+    } else {
+      return $dara.cast<UpdateFunctionResponse>(await this.execute(params, req, runtime), new UpdateFunctionResponse({}));
+    }
+
   }
 
   /**
@@ -10230,7 +12192,7 @@ export default class Client extends OpenApi {
    * @returns UpdateFunctionResponse
    */
   async updateFunction(functionName: string, request: UpdateFunctionRequest): Promise<UpdateFunctionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateFunctionWithOptions(functionName, request, headers, runtime);
   }
@@ -10243,24 +12205,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateTriggerResponse
    */
-  async updateTriggerWithOptions(functionName: string, triggerName: string, request: UpdateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTriggerResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
+  async updateTriggerWithOptions(functionName: string, triggerName: string, request: UpdateTriggerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<UpdateTriggerResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(request.body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateTrigger",
       version: "2023-03-30",
       protocol: "HTTPS",
-      pathname: `/2023-03-30/functions/${OpenApiUtil.getEncodeParam(functionName)}/triggers/${OpenApiUtil.getEncodeParam(triggerName)}`,
+      pathname: `/2023-03-30/functions/${$dara.URL.percentEncode(functionName)}/triggers/${$dara.URL.percentEncode(triggerName)}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateTriggerResponse>(await this.callApi(params, req, runtime), new UpdateTriggerResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateTriggerResponse>(await this.callApi(params, req, runtime), new UpdateTriggerResponse({}));
+    } else {
+      return $dara.cast<UpdateTriggerResponse>(await this.execute(params, req, runtime), new UpdateTriggerResponse({}));
+    }
+
   }
 
   /**
@@ -10270,7 +12237,7 @@ export default class Client extends OpenApi {
    * @returns UpdateTriggerResponse
    */
   async updateTrigger(functionName: string, triggerName: string, request: UpdateTriggerRequest): Promise<UpdateTriggerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateTriggerWithOptions(functionName, triggerName, request, headers, runtime);
   }
