@@ -184,7 +184,12 @@ export class CountTextResponseBodyCountTextCmdList extends $dara.Model {
 }
 
 export class CreateAICoachTaskSessionResponseBodyScriptInfo extends $dara.Model {
+  agentIconUrl?: string;
+  characterName?: string;
+  dialogueTextFlag?: boolean;
+  dialogueTipFlag?: boolean;
   initiator?: string;
+  inputTypeList?: string[];
   /**
    * @example
    * 11
@@ -196,21 +201,407 @@ export class CreateAICoachTaskSessionResponseBodyScriptInfo extends $dara.Model 
    */
   scriptDesc?: string;
   scriptName?: string;
+  scriptRecordId?: string;
+  scriptType?: number;
+  sparringTipContent?: string;
+  sparringTipTitle?: string;
+  studentThinkTimeFlag?: boolean;
+  studentThinkTimeLimit?: number;
   static names(): { [key: string]: string } {
     return {
+      agentIconUrl: 'agentIconUrl',
+      characterName: 'characterName',
+      dialogueTextFlag: 'dialogueTextFlag',
+      dialogueTipFlag: 'dialogueTipFlag',
       initiator: 'initiator',
+      inputTypeList: 'inputTypeList',
       maxDuration: 'maxDuration',
       scriptDesc: 'scriptDesc',
       scriptName: 'scriptName',
+      scriptRecordId: 'scriptRecordId',
+      scriptType: 'scriptType',
+      sparringTipContent: 'sparringTipContent',
+      sparringTipTitle: 'sparringTipTitle',
+      studentThinkTimeFlag: 'studentThinkTimeFlag',
+      studentThinkTimeLimit: 'studentThinkTimeLimit',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentIconUrl: 'string',
+      characterName: 'string',
+      dialogueTextFlag: 'boolean',
+      dialogueTipFlag: 'boolean',
       initiator: 'string',
+      inputTypeList: { 'type': 'array', 'itemType': 'string' },
       maxDuration: 'number',
       scriptDesc: 'string',
       scriptName: 'string',
+      scriptRecordId: 'string',
+      scriptType: 'number',
+      sparringTipContent: 'string',
+      sparringTipTitle: 'string',
+      studentThinkTimeFlag: 'boolean',
+      studentThinkTimeLimit: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inputTypeList)) {
+      $dara.Model.validateArray(this.inputTypeList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachScriptResponseBodyCompleteStrategy extends $dara.Model {
+  /**
+   * @example
+   * 5
+   */
+  abnormalQuitSessionExpired?: number;
+  /**
+   * @example
+   * true
+   */
+  abnormalQuitSessionExpiredFlag?: boolean;
+  /**
+   * @example
+   * true
+   */
+  clickCompleteAutoEnd?: boolean;
+  /**
+   * @example
+   * 15
+   */
+  duration?: number;
+  /**
+   * @example
+   * true
+   */
+  durationFlag?: boolean;
+  /**
+   * @example
+   * true
+   */
+  fullCoverageAutoEnd?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      abnormalQuitSessionExpired: 'abnormalQuitSessionExpired',
+      abnormalQuitSessionExpiredFlag: 'abnormalQuitSessionExpiredFlag',
+      clickCompleteAutoEnd: 'clickCompleteAutoEnd',
+      duration: 'duration',
+      durationFlag: 'durationFlag',
+      fullCoverageAutoEnd: 'fullCoverageAutoEnd',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abnormalQuitSessionExpired: 'number',
+      abnormalQuitSessionExpiredFlag: 'boolean',
+      clickCompleteAutoEnd: 'boolean',
+      duration: 'number',
+      durationFlag: 'boolean',
+      fullCoverageAutoEnd: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachScriptResponseBodyPointDeductionRuleList extends $dara.Model {
+  /**
+   * @example
+   * demo
+   */
+  description?: string;
+  punishmentTypes?: string[];
+  ruleValue?: string;
+  /**
+   * @example
+   * 90
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'description',
+      punishmentTypes: 'punishmentTypes',
+      ruleValue: 'ruleValue',
+      weight: 'weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      punishmentTypes: { 'type': 'array', 'itemType': 'string' },
+      ruleValue: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.punishmentTypes)) {
+      $dara.Model.validateArray(this.punishmentTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachScriptResponseBodyPointsAnswerListParameters extends $dara.Model {
+  /**
+   * @example
+   * name
+   */
+  name?: string;
+  /**
+   * @example
+   * value
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachScriptResponseBodyPointsAnswerList extends $dara.Model {
+  name?: string;
+  parameters?: GetAICoachScriptResponseBodyPointsAnswerListParameters[];
+  /**
+   * @example
+   * normalKnowledge
+   */
+  type?: string;
+  /**
+   * @example
+   * 100
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      parameters: 'parameters',
+      type: 'type',
+      weight: 'weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      parameters: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyPointsAnswerListParameters },
+      type: 'string',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachScriptResponseBodyPoints extends $dara.Model {
+  answerList?: GetAICoachScriptResponseBodyPointsAnswerList[];
+  knowledgeList?: string[];
+  /**
+   * @example
+   * demo
+   */
+  name?: string;
+  /**
+   * @example
+   * test
+   */
+  questionDescription?: string;
+  /**
+   * @example
+   * 1
+   */
+  sortNo?: number;
+  /**
+   * @example
+   * 50
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      answerList: 'answerList',
+      knowledgeList: 'knowledgeList',
+      name: 'name',
+      questionDescription: 'questionDescription',
+      sortNo: 'sortNo',
+      weight: 'weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerList: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyPointsAnswerList },
+      knowledgeList: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      questionDescription: 'string',
+      sortNo: 'number',
+      weight: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.answerList)) {
+      $dara.Model.validateArray(this.answerList);
+    }
+    if(Array.isArray(this.knowledgeList)) {
+      $dara.Model.validateArray(this.knowledgeList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachScriptResponseBodySampleDialogueList extends $dara.Model {
+  message?: string;
+  /**
+   * @example
+   * coach
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'message',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      role: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachScriptResponseBodyWeights extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  abilityEvaluation?: number;
+  /**
+   * @example
+   * false
+   */
+  abilityEvaluationEnabled?: boolean;
+  /**
+   * @example
+   * 10
+   */
+  assessmentPoint?: number;
+  /**
+   * @example
+   * 10
+   */
+  expressiveness?: number;
+  /**
+   * @example
+   * true
+   */
+  expressivenessEnabled?: boolean;
+  /**
+   * @example
+   * 10
+   */
+  pointDeductionRule?: number;
+  /**
+   * @example
+   * true
+   */
+  pointDeductionRuleEnabled?: boolean;
+  /**
+   * @example
+   * 10
+   */
+  standard?: number;
+  /**
+   * @example
+   * true
+   */
+  standardEnabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      abilityEvaluation: 'abilityEvaluation',
+      abilityEvaluationEnabled: 'abilityEvaluationEnabled',
+      assessmentPoint: 'assessmentPoint',
+      expressiveness: 'expressiveness',
+      expressivenessEnabled: 'expressivenessEnabled',
+      pointDeductionRule: 'pointDeductionRule',
+      pointDeductionRuleEnabled: 'pointDeductionRuleEnabled',
+      standard: 'standard',
+      standardEnabled: 'standardEnabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abilityEvaluation: 'number',
+      abilityEvaluationEnabled: 'boolean',
+      assessmentPoint: 'number',
+      expressiveness: 'number',
+      expressivenessEnabled: 'boolean',
+      pointDeductionRule: 'number',
+      pointDeductionRuleEnabled: 'boolean',
+      standard: 'number',
+      standardEnabled: 'boolean',
     };
   }
 
@@ -3543,6 +3934,7 @@ export class CreateAICoachTaskSessionResponseBody extends $dara.Model {
    * 111
    */
   sessionId?: string;
+  sessionStatus?: number;
   /**
    * @remarks
    * Token
@@ -3562,6 +3954,7 @@ export class CreateAICoachTaskSessionResponseBody extends $dara.Model {
       requestId: 'requestId',
       scriptInfo: 'scriptInfo',
       sessionId: 'sessionId',
+      sessionStatus: 'sessionStatus',
       token: 'token',
       webSocketUrl: 'webSocketUrl',
     };
@@ -3573,6 +3966,7 @@ export class CreateAICoachTaskSessionResponseBody extends $dara.Model {
       requestId: 'string',
       scriptInfo: CreateAICoachTaskSessionResponseBodyScriptInfo,
       sessionId: 'string',
+      sessionStatus: 'number',
       token: 'string',
       webSocketUrl: 'string',
     };
@@ -4590,6 +4984,276 @@ export class FinishAICoachTaskSessionResponse extends $dara.Model {
   }
 }
 
+export class GetAICoachScriptRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  scriptRecordId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scriptRecordId: 'scriptRecordId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scriptRecordId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachScriptResponseBody extends $dara.Model {
+  /**
+   * @example
+   * point
+   */
+  assessmentScope?: string;
+  completeStrategy?: GetAICoachScriptResponseBodyCompleteStrategy;
+  /**
+   * @example
+   * https://demo.com
+   */
+  coverUrl?: string;
+  /**
+   * @example
+   * 500
+   */
+  dialogueInputTextLimit?: number;
+  /**
+   * @example
+   * true
+   */
+  dialogueTextFlag?: boolean;
+  /**
+   * @example
+   * true
+   */
+  dialogueTipFlag?: boolean;
+  /**
+   * @example
+   * 30
+   */
+  dialogueVoiceLimit?: number;
+  /**
+   * @example
+   * true
+   */
+  evaluateReportFlag?: boolean;
+  expressiveness?: { [key: string]: number };
+  /**
+   * @example
+   * 2025-02-24 12:00:00
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2025-02-24 12:00:00
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * coach
+   */
+  initiator?: string;
+  interactionInputTypes?: string[];
+  /**
+   * @example
+   * 1
+   */
+  interactionType?: number;
+  /**
+   * @example
+   * demo
+   */
+  introduce?: string;
+  /**
+   * @example
+   * demo
+   */
+  name?: string;
+  /**
+   * @example
+   * true
+   */
+  orderAckFlag?: boolean;
+  pointDeductionRuleList?: GetAICoachScriptResponseBodyPointDeductionRuleList[];
+  points?: GetAICoachScriptResponseBodyPoints[];
+  /**
+   * @example
+   * 1
+   */
+  requestId?: string;
+  sampleDialogueList?: GetAICoachScriptResponseBodySampleDialogueList[];
+  /**
+   * @example
+   * 1
+   */
+  scriptRecordId?: string;
+  sparringTipContent?: string;
+  sparringTipTitle?: string;
+  /**
+   * @example
+   * 1
+   */
+  status?: number;
+  /**
+   * @example
+   * true
+   */
+  studentThinkTimeFlag?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  studentThinkTimeLimit?: number;
+  /**
+   * @example
+   * 1
+   */
+  type?: number;
+  weights?: GetAICoachScriptResponseBodyWeights;
+  static names(): { [key: string]: string } {
+    return {
+      assessmentScope: 'assessmentScope',
+      completeStrategy: 'completeStrategy',
+      coverUrl: 'coverUrl',
+      dialogueInputTextLimit: 'dialogueInputTextLimit',
+      dialogueTextFlag: 'dialogueTextFlag',
+      dialogueTipFlag: 'dialogueTipFlag',
+      dialogueVoiceLimit: 'dialogueVoiceLimit',
+      evaluateReportFlag: 'evaluateReportFlag',
+      expressiveness: 'expressiveness',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      initiator: 'initiator',
+      interactionInputTypes: 'interactionInputTypes',
+      interactionType: 'interactionType',
+      introduce: 'introduce',
+      name: 'name',
+      orderAckFlag: 'orderAckFlag',
+      pointDeductionRuleList: 'pointDeductionRuleList',
+      points: 'points',
+      requestId: 'requestId',
+      sampleDialogueList: 'sampleDialogueList',
+      scriptRecordId: 'scriptRecordId',
+      sparringTipContent: 'sparringTipContent',
+      sparringTipTitle: 'sparringTipTitle',
+      status: 'status',
+      studentThinkTimeFlag: 'studentThinkTimeFlag',
+      studentThinkTimeLimit: 'studentThinkTimeLimit',
+      type: 'type',
+      weights: 'weights',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assessmentScope: 'string',
+      completeStrategy: GetAICoachScriptResponseBodyCompleteStrategy,
+      coverUrl: 'string',
+      dialogueInputTextLimit: 'number',
+      dialogueTextFlag: 'boolean',
+      dialogueTipFlag: 'boolean',
+      dialogueVoiceLimit: 'number',
+      evaluateReportFlag: 'boolean',
+      expressiveness: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      initiator: 'string',
+      interactionInputTypes: { 'type': 'array', 'itemType': 'string' },
+      interactionType: 'number',
+      introduce: 'string',
+      name: 'string',
+      orderAckFlag: 'boolean',
+      pointDeductionRuleList: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyPointDeductionRuleList },
+      points: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyPoints },
+      requestId: 'string',
+      sampleDialogueList: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodySampleDialogueList },
+      scriptRecordId: 'string',
+      sparringTipContent: 'string',
+      sparringTipTitle: 'string',
+      status: 'number',
+      studentThinkTimeFlag: 'boolean',
+      studentThinkTimeLimit: 'number',
+      type: 'number',
+      weights: GetAICoachScriptResponseBodyWeights,
+    };
+  }
+
+  validate() {
+    if(this.completeStrategy && typeof (this.completeStrategy as any).validate === 'function') {
+      (this.completeStrategy as any).validate();
+    }
+    if(this.expressiveness) {
+      $dara.Model.validateMap(this.expressiveness);
+    }
+    if(Array.isArray(this.interactionInputTypes)) {
+      $dara.Model.validateArray(this.interactionInputTypes);
+    }
+    if(Array.isArray(this.pointDeductionRuleList)) {
+      $dara.Model.validateArray(this.pointDeductionRuleList);
+    }
+    if(Array.isArray(this.points)) {
+      $dara.Model.validateArray(this.points);
+    }
+    if(Array.isArray(this.sampleDialogueList)) {
+      $dara.Model.validateArray(this.sampleDialogueList);
+    }
+    if(this.weights && typeof (this.weights as any).validate === 'function') {
+      (this.weights as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachScriptResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAICoachScriptResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAICoachScriptResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAICoachTaskSessionHistoryRequest extends $dara.Model {
   pageNumber?: number;
   pageSize?: number;
@@ -4642,6 +5306,7 @@ export class GetAICoachTaskSessionHistoryResponseBody extends $dara.Model {
    * 2024-11-08 09:33:21
    */
   endTime?: string;
+  pauseDuration?: number;
   /**
    * @example
    * D5798660-1531-5D12-9C20-16FEE9D22351
@@ -4665,6 +5330,7 @@ export class GetAICoachTaskSessionHistoryResponseBody extends $dara.Model {
       conversationList: 'conversationList',
       duration: 'duration',
       endTime: 'endTime',
+      pauseDuration: 'pauseDuration',
       requestId: 'requestId',
       scriptName: 'scriptName',
       startTime: 'startTime',
@@ -4679,6 +5345,7 @@ export class GetAICoachTaskSessionHistoryResponseBody extends $dara.Model {
       conversationList: { 'type': 'array', 'itemType': GetAICoachTaskSessionHistoryResponseBodyConversationList },
       duration: 'number',
       endTime: 'string',
+      pauseDuration: 'number',
       requestId: 'string',
       scriptName: 'string',
       startTime: 'string',
@@ -7474,6 +8141,7 @@ export class SendSdkMessageRequest extends $dara.Model {
    * {}
    */
   data?: string;
+  header?: string;
   /**
    * @example
    * avatar
@@ -7492,6 +8160,7 @@ export class SendSdkMessageRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       data: 'data',
+      header: 'header',
       moduleName: 'moduleName',
       operationName: 'operationName',
       userId: 'userId',
@@ -7501,6 +8170,7 @@ export class SendSdkMessageRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       data: 'string',
+      header: 'string',
       moduleName: 'string',
       operationName: 'string',
       userId: 'string',
@@ -9368,6 +10038,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询剧本详情
+   * 
+   * @param request - GetAICoachScriptRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAICoachScriptResponse
+   */
+  async getAICoachScriptWithOptions(request: GetAICoachScriptRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetAICoachScriptResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scriptRecordId)) {
+      query["scriptRecordId"] = request.scriptRecordId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAICoachScript",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/getScript`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetAICoachScriptResponse>(await this.callApi(params, req, runtime), new GetAICoachScriptResponse({}));
+    } else {
+      return $dara.cast<GetAICoachScriptResponse>(await this.execute(params, req, runtime), new GetAICoachScriptResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询剧本详情
+   * 
+   * @param request - GetAICoachScriptRequest
+   * @returns GetAICoachScriptResponse
+   */
+  async getAICoachScript(request: GetAICoachScriptRequest): Promise<GetAICoachScriptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAICoachScriptWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 学员查询会话历史
    * 
    * @param request - GetAICoachTaskSessionHistoryRequest
@@ -10820,6 +11540,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.data)) {
       body["data"] = request.data;
+    }
+
+    if (!$dara.isNull(request.header)) {
+      body["header"] = request.header;
     }
 
     if (!$dara.isNull(request.moduleName)) {
