@@ -551,11 +551,13 @@ export class CreateMultiOrderRequest extends $dara.Model {
    */
   orderType?: string;
   properties?: { [key: string]: string };
+  resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {
       orderItems: 'OrderItems',
       orderType: 'OrderType',
       properties: 'Properties',
+      resellerOwnerUid: 'ResellerOwnerUid',
     };
   }
 
@@ -564,6 +566,7 @@ export class CreateMultiOrderRequest extends $dara.Model {
       orderItems: { 'type': 'array', 'itemType': CreateMultiOrderRequestOrderItems },
       orderType: 'string',
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      resellerOwnerUid: 'number',
     };
   }
 
@@ -590,11 +593,13 @@ export class CreateMultiOrderShrinkRequest extends $dara.Model {
    */
   orderType?: string;
   propertiesShrink?: string;
+  resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {
       orderItems: 'OrderItems',
       orderType: 'OrderType',
       propertiesShrink: 'Properties',
+      resellerOwnerUid: 'ResellerOwnerUid',
     };
   }
 
@@ -603,6 +608,7 @@ export class CreateMultiOrderShrinkRequest extends $dara.Model {
       orderItems: { 'type': 'array', 'itemType': CreateMultiOrderShrinkRequestOrderItems },
       orderType: 'string',
       propertiesShrink: 'string',
+      resellerOwnerUid: 'number',
     };
   }
 
@@ -1084,6 +1090,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.propertiesShrink)) {
       query["Properties"] = request.propertiesShrink;
+    }
+
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
