@@ -1040,6 +1040,916 @@ export class GetErrorResponseBodyModel extends $dara.Model {
   }
 }
 
+export class GetErrorsRequestFilter extends $dara.Model {
+  /**
+   * @example
+   * osVersion
+   */
+  key?: string;
+  /**
+   * @example
+   * and
+   */
+  operator?: string;
+  subFilters?: string[];
+  values?: any[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      operator: 'Operator',
+      subFilters: 'SubFilters',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      operator: 'string',
+      subFilters: { 'type': 'array', 'itemType': 'string' },
+      values: { 'type': 'array', 'itemType': 'any' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.subFilters)) {
+      $dara.Model.validateArray(this.subFilters);
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErrorsRequestTimeRange extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1740499200000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1739894400000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErrorsShrinkRequestTimeRange extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1740499200000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1739894400000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErrorsResponseBodyModelItems extends $dara.Model {
+  /**
+   * @example
+   * 1740488561065
+   */
+  clientTime?: number;
+  /**
+   * @example
+   * RANDOM-1729634758587856312DEVICE
+   */
+  did?: string;
+  /**
+   * @remarks
+   * Utdid
+   * 
+   * @example
+   * RANDOM-1729634758587856312DEVICE
+   */
+  utdid?: string;
+  /**
+   * @example
+   * 9634758587856312DEV
+   */
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientTime: 'ClientTime',
+      did: 'Did',
+      utdid: 'Utdid',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientTime: 'number',
+      did: 'string',
+      utdid: 'string',
+      uuid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErrorsResponseBodyModel extends $dara.Model {
+  items?: GetErrorsResponseBodyModelItems[];
+  /**
+   * @example
+   * 10
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
+  pages?: number;
+  /**
+   * @example
+   * 10
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      pages: 'Pages',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': GetErrorsResponseBodyModelItems },
+      pageNum: 'number',
+      pageSize: 'number',
+      pages: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssueRequestFilter extends $dara.Model {
+  /**
+   * @example
+   * MySQL_IOPS
+   */
+  key?: string;
+  /**
+   * @example
+   * Equal
+   */
+  operator?: string;
+  subFilters?: string[];
+  values?: any[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      operator: 'Operator',
+      subFilters: 'SubFilters',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      operator: 'string',
+      subFilters: { 'type': 'array', 'itemType': 'string' },
+      values: { 'type': 'array', 'itemType': 'any' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.subFilters)) {
+      $dara.Model.validateArray(this.subFilters);
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssueRequestTimeRange extends $dara.Model {
+  /**
+   * @example
+   * 2024-08-23T02:12:00Z
+   */
+  endTime?: number;
+  /**
+   * @example
+   * Host
+   */
+  granularity?: number;
+  /**
+   * @example
+   * minute
+   */
+  granularityUnit?: string;
+  /**
+   * @example
+   * 2024-12-18 00:00:00
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      granularity: 'Granularity',
+      granularityUnit: 'GranularityUnit',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      granularity: 'number',
+      granularityUnit: 'string',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssueShrinkRequestTimeRange extends $dara.Model {
+  /**
+   * @example
+   * 2024-08-23T02:12:00Z
+   */
+  endTime?: number;
+  /**
+   * @example
+   * Host
+   */
+  granularity?: number;
+  /**
+   * @example
+   * minute
+   */
+  granularityUnit?: string;
+  /**
+   * @example
+   * 2024-12-18 00:00:00
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      granularity: 'Granularity',
+      granularityUnit: 'GranularityUnit',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      granularity: 'number',
+      granularityUnit: 'string',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssueResponseBodyModel extends $dara.Model {
+  affectedVersions?: string[];
+  /**
+   * @example
+   * java.lang.NullPointerException: Attempt to invoke virtual method \\"java.lang.Object java.lang.ref.WeakReference.get()\\" on a null object reference
+   * 	at e.l.a.a.d.h(BasePresenter.java:1)
+   * 	at e.l.a.g.c.e.g.s1(GoodsPigLoadPresenter.java:1)
+   * 	at e.l.a.h.d.a$a.a(AliOssManager.java:2)
+   */
+  cruxStack?: string;
+  /**
+   * @example
+   * -6428474329608402395
+   */
+  digestHash?: string;
+  /**
+   * @example
+   * 2
+   */
+  errorColumn?: number;
+  /**
+   * @example
+   * 2
+   */
+  errorCount?: number;
+  /**
+   * @example
+   * 0.2
+   */
+  errorCountGrowthRate?: number;
+  /**
+   * @example
+   * 4
+   */
+  errorDeviceCount?: number;
+  /**
+   * @example
+   * 0.2
+   */
+  errorDeviceCountGrowthRate?: number;
+  /**
+   * @example
+   * 0.2
+   */
+  errorDeviceRate?: number;
+  /**
+   * @example
+   * 0.2
+   */
+  errorDeviceRateGrowthRate?: number;
+  /**
+   * @example
+   * test.js
+   */
+  errorFileName?: string;
+  /**
+   * @example
+   * 1
+   */
+  errorLine?: string;
+  /**
+   * @example
+   * Error
+   */
+  errorName?: string;
+  /**
+   * @example
+   * 0
+   */
+  errorRate?: number;
+  /**
+   * @example
+   * 0.2
+   */
+  errorRateGrowthRate?: number;
+  /**
+   * @example
+   * ErrorType
+   */
+  errorType?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
+  firstVersion?: string;
+  /**
+   * @example
+   * 1673423227000
+   */
+  gmtCreate?: number;
+  /**
+   * @example
+   * 1740489688615
+   */
+  gmtLatest?: number;
+  /**
+   * @example
+   * 1
+   */
+  keyLine?: number;
+  name?: string;
+  /**
+   * @example
+   * java.lang.NullPointerException
+   */
+  stack?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
+  status?: number;
+  /**
+   * @example
+   * trustee instance
+   */
+  summary?: string;
+  /**
+   * @example
+   * true
+   */
+  symbolicStatus?: boolean;
+  tags?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      affectedVersions: 'AffectedVersions',
+      cruxStack: 'CruxStack',
+      digestHash: 'DigestHash',
+      errorColumn: 'ErrorColumn',
+      errorCount: 'ErrorCount',
+      errorCountGrowthRate: 'ErrorCountGrowthRate',
+      errorDeviceCount: 'ErrorDeviceCount',
+      errorDeviceCountGrowthRate: 'ErrorDeviceCountGrowthRate',
+      errorDeviceRate: 'ErrorDeviceRate',
+      errorDeviceRateGrowthRate: 'ErrorDeviceRateGrowthRate',
+      errorFileName: 'ErrorFileName',
+      errorLine: 'ErrorLine',
+      errorName: 'ErrorName',
+      errorRate: 'ErrorRate',
+      errorRateGrowthRate: 'ErrorRateGrowthRate',
+      errorType: 'ErrorType',
+      firstVersion: 'FirstVersion',
+      gmtCreate: 'GmtCreate',
+      gmtLatest: 'GmtLatest',
+      keyLine: 'KeyLine',
+      name: 'Name',
+      stack: 'Stack',
+      status: 'Status',
+      summary: 'Summary',
+      symbolicStatus: 'SymbolicStatus',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      affectedVersions: { 'type': 'array', 'itemType': 'string' },
+      cruxStack: 'string',
+      digestHash: 'string',
+      errorColumn: 'number',
+      errorCount: 'number',
+      errorCountGrowthRate: 'number',
+      errorDeviceCount: 'number',
+      errorDeviceCountGrowthRate: 'number',
+      errorDeviceRate: 'number',
+      errorDeviceRateGrowthRate: 'number',
+      errorFileName: 'string',
+      errorLine: 'string',
+      errorName: 'string',
+      errorRate: 'number',
+      errorRateGrowthRate: 'number',
+      errorType: 'string',
+      firstVersion: 'string',
+      gmtCreate: 'number',
+      gmtLatest: 'number',
+      keyLine: 'number',
+      name: 'string',
+      stack: 'string',
+      status: 'number',
+      summary: 'string',
+      symbolicStatus: 'boolean',
+      tags: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.affectedVersions)) {
+      $dara.Model.validateArray(this.affectedVersions);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssuesRequestFilter extends $dara.Model {
+  /**
+   * @example
+   * erConfig
+   */
+  key?: string;
+  /**
+   * @example
+   * BeginWith
+   */
+  operator?: string;
+  subFilters?: string[];
+  values?: any[];
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      operator: 'Operator',
+      subFilters: 'SubFilters',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      operator: 'string',
+      subFilters: { 'type': 'array', 'itemType': 'string' },
+      values: { 'type': 'array', 'itemType': 'any' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.subFilters)) {
+      $dara.Model.validateArray(this.subFilters);
+    }
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssuesRequestTimeRange extends $dara.Model {
+  /**
+   * @example
+   * 2024-09-04T02:15:00Z
+   */
+  endTime?: number;
+  /**
+   * @example
+   * Host
+   */
+  granularity?: number;
+  /**
+   * @example
+   * day
+   */
+  granularityUnit?: string;
+  /**
+   * @example
+   * 2024-11-05T16:00:00Z
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      granularity: 'Granularity',
+      granularityUnit: 'GranularityUnit',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      granularity: 'number',
+      granularityUnit: 'string',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssuesShrinkRequestTimeRange extends $dara.Model {
+  /**
+   * @example
+   * 2024-09-04T02:15:00Z
+   */
+  endTime?: number;
+  /**
+   * @example
+   * Host
+   */
+  granularity?: number;
+  /**
+   * @example
+   * day
+   */
+  granularityUnit?: string;
+  /**
+   * @example
+   * 2024-11-05T16:00:00Z
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      granularity: 'Granularity',
+      granularityUnit: 'GranularityUnit',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      granularity: 'number',
+      granularityUnit: 'string',
+      startTime: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssuesResponseBodyModelItems extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  affectedUserCount?: number;
+  /**
+   * @example
+   * -3481243636390427020
+   */
+  digestHash?: string;
+  /**
+   * @example
+   * 1
+   */
+  domScore?: string;
+  /**
+   * @example
+   * 1
+   */
+  errorColumn?: number;
+  /**
+   * @example
+   * 2
+   */
+  errorCount?: number;
+  /**
+   * @example
+   * 1
+   */
+  errorDeviceCount?: number;
+  /**
+   * @example
+   * 1.0
+   */
+  errorDeviceRate?: number;
+  /**
+   * @example
+   * test.js
+   */
+  errorFileName?: string;
+  /**
+   * @example
+   * 1
+   */
+  errorLine?: number;
+  /**
+   * @example
+   * ErrorName
+   */
+  errorName?: string;
+  /**
+   * @example
+   * 0
+   */
+  errorRate?: number;
+  /**
+   * @example
+   * Error
+   */
+  errorType?: string;
+  /**
+   * @example
+   * 1691745496851
+   */
+  eventTime?: string;
+  /**
+   * @example
+   * 1.0.0
+   */
+  firstVersion?: string;
+  /**
+   * @example
+   * ServiceType
+   */
+  name?: string;
+  /**
+   * @example
+   * java.lang.NullPointerException: Attempt to invoke virtual method \\"java.lang.Object java.lang.ref.WeakReference.get()\\" on a null object reference
+   * 	at e.l.a.a.d.h(BasePresenter.java:1)
+   * 	at e.l.a.g.c.e.g.s1(GoodsPigLoadPresenter.java:1)
+   * 	at e.l.a.h.d.a$a.a(AliOssManager.java:2)
+   */
+  stack?: string;
+  /**
+   * @example
+   * CREATE_COMPLETE
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      affectedUserCount: 'AffectedUserCount',
+      digestHash: 'DigestHash',
+      domScore: 'DomScore',
+      errorColumn: 'ErrorColumn',
+      errorCount: 'ErrorCount',
+      errorDeviceCount: 'ErrorDeviceCount',
+      errorDeviceRate: 'ErrorDeviceRate',
+      errorFileName: 'ErrorFileName',
+      errorLine: 'ErrorLine',
+      errorName: 'ErrorName',
+      errorRate: 'ErrorRate',
+      errorType: 'ErrorType',
+      eventTime: 'EventTime',
+      firstVersion: 'FirstVersion',
+      name: 'Name',
+      stack: 'Stack',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      affectedUserCount: 'number',
+      digestHash: 'string',
+      domScore: 'string',
+      errorColumn: 'number',
+      errorCount: 'number',
+      errorDeviceCount: 'number',
+      errorDeviceRate: 'number',
+      errorFileName: 'string',
+      errorLine: 'number',
+      errorName: 'string',
+      errorRate: 'number',
+      errorType: 'string',
+      eventTime: 'string',
+      firstVersion: 'string',
+      name: 'string',
+      stack: 'string',
+      status: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssuesResponseBodyModel extends $dara.Model {
+  items?: GetIssuesResponseBodyModelItems[];
+  /**
+   * @example
+   * 2
+   */
+  pageNum?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1
+   */
+  pages?: number;
+  /**
+   * @example
+   * 0
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      pages: 'Pages',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': GetIssuesResponseBodyModelItems },
+      pageNum: 'number',
+      pageSize: 'number',
+      pages: 'number',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConditionalRule extends $dara.Model {
   filter?: EventFilter;
   modifyTime?: string;
@@ -1435,6 +2345,861 @@ export class GetErrorResponse extends $dara.Model {
   }
 }
 
+export class GetErrorsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * appKey
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 24780725
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * crash
+   */
+  bizModule?: string;
+  /**
+   * @example
+   * -3481243636390427020
+   */
+  digestHash?: string;
+  filter?: GetErrorsRequestFilter;
+  /**
+   * @example
+   * android
+   */
+  os?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  timeRange?: GetErrorsRequestTimeRange;
+  /**
+   * @remarks
+   * utdid
+   * 
+   * @example
+   * Z70g6V/MXJ8DABtD53eHzn4X
+   */
+  utdid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      bizModule: 'BizModule',
+      digestHash: 'DigestHash',
+      filter: 'Filter',
+      os: 'Os',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      timeRange: 'TimeRange',
+      utdid: 'Utdid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      bizModule: 'string',
+      digestHash: 'string',
+      filter: GetErrorsRequestFilter,
+      os: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      timeRange: GetErrorsRequestTimeRange,
+      utdid: 'string',
+    };
+  }
+
+  validate() {
+    if(this.filter && typeof (this.filter as any).validate === 'function') {
+      (this.filter as any).validate();
+    }
+    if(this.timeRange && typeof (this.timeRange as any).validate === 'function') {
+      (this.timeRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErrorsShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * appKey
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 24780725
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * crash
+   */
+  bizModule?: string;
+  /**
+   * @example
+   * -3481243636390427020
+   */
+  digestHash?: string;
+  filterShrink?: string;
+  /**
+   * @example
+   * android
+   */
+  os?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  timeRange?: GetErrorsShrinkRequestTimeRange;
+  /**
+   * @remarks
+   * utdid
+   * 
+   * @example
+   * Z70g6V/MXJ8DABtD53eHzn4X
+   */
+  utdid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      bizModule: 'BizModule',
+      digestHash: 'DigestHash',
+      filterShrink: 'Filter',
+      os: 'Os',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      timeRange: 'TimeRange',
+      utdid: 'Utdid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      bizModule: 'string',
+      digestHash: 'string',
+      filterShrink: 'string',
+      os: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      timeRange: GetErrorsShrinkRequestTimeRange,
+      utdid: 'string',
+    };
+  }
+
+  validate() {
+    if(this.timeRange && typeof (this.timeRange as any).validate === 'function') {
+      (this.timeRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErrorsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Args
+   */
+  args?: { [key: string]: any };
+  /**
+   * @example
+   * 500
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * internal error
+   */
+  message?: string;
+  model?: GetErrorsResponseBodyModel;
+  /**
+   * @remarks
+   * RequestId
+   * 
+   * @example
+   * B3AD0FE4-36EF-1641-90B1-77618166F2ff
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errorCode: 'number',
+      message: 'string',
+      model: GetErrorsResponseBodyModel,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.args) {
+      $dara.Model.validateMap(this.args);
+    }
+    if(this.model && typeof (this.model as any).validate === 'function') {
+      (this.model as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErrorsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetErrorsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetErrorsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssueRequest extends $dara.Model {
+  /**
+   * @remarks
+   * AppKey
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 233588686
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * h5Resource
+   */
+  bizModule?: string;
+  /**
+   * @example
+   * 2963475858785631
+   */
+  digestHash?: string;
+  filter?: GetIssueRequestFilter;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * h5
+   */
+  os?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  timeRange?: GetIssueRequestTimeRange;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      bizModule: 'BizModule',
+      digestHash: 'DigestHash',
+      filter: 'Filter',
+      os: 'Os',
+      timeRange: 'TimeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      bizModule: 'string',
+      digestHash: 'string',
+      filter: GetIssueRequestFilter,
+      os: 'string',
+      timeRange: GetIssueRequestTimeRange,
+    };
+  }
+
+  validate() {
+    if(this.filter && typeof (this.filter as any).validate === 'function') {
+      (this.filter as any).validate();
+    }
+    if(this.timeRange && typeof (this.timeRange as any).validate === 'function') {
+      (this.timeRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssueShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * AppKey
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 233588686
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * h5Resource
+   */
+  bizModule?: string;
+  /**
+   * @example
+   * 2963475858785631
+   */
+  digestHash?: string;
+  filterShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * h5
+   */
+  os?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  timeRange?: GetIssueShrinkRequestTimeRange;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      bizModule: 'BizModule',
+      digestHash: 'DigestHash',
+      filterShrink: 'Filter',
+      os: 'Os',
+      timeRange: 'TimeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      bizModule: 'string',
+      digestHash: 'string',
+      filterShrink: 'string',
+      os: 'string',
+      timeRange: GetIssueShrinkRequestTimeRange,
+    };
+  }
+
+  validate() {
+    if(this.timeRange && typeof (this.timeRange as any).validate === 'function') {
+      (this.timeRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssueResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Args
+   */
+  args?: { [key: string]: any };
+  /**
+   * @example
+   * 200
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * Successful
+   */
+  message?: string;
+  model?: GetIssueResponseBodyModel;
+  /**
+   * @example
+   * A8313212-EB4E-4E15-A7F9-D9C8F3FE8E94
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errorCode: 'number',
+      message: 'string',
+      model: GetIssueResponseBodyModel,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.args) {
+      $dara.Model.validateMap(this.args);
+    }
+    if(this.model && typeof (this.model as any).validate === 'function') {
+      (this.model as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssueResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIssueResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIssueResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssuesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 233588686
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * h5Resource
+   */
+  bizModule?: string;
+  filter?: GetIssuesRequestFilter;
+  /**
+   * @example
+   * GUI-TEST1711072832000
+   */
+  name?: string;
+  /**
+   * @example
+   * instances
+   */
+  orderBy?: string;
+  /**
+   * @example
+   * 1
+   */
+  orderType?: string;
+  /**
+   * @example
+   * h5
+   */
+  os?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * FE_RUNNING
+   */
+  status?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  timeRange?: GetIssuesRequestTimeRange;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      bizModule: 'BizModule',
+      filter: 'Filter',
+      name: 'Name',
+      orderBy: 'OrderBy',
+      orderType: 'OrderType',
+      os: 'Os',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      status: 'Status',
+      timeRange: 'TimeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      bizModule: 'string',
+      filter: GetIssuesRequestFilter,
+      name: 'string',
+      orderBy: 'string',
+      orderType: 'string',
+      os: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      status: 'number',
+      timeRange: GetIssuesRequestTimeRange,
+    };
+  }
+
+  validate() {
+    if(this.filter && typeof (this.filter as any).validate === 'function') {
+      (this.filter as any).validate();
+    }
+    if(this.timeRange && typeof (this.timeRange as any).validate === 'function') {
+      (this.timeRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssuesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 233588686
+   */
+  appKey?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * h5Resource
+   */
+  bizModule?: string;
+  filterShrink?: string;
+  /**
+   * @example
+   * GUI-TEST1711072832000
+   */
+  name?: string;
+  /**
+   * @example
+   * instances
+   */
+  orderBy?: string;
+  /**
+   * @example
+   * 1
+   */
+  orderType?: string;
+  /**
+   * @example
+   * h5
+   */
+  os?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageIndex?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * FE_RUNNING
+   */
+  status?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  timeRange?: GetIssuesShrinkRequestTimeRange;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      bizModule: 'BizModule',
+      filterShrink: 'Filter',
+      name: 'Name',
+      orderBy: 'OrderBy',
+      orderType: 'OrderType',
+      os: 'Os',
+      pageIndex: 'PageIndex',
+      pageSize: 'PageSize',
+      status: 'Status',
+      timeRange: 'TimeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'number',
+      bizModule: 'string',
+      filterShrink: 'string',
+      name: 'string',
+      orderBy: 'string',
+      orderType: 'string',
+      os: 'string',
+      pageIndex: 'number',
+      pageSize: 'number',
+      status: 'number',
+      timeRange: GetIssuesShrinkRequestTimeRange,
+    };
+  }
+
+  validate() {
+    if(this.timeRange && typeof (this.timeRange as any).validate === 'function') {
+      (this.timeRange as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssuesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Args
+   */
+  args?: { [key: string]: any };
+  /**
+   * @example
+   * 200
+   */
+  errorCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  model?: GetIssuesResponseBodyModel;
+  /**
+   * @example
+   * 22111548-55D2-4258-9B18-273E4C134444
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      model: 'Model',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errorCode: 'number',
+      message: 'string',
+      model: GetIssuesResponseBodyModel,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.args) {
+      $dara.Model.validateMap(this.args);
+    }
+    if(this.model && typeof (this.model as any).validate === 'function') {
+      (this.model as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIssuesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIssuesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIssuesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -1527,6 +3292,272 @@ export default class Client extends OpenApi {
   async getError(request: GetErrorRequest): Promise<GetErrorResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getErrorWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取某一聚合错误下所有的错误事件列表
+   * 
+   * @param tmpReq - GetErrorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetErrorsResponse
+   */
+  async getErrorsWithOptions(tmpReq: GetErrorsRequest, runtime: $dara.RuntimeOptions): Promise<GetErrorsResponse> {
+    tmpReq.validate();
+    let request = new GetErrorsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.bizModule)) {
+      body["BizModule"] = request.bizModule;
+    }
+
+    if (!$dara.isNull(request.digestHash)) {
+      body["DigestHash"] = request.digestHash;
+    }
+
+    if (!$dara.isNull(request.filterShrink)) {
+      body["Filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.timeRange)) {
+      bodyFlat["TimeRange"] = request.timeRange;
+    }
+
+    if (!$dara.isNull(request.utdid)) {
+      body["Utdid"] = request.utdid;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetErrors",
+      version: "2019-06-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetErrorsResponse>(await this.callApi(params, req, runtime), new GetErrorsResponse({}));
+    } else {
+      return $dara.cast<GetErrorsResponse>(await this.execute(params, req, runtime), new GetErrorsResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取某一聚合错误下所有的错误事件列表
+   * 
+   * @param request - GetErrorsRequest
+   * @returns GetErrorsResponse
+   */
+  async getErrors(request: GetErrorsRequest): Promise<GetErrorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getErrorsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取聚合错误详情
+   * 
+   * @param tmpReq - GetIssueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIssueResponse
+   */
+  async getIssueWithOptions(tmpReq: GetIssueRequest, runtime: $dara.RuntimeOptions): Promise<GetIssueResponse> {
+    tmpReq.validate();
+    let request = new GetIssueShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.bizModule)) {
+      body["BizModule"] = request.bizModule;
+    }
+
+    if (!$dara.isNull(request.digestHash)) {
+      body["DigestHash"] = request.digestHash;
+    }
+
+    if (!$dara.isNull(request.filterShrink)) {
+      body["Filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.timeRange)) {
+      bodyFlat["TimeRange"] = request.timeRange;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIssue",
+      version: "2019-06-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetIssueResponse>(await this.callApi(params, req, runtime), new GetIssueResponse({}));
+    } else {
+      return $dara.cast<GetIssueResponse>(await this.execute(params, req, runtime), new GetIssueResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取聚合错误详情
+   * 
+   * @param request - GetIssueRequest
+   * @returns GetIssueResponse
+   */
+  async getIssue(request: GetIssueRequest): Promise<GetIssueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getIssueWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取聚合错误列表
+   * 
+   * @param tmpReq - GetIssuesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIssuesResponse
+   */
+  async getIssuesWithOptions(tmpReq: GetIssuesRequest, runtime: $dara.RuntimeOptions): Promise<GetIssuesResponse> {
+    tmpReq.validate();
+    let request = new GetIssuesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.bizModule)) {
+      body["BizModule"] = request.bizModule;
+    }
+
+    if (!$dara.isNull(request.filterShrink)) {
+      body["Filter"] = request.filterShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      body["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.orderType)) {
+      body["OrderType"] = request.orderType;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.timeRange)) {
+      bodyFlat["TimeRange"] = request.timeRange;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIssues",
+      version: "2019-06-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetIssuesResponse>(await this.callApi(params, req, runtime), new GetIssuesResponse({}));
+    } else {
+      return $dara.cast<GetIssuesResponse>(await this.execute(params, req, runtime), new GetIssuesResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取聚合错误列表
+   * 
+   * @param request - GetIssuesRequest
+   * @returns GetIssuesResponse
+   */
+  async getIssues(request: GetIssuesRequest): Promise<GetIssuesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getIssuesWithOptions(request, runtime);
   }
 
 }
