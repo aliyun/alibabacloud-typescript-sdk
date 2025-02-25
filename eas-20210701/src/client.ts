@@ -280,17 +280,17 @@ export class CreateResourceRequestSelfManagedResourceOptions extends $dara.Model
   externalClusterId?: string;
   /**
    * @remarks
-   * The tag key-value pairs for nodes.
+   * The tag key-value pairs of the node.
    */
   nodeMatchLabels?: { [key: string]: string };
   /**
    * @remarks
-   * Tolerations for nodes.
+   * The tolerations for the node taint.
    */
   nodeTolerations?: CreateResourceRequestSelfManagedResourceOptionsNodeTolerations[];
   /**
    * @remarks
-   * The name of the RAM user to which the permissions on Elastic Algorithm Service of Platform for AI (PAI-EAS) are granted.
+   * The name of the RAM user to which the permissions on Elastic Algorithm Service (EAS) of Platform for AI (PAI) are granted.
    * 
    * @example
    * clusterrole
@@ -508,7 +508,7 @@ export class CreateServiceAutoScalerRequestScaleStrategies extends $dara.Model {
    * 
    * *   If you set metricName to qps, scale-out is triggered when the average qps for a single instance is greater than this threshold.
    * *   If you set metricName to cpu, scale-out is triggered when the average cpu utilization for a single instance is greater than this threshold.
-   * *   If you set metricName to gpu, scale-out is triggered when the average cpu utilization for a single instance is greater than this threshold.
+   * *   If you set metricName to gpu, scale-out is triggered when the average gpu utilization for a single instance is greater than this threshold.
    * 
    * This parameter is required.
    * 
@@ -608,7 +608,7 @@ export class CreateVirtualResourceRequestResources extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The priority of resource scheduling. A greater number specifies a higher priority.
+   * The priority of resource scheduling. A greater number indicates a higher priority.
    * 
    * @example
    * 6
@@ -616,7 +616,7 @@ export class CreateVirtualResourceRequestResources extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * Lingjun Resource Quota ID.
+   * The ID of the Lingjun resource quota.
    * 
    * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
    * 
@@ -626,7 +626,7 @@ export class CreateVirtualResourceRequestResources extends $dara.Model {
   quotaId?: string;
   /**
    * @remarks
-   * The region where the resource resides.
+   * The region in which the resource resides.
    * 
    * @example
    * cn-hangzhou
@@ -634,7 +634,7 @@ export class CreateVirtualResourceRequestResources extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The ID of the dedicated resource group. For information about how to query the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
+   * The ID of the dedicated resource group. For information about how to obtain the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
    * 
    * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
    * 
@@ -646,7 +646,7 @@ export class CreateVirtualResourceRequestResources extends $dara.Model {
    * @remarks
    * The maximum price of preemptible instances in a public resource group.
    * 
-   * >  If you do not set this value, preemptible instances are not used.
+   * >  If you leave this parameter empty, preemptible instances are not used.
    * 
    * @example
    * 10.05
@@ -847,6 +847,136 @@ export class DescribeGroupEndpointsResponseBodyEndpoints extends $dara.Model {
     }
     if(Array.isArray(this.intranetEndpoints)) {
       $dara.Model.validateArray(this.intranetEndpoints);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMachineSpecResponseBodyInstanceMetas extends $dara.Model {
+  /**
+   * @example
+   * 32
+   */
+  CPU?: number;
+  /**
+   * @example
+   * GU30
+   */
+  GPU?: string;
+  /**
+   * @example
+   * 1
+   */
+  GPUAmount?: number;
+  /**
+   * @example
+   * 24
+   */
+  GPUMemory?: number;
+  /**
+   * @example
+   * ml.gu7i.c32m188.1-gu30
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * true
+   */
+  isAvailable?: boolean;
+  /**
+   * @example
+   * 188
+   */
+  memory?: number;
+  /**
+   * @example
+   * 0.1
+   */
+  nonProtectSpotDiscount?: number;
+  /**
+   * @example
+   * 0.12
+   */
+  spotDiscount?: number;
+  /**
+   * @example
+   * WithStock
+   */
+  stockStatus?: string;
+  /**
+   * @example
+   * ECS
+   */
+  vendor?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+      GPU: 'GPU',
+      GPUAmount: 'GPUAmount',
+      GPUMemory: 'GPUMemory',
+      instanceType: 'InstanceType',
+      isAvailable: 'IsAvailable',
+      memory: 'Memory',
+      nonProtectSpotDiscount: 'NonProtectSpotDiscount',
+      spotDiscount: 'SpotDiscount',
+      stockStatus: 'StockStatus',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: 'number',
+      GPU: 'string',
+      GPUAmount: 'number',
+      GPUMemory: 'number',
+      instanceType: 'string',
+      isAvailable: 'boolean',
+      memory: 'number',
+      nonProtectSpotDiscount: 'number',
+      spotDiscount: 'number',
+      stockStatus: 'string',
+      vendor: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMachineSpecResponseBodyTypes extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  CPU?: number;
+  memory?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      CPU: 'CPU',
+      memory: 'Memory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CPU: 'number',
+      memory: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.memory)) {
+      $dara.Model.validateArray(this.memory);
     }
     super.validate();
   }
@@ -2372,6 +2502,13 @@ export class ListVirtualResourceResponseBodyVirtualResources extends $dara.Model
    * 2024-10-16T17:52:49Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The number of deployed services.
+   * 
+   * @example
+   * 1
+   */
   serviceCount?: number;
   /**
    * @remarks
@@ -2810,7 +2947,7 @@ export class UpdateVirtualResourceRequestResources extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The priority of resource scheduling. A greater number specifies a higher priority.
+   * The priority of resource scheduling. A greater number indicates a higher priority.
    * 
    * @example
    * 6
@@ -2818,7 +2955,7 @@ export class UpdateVirtualResourceRequestResources extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The Lingjun resource quota ID.
+   * The ID of the Lingjun resource quota.
    * 
    * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
    * 
@@ -2828,7 +2965,7 @@ export class UpdateVirtualResourceRequestResources extends $dara.Model {
   quotaId?: string;
   /**
    * @remarks
-   * The region where the resource resides.
+   * The region in which the resource resides.
    * 
    * @example
    * cn-hangzhou
@@ -2836,7 +2973,7 @@ export class UpdateVirtualResourceRequestResources extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The ID of the dedicated resource group. For information about how to query the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
+   * The ID of the dedicated resource group. For information about how to obtain the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
    * 
    * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
    * 
@@ -2848,7 +2985,7 @@ export class UpdateVirtualResourceRequestResources extends $dara.Model {
    * @remarks
    * The maximum price of preemptible instances in a public resource group.
    * 
-   * >  If you do not specify this parameter, preemptible instances are not used.
+   * >  If you leave this parameter empty, preemptible instances are not used.
    * 
    * @example
    * 10.05
@@ -5031,6 +5168,10 @@ export class CreateResourceRequest extends $dara.Model {
    * ecs.c6.8xlarge
    */
   ecsInstanceType?: string;
+  /**
+   * @remarks
+   * The custom tag.
+   */
   labels?: { [key: string]: string };
   /**
    * @remarks
@@ -5269,6 +5410,10 @@ export class CreateResourceInstancesRequest extends $dara.Model {
    * ecs.s6-c1m2.xlarge
    */
   ecsInstanceType?: string;
+  /**
+   * @remarks
+   * The custom service tag.
+   */
   labels?: { [key: string]: string };
   /**
    * @remarks
@@ -6328,10 +6473,17 @@ export class CreateServiceMirrorResponse extends $dara.Model {
 }
 
 export class CreateVirtualResourceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to disable the retention period of preemptible instances.
+   * 
+   * @example
+   * true
+   */
   disableSpotProtectionPeriod?: boolean;
   /**
    * @remarks
-   * The list of resources in the virtual resource group.
+   * The resources in the virtual resource group.
    */
   resources?: CreateVirtualResourceRequestResources[];
   /**
@@ -7215,8 +7367,20 @@ export class DeleteResourceDLinkResponse extends $dara.Model {
 }
 
 export class DeleteResourceInstanceLabelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the delete operation takes effect on all instances in the resource group. If you set this parameter to true, the InstanceIds parameter does not take effect.
+   */
   allInstances?: boolean;
+  /**
+   * @remarks
+   * The instance IDs.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The keys of the tags that you want to delete.
+   */
   keys?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7250,8 +7414,20 @@ export class DeleteResourceInstanceLabelRequest extends $dara.Model {
 }
 
 export class DeleteResourceInstanceLabelShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether the delete operation takes effect on all instances in the resource group. If you set this parameter to true, the InstanceIds parameter does not take effect.
+   */
   allInstances?: boolean;
+  /**
+   * @remarks
+   * The instance IDs.
+   */
   instanceIdsShrink?: string;
+  /**
+   * @remarks
+   * The keys of the tags that you want to delete.
+   */
   keysShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7280,11 +7456,17 @@ export class DeleteResourceInstanceLabelShrinkRequest extends $dara.Model {
 
 export class DeleteResourceInstanceLabelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 40325405-579C-4D82********
    */
@@ -8709,6 +8891,13 @@ export class DescribeGatewayResponseBody extends $dara.Model {
    * 40325405-579C-4D82****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the HTTP to HTTPS redirection is enabled.
+   * 
+   * @example
+   * true
+   */
   SSLRedirectionEnabled?: boolean;
   /**
    * @remarks
@@ -8872,6 +9061,9 @@ export class DescribeGroupEndpointsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The response message.
+   * 
+   * @example
+   * Execution successful.
    */
   message?: string;
   /**
@@ -8947,6 +9139,135 @@ export class DescribeGroupEndpointsResponse extends $dara.Model {
   }
 }
 
+export class DescribeMachineSpecRequest extends $dara.Model {
+  /**
+   * @deprecated
+   */
+  instanceTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceTypes: 'InstanceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceTypes)) {
+      $dara.Model.validateArray(this.instanceTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMachineSpecShrinkRequest extends $dara.Model {
+  /**
+   * @deprecated
+   */
+  instanceTypesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceTypesShrink: 'InstanceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceTypesShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMachineSpecResponseBody extends $dara.Model {
+  instanceMetas?: DescribeMachineSpecResponseBodyInstanceMetas[];
+  /**
+   * @example
+   * 40325405-579C-4D82***
+   */
+  requestId?: string;
+  types?: DescribeMachineSpecResponseBodyTypes[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceMetas: 'InstanceMetas',
+      requestId: 'RequestId',
+      types: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceMetas: { 'type': 'array', 'itemType': DescribeMachineSpecResponseBodyInstanceMetas },
+      requestId: 'string',
+      types: { 'type': 'array', 'itemType': DescribeMachineSpecResponseBodyTypes },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceMetas)) {
+      $dara.Model.validateArray(this.instanceMetas);
+    }
+    if(Array.isArray(this.types)) {
+      $dara.Model.validateArray(this.types);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMachineSpecResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeMachineSpecResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeMachineSpecResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeResourceResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -8964,6 +9285,13 @@ export class DescribeResourceResponseBody extends $dara.Model {
    * 16
    */
   cpuCount?: number;
+  /**
+   * @remarks
+   * The number of vCPUs that is used.
+   * 
+   * @example
+   * 8
+   */
   cpuUsed?: number;
   /**
    * @remarks
@@ -8989,6 +9317,13 @@ export class DescribeResourceResponseBody extends $dara.Model {
    * 1
    */
   gpuCount?: number;
+  /**
+   * @remarks
+   * The number of GPUs that is used.
+   * 
+   * @example
+   * 2
+   */
   gpuUsed?: number;
   /**
    * @remarks
@@ -8998,7 +9333,21 @@ export class DescribeResourceResponseBody extends $dara.Model {
    * 4
    */
   instanceCount?: number;
+  /**
+   * @remarks
+   * The total memory size. Unit: MB.
+   * 
+   * @example
+   * 8192
+   */
   memory?: number;
+  /**
+   * @remarks
+   * The size of memory that is used. Unit: MB.
+   * 
+   * @example
+   * 2048
+   */
   memoryUsed?: number;
   /**
    * @remarks
@@ -9753,6 +10102,9 @@ export class DescribeServiceEndpointsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
+   * 
+   * @example
+   * Execution successful.
    */
   message?: string;
   /**
@@ -10675,6 +11027,13 @@ export class DescribeVirtualResourceResponseBody extends $dara.Model {
    * 2024-10-16T17:52:49Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the retention period of preemptible instances was disabled.
+   * 
+   * @example
+   * true
+   */
   disableSpotProtectionPeriod?: boolean;
   /**
    * @remarks
@@ -10689,6 +11048,13 @@ export class DescribeVirtualResourceResponseBody extends $dara.Model {
    * The list of resources in the virtual resource group.
    */
   resources?: DescribeVirtualResourceResponseBodyResources[];
+  /**
+   * @remarks
+   * The number of deployed services.
+   * 
+   * @example
+   * 1
+   */
   serviceCount?: number;
   /**
    * @remarks
@@ -12051,6 +12417,13 @@ export class ListResourceInstanceWorkerRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The worker name.
+   * 
+   * @example
+   * test-fd95xxxxx-xxxxxx
+   */
   workerName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12330,6 +12703,10 @@ export class ListResourceInstancesRequest extends $dara.Model {
    * Ready
    */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The tag.
+   */
   label?: { [key: string]: string };
   /**
    * @remarks
@@ -12633,6 +13010,10 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
    * Ready
    */
   instanceStatus?: string;
+  /**
+   * @remarks
+   * The tag.
+   */
   labelShrink?: string;
   /**
    * @remarks
@@ -13036,6 +13417,16 @@ export class ListResourceServicesResponse extends $dara.Model {
 }
 
 export class ListResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The sorting order. Valid values:
+   * 
+   * *   Desc
+   * *   Asc
+   * 
+   * @example
+   * Desc
+   */
   order?: string;
   /**
    * @remarks
@@ -13069,6 +13460,13 @@ export class ListResourcesRequest extends $dara.Model {
    * MyResource
    */
   resourceName?: string;
+  /**
+   * @remarks
+   * The resource group status.
+   * 
+   * @example
+   * ResourceReady
+   */
   resourceStatus?: string;
   /**
    * @remarks
@@ -13081,6 +13479,26 @@ export class ListResourcesRequest extends $dara.Model {
    * Dedicated
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The condition by which the results are sorted. By default, the query results are sorted by the timestamp type in descending order.
+   * 
+   * Valid values:
+   * 
+   * *   PrePaidInstanceCount
+   * *   CpuCount
+   * *   Memory
+   * *   CreateTime
+   * *   PostPaidInstanceCount
+   * *   MemoryUsed
+   * *   GpuCount
+   * *   GpuUsed
+   * *   CpuUsed
+   * *   ServiceCount
+   * 
+   * @example
+   * CreateTime
+   */
   sort?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14873,7 +15291,7 @@ export class ListVirtualResourceResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of virtual resource groups.
+   * The virtual resource groups.
    */
   virtualResources?: ListVirtualResourceResponseBodyVirtualResources[];
   static names(): { [key: string]: string } {
@@ -15814,20 +16232,7 @@ export class UpdateGatewayRequest extends $dara.Model {
    * Valid values:
    * 
    * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * false
@@ -15835,16 +16240,33 @@ export class UpdateGatewayRequest extends $dara.Model {
   enableInternet?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable internal network access. Default value: true.
+   * Specifies whether to enable private access. Default value: true.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * @example
    * true
    */
   enableIntranet?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable HTTP to HTTPS redirection. Default value: false.
+   * 
+   * @example
+   * false
+   */
   enableSSLRedirection?: boolean;
   /**
    * @remarks
-   * The instance type used for the private gateway.
+   * The instance type used by the private gateway. Valid values:
+   * 
+   * *   2c4g
+   * *   4c8g
+   * *   8c16g
+   * *   16c32g
    * 
    * @example
    * ecs.c6.4xlarge
@@ -15852,7 +16274,7 @@ export class UpdateGatewayRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * Indicates whether it is the default private gateway.
+   * Specifies whether it is the default private gateway.
    * 
    * @example
    * true
@@ -15860,7 +16282,7 @@ export class UpdateGatewayRequest extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The private gateway alias.
+   * The alias of the private gateway.
    * 
    * @example
    * mygateway1
@@ -16379,11 +16801,22 @@ export class UpdateResourceInstanceResponse extends $dara.Model {
 
 export class UpdateResourceInstanceLabelRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the modification takes effect on all instances in the resource group. If you set this parameter to true, the InstanceIds parameter does not take effect.
+   * 
    * @example
    * false
    */
   allInstances?: boolean;
+  /**
+   * @remarks
+   * The instance IDs.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * The custom tag.
+   */
   labels?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -16418,11 +16851,22 @@ export class UpdateResourceInstanceLabelRequest extends $dara.Model {
 
 export class UpdateResourceInstanceLabelShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the modification takes effect on all instances in the resource group. If you set this parameter to true, the InstanceIds parameter does not take effect.
+   * 
    * @example
    * false
    */
   allInstances?: boolean;
+  /**
+   * @remarks
+   * The instance IDs.
+   */
   instanceIdsShrink?: string;
+  /**
+   * @remarks
+   * The custom tag.
+   */
   labels?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -16454,13 +16898,16 @@ export class UpdateResourceInstanceLabelShrinkRequest extends $dara.Model {
 
 export class UpdateResourceInstanceLabelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 40325405-579C-4D82****
@@ -17449,17 +17896,24 @@ export class UpdateServiceVersionResponse extends $dara.Model {
 }
 
 export class UpdateVirtualResourceRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to disable the retention period of preemptible instances.
+   * 
+   * @example
+   * true
+   */
   disableSpotProtectionPeriod?: boolean;
   /**
    * @remarks
-   * The list of resources in the virtual resource group.
+   * The resources in the virtual resource group.
    * 
-   * >  If you specify this parameter, previous data are overwritten.
+   * >  If you specify this parameter, previous data is overwritten.
    */
   resources?: UpdateVirtualResourceRequestResources[];
   /**
    * @remarks
-   * The new name for the virtual resource group.
+   * The new name of the virtual resource group.
    * 
    * @example
    * NewMyVirtualResource
@@ -18994,7 +19448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源组实例标签
+   * Deletes the tags of an instance in a resource group.
    * 
    * @param tmpReq - DeleteResourceInstanceLabelRequest
    * @param headers - map
@@ -19050,7 +19504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源组实例标签
+   * Deletes the tags of an instance in a resource group.
    * 
    * @param request - DeleteResourceInstanceLabelRequest
    * @returns DeleteResourceInstanceLabelResponse
@@ -19677,6 +20131,62 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeGroupEndpointsWithOptions(ClusterId, GroupName, headers, runtime);
+  }
+
+  /**
+   * 查询可用机器规格
+   * 
+   * @param tmpReq - DescribeMachineSpecRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMachineSpecResponse
+   */
+  async describeMachineSpecWithOptions(tmpReq: DescribeMachineSpecRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<DescribeMachineSpecResponse> {
+    tmpReq.validate();
+    let request = new DescribeMachineSpecShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceTypes)) {
+      request.instanceTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceTypes, "InstanceTypes", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceTypesShrink)) {
+      query["InstanceTypes"] = request.instanceTypesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMachineSpec",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/public/instance_types`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeMachineSpecResponse>(await this.callApi(params, req, runtime), new DescribeMachineSpecResponse({}));
+    } else {
+      return $dara.cast<DescribeMachineSpecResponse>(await this.execute(params, req, runtime), new DescribeMachineSpecResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询可用机器规格
+   * 
+   * @param request - DescribeMachineSpecRequest
+   * @returns DescribeMachineSpecResponse
+   */
+  async describeMachineSpec(request: DescribeMachineSpecRequest): Promise<DescribeMachineSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeMachineSpecWithOptions(request, headers, runtime);
   }
 
   /**
@@ -22261,7 +22771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新资源组实例标签
+   * Updates the tag of an instance in a resource group.
    * 
    * @param tmpReq - UpdateResourceInstanceLabelRequest
    * @param headers - map
@@ -22315,7 +22825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新资源组实例标签
+   * Updates the tag of an instance in a resource group.
    * 
    * @param request - UpdateResourceInstanceLabelRequest
    * @returns UpdateResourceInstanceLabelResponse
