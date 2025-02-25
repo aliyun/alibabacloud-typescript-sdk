@@ -3664,6 +3664,7 @@ export class RealTimeDialogResponseBodyChoicesDelta extends $dara.Model {
   intentionCode?: string;
   intentionName?: string;
   intentionScript?: string;
+  interrupt?: boolean;
   /**
    * @example
    * null
@@ -3684,6 +3685,7 @@ export class RealTimeDialogResponseBodyChoicesDelta extends $dara.Model {
       intentionCode: 'intentionCode',
       intentionName: 'intentionName',
       intentionScript: 'intentionScript',
+      interrupt: 'interrupt',
       recommendIntention: 'recommendIntention',
       recommendScript: 'recommendScript',
       selfDirectedScript: 'selfDirectedScript',
@@ -3699,6 +3701,7 @@ export class RealTimeDialogResponseBodyChoicesDelta extends $dara.Model {
       intentionCode: 'string',
       intentionName: 'string',
       intentionScript: 'string',
+      interrupt: 'boolean',
       recommendIntention: 'string',
       recommendScript: 'string',
       selfDirectedScript: 'string',
@@ -3741,6 +3744,7 @@ export class RealTimeDialogResponseBodyChoicesMessage extends $dara.Model {
   intentionCode?: string;
   intentionName?: string;
   intentionScript?: string;
+  interrupt?: boolean;
   /**
    * @example
    * null
@@ -3765,6 +3769,7 @@ export class RealTimeDialogResponseBodyChoicesMessage extends $dara.Model {
       intentionCode: 'intentionCode',
       intentionName: 'intentionName',
       intentionScript: 'intentionScript',
+      interrupt: 'interrupt',
       recommendIntention: 'recommendIntention',
       recommendScript: 'recommendScript',
       selfDirectedScript: 'selfDirectedScript',
@@ -3780,6 +3785,7 @@ export class RealTimeDialogResponseBodyChoicesMessage extends $dara.Model {
       intentionCode: 'string',
       intentionName: 'string',
       intentionScript: 'string',
+      interrupt: 'boolean',
       recommendIntention: 'string',
       recommendScript: 'string',
       selfDirectedScript: 'string',
@@ -10785,6 +10791,7 @@ export class RealTimeDialogRequest extends $dara.Model {
    * false
    */
   recommend?: boolean;
+  scriptContentPlayed?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -10798,6 +10805,7 @@ export class RealTimeDialogRequest extends $dara.Model {
    * false
    */
   stream?: boolean;
+  userVad?: boolean;
   static names(): { [key: string]: string } {
     return {
       analysis: 'analysis',
@@ -10806,8 +10814,10 @@ export class RealTimeDialogRequest extends $dara.Model {
       dialogMemoryTurns: 'dialogMemoryTurns',
       metaData: 'metaData',
       recommend: 'recommend',
+      scriptContentPlayed: 'scriptContentPlayed',
       sessionId: 'sessionId',
       stream: 'stream',
+      userVad: 'userVad',
     };
   }
 
@@ -10819,8 +10829,10 @@ export class RealTimeDialogRequest extends $dara.Model {
       dialogMemoryTurns: 'number',
       metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       recommend: 'boolean',
+      scriptContentPlayed: 'string',
       sessionId: 'string',
       stream: 'boolean',
+      userVad: 'boolean',
     };
   }
 
@@ -14725,12 +14737,20 @@ export default class Client extends OpenApi {
       body["recommend"] = request.recommend;
     }
 
+    if (!$dara.isNull(request.scriptContentPlayed)) {
+      body["scriptContentPlayed"] = request.scriptContentPlayed;
+    }
+
     if (!$dara.isNull(request.sessionId)) {
       body["sessionId"] = request.sessionId;
     }
 
     if (!$dara.isNull(request.stream)) {
       body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.userVad)) {
+      body["userVad"] = request.userVad;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
