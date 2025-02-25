@@ -449,6 +449,7 @@ export class GetAICoachScriptResponseBodyPoints extends $dara.Model {
    * demo
    */
   name?: string;
+  pointId?: string;
   /**
    * @example
    * test
@@ -469,6 +470,7 @@ export class GetAICoachScriptResponseBodyPoints extends $dara.Model {
       answerList: 'answerList',
       knowledgeList: 'knowledgeList',
       name: 'name',
+      pointId: 'pointId',
       questionDescription: 'questionDescription',
       sortNo: 'sortNo',
       weight: 'weight',
@@ -480,6 +482,7 @@ export class GetAICoachScriptResponseBodyPoints extends $dara.Model {
       answerList: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyPointsAnswerList },
       knowledgeList: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      pointId: 'string',
       questionDescription: 'string',
       sortNo: 'number',
       weight: 'number',
