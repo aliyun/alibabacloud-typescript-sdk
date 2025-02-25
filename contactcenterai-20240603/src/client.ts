@@ -553,10 +553,6 @@ export class CreateTaskRequestFields extends $dara.Model {
    * This parameter is required.
    */
   desc?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   enumValues?: CreateTaskRequestFieldsEnumValues[];
   /**
    * @remarks
@@ -1698,6 +1694,7 @@ export class AnalyzeImageResponse extends $dara.Model {
 }
 
 export class CreateTaskRequest extends $dara.Model {
+  customPrompt?: string;
   dialogue?: CreateTaskRequestDialogue;
   examples?: CreateTaskRequestExamples;
   fields?: CreateTaskRequestFields[];
@@ -1723,6 +1720,7 @@ export class CreateTaskRequest extends $dara.Model {
   transcription?: CreateTaskRequestTranscription;
   static names(): { [key: string]: string } {
     return {
+      customPrompt: 'customPrompt',
       dialogue: 'dialogue',
       examples: 'examples',
       fields: 'fields',
@@ -1737,6 +1735,7 @@ export class CreateTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      customPrompt: 'string',
       dialogue: CreateTaskRequestDialogue,
       examples: CreateTaskRequestExamples,
       fields: { 'type': 'array', 'itemType': CreateTaskRequestFields },
@@ -3046,6 +3045,10 @@ export default class Client extends OpenApi {
   async createTaskWithOptions(workspaceId: string, appId: string, request: CreateTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateTaskResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.customPrompt)) {
+      body["customPrompt"] = request.customPrompt;
+    }
+
     if (!$dara.isNull(request.dialogue)) {
       body["dialogue"] = request.dialogue;
     }
