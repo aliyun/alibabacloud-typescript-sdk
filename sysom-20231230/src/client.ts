@@ -2067,6 +2067,341 @@ export class ListInstancesResponseBodyData extends $dara.Model {
   }
 }
 
+export class ListInstancesEcsInfoListResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 11.193.52.91
+   */
+  ip?: string;
+  /**
+   * @example
+   * sysom
+   */
+  tagKey?: string;
+  /**
+   * @example
+   * diagnosis
+   */
+  tagValue?: string;
+  /**
+   * @example
+   * public
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'ip',
+      tagKey: 'tag_key',
+      tagValue: 'tag_value',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesWithEcsInfoRequestInstanceTag extends $dara.Model {
+  /**
+   * @example
+   * feature_dim_radar_chart
+   */
+  key?: string;
+  /**
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesWithEcsInfoResponseBodyDataInstanceTag extends $dara.Model {
+  /**
+   * @example
+   * test_tag_key
+   */
+  tagKey?: string;
+  /**
+   * @example
+   * test_tag_value
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'tag_key',
+      tagValue: 'tag_value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesWithEcsInfoResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * cbf7a37bc905d4682a3338b3744810269
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * i-bp118piqcio9tiwgh84b
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * allowed-repos-r2tzl
+   */
+  instanceName?: string;
+  instanceTag?: ListInstancesWithEcsInfoResponseBodyDataInstanceTag[];
+  /**
+   * @example
+   * x86
+   */
+  osArch?: string;
+  /**
+   * @example
+   * 100
+   */
+  osHealthScore?: string;
+  /**
+   * @example
+   * Alibaba Cloud Linux  3.2104 LTS 64bit
+   */
+  osName?: string;
+  /**
+   * @example
+   * 1.1.1.1
+   */
+  privateIp?: string;
+  /**
+   * @example
+   * 1.1.1.1
+   */
+  publicIp?: string;
+  /**
+   * @example
+   * rg-xxxxxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * default resource group
+   */
+  resourceGroupName?: string;
+  /**
+   * @example
+   * Running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      instanceId: 'instance_id',
+      instanceName: 'instance_name',
+      instanceTag: 'instance_tag',
+      osArch: 'os_arch',
+      osHealthScore: 'os_health_score',
+      osName: 'os_name',
+      privateIp: 'private_ip',
+      publicIp: 'public_ip',
+      resourceGroupId: 'resource_group_id',
+      resourceGroupName: 'resource_group_name',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceTag: { 'type': 'array', 'itemType': ListInstancesWithEcsInfoResponseBodyDataInstanceTag },
+      osArch: 'string',
+      osHealthScore: 'string',
+      osName: 'string',
+      privateIp: 'string',
+      publicIp: 'string',
+      resourceGroupId: 'string',
+      resourceGroupName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceTag)) {
+      $dara.Model.validateArray(this.instanceTag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPluginsInstancesResponseBodyDataInstanceTag extends $dara.Model {
+  /**
+   * @example
+   * test_tag_key
+   */
+  tagKey?: string;
+  /**
+   * @example
+   * test_tag_value
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'tag_key',
+      tagValue: 'tag_value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPluginsInstancesResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * i-bp118piqcio9tiwgh84b
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * allowed-repos-qmf8w
+   */
+  instanceName?: string;
+  instanceTag?: ListPluginsInstancesResponseBodyDataInstanceTag[];
+  /**
+   * @example
+   * Alibaba Cloud Linux  3.2104 LTS 64 bit
+   */
+  osName?: string;
+  /**
+   * @example
+   * 1.1.1.1
+   */
+  privateIp?: string;
+  /**
+   * @example
+   * 1.1.1.1
+   */
+  publicIp?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @example
+   * rg-xxxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * default resource group
+   */
+  resourceGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'instance_id',
+      instanceName: 'instance_name',
+      instanceTag: 'instance_tag',
+      osName: 'os_name',
+      privateIp: 'private_ip',
+      publicIp: 'public_ip',
+      region: 'region',
+      resourceGroupId: 'resource_group_id',
+      resourceGroupName: 'resource_group_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceTag: { 'type': 'array', 'itemType': ListPluginsInstancesResponseBodyDataInstanceTag },
+      osName: 'string',
+      privateIp: 'string',
+      publicIp: 'string',
+      region: 'string',
+      resourceGroupId: 'string',
+      resourceGroupName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instanceTag)) {
+      $dara.Model.validateArray(this.instanceTag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPodsOfInstanceResponseBodyData extends $dara.Model {
   /**
    * @example
@@ -7451,6 +7786,649 @@ export class ListInstancesResponse extends $dara.Model {
   }
 }
 
+export class ListInstancesEcsInfoListRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ip
+   */
+  infoType?: string;
+  /**
+   * @example
+   * i-bp118piqcio9tiwgh84b
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * managed
+   */
+  managedType?: string;
+  /**
+   * @example
+   * 74a86327-3170-412c-8e67-da3389ec56a9
+   */
+  pluginId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      infoType: 'info_type',
+      instanceId: 'instance_id',
+      managedType: 'managed_type',
+      pluginId: 'plugin_id',
+      region: 'region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      infoType: 'string',
+      instanceId: 'string',
+      managedType: 'string',
+      pluginId: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesEcsInfoListResponseBody extends $dara.Model {
+  /**
+   * @example
+   * SysomOpenAPI.InvalidParameter
+   */
+  code?: string;
+  data?: ListInstancesEcsInfoListResponseBodyData[];
+  /**
+   * @example
+   * ""
+   */
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListInstancesEcsInfoListResponseBodyData },
+      message: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesEcsInfoListResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesEcsInfoListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstancesEcsInfoListResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesWithEcsInfoRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  /**
+   * @example
+   * healthy
+   */
+  healthStatus?: string;
+  /**
+   * @example
+   * i-bp118piqcio9tiwgh84b
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 84b
+   */
+  instanceIdName?: string;
+  /**
+   * @example
+   * block-load-balancer-hjdm9
+   */
+  instanceName?: string;
+  instanceTag?: ListInstancesWithEcsInfoRequestInstanceTag;
+  /**
+   * @example
+   * 1
+   */
+  isManaged?: number;
+  /**
+   * @example
+   * Alibaba Cloud Linux  3.2104 LTS 64bit
+   */
+  osName?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1.1.1.1
+   */
+  privateIp?: string;
+  /**
+   * @example
+   * 1.1.1.1
+   */
+  publicIp?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  region?: string;
+  /**
+   * @example
+   * rg-xxxxxxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * default
+   */
+  resourceGroupIdName?: string;
+  /**
+   * @example
+   * default resource group
+   */
+  resourceGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'current',
+      healthStatus: 'health_status',
+      instanceId: 'instance_id',
+      instanceIdName: 'instance_id_name',
+      instanceName: 'instance_name',
+      instanceTag: 'instance_tag',
+      isManaged: 'is_managed',
+      osName: 'os_name',
+      pageSize: 'pageSize',
+      privateIp: 'private_ip',
+      publicIp: 'public_ip',
+      region: 'region',
+      resourceGroupId: 'resource_group_id',
+      resourceGroupIdName: 'resource_group_id_name',
+      resourceGroupName: 'resource_group_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      healthStatus: 'string',
+      instanceId: 'string',
+      instanceIdName: 'string',
+      instanceName: 'string',
+      instanceTag: ListInstancesWithEcsInfoRequestInstanceTag,
+      isManaged: 'number',
+      osName: 'string',
+      pageSize: 'number',
+      privateIp: 'string',
+      publicIp: 'string',
+      region: 'string',
+      resourceGroupId: 'string',
+      resourceGroupIdName: 'string',
+      resourceGroupName: 'string',
+    };
+  }
+
+  validate() {
+    if(this.instanceTag && typeof (this.instanceTag as any).validate === 'function') {
+      (this.instanceTag as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesWithEcsInfoShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  /**
+   * @example
+   * healthy
+   */
+  healthStatus?: string;
+  /**
+   * @example
+   * i-bp118piqcio9tiwgh84b
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 84b
+   */
+  instanceIdName?: string;
+  /**
+   * @example
+   * block-load-balancer-hjdm9
+   */
+  instanceName?: string;
+  instanceTagShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  isManaged?: number;
+  /**
+   * @example
+   * Alibaba Cloud Linux  3.2104 LTS 64bit
+   */
+  osName?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1.1.1.1
+   */
+  privateIp?: string;
+  /**
+   * @example
+   * 1.1.1.1
+   */
+  publicIp?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  region?: string;
+  /**
+   * @example
+   * rg-xxxxxxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * default
+   */
+  resourceGroupIdName?: string;
+  /**
+   * @example
+   * default resource group
+   */
+  resourceGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'current',
+      healthStatus: 'health_status',
+      instanceId: 'instance_id',
+      instanceIdName: 'instance_id_name',
+      instanceName: 'instance_name',
+      instanceTagShrink: 'instance_tag',
+      isManaged: 'is_managed',
+      osName: 'os_name',
+      pageSize: 'pageSize',
+      privateIp: 'private_ip',
+      publicIp: 'public_ip',
+      region: 'region',
+      resourceGroupId: 'resource_group_id',
+      resourceGroupIdName: 'resource_group_id_name',
+      resourceGroupName: 'resource_group_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      healthStatus: 'string',
+      instanceId: 'string',
+      instanceIdName: 'string',
+      instanceName: 'string',
+      instanceTagShrink: 'string',
+      isManaged: 'number',
+      osName: 'string',
+      pageSize: 'number',
+      privateIp: 'string',
+      publicIp: 'string',
+      region: 'string',
+      resourceGroupId: 'string',
+      resourceGroupIdName: 'string',
+      resourceGroupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesWithEcsInfoResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Success
+   */
+  code?: string;
+  data?: ListInstancesWithEcsInfoResponseBodyData[];
+  /**
+   * @example
+   * result: code=1 msg=(Request failed, status_code != 200)
+   */
+  message?: string;
+  /**
+   * @example
+   * 35F91AAB-5FDF-5A22-B211-C7C6B00817D0
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 319
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'request_id',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListInstancesWithEcsInfoResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesWithEcsInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesWithEcsInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstancesWithEcsInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPluginsInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * 5
+   */
+  current?: number;
+  /**
+   * @example
+   * i-bpxx
+   */
+  instanceIdName?: string;
+  /**
+   * @example
+   * {"key":"app","value":"sysom-aliyun-com"}
+   */
+  instanceTag?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * install
+   */
+  operationType?: string;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 74a86327-3170-412c-8e67-da3389ec56a9
+   */
+  pluginId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'current',
+      instanceIdName: 'instance_id_name',
+      instanceTag: 'instance_tag',
+      operationType: 'operation_type',
+      pageSize: 'pageSize',
+      pluginId: 'plugin_id',
+      region: 'region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      instanceIdName: 'string',
+      instanceTag: 'string',
+      operationType: 'string',
+      pageSize: 'number',
+      pluginId: 'string',
+      region: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPluginsInstancesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Success
+   */
+  code?: string;
+  data?: ListPluginsInstancesResponseBodyData[];
+  /**
+   * @example
+   * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict
+   */
+  message?: string;
+  /**
+   * @example
+   * 35F91AAB-5FDF-5A22-B211-C7C6B00817D0
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 42
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'request_id',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListPluginsInstancesResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPluginsInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPluginsInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPluginsInstancesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPodsOfInstanceRequest extends $dara.Model {
   /**
    * @example
@@ -7677,6 +8655,7 @@ export class ListRegionsResponse extends $dara.Model {
 }
 
 export class StartAIAnalysisRequest extends $dara.Model {
+  analysisTool?: string;
   /**
    * @example
    * ecs_sysom
@@ -7709,6 +8688,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
+      analysisTool: 'analysisTool',
       channel: 'channel',
       comms: 'comms',
       instance: 'instance',
@@ -7720,6 +8700,7 @@ export class StartAIAnalysisRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      analysisTool: 'string',
       channel: 'string',
       comms: 'string',
       instance: 'string',
@@ -10938,6 +11919,258 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取ecs信息的列表，如标签列表，公网ip列表等
+   * 
+   * @param request - ListInstancesEcsInfoListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesEcsInfoListResponse
+   */
+  async listInstancesEcsInfoListWithOptions(request: ListInstancesEcsInfoListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListInstancesEcsInfoListResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.infoType)) {
+      query["info_type"] = request.infoType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["instance_id"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.managedType)) {
+      query["managed_type"] = request.managedType;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["plugin_id"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["region"] = request.region;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstancesEcsInfoList",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/am/instance/listInstancesEcsInfoList`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstancesEcsInfoListResponse>(await this.callApi(params, req, runtime), new ListInstancesEcsInfoListResponse({}));
+    } else {
+      return $dara.cast<ListInstancesEcsInfoListResponse>(await this.execute(params, req, runtime), new ListInstancesEcsInfoListResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取ecs信息的列表，如标签列表，公网ip列表等
+   * 
+   * @param request - ListInstancesEcsInfoListRequest
+   * @returns ListInstancesEcsInfoListResponse
+   */
+  async listInstancesEcsInfoList(request: ListInstancesEcsInfoListRequest): Promise<ListInstancesEcsInfoListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstancesEcsInfoListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取已纳管/未纳管实例信息，信息中包含ECS信息
+   * 
+   * @param tmpReq - ListInstancesWithEcsInfoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesWithEcsInfoResponse
+   */
+  async listInstancesWithEcsInfoWithOptions(tmpReq: ListInstancesWithEcsInfoRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListInstancesWithEcsInfoResponse> {
+    tmpReq.validate();
+    let request = new ListInstancesWithEcsInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceTag)) {
+      request.instanceTagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceTag, "instance_tag", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.current)) {
+      query["current"] = request.current;
+    }
+
+    if (!$dara.isNull(request.healthStatus)) {
+      query["health_status"] = request.healthStatus;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["instance_id"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceIdName)) {
+      query["instance_id_name"] = request.instanceIdName;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["instance_name"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.instanceTagShrink)) {
+      query["instance_tag"] = request.instanceTagShrink;
+    }
+
+    if (!$dara.isNull(request.isManaged)) {
+      query["is_managed"] = request.isManaged;
+    }
+
+    if (!$dara.isNull(request.osName)) {
+      query["os_name"] = request.osName;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.privateIp)) {
+      query["private_ip"] = request.privateIp;
+    }
+
+    if (!$dara.isNull(request.publicIp)) {
+      query["public_ip"] = request.publicIp;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["resource_group_id"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupIdName)) {
+      query["resource_group_id_name"] = request.resourceGroupIdName;
+    }
+
+    if (!$dara.isNull(request.resourceGroupName)) {
+      query["resource_group_name"] = request.resourceGroupName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstancesWithEcsInfo",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/am/instance/listInstancesWithEcsInfo`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstancesWithEcsInfoResponse>(await this.callApi(params, req, runtime), new ListInstancesWithEcsInfoResponse({}));
+    } else {
+      return $dara.cast<ListInstancesWithEcsInfoResponse>(await this.execute(params, req, runtime), new ListInstancesWithEcsInfoResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取已纳管/未纳管实例信息，信息中包含ECS信息
+   * 
+   * @param request - ListInstancesWithEcsInfoRequest
+   * @returns ListInstancesWithEcsInfoResponse
+   */
+  async listInstancesWithEcsInfo(request: ListInstancesWithEcsInfoRequest): Promise<ListInstancesWithEcsInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstancesWithEcsInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取插件的安装/更新/卸载实例列表
+   * 
+   * @param request - ListPluginsInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPluginsInstancesResponse
+   */
+  async listPluginsInstancesWithOptions(request: ListPluginsInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListPluginsInstancesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.current)) {
+      query["current"] = request.current;
+    }
+
+    if (!$dara.isNull(request.instanceIdName)) {
+      query["instance_id_name"] = request.instanceIdName;
+    }
+
+    if (!$dara.isNull(request.instanceTag)) {
+      query["instance_tag"] = request.instanceTag;
+    }
+
+    if (!$dara.isNull(request.operationType)) {
+      query["operation_type"] = request.operationType;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["plugin_id"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["region"] = request.region;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPluginsInstances",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/am/agent/listPluginsInstances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListPluginsInstancesResponse>(await this.callApi(params, req, runtime), new ListPluginsInstancesResponse({}));
+    } else {
+      return $dara.cast<ListPluginsInstancesResponse>(await this.execute(params, req, runtime), new ListPluginsInstancesResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取插件的安装/更新/卸载实例列表
+   * 
+   * @param request - ListPluginsInstancesRequest
+   * @returns ListPluginsInstancesResponse
+   */
+  async listPluginsInstances(request: ListPluginsInstancesRequest): Promise<ListPluginsInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPluginsInstancesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取实例中的pod列表
    * 
    * @param request - ListPodsOfInstanceRequest
@@ -11050,6 +12283,10 @@ export default class Client extends OpenApi {
   async startAIAnalysisWithOptions(request: StartAIAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<StartAIAnalysisResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.analysisTool)) {
+      body["analysisTool"] = request.analysisTool;
+    }
+
     if (!$dara.isNull(request.channel)) {
       body["channel"] = request.channel;
     }
