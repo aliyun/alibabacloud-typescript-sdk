@@ -945,6 +945,136 @@ export class ListGroupIdResponseBodyData extends $dara.Model {
   }
 }
 
+export class ListInstancesResponseBodyInstancesMqttTags extends $dara.Model {
+  /**
+   * @example
+   * test
+   */
+  tagKey?: string;
+  /**
+   * @example
+   * test
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBodyInstances extends $dara.Model {
+  /**
+   * @example
+   * 1739345768000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1741795200000
+   */
+  expireTime?: number;
+  /**
+   * @example
+   * mqtt-cn-xxxxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * mqtt-cn-xxxxxxx
+   */
+  instanceName?: string;
+  /**
+   * @example
+   * 5
+   */
+  instanceStatus?: number;
+  /**
+   * @example
+   * 4
+   */
+  instanceType?: number;
+  /**
+   * @example
+   * V3.3.0
+   */
+  kernelVersion?: string;
+  mqttTags?: ListInstancesResponseBodyInstancesMqttTags[];
+  /**
+   * @example
+   * 245949616640095
+   */
+  orderId?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
+  regionId?: string;
+  /**
+   * @example
+   * mqtt.p2.1xlarge
+   */
+  specific?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      expireTime: 'ExpireTime',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceStatus: 'InstanceStatus',
+      instanceType: 'InstanceType',
+      kernelVersion: 'KernelVersion',
+      mqttTags: 'MqttTags',
+      orderId: 'OrderId',
+      regionId: 'RegionId',
+      specific: 'Specific',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      expireTime: 'number',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceStatus: 'number',
+      instanceType: 'number',
+      kernelVersion: 'string',
+      mqttTags: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesMqttTags },
+      orderId: 'string',
+      regionId: 'string',
+      specific: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mqttTags)) {
+      $dara.Model.validateArray(this.mqttTags);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @example
@@ -5736,6 +5866,125 @@ export class ListGroupIdResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListGroupIdResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesRequest extends $dara.Model {
+  /**
+   * @example
+   * [{"key":"test","value":"test"}]
+   */
+  tags?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tags: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  instances?: ListInstancesResponseBodyInstances[];
+  /**
+   * @example
+   * operation success.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 294F5B26-FADF-41D0-BE68-14ABE4EB****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      instances: 'Instances',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      instances: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstances },
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListInstancesResponseBody,
     };
   }
 
@@ -10680,6 +10929,53 @@ export default class Client extends OpenApi {
   async listGroupId(request: ListGroupIdRequest): Promise<ListGroupIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listGroupIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例列表
+   * 
+   * @param request - ListInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesResponse
+   */
+  async listInstancesWithOptions(request: ListInstancesRequest, runtime: $dara.RuntimeOptions): Promise<ListInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstances",
+      version: "2020-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+    } else {
+      return $dara.cast<ListInstancesResponse>(await this.execute(params, req, runtime), new ListInstancesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询实例列表
+   * 
+   * @param request - ListInstancesRequest
+   * @returns ListInstancesResponse
+   */
+  async listInstances(request: ListInstancesRequest): Promise<ListInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInstancesWithOptions(request, runtime);
   }
 
   /**
