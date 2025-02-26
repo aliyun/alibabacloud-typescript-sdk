@@ -32461,6 +32461,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
   dbStorageSize?: string;
   dbStorageType?: string;
   dryRun?: boolean;
+  gpuNodeSpec?: string;
   kvStoreAccount?: string;
   kvStoreEngineVersion?: string;
   kvStoreInstanceClass?: string;
@@ -32469,6 +32470,12 @@ export class CreateDifyInstanceRequest extends $dara.Model {
   kvStorePassword?: string;
   kvStoreResourceId?: number;
   kvStoreType?: string;
+  modelId?: string;
+  /**
+   * @example
+   * Disable
+   */
+  modelOption?: string;
   ossPath?: string;
   ossResourceId?: number;
   payPeriod?: number;
@@ -32533,6 +32540,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
       dbStorageSize: 'DbStorageSize',
       dbStorageType: 'DbStorageType',
       dryRun: 'DryRun',
+      gpuNodeSpec: 'GpuNodeSpec',
       kvStoreAccount: 'KvStoreAccount',
       kvStoreEngineVersion: 'KvStoreEngineVersion',
       kvStoreInstanceClass: 'KvStoreInstanceClass',
@@ -32541,6 +32549,8 @@ export class CreateDifyInstanceRequest extends $dara.Model {
       kvStorePassword: 'KvStorePassword',
       kvStoreResourceId: 'KvStoreResourceId',
       kvStoreType: 'KvStoreType',
+      modelId: 'ModelId',
+      modelOption: 'ModelOption',
       ossPath: 'OssPath',
       ossResourceId: 'OssResourceId',
       payPeriod: 'PayPeriod',
@@ -32588,6 +32598,7 @@ export class CreateDifyInstanceRequest extends $dara.Model {
       dbStorageSize: 'string',
       dbStorageType: 'string',
       dryRun: 'boolean',
+      gpuNodeSpec: 'string',
       kvStoreAccount: 'string',
       kvStoreEngineVersion: 'string',
       kvStoreInstanceClass: 'string',
@@ -32596,6 +32607,8 @@ export class CreateDifyInstanceRequest extends $dara.Model {
       kvStorePassword: 'string',
       kvStoreResourceId: 'number',
       kvStoreType: 'string',
+      modelId: 'string',
+      modelOption: 'string',
       ossPath: 'string',
       ossResourceId: 'number',
       payPeriod: 'number',
@@ -73240,6 +73253,129 @@ export class UpdateTaskContentResponse extends $dara.Model {
   }
 }
 
+export class UpdateTaskContentV2Request extends $dara.Model {
+  /**
+   * @example
+   * { "dbId":12****, "sql":"select * from test_table",   "dbType":"lindorm_sql"  }
+   */
+  nodeContent?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 449***
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeContent: 'NodeContent',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeContent: 'string',
+      nodeId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskContentV2ResponseBody extends $dara.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * B5FD0BC8-2D90-4478-B8EC-A0E92E0B1773
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTaskContentV2Response extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateTaskContentV2ResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateTaskContentV2ResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTaskFlowConstantsRequest extends $dara.Model {
   /**
    * @remarks
@@ -78045,6 +78181,10 @@ export default class Client extends OpenApi {
       query["DryRun"] = request.dryRun;
     }
 
+    if (!$dara.isNull(request.gpuNodeSpec)) {
+      query["GpuNodeSpec"] = request.gpuNodeSpec;
+    }
+
     if (!$dara.isNull(request.kvStoreAccount)) {
       query["KvStoreAccount"] = request.kvStoreAccount;
     }
@@ -78075,6 +78215,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.kvStoreType)) {
       query["KvStoreType"] = request.kvStoreType;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      query["ModelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.modelOption)) {
+      query["ModelOption"] = request.modelOption;
     }
 
     if (!$dara.isNull(request.ossPath)) {
@@ -92532,6 +92680,59 @@ export default class Client extends OpenApi {
   async updateTaskContent(request: UpdateTaskContentRequest): Promise<UpdateTaskContentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTaskContentWithOptions(request, runtime);
+  }
+
+  /**
+   * 接受大容量sql文件的更新节点内容API
+   * 
+   * @param request - UpdateTaskContentV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTaskContentV2Response
+   */
+  async updateTaskContentV2WithOptions(request: UpdateTaskContentV2Request, runtime: $dara.RuntimeOptions): Promise<UpdateTaskContentV2Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nodeContent)) {
+      body["NodeContent"] = request.nodeContent;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTaskContentV2",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateTaskContentV2Response>(await this.callApi(params, req, runtime), new UpdateTaskContentV2Response({}));
+    } else {
+      return $dara.cast<UpdateTaskContentV2Response>(await this.execute(params, req, runtime), new UpdateTaskContentV2Response({}));
+    }
+
+  }
+
+  /**
+   * 接受大容量sql文件的更新节点内容API
+   * 
+   * @param request - UpdateTaskContentV2Request
+   * @returns UpdateTaskContentV2Response
+   */
+  async updateTaskContentV2(request: UpdateTaskContentV2Request): Promise<UpdateTaskContentV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateTaskContentV2WithOptions(request, runtime);
   }
 
   /**
