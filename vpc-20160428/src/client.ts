@@ -6407,13 +6407,21 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $dar
    * eipsg-t4nr90yik5oy38xd****
    */
   segmentInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the service provider to which the managed instance belongs.
+   * > This is only valid when the ServiceManaged parameter is set to True.
+   * 
+   * @example
+   * 197*************
+   */
   serviceID?: number;
   /**
    * @remarks
-   * Indicates whether the resource is created by the service account. Valid values:
+   * Indicates whether the instance is managed. Valid values:
    * 
-   * *   **0**
-   * *   **1**
+   * *   **1**: yes
+   * *   **0**: no
    * 
    * @example
    * 0
@@ -14875,7 +14883,9 @@ export class DescribeRouteEntryListResponseBodyRouteEntrys extends $dara.Model {
 export class DescribeRouteTableListRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The detailed information about the route tables.
+   * The value of tag N to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -14883,7 +14893,9 @@ export class DescribeRouteTableListRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the route table belongs.
+   * The value of tag N to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -14941,9 +14953,7 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
 export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTypeTagsTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag N to add to the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
-   * 
-   * The tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * The key of the tag that is added to the route table.
    * 
    * @example
    * type
@@ -14951,9 +14961,7 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
   key?: string;
   /**
    * @remarks
-   * The value of tag N to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
-   * 
-   * The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
+   * The value of the tag that is added to the route table.
    * 
    * @example
    * ingress
@@ -15037,7 +15045,10 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
 export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListType extends $dara.Model {
   /**
    * @remarks
-   * The tags.
+   * The type of the cloud resource with which the route table is associated. Valid values:
+   * 
+   * *   **VSwitch**: vSwitch
+   * *   **Gateway**: IPv4 gateway
    * 
    * @example
    * VSwitch
@@ -15045,10 +15056,7 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
   associateType?: string;
   /**
    * @remarks
-   * The type of the router to which the route table belongs. Valid values:
-   * 
-   * *   **VRouter**
-   * *   **VBR**
+   * The time when the route table was created.
    * 
    * @example
    * 2021-08-22T10:40:25Z
@@ -15056,7 +15064,7 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
   creationTime?: string;
   /**
    * @remarks
-   * The information about the vSwitches.
+   * The information about the route table.
    * 
    * @example
    * This is Route Table.
@@ -15069,7 +15077,7 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
   gatewayIds?: DescribeRouteTableListResponseBodyRouterTableListRouterTableListTypeGatewayIds;
   /**
    * @remarks
-   * The value of tag N added to the resource.
+   * The ID of the Alibaba Cloud account to which the route table belongs.
    * 
    * @example
    * 253460731706911258
@@ -15077,7 +15085,7 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
   ownerId?: number;
   /**
    * @remarks
-   * The detailed information about the IPv4 gateway.
+   * The ID of the resource group to which the route table belongs.
    * 
    * @example
    * rg-acfmxazb4ph****
@@ -15087,9 +15095,9 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
    * @remarks
    * Whether to receive the propagation routes. Valid Values:
    * 
-   * *   **True**: The propagation route is received.
+   * *   **true**: received.
    * 
-   * *   **False**: The propagation route is not received.
+   * *   **false**: not received.
    * 
    * @example
    * true
@@ -15097,7 +15105,7 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
   routePropagationEnable?: boolean;
   /**
    * @remarks
-   * The key of tag N added to the resource.
+   * The ID of the route table.
    * 
    * @example
    * vtb-bp145q7glnuzdvzu2****
@@ -15113,7 +15121,10 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
   routeTableName?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The type of the route table. Valid values:
+   * 
+   * *   **Custom**
+   * *   **System**
    * 
    * @example
    * System
@@ -15121,7 +15132,7 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
   routeTableType?: string;
   /**
    * @remarks
-   * The tag added to the route table.
+   * The ID of the vRouter to which the route table belongs.
    * 
    * @example
    * vrt-bp1lhl0taikrteen8****
@@ -15129,7 +15140,11 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
   routerId?: string;
   /**
    * @remarks
-   * The detailed information about the IPv4 gateway.
+   * The type of the vRouter to which the route table belongs. Valid values:
+   * 
+   * - **VRouter**: a vRouter.
+   * 
+   * - **VBR**: a VBR.
    * 
    * @example
    * VRouter
@@ -15137,7 +15152,11 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
   routerType?: string;
   /**
    * @remarks
-   * The name of the route table.
+   * The status of the route table. Valid values:
+   * 
+   * *   **Pending**
+   * *   **Available**
+   * *   **Deleting**
    * 
    * @example
    * Available
@@ -15155,7 +15174,7 @@ export class DescribeRouteTableListResponseBodyRouterTableListRouterTableListTyp
   vSwitchIds?: DescribeRouteTableListResponseBodyRouterTableListRouterTableListTypeVSwitchIds;
   /**
    * @remarks
-   * The ID of the resource group to which the route table belongs.
+   * The ID of the VPC to which the route table belongs.
    * 
    * @example
    * vpc-bp15zckdt37pq72****
@@ -23346,11 +23365,17 @@ export class DescribeVpnGatewayResponseBodyTags extends $dara.Model {
 
 export class DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList extends $dara.Model {
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-h
    */
   zoneId?: string;
   /**
+   * @remarks
+   * The zone name.
+   * 
    * @example
    * cn-hangzhou-h
    */
@@ -24163,8 +24188,35 @@ export class DescribeVpnPbrRouteEntriesResponseBodyVpnPbrRouteEntries extends $d
 }
 
 export class DescribeVpnRouteEntriesResponseBodyVpnRouteCountsVpnRouteCount extends $dara.Model {
+  /**
+   * @remarks
+   * The number of route entries.
+   * 
+   * @example
+   * 3
+   */
   routeCount?: number;
+  /**
+   * @remarks
+   * The route type. Valid values:
+   * 
+   * *   **custom** (default): destination-based route.
+   * *   **bgp** : BGP route entry.
+   * 
+   * @example
+   * bgp
+   */
   routeEntryType?: string;
+  /**
+   * @remarks
+   * The source of the BGP route. Valid values:
+   * 
+   * *   **CLOUD**: advertised from a cloud service associated with the VPN gateway.
+   * *   **VPN_BGP**: indicates that the current route is learned by using BGP of the VPN gateway. For example, the BGP is used to learn the route of the on-premises data center.
+   * 
+   * @example
+   * VPN_BGP
+   */
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24282,7 +24334,10 @@ export class DescribeVpnRouteEntriesResponseBodyVpnRouteEntriesVpnRouteEntry ext
   routeEntryType?: string;
   /**
    * @remarks
-   * The source CIDR block of the route entry.
+   * The source of the BGP route. Valid values:
+   * 
+   * *   **CLOUD**: advertised from a cloud service associated with the VPN gateway.
+   * *   **VPN_BGP**: indicates that the current route is learned by using BGP of the VPN gateway. For example, the BGP is used to learn the route of the on-premises data center.
    * 
    * @example
    * 192.168.10.0/24
@@ -30832,7 +30887,7 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelBgpConf
   localAsn?: number;
   /**
    * @remarks
-   * The BGP IP address of the tunnel. The IP address must fall into the **CIDR block** of the tunnel.
+   * The BGP IP address of the tunnel. The address needs to be an IP address within the **TunnelCidr**.
    * 
    * @example
    * 169.254.11.1
@@ -30842,7 +30897,9 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelBgpConf
    * @remarks
    * The CIDR block of the tunnel.
    * 
-   * The CIDR block must fall within the 169.254.0.0/16 range. The subnet mask of the CIDR block must be 30 bits in length.
+   * The CIDR block must fall within 169.254.0.0/16 and the mask of the CIDR block must be 30 bits in length. The CIDR block cannot be 169.254.0.0/30, 169.254.1.0/30, 169.254.2.0/30, 169.254.3.0/30, 169.254.4.0/30, 169.254.5.0/30, 169.254.6.0/30, or 169.254.169.252/30.
+   * 
+   * >  The CIDR block of the IPsec tunnel for each IPsec-VPN connection on a VPN gateway must be unique.
    * 
    * @example
    * 169.254.11.0/30
@@ -30878,8 +30935,16 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIkeConf
    * @remarks
    * The authentication algorithm that is used in IKE Phase 1 negotiations.
    * 
-   * *   Valid values when the IPsec connection is attached to a standard VPN gateway: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**.
-   * *   Valid values when the IPsec connection is attached to a VPN gateway that uses an SM certificate: **sm3**.
+   * 
+   * <props="china">
+   * 
+   * *   If an IPsec-VPN gateway is associated with a standard VPN gateway, the valid values are **md5**, **sha1**, **sha256**, **sha384**, and **sha512**.
+   * *   If the IPsec-VPN gateway is associated with an SSL-VPN gateway, the valid value is **sm3**.
+   * 
+   * 
+   * <props="intl">
+   * 
+   * Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**.
    * 
    * @example
    * sha1
@@ -30889,8 +30954,15 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIkeConf
    * @remarks
    * The encryption algorithm that is used in IKE Phase 1 negotiations.
    * 
-   * *   Valid values when the IPsec connection is attached to a standard VPN gateway: **aes**, **aes192**, **aes256**, **des**, and **3des**.
-   * *   If the IPsec connection is attached to a VPN gateway that uses an SM certificate, set the value to **sm4**.
+   * <props="china">
+   * 
+   * *   If an IPsec-VPN gateway is associated with a standard VPN gateway, the valid values are **aes**, **aes192**, **aes256**, **des**, and **3des**.
+   * *   If the IPsec-VPN gateway is associated with an SSL-VPN gateway, set the value to **sm4**.
+   * 
+   * 
+   * <props="intl">
+   * 
+   * Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**.
    * 
    * @example
    * aes
@@ -30898,7 +30970,7 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIkeConf
   ikeEncAlg?: string;
   /**
    * @remarks
-   * The SA lifetime as a result of Phase 1 negotiations. Unit: seconds. Valid values: **0 to 86400**.
+   * The SA lifetime as a result of Phase 1 negotiations. Unit: seconds Valid values: **0 to 86400**.
    * 
    * @example
    * 86400
@@ -30933,7 +31005,7 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIkeConf
   ikeVersion?: string;
   /**
    * @remarks
-   * The tunnel identifier. The identifier can be up to 100 characters in length, and supports FQDNs and IP addresses. The default value is the IP address of the tunnel.
+   * The tunnel identifier. The identifier can be up to 100 characters in length and cannot contain spaces. It supports fully qualified domain names (FQDNs) and IP addresses. The default value is the IP address of the tunnel.
    * 
    * @example
    * 47.XX.XX.87
@@ -30943,10 +31015,10 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIkeConf
    * @remarks
    * The pre-shared key that is used to verify identities between the tunnel and peer.
    * 
-   * *   The key must be 1 to 100 characters in length and can contain digits, letters, and the following special characters: ``~!`@#$%^&*()_-+={}[]|;:\\",.<>/?``
-   * *   If you do not specify a pre-shared key, the system randomly generates a 16-bit string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/120374.html) operation to query the pre-shared key that is automatically generated by the system.
+   * *   The key must be 1 to 100 characters in length, and can contain digits, and letters. It cannot contain spaces. ``~!`@#$%^&*()_-+={}[]|;:\\",.<>/?``
+   * *   If you do not specify a pre-shared key, the system randomly generates a 16-bit string as the key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/120374.html) operation to query the pre-shared key that is automatically generated by the system.
    * 
-   * > The pre-shared key that is configured for the tunnel and the tunnel peer must be the same. Otherwise, the system cannot establish the tunnel.
+   * >  The pre-shared key that is configured for the tunnel and the tunnel peer must be the same. Otherwise, the system cannot establish the tunnel.
    * 
    * @example
    * 123456****
@@ -30954,7 +31026,7 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIkeConf
   psk?: string;
   /**
    * @remarks
-   * The peer identifier. The identifier can be up to 100 characters in length, and supports FQDNs and IP addresses. The default identifier is the IP address of the customer gateway associated with the tunnel.
+   * The peer identifier. The identifier can be up to 100 characters in length, and cannot contain spaces. It supports FQDNs and IP addresses. The default identifier is the IP address of the customer gateway associated with the tunnel.
    * 
    * @example
    * 47.XX.XX.207
@@ -31002,8 +31074,16 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIpsecCo
    * @remarks
    * The authentication algorithm that is used in IPsec Phase 2 negotiations.
    * 
-   * *   Valid values when the IPsec connection is attached to a standard VPN gateway: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**.
-   * *   Valid values when the IPsec connection is attached to a VPN gateway that uses an SM certificate: **sm3**.
+   * <props="china">
+   * 
+   * *   If an IPsec-VPN gateway is associated with a standard VPN gateway, the valid values are **md5**, **sha1**, **sha256**, **sha384**, and **sha512**.
+   * *   If the IPsec-VPN gateway is associated with an SSL-VPN gateway, set the value to **sm3**.
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**.
    * 
    * @example
    * sha1
@@ -31013,8 +31093,16 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIpsecCo
    * @remarks
    * The encryption algorithm that is used in IPsec Phase 2 negotiations.
    * 
-   * *   Valid values when the IPsec connection is attached to a standard VPN gateway: **aes**, **aes192**, **aes256**, **des**, and **3des**.
+   * <props="china">
+   * 
+   * *   If an IPsec-VPN gateway is associated with a standard VPN gateway, the valid values are **aes**, **aes192**, **aes256**, **des**, and **3des**.
    * *   If the IPsec connection is attached to a VPN gateway that uses an SM certificate, set the value to **sm4**.
+   * 
+   * 
+   * 
+   * <props="intl">
+   * 
+   * Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**.
    * 
    * @example
    * aes
@@ -31022,7 +31110,7 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIpsecCo
   ipsecEncAlg?: string;
   /**
    * @remarks
-   * The SA lifetime as a result of Phase 2 negotiations. Unit: seconds. Valid values: **0 to 86400**.
+   * The SA lifetime as a result of Phase 2 negotiations. Unit: seconds Valid values: **0 to 86400**.
    * 
    * @example
    * 86400
@@ -31065,15 +31153,18 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIpsecCo
 
 export class ModifyTunnelAttributeRequestTunnelOptionsSpecification extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the customer gateway associated with the tunnel.
+   * 
    * @example
    * cgw-1nmwbpgrp7ssqm1yn****
    */
   customerGatewayId?: string;
   /**
    * @remarks
-   * Specifies whether to enable dead peer detection (DPD). Valid values: Valid values:
+   * Specifies whether to enable dead peer detection (DPD). Valid values:
    * 
-   * *   **true** The IPsec initiator sends DPD packets to verify the existence and availability of the IPsec peer. If no response is received from the peer within a specified period of time, the IPsec peer is considered disconnected. Then, the ISAKMP SA, IPsec SA, and IPsec tunnel are deleted.
+   * *   **true** The IPsec initiator sends DPD packets to check the IPsec peer is alive. If no response is received from the peer within a specified period of time, the IPsec peer is considered disconnected. Then, the ISAKMP SA, IPsec SA, and IPsec tunnel are deleted.
    * *   **false**: DPD is disabled. The IPsec initiator does not send DPD packets.
    * 
    * @example
@@ -31103,7 +31194,7 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecification extends $dar
    * @remarks
    * The Border Gateway Protocol (BGP) configurations of the tunnel.
    * 
-   * If the BGP feature is not enabled for the tunnel, you must call the [ModifyVpnConnectionAttribute](https://help.aliyun.com/document_detail/120381.html) operation to enable the BGP feature for the tunnel and configure BGP.
+   * If the BGP feature is not enabled for the tunnel, you must call the [ModifyVpnConnectionAttribute](https://help.aliyun.com/document_detail/120381.html) operation to enable the feature and configure BGP.
    */
   tunnelBgpConfig?: ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig;
   /**
@@ -36969,6 +37060,16 @@ export class AllocateIpv6InternetBandwidthRequest extends $dara.Model {
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false**: sends the API request. After the request passes the check, a 2XX HTTP status code is returned and the route table is associated. This is the default value.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks
@@ -43972,8 +44073,6 @@ export class CreateFlowLogRequest extends $dara.Model {
    * *   The name must start and end with a lowercase letter or a digit.
    * *   The name must be 3 to 63 characters in length.
    * 
-   * This parameter is required.
-   * 
    * @example
    * FlowLogStore
    */
@@ -43987,8 +44086,6 @@ export class CreateFlowLogRequest extends $dara.Model {
    * *   The name can contain only lowercase letters, digits, and hyphens (-).
    * *   The name must start and end with a lowercase letter or a digit.
    * *   The name must be 3 to 63 characters in length.
-   * 
-   * This parameter is required.
    * 
    * @example
    * FlowLogProject
@@ -48973,7 +49070,7 @@ export class CreatePublicIpAddressPoolRequest extends $dara.Model {
    * @remarks
    * The description of the IP address pool.
    * 
-   * This parameter is optional. The description must be 2 to 256 characters in length, and cannot start with http:// or https://.
+   * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * AddressPoolDescription
@@ -49018,7 +49115,7 @@ export class CreatePublicIpAddressPoolRequest extends $dara.Model {
    * @remarks
    * The name of the IP address pool.
    * 
-   * This parameter is optional. The name must be 1 to 128 characters in length and can contain digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+   * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * AddressPoolName
@@ -49122,6 +49219,13 @@ export class CreatePublicIpAddressPoolRequest extends $dara.Model {
 }
 
 export class CreatePublicIpAddressPoolResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the IP address pool.
+   * 
+   * @example
+   * pippool-6wetvn6fumkgycssx****
+   */
   publicIpAddressPoolId?: string;
   /**
    * @remarks
@@ -49436,7 +49540,7 @@ export class CreateRouteEntryRequest extends $dara.Model {
    * *   **VpcPeer**: a VPC peering connection.
    * *   **Ipv4Gateway**: an IPv4 gateway.
    * *   **GatewayEndpoint**: a gateway endpoint.
-   * *   **Ecr**: a Express Connect Router (ECR).
+   * *   **Ecr**: an Express Connect Router (ECR).
    * 
    * @example
    * RouterInterface
@@ -66367,6 +66471,18 @@ export class DescribeEipAddressesRequest extends $dara.Model {
    * eipsg-t4nr90yik5oy38xdy****
    */
   segmentInstanceId?: string;
+  /**
+   * @remarks
+   * Indicates whether the instance is managed. Valid values:
+   * 
+   * *   **true**: yes
+   * *   **false**: no.
+   * 
+   * If you do not specify this parameter, all instances are queried.
+   * 
+   * @example
+   * false
+   */
   serviceManaged?: boolean;
   /**
    * @remarks
@@ -66465,7 +66581,7 @@ export class DescribeEipAddressesRequest extends $dara.Model {
 export class DescribeEipAddressesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the EIPs.
+   * Details of the EIPs.
    */
   eipAddresses?: DescribeEipAddressesResponseBodyEipAddresses;
   /**
@@ -72734,6 +72850,16 @@ export class DescribePhysicalConnectionsResponse extends $dara.Model {
 }
 
 export class DescribePublicIpAddressRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IP version. Valid values:
+   * 
+   * *   **IPv4** (default)
+   * *   **IPv6**
+   * 
+   * @example
+   * ipv4
+   */
   ipVersion?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -73373,9 +73499,7 @@ export class DescribeRouteTableListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The value of tag N to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
-   * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * The number of the returned page. Default value: **1**.
    * 
    * @example
    * 1
@@ -73383,10 +73507,7 @@ export class DescribeRouteTableListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The type of the route table.
-   * 
-   * *   **System**
-   * *   **Custom**
+   * The number of entries per page. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -73394,7 +73515,9 @@ export class DescribeRouteTableListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The region ID of the VPC to which the route table belongs.
+   * 
+   * You can call [DescribeRegions](https://www.alibabacloud.com/help/vpc/developer-reference/api-vpc-2016-04-28-describeregions) to query the most recent region list.
    * 
    * This parameter is required.
    * 
@@ -73404,7 +73527,7 @@ export class DescribeRouteTableListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The details of the route table.
+   * The ID of the resource group to which the route table belongs.
    * 
    * @example
    * rg-acfmxazb4ph****
@@ -73414,7 +73537,7 @@ export class DescribeRouteTableListRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The tags.
+   * The ID of the route table.
    * 
    * @example
    * vtb-bp145q7glnuzdvzu2****
@@ -73422,9 +73545,7 @@ export class DescribeRouteTableListRequest extends $dara.Model {
   routeTableId?: string;
   /**
    * @remarks
-   * The key of tag N to add to the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
-   * 
-   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The name of the route table.
    * 
    * @example
    * doctest
@@ -73432,7 +73553,10 @@ export class DescribeRouteTableListRequest extends $dara.Model {
   routeTableName?: string;
   /**
    * @remarks
-   * The time when the route table was created.
+   * The type of the route table.
+   * 
+   * *   **System**
+   * *   **Custom**
    * 
    * @example
    * System
@@ -73440,9 +73564,7 @@ export class DescribeRouteTableListRequest extends $dara.Model {
   routeTableType?: string;
   /**
    * @remarks
-   * The region ID of the VPC to which the route table belongs.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * The ID of vRouter to which the route table belongs.
    * 
    * @example
    * vrt-bp1lhl0taikrteen8****
@@ -73450,7 +73572,10 @@ export class DescribeRouteTableListRequest extends $dara.Model {
   routerId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the route table to be queried belongs.
+   * The type of the router to which the route table belongs. Valid value:
+   * 
+   * *   **VRouter** (default): a vRouter
+   * *   **VBR**: a VBR
    * 
    * @example
    * VRouter
@@ -73458,12 +73583,14 @@ export class DescribeRouteTableListRequest extends $dara.Model {
   routerType?: string;
   /**
    * @remarks
-   * The page number.
+   * The tags of the resource.
    */
   tag?: DescribeRouteTableListRequestTag[];
   /**
    * @remarks
-   * The tags of the resource.
+   * The ID of the VPC to which the route table belongs. 
+   * 
+   * When this parameter is set, the value of **RouterType** is automatically assigned to **VRouter**.
    * 
    * @example
    * vpc-bp15zckdt37pq72****
@@ -73524,7 +73651,7 @@ export class DescribeRouteTableListRequest extends $dara.Model {
 export class DescribeRouteTableListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the route table.
+   * The page number.
    * 
    * @example
    * 1
@@ -73532,10 +73659,7 @@ export class DescribeRouteTableListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The type of the cloud resource with which the route table is associated. Valid values:
-   * 
-   * *   **VSwitch**: vSwitch
-   * *   **Gateway**: IPv4 gateway
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -73543,7 +73667,7 @@ export class DescribeRouteTableListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the vRouter to which the route table belongs.
+   * The request ID.
    * 
    * @example
    * DC668356-BCB4-42FD-9BC3-FA2B2E04B634
@@ -73551,12 +73675,12 @@ export class DescribeRouteTableListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The description of the route table.
+   * The detailed information about the route tables.
    */
   routerTableList?: DescribeRouteTableListResponseBodyRouterTableList;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the route table belongs.
+   * The total number of entries returned.
    * 
    * @example
    * 1
@@ -80791,6 +80915,12 @@ export class DescribeVpnGatewayResponse extends $dara.Model {
 
 export class DescribeVpnGatewayAvailableZonesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language in which the returned results are displayed. Valid values:
+   * 
+   * *   **zh-CN**: Chinese
+   * *   **en-US** (default): English
+   * 
    * @example
    * zh-CN
    */
@@ -80799,6 +80929,8 @@ export class DescribeVpnGatewayAvailableZonesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80809,6 +80941,22 @@ export class DescribeVpnGatewayAvailableZonesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
+   * The bandwidth specification.
+   * 
+   * *   If an IPsec-VPN connection can be associated with the VPN gateway, this parameter specifies the bandwidth specification of the VPN gateway.
+   * *   In scenarios where an IPsec-VPN connection can be associated with a transit router. This parameter specifies the bandwidth specification supported by an IPsec-VPN connection.
+   * 
+   * Different bandwidth specifications may affect returned zone information. Valid values:
+   * 
+   * *   **5M**
+   * *   **10M**
+   * *   **20M**
+   * *   **50M**
+   * *   **100M**
+   * *   **200M**
+   * *   **500M**
+   * *   **1000M**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80849,13 +80997,23 @@ export class DescribeVpnGatewayAvailableZonesRequest extends $dara.Model {
 }
 
 export class DescribeVpnGatewayAvailableZonesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The zones.
+   */
   availableZoneIdList?: DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList[];
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 29784052-931F-543D-A612-36B3838163FA
    */
@@ -81485,10 +81643,16 @@ export class DescribeVpnRouteEntriesResponseBody extends $dara.Model {
    * 1
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The information about route entries of the VPN gateway in dual-tunnel mode.
+   * 
+   * > This parameter is returned only if the VPN gateway supports IPsec-VPN connections in dual-tunnel mode.
+   */
   vpnRouteCounts?: DescribeVpnRouteEntriesResponseBodyVpnRouteCounts;
   /**
    * @remarks
-   * The list of route entries.
+   * The route entry list.
    */
   vpnRouteEntries?: DescribeVpnRouteEntriesResponseBodyVpnRouteEntries;
   static names(): { [key: string]: string } {
@@ -83073,9 +83237,9 @@ export class DissociateRouteTablesFromVpcGatewayEndpointResponse extends $dara.M
 export class DissociateVpnGatewayWithCertificateRequest extends $dara.Model {
   /**
    * @remarks
-   * The certificate ID.
+   * The ID of the certificate.
    * 
-   * > The certificate ID refers to the ID generated after the SSL certificate is associated with the VPN gateway. It is not the ID of the SSL certificate. You can call the [ListVpnCertificateAssociations](https://help.aliyun.com/document_detail/2521961.html) operation to query certificate IDs.
+   * >  The certificate ID refers to the ID generated after the SSL certificate is associated with the VPN gateway. It is not the ID of the SSL certificate.
    * 
    * This parameter is required.
    * 
@@ -88241,7 +88405,7 @@ export class ListIpsecServersRequest extends $dara.Model {
    * @remarks
    * The name of the IPsec server.
    * 
-   * The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
+   * The name must be 1 to 100 characters in length.
    * 
    * @example
    * test
@@ -88282,9 +88446,7 @@ export class ListIpsecServersRequest extends $dara.Model {
    * @remarks
    * The ID of the resource group to which the IPsec server belongs.
    * 
-   * The IPsec server has the same resource group as its associated VPN gateway instance.
-   * 
-   * You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2526915.html) operation to query the ID of the resource group to which the VPN gateway instance belongs.
+   * The IPsec server and its associated VPN gateway belong to the same resource group. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) to query the ID of the resource group to which the VPN gateway belongs.
    * 
    * @example
    * rg-acfmzs372yg****
@@ -93304,6 +93466,156 @@ export class ModifyEipAddressAttributeResponse extends $dara.Model {
   }
 }
 
+export class ModifyEipForwardModeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **RequestId** may be different for each request.
+   * 
+   * @example
+   * 02fb3da4-130e-11e9-8e44-0016e04115b
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * The ID of the EIP whose attributes you want to modify.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eip-j5ebhbw3br92fy****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The association mode. Valid values:
+   * 
+   * *   **NAT** (default): the standard NAT mode.
+   * *   **MULTI_BINDED**: the multi-EIP-to-ENI mode.
+   * *   **BINDED**: the cut-through mode.
+   * 
+   * >  This parameter is required only if **InstanceType** is set to **NetworkInterface**.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * BINDED
+   */
+  mode?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * The ID of the region to which the EIP belongs. You can call the DescribeRegions operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
+      mode: 'Mode',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      instanceId: 'string',
+      mode: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEipForwardModeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 62C6A6A5-1534-53D9-AB1E-C9307A147ED5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEipForwardModeResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyEipForwardModeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyEipForwardModeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyExpressCloudConnectionAttributeRequest extends $dara.Model {
   /**
    * @remarks
@@ -96611,6 +96923,16 @@ export class ModifyIpv6InternetBandwidthRequest extends $dara.Model {
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
+   * 
+   * *   **true**: pre-checks the request but does not create the IPv4 gateway. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): sends the API request. After the request passes the check, an HTTP 2xx status code is returned and the IPv4 gateway is created.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks
@@ -102887,9 +103209,9 @@ export class ModifyVpnGatewayAttributeResponseBody extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * The IP address of the VPN gateway.
+   * The private IP address of the vSwitch that is used by the system when the VPN gateway is deployed.
    * 
-   * This parameter is returned only if the VPN gateway supports IPsec-VPN connections in single-tunnel mode.
+   * The parameter is returned only for VPN gateways that support single-tunnel IPsec-VPN connections. The IPsec-VPN feature must be enabled.
    * 
    * @example
    * 172.27.30.24
@@ -102912,6 +103234,11 @@ export class ModifyVpnGatewayAttributeResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the resource group to which the VPN gateway belongs.
+   * 
+   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query resource groups.
+   * 
    * @example
    * rg-acfmzs372yg****
    */
@@ -108401,17 +108728,31 @@ export class TerminateVirtualBorderRouterResponse extends $dara.Model {
 
 export class TransformEipSegmentToPublicIpAddressPoolRequest extends $dara.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** is different for each request.
+   * 
    * @example
    * 02fb3da4-130e-11****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The description of the IP address pool.
+   * 
+   * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * AddressPoolDescription
    */
   description?: string;
   /**
    * @remarks
+   * The ID of the contiguous EIP group to be migrated.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -108419,12 +108760,19 @@ export class TransformEipSegmentToPublicIpAddressPoolRequest extends $dara.Model
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the IP address pool.
+   * 
+   * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * AddressPoolName
    */
   name?: string;
   /**
    * @remarks
+   * The ID of the region to which the contiguous EIP group belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -108432,6 +108780,9 @@ export class TransformEipSegmentToPublicIpAddressPoolRequest extends $dara.Model
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the resource group to which the address pool belongs.
+   * 
    * @example
    * rg-acfmxazb4pcdvf****
    */
@@ -108469,16 +108820,25 @@ export class TransformEipSegmentToPublicIpAddressPoolRequest extends $dara.Model
 
 export class TransformEipSegmentToPublicIpAddressPoolResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the IP address pool.
+   * 
    * @example
    * pippool-6wetvn6fumkgycssx****
    */
   publicIpAddressPoolId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4EC47282-1B74-4534-BD0E-403F3EE64CAF
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the resource group to which the IP address pool belongs.
+   * 
    * @example
    * rg-acfmxazb4pcdvf****
    */
@@ -120802,7 +121162,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建SSL-VPN客户端证书
+   * Creates an SSL client certificate.
+   * 
+   * @remarks
+   * Before you create an SSL client certificate, make sure that an SSL server is created on the VPN gateway. For more information, see [CreateSslVpnServer](https://help.aliyun.com/document_detail/2794075.html).
    * 
    * @param request - CreateSslVpnClientCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -120866,7 +121229,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建SSL-VPN客户端证书
+   * Creates an SSL client certificate.
+   * 
+   * @remarks
+   * Before you create an SSL client certificate, make sure that an SSL server is created on the VPN gateway. For more information, see [CreateSslVpnServer](https://help.aliyun.com/document_detail/2794075.html).
    * 
    * @param request - CreateSslVpnClientCertRequest
    * @returns CreateSslVpnClientCertResponse
@@ -126216,10 +126582,14 @@ export default class Client extends OpenApi {
    * Deletes an SSL client certificate.
    * 
    * @remarks
-   *   **DeleteSslVpnClientCert** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *   If you delete an SSL client certificate, all SSL-VPN client connections to the SSL server are disconnected. You need to reinitiate connections from SSL clients.
+   *     For example, SSL client certificate 1 and SSL client certificate 2 are created on an SSL server. After you delete certificate 1, all client connections associated with certificate 1 and certificate 2 are disconnected from the SSL server.
+   *     *   If clients associated with certificate 1 require SSL-VPN connections, you need to install other certificates on the clients and reinitiate connections from the clients.
+   *     *   If clients associated with certificate 2 require SSL-VPN connections, you can directly reinitiate connections from the clients.
+   * *   **DeleteSslVpnClientCert** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
    *     *   If the VPN gateway is in the **updating** state, the SSL client certificate is being deleted.
    *     *   If the VPN gateway is in the **active** state, the SSL client certificate is deleted.
-   * *   You cannot repeatedly call **DeleteSslVpnClientCert** to delete an SSL client certificate from the same VPN gateway within the specified period of time.
+   * *   You cannot call **DeleteSslVpnClientCert** within the specified period of time.
    * 
    * @param request - DeleteSslVpnClientCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -126282,10 +126652,14 @@ export default class Client extends OpenApi {
    * Deletes an SSL client certificate.
    * 
    * @remarks
-   *   **DeleteSslVpnClientCert** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
+   *   If you delete an SSL client certificate, all SSL-VPN client connections to the SSL server are disconnected. You need to reinitiate connections from SSL clients.
+   *     For example, SSL client certificate 1 and SSL client certificate 2 are created on an SSL server. After you delete certificate 1, all client connections associated with certificate 1 and certificate 2 are disconnected from the SSL server.
+   *     *   If clients associated with certificate 1 require SSL-VPN connections, you need to install other certificates on the clients and reinitiate connections from the clients.
+   *     *   If clients associated with certificate 2 require SSL-VPN connections, you can directly reinitiate connections from the clients.
+   * *   **DeleteSslVpnClientCert** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
    *     *   If the VPN gateway is in the **updating** state, the SSL client certificate is being deleted.
    *     *   If the VPN gateway is in the **active** state, the SSL client certificate is deleted.
-   * *   You cannot repeatedly call **DeleteSslVpnClientCert** to delete an SSL client certificate from the same VPN gateway within the specified period of time.
+   * *   You cannot call **DeleteSslVpnClientCert** within the specified period of time.
    * 
    * @param request - DeleteSslVpnClientCertRequest
    * @returns DeleteSslVpnClientCertResponse
@@ -133893,7 +134267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 基于地域查询可以创建双隧道VPN与IPSec连接（CEN）的可用区
+   * Queries zones that support IPsec-VPN connections in a region.
    * 
    * @param request - DescribeVpnGatewayAvailableZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -133925,7 +134299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 基于地域查询可以创建双隧道VPN与IPSec连接（CEN）的可用区
+   * Queries zones that support IPsec-VPN connections in a region.
    * 
    * @param request - DescribeVpnGatewayAvailableZonesRequest
    * @returns DescribeVpnGatewayAvailableZonesResponse
@@ -139162,6 +139536,81 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the EIP forwarding mode.
+   * 
+   * @param request - ModifyEipForwardModeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyEipForwardModeResponse
+   */
+  async modifyEipForwardModeWithOptions(request: ModifyEipForwardModeRequest, runtime: $dara.RuntimeOptions): Promise<ModifyEipForwardModeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyEipForwardMode",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyEipForwardModeResponse>(await this.callApi(params, req, runtime), new ModifyEipForwardModeResponse({}));
+    } else {
+      return $dara.cast<ModifyEipForwardModeResponse>(await this.execute(params, req, runtime), new ModifyEipForwardModeResponse({}));
+    }
+
+  }
+
+  /**
+   * Modifies the EIP forwarding mode.
+   * 
+   * @param request - ModifyEipForwardModeRequest
+   * @returns ModifyEipForwardModeResponse
+   */
+  async modifyEipForwardMode(request: ModifyEipForwardModeRequest): Promise<ModifyEipForwardModeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyEipForwardModeWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the configuration of an Express Cloud Connect (ECC) instance.
    * 
    * @param request - ModifyExpressCloudConnectionAttributeRequest
@@ -140796,7 +141245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the Internet bandwidth value of an IPv6 address.
+   * Modifies the Internet bandwidth of an IPv6 address.
    * 
    * @remarks
    * You cannot repeatedly call the **ModifyIpv6InternetBandwidth** operation to modify the Internet bandwidth value of an IPv6 CIDR block within the specified period of time.
@@ -140879,7 +141328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the Internet bandwidth value of an IPv6 address.
+   * Modifies the Internet bandwidth of an IPv6 address.
    * 
    * @remarks
    * You cannot repeatedly call the **ModifyIpv6InternetBandwidth** operation to modify the Internet bandwidth value of an IPv6 CIDR block within the specified period of time.
@@ -146210,7 +146659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 连续EIP组转换为公网IP地址池
+   * Migrate contiguous EIP groups to IP address pool by calling TransformEipSegmentToPublicIpAddressPool.
    * 
    * @param request - TransformEipSegmentToPublicIpAddressPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -146266,7 +146715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 连续EIP组转换为公网IP地址池
+   * Migrate contiguous EIP groups to IP address pool by calling TransformEipSegmentToPublicIpAddressPool.
    * 
    * @param request - TransformEipSegmentToPublicIpAddressPoolRequest
    * @returns TransformEipSegmentToPublicIpAddressPoolResponse
