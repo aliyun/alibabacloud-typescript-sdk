@@ -10709,15 +10709,15 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.xFcAsyncTaskId)) {
-      realHeaders["x-fc-async-task-id"] = JSON.stringify(headers.xFcAsyncTaskId);
+      realHeaders["x-fc-async-task-id"] = String(headers.xFcAsyncTaskId);
     }
 
     if (!$dara.isNull(headers.xFcInvocationType)) {
-      realHeaders["x-fc-invocation-type"] = JSON.stringify(headers.xFcInvocationType);
+      realHeaders["x-fc-invocation-type"] = String(headers.xFcInvocationType);
     }
 
     if (!$dara.isNull(headers.xFcLogType)) {
-      realHeaders["x-fc-log-type"] = JSON.stringify(headers.xFcLogType);
+      realHeaders["x-fc-log-type"] = String(headers.xFcLogType);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
