@@ -2314,6 +2314,92 @@ export class CreatePolicyAttachmentResponseBodyData extends $dara.Model {
   }
 }
 
+export class CreateServiceRequestServiceConfigs extends $dara.Model {
+  addresses?: string[];
+  aiServiceConfig?: AiServiceConfig;
+  /**
+   * @example
+   * DEFAULT_GROUP
+   */
+  groupName?: string;
+  /**
+   * @example
+   * user-service
+   */
+  name?: string;
+  /**
+   * @example
+   * PUBLIC
+   */
+  namespace?: string;
+  /**
+   * @example
+   * LATEST
+   */
+  qualifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addresses: 'addresses',
+      aiServiceConfig: 'aiServiceConfig',
+      groupName: 'groupName',
+      name: 'name',
+      namespace: 'namespace',
+      qualifier: 'qualifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addresses: { 'type': 'array', 'itemType': 'string' },
+      aiServiceConfig: AiServiceConfig,
+      groupName: 'string',
+      name: 'string',
+      namespace: 'string',
+      qualifier: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.addresses)) {
+      $dara.Model.validateArray(this.addresses);
+    }
+    if(this.aiServiceConfig && typeof (this.aiServiceConfig as any).validate === 'function') {
+      (this.aiServiceConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceResponseBodyData extends $dara.Model {
+  serviceIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      serviceIds: 'serviceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.serviceIds)) {
+      $dara.Model.validateArray(this.serviceIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeployHttpApiRequestRestApiConfigEnvironmentServiceConfigs extends $dara.Model {
   match?: HttpApiBackendMatchConditions;
   /**
@@ -5148,6 +5234,53 @@ export class ListHttpApiOperationsResponseBodyData extends $dara.Model {
   }
 }
 
+export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
+  items?: HttpRoute[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 9
+   */
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      totalSize: 'totalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': HttpRoute },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalSize: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHttpApisResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -5237,6 +5370,53 @@ export class ListPolicyClassesResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       items: { 'type': 'array', 'itemType': PolicyClassInfo },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalSize: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.items)) {
+      $dara.Model.validateArray(this.items);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBodyData extends $dara.Model {
+  items?: Service[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 18
+   */
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'items',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      totalSize: 'totalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': Service },
       pageNumber: 'number',
       pageSize: 'number',
       totalSize: 'number',
@@ -9291,6 +9471,131 @@ export class CreatePolicyAttachmentResponse extends $dara.Model {
   }
 }
 
+export class CreateServiceRequest extends $dara.Model {
+  /**
+   * @example
+   * gw-cq7l5s5lhtg***
+   */
+  gatewayId?: string;
+  resourceGroupId?: string;
+  serviceConfigs?: CreateServiceRequestServiceConfigs[];
+  /**
+   * @example
+   * MSE_NACOS
+   */
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'gatewayId',
+      resourceGroupId: 'resourceGroupId',
+      serviceConfigs: 'serviceConfigs',
+      sourceType: 'sourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      resourceGroupId: 'string',
+      serviceConfigs: { 'type': 'array', 'itemType': CreateServiceRequestServiceConfigs },
+      sourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.serviceConfigs)) {
+      $dara.Model.validateArray(this.serviceConfigs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Ok
+   */
+  code?: string;
+  data?: CreateServiceResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * C67DED2B-F19B-5BEC-88C1-D6EB854CD0D4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateServiceResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDomainResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -11373,6 +11678,88 @@ export class GetResourceOverviewResponse extends $dara.Model {
   }
 }
 
+export class GetServiceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Ok
+   */
+  code?: string;
+  data?: Service;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 8FA9BB94-915B-5299-A694-49FCC7F5DD00
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: Service,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTraceConfigRequest extends $dara.Model {
   /**
    * @example
@@ -12545,6 +12932,179 @@ export class ListHttpApiOperationsResponse extends $dara.Model {
   }
 }
 
+export class ListHttpApiRoutesRequest extends $dara.Model {
+  consumerAuthorizationRuleId?: string;
+  /**
+   * @example
+   * NotDeployed
+   */
+  deployStatuses?: string;
+  domainId?: string;
+  /**
+   * @example
+   * env-cpqnr6tlhtgubc***
+   */
+  environmentId?: string;
+  /**
+   * @example
+   * gw-cpv4sqdl****
+   */
+  gatewayId?: string;
+  /**
+   * @example
+   * itemcenter-gateway
+   */
+  name?: string;
+  /**
+   * @example
+   * item
+   */
+  nameLike?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * /v1
+   */
+  pathLike?: string;
+  withAuthPolicyInfo?: boolean;
+  withConsumerInfoById?: string;
+  withPluginAttachmentByPluginId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerAuthorizationRuleId: 'consumerAuthorizationRuleId',
+      deployStatuses: 'deployStatuses',
+      domainId: 'domainId',
+      environmentId: 'environmentId',
+      gatewayId: 'gatewayId',
+      name: 'name',
+      nameLike: 'nameLike',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      pathLike: 'pathLike',
+      withAuthPolicyInfo: 'withAuthPolicyInfo',
+      withConsumerInfoById: 'withConsumerInfoById',
+      withPluginAttachmentByPluginId: 'withPluginAttachmentByPluginId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerAuthorizationRuleId: 'string',
+      deployStatuses: 'string',
+      domainId: 'string',
+      environmentId: 'string',
+      gatewayId: 'string',
+      name: 'string',
+      nameLike: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      pathLike: 'string',
+      withAuthPolicyInfo: 'boolean',
+      withConsumerInfoById: 'string',
+      withPluginAttachmentByPluginId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHttpApiRoutesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Ok
+   */
+  code?: string;
+  data?: ListHttpApiRoutesResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * CBEEB8C1-108E-50F0-9BEA-DED79553C309
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListHttpApiRoutesResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListHttpApiRoutesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHttpApiRoutesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListHttpApiRoutesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHttpApisRequest extends $dara.Model {
   /**
    * @remarks
@@ -12881,6 +13441,146 @@ export class ListPolicyClassesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListPolicyClassesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesRequest extends $dara.Model {
+  /**
+   * @example
+   * gw-cpv4sqdl*****
+   */
+  gatewayId?: string;
+  /**
+   * @example
+   * user-service
+   */
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  resourceGroupId?: string;
+  /**
+   * @example
+   * MSE_NACOS
+   */
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'gatewayId',
+      name: 'name',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      resourceGroupId: 'resourceGroupId',
+      sourceType: 'sourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceGroupId: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Ok
+   */
+  code?: string;
+  data?: ListServicesResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 585657D2-1C20-5B8A-AF17-D727C6490BE4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListServicesResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServicesResponseBody,
     };
   }
 
@@ -15085,6 +15785,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建服务
+   * 
+   * @param request - CreateServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceResponse
+   */
+  async createServiceWithOptions(request: CreateServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<CreateServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.serviceConfigs)) {
+      body["serviceConfigs"] = request.serviceConfigs;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      body["sourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateService",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/services`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
+    } else {
+      return $dara.cast<CreateServiceResponse>(await this.execute(params, req, runtime), new CreateServiceResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建服务
+   * 
+   * @param request - CreateServiceRequest
+   * @returns CreateServiceResponse
+   */
+  async createService(request: CreateServiceRequest): Promise<CreateServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createServiceWithOptions(request, headers, runtime);
+  }
+
+  /**
    * DeleteDomain
    * 
    * @param headers - map
@@ -16021,6 +16783,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取服务详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceResponse
+   */
+  async getServiceWithOptions(serviceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetServiceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetService",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/services/${$dara.URL.percentEncode(serviceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
+    } else {
+      return $dara.cast<GetServiceResponse>(await this.execute(params, req, runtime), new GetServiceResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取服务详情
+   * @returns GetServiceResponse
+   */
+  async getService(serviceId: string): Promise<GetServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getServiceWithOptions(serviceId, headers, runtime);
+  }
+
+  /**
    * 获取链路追踪配置
    * 
    * @param request - GetTraceConfigRequest
@@ -16469,6 +17271,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建HttpApi的路由
+   * 
+   * @param request - ListHttpApiRoutesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHttpApiRoutesResponse
+   */
+  async listHttpApiRoutesWithOptions(httpApiId: string, request: ListHttpApiRoutesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListHttpApiRoutesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.consumerAuthorizationRuleId)) {
+      query["consumerAuthorizationRuleId"] = request.consumerAuthorizationRuleId;
+    }
+
+    if (!$dara.isNull(request.deployStatuses)) {
+      query["deployStatuses"] = request.deployStatuses;
+    }
+
+    if (!$dara.isNull(request.domainId)) {
+      query["domainId"] = request.domainId;
+    }
+
+    if (!$dara.isNull(request.environmentId)) {
+      query["environmentId"] = request.environmentId;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nameLike)) {
+      query["nameLike"] = request.nameLike;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.pathLike)) {
+      query["pathLike"] = request.pathLike;
+    }
+
+    if (!$dara.isNull(request.withAuthPolicyInfo)) {
+      query["withAuthPolicyInfo"] = request.withAuthPolicyInfo;
+    }
+
+    if (!$dara.isNull(request.withConsumerInfoById)) {
+      query["withConsumerInfoById"] = request.withConsumerInfoById;
+    }
+
+    if (!$dara.isNull(request.withPluginAttachmentByPluginId)) {
+      query["withPluginAttachmentByPluginId"] = request.withPluginAttachmentByPluginId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListHttpApiRoutes",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/http-apis/${$dara.URL.percentEncode(httpApiId)}/routes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListHttpApiRoutesResponse>(await this.callApi(params, req, runtime), new ListHttpApiRoutesResponse({}));
+    } else {
+      return $dara.cast<ListHttpApiRoutesResponse>(await this.execute(params, req, runtime), new ListHttpApiRoutesResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建HttpApi的路由
+   * 
+   * @param request - ListHttpApiRoutesRequest
+   * @returns ListHttpApiRoutesResponse
+   */
+  async listHttpApiRoutes(httpApiId: string, request: ListHttpApiRoutesRequest): Promise<ListHttpApiRoutesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listHttpApiRoutesWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
    * List HTTP APIs
    * 
    * @param request - ListHttpApisRequest
@@ -16634,6 +17534,76 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listPolicyClassesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取服务列表
+   * 
+   * @param request - ListServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServicesResponse
+   */
+  async listServicesWithOptions(request: ListServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<ListServicesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["sourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServices",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/services`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
+    } else {
+      return $dara.cast<ListServicesResponse>(await this.execute(params, req, runtime), new ListServicesResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取服务列表
+   * 
+   * @param request - ListServicesRequest
+   * @returns ListServicesResponse
+   */
+  async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listServicesWithOptions(request, headers, runtime);
   }
 
   /**
