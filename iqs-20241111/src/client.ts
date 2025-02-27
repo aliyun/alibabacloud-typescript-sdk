@@ -798,6 +798,7 @@ export class AiSearchResponse extends $dara.Model {
 }
 
 export class GenericAdvancedSearchRequest extends $dara.Model {
+  industry?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -815,6 +816,7 @@ export class GenericAdvancedSearchRequest extends $dara.Model {
   timeRange?: string;
   static names(): { [key: string]: string } {
     return {
+      industry: 'industry',
       query: 'query',
       sessionId: 'sessionId',
       timeRange: 'timeRange',
@@ -823,6 +825,7 @@ export class GenericAdvancedSearchRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      industry: 'string',
       query: 'string',
       sessionId: 'string',
       timeRange: 'string',
@@ -1055,6 +1058,10 @@ export default class Client extends OpenApi {
   async genericAdvancedSearchWithOptions(request: GenericAdvancedSearchRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GenericAdvancedSearchResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.industry)) {
+      query["industry"] = request.industry;
+    }
+
     if (!$dara.isNull(request.query)) {
       query["query"] = request.query;
     }
