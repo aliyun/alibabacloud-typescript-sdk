@@ -2852,6 +2852,7 @@ export class ResyncTableResponse extends $dara.Model {
 }
 
 export class RunDataAnalysisRequest extends $dara.Model {
+  agentCtrlParams?: any;
   dataRole?: string[];
   /**
    * @example
@@ -2876,6 +2877,7 @@ export class RunDataAnalysisRequest extends $dara.Model {
   userParams?: any;
   static names(): { [key: string]: string } {
     return {
+      agentCtrlParams: 'agentCtrlParams',
       dataRole: 'dataRole',
       generateSqlOnly: 'generateSqlOnly',
       query: 'query',
@@ -2887,6 +2889,7 @@ export class RunDataAnalysisRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentCtrlParams: 'any',
       dataRole: { 'type': 'array', 'itemType': 'string' },
       generateSqlOnly: 'boolean',
       query: 'string',
@@ -5508,6 +5511,10 @@ export default class Client extends OpenApi {
   async runDataAnalysisWithOptions(workspaceId: string, request: RunDataAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<RunDataAnalysisResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentCtrlParams)) {
+      body["agentCtrlParams"] = request.agentCtrlParams;
+    }
+
     if (!$dara.isNull(request.dataRole)) {
       body["dataRole"] = request.dataRole;
     }
