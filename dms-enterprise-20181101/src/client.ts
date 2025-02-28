@@ -763,15 +763,25 @@ export class CreateDataArchiveOrderRequestParam extends $dara.Model {
 export class CreateDataCorrectOrderRequestParamDbItemList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the database. The database can be a physical database or a logical database.
+   * The database ID. The database can be a physical database or a logical database.
    * 
-   * *   To obtain the ID of a physical database, call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
-   * *   To obtain the ID of a logical database, call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
+   * *   To query the ID of a physical database, call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
+   * *   To query the ID of a logical database, call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
    * 
    * @example
    * 1860****
    */
   dbId?: number;
+  /**
+   * @remarks
+   * The instance ID. You can call the ListInstances or GetInstance operation to query the instance ID.
+   * 
+   * > 
+   * > The instance change feature is supported only by ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and AnalyticDB for MySQL clusters.
+   * 
+   * @example
+   * 1860****
+   */
   instanceId?: number;
   /**
    * @remarks
@@ -812,9 +822,9 @@ export class CreateDataCorrectOrderRequestParamDbItemList extends $dara.Model {
 export class CreateDataCorrectOrderRequestParam extends $dara.Model {
   /**
    * @remarks
-   * The key of the attachment that contains the SQL statements used to change data. You can call the [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html) operation to obtain the attachment key from the value of the AttachmentKey parameter.
+   * The key of the attachment that contains the SQL statements used to change data. You can call the [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html) operation to obtain the attachment key from the value of AttachmentKey.
    * 
-   * >  This parameter is required if you set the **SqlType** parameter to **ATTACHMENT**.
+   * >  This parameter is required if you set **SqlType** to **ATTACHMENT**.
    * 
    * @example
    * test.sql
@@ -830,14 +840,14 @@ export class CreateDataCorrectOrderRequestParam extends $dara.Model {
   classify?: string;
   /**
    * @remarks
-   * The databases in which you want to change data.
+   * The databases whose data you want to change.
    * 
    * This parameter is required.
    */
   dbItemList?: CreateDataCorrectOrderRequestParamDbItemList[];
   /**
    * @remarks
-   * The estimated number of data rows to be affected by the data change.
+   * The estimated number of data rows that may be affected by the data change.
    * 
    * This parameter is required.
    * 
@@ -847,11 +857,11 @@ export class CreateDataCorrectOrderRequestParam extends $dara.Model {
   estimateAffectRows?: number;
   /**
    * @remarks
-   * The execution mode of the ticket after the ticket is approved. Valid values:
+   * The mode in which the data change ticket is executed after the ticket is approved. Valid values:
    * 
-   * *   **COMMITOR**: The data change is performed by the user who submits the ticket.
-   * *   **AUTO**: The data change is automatically performed after the ticket is approved.
-   * *   **LAST_AUDITOR**: The data change is performed by the last approver of the ticket.
+   * *   **COMMITOR**: The ticket is executed by the user who submits the ticket.
+   * *   **AUTO**: The ticket is automatically executed after the ticket is approved.
+   * *   **LAST_AUDITOR**: The ticket is executed by the last approver of the ticket.
    * 
    * @example
    * COMMITOR
@@ -859,9 +869,13 @@ export class CreateDataCorrectOrderRequestParam extends $dara.Model {
   execMode?: string;
   /**
    * @remarks
-   * The SQL statements that you want to execute to change data.
+   * The SQL statements for data change.
    * 
-   * >  This parameter is required if you set the **SqlType** parameter to **TEXT**.
+   * > 
+   * 
+   * *   This parameter is required if you set **SqlType** to **TEXT**.
+   * 
+   * *   The size of the SQL statement cannot exceed 15 MB.
    * 
    * @example
    * update base_user set id = 1 where id  = 1;
@@ -869,9 +883,9 @@ export class CreateDataCorrectOrderRequestParam extends $dara.Model {
   execSQL?: string;
   /**
    * @remarks
-   * The key of the attachment that contains the SQL statements used to roll back the data change. You can call the [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html) operation to the attachment key from the value of the AttachmentKey parameter.
+   * The key of the attachment that contains the SQL statements used to roll back the data change. You can call the [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html) operation to obtain the attachment key from the value of AttachmentKey.
    * 
-   * >  This parameter is required if you set the **RollbackSqlType** parameter to **ATTACHMENT**.
+   * >  This parameter is required if you set **RollbackSqlType** to **ATTACHMENT**.
    * 
    * @example
    * test_rollback.sql
@@ -879,9 +893,9 @@ export class CreateDataCorrectOrderRequestParam extends $dara.Model {
   rollbackAttachmentName?: string;
   /**
    * @remarks
-   * The SQL statements used to roll back the data change.
+   * The SQL statements for rolling back the data change.
    * 
-   * > This parameter is required if you set the **RollbackSqlType** parameter to **TEXT**.
+   * >  This parameter is required if you set **RollbackSqlType** to **TEXT**.
    * 
    * @example
    * update base_user set id = 1 where id  = 1;
@@ -891,8 +905,8 @@ export class CreateDataCorrectOrderRequestParam extends $dara.Model {
    * @remarks
    * The format of the SQL statements used to roll back the data change. Valid values:
    * 
-   * *   **TEXT**: text
-   * *   **ATTACHMENT**: attachment
+   * *   **TEXT**
+   * *   **ATTACHMENT**
    * 
    * @example
    * TEXT
@@ -902,8 +916,8 @@ export class CreateDataCorrectOrderRequestParam extends $dara.Model {
    * @remarks
    * The format of the SQL statements used to change data. Valid values:
    * 
-   * *   **TEXT**: text
-   * *   **ATTACHMENT**: attachment
+   * *   **TEXT**
+   * *   **ATTACHMENT**
    * 
    * This parameter is required.
    * 
@@ -6461,8 +6475,8 @@ export class GetDataExportDownloadURLResponseBodyDownloadURLResult extends $dara
    * @remarks
    * Indicates whether export results are available for download. Valid values:
    * 
-   * *   **true**: Export results are available for download.
-   * *   **false**: No export results are available for download.
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -6510,6 +6524,13 @@ export class GetDataExportDownloadURLResponseBodyDownloadURLResult extends $dara
 }
 
 export class GetDataExportOrderDetailResponseBodyDataExportOrderDetailKeyInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Export task ID.
+   * 
+   * @example
+   * 1385****
+   */
   jobId?: number;
   /**
    * @remarks
@@ -6676,7 +6697,7 @@ export class GetDataExportOrderDetailResponseBodyDataExportOrderDetailOrderDetai
 export class GetDataExportOrderDetailResponseBodyDataExportOrderDetail extends $dara.Model {
   /**
    * @remarks
-   * The information about the ticket.
+   * The status information.
    */
   keyInfo?: GetDataExportOrderDetailResponseBodyDataExportOrderDetailKeyInfo;
   /**
@@ -29951,6 +29972,13 @@ export class CreateDataCorrectOrderRequest extends $dara.Model {
    * This parameter is required.
    */
   param?: CreateDataCorrectOrderRequestParam;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to call the API operation.
+   * 
+   * @example
+   * 21400447956867****
+   */
   realLoginUserUid?: string;
   /**
    * @remarks
@@ -30028,6 +30056,13 @@ export class CreateDataCorrectOrderShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   paramShrink?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to call the API operation.
+   * 
+   * @example
+   * 21400447956867****
+   */
   realLoginUserUid?: string;
   /**
    * @remarks
@@ -40144,6 +40179,13 @@ export class ExecuteDataCorrectRequest extends $dara.Model {
    * 406****
    */
   orderId?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to call the API operation.
+   * 
+   * @example
+   * 21400447956867****
+   */
   realLoginUserUid?: string;
   /**
    * @remarks
@@ -40213,6 +40255,13 @@ export class ExecuteDataCorrectShrinkRequest extends $dara.Model {
    * 406****
    */
   orderId?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to call the API operation.
+   * 
+   * @example
+   * 21400447956867****
+   */
   realLoginUserUid?: string;
   /**
    * @remarks
@@ -40350,14 +40399,20 @@ export class ExecuteDataCorrectResponse extends $dara.Model {
 export class ExecuteDataExportRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters that are required to perform the operation:
+   * The parameters that are required to perform the operation. Sample code:
    * 
    * ```json
    * {
-   *    "fileType": "CSV", // The format of the exported file.
-   *    "encoding": "" // The encoding format.
-   *  }
+   *   "mode" : "FAST",   // The mode in which data is exported. Default value: FAST. A value of NORMAL specifies that the export task can be terminated during the export.  "encoding" : "UTF8",  // The encoding format.  "startTime" : "2022-12-22 00:00:00",  // The point in time at which data export starts.  "transaction" : false,    // Specifies whether to enable transactions.  "fileType" : "SQL"    // The format of the exported file.}
    * ```
+   * 
+   * >  You can also set mode, encoding, and fileType to the following values:
+   * 
+   * *   mode: NORMAL
+   * 
+   * *   encoding: UTF8MB4, GB2312, ISO_8859_1, GBK, LATAIN1, or CP1252
+   * 
+   * *   fileType: XLSX, CSV, JSON, or TXT
    * 
    * @example
    * {    "fileType": "CSV",    "encoding": ""  }
@@ -40373,6 +40428,13 @@ export class ExecuteDataExportRequest extends $dara.Model {
    * 1234
    */
   orderId?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to call the API operation.
+   * 
+   * @example
+   * 21400447956867****
+   */
   realLoginUserUid?: string;
   /**
    * @remarks
@@ -40417,14 +40479,20 @@ export class ExecuteDataExportRequest extends $dara.Model {
 export class ExecuteDataExportShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters that are required to perform the operation:
+   * The parameters that are required to perform the operation. Sample code:
    * 
    * ```json
    * {
-   *    "fileType": "CSV", // The format of the exported file.
-   *    "encoding": "" // The encoding format.
-   *  }
+   *   "mode" : "FAST",   // The mode in which data is exported. Default value: FAST. A value of NORMAL specifies that the export task can be terminated during the export.  "encoding" : "UTF8",  // The encoding format.  "startTime" : "2022-12-22 00:00:00",  // The point in time at which data export starts.  "transaction" : false,    // Specifies whether to enable transactions.  "fileType" : "SQL"    // The format of the exported file.}
    * ```
+   * 
+   * >  You can also set mode, encoding, and fileType to the following values:
+   * 
+   * *   mode: NORMAL
+   * 
+   * *   encoding: UTF8MB4, GB2312, ISO_8859_1, GBK, LATAIN1, or CP1252
+   * 
+   * *   fileType: XLSX, CSV, JSON, or TXT
    * 
    * @example
    * {    "fileType": "CSV",    "encoding": ""  }
@@ -40440,6 +40508,13 @@ export class ExecuteDataExportShrinkRequest extends $dara.Model {
    * 1234
    */
   orderId?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to call the API operation.
+   * 
+   * @example
+   * 21400447956867****
+   */
   realLoginUserUid?: string;
   /**
    * @remarks
@@ -43373,7 +43448,7 @@ export class GetDataCronClearTaskDetailListResponse extends $dara.Model {
 export class GetDataExportDownloadURLRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ticket. You can call the [ListOrders](https://help.aliyun.com/document_detail/144643.html) operation to obtain the ticket ID.
+   * The ticket ID. You can call the [ListOrders](https://help.aliyun.com/document_detail/144643.html) operation to query the ticket ID.
    * 
    * This parameter is required.
    * 
@@ -43381,10 +43456,17 @@ export class GetDataExportDownloadURLRequest extends $dara.Model {
    * 546****
    */
   orderId?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to call the API operation.
+   * 
+   * @example
+   * 21400447956867****
+   */
   realLoginUserUid?: string;
   /**
    * @remarks
-   * The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
+   * The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
    * 
    * @example
    * 3***
@@ -43418,12 +43500,12 @@ export class GetDataExportDownloadURLRequest extends $dara.Model {
 export class GetDataExportDownloadURLResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the download URL of the file that records the export results for the ticket.
+   * The details of the download URL of the file that records the export results for the ticket.
    */
   downloadURLResult?: GetDataExportDownloadURLResponseBodyDownloadURLResult;
   /**
    * @remarks
-   * The error code.
+   * The error code returned if the request failed.
    * 
    * @example
    * UnknownError
@@ -43431,7 +43513,7 @@ export class GetDataExportDownloadURLResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned if the request failed.
    * 
    * @example
    * UnknownError
@@ -43439,7 +43521,7 @@ export class GetDataExportDownloadURLResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4BF24EA5-9013-4C85-AE68-6C23AF5E0097
@@ -43449,8 +43531,8 @@ export class GetDataExportDownloadURLResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -69788,6 +69870,13 @@ export class SubmitOrderApprovalRequest extends $dara.Model {
    * 12345
    */
   orderId?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to call the API operation.
+   * 
+   * @example
+   * 21400447956867****
+   */
   realLoginUserUid?: string;
   /**
    * @remarks
@@ -73260,9 +73349,6 @@ export class UpdateTaskContentV2Request extends $dara.Model {
    */
   nodeContent?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 449***
    */
@@ -75591,6 +75677,13 @@ export class UpdateUserRequest extends $dara.Model {
    * 123456789
    */
   uid?: number;
+  /**
+   * @remarks
+   * The UID of the String type. If you specify this parameter, the UID of the Long type is replaced.
+   * 
+   * @example
+   * 322824****:dmstest.wu@A201***
+   */
   uidString?: string;
   /**
    * @remarks
@@ -82138,7 +82231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the download URL of the file that records the export results for a data export ticket in Data Management (DMS).
+   * Queries the download URL of export results for a data export ticket.
    * 
    * @param request - GetDataExportDownloadURLRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -82182,7 +82275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the download URL of the file that records the export results for a data export ticket in Data Management (DMS).
+   * Queries the download URL of export results for a data export ticket.
    * 
    * @param request - GetDataExportDownloadURLRequest
    * @returns GetDataExportDownloadURLResponse
@@ -92683,7 +92776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 接受大容量sql文件的更新节点内容API
+   * 大sql更新节点专用
    * 
    * @param request - UpdateTaskContentV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -92725,7 +92818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 接受大容量sql文件的更新节点内容API
+   * 大sql更新节点专用
    * 
    * @param request - UpdateTaskContentV2Request
    * @returns UpdateTaskContentV2Response
