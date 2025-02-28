@@ -4242,6 +4242,502 @@ export class CreateMeetingRoomGroupRequestTenantContext extends $dara.Model {
   }
 }
 
+export class CreateMessageRequestContentCardCallback extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
+  content?: string;
+  /**
+   * @example
+   * templateId123
+   */
+  templateId?: string;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      templateId: 'templateId',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      templateId: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageRequestContentDingCard extends $dara.Model {
+  /**
+   * @example
+   * 卡片描述
+   */
+  cardDesc?: string;
+  /**
+   * @example
+   * {}
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * basic_card_schema
+   */
+  contentType?: string;
+  /**
+   * @example
+   * true
+   */
+  finished?: boolean;
+  /**
+   * @example
+   * templateId123
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardDesc: 'cardDesc',
+      content: 'content',
+      contentType: 'contentType',
+      finished: 'finished',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardDesc: 'string',
+      content: 'string',
+      contentType: 'string',
+      finished: 'boolean',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageRequestContentImageUrl extends $dara.Model {
+  /**
+   * @example
+   * auto
+   */
+  detail?: string;
+  imageDesc?: string;
+  /**
+   * @example
+   * https://img.alicdn.com/1234.png
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'detail',
+      imageDesc: 'imageDesc',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      imageDesc: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageRequestContentMarkdown extends $dara.Model {
+  /**
+   * @example
+   * 1. markdown内容
+   * 2. markdown内容
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageRequestContentText extends $dara.Model {
+  /**
+   * @example
+   * 你好！
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageRequestContent extends $dara.Model {
+  cardCallback?: CreateMessageRequestContentCardCallback;
+  dingCard?: CreateMessageRequestContentDingCard;
+  imageUrl?: CreateMessageRequestContentImageUrl;
+  markdown?: CreateMessageRequestContentMarkdown;
+  text?: CreateMessageRequestContentText;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * text
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardCallback: 'cardCallback',
+      dingCard: 'dingCard',
+      imageUrl: 'imageUrl',
+      markdown: 'markdown',
+      text: 'text',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardCallback: CreateMessageRequestContentCardCallback,
+      dingCard: CreateMessageRequestContentDingCard,
+      imageUrl: CreateMessageRequestContentImageUrl,
+      markdown: CreateMessageRequestContentMarkdown,
+      text: CreateMessageRequestContentText,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.cardCallback && typeof (this.cardCallback as any).validate === 'function') {
+      (this.cardCallback as any).validate();
+    }
+    if(this.dingCard && typeof (this.dingCard as any).validate === 'function') {
+      (this.dingCard as any).validate();
+    }
+    if(this.imageUrl && typeof (this.imageUrl as any).validate === 'function') {
+      (this.imageUrl as any).validate();
+    }
+    if(this.markdown && typeof (this.markdown as any).validate === 'function') {
+      (this.markdown as any).validate();
+    }
+    if(this.text && typeof (this.text as any).validate === 'function') {
+      (this.text as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageResponseBodyContentCardCallback extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
+  content?: string;
+  /**
+   * @example
+   * templateId123
+   */
+  templateId?: string;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      templateId: 'templateId',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      templateId: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageResponseBodyContentDingCard extends $dara.Model {
+  /**
+   * @example
+   * 卡片描述
+   */
+  cardDesc?: string;
+  /**
+   * @example
+   * {}
+   */
+  content?: string;
+  /**
+   * @example
+   * basic_card_schema
+   */
+  contentType?: string;
+  /**
+   * @example
+   * true
+   */
+  finished?: boolean;
+  /**
+   * @example
+   * templateId123
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardDesc: 'cardDesc',
+      content: 'content',
+      contentType: 'contentType',
+      finished: 'finished',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardDesc: 'string',
+      content: 'string',
+      contentType: 'string',
+      finished: 'boolean',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageResponseBodyContentImageUrl extends $dara.Model {
+  /**
+   * @example
+   * auto
+   */
+  detail?: string;
+  imageDesc?: string;
+  /**
+   * @example
+   * https://img.alicdn.com/1234.png
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'detail',
+      imageDesc: 'imageDesc',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      imageDesc: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageResponseBodyContentMarkdown extends $dara.Model {
+  /**
+   * @example
+   * 1. markdown内容
+   * 2. markdown内容
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageResponseBodyContentText extends $dara.Model {
+  /**
+   * @example
+   * 你好！
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageResponseBodyContent extends $dara.Model {
+  cardCallback?: CreateMessageResponseBodyContentCardCallback;
+  dingCard?: CreateMessageResponseBodyContentDingCard;
+  imageUrl?: CreateMessageResponseBodyContentImageUrl;
+  markdown?: CreateMessageResponseBodyContentMarkdown;
+  text?: CreateMessageResponseBodyContentText;
+  /**
+   * @example
+   * text
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardCallback: 'cardCallback',
+      dingCard: 'dingCard',
+      imageUrl: 'imageUrl',
+      markdown: 'markdown',
+      text: 'text',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardCallback: CreateMessageResponseBodyContentCardCallback,
+      dingCard: CreateMessageResponseBodyContentDingCard,
+      imageUrl: CreateMessageResponseBodyContentImageUrl,
+      markdown: CreateMessageResponseBodyContentMarkdown,
+      text: CreateMessageResponseBodyContentText,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.cardCallback && typeof (this.cardCallback as any).validate === 'function') {
+      (this.cardCallback as any).validate();
+    }
+    if(this.dingCard && typeof (this.dingCard as any).validate === 'function') {
+      (this.dingCard as any).validate();
+    }
+    if(this.imageUrl && typeof (this.imageUrl as any).validate === 'function') {
+      (this.imageUrl as any).validate();
+    }
+    if(this.markdown && typeof (this.markdown as any).validate === 'function') {
+      (this.markdown as any).validate();
+    }
+    if(this.text && typeof (this.text as any).validate === 'function') {
+      (this.text as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOrUpdateFormDataHeadersAccountContext extends $dara.Model {
   /**
    * @remarks
@@ -4529,6 +5025,526 @@ export class CreateReportRequestTenantContext extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyContentCardCallback extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
+  content?: string;
+  /**
+   * @example
+   * templateId123
+   */
+  templateId?: string;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      templateId: 'templateId',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      templateId: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyContentDingCard extends $dara.Model {
+  /**
+   * @example
+   * 卡片描述
+   */
+  cardDesc?: string;
+  /**
+   * @example
+   * {}
+   */
+  content?: string;
+  /**
+   * @example
+   * basic_card_schema
+   */
+  contentType?: string;
+  /**
+   * @example
+   * true
+   */
+  finished?: boolean;
+  /**
+   * @example
+   * templateId123
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardDesc: 'cardDesc',
+      content: 'content',
+      contentType: 'contentType',
+      finished: 'finished',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardDesc: 'string',
+      content: 'string',
+      contentType: 'string',
+      finished: 'boolean',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyContentImageUrl extends $dara.Model {
+  /**
+   * @example
+   * auto
+   */
+  detail?: string;
+  imageDesc?: string;
+  /**
+   * @example
+   * https://img.alicdn.com/1234.png
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'detail',
+      imageDesc: 'imageDesc',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      imageDesc: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyContentMarkdown extends $dara.Model {
+  /**
+   * @example
+   * 1. markdown内容
+   * 2. markdown内容
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyContentText extends $dara.Model {
+  /**
+   * @example
+   * 你好！
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyContent extends $dara.Model {
+  cardCallback?: CreateRunResponseBodyContentCardCallback;
+  dingCard?: CreateRunResponseBodyContentDingCard;
+  imageUrl?: CreateRunResponseBodyContentImageUrl;
+  markdown?: CreateRunResponseBodyContentMarkdown;
+  text?: CreateRunResponseBodyContentText;
+  /**
+   * @example
+   * text
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardCallback: 'cardCallback',
+      dingCard: 'dingCard',
+      imageUrl: 'imageUrl',
+      markdown: 'markdown',
+      text: 'text',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardCallback: CreateRunResponseBodyContentCardCallback,
+      dingCard: CreateRunResponseBodyContentDingCard,
+      imageUrl: CreateRunResponseBodyContentImageUrl,
+      markdown: CreateRunResponseBodyContentMarkdown,
+      text: CreateRunResponseBodyContentText,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.cardCallback && typeof (this.cardCallback as any).validate === 'function') {
+      (this.cardCallback as any).validate();
+    }
+    if(this.dingCard && typeof (this.dingCard as any).validate === 'function') {
+      (this.dingCard as any).validate();
+    }
+    if(this.imageUrl && typeof (this.imageUrl as any).validate === 'function') {
+      (this.imageUrl as any).validate();
+    }
+    if(this.markdown && typeof (this.markdown as any).validate === 'function') {
+      (this.markdown as any).validate();
+    }
+    if(this.text && typeof (this.text as any).validate === 'function') {
+      (this.text as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyDeltaContentCardCallback extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
+  content?: string;
+  /**
+   * @example
+   * templateId123
+   */
+  templateId?: string;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      templateId: 'templateId',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      templateId: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyDeltaContentDingCard extends $dara.Model {
+  /**
+   * @example
+   * 卡片描述
+   */
+  cardDesc?: string;
+  /**
+   * @example
+   * {}
+   */
+  content?: string;
+  /**
+   * @example
+   * basic_card_schema
+   */
+  contentType?: string;
+  /**
+   * @example
+   * true
+   */
+  finished?: boolean;
+  /**
+   * @example
+   * templateId123
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardDesc: 'cardDesc',
+      content: 'content',
+      contentType: 'contentType',
+      finished: 'finished',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardDesc: 'string',
+      content: 'string',
+      contentType: 'string',
+      finished: 'boolean',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyDeltaContentImageUrl extends $dara.Model {
+  /**
+   * @example
+   * auto
+   */
+  detail?: string;
+  imageDesc?: string;
+  /**
+   * @example
+   * https://img.alicdn.com/1234.png
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'detail',
+      imageDesc: 'imageDesc',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      imageDesc: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyDeltaContentMarkdown extends $dara.Model {
+  /**
+   * @example
+   * 1. markdown内容
+   * 2. markdown内容
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyDeltaContentText extends $dara.Model {
+  /**
+   * @example
+   * 你好！
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyDeltaContent extends $dara.Model {
+  cardCallback?: CreateRunResponseBodyDeltaContentCardCallback;
+  dingCard?: CreateRunResponseBodyDeltaContentDingCard;
+  imageUrl?: CreateRunResponseBodyDeltaContentImageUrl;
+  markdown?: CreateRunResponseBodyDeltaContentMarkdown;
+  text?: CreateRunResponseBodyDeltaContentText;
+  /**
+   * @example
+   * text
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardCallback: 'cardCallback',
+      dingCard: 'dingCard',
+      imageUrl: 'imageUrl',
+      markdown: 'markdown',
+      text: 'text',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardCallback: CreateRunResponseBodyDeltaContentCardCallback,
+      dingCard: CreateRunResponseBodyDeltaContentDingCard,
+      imageUrl: CreateRunResponseBodyDeltaContentImageUrl,
+      markdown: CreateRunResponseBodyDeltaContentMarkdown,
+      text: CreateRunResponseBodyDeltaContentText,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.cardCallback && typeof (this.cardCallback as any).validate === 'function') {
+      (this.cardCallback as any).validate();
+    }
+    if(this.dingCard && typeof (this.dingCard as any).validate === 'function') {
+      (this.dingCard as any).validate();
+    }
+    if(this.imageUrl && typeof (this.imageUrl as any).validate === 'function') {
+      (this.imageUrl as any).validate();
+    }
+    if(this.markdown && typeof (this.markdown as any).validate === 'function') {
+      (this.markdown as any).validate();
+    }
+    if(this.text && typeof (this.text as any).validate === 'function') {
+      (this.text as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBodyDelta extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
+  content?: CreateRunResponseBodyDeltaContent;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: CreateRunResponseBodyDeltaContent,
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
     super.validate();
   }
 
@@ -20163,6 +21179,333 @@ export class ListFormRemarksHeadersAccountContext extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageResponseBodyDataContentCardCallback extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
+  content?: string;
+  /**
+   * @example
+   * templateId123
+   */
+  templateId?: string;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      templateId: 'templateId',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      templateId: 'string',
+      userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageResponseBodyDataContentDingCard extends $dara.Model {
+  /**
+   * @example
+   * 卡片描述
+   */
+  cardDesc?: string;
+  /**
+   * @example
+   * {}
+   */
+  content?: string;
+  /**
+   * @example
+   * basic_card_schema
+   */
+  contentType?: string;
+  /**
+   * @example
+   * true
+   */
+  finished?: boolean;
+  /**
+   * @example
+   * templateId123
+   */
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardDesc: 'cardDesc',
+      content: 'content',
+      contentType: 'contentType',
+      finished: 'finished',
+      templateId: 'templateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardDesc: 'string',
+      content: 'string',
+      contentType: 'string',
+      finished: 'boolean',
+      templateId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageResponseBodyDataContentImageUrl extends $dara.Model {
+  /**
+   * @example
+   * auto
+   */
+  detail?: string;
+  imageDesc?: string;
+  /**
+   * @example
+   * https://img.alicdn.com/1234.png
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'detail',
+      imageDesc: 'imageDesc',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      imageDesc: 'string',
+      url: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageResponseBodyDataContentMarkdown extends $dara.Model {
+  /**
+   * @example
+   * 1. markdown内容
+   * 2. markdown内容
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageResponseBodyDataContentText extends $dara.Model {
+  /**
+   * @example
+   * 你好！
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageResponseBodyDataContent extends $dara.Model {
+  cardCallback?: ListMessageResponseBodyDataContentCardCallback;
+  dingCard?: ListMessageResponseBodyDataContentDingCard;
+  imageUrl?: ListMessageResponseBodyDataContentImageUrl;
+  markdown?: ListMessageResponseBodyDataContentMarkdown;
+  text?: ListMessageResponseBodyDataContentText;
+  /**
+   * @example
+   * text
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cardCallback: 'cardCallback',
+      dingCard: 'dingCard',
+      imageUrl: 'imageUrl',
+      markdown: 'markdown',
+      text: 'text',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cardCallback: ListMessageResponseBodyDataContentCardCallback,
+      dingCard: ListMessageResponseBodyDataContentDingCard,
+      imageUrl: ListMessageResponseBodyDataContentImageUrl,
+      markdown: ListMessageResponseBodyDataContentMarkdown,
+      text: ListMessageResponseBodyDataContentText,
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.cardCallback && typeof (this.cardCallback as any).validate === 'function') {
+      (this.cardCallback as any).validate();
+    }
+    if(this.dingCard && typeof (this.dingCard as any).validate === 'function') {
+      (this.dingCard as any).validate();
+    }
+    if(this.imageUrl && typeof (this.imageUrl as any).validate === 'function') {
+      (this.imageUrl as any).validate();
+    }
+    if(this.markdown && typeof (this.markdown as any).validate === 'function') {
+      (this.markdown as any).validate();
+    }
+    if(this.text && typeof (this.text as any).validate === 'function') {
+      (this.text as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * []
+   */
+  content?: ListMessageResponseBodyDataContent[];
+  /**
+   * @example
+   * 1642448000000
+   */
+  createAt?: number;
+  /**
+   * @example
+   * messageId123
+   */
+  id?: string;
+  /**
+   * @example
+   * {}
+   */
+  metadata?: { [key: string]: any };
+  /**
+   * @example
+   * thread.message
+   */
+  object?: string;
+  /**
+   * @example
+   * user
+   */
+  role?: string;
+  /**
+   * @example
+   * runId123
+   */
+  runId?: string;
+  /**
+   * @example
+   * threadId123
+   */
+  threadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      createAt: 'createAt',
+      id: 'id',
+      metadata: 'metadata',
+      object: 'object',
+      role: 'role',
+      runId: 'runId',
+      threadId: 'threadId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'array', 'itemType': ListMessageResponseBodyDataContent },
+      createAt: 'number',
+      id: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      object: 'string',
+      role: 'string',
+      runId: 'string',
+      threadId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.content)) {
+      $dara.Model.validateArray(this.content);
+    }
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
     super.validate();
   }
 
@@ -38838,6 +40181,236 @@ export class CreateMeetingRoomGroupResponse extends $dara.Model {
   }
 }
 
+export class CreateMessageHeaders extends $dara.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * 123456
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * assistantId1
+   */
+  assistantId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 你好！
+   */
+  content?: CreateMessageRequestContent[];
+  /**
+   * @example
+   * {}
+   */
+  metadata?: { [key: string]: any };
+  /**
+   * @example
+   * assistantId
+   */
+  originalAssistantId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * user
+   */
+  role?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * threadId123
+   */
+  threadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistantId: 'assistantId',
+      content: 'content',
+      metadata: 'metadata',
+      originalAssistantId: 'originalAssistantId',
+      role: 'role',
+      threadId: 'threadId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistantId: 'string',
+      content: { 'type': 'array', 'itemType': CreateMessageRequestContent },
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      originalAssistantId: 'string',
+      role: 'string',
+      threadId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.content)) {
+      $dara.Model.validateArray(this.content);
+    }
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageResponseBody extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
+  content?: CreateMessageResponseBodyContent[];
+  /**
+   * @example
+   * 1642448000000
+   */
+  createAt?: number;
+  /**
+   * @example
+   * messageId123
+   */
+  id?: string;
+  /**
+   * @example
+   * {}
+   */
+  metadata?: { [key: string]: any };
+  /**
+   * @example
+   * thread.message
+   */
+  object?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * user
+   */
+  role?: string;
+  /**
+   * @example
+   * threadId123
+   */
+  threadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      createAt: 'createAt',
+      id: 'id',
+      metadata: 'metadata',
+      object: 'object',
+      requestId: 'requestId',
+      role: 'role',
+      threadId: 'threadId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: { 'type': 'array', 'itemType': CreateMessageResponseBodyContent },
+      createAt: 'number',
+      id: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      object: 'string',
+      requestId: 'string',
+      role: 'string',
+      threadId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.content)) {
+      $dara.Model.validateArray(this.content);
+    }
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMessageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMessageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOrUpdateFormDataHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: CreateOrUpdateFormDataHeadersAccountContext;
@@ -39952,6 +41525,279 @@ export class CreateReportResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateReportResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunHeaders extends $dara.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * 123456
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * assistantId1
+   */
+  assistantId?: string;
+  /**
+   * @example
+   * 你是一个聪明的小助理
+   */
+  instructions?: string;
+  /**
+   * @example
+   * {}
+   */
+  metadata?: { [key: string]: any };
+  /**
+   * @example
+   * assistantId
+   */
+  originalAssistantId?: string;
+  /**
+   * @example
+   * false
+   */
+  stream?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * threadId123
+   */
+  threadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistantId: 'assistantId',
+      instructions: 'instructions',
+      metadata: 'metadata',
+      originalAssistantId: 'originalAssistantId',
+      stream: 'stream',
+      threadId: 'threadId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistantId: 'string',
+      instructions: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      originalAssistantId: 'string',
+      stream: 'boolean',
+      threadId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1642448000000
+   */
+  cancelledAt?: number;
+  /**
+   * @example
+   * 1642448000000
+   */
+  completedAt?: number;
+  /**
+   * @example
+   * {}
+   */
+  content?: CreateRunResponseBodyContent;
+  /**
+   * @example
+   * 1642448000000
+   */
+  createAt?: number;
+  /**
+   * @example
+   * {}
+   */
+  delta?: CreateRunResponseBodyDelta;
+  /**
+   * @example
+   * 1642448000000
+   */
+  expiresAt?: number;
+  /**
+   * @example
+   * 1642448000000
+   */
+  failedAt?: number;
+  /**
+   * @example
+   * runId123
+   */
+  id?: string;
+  /**
+   * @example
+   * errorMsg
+   */
+  lastErrorMsg?: string;
+  /**
+   * @example
+   * {}
+   */
+  metadata?: { [key: string]: any };
+  /**
+   * @example
+   * thread.run
+   */
+  object?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1642448000000
+   */
+  startedAt?: number;
+  /**
+   * @example
+   * running
+   */
+  status?: string;
+  /**
+   * @example
+   * threadId123
+   */
+  threadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cancelledAt: 'cancelledAt',
+      completedAt: 'completedAt',
+      content: 'content',
+      createAt: 'createAt',
+      delta: 'delta',
+      expiresAt: 'expiresAt',
+      failedAt: 'failedAt',
+      id: 'id',
+      lastErrorMsg: 'lastErrorMsg',
+      metadata: 'metadata',
+      object: 'object',
+      requestId: 'requestId',
+      startedAt: 'startedAt',
+      status: 'status',
+      threadId: 'threadId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cancelledAt: 'number',
+      completedAt: 'number',
+      content: CreateRunResponseBodyContent,
+      createAt: 'number',
+      delta: CreateRunResponseBodyDelta,
+      expiresAt: 'number',
+      failedAt: 'number',
+      id: 'string',
+      lastErrorMsg: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      object: 'string',
+      requestId: 'string',
+      startedAt: 'number',
+      status: 'string',
+      threadId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.content && typeof (this.content as any).validate === 'function') {
+      (this.content as any).validate();
+    }
+    if(this.delta && typeof (this.delta as any).validate === 'function') {
+      (this.delta as any).validate();
+    }
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRunResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRunResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRunResponseBody,
     };
   }
 
@@ -41514,6 +43360,179 @@ export class CreateSubscribedCalendarResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateSubscribedCalendarResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateThreadHeaders extends $dara.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * 123456
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateThreadRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * assistantId1
+   */
+  assistantId?: string;
+  /**
+   * @example
+   * {}
+   */
+  metadata?: { [key: string]: any };
+  /**
+   * @example
+   * assistantId
+   */
+  originalAssistantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistantId: 'assistantId',
+      metadata: 'metadata',
+      originalAssistantId: 'originalAssistantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistantId: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      originalAssistantId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateThreadResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1642448000000
+   */
+  createAt?: number;
+  /**
+   * @example
+   * threadId123
+   */
+  id?: string;
+  /**
+   * @example
+   * {}
+   */
+  metadata?: { [key: string]: any };
+  /**
+   * @example
+   * thread
+   */
+  object?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createAt: 'createAt',
+      id: 'id',
+      metadata: 'metadata',
+      object: 'object',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createAt: 'number',
+      id: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      object: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateThreadResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateThreadResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateThreadResponseBody,
     };
   }
 
@@ -65132,6 +67151,186 @@ export class ListFormRemarksResponse extends $dara.Model {
   }
 }
 
+export class ListMessageHeaders extends $dara.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * 123456
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * assistantId1
+   */
+  assistantId?: string;
+  /**
+   * @example
+   * 20
+   */
+  limit?: number;
+  /**
+   * @example
+   * desc
+   */
+  order?: string;
+  /**
+   * @example
+   * assistantId
+   */
+  originalAssistantid?: string;
+  /**
+   * @example
+   * runId123
+   */
+  runId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * threadId123
+   */
+  threadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistantId: 'assistantId',
+      limit: 'limit',
+      order: 'order',
+      originalAssistantid: 'originalAssistantid',
+      runId: 'runId',
+      threadId: 'threadId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistantId: 'string',
+      limit: 'number',
+      order: 'string',
+      originalAssistantid: 'string',
+      runId: 'string',
+      threadId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageResponseBody extends $dara.Model {
+  /**
+   * @example
+   * []
+   */
+  data?: ListMessageResponseBodyData[];
+  /**
+   * @example
+   * list
+   */
+  object?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      object: 'object',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListMessageResponseBodyData },
+      object: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMessageResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMessageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMultiDimTableRecordsHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: ListMultiDimTableRecordsHeadersAccountContext;
@@ -75345,6 +77544,242 @@ export class RespondEventResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RespondEventResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrieveRunHeaders extends $dara.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @example
+   * 123456
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrieveRunRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * assistantId1
+   */
+  assistantId?: string;
+  /**
+   * @example
+   * assistantId
+   */
+  originalAssistantId?: string;
+  /**
+   * @example
+   * runId123
+   */
+  runId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * threadId123
+   */
+  threadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistantId: 'assistantId',
+      originalAssistantId: 'originalAssistantId',
+      runId: 'runId',
+      threadId: 'threadId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistantId: 'string',
+      originalAssistantId: 'string',
+      runId: 'string',
+      threadId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrieveRunResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1642448000000
+   */
+  cancelledAt?: number;
+  /**
+   * @example
+   * 1642448000000
+   */
+  completedAt?: number;
+  /**
+   * @example
+   * 1642448000000
+   */
+  createAt?: number;
+  /**
+   * @example
+   * 1642448000000
+   */
+  expiresAt?: number;
+  /**
+   * @example
+   * 1642448000000
+   */
+  failedAt?: number;
+  /**
+   * @example
+   * runId123
+   */
+  id?: string;
+  /**
+   * @example
+   * errorMsg
+   */
+  lastErrorMsg?: string;
+  /**
+   * @example
+   * {}
+   */
+  metadata?: { [key: string]: any };
+  /**
+   * @example
+   * thread.run
+   */
+  object?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1642448000000
+   */
+  startedAt?: number;
+  /**
+   * @example
+   * running
+   */
+  status?: string;
+  /**
+   * @example
+   * threadId123
+   */
+  threadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cancelledAt: 'cancelledAt',
+      completedAt: 'completedAt',
+      createAt: 'createAt',
+      expiresAt: 'expiresAt',
+      failedAt: 'failedAt',
+      id: 'id',
+      lastErrorMsg: 'lastErrorMsg',
+      metadata: 'metadata',
+      object: 'object',
+      requestId: 'requestId',
+      startedAt: 'startedAt',
+      status: 'status',
+      threadId: 'threadId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cancelledAt: 'number',
+      completedAt: 'number',
+      createAt: 'number',
+      expiresAt: 'number',
+      failedAt: 'number',
+      id: 'string',
+      lastErrorMsg: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      object: 'string',
+      requestId: 'string',
+      startedAt: 'number',
+      status: 'string',
+      threadId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetrieveRunResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RetrieveRunResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RetrieveRunResponseBody,
     };
   }
 
@@ -89638,6 +92073,85 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建消息
+   * 
+   * @param request - CreateMessageRequest
+   * @param headers - CreateMessageHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMessageResponse
+   */
+  async createMessageWithOptions(request: CreateMessageRequest, headers: CreateMessageHeaders, runtime: $dara.RuntimeOptions): Promise<CreateMessageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assistantId)) {
+      body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.metadata)) {
+      body["metadata"] = request.metadata;
+    }
+
+    if (!$dara.isNull(request.originalAssistantId)) {
+      body["originalAssistantId"] = request.originalAssistantId;
+    }
+
+    if (!$dara.isNull(request.role)) {
+      body["role"] = request.role;
+    }
+
+    if (!$dara.isNull(request.threadId)) {
+      body["threadId"] = request.threadId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountId)) {
+      realHeaders["accountId"] = String(headers.accountId);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMessage",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/ai/v1/assistant/createMessage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateMessageResponse>(await this.callApi(params, req, runtime), new CreateMessageResponse({}));
+    } else {
+      return $dara.cast<CreateMessageResponse>(await this.execute(params, req, runtime), new CreateMessageResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建消息
+   * 
+   * @param request - CreateMessageRequest
+   * @returns CreateMessageResponse
+   */
+  async createMessage(request: CreateMessageRequest): Promise<CreateMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new CreateMessageHeaders({ });
+    return await this.createMessageWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 新增或更新表单实例
    * 
    * @param request - CreateOrUpdateFormDataRequest
@@ -90041,6 +92555,85 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new CreateReportHeaders({ });
     return await this.createReportWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建运行
+   * 
+   * @param request - CreateRunRequest
+   * @param headers - CreateRunHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRunResponse
+   */
+  async createRunWithOptions(request: CreateRunRequest, headers: CreateRunHeaders, runtime: $dara.RuntimeOptions): Promise<CreateRunResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assistantId)) {
+      body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.instructions)) {
+      body["instructions"] = request.instructions;
+    }
+
+    if (!$dara.isNull(request.metadata)) {
+      body["metadata"] = request.metadata;
+    }
+
+    if (!$dara.isNull(request.originalAssistantId)) {
+      body["originalAssistantId"] = request.originalAssistantId;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    if (!$dara.isNull(request.threadId)) {
+      body["threadId"] = request.threadId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountId)) {
+      realHeaders["accountId"] = String(headers.accountId);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRun",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/ai/v1/assistant/createRun`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateRunResponse>(await this.callApi(params, req, runtime), new CreateRunResponse({}));
+    } else {
+      return $dara.cast<CreateRunResponse>(await this.execute(params, req, runtime), new CreateRunResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建运行
+   * 
+   * @param request - CreateRunRequest
+   * @returns CreateRunResponse
+   */
+  async createRun(request: CreateRunRequest): Promise<CreateRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new CreateRunHeaders({ });
+    return await this.createRunWithOptions(request, headers, runtime);
   }
 
   /**
@@ -90629,6 +93222,73 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new CreateSubscribedCalendarHeaders({ });
     return await this.createSubscribedCalendarWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建线程
+   * 
+   * @param request - CreateThreadRequest
+   * @param headers - CreateThreadHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateThreadResponse
+   */
+  async createThreadWithOptions(request: CreateThreadRequest, headers: CreateThreadHeaders, runtime: $dara.RuntimeOptions): Promise<CreateThreadResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assistantId)) {
+      body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.metadata)) {
+      body["metadata"] = request.metadata;
+    }
+
+    if (!$dara.isNull(request.originalAssistantId)) {
+      body["originalAssistantId"] = request.originalAssistantId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountId)) {
+      realHeaders["accountId"] = String(headers.accountId);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateThread",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/ai/v1/assistant/createThread`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateThreadResponse>(await this.callApi(params, req, runtime), new CreateThreadResponse({}));
+    } else {
+      return $dara.cast<CreateThreadResponse>(await this.execute(params, req, runtime), new CreateThreadResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建线程
+   * 
+   * @param request - CreateThreadRequest
+   * @returns CreateThreadResponse
+   */
+  async createThread(request: CreateThreadRequest): Promise<CreateThreadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new CreateThreadHeaders({ });
+    return await this.createThreadWithOptions(request, headers, runtime);
   }
 
   /**
@@ -98232,7 +100892,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.accountId)) {
-      realHeaders["accountId"] = JSON.stringify(headers.accountId);
+      realHeaders["accountId"] = String(headers.accountId);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -98946,6 +101606,85 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new ListFormRemarksHeaders({ });
     return await this.listFormRemarksWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询消息
+   * 
+   * @param request - ListMessageRequest
+   * @param headers - ListMessageHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMessageResponse
+   */
+  async listMessageWithOptions(request: ListMessageRequest, headers: ListMessageHeaders, runtime: $dara.RuntimeOptions): Promise<ListMessageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assistantId)) {
+      body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      body["limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      body["order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.originalAssistantid)) {
+      body["originalAssistantid"] = request.originalAssistantid;
+    }
+
+    if (!$dara.isNull(request.runId)) {
+      body["runId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.threadId)) {
+      body["threadId"] = request.threadId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountId)) {
+      realHeaders["accountId"] = String(headers.accountId);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMessage",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/ai/v1/assistant/listMessage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListMessageResponse>(await this.callApi(params, req, runtime), new ListMessageResponse({}));
+    } else {
+      return $dara.cast<ListMessageResponse>(await this.execute(params, req, runtime), new ListMessageResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询消息
+   * 
+   * @param request - ListMessageRequest
+   * @returns ListMessageResponse
+   */
+  async listMessage(request: ListMessageRequest): Promise<ListMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new ListMessageHeaders({ });
+    return await this.listMessageWithOptions(request, headers, runtime);
   }
 
   /**
@@ -102365,6 +105104,77 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new RespondEventHeaders({ });
     return await this.respondEventWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询运行
+   * 
+   * @param request - RetrieveRunRequest
+   * @param headers - RetrieveRunHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetrieveRunResponse
+   */
+  async retrieveRunWithOptions(request: RetrieveRunRequest, headers: RetrieveRunHeaders, runtime: $dara.RuntimeOptions): Promise<RetrieveRunResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.assistantId)) {
+      body["assistantId"] = request.assistantId;
+    }
+
+    if (!$dara.isNull(request.originalAssistantId)) {
+      body["originalAssistantId"] = request.originalAssistantId;
+    }
+
+    if (!$dara.isNull(request.runId)) {
+      body["runId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.threadId)) {
+      body["threadId"] = request.threadId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountId)) {
+      realHeaders["accountId"] = String(headers.accountId);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RetrieveRun",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/ai/v1/assistant/retrieveRun`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RetrieveRunResponse>(await this.callApi(params, req, runtime), new RetrieveRunResponse({}));
+    } else {
+      return $dara.cast<RetrieveRunResponse>(await this.execute(params, req, runtime), new RetrieveRunResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询运行
+   * 
+   * @param request - RetrieveRunRequest
+   * @returns RetrieveRunResponse
+   */
+  async retrieveRun(request: RetrieveRunRequest): Promise<RetrieveRunResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new RetrieveRunHeaders({ });
+    return await this.retrieveRunWithOptions(request, headers, runtime);
   }
 
   /**
