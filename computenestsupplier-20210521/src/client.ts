@@ -3384,6 +3384,123 @@ export class GetServiceProvisionsResponseBodyServiceProvisions extends $dara.Mod
   }
 }
 
+export class GetServiceRegistrationResponseBodyDetail extends $dara.Model {
+  /**
+   * @remarks
+   * Whether risk exists.
+   * 
+   * @example
+   * true
+   */
+  atRisk?: boolean;
+  /**
+   * @remarks
+   * Whether service is associated with artifact.
+   * 
+   * @example
+   * true
+   */
+  hasRelatedArtifact?: boolean;
+  /**
+   * @remarks
+   * The reports.
+   * 
+   * @example
+   * { "template1":"https://compute-nest-security-audit-bucket.oss-cn-hangzhou.aliyuncs.com/report" }
+   */
+  reports?: string;
+  /**
+   * @remarks
+   * The url of template diff file.
+   * 
+   * @example
+   * https://compute-nest-template-diff-bucket.oss-cn-hangzhou.aliyuncs.com/service-abc/diff
+   */
+  templateDiffUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      atRisk: 'AtRisk',
+      hasRelatedArtifact: 'HasRelatedArtifact',
+      reports: 'Reports',
+      templateDiffUrl: 'TemplateDiffUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      atRisk: 'boolean',
+      hasRelatedArtifact: 'boolean',
+      reports: 'string',
+      templateDiffUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceRegistrationResponseBodyServiceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the service. Valid values:
+   * 
+   * *   private: The service is a private service and is deployed within the account of a customer.
+   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+   * *   operation: The service is a hosted O\\&M service.
+   * 
+   * @example
+   * private
+   */
+  serviceType?: string;
+  /**
+   * @remarks
+   * The trial policy. Valid values:
+   * 
+   * *   Trial: Trials are supported.
+   * *   NotTrial: Trials are not supported.
+   * 
+   * @example
+   * Trial
+   */
+  trialType?: string;
+  /**
+   * @remarks
+   * The version name.
+   * 
+   * @example
+   * v1.0
+   */
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceType: 'ServiceType',
+      trialType: 'TrialType',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceType: 'string',
+      trialType: 'string',
+      versionName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceTemplateParameterConstraintsRequestParameters extends $dara.Model {
   /**
    * @remarks
@@ -3572,6 +3689,133 @@ export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstrai
     if(Array.isArray(this.originalConstraints)) {
       $dara.Model.validateArray(this.originalConstraints);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTestTaskResponseBodyExecutionDetails extends $dara.Model {
+  /**
+   * @remarks
+   * The service test case name.
+   * 
+   * @example
+   * case1
+   */
+  caseName?: string;
+  /**
+   * @remarks
+   * The execution report
+   * 
+   * @example
+   * -----------------------------------------------------------------------------
+   * Region: cn-qingdao
+   * StackName: iact3-default-cn-qingd
+   * StackId: 009d2991-f494-d
+   * *****************************************************************************
+   */
+  executionReport?: string;
+  /**
+   * @remarks
+   * The sub task status.
+   * 
+   * @example
+   * Runing
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The sub task id.
+   * 
+   * @example
+   * stt-xxxx
+   */
+  subTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caseName: 'CaseName',
+      executionReport: 'ExecutionReport',
+      status: 'Status',
+      subTaskId: 'SubTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseName: 'string',
+      executionReport: 'string',
+      status: 'string',
+      subTaskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSupplierInformationResponseBodyDeliverySettings extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * mybucket
+   */
+  ossBucketName?: string;
+  /**
+   * @remarks
+   * Indicates whether screencast delivery to Object Storage Service (OSS) is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  ossEnabled?: boolean;
+  /**
+   * @remarks
+   * The number of days for which the screencasts are saved.
+   * 
+   * @example
+   * 7
+   */
+  ossExpirationDays?: number;
+  /**
+   * @remarks
+   * The OSS path.
+   * 
+   * @example
+   * path1/path2/
+   */
+  ossPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossBucketName: 'OssBucketName',
+      ossEnabled: 'OssEnabled',
+      ossExpirationDays: 'OssExpirationDays',
+      ossPath: 'OssPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossBucketName: 'string',
+      ossEnabled: 'boolean',
+      ossExpirationDays: 'number',
+      ossPath: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -3791,6 +4035,107 @@ export class ListAcrImageTagsResponseBodyImages extends $dara.Model {
       imageSize: 'string',
       modifiedTime: 'string',
       tag: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactRisksResponseBodyArtifactRiskList extends $dara.Model {
+  /**
+   * @remarks
+   * CVE numbers
+   * 
+   * @example
+   * CVE-2023-4911
+   */
+  cveNos?: string;
+  /**
+   * @remarks
+   * Extended information, in JSON format, to be parsed according to the risk category
+   * 
+   * @example
+   * {
+   *   "feature": "ntpdate", 
+   *   "version": "4.2.6", 
+   *   "cveLocation": "/usr/lib" 
+   * }
+   */
+  extendInfo?: string;
+  /**
+   * @remarks
+   * Risk level:
+   * 
+   * - high represents high
+   * 
+   * @example
+   * high
+   */
+  level?: string;
+  /**
+   * @remarks
+   * Risk name.
+   * 
+   * @example
+   * USN-3686-1: file vulnerabilities
+   */
+  riskName?: string;
+  /**
+   * @remarks
+   * Risk type. Values:
+   * - AcrCve  Container image system vulnerability
+   * - AcrSca  Container image application vulnerability
+   * - EcsVulnerability  ECS image vulnerability information
+   * - EcsAlarm  ECS image security alarm
+   * - EcsBaseline  ECS image baseline check
+   * 
+   * @example
+   * AcrCve
+   */
+  riskType?: string;
+  /**
+   * @remarks
+   * Risk Type name
+   * 
+   * @example
+   * Container System Vulner
+   */
+  riskTypeName?: string;
+  /**
+   * @remarks
+   * Solution for the risk item.
+   * 
+   * @example
+   * apt-get update && apt-get install ntpdate --only-upgrade
+   */
+  solution?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cveNos: 'CveNos',
+      extendInfo: 'ExtendInfo',
+      level: 'Level',
+      riskName: 'RiskName',
+      riskType: 'RiskType',
+      riskTypeName: 'RiskTypeName',
+      solution: 'Solution',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cveNos: 'string',
+      extendInfo: 'string',
+      level: 'string',
+      riskName: 'string',
+      riskType: 'string',
+      riskTypeName: 'string',
+      solution: 'string',
     };
   }
 
@@ -4505,6 +4850,513 @@ export class ListServiceInstanceDeployDetailsResponseBodyDeployDetails extends $
       serviceVersion: 'string',
       timestamp: 'string',
       userId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceLogsRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * 
+   * *   StartTime: the start time of the log event.
+   * *   EndTime: the end time of the ActionTrail event.
+   * *   EventName: the name of the ActionTrail event.
+   * *   ResourceName: the name of the ActionTrail resource.
+   * *   ApplicationGroupName: the name of the application group.
+   * 
+   * @example
+   * StartTime
+   */
+  name?: string;
+  /**
+   * @remarks
+   * A value of the filter condition.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceLogsResponseBodyServiceInstancesLogs extends $dara.Model {
+  /**
+   * @remarks
+   * Compliance package risk types. This only applies when the source is CompliancePack. . For example, data security checks within a VPC, such as VpcDataRisk
+   * 
+   * @example
+   * VpcDataRisk
+   */
+  compliancePackType?: string;
+  /**
+   * @remarks
+   * Specific risk rule names for the compliance package. This only applies when the source is CompliancePack. . For example, ECS instance migration out of VPC - ecs-move-out-vpc.
+   * 
+   * @example
+   * vpc-ecs-move-out-vpc
+   */
+  complianceRuleName?: string;
+  /**
+   * @remarks
+   * The log content.
+   * 
+   * @example
+   * Start creating service instance
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The log type. Valid values:
+   * 
+   * *   serviceInstance: log generated by the service instance.
+   * *   resource: log generated by ROS resources.
+   * 
+   * @example
+   * serviceInstance
+   */
+  logType?: string;
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * si-5c6525c0589545c3****
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The Resouce Type.
+   * 
+   * @example
+   * ROS.Stack
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The log source. 
+   * Valid values:
+   * 
+   * *   computeNest : logs of the deployment and upgrade of the service instance.
+   * *   application: logs generated by the application.
+   * *   actionTrail: logs generated by ActionTrail.
+   * *  compliancePack:  Logs originating from the compliance package.
+   * *  ros: Logs originating from ROS.
+   * *  meteringData：Logs originating from the pay-as-you-go model.
+   * 
+   * @example
+   * computeNest
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The deployment state of the service instance. Valid values:
+   * 
+   * *   Created
+   * *   Deploying
+   * *   DeployedFailed
+   * *   Deployed
+   * *   Upgrading
+   * *   Deleting
+   * *   Deleted
+   * *   DeletedFailed
+   * 
+   * @example
+   * Deployed
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The timestamp of the service instance log.
+   * 
+   * @example
+   * 2022-05-21T00:00:00Z
+   */
+  timestamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      compliancePackType: 'CompliancePackType',
+      complianceRuleName: 'ComplianceRuleName',
+      content: 'Content',
+      logType: 'LogType',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      source: 'Source',
+      status: 'Status',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compliancePackType: 'string',
+      complianceRuleName: 'string',
+      content: 'string',
+      logType: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+      source: 'string',
+      status: 'string',
+      timestamp: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceResourcesRequestFilters extends $dara.Model {
+  /**
+   * @remarks
+   * Vaild values:
+   * - ExpireTimeStart
+   * - ExpireTimeEnd
+   * - PayType
+   * - ResourceARN
+   * 
+   * @example
+   * ResourceARN
+   */
+  name?: string;
+  /**
+   * @remarks
+   * A value of the filter condition.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceResourcesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the service instance was created.
+   * 
+   * @example
+   * 2022-01-01T12:00:00
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The time when the resource expires.
+   * 
+   * @example
+   * 2022-03-01T12:00:00
+   */
+  expireTime?: string;
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   Subscription
+   * *   PayAsYouGo
+   * 
+   * @example
+   * Subscription
+   */
+  payType?: string;
+  /**
+   * @remarks
+   * The code of the cloud service.
+   * 
+   * @example
+   * rds
+   */
+  productCode?: string;
+  /**
+   * @remarks
+   * The type of the cloud service.
+   * 
+   * @example
+   * RDS
+   */
+  productType?: string;
+  /**
+   * @remarks
+   * The renewal state. Valid values:
+   * 
+   * *   AutoRenewal
+   * *   ManualRenewal
+   * *   NotRenewal
+   * 
+   * @example
+   * AutoRenewal
+   */
+  renewStatus?: string;
+  /**
+   * @remarks
+   * The renewal period.
+   * 
+   * @example
+   * 1
+   */
+  renewalPeriod?: number;
+  /**
+   * @remarks
+   * The unit of the renewal period. Valid values:
+   * 
+   * *   Month
+   * *   Year
+   * 
+   * @example
+   * Month
+   */
+  renewalPeriodUnit?: string;
+  /**
+   * @remarks
+   * The ARN of the resource.
+   * 
+   * @example
+   * arn:acs:sag:cn-hangzhou:130920852836****:ccn/ccn-b3qf0q439sq2de****
+   */
+  resourceARN?: string;
+  /**
+   * @remarks
+   * The status of the service instance. Valid values:
+   * 
+   * *   Created
+   * *   Deploying
+   * *   DeployedFailed
+   * *   Deployed
+   * *   Upgrading
+   * *   Deleting
+   * *   Deleted
+   * *   DeletedFailed
+   * 
+   * @example
+   * CREATE_COMPLETE
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      expireTime: 'ExpireTime',
+      payType: 'PayType',
+      productCode: 'ProductCode',
+      productType: 'ProductType',
+      renewStatus: 'RenewStatus',
+      renewalPeriod: 'RenewalPeriod',
+      renewalPeriodUnit: 'RenewalPeriodUnit',
+      resourceARN: 'ResourceARN',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      expireTime: 'string',
+      payType: 'string',
+      productCode: 'string',
+      productType: 'string',
+      renewStatus: 'string',
+      renewalPeriod: 'number',
+      renewalPeriodUnit: 'string',
+      resourceARN: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends $dara.Model {
+  /**
+   * @remarks
+   * End time of the upgrade.
+   * 
+   * @example
+   * 2022-04-26T09:09:51Z
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * Version before the upgrade.
+   * 
+   * @example
+   * 1
+   */
+  fromVersion?: string;
+  /**
+   * @remarks
+   * Upgrade result.
+   * 
+   * @example
+   * {\\"PreUpgradeExecutionId\\":\\"exec-123\\"}
+   */
+  results?: string;
+  /**
+   * @remarks
+   * Start time of the upgrade.
+   * 
+   * @example
+   * 2022-04-26T08:09:51Z
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * Upgrade status. Possible values:
+   * 
+   * - upgrading: In progress.
+   * 
+   * - UpgradeSuccessful: Upgrade successful.
+   * 
+   * - UpgradeFailed: Upgrade failed.
+   * 
+   * @example
+   * UpgradeFailed
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Version after the upgrade.
+   * 
+   * @example
+   * 3
+   */
+  toVersion?: string;
+  /**
+   * @remarks
+   * Upgrade type.
+   * - Upgrade
+   * - Rollback
+   * 
+   * @example
+   * Upgrade
+   */
+  type?: string;
+  /**
+   * @remarks
+   * Upgrade history ID.
+   * 
+   * @example
+   * uh-1b21d65f75e94fa09745
+   */
+  upgradeHistoryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      fromVersion: 'FromVersion',
+      results: 'Results',
+      startTime: 'StartTime',
+      status: 'Status',
+      toVersion: 'ToVersion',
+      type: 'Type',
+      upgradeHistoryId: 'UpgradeHistoryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      fromVersion: 'string',
+      results: 'string',
+      startTime: 'string',
+      status: 'string',
+      toVersion: 'string',
+      type: 'string',
+      upgradeHistoryId: 'string',
     };
   }
 
@@ -5429,6 +6281,269 @@ export class ListServiceSharedAccountsResponseBodyShareAccount extends $dara.Mod
   }
 }
 
+export class ListServiceTestCasesRequestFilters extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * 
+   * **Status**
+   * 
+   * **TaskId**
+   * 
+   * @example
+   * Status
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The value of the filter condition.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestCasesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * test-1
+   */
+  templateName?: string;
+  /**
+   * @remarks
+   * The service test case id.
+   * 
+   * @example
+   * stc-83fcee1383354e35b151
+   */
+  testCaseId?: string;
+  /**
+   * @remarks
+   * The service test case name.
+   * 
+   * @example
+   * case1
+   */
+  testCaseName?: string;
+  /**
+   * @remarks
+   * The service test config.
+   * 
+   * @example
+   * ---
+   * parameters:
+   *   PayType: "PostPaid"
+   *   EcsInstanceType: "$[iact3-auto]"
+   *   InstancePassword: "$[iact3-auto]"
+   */
+  testConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateName: 'TemplateName',
+      testCaseId: 'TestCaseId',
+      testCaseName: 'TestCaseName',
+      testConfig: 'TestConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateName: 'string',
+      testCaseId: 'string',
+      testCaseName: 'string',
+      testConfig: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestTaskLogsResponseBodyTaskLogs extends $dara.Model {
+  /**
+   * @remarks
+   * The log content.
+   * 
+   * @example
+   * log content
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The UTC timestamp when the response is returned.
+   * 
+   * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2022-12-12T20:00:09Z
+   */
+  timestamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      timestamp: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestTasksRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+   * 
+   * *   Status: the status of the task.
+   * *   TaskId: the task id.
+   * 
+   * @example
+   * Status
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The parameter value N of the filter. Valid values of N: 1 to 10.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestTasksResponseBodyServiceTestTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the task was created.
+   * 
+   * @example
+   * 2024-02-26T02:16:35Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * the status of service task.
+   * 
+   * @example
+   * Success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * sttt-000h5nd4yrg59ucurzy1
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * @example
+   * dadadad
+   */
+  taskName?: string;
+  /**
+   * @remarks
+   * The task region id.
+   * 
+   * @example
+   * cn-beijing
+   */
+  taskRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      taskRegionId: 'TaskRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskName: 'string',
+      taskRegionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceUsagesRequestFilter extends $dara.Model {
   /**
    * @remarks
@@ -6268,6 +7383,398 @@ export class ListServicesResponseBodyServices extends $dara.Model {
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupplierRegistrationsRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * Name of the filter field. Allowed values:
+   * 
+   * - SupplierUid: The aliUid of supplier.
+   * - SupplierName: The name of supplier.
+   * - RegistrationId: Registration ID.
+   * 
+   * - Status: Registration status. Allowed values: Submitted, Approved, Rejected.
+   * 
+   * @example
+   * SupplierUid
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Filter value.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupplierRegistrationsResponseBodySupplierRegistrations extends $dara.Model {
+  /**
+   * @remarks
+   * The comment of this registration.
+   * 
+   * @example
+   * empty
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * Contact email
+   * 
+   * @example
+   * test@163.com
+   */
+  contactEmail?: string;
+  /**
+   * @remarks
+   * Contact number
+   * 
+   * @example
+   * 135xxxxxxxx
+   */
+  contactNumber?: string;
+  /**
+   * @remarks
+   * Contact person
+   * 
+   * @example
+   * Mike
+   */
+  contactPerson?: string;
+  /**
+   * @remarks
+   * Contact person tiltle.
+   * 
+   * @example
+   * CTO
+   */
+  contactPersonTitle?: string;
+  /**
+   * @remarks
+   * Whether to enable the resell mode.
+   * 
+   * @example
+   * false
+   */
+  enableResellerMode?: boolean;
+  /**
+   * @remarks
+   * Annual product revenue
+   * 
+   * @example
+   * empty
+   */
+  productAnnualRevenue?: string;
+  /**
+   * @remarks
+   * The business of product.
+   * 
+   * @example
+   * AI
+   */
+  productBusiness?: string;
+  /**
+   * @remarks
+   * Product delivery type，Valid values:
+   * 
+   * SaaS
+   * License
+   * API
+   * DesktopSoftware
+   * Others
+   * 
+   * @example
+   * SaaS
+   */
+  productDeliveryTypes?: string;
+  /**
+   * @remarks
+   * The publish time of product.
+   * 
+   * @example
+   * 2024.10.24
+   */
+  productPublishTime?: string;
+  /**
+   * @remarks
+   * Product sell type, Valid values:
+   * 
+   * - Direct
+   * - Channel
+   * 
+   * @example
+   * Direct
+   */
+  productSellTypes?: string;
+  /**
+   * @remarks
+   * The registration ID.
+   * 
+   * @example
+   * sr-xxx
+   */
+  registrationId?: string;
+  /**
+   * @remarks
+   * The description of resell business.
+   * 
+   * @example
+   * empty
+   */
+  resellBusinessDesc?: string;
+  /**
+   * @remarks
+   * The deployment state of the registration. Valid values:
+   * 
+   * - Submitted
+   * - Approved
+   * - Rejected
+   * 
+   * @example
+   * Submitted
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The submit time of this registration.
+   * 
+   * @example
+   * 2025-01-22 09:47:58
+   */
+  submitTime?: string;
+  /**
+   * @remarks
+   * The description of service provider.
+   * 
+   * @example
+   * Test supplier
+   */
+  supplierDesc?: string;
+  /**
+   * @remarks
+   * The Logo of service provider.
+   * 
+   * @example
+   * https://service-info-public.oss-cn-hangzhou.aliyuncs.com/xxx/service-xxx/xxx.png
+   */
+  supplierLogo?: string;
+  /**
+   * @remarks
+   * The name of the service provider.
+   * 
+   * @example
+   * Aliibaba Cloud
+   */
+  supplierName?: string;
+  /**
+   * @remarks
+   * The english name of the service provider.
+   * 
+   * @example
+   * Alibaba Cloud ComputeNest
+   */
+  supplierNameEn?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the service provider.
+   * 
+   * @example
+   * 1256xxx23434
+   */
+  supplierUid?: string;
+  /**
+   * @remarks
+   * The URL of the service provider.
+   * 
+   * @example
+   * https://www.guangbao-uni.com
+   */
+  supplierUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      contactEmail: 'ContactEmail',
+      contactNumber: 'ContactNumber',
+      contactPerson: 'ContactPerson',
+      contactPersonTitle: 'ContactPersonTitle',
+      enableResellerMode: 'EnableResellerMode',
+      productAnnualRevenue: 'ProductAnnualRevenue',
+      productBusiness: 'ProductBusiness',
+      productDeliveryTypes: 'ProductDeliveryTypes',
+      productPublishTime: 'ProductPublishTime',
+      productSellTypes: 'ProductSellTypes',
+      registrationId: 'RegistrationId',
+      resellBusinessDesc: 'ResellBusinessDesc',
+      status: 'Status',
+      submitTime: 'SubmitTime',
+      supplierDesc: 'SupplierDesc',
+      supplierLogo: 'SupplierLogo',
+      supplierName: 'SupplierName',
+      supplierNameEn: 'SupplierNameEn',
+      supplierUid: 'SupplierUid',
+      supplierUrl: 'SupplierUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      contactEmail: 'string',
+      contactNumber: 'string',
+      contactPerson: 'string',
+      contactPersonTitle: 'string',
+      enableResellerMode: 'boolean',
+      productAnnualRevenue: 'string',
+      productBusiness: 'string',
+      productDeliveryTypes: 'string',
+      productPublishTime: 'string',
+      productSellTypes: 'string',
+      registrationId: 'string',
+      resellBusinessDesc: 'string',
+      status: 'string',
+      submitTime: 'string',
+      supplierDesc: 'string',
+      supplierLogo: 'string',
+      supplierName: 'string',
+      supplierNameEn: 'string',
+      supplierUid: 'string',
+      supplierUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * Usage
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
+  /**
+   * @remarks
+   * Resource ID
+   * 
+   * @example
+   * service-xxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * The resource type. Valid value:
+   * - service
+   * - serviceinstance
+   * - artifact
+   * 
+   * @example
+   * service
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * usage
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -7525,6 +9032,69 @@ export class UpdateServiceInstanceAttributeRequestLicenseData extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       customData: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSupplierInformationRequestDeliverySettings extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * mybucket
+   */
+  ossBucketName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable screencast delivery to Object Storage Service (OSS). Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
+  ossEnabled?: boolean;
+  /**
+   * @remarks
+   * The number of days for which the screencasts are saved.
+   * 
+   * @example
+   * 7
+   */
+  ossExpirationDays?: number;
+  /**
+   * @remarks
+   * The OSS path.
+   * 
+   * @example
+   * path1/path2/
+   */
+  ossPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ossBucketName: 'OssBucketName',
+      ossEnabled: 'OssEnabled',
+      ossExpirationDays: 'OssExpirationDays',
+      ossPath: 'OssPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ossBucketName: 'string',
+      ossEnabled: 'boolean',
+      ossExpirationDays: 'number',
+      ossPath: 'string',
     };
   }
 
@@ -9875,6 +11445,314 @@ export class CreateServiceInstanceResponse extends $dara.Model {
   }
 }
 
+export class CreateServiceTestCaseRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * service-0e6fca6a51a544xxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The service version.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * draft
+   */
+  serviceVersion?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Custom_Image_Ecs
+   */
+  templateName?: string;
+  /**
+   * @remarks
+   * Service Test case name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * case1
+   */
+  testCaseName?: string;
+  /**
+   * @remarks
+   * The service test config
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ---
+   * parameters:
+   *   PayType: "PostPaid"
+   *   EcsInstanceType: "$[iact3-auto]"
+   *   InstancePassword: "$[iact3-auto]"
+   */
+  testConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      serviceVersion: 'ServiceVersion',
+      templateName: 'TemplateName',
+      testCaseName: 'TestCaseName',
+      testConfig: 'TestConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      serviceId: 'string',
+      serviceVersion: 'string',
+      templateName: 'string',
+      testCaseName: 'string',
+      testConfig: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceTestCaseResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E50287CB-AABF-4877-92C0-289B339A1546
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The test case Id
+   * 
+   * @example
+   * stc-5ba03a6a9a2746be8739
+   */
+  testCaseId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      testCaseId: 'TestCaseId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      testCaseId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceTestCaseResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceTestCaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceTestCaseResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceTestTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * nametest
+   */
+  taskName?: string;
+  /**
+   * @remarks
+   * The Task Execution Region
+   * 
+   * @example
+   * cn-beijing
+   */
+  taskRegionId?: string;
+  /**
+   * @remarks
+   * The service test case ids.
+   * 
+   * This parameter is required.
+   */
+  testCaseIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      taskName: 'TaskName',
+      taskRegionId: 'TaskRegionId',
+      testCaseIds: 'TestCaseIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      taskName: 'string',
+      taskRegionId: 'string',
+      testCaseIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.testCaseIds)) {
+      $dara.Model.validateArray(this.testCaseIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceTestTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DF0F666F-FBBC-55C3-A368-C955DE7B4839
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * stt-568c2c5a687a409b977e
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceTestTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceTestTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceTestTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateServiceUsageRequest extends $dara.Model {
   /**
    * @remarks
@@ -9974,6 +11852,293 @@ export class CreateServiceUsageResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateServiceUsageResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSupplierRegistrationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Contact email
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx@xxx.com
+   */
+  contactEmail?: string;
+  /**
+   * @remarks
+   * Contact number
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 186xxxxxxxxx
+   */
+  contactNumber?: string;
+  /**
+   * @remarks
+   * Contact person
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Mike
+   */
+  contactPerson?: string;
+  /**
+   * @remarks
+   * Contact person tiltle
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * CTO
+   */
+  contactPersonTitle?: string;
+  /**
+   * @remarks
+   * Whether to enable the resell mode
+   * 
+   * @example
+   * true
+   */
+  enableResellerMode?: boolean;
+  /**
+   * @remarks
+   * Annual product revenue
+   * 
+   * @example
+   * 1000
+   */
+  productAnnualRevenue?: string;
+  /**
+   * @remarks
+   * The business of product
+   * 
+   * @example
+   * AI
+   */
+  productBusiness?: string;
+  /**
+   * @remarks
+   * Product delivery type
+   * 
+   * This parameter is required.
+   */
+  productDeliveryTypes?: string[];
+  /**
+   * @remarks
+   * The publish time of product
+   * 
+   * @example
+   * 2020.10.10
+   */
+  productPublishTime?: string;
+  /**
+   * @remarks
+   * Product sell type
+   * 
+   * This parameter is required.
+   */
+  productSellTypes?: string[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The description of resell business.
+   * 
+   * @example
+   * empty
+   */
+  resellBusinessDesc?: string;
+  /**
+   * @remarks
+   * The demands of service providers.
+   * 
+   * @example
+   * empty
+   */
+  suggestion?: string;
+  /**
+   * @remarks
+   * The description of service provider.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Test supplier
+   */
+  supplierDesc?: string;
+  /**
+   * @remarks
+   * The Logo of service provider.
+   * 
+   * @example
+   * http://example.aliyundoc.com/cover/34DB-4F4C-9373-003AA060****.png
+   */
+  supplierLogo?: string;
+  /**
+   * @remarks
+   * The name of the service provider.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Alibaba Cloud
+   */
+  supplierName?: string;
+  /**
+   * @remarks
+   * The english name of the service provider.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Alibaba Cloud
+   */
+  supplierNameEn?: string;
+  /**
+   * @remarks
+   * The URL of the service provider.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * http://www.xxx.xxx.cn
+   */
+  supplierUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contactEmail: 'ContactEmail',
+      contactNumber: 'ContactNumber',
+      contactPerson: 'ContactPerson',
+      contactPersonTitle: 'ContactPersonTitle',
+      enableResellerMode: 'EnableResellerMode',
+      productAnnualRevenue: 'ProductAnnualRevenue',
+      productBusiness: 'ProductBusiness',
+      productDeliveryTypes: 'ProductDeliveryTypes',
+      productPublishTime: 'ProductPublishTime',
+      productSellTypes: 'ProductSellTypes',
+      regionId: 'RegionId',
+      resellBusinessDesc: 'ResellBusinessDesc',
+      suggestion: 'Suggestion',
+      supplierDesc: 'SupplierDesc',
+      supplierLogo: 'SupplierLogo',
+      supplierName: 'SupplierName',
+      supplierNameEn: 'SupplierNameEn',
+      supplierUrl: 'SupplierUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contactEmail: 'string',
+      contactNumber: 'string',
+      contactPerson: 'string',
+      contactPersonTitle: 'string',
+      enableResellerMode: 'boolean',
+      productAnnualRevenue: 'string',
+      productBusiness: 'string',
+      productDeliveryTypes: { 'type': 'array', 'itemType': 'string' },
+      productPublishTime: 'string',
+      productSellTypes: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      resellBusinessDesc: 'string',
+      suggestion: 'string',
+      supplierDesc: 'string',
+      supplierLogo: 'string',
+      supplierName: 'string',
+      supplierNameEn: 'string',
+      supplierUrl: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.productDeliveryTypes)) {
+      $dara.Model.validateArray(this.productDeliveryTypes);
+    }
+    if(Array.isArray(this.productSellTypes)) {
+      $dara.Model.validateArray(this.productSellTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSupplierRegistrationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C4A145D8-xxxx-xxxx-xxxx-9730CDA27578
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSupplierRegistrationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSupplierRegistrationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSupplierRegistrationResponseBody,
     };
   }
 
@@ -10361,6 +12526,113 @@ export class DeleteServiceInstancesResponse extends $dara.Model {
   }
 }
 
+export class DeleteServiceTestCaseRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The service test case id.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * stc-0b2a3ad7e1de4c299eec
+   */
+  testCaseId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      testCaseId: 'TestCaseId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      testCaseId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteServiceTestCaseResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4DB0F536-B3BE-4F0D-BD29-E83FB56D****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteServiceTestCaseResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteServiceTestCaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteServiceTestCaseResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeployServiceInstanceRequest extends $dara.Model {
   /**
    * @remarks
@@ -10462,6 +12734,139 @@ export class DeployServiceInstanceResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeployServiceInstanceResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateDefaultServiceTestConfigRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * service-41ad58439b4b4bf8ae73
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The service version.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * draft
+   */
+  serviceVersion?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * test-1
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceId: 'ServiceId',
+      serviceVersion: 'ServiceVersion',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceId: 'string',
+      serviceVersion: 'string',
+      templateName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateDefaultServiceTestConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 51945B04-6AA6-410D-93BA-236E0248B104
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The service test config
+   * 
+   * @example
+   * ---
+   * parameters:
+   *   PayType: "PostPaid"
+   *   EcsInstanceType: "$[iact3-auto]"
+   *   InstancePassword: "$[iact3-auto]"
+   */
+  testConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      testConfig: 'TestConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      testConfig: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateDefaultServiceTestConfigResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateDefaultServiceTestConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateDefaultServiceTestConfigResponseBody,
     };
   }
 
@@ -12928,6 +15333,209 @@ export class GetServiceProvisionsResponse extends $dara.Model {
   }
 }
 
+export class GetServiceRegistrationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Service registration ID.
+   * 
+   * @example
+   * sr-1b4aabc1c9eb4109****
+   */
+  registrationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      registrationId: 'RegistrationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      registrationId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceRegistrationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Comment from reviewer.
+   * 
+   * @example
+   * comment message
+   */
+  comment?: string;
+  /**
+   * @remarks
+   * The details of service audit.
+   */
+  detail?: GetServiceRegistrationResponseBodyDetail;
+  /**
+   * @remarks
+   * Finish time.
+   * 
+   * @example
+   * 2024-12-07T11:05:50Z
+   */
+  finishTime?: string;
+  /**
+   * @remarks
+   * Service registration ID.
+   * 
+   * @example
+   * sr-1b4aabc1c9eb4109****
+   */
+  registrationId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A361BA9E-xxxx-xxxx-xxxx-C26E5180456E
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * service-c2d118c9193e49xxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The service details.
+   */
+  serviceInfo?: GetServiceRegistrationResponseBodyServiceInfo;
+  /**
+   * @remarks
+   * The service version.
+   * 
+   * @example
+   * beta
+   */
+  serviceVersion?: string;
+  /**
+   * @remarks
+   * The status of service registration. Valid values:
+   * 
+   * *   Submitted
+   * *   Approved
+   * *   Rejected
+   * *   Canceled
+   * *   Executed
+   * 
+   * @example
+   * Submitted
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Submit time.
+   * 
+   * @example
+   * 2024-12-07T11:05:50Z
+   */
+  submitTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      detail: 'Detail',
+      finishTime: 'FinishTime',
+      registrationId: 'RegistrationId',
+      requestId: 'RequestId',
+      serviceId: 'ServiceId',
+      serviceInfo: 'ServiceInfo',
+      serviceVersion: 'ServiceVersion',
+      status: 'Status',
+      submitTime: 'SubmitTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      detail: GetServiceRegistrationResponseBodyDetail,
+      finishTime: 'string',
+      registrationId: 'string',
+      requestId: 'string',
+      serviceId: 'string',
+      serviceInfo: GetServiceRegistrationResponseBodyServiceInfo,
+      serviceVersion: 'string',
+      status: 'string',
+      submitTime: 'string',
+    };
+  }
+
+  validate() {
+    if(this.detail && typeof (this.detail as any).validate === 'function') {
+      (this.detail as any).validate();
+    }
+    if(this.serviceInfo && typeof (this.serviceInfo as any).validate === 'function') {
+      (this.serviceInfo as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceRegistrationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceRegistrationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceRegistrationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceTemplateParameterConstraintsRequest extends $dara.Model {
   /**
    * @remarks
@@ -13134,6 +15742,332 @@ export class GetServiceTemplateParameterConstraintsResponse extends $dara.Model 
   }
 }
 
+export class GetServiceTestTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * stt-xxxx
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTestTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The execution details.
+   */
+  executionDetails?: GetServiceTestTaskResponseBodyExecutionDetails[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * A361BA9E-xxxx-xxxx-xxxx-C26E5180456E
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The status of the service test task. Valid values:
+   * 
+   * *   Running
+   * *   Success
+   * *    Failure
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The task name.
+   * 
+   * @example
+   * nametest
+   */
+  taskName?: string;
+  /**
+   * @remarks
+   * The task execution region.
+   * 
+   * @example
+   * cn-beijing
+   */
+  taskRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      executionDetails: 'ExecutionDetails',
+      requestId: 'RequestId',
+      status: 'Status',
+      taskName: 'TaskName',
+      taskRegionId: 'TaskRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      executionDetails: { 'type': 'array', 'itemType': GetServiceTestTaskResponseBodyExecutionDetails },
+      requestId: 'string',
+      status: 'string',
+      taskName: 'string',
+      taskRegionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.executionDetails)) {
+      $dara.Model.validateArray(this.executionDetails);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceTestTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceTestTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceTestTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSupplierInformationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSupplierInformationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The delivery settings.
+   */
+  deliverySettings?: GetSupplierInformationResponseBodyDeliverySettings;
+  /**
+   * @remarks
+   * Whether to enable reseller
+   * 
+   * @example
+   * true
+   */
+  enableReseller?: boolean;
+  /**
+   * @remarks
+   * The Ip of the operation.
+   * 
+   * @example
+   * 10.xxx.xxx.xxx/101
+   */
+  operationIp?: string;
+  /**
+   * @remarks
+   * The MFA of the operation.
+   * 
+   * @example
+   * true
+   */
+  operationMfaPresent?: boolean;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 51945B04-6AA6-410D-93BA-236E0248B104
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The description of service provider.
+   * 
+   * @example
+   * Test supplier
+   */
+  supplierDesc?: string;
+  /**
+   * @remarks
+   * The Logo of service provider.
+   * 
+   * @example
+   * http://example.aliyundoc.com/cover/34DB-4F4C-9373-003AA060****.png
+   */
+  supplierLogo?: string;
+  /**
+   * @remarks
+   * The name of the service provider.
+   * 
+   * @example
+   * Alibaba Cloud
+   */
+  supplierName?: string;
+  /**
+   * @remarks
+   * The URL of the service provider.
+   * 
+   * @example
+   * http://www.xxx.xxx.cn
+   */
+  supplierUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deliverySettings: 'DeliverySettings',
+      enableReseller: 'EnableReseller',
+      operationIp: 'OperationIp',
+      operationMfaPresent: 'OperationMfaPresent',
+      requestId: 'RequestId',
+      supplierDesc: 'SupplierDesc',
+      supplierLogo: 'SupplierLogo',
+      supplierName: 'SupplierName',
+      supplierUrl: 'SupplierUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deliverySettings: GetSupplierInformationResponseBodyDeliverySettings,
+      enableReseller: 'boolean',
+      operationIp: 'string',
+      operationMfaPresent: 'boolean',
+      requestId: 'string',
+      supplierDesc: 'string',
+      supplierLogo: 'string',
+      supplierName: 'string',
+      supplierUrl: 'string',
+    };
+  }
+
+  validate() {
+    if(this.deliverySettings && typeof (this.deliverySettings as any).validate === 'function') {
+      (this.deliverySettings as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSupplierInformationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSupplierInformationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSupplierInformationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUploadCredentialsRequest extends $dara.Model {
   /**
    * @remarks
@@ -13308,6 +16242,9 @@ export class LaunchServiceRequest extends $dara.Model {
   /**
    * @remarks
    * Whether to set the recommended service publishing to the service directory.
+   * 
+   * @example
+   * false
    */
   recommend?: boolean;
   /**
@@ -13781,6 +16718,121 @@ export class ListAcrImageTagsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAcrImageTagsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactRisksRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Artifact ID.
+   * 
+   * @example
+   * artifact-3fd95cdfdf0d4b1fa00c
+   */
+  artifactId?: string;
+  /**
+   * @remarks
+   * Artifact version.
+   * 
+   * @example
+   * 1
+   */
+  artifactVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifactId: 'ArtifactId',
+      artifactVersion: 'ArtifactVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactId: 'string',
+      artifactVersion: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactRisksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of artifact risks
+   */
+  artifactRiskList?: ListArtifactRisksResponseBodyArtifactRiskList[];
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 52919DB1-03A0-55F5-BDD4-DB6DEBB8267A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifactRiskList: 'ArtifactRiskList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactRiskList: { 'type': 'array', 'itemType': ListArtifactRisksResponseBodyArtifactRiskList },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.artifactRiskList)) {
+      $dara.Model.validateArray(this.artifactRiskList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactRisksResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListArtifactRisksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListArtifactRisksResponseBody,
     };
   }
 
@@ -14437,6 +17489,592 @@ export class ListServiceInstanceDeployDetailsResponse extends $dara.Model {
   }
 }
 
+export class ListServiceInstanceLogsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filters.
+   */
+  filter?: ListServiceInstanceLogsRequestFilter[];
+  /**
+   * @remarks
+   * The log source. When this field is empty, query logs with the source set to computeNest and ros.
+   * Valid values:
+   * 
+   * *   computeNest : logs of the deployment and upgrade of the service instance.
+   * *   application: logs generated by the application.
+   * *   actionTrail: logs generated by ActionTrail.
+   * *  compliancePack:  Logs originating from the compliance package.
+   * *  ros: Logs originating from ROS.
+   * *  meteringData：Logs originating from the pay-as-you-go model.
+   * 
+   * @example
+   * computeNest
+   */
+  logSource?: string;
+  /**
+   * @remarks
+   * The name of the Logstore to which log entries are delivered.
+   * It needs to be provided only when LogSource is set to Application.
+   * 
+   * @example
+   * livelog
+   */
+  logstore?: string;
+  /**
+   * @remarks
+   * The maximum number of entries per page.
+   * 
+   * Valid values: 1 to 100.
+   * 
+   * Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * BBBAAfu+XtuBE55iRLHEYYuojI4=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the service instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * si-70a3b15bb626435b****
+   */
+  serviceInstanceId?: string;
+  /**
+   * @remarks
+   * Sort Order. Possible values:
+   * 
+   * + Ascending: Ascending order
+   * 
+   * + Descending (default value): Descending order
+   * 
+   * @example
+   * Ascending
+   */
+  sortOrder?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      logSource: 'LogSource',
+      logstore: 'Logstore',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+      sortOrder: 'SortOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: { 'type': 'array', 'itemType': ListServiceInstanceLogsRequestFilter },
+      logSource: 'string',
+      logstore: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      serviceInstanceId: 'string',
+      sortOrder: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.filter)) {
+      $dara.Model.validateArray(this.filter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceLogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * AAAAAfu+XtuBE55iRLHEYYuojI4=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 51945B04-6AA6-410D-93BA-236E0248B104
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The logs of the service instance.
+   */
+  serviceInstancesLogs?: ListServiceInstanceLogsResponseBodyServiceInstancesLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      serviceInstancesLogs: 'ServiceInstancesLogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      serviceInstancesLogs: { 'type': 'array', 'itemType': ListServiceInstanceLogsResponseBodyServiceInstancesLogs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.serviceInstancesLogs)) {
+      $dara.Model.validateArray(this.serviceInstancesLogs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceLogsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceInstanceLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceInstanceLogsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter.
+   */
+  filters?: ListServiceInstanceResourcesRequestFilters[];
+  /**
+   * @remarks
+   * The maximum number of entries per page.
+   * 
+   * Valid values: 1 to 100.
+   * 
+   * Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The region ID where the service instance resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of a resource.
+   */
+  resourceARN?: string[];
+  /**
+   * @remarks
+   * The ID of the service instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * si-d8a0cc2a1ee04dce****
+   */
+  serviceInstanceId?: string;
+  /**
+   * @remarks
+   * Service Instance resource type，include AliyunResource and ContainerResource.
+   * 
+   * @example
+   * AliyunResource
+   */
+  serviceInstanceResourceType?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
+  tag?: ListServiceInstanceResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      filters: 'Filters',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceARN: 'ResourceARN',
+      serviceInstanceId: 'ServiceInstanceId',
+      serviceInstanceResourceType: 'ServiceInstanceResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filters: { 'type': 'array', 'itemType': ListServiceInstanceResourcesRequestFilters },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      resourceARN: { 'type': 'array', 'itemType': 'string' },
+      serviceInstanceId: 'string',
+      serviceInstanceResourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListServiceInstanceResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.filters)) {
+      $dara.Model.validateArray(this.filters);
+    }
+    if(Array.isArray(this.resourceARN)) {
+      $dara.Model.validateArray(this.resourceARN);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B288A0BE-D927-4888-B0F7-B35EF84B6E6F
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The list of resources.
+   */
+  resources?: ListServiceInstanceResourcesResponseBodyResources[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      resources: { 'type': 'array', 'itemType': ListServiceInstanceResourcesResponseBodyResources },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resources)) {
+      $dara.Model.validateArray(this.resources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceInstanceResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceInstanceResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceUpgradeHistoryRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The token for the next query, which should be the value of the NextToken parameter from the previous API call.
+   * 
+   * @example
+   * AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Service instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * si-0e6fca6a51a54420****
+   */
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceUpgradeHistoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The token to use for the next query.
+   * 
+   * @example
+   * AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 86CAC31E-3527-562C-869F-347E931C9B25
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total count of upgrade history
+   * 
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  /**
+   * @remarks
+   * List of upgrade histories.
+   */
+  upgradeHistory?: ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      upgradeHistory: 'UpgradeHistory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+      upgradeHistory: { 'type': 'array', 'itemType': ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.upgradeHistory)) {
+      $dara.Model.validateArray(this.upgradeHistory);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceUpgradeHistoryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceInstanceUpgradeHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceInstanceUpgradeHistoryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceInstancesRequest extends $dara.Model {
   /**
    * @remarks
@@ -14992,6 +18630,535 @@ export class ListServiceSharedAccountsResponse extends $dara.Model {
   }
 }
 
+export class ListServiceTestCasesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filters.
+   */
+  filters?: ListServiceTestCasesRequestFilters[];
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * AAAAAWns8w4MmhzeptXVRG0PUEU=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * service-0e6fca6a51a54420****
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The service version.
+   * 
+   * @example
+   * draft
+   */
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filters: 'Filters',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filters: { 'type': 'array', 'itemType': ListServiceTestCasesRequestFilters },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.filters)) {
+      $dara.Model.validateArray(this.filters);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestCasesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
+  data?: ListServiceTestCasesResponseBodyData[];
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * AAAAAWns8w4MmhzeptXVRG0PUEU=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * CA3AE512-6D30-549A-B52D-B9042CA8D515
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 18
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListServiceTestCasesResponseBodyData },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestCasesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceTestCasesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceTestCasesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestTaskLogsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * AAAAAWns8w4MmhzeptXVRG0PUEU=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Sort Order. Possible values:
+   * 
+   * + Ascending: Ascending order
+   * 
+   * + Descending (default value): Descending order
+   * 
+   * @example
+   * Ascending
+   */
+  sortOrder?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * stt-568c2c5a687a409b977e
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      sortOrder: 'SortOrder',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      sortOrder: 'string',
+      taskId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestTaskLogsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * AAAAAW8kZY+u1sYOaYf5JmgmDQQ=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EDEE055B-D5F4-5B92-8F21-999D408F1214
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The service test task logs.
+   */
+  taskLogs?: ListServiceTestTaskLogsResponseBodyTaskLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      taskLogs: 'TaskLogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      taskLogs: { 'type': 'array', 'itemType': ListServiceTestTaskLogsResponseBodyTaskLogs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.taskLogs)) {
+      $dara.Model.validateArray(this.taskLogs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestTaskLogsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceTestTaskLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceTestTaskLogsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestTasksRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filters.
+   */
+  filter?: ListServiceTestTasksRequestFilter[];
+  /**
+   * @remarks
+   * Number of items per page in a paginated query. The maximum is 100, and the default is 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * AAAAAfu+XtuBE55iRLHEYYuojI4=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * service-062ae8e13b394dd5b63c
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The service version.
+   * 
+   * @example
+   * draft
+   */
+  serviceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      serviceVersion: 'ServiceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: { 'type': 'array', 'itemType': ListServiceTestTasksRequestFilter },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+      serviceVersion: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.filter)) {
+      $dara.Model.validateArray(this.filter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestTasksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 9
+   */
+  count?: number;
+  /**
+   * @remarks
+   * The number of items to return per page when paginating results. The maximum is 100, and the default is 20.
+   * 
+   * @example
+   * 1
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * AAAAAfu+XtuBE55iRLHEYYuojI4=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 51945B04-6AA6-410D-93BA-236E0248B104
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The service test tasks.
+   */
+  serviceTestTasks?: ListServiceTestTasksResponseBodyServiceTestTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      serviceTestTasks: 'ServiceTestTasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      serviceTestTasks: { 'type': 'array', 'itemType': ListServiceTestTasksResponseBodyServiceTestTasks },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.serviceTestTasks)) {
+      $dara.Model.validateArray(this.serviceTestTasks);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceTestTasksResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServiceTestTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServiceTestTasksResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceUsagesRequest extends $dara.Model {
   /**
    * @remarks
@@ -15354,6 +19521,173 @@ export class ListServicesResponse extends $dara.Model {
   }
 }
 
+export class ListSupplierRegistrationsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter.
+   */
+  filter?: ListSupplierRegistrationsRequestFilter[];
+  /**
+   * @remarks
+   * Number of items per page in a paginated query. The maximum is 100, and the default is 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AAAAAYChudnQUoBH+mGWFpb6oP0=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: { 'type': 'array', 'itemType': ListSupplierRegistrationsRequestFilter },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.filter)) {
+      $dara.Model.validateArray(this.filter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupplierRegistrationsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AAAAAdx9kBO7qKpr9My/+XQo0oY=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C6CC568D-xxxx-xxxx-xxxx-08EB8E9F9F20
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The supplier registrations
+   */
+  supplierRegistrations?: ListSupplierRegistrationsResponseBodySupplierRegistrations[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 3
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      supplierRegistrations: 'SupplierRegistrations',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      supplierRegistrations: { 'type': 'array', 'itemType': ListSupplierRegistrationsResponseBodySupplierRegistrations },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supplierRegistrations)) {
+      $dara.Model.validateArray(this.supplierRegistrations);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSupplierRegistrationsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSupplierRegistrationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSupplierRegistrationsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagKeysRequest extends $dara.Model {
   /**
    * @remarks
@@ -15479,6 +19813,168 @@ export class ListTagKeysResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagKeysResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AAAAAfu+XtuBE55iRLHEYYuojI4=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The resource IDs. You can specify at most 50 resource IDs in each call.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * The resource type. Valid value:
+   * - service
+   * - serviceinstance
+   * - artifact
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * service
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.resourceId)) {
+      $dara.Model.validateArray(this.resourceId);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * AAAAAfu+XtuBE55iRLHEYYuojI4=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A361BA9E-xxxx-xxxx-xxxx-C26E5180456E
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The resources and their tags.
+   */
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tagResources)) {
+      $dara.Model.validateArray(this.tagResources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
     };
   }
 
@@ -19019,6 +23515,141 @@ export class UpdateServiceInstanceSpecResponse extends $dara.Model {
   }
 }
 
+export class UpdateServiceTestCaseRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The service test case id.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * stc-2deec15c20b24aaf9f16
+   */
+  testCaseId?: string;
+  /**
+   * @remarks
+   * The service test case name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * case1
+   */
+  testCaseName?: string;
+  /**
+   * @remarks
+   * The service test config.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ---
+   * parameters:
+   *   PayType: "PostPaid"
+   *   EcsInstanceType: "$[iact3-auto]"
+   *   InstancePassword: "$[iact3-auto]"
+   */
+  testConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      testCaseId: 'TestCaseId',
+      testCaseName: 'TestCaseName',
+      testConfig: 'TestConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      testCaseId: 'string',
+      testCaseName: 'string',
+      testConfig: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceTestCaseResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * DB1FA13E-1087-5654-84D5-58A0ACAD1B18
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateServiceTestCaseResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateServiceTestCaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateServiceTestCaseResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateSharedAccountPermissionRequest extends $dara.Model {
   /**
    * @remarks
@@ -19164,6 +23795,193 @@ export class UpdateSharedAccountPermissionResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateSharedAccountPermissionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSupplierInformationRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The delivery settings.
+   */
+  deliverySettings?: UpdateSupplierInformationRequestDeliverySettings;
+  /**
+   * @remarks
+   * The Ip of operation.
+   * 
+   * @example
+   * 192.xxx.xxx.xxx/16,192.xxx.xxx.xxx
+   */
+  operationIp?: string;
+  /**
+   * @remarks
+   * The MFA of operation.
+   * 
+   * @example
+   * true
+   */
+  operationMfaPresent?: boolean;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The description of service provider.
+   * 
+   * @example
+   * Test supplier
+   */
+  supplierDesc?: string;
+  /**
+   * @remarks
+   * The Logo of service provider.
+   * 
+   * @example
+   * http://example.aliyundoc.com/cover/34DB-4F4C-9373-003AA060****.png
+   */
+  supplierLogo?: string;
+  /**
+   * @remarks
+   * The URL of the service provider.
+   * 
+   * @example
+   * http://www.xxx.xxx.cn
+   */
+  supplierUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deliverySettings: 'DeliverySettings',
+      operationIp: 'OperationIp',
+      operationMfaPresent: 'OperationMfaPresent',
+      regionId: 'RegionId',
+      supplierDesc: 'SupplierDesc',
+      supplierLogo: 'SupplierLogo',
+      supplierUrl: 'SupplierUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deliverySettings: UpdateSupplierInformationRequestDeliverySettings,
+      operationIp: 'string',
+      operationMfaPresent: 'boolean',
+      regionId: 'string',
+      supplierDesc: 'string',
+      supplierLogo: 'string',
+      supplierUrl: 'string',
+    };
+  }
+
+  validate() {
+    if(this.deliverySettings && typeof (this.deliverySettings as any).validate === 'function') {
+      (this.deliverySettings as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSupplierInformationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 51945B04-6AA6-410D-93BA-236E0248B104
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The description of service provider.
+   * 
+   * @example
+   * Test supplier
+   */
+  supplierDesc?: string;
+  /**
+   * @remarks
+   * The name of the service provider.
+   * 
+   * @example
+   * Alibaba Cloud
+   */
+  supplierName?: string;
+  /**
+   * @remarks
+   * The URL of the service provider.
+   * 
+   * @example
+   * http://www.xxx.xxx.cn
+   */
+  supplierUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      supplierDesc: 'SupplierDesc',
+      supplierName: 'SupplierName',
+      supplierUrl: 'SupplierUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      supplierDesc: 'string',
+      supplierName: 'string',
+      supplierUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSupplierInformationResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSupplierInformationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSupplierInformationResponseBody,
     };
   }
 
@@ -20231,6 +25049,132 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create service test case.
+   * 
+   * @param request - CreateServiceTestCaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceTestCaseResponse
+   */
+  async createServiceTestCaseWithOptions(request: CreateServiceTestCaseRequest, runtime: $dara.RuntimeOptions): Promise<CreateServiceTestCaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.testCaseName)) {
+      query["TestCaseName"] = request.testCaseName;
+    }
+
+    if (!$dara.isNull(request.testConfig)) {
+      query["TestConfig"] = request.testConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateServiceTestCase",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateServiceTestCaseResponse>(await this.callApi(params, req, runtime), new CreateServiceTestCaseResponse({}));
+    } else {
+      return $dara.cast<CreateServiceTestCaseResponse>(await this.execute(params, req, runtime), new CreateServiceTestCaseResponse({}));
+    }
+
+  }
+
+  /**
+   * Create service test case.
+   * 
+   * @param request - CreateServiceTestCaseRequest
+   * @returns CreateServiceTestCaseResponse
+   */
+  async createServiceTestCase(request: CreateServiceTestCaseRequest): Promise<CreateServiceTestCaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createServiceTestCaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建服务测试任务
+   * 
+   * @param request - CreateServiceTestTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceTestTaskResponse
+   */
+  async createServiceTestTaskWithOptions(request: CreateServiceTestTaskRequest, runtime: $dara.RuntimeOptions): Promise<CreateServiceTestTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.taskRegionId)) {
+      query["TaskRegionId"] = request.taskRegionId;
+    }
+
+    if (!$dara.isNull(request.testCaseIds)) {
+      query["TestCaseIds"] = request.testCaseIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateServiceTestTask",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateServiceTestTaskResponse>(await this.callApi(params, req, runtime), new CreateServiceTestTaskResponse({}));
+    } else {
+      return $dara.cast<CreateServiceTestTaskResponse>(await this.execute(params, req, runtime), new CreateServiceTestTaskResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建服务测试任务
+   * 
+   * @param request - CreateServiceTestTaskRequest
+   * @returns CreateServiceTestTaskResponse
+   */
+  async createServiceTestTask(request: CreateServiceTestTaskRequest): Promise<CreateServiceTestTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createServiceTestTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Create  Service resell application.
    * 
    * @param request - CreateServiceUsageRequest
@@ -20283,6 +25227,121 @@ export default class Client extends OpenApi {
   async createServiceUsage(request: CreateServiceUsageRequest): Promise<CreateServiceUsageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createServiceUsageWithOptions(request, runtime);
+  }
+
+  /**
+   * 注册成为服务商
+   * 
+   * @param request - CreateSupplierRegistrationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSupplierRegistrationResponse
+   */
+  async createSupplierRegistrationWithOptions(request: CreateSupplierRegistrationRequest, runtime: $dara.RuntimeOptions): Promise<CreateSupplierRegistrationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contactEmail)) {
+      query["ContactEmail"] = request.contactEmail;
+    }
+
+    if (!$dara.isNull(request.contactNumber)) {
+      query["ContactNumber"] = request.contactNumber;
+    }
+
+    if (!$dara.isNull(request.contactPerson)) {
+      query["ContactPerson"] = request.contactPerson;
+    }
+
+    if (!$dara.isNull(request.contactPersonTitle)) {
+      query["ContactPersonTitle"] = request.contactPersonTitle;
+    }
+
+    if (!$dara.isNull(request.enableResellerMode)) {
+      query["EnableResellerMode"] = request.enableResellerMode;
+    }
+
+    if (!$dara.isNull(request.productAnnualRevenue)) {
+      query["ProductAnnualRevenue"] = request.productAnnualRevenue;
+    }
+
+    if (!$dara.isNull(request.productBusiness)) {
+      query["ProductBusiness"] = request.productBusiness;
+    }
+
+    if (!$dara.isNull(request.productDeliveryTypes)) {
+      query["ProductDeliveryTypes"] = request.productDeliveryTypes;
+    }
+
+    if (!$dara.isNull(request.productPublishTime)) {
+      query["ProductPublishTime"] = request.productPublishTime;
+    }
+
+    if (!$dara.isNull(request.productSellTypes)) {
+      query["ProductSellTypes"] = request.productSellTypes;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resellBusinessDesc)) {
+      query["ResellBusinessDesc"] = request.resellBusinessDesc;
+    }
+
+    if (!$dara.isNull(request.suggestion)) {
+      query["Suggestion"] = request.suggestion;
+    }
+
+    if (!$dara.isNull(request.supplierDesc)) {
+      query["SupplierDesc"] = request.supplierDesc;
+    }
+
+    if (!$dara.isNull(request.supplierLogo)) {
+      query["SupplierLogo"] = request.supplierLogo;
+    }
+
+    if (!$dara.isNull(request.supplierName)) {
+      query["SupplierName"] = request.supplierName;
+    }
+
+    if (!$dara.isNull(request.supplierNameEn)) {
+      query["SupplierNameEn"] = request.supplierNameEn;
+    }
+
+    if (!$dara.isNull(request.supplierUrl)) {
+      query["SupplierUrl"] = request.supplierUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSupplierRegistration",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSupplierRegistrationResponse>(await this.callApi(params, req, runtime), new CreateSupplierRegistrationResponse({}));
+    } else {
+      return $dara.cast<CreateSupplierRegistrationResponse>(await this.execute(params, req, runtime), new CreateSupplierRegistrationResponse({}));
+    }
+
+  }
+
+  /**
+   * 注册成为服务商
+   * 
+   * @param request - CreateSupplierRegistrationRequest
+   * @returns CreateSupplierRegistrationResponse
+   */
+  async createSupplierRegistration(request: CreateSupplierRegistrationRequest): Promise<CreateSupplierRegistrationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSupplierRegistrationWithOptions(request, runtime);
   }
 
   /**
@@ -20455,6 +25514,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除服务测试配置
+   * 
+   * @param request - DeleteServiceTestCaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteServiceTestCaseResponse
+   */
+  async deleteServiceTestCaseWithOptions(request: DeleteServiceTestCaseRequest, runtime: $dara.RuntimeOptions): Promise<DeleteServiceTestCaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.testCaseId)) {
+      query["TestCaseId"] = request.testCaseId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteServiceTestCase",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteServiceTestCaseResponse>(await this.callApi(params, req, runtime), new DeleteServiceTestCaseResponse({}));
+    } else {
+      return $dara.cast<DeleteServiceTestCaseResponse>(await this.execute(params, req, runtime), new DeleteServiceTestCaseResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除服务测试配置
+   * 
+   * @param request - DeleteServiceTestCaseRequest
+   * @returns DeleteServiceTestCaseResponse
+   */
+  async deleteServiceTestCase(request: DeleteServiceTestCaseRequest): Promise<DeleteServiceTestCaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteServiceTestCaseWithOptions(request, runtime);
+  }
+
+  /**
    * Deploys a service instance.
    * 
    * @param request - DeployServiceInstanceRequest
@@ -20507,6 +25617,61 @@ export default class Client extends OpenApi {
   async deployServiceInstance(request: DeployServiceInstanceRequest): Promise<DeployServiceInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deployServiceInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 生成默认服务测试配置
+   * 
+   * @param request - GenerateDefaultServiceTestConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateDefaultServiceTestConfigResponse
+   */
+  async generateDefaultServiceTestConfigWithOptions(request: GenerateDefaultServiceTestConfigRequest, runtime: $dara.RuntimeOptions): Promise<GenerateDefaultServiceTestConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateDefaultServiceTestConfig",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GenerateDefaultServiceTestConfigResponse>(await this.callApi(params, req, runtime), new GenerateDefaultServiceTestConfigResponse({}));
+    } else {
+      return $dara.cast<GenerateDefaultServiceTestConfigResponse>(await this.execute(params, req, runtime), new GenerateDefaultServiceTestConfigResponse({}));
+    }
+
+  }
+
+  /**
+   * 生成默认服务测试配置
+   * 
+   * @param request - GenerateDefaultServiceTestConfigRequest
+   * @returns GenerateDefaultServiceTestConfigResponse
+   */
+  async generateDefaultServiceTestConfig(request: GenerateDefaultServiceTestConfigRequest): Promise<GenerateDefaultServiceTestConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateDefaultServiceTestConfigWithOptions(request, runtime);
   }
 
   /**
@@ -20967,6 +26132,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get service registration detail.
+   * 
+   * @param request - GetServiceRegistrationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceRegistrationResponse
+   */
+  async getServiceRegistrationWithOptions(request: GetServiceRegistrationRequest, runtime: $dara.RuntimeOptions): Promise<GetServiceRegistrationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.registrationId)) {
+      query["RegistrationId"] = request.registrationId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceRegistration",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceRegistrationResponse>(await this.callApi(params, req, runtime), new GetServiceRegistrationResponse({}));
+    } else {
+      return $dara.cast<GetServiceRegistrationResponse>(await this.execute(params, req, runtime), new GetServiceRegistrationResponse({}));
+    }
+
+  }
+
+  /**
+   * Get service registration detail.
+   * 
+   * @param request - GetServiceRegistrationRequest
+   * @returns GetServiceRegistrationResponse
+   */
+  async getServiceRegistration(request: GetServiceRegistrationRequest): Promise<GetServiceRegistrationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getServiceRegistrationWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the valid values of parameters in a Resource Orchestration Service (ROS) template.
    * 
    * @param request - GetServiceTemplateParameterConstraintsRequest
@@ -21043,6 +26259,103 @@ export default class Client extends OpenApi {
   async getServiceTemplateParameterConstraints(request: GetServiceTemplateParameterConstraintsRequest): Promise<GetServiceTemplateParameterConstraintsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getServiceTemplateParameterConstraintsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取服务测试任务中Cases执行情况
+   * 
+   * @param request - GetServiceTestTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceTestTaskResponse
+   */
+  async getServiceTestTaskWithOptions(request: GetServiceTestTaskRequest, runtime: $dara.RuntimeOptions): Promise<GetServiceTestTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetServiceTestTask",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetServiceTestTaskResponse>(await this.callApi(params, req, runtime), new GetServiceTestTaskResponse({}));
+    } else {
+      return $dara.cast<GetServiceTestTaskResponse>(await this.execute(params, req, runtime), new GetServiceTestTaskResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取服务测试任务中Cases执行情况
+   * 
+   * @param request - GetServiceTestTaskRequest
+   * @returns GetServiceTestTaskResponse
+   */
+  async getServiceTestTask(request: GetServiceTestTaskRequest): Promise<GetServiceTestTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getServiceTestTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 
+   *  * @param request GetSupplierInformationRequest
+   * 
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSupplierInformationResponse
+   */
+  async getSupplierInformationWithOptions(request: GetSupplierInformationRequest, runtime: $dara.RuntimeOptions): Promise<GetSupplierInformationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSupplierInformation",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetSupplierInformationResponse>(await this.callApi(params, req, runtime), new GetSupplierInformationResponse({}));
+    } else {
+      return $dara.cast<GetSupplierInformationResponse>(await this.execute(params, req, runtime), new GetSupplierInformationResponse({}));
+    }
+
+  }
+
+  /**
+   * 
+   *  * @param request GetSupplierInformationRequest
+   * @returns GetSupplierInformationResponse
+   */
+  async getSupplierInformation(request: GetSupplierInformationRequest): Promise<GetSupplierInformationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSupplierInformationWithOptions(request, runtime);
   }
 
   /**
@@ -21282,6 +26595,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get the list of artifact security risks
+   * 
+   * @param request - ListArtifactRisksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListArtifactRisksResponse
+   */
+  async listArtifactRisksWithOptions(request: ListArtifactRisksRequest, runtime: $dara.RuntimeOptions): Promise<ListArtifactRisksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.artifactId)) {
+      query["ArtifactId"] = request.artifactId;
+    }
+
+    if (!$dara.isNull(request.artifactVersion)) {
+      query["ArtifactVersion"] = request.artifactVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListArtifactRisks",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListArtifactRisksResponse>(await this.callApi(params, req, runtime), new ListArtifactRisksResponse({}));
+    } else {
+      return $dara.cast<ListArtifactRisksResponse>(await this.execute(params, req, runtime), new ListArtifactRisksResponse({}));
+    }
+
+  }
+
+  /**
+   * Get the list of artifact security risks
+   * 
+   * @param request - ListArtifactRisksRequest
+   * @returns ListArtifactRisksResponse
+   */
+  async listArtifactRisks(request: ListArtifactRisksRequest): Promise<ListArtifactRisksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listArtifactRisksWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the version information about a deployment package.
    * 
    * @param tmpReq - ListArtifactVersionsRequest
@@ -21489,6 +26853,215 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * “Query logs at various levels, including service instance application, instance, and resource.”
+   * 
+   * @param request - ListServiceInstanceLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceInstanceLogsResponse
+   */
+  async listServiceInstanceLogsWithOptions(request: ListServiceInstanceLogsRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceInstanceLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.logSource)) {
+      query["LogSource"] = request.logSource;
+    }
+
+    if (!$dara.isNull(request.logstore)) {
+      query["Logstore"] = request.logstore;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceInstanceLogs",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceInstanceLogsResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceLogsResponse({}));
+    } else {
+      return $dara.cast<ListServiceInstanceLogsResponse>(await this.execute(params, req, runtime), new ListServiceInstanceLogsResponse({}));
+    }
+
+  }
+
+  /**
+   * “Query logs at various levels, including service instance application, instance, and resource.”
+   * 
+   * @param request - ListServiceInstanceLogsRequest
+   * @returns ListServiceInstanceLogsResponse
+   */
+  async listServiceInstanceLogs(request: ListServiceInstanceLogsRequest): Promise<ListServiceInstanceLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServiceInstanceLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询服务实例资源
+   * 
+   * @param request - ListServiceInstanceResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceInstanceResourcesResponse
+   */
+  async listServiceInstanceResourcesWithOptions(request: ListServiceInstanceResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceInstanceResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceARN)) {
+      query["ResourceARN"] = request.resourceARN;
+    }
+
+    if (!$dara.isNull(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    if (!$dara.isNull(request.serviceInstanceResourceType)) {
+      query["ServiceInstanceResourceType"] = request.serviceInstanceResourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceInstanceResources",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceInstanceResourcesResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceResourcesResponse({}));
+    } else {
+      return $dara.cast<ListServiceInstanceResourcesResponse>(await this.execute(params, req, runtime), new ListServiceInstanceResourcesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询服务实例资源
+   * 
+   * @param request - ListServiceInstanceResourcesRequest
+   * @returns ListServiceInstanceResourcesResponse
+   */
+  async listServiceInstanceResources(request: ListServiceInstanceResourcesRequest): Promise<ListServiceInstanceResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServiceInstanceResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * View the upgrade history of a service instance
+   * 
+   * @param request - ListServiceInstanceUpgradeHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceInstanceUpgradeHistoryResponse
+   */
+  async listServiceInstanceUpgradeHistoryWithOptions(request: ListServiceInstanceUpgradeHistoryRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceInstanceUpgradeHistoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceInstanceUpgradeHistory",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceInstanceUpgradeHistoryResponse>(await this.callApi(params, req, runtime), new ListServiceInstanceUpgradeHistoryResponse({}));
+    } else {
+      return $dara.cast<ListServiceInstanceUpgradeHistoryResponse>(await this.execute(params, req, runtime), new ListServiceInstanceUpgradeHistoryResponse({}));
+    }
+
+  }
+
+  /**
+   * View the upgrade history of a service instance
+   * 
+   * @param request - ListServiceInstanceUpgradeHistoryRequest
+   * @returns ListServiceInstanceUpgradeHistoryResponse
+   */
+  async listServiceInstanceUpgradeHistory(request: ListServiceInstanceUpgradeHistoryRequest): Promise<ListServiceInstanceUpgradeHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServiceInstanceUpgradeHistoryWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of service instances.
    * 
    * @param request - ListServiceInstancesRequest
@@ -21686,6 +27259,199 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 服务测试用例列表
+   * 
+   * @param request - ListServiceTestCasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceTestCasesResponse
+   */
+  async listServiceTestCasesWithOptions(request: ListServiceTestCasesRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceTestCasesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceTestCases",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceTestCasesResponse>(await this.callApi(params, req, runtime), new ListServiceTestCasesResponse({}));
+    } else {
+      return $dara.cast<ListServiceTestCasesResponse>(await this.execute(params, req, runtime), new ListServiceTestCasesResponse({}));
+    }
+
+  }
+
+  /**
+   * 服务测试用例列表
+   * 
+   * @param request - ListServiceTestCasesRequest
+   * @returns ListServiceTestCasesResponse
+   */
+  async listServiceTestCases(request: ListServiceTestCasesRequest): Promise<ListServiceTestCasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServiceTestCasesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取服务测试实时日志
+   * 
+   * @param request - ListServiceTestTaskLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceTestTaskLogsResponse
+   */
+  async listServiceTestTaskLogsWithOptions(request: ListServiceTestTaskLogsRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceTestTaskLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceTestTaskLogs",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceTestTaskLogsResponse>(await this.callApi(params, req, runtime), new ListServiceTestTaskLogsResponse({}));
+    } else {
+      return $dara.cast<ListServiceTestTaskLogsResponse>(await this.execute(params, req, runtime), new ListServiceTestTaskLogsResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取服务测试实时日志
+   * 
+   * @param request - ListServiceTestTaskLogsRequest
+   * @returns ListServiceTestTaskLogsResponse
+   */
+  async listServiceTestTaskLogs(request: ListServiceTestTaskLogsRequest): Promise<ListServiceTestTaskLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServiceTestTaskLogsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取任务执行列表
+   * 
+   * @param request - ListServiceTestTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServiceTestTasksResponse
+   */
+  async listServiceTestTasksWithOptions(request: ListServiceTestTasksRequest, runtime: $dara.RuntimeOptions): Promise<ListServiceTestTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!$dara.isNull(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListServiceTestTasks",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListServiceTestTasksResponse>(await this.callApi(params, req, runtime), new ListServiceTestTasksResponse({}));
+    } else {
+      return $dara.cast<ListServiceTestTasksResponse>(await this.execute(params, req, runtime), new ListServiceTestTasksResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取任务执行列表
+   * 
+   * @param request - ListServiceTestTasksRequest
+   * @returns ListServiceTestTasksResponse
+   */
+  async listServiceTestTasks(request: ListServiceTestTasksRequest): Promise<ListServiceTestTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listServiceTestTasksWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the applications for using a service.
    * 
    * @param request - ListServiceUsagesRequest
@@ -21816,6 +27582,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询服务商入职审核列表
+   * 
+   * @param request - ListSupplierRegistrationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSupplierRegistrationsResponse
+   */
+  async listSupplierRegistrationsWithOptions(request: ListSupplierRegistrationsRequest, runtime: $dara.RuntimeOptions): Promise<ListSupplierRegistrationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSupplierRegistrations",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSupplierRegistrationsResponse>(await this.callApi(params, req, runtime), new ListSupplierRegistrationsResponse({}));
+    } else {
+      return $dara.cast<ListSupplierRegistrationsResponse>(await this.execute(params, req, runtime), new ListSupplierRegistrationsResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询服务商入职审核列表
+   * 
+   * @param request - ListSupplierRegistrationsRequest
+   * @returns ListSupplierRegistrationsResponse
+   */
+  async listSupplierRegistrations(request: ListSupplierRegistrationsRequest): Promise<ListSupplierRegistrationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSupplierRegistrationsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询标签键列表
    * 
    * @param request - ListTagKeysRequest
@@ -21868,6 +27693,69 @@ export default class Client extends OpenApi {
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询资源标签
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTagResources",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询资源标签
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -23053,6 +28941,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改服务测试用例
+   * 
+   * @param request - UpdateServiceTestCaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceTestCaseResponse
+   */
+  async updateServiceTestCaseWithOptions(request: UpdateServiceTestCaseRequest, runtime: $dara.RuntimeOptions): Promise<UpdateServiceTestCaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.testCaseId)) {
+      query["TestCaseId"] = request.testCaseId;
+    }
+
+    if (!$dara.isNull(request.testCaseName)) {
+      query["TestCaseName"] = request.testCaseName;
+    }
+
+    if (!$dara.isNull(request.testConfig)) {
+      query["TestConfig"] = request.testConfig;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateServiceTestCase",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateServiceTestCaseResponse>(await this.callApi(params, req, runtime), new UpdateServiceTestCaseResponse({}));
+    } else {
+      return $dara.cast<UpdateServiceTestCaseResponse>(await this.execute(params, req, runtime), new UpdateServiceTestCaseResponse({}));
+    }
+
+  }
+
+  /**
+   * 修改服务测试用例
+   * 
+   * @param request - UpdateServiceTestCaseRequest
+   * @returns UpdateServiceTestCaseResponse
+   */
+  async updateServiceTestCase(request: UpdateServiceTestCaseRequest): Promise<UpdateServiceTestCaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateServiceTestCaseWithOptions(request, runtime);
+  }
+
+  /**
    * Update Service Sharing Permissions
    * 
    * @param request - UpdateSharedAccountPermissionRequest
@@ -23117,6 +29064,77 @@ export default class Client extends OpenApi {
   async updateSharedAccountPermission(request: UpdateSharedAccountPermissionRequest): Promise<UpdateSharedAccountPermissionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSharedAccountPermissionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新供应商全局信息
+   * 
+   * @param request - UpdateSupplierInformationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSupplierInformationResponse
+   */
+  async updateSupplierInformationWithOptions(request: UpdateSupplierInformationRequest, runtime: $dara.RuntimeOptions): Promise<UpdateSupplierInformationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deliverySettings)) {
+      query["DeliverySettings"] = request.deliverySettings;
+    }
+
+    if (!$dara.isNull(request.operationIp)) {
+      query["OperationIp"] = request.operationIp;
+    }
+
+    if (!$dara.isNull(request.operationMfaPresent)) {
+      query["OperationMfaPresent"] = request.operationMfaPresent;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.supplierDesc)) {
+      query["SupplierDesc"] = request.supplierDesc;
+    }
+
+    if (!$dara.isNull(request.supplierLogo)) {
+      query["SupplierLogo"] = request.supplierLogo;
+    }
+
+    if (!$dara.isNull(request.supplierUrl)) {
+      query["SupplierUrl"] = request.supplierUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSupplierInformation",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateSupplierInformationResponse>(await this.callApi(params, req, runtime), new UpdateSupplierInformationResponse({}));
+    } else {
+      return $dara.cast<UpdateSupplierInformationResponse>(await this.execute(params, req, runtime), new UpdateSupplierInformationResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新供应商全局信息
+   * 
+   * @param request - UpdateSupplierInformationRequest
+   * @returns UpdateSupplierInformationResponse
+   */
+  async updateSupplierInformation(request: UpdateSupplierInformationRequest): Promise<UpdateSupplierInformationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSupplierInformationWithOptions(request, runtime);
   }
 
   /**
