@@ -1,13 +1,489 @@
 // This file is auto-generated, don't edit it
 /**
  */
-import Util, * as $Util from '@alicloud/tea-util';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
-import * as $tea from '@alicloud/tea-typescript';
+import OpenApi from '@alicloud/openapi-core';
+import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
+import * as $dara from '@darabonba/typescript';
 
-export class CreateFlowRequest extends $tea.Model {
+export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
+  localName?: string;
+  /**
+   * @example
+   * cn-qingdao.fnf.aliyuncs.com
+   */
+  regionEndpoint?: string;
+  /**
+   * @example
+   * cn-qingdao
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localName: 'LocalName',
+      regionEndpoint: 'RegionEndpoint',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localName: 'string',
+      regionEndpoint: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegions extends $dara.Model {
+  region?: DescribeRegionsResponseBodyRegionsRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.region)) {
+      $dara.Model.validateArray(this.region);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetExecutionHistoryResponseBodyEvents extends $dara.Model {
+  /**
+   * @remarks
+   * The details about the execution step.
+   * 
+   * @example
+   * {}
+   */
+  eventDetail?: string;
+  /**
+   * @remarks
+   * The ID of the execution step.
+   * 
+   * @example
+   * 2
+   */
+  eventId?: number;
+  /**
+   * @remarks
+   * The ID of the scheduling step.
+   * 
+   * @example
+   * 1
+   */
+  scheduleEventId?: number;
+  /**
+   * @remarks
+   * The name of the execution step.
+   * 
+   * @example
+   * passStep
+   */
+  stepName?: string;
+  /**
+   * @remarks
+   * The time when the event was updated.
+   * 
+   * @example
+   * 2019-01-01T01:01:01.001Z
+   */
+  time?: string;
+  /**
+   * @remarks
+   * The type of the execution step. Valid values:
+   * 
+   * *   **StepEntered**
+   * *   **StepStarted**
+   * *   **StepSucceeded**
+   * *   **StepFailed**
+   * *   **StepExited**
+   * *   **BranchEntered**
+   * *   **BranchExited**
+   * *   **IterationEntered**
+   * *   **IterationExited**
+   * *   **TaskScheduled**
+   * *   **TaskStarted**
+   * *   **TaskSubmitted**
+   * *   **TaskSubmitFailed**
+   * *   **TaskSucceeded**
+   * *   **TaskFailed**
+   * *   **TaskTimedOut**
+   * *   **ExecutionStarted**
+   * *   **ExecutionStopped**
+   * *   **ExecutionSucceeded**
+   * *   **ExecutionFailed**
+   * *   **ExecutionTimedOut**
+   * 
+   * @example
+   * TaskSucceeded
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventDetail: 'EventDetail',
+      eventId: 'EventId',
+      scheduleEventId: 'ScheduleEventId',
+      stepName: 'StepName',
+      time: 'Time',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventDetail: 'string',
+      eventId: 'number',
+      scheduleEventId: 'number',
+      stepName: 'string',
+      time: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListExecutionsResponseBodyExecutions extends $dara.Model {
+  /**
+   * @remarks
+   * The definition of the flow.
+   * 
+   * @example
+   * version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n  - type: pass\\n    name: mypass
+   */
+  flowDefinition?: string;
+  /**
+   * @remarks
+   * The name of the flow.
+   * 
+   * @example
+   * flow
+   */
+  flowName?: string;
+  /**
+   * @remarks
+   * The input of the execution, which is in the JSON format.
+   * 
+   * @example
+   * {"key":"value"}
+   */
+  input?: string;
+  /**
+   * @remarks
+   * The name of the execution.
+   * 
+   * @example
+   * exec
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The output of the execution, which is in the JSON format
+   * 
+   * @example
+   * {"key":"value"}
+   */
+  output?: string;
+  /**
+   * @remarks
+   * The time when the execution started.
+   * 
+   * @example
+   * 2019-01-01T01:01:01.001Z
+   */
+  startedTime?: string;
+  /**
+   * @remarks
+   * The status of the execution.
+   * 
+   * @example
+   * Succeeded
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The time when the execution stopped.
+   * 
+   * @example
+   * 2019-01-01T01:01:01.001Z
+   */
+  stoppedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowDefinition: 'FlowDefinition',
+      flowName: 'FlowName',
+      input: 'Input',
+      name: 'Name',
+      output: 'Output',
+      startedTime: 'StartedTime',
+      status: 'Status',
+      stoppedTime: 'StoppedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowDefinition: 'string',
+      flowName: 'string',
+      input: 'string',
+      name: 'string',
+      output: 'string',
+      startedTime: 'string',
+      status: 'string',
+      stoppedTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowsResponseBodyFlows extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the flow was created.
+   * 
+   * @example
+   * 2019-01-01T01:01:01.001Z
+   */
+  createdTime?: string;
+  /**
+   * @remarks
+   * The definition of the flow. The definition must comply with the Flow Definition Language (FDL) syntax.
+   * 
+   * @example
+   * version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n - type: pass\\n name: mypass
+   */
+  definition?: string;
+  /**
+   * @remarks
+   * The description of the flow.
+   * 
+   * @example
+   * test flow
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The execution mode or the enumeration type. Valid values: Express and Standard. A value of Standard indicates an empty string.
+   * 
+   * @example
+   * Standard
+   */
+  executionMode?: string;
+  /**
+   * @remarks
+   * The unique ID of the flow.
+   * 
+   * @example
+   * e589e092-e2c0-4dee-b306-3574ddf5****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * The time when the flow was last modified.
+   * 
+   * @example
+   * 2019-01-01T01:01:01.001Z
+   */
+  lastModifiedTime?: string;
+  /**
+   * @remarks
+   * The name of the flow.
+   * 
+   * @example
+   * flow
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud resource name (ARN) of the specified Resource Access Management (RAM) role that Serverless Workflow assumes to invoke resources when the flow is executed.
+   * 
+   * @example
+   * acs:ram::${accountID}:${role}
+   */
+  roleArn?: string;
+  /**
+   * @remarks
+   * The type of the flow.
+   * 
+   * @example
+   * FDL
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      definition: 'Definition',
+      description: 'Description',
+      executionMode: 'ExecutionMode',
+      id: 'Id',
+      lastModifiedTime: 'LastModifiedTime',
+      name: 'Name',
+      roleArn: 'RoleArn',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      definition: 'string',
+      description: 'string',
+      executionMode: 'string',
+      id: 'string',
+      lastModifiedTime: 'string',
+      name: 'string',
+      roleArn: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSchedulesResponseBodySchedules extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the time-based schedule was created.
+   * 
+   * @example
+   * 2020-01-01T01:01:01.001Z
+   */
+  createdTime?: string;
+  /**
+   * @remarks
+   * The cron expression of the scheduled task.
+   * 
+   * @example
+   * 0 * * * * *
+   */
+  cronExpression?: string;
+  /**
+   * @remarks
+   * The description of the time-based schedule.
+   * 
+   * @example
+   * test description
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Indicates whether the time-based schedule is enabled. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @remarks
+   * The time when the time-based schedule was last modified.
+   * 
+   * @example
+   * 2020-01-01T01:01:01.001Z
+   */
+  lastModifiedTime?: string;
+  /**
+   * @remarks
+   * The trigger message of the time-based schedule.
+   * 
+   * @example
+   * {"key": "value"}
+   */
+  payload?: string;
+  /**
+   * @remarks
+   * The ID of the time-based schedule.
+   * 
+   * @example
+   * testScheduleId
+   */
+  scheduleId?: string;
+  /**
+   * @remarks
+   * The name of the time-based schedule.
+   * 
+   * @example
+   * testScheduleName
+   */
+  scheduleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      cronExpression: 'CronExpression',
+      description: 'Description',
+      enable: 'Enable',
+      lastModifiedTime: 'LastModifiedTime',
+      payload: 'Payload',
+      scheduleId: 'ScheduleId',
+      scheduleName: 'ScheduleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      cronExpression: 'string',
+      description: 'string',
+      enable: 'boolean',
+      lastModifiedTime: 'string',
+      payload: 'string',
+      scheduleId: 'string',
+      scheduleName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowRequest extends $dara.Model {
   /**
    * @remarks
    * The definition of the workflow. The definition must comply with the flow definition language (FDL) syntax. Considering compatibility, the system supports two flow definition specifications.
@@ -103,12 +579,16 @@ export class CreateFlowRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateFlowResponseBody extends $tea.Model {
+export class CreateFlowResponseBody extends $dara.Model {
   /**
    * @remarks
    * The time when the flow was created.
@@ -229,12 +709,16 @@ export class CreateFlowResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateFlowResponse extends $tea.Model {
+export class CreateFlowResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateFlowResponseBody;
@@ -254,12 +738,22 @@ export class CreateFlowResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateScheduleRequest extends $tea.Model {
+export class CreateScheduleRequest extends $dara.Model {
   /**
    * @remarks
    * The CRON expression.
@@ -347,12 +841,16 @@ export class CreateScheduleRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateScheduleResponseBody extends $tea.Model {
+export class CreateScheduleResponseBody extends $dara.Model {
   /**
    * @remarks
    * The time when the time-based schedule was created.
@@ -453,12 +951,16 @@ export class CreateScheduleResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class CreateScheduleResponse extends $tea.Model {
+export class CreateScheduleResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: CreateScheduleResponseBody;
@@ -478,12 +980,22 @@ export class CreateScheduleResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteFlowRequest extends $tea.Model {
+export class DeleteFlowRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -501,12 +1013,16 @@ export class DeleteFlowRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteFlowResponseBody extends $tea.Model {
+export class DeleteFlowResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -527,12 +1043,16 @@ export class DeleteFlowResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteFlowResponse extends $tea.Model {
+export class DeleteFlowResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteFlowResponseBody;
@@ -552,12 +1072,22 @@ export class DeleteFlowResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteScheduleRequest extends $tea.Model {
+export class DeleteScheduleRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -582,12 +1112,16 @@ export class DeleteScheduleRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteScheduleResponseBody extends $tea.Model {
+export class DeleteScheduleResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
@@ -608,12 +1142,16 @@ export class DeleteScheduleResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DeleteScheduleResponse extends $tea.Model {
+export class DeleteScheduleResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DeleteScheduleResponseBody;
@@ -633,12 +1171,22 @@ export class DeleteScheduleResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeExecutionRequest extends $tea.Model {
+export class DescribeExecutionRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the execution.
@@ -686,12 +1234,16 @@ export class DescribeExecutionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeExecutionResponseBody extends $tea.Model {
+export class DescribeExecutionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The definition of the flow.
@@ -799,12 +1351,16 @@ export class DescribeExecutionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeExecutionResponse extends $tea.Model {
+export class DescribeExecutionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeExecutionResponseBody;
@@ -824,12 +1380,22 @@ export class DescribeExecutionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeFlowRequest extends $tea.Model {
+export class DescribeFlowRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the flow.
@@ -852,12 +1418,16 @@ export class DescribeFlowRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeFlowResponseBody extends $tea.Model {
+export class DescribeFlowResponseBody extends $dara.Model {
   /**
    * @remarks
    * The time when the flow was created.
@@ -968,12 +1538,16 @@ export class DescribeFlowResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeFlowResponse extends $tea.Model {
+export class DescribeFlowResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeFlowResponseBody;
@@ -993,12 +1567,90 @@ export class DescribeFlowResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeScheduleRequest extends $tea.Model {
+export class DescribeRegionsResponseBody extends $dara.Model {
+  regions?: DescribeRegionsResponseBodyRegions;
+  /**
+   * @example
+   * 0aa3f793-6e5f-8472-c7a2-70d2b84c04ac
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: DescribeRegionsResponseBodyRegions,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.regions && typeof (this.regions as any).validate === 'function') {
+      (this.regions as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRegionsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeScheduleRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the flow that is associated with the time-based schedule. The name must be unique within the region and cannot be modified after the time-based schedule is created. The name must meet the following conventions:
@@ -1043,12 +1695,16 @@ export class DescribeScheduleRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeScheduleResponseBody extends $tea.Model {
+export class DescribeScheduleResponseBody extends $dara.Model {
   /**
    * @remarks
    * The time when the time-based schedule was created.
@@ -1152,12 +1808,16 @@ export class DescribeScheduleResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class DescribeScheduleResponse extends $tea.Model {
+export class DescribeScheduleResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: DescribeScheduleResponseBody;
@@ -1177,12 +1837,22 @@ export class DescribeScheduleResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetExecutionHistoryRequest extends $tea.Model {
+export class GetExecutionHistoryRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the execution.
@@ -1237,12 +1907,16 @@ export class GetExecutionHistoryRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetExecutionHistoryResponseBody extends $tea.Model {
+export class GetExecutionHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
    * The events.
@@ -1280,12 +1954,19 @@ export class GetExecutionHistoryResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.events)) {
+      $dara.Model.validateArray(this.events);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class GetExecutionHistoryResponse extends $tea.Model {
+export class GetExecutionHistoryResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: GetExecutionHistoryResponseBody;
@@ -1305,12 +1986,22 @@ export class GetExecutionHistoryResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListExecutionsRequest extends $tea.Model {
+export class ListExecutionsRequest extends $dara.Model {
   /**
    * @remarks
    * The name prefix of the execution.
@@ -1342,6 +2033,7 @@ export class ListExecutionsRequest extends $tea.Model {
    * 1
    */
   limit?: number;
+  metadataOnly?: boolean;
   /**
    * @remarks
    * The name of the execution to start the query. You can obtain the value from the response data. You do not need to specify this parameter for the first request.
@@ -1386,6 +2078,7 @@ export class ListExecutionsRequest extends $tea.Model {
       executionNamePrefix: 'ExecutionNamePrefix',
       flowName: 'FlowName',
       limit: 'Limit',
+      metadataOnly: 'MetadataOnly',
       nextToken: 'NextToken',
       startedTimeBegin: 'StartedTimeBegin',
       startedTimeEnd: 'StartedTimeEnd',
@@ -1398,6 +2091,7 @@ export class ListExecutionsRequest extends $tea.Model {
       executionNamePrefix: 'string',
       flowName: 'string',
       limit: 'number',
+      metadataOnly: 'boolean',
       nextToken: 'string',
       startedTimeBegin: 'string',
       startedTimeEnd: 'string',
@@ -1405,12 +2099,16 @@ export class ListExecutionsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListExecutionsResponseBody extends $tea.Model {
+export class ListExecutionsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about executions.
@@ -1418,7 +2116,9 @@ export class ListExecutionsResponseBody extends $tea.Model {
   executions?: ListExecutionsResponseBodyExecutions[];
   /**
    * @remarks
-   * The start key for the next query. This parameter is not returned if all results have been returned.
+   * The start key for the next query. This parameter is not returned if this is the last query.
+   * 
+   * >  This parameter may not be displayed in the response because no next page exists.
    * 
    * @example
    * exec2
@@ -1448,12 +2148,19 @@ export class ListExecutionsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.executions)) {
+      $dara.Model.validateArray(this.executions);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListExecutionsResponse extends $tea.Model {
+export class ListExecutionsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListExecutionsResponseBody;
@@ -1473,12 +2180,22 @@ export class ListExecutionsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFlowsRequest extends $tea.Model {
+export class ListFlowsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of workflows that you want to query. Valid values: 1 - 999. Default value: 60.
@@ -1509,12 +2226,16 @@ export class ListFlowsRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFlowsResponseBody extends $tea.Model {
+export class ListFlowsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The details of flows.
@@ -1552,12 +2273,19 @@ export class ListFlowsResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.flows)) {
+      $dara.Model.validateArray(this.flows);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListFlowsResponse extends $tea.Model {
+export class ListFlowsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListFlowsResponseBody;
@@ -1577,12 +2305,22 @@ export class ListFlowsResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSchedulesRequest extends $tea.Model {
+export class ListSchedulesRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the flow that is associated with the time-based schedules. The name is unique within the region and cannot be modified after the flow is created. The name must meet the following conventions:
@@ -1630,12 +2368,16 @@ export class ListSchedulesRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSchedulesResponseBody extends $tea.Model {
+export class ListSchedulesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The token for the next query.
@@ -1673,12 +2415,19 @@ export class ListSchedulesResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    if(Array.isArray(this.schedules)) {
+      $dara.Model.validateArray(this.schedules);
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ListSchedulesResponse extends $tea.Model {
+export class ListSchedulesResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ListSchedulesResponseBody;
@@ -1698,12 +2447,22 @@ export class ListSchedulesResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReportTaskFailedRequest extends $tea.Model {
+export class ReportTaskFailedRequest extends $dara.Model {
   /**
    * @remarks
    * The cause of the failure. The value must be 1 to 4,096 characters in length.
@@ -1714,7 +2473,7 @@ export class ReportTaskFailedRequest extends $tea.Model {
   cause?: string;
   /**
    * @remarks
-   * The error code for the failed task. The value must be 1 to 128 characters in length.
+   * The error code for the failed task. The error code must be 1 to 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -1748,12 +2507,16 @@ export class ReportTaskFailedRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReportTaskFailedResponseBody extends $tea.Model {
+export class ReportTaskFailedResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the event.
@@ -1784,12 +2547,16 @@ export class ReportTaskFailedResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReportTaskFailedResponse extends $tea.Model {
+export class ReportTaskFailedResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ReportTaskFailedResponseBody;
@@ -1809,12 +2576,22 @@ export class ReportTaskFailedResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReportTaskSucceededRequest extends $tea.Model {
+export class ReportTaskSucceededRequest extends $dara.Model {
   /**
    * @remarks
    * The output information of the task whose execution success you want to report.
@@ -1849,12 +2626,16 @@ export class ReportTaskSucceededRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReportTaskSucceededResponseBody extends $tea.Model {
+export class ReportTaskSucceededResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the event.
@@ -1885,12 +2666,16 @@ export class ReportTaskSucceededResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class ReportTaskSucceededResponse extends $tea.Model {
+export class ReportTaskSucceededResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: ReportTaskSucceededResponseBody;
@@ -1910,12 +2695,22 @@ export class ReportTaskSucceededResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartExecutionRequest extends $tea.Model {
+export class StartExecutionRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies that the **TaskToken**-related tasks are called back after the execution in the flow ends.
@@ -1973,12 +2768,16 @@ export class StartExecutionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartExecutionResponseBody extends $tea.Model {
+export class StartExecutionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The definition of the flow.
@@ -2086,12 +2885,16 @@ export class StartExecutionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartExecutionResponse extends $tea.Model {
+export class StartExecutionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartExecutionResponseBody;
@@ -2111,12 +2914,22 @@ export class StartExecutionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartSyncExecutionRequest extends $tea.Model {
+export class StartSyncExecutionRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the execution that you want to start. The name must meet the following conventions:
@@ -2166,12 +2979,16 @@ export class StartSyncExecutionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartSyncExecutionResponseBody extends $tea.Model {
+export class StartSyncExecutionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error code that is returned if the execution failed.
@@ -2279,12 +3096,16 @@ export class StartSyncExecutionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StartSyncExecutionResponse extends $tea.Model {
+export class StartSyncExecutionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StartSyncExecutionResponseBody;
@@ -2304,12 +3125,22 @@ export class StartSyncExecutionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopExecutionRequest extends $tea.Model {
+export class StopExecutionRequest extends $dara.Model {
   /**
    * @remarks
    * The reason for stopping the execution. The value must be 1 to 4,096 characters in length.
@@ -2320,7 +3151,7 @@ export class StopExecutionRequest extends $tea.Model {
   cause?: string;
   /**
    * @remarks
-   * The error for stopping the execution. The value must be 1 to 128 characters in length.
+   * The error code for stopping the execution. The error code must be 1 to 128 characters in length.
    * 
    * @example
    * nill
@@ -2364,12 +3195,16 @@ export class StopExecutionRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopExecutionResponseBody extends $tea.Model {
+export class StopExecutionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The definition of the flow.
@@ -2418,6 +3253,14 @@ export class StopExecutionResponseBody extends $tea.Model {
    * testRequestId
    */
   requestId?: string;
+  /**
+   * @remarks
+   * 执行的角色权限配置。若流程定义中的RoleArn在执行期间发生变更，系统将记录并返回执行初始时刻的RoleArn的快照。
+   * > 如果您的流程在执行时未配置执行角色，则该字段不会出现。
+   * 
+   * @example
+   * acs:ram:${region}:${accountID}:${role}
+   */
   roleArn?: string;
   /**
    * @remarks
@@ -2480,12 +3323,16 @@ export class StopExecutionResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class StopExecutionResponse extends $tea.Model {
+export class StopExecutionResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: StopExecutionResponseBody;
@@ -2505,12 +3352,22 @@ export class StopExecutionResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateFlowRequest extends $tea.Model {
+export class UpdateFlowRequest extends $dara.Model {
   /**
    * @remarks
    * The definition of the workflow. The definition must comply with the flow definition language (FDL) syntax. Considering compatibility, the system supports the two workflow definition specifications.
@@ -2575,12 +3432,16 @@ export class UpdateFlowRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateFlowResponseBody extends $tea.Model {
+export class UpdateFlowResponseBody extends $dara.Model {
   /**
    * @remarks
    * The time when the flow was created.
@@ -2691,12 +3552,16 @@ export class UpdateFlowResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateFlowResponse extends $tea.Model {
+export class UpdateFlowResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateFlowResponseBody;
@@ -2716,12 +3581,22 @@ export class UpdateFlowResponse extends $tea.Model {
     };
   }
 
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateScheduleRequest extends $tea.Model {
+export class UpdateScheduleRequest extends $dara.Model {
   /**
    * @remarks
    * The CRON expression.
@@ -2809,12 +3684,16 @@ export class UpdateScheduleRequest extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateScheduleResponseBody extends $tea.Model {
+export class UpdateScheduleResponseBody extends $dara.Model {
   /**
    * @remarks
    * The time when the time-based schedule was created.
@@ -2918,12 +3797,16 @@ export class UpdateScheduleResponseBody extends $tea.Model {
     };
   }
 
+  validate() {
+    super.validate();
+  }
+
   constructor(map?: { [key: string]: any }) {
     super(map);
   }
 }
 
-export class UpdateScheduleResponse extends $tea.Model {
+export class UpdateScheduleResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   body?: UpdateScheduleResponseBody;
@@ -2943,403 +3826,14 @@ export class UpdateScheduleResponse extends $tea.Model {
     };
   }
 
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetExecutionHistoryResponseBodyEvents extends $tea.Model {
-  /**
-   * @remarks
-   * The details about the execution step.
-   * 
-   * @example
-   * {}
-   */
-  eventDetail?: string;
-  /**
-   * @remarks
-   * The ID of the execution step.
-   * 
-   * @example
-   * 2
-   */
-  eventId?: number;
-  /**
-   * @remarks
-   * The ID of the scheduling step.
-   * 
-   * @example
-   * 1
-   */
-  scheduleEventId?: number;
-  /**
-   * @remarks
-   * The name of the execution step.
-   * 
-   * @example
-   * passStep
-   */
-  stepName?: string;
-  /**
-   * @remarks
-   * The time when the event was updated.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  time?: string;
-  /**
-   * @remarks
-   * The type of the execution step. Valid values:
-   * 
-   * *   **StepEntered**
-   * *   **StepStarted**
-   * *   **StepSucceeded**
-   * *   **StepFailed**
-   * *   **StepExited**
-   * *   **BranchEntered**
-   * *   **BranchExited**
-   * *   **IterationEntered**
-   * *   **IterationExited**
-   * *   **TaskScheduled**
-   * *   **TaskStarted**
-   * *   **TaskSubmitted**
-   * *   **TaskSubmitFailed**
-   * *   **TaskSucceeded**
-   * *   **TaskFailed**
-   * *   **TaskTimedOut**
-   * *   **ExecutionStarted**
-   * *   **ExecutionStopped**
-   * *   **ExecutionSucceeded**
-   * *   **ExecutionFailed**
-   * *   **ExecutionTimedOut**
-   * 
-   * @example
-   * TaskSucceeded
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventDetail: 'EventDetail',
-      eventId: 'EventId',
-      scheduleEventId: 'ScheduleEventId',
-      stepName: 'StepName',
-      time: 'Time',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventDetail: 'string',
-      eventId: 'number',
-      scheduleEventId: 'number',
-      stepName: 'string',
-      time: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListExecutionsResponseBodyExecutions extends $tea.Model {
-  /**
-   * @remarks
-   * The definition of the flow.
-   * 
-   * @example
-   * version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n  - type: pass\\n    name: mypass
-   */
-  flowDefinition?: string;
-  /**
-   * @remarks
-   * The name of the flow.
-   * 
-   * @example
-   * flow
-   */
-  flowName?: string;
-  /**
-   * @remarks
-   * The input of the execution, which is in the JSON format.
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  input?: string;
-  /**
-   * @remarks
-   * The name of the execution.
-   * 
-   * @example
-   * exec
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The output of the execution, which is in the JSON format
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  output?: string;
-  /**
-   * @remarks
-   * The time when the execution started.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  startedTime?: string;
-  /**
-   * @remarks
-   * The status of the execution.
-   * 
-   * @example
-   * Succeeded
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The time when the execution stopped.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  stoppedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flowDefinition: 'FlowDefinition',
-      flowName: 'FlowName',
-      input: 'Input',
-      name: 'Name',
-      output: 'Output',
-      startedTime: 'StartedTime',
-      status: 'Status',
-      stoppedTime: 'StoppedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flowDefinition: 'string',
-      flowName: 'string',
-      input: 'string',
-      name: 'string',
-      output: 'string',
-      startedTime: 'string',
-      status: 'string',
-      stoppedTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFlowsResponseBodyFlows extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the flow was created.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  createdTime?: string;
-  /**
-   * @remarks
-   * The definition of the flow. The definition must comply with the Flow Definition Language (FDL) syntax.
-   * 
-   * @example
-   * version: v1.0\\ntype: flow\\nname: test\\nsteps:\\n - type: pass\\n name: mypass
-   */
-  definition?: string;
-  /**
-   * @remarks
-   * The description of the flow.
-   * 
-   * @example
-   * test flow
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The execution mode or the enumeration type. Valid values: Express and Standard. A value of Standard indicates an empty string.
-   * 
-   * @example
-   * Standard
-   */
-  executionMode?: string;
-  /**
-   * @remarks
-   * The unique ID of the flow.
-   * 
-   * @example
-   * e589e092-e2c0-4dee-b306-3574ddf5****
-   */
-  id?: string;
-  /**
-   * @remarks
-   * The time when the flow was last modified.
-   * 
-   * @example
-   * 2019-01-01T01:01:01.001Z
-   */
-  lastModifiedTime?: string;
-  /**
-   * @remarks
-   * The name of the flow.
-   * 
-   * @example
-   * flow
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The Alibaba Cloud resource name (ARN) of the specified Resource Access Management (RAM) role that Serverless Workflow assumes to invoke resources when the flow is executed.
-   * 
-   * @example
-   * acs:ram::${accountID}:${role}
-   */
-  roleArn?: string;
-  /**
-   * @remarks
-   * The type of the flow.
-   * 
-   * @example
-   * FDL
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      definition: 'Definition',
-      description: 'Description',
-      executionMode: 'ExecutionMode',
-      id: 'Id',
-      lastModifiedTime: 'LastModifiedTime',
-      name: 'Name',
-      roleArn: 'RoleArn',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      definition: 'string',
-      description: 'string',
-      executionMode: 'string',
-      id: 'string',
-      lastModifiedTime: 'string',
-      name: 'string',
-      roleArn: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSchedulesResponseBodySchedules extends $tea.Model {
-  /**
-   * @remarks
-   * The time when the time-based schedule was created.
-   * 
-   * @example
-   * 2020-01-01T01:01:01.001Z
-   */
-  createdTime?: string;
-  /**
-   * @remarks
-   * The cron expression of the scheduled task.
-   * 
-   * @example
-   * 0 * * * * *
-   */
-  cronExpression?: string;
-  /**
-   * @remarks
-   * The description of the time-based schedule.
-   * 
-   * @example
-   * test description
-   */
-  description?: string;
-  /**
-   * @remarks
-   * Indicates whether the time-based schedule is enabled. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
-  enable?: boolean;
-  /**
-   * @remarks
-   * The time when the time-based schedule was last modified.
-   * 
-   * @example
-   * 2020-01-01T01:01:01.001Z
-   */
-  lastModifiedTime?: string;
-  /**
-   * @remarks
-   * The trigger message of the time-based schedule.
-   * 
-   * @example
-   * {"key": "value"}
-   */
-  payload?: string;
-  /**
-   * @remarks
-   * The ID of the time-based schedule.
-   * 
-   * @example
-   * testScheduleId
-   */
-  scheduleId?: string;
-  /**
-   * @remarks
-   * The name of the time-based schedule.
-   * 
-   * @example
-   * testScheduleName
-   */
-  scheduleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      cronExpression: 'CronExpression',
-      description: 'Description',
-      enable: 'Enable',
-      lastModifiedTime: 'LastModifiedTime',
-      payload: 'Payload',
-      scheduleId: 'ScheduleId',
-      scheduleName: 'ScheduleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      cronExpression: 'string',
-      description: 'string',
-      enable: 'boolean',
-      lastModifiedTime: 'string',
-      payload: 'string',
-      scheduleId: 'string',
-      scheduleName: 'string',
-    };
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
   }
 
   constructor(map?: { [key: string]: any }) {
@@ -3350,7 +3844,7 @@ export class ListSchedulesResponseBodySchedules extends $tea.Model {
 
 export default class Client extends OpenApi {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $OpenApiUtil.Config) {
     super(config);
     this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
@@ -3366,15 +3860,15 @@ export default class Client extends OpenApi {
 
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
+    if (!$dara.isNull(endpoint)) {
       return endpoint;
     }
 
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+    if (!$dara.isNull(endpointMap) && !$dara.isNull(endpointMap[regionId])) {
       return endpointMap[regionId];
     }
 
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+    return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
   /**
@@ -3389,41 +3883,41 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateFlowResponse
    */
-  async createFlowWithOptions(request: CreateFlowRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowResponse> {
-    Util.validateModel(request);
+  async createFlowWithOptions(request: CreateFlowRequest, runtime: $dara.RuntimeOptions): Promise<CreateFlowResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.definition)) {
+    if (!$dara.isNull(request.definition)) {
       body["Definition"] = request.definition;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.executionMode)) {
+    if (!$dara.isNull(request.executionMode)) {
       body["ExecutionMode"] = request.executionMode;
     }
 
-    if (!Util.isUnset(request.externalStorageLocation)) {
+    if (!$dara.isNull(request.externalStorageLocation)) {
       body["ExternalStorageLocation"] = request.externalStorageLocation;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.roleArn)) {
+    if (!$dara.isNull(request.roleArn)) {
       body["RoleArn"] = request.roleArn;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateFlow",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -3434,7 +3928,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateFlowResponse>(await this.callApi(params, req, runtime), new CreateFlowResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateFlowResponse>(await this.callApi(params, req, runtime), new CreateFlowResponse({}));
+    } else {
+      return $dara.cast<CreateFlowResponse>(await this.execute(params, req, runtime), new CreateFlowResponse({}));
+    }
+
   }
 
   /**
@@ -3449,7 +3948,7 @@ export default class Client extends OpenApi {
    * @returns CreateFlowResponse
    */
   async createFlow(request: CreateFlowRequest): Promise<CreateFlowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createFlowWithOptions(request, runtime);
   }
 
@@ -3460,43 +3959,43 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateScheduleResponse
    */
-  async createScheduleWithOptions(request: CreateScheduleRequest, runtime: $Util.RuntimeOptions): Promise<CreateScheduleResponse> {
-    Util.validateModel(request);
+  async createScheduleWithOptions(request: CreateScheduleRequest, runtime: $dara.RuntimeOptions): Promise<CreateScheduleResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.signatureVersion)) {
+    if (!$dara.isNull(request.signatureVersion)) {
       query["SignatureVersion"] = request.signatureVersion;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.cronExpression)) {
+    if (!$dara.isNull(request.cronExpression)) {
       body["CronExpression"] = request.cronExpression;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.enable)) {
+    if (!$dara.isNull(request.enable)) {
       body["Enable"] = request.enable;
     }
 
-    if (!Util.isUnset(request.flowName)) {
+    if (!$dara.isNull(request.flowName)) {
       body["FlowName"] = request.flowName;
     }
 
-    if (!Util.isUnset(request.payload)) {
+    if (!$dara.isNull(request.payload)) {
       body["Payload"] = request.payload;
     }
 
-    if (!Util.isUnset(request.scheduleName)) {
+    if (!$dara.isNull(request.scheduleName)) {
       body["ScheduleName"] = request.scheduleName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "CreateSchedule",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -3507,7 +4006,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateScheduleResponse>(await this.callApi(params, req, runtime), new CreateScheduleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateScheduleResponse>(await this.callApi(params, req, runtime), new CreateScheduleResponse({}));
+    } else {
+      return $dara.cast<CreateScheduleResponse>(await this.execute(params, req, runtime), new CreateScheduleResponse({}));
+    }
+
   }
 
   /**
@@ -3517,7 +4021,7 @@ export default class Client extends OpenApi {
    * @returns CreateScheduleResponse
    */
   async createSchedule(request: CreateScheduleRequest): Promise<CreateScheduleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.createScheduleWithOptions(request, runtime);
   }
 
@@ -3532,17 +4036,17 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFlowResponse
    */
-  async deleteFlowWithOptions(request: DeleteFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowResponse> {
-    Util.validateModel(request);
+  async deleteFlowWithOptions(request: DeleteFlowRequest, runtime: $dara.RuntimeOptions): Promise<DeleteFlowResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteFlow",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -3553,7 +4057,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteFlowResponse>(await this.callApi(params, req, runtime), new DeleteFlowResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteFlowResponse>(await this.callApi(params, req, runtime), new DeleteFlowResponse({}));
+    } else {
+      return $dara.cast<DeleteFlowResponse>(await this.execute(params, req, runtime), new DeleteFlowResponse({}));
+    }
+
   }
 
   /**
@@ -3567,7 +4076,7 @@ export default class Client extends OpenApi {
    * @returns DeleteFlowResponse
    */
   async deleteFlow(request: DeleteFlowRequest): Promise<DeleteFlowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteFlowWithOptions(request, runtime);
   }
 
@@ -3578,21 +4087,21 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteScheduleResponse
    */
-  async deleteScheduleWithOptions(request: DeleteScheduleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteScheduleResponse> {
-    Util.validateModel(request);
+  async deleteScheduleWithOptions(request: DeleteScheduleRequest, runtime: $dara.RuntimeOptions): Promise<DeleteScheduleResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.flowName)) {
+    if (!$dara.isNull(request.flowName)) {
       body["FlowName"] = request.flowName;
     }
 
-    if (!Util.isUnset(request.scheduleName)) {
+    if (!$dara.isNull(request.scheduleName)) {
       body["ScheduleName"] = request.scheduleName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DeleteSchedule",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -3603,7 +4112,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteScheduleResponse>(await this.callApi(params, req, runtime), new DeleteScheduleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteScheduleResponse>(await this.callApi(params, req, runtime), new DeleteScheduleResponse({}));
+    } else {
+      return $dara.cast<DeleteScheduleResponse>(await this.execute(params, req, runtime), new DeleteScheduleResponse({}));
+    }
+
   }
 
   /**
@@ -3613,7 +4127,7 @@ export default class Client extends OpenApi {
    * @returns DeleteScheduleResponse
    */
   async deleteSchedule(request: DeleteScheduleRequest): Promise<DeleteScheduleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteScheduleWithOptions(request, runtime);
   }
 
@@ -3624,13 +4138,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeExecutionResponse
    */
-  async describeExecutionWithOptions(request: DescribeExecutionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExecutionResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async describeExecutionWithOptions(request: DescribeExecutionRequest, runtime: $dara.RuntimeOptions): Promise<DescribeExecutionResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeExecution",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -3641,7 +4155,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeExecutionResponse>(await this.callApi(params, req, runtime), new DescribeExecutionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeExecutionResponse>(await this.callApi(params, req, runtime), new DescribeExecutionResponse({}));
+    } else {
+      return $dara.cast<DescribeExecutionResponse>(await this.execute(params, req, runtime), new DescribeExecutionResponse({}));
+    }
+
   }
 
   /**
@@ -3651,7 +4170,7 @@ export default class Client extends OpenApi {
    * @returns DescribeExecutionResponse
    */
   async describeExecution(request: DescribeExecutionRequest): Promise<DescribeExecutionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeExecutionWithOptions(request, runtime);
   }
 
@@ -3662,13 +4181,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeFlowResponse
    */
-  async describeFlowWithOptions(request: DescribeFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async describeFlowWithOptions(request: DescribeFlowRequest, runtime: $dara.RuntimeOptions): Promise<DescribeFlowResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeFlow",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -3679,7 +4198,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeFlowResponse>(await this.callApi(params, req, runtime), new DescribeFlowResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeFlowResponse>(await this.callApi(params, req, runtime), new DescribeFlowResponse({}));
+    } else {
+      return $dara.cast<DescribeFlowResponse>(await this.execute(params, req, runtime), new DescribeFlowResponse({}));
+    }
+
   }
 
   /**
@@ -3689,8 +4213,45 @@ export default class Client extends OpenApi {
    * @returns DescribeFlowResponse
    */
   async describeFlow(request: DescribeFlowRequest): Promise<DescribeFlowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询地域信息列表
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegionsWithOptions(runtime: $dara.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRegions",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    } else {
+      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询地域信息列表
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegions(): Promise<DescribeRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRegionsWithOptions(runtime);
   }
 
   /**
@@ -3700,13 +4261,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeScheduleResponse
    */
-  async describeScheduleWithOptions(request: DescribeScheduleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeScheduleResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async describeScheduleWithOptions(request: DescribeScheduleRequest, runtime: $dara.RuntimeOptions): Promise<DescribeScheduleResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "DescribeSchedule",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -3717,7 +4278,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeScheduleResponse>(await this.callApi(params, req, runtime), new DescribeScheduleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeScheduleResponse>(await this.callApi(params, req, runtime), new DescribeScheduleResponse({}));
+    } else {
+      return $dara.cast<DescribeScheduleResponse>(await this.execute(params, req, runtime), new DescribeScheduleResponse({}));
+    }
+
   }
 
   /**
@@ -3727,7 +4293,7 @@ export default class Client extends OpenApi {
    * @returns DescribeScheduleResponse
    */
   async describeSchedule(request: DescribeScheduleRequest): Promise<DescribeScheduleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.describeScheduleWithOptions(request, runtime);
   }
 
@@ -3738,13 +4304,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetExecutionHistoryResponse
    */
-  async getExecutionHistoryWithOptions(request: GetExecutionHistoryRequest, runtime: $Util.RuntimeOptions): Promise<GetExecutionHistoryResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async getExecutionHistoryWithOptions(request: GetExecutionHistoryRequest, runtime: $dara.RuntimeOptions): Promise<GetExecutionHistoryResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "GetExecutionHistory",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -3755,7 +4321,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetExecutionHistoryResponse>(await this.callApi(params, req, runtime), new GetExecutionHistoryResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetExecutionHistoryResponse>(await this.callApi(params, req, runtime), new GetExecutionHistoryResponse({}));
+    } else {
+      return $dara.cast<GetExecutionHistoryResponse>(await this.execute(params, req, runtime), new GetExecutionHistoryResponse({}));
+    }
+
   }
 
   /**
@@ -3765,7 +4336,7 @@ export default class Client extends OpenApi {
    * @returns GetExecutionHistoryResponse
    */
   async getExecutionHistory(request: GetExecutionHistoryRequest): Promise<GetExecutionHistoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.getExecutionHistoryWithOptions(request, runtime);
   }
 
@@ -3780,13 +4351,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListExecutionsResponse
    */
-  async listExecutionsWithOptions(request: ListExecutionsRequest, runtime: $Util.RuntimeOptions): Promise<ListExecutionsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listExecutionsWithOptions(request: ListExecutionsRequest, runtime: $dara.RuntimeOptions): Promise<ListExecutionsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListExecutions",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -3797,7 +4368,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListExecutionsResponse>(await this.callApi(params, req, runtime), new ListExecutionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListExecutionsResponse>(await this.callApi(params, req, runtime), new ListExecutionsResponse({}));
+    } else {
+      return $dara.cast<ListExecutionsResponse>(await this.execute(params, req, runtime), new ListExecutionsResponse({}));
+    }
+
   }
 
   /**
@@ -3811,7 +4387,7 @@ export default class Client extends OpenApi {
    * @returns ListExecutionsResponse
    */
   async listExecutions(request: ListExecutionsRequest): Promise<ListExecutionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listExecutionsWithOptions(request, runtime);
   }
 
@@ -3822,13 +4398,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFlowsResponse
    */
-  async listFlowsWithOptions(request: ListFlowsRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listFlowsWithOptions(request: ListFlowsRequest, runtime: $dara.RuntimeOptions): Promise<ListFlowsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListFlows",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -3839,7 +4415,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListFlowsResponse>(await this.callApi(params, req, runtime), new ListFlowsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListFlowsResponse>(await this.callApi(params, req, runtime), new ListFlowsResponse({}));
+    } else {
+      return $dara.cast<ListFlowsResponse>(await this.execute(params, req, runtime), new ListFlowsResponse({}));
+    }
+
   }
 
   /**
@@ -3849,7 +4430,7 @@ export default class Client extends OpenApi {
    * @returns ListFlowsResponse
    */
   async listFlows(request: ListFlowsRequest): Promise<ListFlowsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listFlowsWithOptions(request, runtime);
   }
 
@@ -3860,13 +4441,13 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSchedulesResponse
    */
-  async listSchedulesWithOptions(request: ListSchedulesRequest, runtime: $Util.RuntimeOptions): Promise<ListSchedulesResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
+  async listSchedulesWithOptions(request: ListSchedulesRequest, runtime: $dara.RuntimeOptions): Promise<ListSchedulesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ListSchedules",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -3877,7 +4458,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListSchedulesResponse>(await this.callApi(params, req, runtime), new ListSchedulesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListSchedulesResponse>(await this.callApi(params, req, runtime), new ListSchedulesResponse({}));
+    } else {
+      return $dara.cast<ListSchedulesResponse>(await this.execute(params, req, runtime), new ListSchedulesResponse({}));
+    }
+
   }
 
   /**
@@ -3887,7 +4473,7 @@ export default class Client extends OpenApi {
    * @returns ListSchedulesResponse
    */
   async listSchedules(request: ListSchedulesRequest): Promise<ListSchedulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.listSchedulesWithOptions(request, runtime);
   }
 
@@ -3903,27 +4489,27 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReportTaskFailedResponse
    */
-  async reportTaskFailedWithOptions(request: ReportTaskFailedRequest, runtime: $Util.RuntimeOptions): Promise<ReportTaskFailedResponse> {
-    Util.validateModel(request);
+  async reportTaskFailedWithOptions(request: ReportTaskFailedRequest, runtime: $dara.RuntimeOptions): Promise<ReportTaskFailedResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.taskToken)) {
+    if (!$dara.isNull(request.taskToken)) {
       query["TaskToken"] = request.taskToken;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.cause)) {
+    if (!$dara.isNull(request.cause)) {
       body["Cause"] = request.cause;
     }
 
-    if (!Util.isUnset(request.error)) {
+    if (!$dara.isNull(request.error)) {
       body["Error"] = request.error;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReportTaskFailed",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -3934,7 +4520,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReportTaskFailedResponse>(await this.callApi(params, req, runtime), new ReportTaskFailedResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ReportTaskFailedResponse>(await this.callApi(params, req, runtime), new ReportTaskFailedResponse({}));
+    } else {
+      return $dara.cast<ReportTaskFailedResponse>(await this.execute(params, req, runtime), new ReportTaskFailedResponse({}));
+    }
+
   }
 
   /**
@@ -3949,7 +4540,7 @@ export default class Client extends OpenApi {
    * @returns ReportTaskFailedResponse
    */
   async reportTaskFailed(request: ReportTaskFailedRequest): Promise<ReportTaskFailedResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.reportTaskFailedWithOptions(request, runtime);
   }
 
@@ -3965,23 +4556,23 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReportTaskSucceededResponse
    */
-  async reportTaskSucceededWithOptions(request: ReportTaskSucceededRequest, runtime: $Util.RuntimeOptions): Promise<ReportTaskSucceededResponse> {
-    Util.validateModel(request);
+  async reportTaskSucceededWithOptions(request: ReportTaskSucceededRequest, runtime: $dara.RuntimeOptions): Promise<ReportTaskSucceededResponse> {
+    request.validate();
     let query = { };
-    if (!Util.isUnset(request.taskToken)) {
+    if (!$dara.isNull(request.taskToken)) {
       query["TaskToken"] = request.taskToken;
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.output)) {
+    if (!$dara.isNull(request.output)) {
       body["Output"] = request.output;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "ReportTaskSucceeded",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -3992,7 +4583,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReportTaskSucceededResponse>(await this.callApi(params, req, runtime), new ReportTaskSucceededResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ReportTaskSucceededResponse>(await this.callApi(params, req, runtime), new ReportTaskSucceededResponse({}));
+    } else {
+      return $dara.cast<ReportTaskSucceededResponse>(await this.execute(params, req, runtime), new ReportTaskSucceededResponse({}));
+    }
+
   }
 
   /**
@@ -4007,7 +4603,7 @@ export default class Client extends OpenApi {
    * @returns ReportTaskSucceededResponse
    */
   async reportTaskSucceeded(request: ReportTaskSucceededRequest): Promise<ReportTaskSucceededResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.reportTaskSucceededWithOptions(request, runtime);
   }
 
@@ -4026,29 +4622,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartExecutionResponse
    */
-  async startExecutionWithOptions(request: StartExecutionRequest, runtime: $Util.RuntimeOptions): Promise<StartExecutionResponse> {
-    Util.validateModel(request);
+  async startExecutionWithOptions(request: StartExecutionRequest, runtime: $dara.RuntimeOptions): Promise<StartExecutionResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.callbackFnFTaskToken)) {
+    if (!$dara.isNull(request.callbackFnFTaskToken)) {
       body["CallbackFnFTaskToken"] = request.callbackFnFTaskToken;
     }
 
-    if (!Util.isUnset(request.executionName)) {
+    if (!$dara.isNull(request.executionName)) {
       body["ExecutionName"] = request.executionName;
     }
 
-    if (!Util.isUnset(request.flowName)) {
+    if (!$dara.isNull(request.flowName)) {
       body["FlowName"] = request.flowName;
     }
 
-    if (!Util.isUnset(request.input)) {
+    if (!$dara.isNull(request.input)) {
       body["Input"] = request.input;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartExecution",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -4059,7 +4655,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartExecutionResponse>(await this.callApi(params, req, runtime), new StartExecutionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartExecutionResponse>(await this.callApi(params, req, runtime), new StartExecutionResponse({}));
+    } else {
+      return $dara.cast<StartExecutionResponse>(await this.execute(params, req, runtime), new StartExecutionResponse({}));
+    }
+
   }
 
   /**
@@ -4077,7 +4678,7 @@ export default class Client extends OpenApi {
    * @returns StartExecutionResponse
    */
   async startExecution(request: StartExecutionRequest): Promise<StartExecutionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startExecutionWithOptions(request, runtime);
   }
 
@@ -4091,25 +4692,25 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartSyncExecutionResponse
    */
-  async startSyncExecutionWithOptions(request: StartSyncExecutionRequest, runtime: $Util.RuntimeOptions): Promise<StartSyncExecutionResponse> {
-    Util.validateModel(request);
+  async startSyncExecutionWithOptions(request: StartSyncExecutionRequest, runtime: $dara.RuntimeOptions): Promise<StartSyncExecutionResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.executionName)) {
+    if (!$dara.isNull(request.executionName)) {
       body["ExecutionName"] = request.executionName;
     }
 
-    if (!Util.isUnset(request.flowName)) {
+    if (!$dara.isNull(request.flowName)) {
       body["FlowName"] = request.flowName;
     }
 
-    if (!Util.isUnset(request.input)) {
+    if (!$dara.isNull(request.input)) {
       body["Input"] = request.input;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StartSyncExecution",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -4120,7 +4721,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartSyncExecutionResponse>(await this.callApi(params, req, runtime), new StartSyncExecutionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartSyncExecutionResponse>(await this.callApi(params, req, runtime), new StartSyncExecutionResponse({}));
+    } else {
+      return $dara.cast<StartSyncExecutionResponse>(await this.execute(params, req, runtime), new StartSyncExecutionResponse({}));
+    }
+
   }
 
   /**
@@ -4133,7 +4739,7 @@ export default class Client extends OpenApi {
    * @returns StartSyncExecutionResponse
    */
   async startSyncExecution(request: StartSyncExecutionRequest): Promise<StartSyncExecutionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.startSyncExecutionWithOptions(request, runtime);
   }
 
@@ -4148,29 +4754,29 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopExecutionResponse
    */
-  async stopExecutionWithOptions(request: StopExecutionRequest, runtime: $Util.RuntimeOptions): Promise<StopExecutionResponse> {
-    Util.validateModel(request);
+  async stopExecutionWithOptions(request: StopExecutionRequest, runtime: $dara.RuntimeOptions): Promise<StopExecutionResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.cause)) {
+    if (!$dara.isNull(request.cause)) {
       body["Cause"] = request.cause;
     }
 
-    if (!Util.isUnset(request.error)) {
+    if (!$dara.isNull(request.error)) {
       body["Error"] = request.error;
     }
 
-    if (!Util.isUnset(request.executionName)) {
+    if (!$dara.isNull(request.executionName)) {
       body["ExecutionName"] = request.executionName;
     }
 
-    if (!Util.isUnset(request.flowName)) {
+    if (!$dara.isNull(request.flowName)) {
       body["FlowName"] = request.flowName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "StopExecution",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -4181,7 +4787,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StopExecutionResponse>(await this.callApi(params, req, runtime), new StopExecutionResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopExecutionResponse>(await this.callApi(params, req, runtime), new StopExecutionResponse({}));
+    } else {
+      return $dara.cast<StopExecutionResponse>(await this.execute(params, req, runtime), new StopExecutionResponse({}));
+    }
+
   }
 
   /**
@@ -4195,7 +4806,7 @@ export default class Client extends OpenApi {
    * @returns StopExecutionResponse
    */
   async stopExecution(request: StopExecutionRequest): Promise<StopExecutionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.stopExecutionWithOptions(request, runtime);
   }
 
@@ -4206,33 +4817,33 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateFlowResponse
    */
-  async updateFlowWithOptions(request: UpdateFlowRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFlowResponse> {
-    Util.validateModel(request);
+  async updateFlowWithOptions(request: UpdateFlowRequest, runtime: $dara.RuntimeOptions): Promise<UpdateFlowResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.definition)) {
+    if (!$dara.isNull(request.definition)) {
       body["Definition"] = request.definition;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.name)) {
+    if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
     }
 
-    if (!Util.isUnset(request.roleArn)) {
+    if (!$dara.isNull(request.roleArn)) {
       body["RoleArn"] = request.roleArn;
     }
 
-    if (!Util.isUnset(request.type)) {
+    if (!$dara.isNull(request.type)) {
       body["Type"] = request.type;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateFlow",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -4243,7 +4854,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateFlowResponse>(await this.callApi(params, req, runtime), new UpdateFlowResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateFlowResponse>(await this.callApi(params, req, runtime), new UpdateFlowResponse({}));
+    } else {
+      return $dara.cast<UpdateFlowResponse>(await this.execute(params, req, runtime), new UpdateFlowResponse({}));
+    }
+
   }
 
   /**
@@ -4253,7 +4869,7 @@ export default class Client extends OpenApi {
    * @returns UpdateFlowResponse
    */
   async updateFlow(request: UpdateFlowRequest): Promise<UpdateFlowResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateFlowWithOptions(request, runtime);
   }
 
@@ -4264,37 +4880,37 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateScheduleResponse
    */
-  async updateScheduleWithOptions(request: UpdateScheduleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateScheduleResponse> {
-    Util.validateModel(request);
+  async updateScheduleWithOptions(request: UpdateScheduleRequest, runtime: $dara.RuntimeOptions): Promise<UpdateScheduleResponse> {
+    request.validate();
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.cronExpression)) {
+    if (!$dara.isNull(request.cronExpression)) {
       body["CronExpression"] = request.cronExpression;
     }
 
-    if (!Util.isUnset(request.description)) {
+    if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
 
-    if (!Util.isUnset(request.enable)) {
+    if (!$dara.isNull(request.enable)) {
       body["Enable"] = request.enable;
     }
 
-    if (!Util.isUnset(request.flowName)) {
+    if (!$dara.isNull(request.flowName)) {
       body["FlowName"] = request.flowName;
     }
 
-    if (!Util.isUnset(request.payload)) {
+    if (!$dara.isNull(request.payload)) {
       body["Payload"] = request.payload;
     }
 
-    if (!Util.isUnset(request.scheduleName)) {
+    if (!$dara.isNull(request.scheduleName)) {
       body["ScheduleName"] = request.scheduleName;
     }
 
-    let req = new $OpenApi.OpenApiRequest({
+    let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
+    let params = new $OpenApiUtil.Params({
       action: "UpdateSchedule",
       version: "2019-03-15",
       protocol: "HTTPS",
@@ -4305,7 +4921,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateScheduleResponse>(await this.callApi(params, req, runtime), new UpdateScheduleResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateScheduleResponse>(await this.callApi(params, req, runtime), new UpdateScheduleResponse({}));
+    } else {
+      return $dara.cast<UpdateScheduleResponse>(await this.execute(params, req, runtime), new UpdateScheduleResponse({}));
+    }
+
   }
 
   /**
@@ -4315,7 +4936,7 @@ export default class Client extends OpenApi {
    * @returns UpdateScheduleResponse
    */
   async updateSchedule(request: UpdateScheduleRequest): Promise<UpdateScheduleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
+    let runtime = new $dara.RuntimeOptions({ });
     return await this.updateScheduleWithOptions(request, runtime);
   }
 
