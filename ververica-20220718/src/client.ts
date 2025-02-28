@@ -10874,6 +10874,145 @@ export class GetJobResponse extends $dara.Model {
   }
 }
 
+export class GetJobDiagnosisHeaders extends $dara.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobDiagnosisResponseBody extends $dara.Model {
+  /**
+   * @example
+   * “”
+   */
+  accessDeniedDetail?: string;
+  data?: JobDiagnosis;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * CBC799F0-AS7S-1D30-8A4F-882ED4DD****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      data: JobDiagnosis,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobDiagnosisResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobDiagnosisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetJobDiagnosisResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLatestJobStartLogHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -17485,6 +17624,175 @@ export class UpdateUdfArtifactResponse extends $dara.Model {
   }
 }
 
+export class UpdateVariableHeaders extends $dara.Model {
+  commonHeaders?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a14bd5d90a****
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      workspace: 'string',
+    };
+  }
+
+  validate() {
+    if(this.commonHeaders) {
+      $dara.Model.validateMap(this.commonHeaders);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVariableRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  body?: Variable;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: Variable,
+    };
+  }
+
+  validate() {
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVariableResponseBody extends $dara.Model {
+  /**
+   * @example
+   * “”
+   */
+  accessDeniedDetail?: string;
+  data?: Variable;
+  /**
+   * @example
+   * ""
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * ""
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpCode?: number;
+  /**
+   * @example
+   * 1EF03B0C-F44F-47AD-BB48-D002D0F7B8C9
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpCode: 'httpCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      data: Variable,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVariableResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateVariableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateVariableResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ValidateSqlStatementHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
@@ -17707,7 +18015,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -17758,7 +18066,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -17812,7 +18120,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -17871,7 +18179,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -17926,7 +18234,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -17980,7 +18288,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18047,7 +18355,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18101,7 +18409,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18155,7 +18463,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18209,7 +18517,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18263,7 +18571,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18315,7 +18623,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18364,7 +18672,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18413,7 +18721,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18462,7 +18770,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18511,7 +18819,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18560,7 +18868,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18609,7 +18917,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18658,7 +18966,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18707,7 +19015,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18756,7 +19064,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18805,7 +19113,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18865,7 +19173,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18917,7 +19225,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18968,7 +19276,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19022,7 +19330,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19093,7 +19401,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19147,7 +19455,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19206,7 +19514,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19265,7 +19573,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19324,7 +19632,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19376,7 +19684,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19425,7 +19733,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19474,7 +19782,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19530,7 +19838,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19597,7 +19905,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19656,7 +19964,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19708,7 +20016,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19757,7 +20065,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19806,7 +20114,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19842,6 +20150,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取作业诊断信息
+   * 
+   * @param headers - GetJobDiagnosisHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobDiagnosisResponse
+   */
+  async getJobDiagnosisWithOptions(namespace: string, deploymentId: string, jobId: string, headers: GetJobDiagnosisHeaders, runtime: $dara.RuntimeOptions): Promise<GetJobDiagnosisResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetJobDiagnosis",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/deployments/${$dara.URL.percentEncode(deploymentId)}/jobs/${$dara.URL.percentEncode(jobId)}/job-diagnoses/lite`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetJobDiagnosisResponse>(await this.callApi(params, req, runtime), new GetJobDiagnosisResponse({}));
+    } else {
+      return $dara.cast<GetJobDiagnosisResponse>(await this.execute(params, req, runtime), new GetJobDiagnosisResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取作业诊断信息
+   * @returns GetJobDiagnosisResponse
+   */
+  async getJobDiagnosis(namespace: string, deploymentId: string, jobId: string): Promise<GetJobDiagnosisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new GetJobDiagnosisHeaders({ });
+    return await this.getJobDiagnosisWithOptions(namespace, deploymentId, jobId, headers, runtime);
+  }
+
+  /**
    * Obtains the latest startup logs of a job.
    * 
    * @param headers - GetLatestJobStartLogHeaders
@@ -19855,7 +20212,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19906,7 +20263,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -19958,7 +20315,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20007,7 +20364,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20056,7 +20413,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20112,7 +20469,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20171,7 +20528,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20223,7 +20580,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20272,7 +20629,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20332,7 +20689,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20395,7 +20752,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20490,7 +20847,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20608,7 +20965,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20676,7 +21033,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20739,7 +21096,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20810,7 +21167,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20877,7 +21234,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20940,7 +21297,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20992,7 +21349,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21052,7 +21409,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21111,7 +21468,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21178,7 +21535,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21235,7 +21592,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21292,7 +21649,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21344,7 +21701,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21393,7 +21750,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21444,7 +21801,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21496,7 +21853,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21547,7 +21904,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21601,7 +21958,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21655,7 +22012,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21709,7 +22066,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21763,7 +22120,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21817,7 +22174,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21871,7 +22228,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21925,7 +22282,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -21964,6 +22321,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新秘钥
+   * 
+   * @param request - UpdateVariableRequest
+   * @param headers - UpdateVariableHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVariableResponse
+   */
+  async updateVariableWithOptions(namespace: string, name: string, request: UpdateVariableRequest, headers: UpdateVariableHeaders, runtime: $dara.RuntimeOptions): Promise<UpdateVariableResponse> {
+    request.validate();
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.workspace)) {
+      realHeaders["workspace"] = String(headers.workspace);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVariable",
+      version: "2022-07-18",
+      protocol: "HTTPS",
+      pathname: `/api/v2/namespaces/${$dara.URL.percentEncode(namespace)}/variables/${$dara.URL.percentEncode(name)}`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateVariableResponse>(await this.callApi(params, req, runtime), new UpdateVariableResponse({}));
+    } else {
+      return $dara.cast<UpdateVariableResponse>(await this.execute(params, req, runtime), new UpdateVariableResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新秘钥
+   * 
+   * @param request - UpdateVariableRequest
+   * @returns UpdateVariableResponse
+   */
+  async updateVariable(namespace: string, name: string, request: UpdateVariableRequest): Promise<UpdateVariableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new UpdateVariableHeaders({ });
+    return await this.updateVariableWithOptions(namespace, name, request, headers, runtime);
+  }
+
+  /**
    * Verifies the code of an SQL deployment.
    * 
    * @param request - ValidateSqlStatementRequest
@@ -21979,7 +22390,7 @@ export default class Client extends OpenApi {
     }
 
     if (!$dara.isNull(headers.workspace)) {
-      realHeaders["workspace"] = JSON.stringify(headers.workspace);
+      realHeaders["workspace"] = String(headers.workspace);
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
