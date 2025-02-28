@@ -24385,7 +24385,7 @@ export class DescribeHotBigKeysRequest extends $dara.Model {
   consoleContext?: string;
   /**
    * @remarks
-   * The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID.
+   * The ID of the ApsaraDB for Redis instance.
    * 
    * This parameter is required.
    * 
@@ -24395,7 +24395,7 @@ export class DescribeHotBigKeysRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the data shard on the ApsaraDB for Redis instance. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to query the ID.
+   * The ID of the data shard on the ApsaraDB for Redis instance.
    * 
    * @example
    * r-****-db-0
@@ -24537,7 +24537,7 @@ export class DescribeHotBigKeysResponse extends $dara.Model {
 export class DescribeHotKeysRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the instance ID.
+   * The ID of the ApsaraDB for Redis instance.
    * 
    * This parameter is required.
    * 
@@ -24547,7 +24547,7 @@ export class DescribeHotKeysRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the data shard on the ApsaraDB for Redis instance. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to query the data shard ID.
+   * The ID of the data shard on the ApsaraDB for Redis instance.
    * 
    * @example
    * r-x****-db-0
@@ -26088,7 +26088,7 @@ export class DescribeTopBigKeysRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID.
+   * The ID of the ApsaraDB for Redis instance.
    * 
    * This parameter is required.
    * 
@@ -26098,7 +26098,7 @@ export class DescribeTopBigKeysRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the data shard on the ApsaraDB for Redis instance. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to query the ID.
+   * The ID of the data shard on the ApsaraDB for Redis instance.
    * 
    * @example
    * r-x****-db-0
@@ -26282,7 +26282,7 @@ export class DescribeTopHotKeysRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID.
+   * The ID of the ApsaraDB for Redis instance.
    * 
    * This parameter is required.
    * 
@@ -26292,7 +26292,7 @@ export class DescribeTopHotKeysRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the data shard on the ApsaraDB for Redis instance. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to query the ID.
+   * The ID of the data shard on the ApsaraDB for Redis instance.
    * 
    * @example
    * r-****-db-0
@@ -38364,6 +38364,7 @@ export class ModifySqlLogConfigRequest extends $dara.Model {
    * true
    */
   enable?: boolean;
+  enableAudit?: boolean;
   /**
    * @remarks
    * A reserved parameter.
@@ -38420,6 +38421,7 @@ export class ModifySqlLogConfigRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       enable: 'Enable',
+      enableAudit: 'EnableAudit',
       filters: 'Filters',
       hotRetention: 'HotRetention',
       instanceId: 'InstanceId',
@@ -38431,6 +38433,7 @@ export class ModifySqlLogConfigRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       enable: 'boolean',
+      enableAudit: 'boolean',
       filters: { 'type': 'array', 'itemType': ModifySqlLogConfigRequestFilters },
       hotRetention: 'number',
       instanceId: 'string',
@@ -41219,7 +41222,6 @@ export default class Client extends OpenApi {
    * *   This operation is available only for ApsaraDB for Redis instances that meet the following requirements:
    *     *   The instance is a Community Edition instance that uses a major version of 5.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
    *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
-   * >  For information about how to query and update the minor version of an instance, see [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/129381.html) and [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html).
    * 
    * @param request - DescribeHotBigKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41273,7 +41275,6 @@ export default class Client extends OpenApi {
    * *   This operation is available only for ApsaraDB for Redis instances that meet the following requirements:
    *     *   The instance is a Community Edition instance that uses a major version of 5.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
    *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
-   * >  For information about how to query and update the minor version of an instance, see [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/129381.html) and [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html).
    * 
    * @param request - DescribeHotBigKeysRequest
    * @returns DescribeHotBigKeysResponse
@@ -41294,7 +41295,6 @@ export default class Client extends OpenApi {
    * *   This operation is applicable only to ApsaraDB for Redis instances that meet the following requirements:
    *     *   The ApsaraDB for Redis instance is a Community Edition instance that uses a major version of 4.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
    *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
-   * >  For more information about how to query and update the minor version of an instance, see [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/129381.html) and [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html).
    * 
    * @param request - DescribeHotKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41344,7 +41344,6 @@ export default class Client extends OpenApi {
    * *   This operation is applicable only to ApsaraDB for Redis instances that meet the following requirements:
    *     *   The ApsaraDB for Redis instance is a Community Edition instance that uses a major version of 4.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
    *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
-   * >  For more information about how to query and update the minor version of an instance, see [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/129381.html) and [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html).
    * 
    * @param request - DescribeHotKeysRequest
    * @returns DescribeHotKeysResponse
@@ -41925,7 +41924,6 @@ export default class Client extends OpenApi {
    * *   This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
    *     *   The instance is ApsaraDB for Redis Community Edition instances that use a major version of 5.0 or later or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair).
    *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
-   * >  For information about how to query and update the minor version of an instance, see [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/129381.html) and [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html).
    * 
    * @param request - DescribeTopBigKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41987,7 +41985,6 @@ export default class Client extends OpenApi {
    * *   This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
    *     *   The instance is ApsaraDB for Redis Community Edition instances that use a major version of 5.0 or later or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair).
    *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
-   * >  For information about how to query and update the minor version of an instance, see [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/129381.html) and [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html).
    * 
    * @param request - DescribeTopBigKeysRequest
    * @returns DescribeTopBigKeysResponse
@@ -42008,7 +42005,6 @@ export default class Client extends OpenApi {
    * *   This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
    *     *   The instance is a Community Edition instance that uses a major version of 4.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
    *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
-   * >  For information about how to query and update the minor version of an instance, see [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) and [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/129381.html).
    * 
    * @param request - DescribeTopHotKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -42070,7 +42066,6 @@ export default class Client extends OpenApi {
    * *   This operation is available only for an ApsaraDB for Redis instance of one of the following versions:
    *     *   The instance is a Community Edition instance that uses a major version of 4.0 or later or a performance-enhanced instance of the Enhanced Edition (Tair).
    *     *   The ApsaraDB for Redis instance is updated to the latest minor version.
-   * >  For information about how to query and update the minor version of an instance, see [DescribeEngineVersion](https://help.aliyun.com/document_detail/95268.html) and [ModifyInstanceMinorVersion](https://help.aliyun.com/document_detail/129381.html).
    * 
    * @param request - DescribeTopHotKeysRequest
    * @returns DescribeTopHotKeysResponse
@@ -46581,6 +46576,10 @@ export default class Client extends OpenApi {
   async modifySqlLogConfigWithOptions(request: ModifySqlLogConfigRequest, runtime: $dara.RuntimeOptions): Promise<ModifySqlLogConfigResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.enableAudit)) {
+      query["EnableAudit"] = request.enableAudit;
+    }
+
     if (!$dara.isNull(request.filters)) {
       query["Filters"] = request.filters;
     }
