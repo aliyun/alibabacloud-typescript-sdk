@@ -458,6 +458,29 @@ export class WafRuleConfigRateLimit extends $dara.Model {
   }
 }
 
+export class WafRuleConfigSecurityLevel extends $dara.Model {
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WafRuleMatch2CriteriaCriteriaCriteria extends $dara.Model {
   convertToLower?: boolean;
   matchOperator?: string;
@@ -9598,6 +9621,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
    * 1
    */
   attributes?: number;
+  enable?: boolean;
   /**
    * @remarks
    * The type of the value input box. Valid values:
@@ -9611,6 +9635,7 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
    * input:single
    */
   kind?: string;
+  minPlan?: string;
   /**
    * @remarks
    * Indicates whether the match result is inverted.
@@ -9661,7 +9686,9 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       attributes: 'Attributes',
+      enable: 'Enable',
       kind: 'Kind',
+      minPlan: 'MinPlan',
       negative: 'Negative',
       operator: 'Operator',
       symbol: 'Symbol',
@@ -9674,7 +9701,9 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       attributes: 'number',
+      enable: 'boolean',
       kind: 'string',
+      minPlan: 'string',
       negative: 'boolean',
       operator: 'string',
       symbol: 'string',
@@ -9777,6 +9806,7 @@ export class GetWafFilterResponseBodyFilterFieldsSelector extends $dara.Model {
 }
 
 export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
+  enable?: boolean;
   /**
    * @remarks
    * The field for matched objects in the system.
@@ -9798,6 +9828,7 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
    * The logical conditions.
    */
   logics?: GetWafFilterResponseBodyFilterFieldsLogics[];
+  minPlan?: string;
   /**
    * @remarks
    * The selector, which defines how to select a matched object.
@@ -9821,9 +9852,11 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
   subTip?: string;
   static names(): { [key: string]: string } {
     return {
+      enable: 'Enable',
       key: 'Key',
       label: 'Label',
       logics: 'Logics',
+      minPlan: 'MinPlan',
       selector: 'Selector',
       sub: 'Sub',
       subTip: 'SubTip',
@@ -9832,9 +9865,11 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enable: 'boolean',
       key: 'string',
       label: 'string',
       logics: { 'type': 'array', 'itemType': GetWafFilterResponseBodyFilterFieldsLogics },
+      minPlan: 'string',
       selector: GetWafFilterResponseBodyFilterFieldsSelector,
       sub: 'boolean',
       subTip: 'string',
@@ -15089,6 +15124,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
    * 4433
    */
   originHttpsPort?: string;
+  originMtls?: string;
   /**
    * @remarks
    * Protocol used for the origin request. Value range:
@@ -15108,6 +15144,7 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
    * origin.example.com
    */
   originSni?: string;
+  originVerify?: string;
   /**
    * @remarks
    * Use range slicing to download files from the origin. The value range is:
@@ -15169,8 +15206,10 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
       originHost: 'OriginHost',
       originHttpPort: 'OriginHttpPort',
       originHttpsPort: 'OriginHttpsPort',
+      originMtls: 'OriginMtls',
       originScheme: 'OriginScheme',
       originSni: 'OriginSni',
+      originVerify: 'OriginVerify',
       range: 'Range',
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
@@ -15188,8 +15227,10 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
       originHost: 'string',
       originHttpPort: 'string',
       originHttpsPort: 'string',
+      originMtls: 'string',
       originScheme: 'string',
       originSni: 'string',
+      originVerify: 'string',
       range: 'string',
       rule: 'string',
       ruleEnable: 'string',
@@ -19421,6 +19462,7 @@ export class WafRuleConfig extends $dara.Model {
   name?: string;
   notes?: string;
   rateLimit?: WafRuleConfigRateLimit;
+  securityLevel?: WafRuleConfigSecurityLevel;
   sigchl?: string[];
   status?: string;
   timer?: WafTimer;
@@ -19440,6 +19482,7 @@ export class WafRuleConfig extends $dara.Model {
       name: 'Name',
       notes: 'Notes',
       rateLimit: 'RateLimit',
+      securityLevel: 'SecurityLevel',
       sigchl: 'Sigchl',
       status: 'Status',
       timer: 'Timer',
@@ -19462,6 +19505,7 @@ export class WafRuleConfig extends $dara.Model {
       name: 'string',
       notes: 'string',
       rateLimit: WafRuleConfigRateLimit,
+      securityLevel: WafRuleConfigSecurityLevel,
       sigchl: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
       timer: WafTimer,
@@ -19485,6 +19529,9 @@ export class WafRuleConfig extends $dara.Model {
     }
     if(this.rateLimit && typeof (this.rateLimit as any).validate === 'function') {
       (this.rateLimit as any).validate();
+    }
+    if(this.securityLevel && typeof (this.securityLevel as any).validate === 'function') {
+      (this.securityLevel as any).validate();
     }
     if(Array.isArray(this.sigchl)) {
       $dara.Model.validateArray(this.sigchl);
@@ -26327,6 +26374,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
    * 4433
    */
   originHttpsPort?: string;
+  originMtls?: string;
   /**
    * @remarks
    * Protocol used for the origin request. Possible values:
@@ -26346,6 +26394,7 @@ export class CreateOriginRuleRequest extends $dara.Model {
    * origin.example.com
    */
   originSni?: string;
+  originVerify?: string;
   /**
    * @remarks
    * Use range chunking for downloading files from the origin. Possible values:
@@ -26407,8 +26456,10 @@ export class CreateOriginRuleRequest extends $dara.Model {
       originHost: 'OriginHost',
       originHttpPort: 'OriginHttpPort',
       originHttpsPort: 'OriginHttpsPort',
+      originMtls: 'OriginMtls',
       originScheme: 'OriginScheme',
       originSni: 'OriginSni',
+      originVerify: 'OriginVerify',
       range: 'Range',
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
@@ -26424,8 +26475,10 @@ export class CreateOriginRuleRequest extends $dara.Model {
       originHost: 'string',
       originHttpPort: 'string',
       originHttpsPort: 'string',
+      originMtls: 'string',
       originScheme: 'string',
       originSni: 'string',
+      originVerify: 'string',
       range: 'string',
       rule: 'string',
       ruleEnable: 'string',
@@ -29045,7 +29098,7 @@ export class CreateSiteDeliveryTaskResponseBody extends $dara.Model {
    * @example
    * 123456****
    */
-  siteId?: string;
+  siteId?: number;
   /**
    * @remarks
    * The name of the delivery task.
@@ -29067,7 +29120,7 @@ export class CreateSiteDeliveryTaskResponseBody extends $dara.Model {
     return {
       dataCenter: 'string',
       requestId: 'string',
-      siteId: 'string',
+      siteId: 'number',
       taskName: 'string',
     };
   }
@@ -30708,7 +30761,7 @@ export class DeactivateVersionManagementResponse extends $dara.Model {
 export class DeleteCacheRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * ConfigId of the configuration, which can be obtained by calling the [ListCacheRules](~~ListCacheRules~~) interface.
+   * ConfigId of the configuration, which can be obtained by calling the [ListCacheRules](https://help.aliyun.com/document_detail/2866985.html) interface.
    * 
    * This parameter is required.
    * 
@@ -32631,7 +32684,7 @@ export class DeleteListResponse extends $dara.Model {
 export class DeleteLoadBalancerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the load balancer, used to uniquely identify the load balancer to be queried. This ID is returned directly upon creation of the load balancer and can also be obtained through the [ListLoadBalancers](~~ListLoadBalancers~~) interface for querying all load balancers under a site.
+   * The ID of the load balancer, used to uniquely identify the load balancer to be queried. This ID is returned directly upon creation of the load balancer and can also be obtained through the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) interface for querying all load balancers under a site.
    * 
    * This parameter is required.
    * 
@@ -32740,7 +32793,7 @@ export class DeleteLoadBalancerResponse extends $dara.Model {
 export class DeleteNetworkOptimizationRequest extends $dara.Model {
   /**
    * @remarks
-   * ConfigId of the configuration, which can be obtained by calling the [ListNetworkOptimizations](~~ListNetworkOptimizations~~) interface.
+   * ConfigId of the configuration, which can be obtained by calling the ListNetworkOptimizations.
    * 
    * This parameter is required.
    * 
@@ -32849,7 +32902,7 @@ export class DeleteNetworkOptimizationResponse extends $dara.Model {
 export class DeleteOriginPoolRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the origin address pool, which can be obtained by calling the [ListOriginPools](~~ListOriginPools~~) API.
+   * The ID of the origin address pool, which can be obtained by calling the [ListOriginPools](https://help.aliyun.com/document_detail/2863947.html) API.
    * 
    * This parameter is required.
    * 
@@ -33055,7 +33108,7 @@ export class DeleteOriginProtectionResponse extends $dara.Model {
 export class DeleteOriginRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * ConfigId of the configuration, which can be obtained by calling the [ListOriginRules](~~ListOriginRules~~) interface.
+   * ConfigId of the configuration, which can be obtained by calling the [ListOriginRules](https://help.aliyun.com/document_detail/2866989.html) interface.
    * 
    * This parameter is required.
    * 
@@ -36621,6 +36674,9 @@ export class DescribePurgeTasksResponse extends $dara.Model {
 
 export class DescribeRatePlanInstanceStatusRequest extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID, obtained from the [ListUserRatePlanInstances](~~ListUserRatePlanInstances~~) API.
+   * 
    * @example
    * xcdn-91fknmb80f0g***
    */
@@ -36648,18 +36704,31 @@ export class DescribeRatePlanInstanceStatusRequest extends $dara.Model {
 
 export class DescribeRatePlanInstanceStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * xcdn-91fknmb80f0g***
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Instance status, with possible values:
+   * - running: Running
+   * - renewing: Renewing
+   * - upgrading: Upgrading
+   * - releasePrepaidService: Prepaid service released due to expiration
+   * - creating: Creating
+   * - downgrading: Downgrading
+   * - ceasePrepaidService: Prepaid service ceased upon expiration
+   * 
    * @example
    * running
    */
   instanceStatus?: string;
   /**
    * @remarks
-   * Id of the request
+   * Request ID.
    * 
    * @example
    * 60423A7F-A83D-1E24-B80E-86DD25790759
@@ -42006,7 +42075,7 @@ export class GetListResponse extends $dara.Model {
 export class GetLoadBalancerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the load balancer, used to uniquely identify the load balancer to be queried. This ID is returned directly when the load balancer is created, or it can be obtained through the [ListLoadBalancers](~~ListLoadBalancers~~) interface for querying all load balancers under a site.
+   * The ID of the load balancer, used to uniquely identify the load balancer to be queried. This ID is returned directly when the load balancer is created, or it can be obtained through the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) interface for querying all load balancers under a site.
    * 
    * This parameter is required.
    * 
@@ -42442,7 +42511,7 @@ export class GetManagedTransformResponse extends $dara.Model {
 export class GetNetworkOptimizationRequest extends $dara.Model {
   /**
    * @remarks
-   * ConfigId of the configuration, which can be obtained by calling the [ListNetworkOptimizations](~~ListNetworkOptimizations~~) interface.
+   * ConfigId of the configuration, which can be obtained by calling the ListNetworkOptimizations.
    * 
    * This parameter is required.
    * 
@@ -43146,6 +43215,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
    * 4433
    */
   originHttpsPort?: string;
+  originMtls?: string;
   /**
    * @remarks
    * Protocol used for the origin request. Value range:
@@ -43166,6 +43236,7 @@ export class GetOriginRuleResponseBody extends $dara.Model {
    * origin.example.com
    */
   originSni?: string;
+  originVerify?: string;
   /**
    * @remarks
    * Use range chunking method for origin download. Value range:
@@ -43236,8 +43307,10 @@ export class GetOriginRuleResponseBody extends $dara.Model {
       originHost: 'OriginHost',
       originHttpPort: 'OriginHttpPort',
       originHttpsPort: 'OriginHttpsPort',
+      originMtls: 'OriginMtls',
       originScheme: 'OriginScheme',
       originSni: 'OriginSni',
+      originVerify: 'OriginVerify',
       range: 'Range',
       requestId: 'RequestId',
       rule: 'Rule',
@@ -43256,8 +43329,10 @@ export class GetOriginRuleResponseBody extends $dara.Model {
       originHost: 'string',
       originHttpPort: 'string',
       originHttpsPort: 'string',
+      originMtls: 'string',
       originScheme: 'string',
       originSni: 'string',
+      originVerify: 'string',
       range: 'string',
       requestId: 'string',
       rule: 'string',
@@ -51294,7 +51369,7 @@ export class ListListsResponse extends $dara.Model {
 export class ListLoadBalancerOriginStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * Load balancer ID. When querying multiple load balancers, separate the IDs with commas. A maximum of 100 load balancer IDs can be passed at once. Load balancer IDs can be obtained by calling the [ListLoadBalancers](~~ListLoadBalancers~~) interface.
+   * Load balancer ID. When querying multiple load balancers, separate the IDs with commas. A maximum of 100 load balancer IDs can be passed at once. Load balancer IDs can be obtained by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) interface.
    * 
    * This parameter is required.
    * 
@@ -62302,7 +62377,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   fallbackPool?: number;
   /**
    * @remarks
-   * Load balancer ID, which can be obtained by calling the [ListLoadBalancers](~~ListLoadBalancers~~) interface.
+   * Load balancer ID, which can be obtained by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) interface.
    * 
    * This parameter is required.
    * 
@@ -62493,7 +62568,7 @@ export class UpdateLoadBalancerShrinkRequest extends $dara.Model {
   fallbackPool?: number;
   /**
    * @remarks
-   * Load balancer ID, which can be obtained by calling the [ListLoadBalancers](~~ListLoadBalancers~~) interface.
+   * Load balancer ID, which can be obtained by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) interface.
    * 
    * This parameter is required.
    * 
@@ -63038,7 +63113,7 @@ export class UpdateOriginPoolRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The ID of the origin pool, which can be obtained by calling the [ListOriginPools](~~ListOriginPools~~) interface.
+   * The ID of the origin pool, which can be obtained by calling the [ListOriginPools](https://help.aliyun.com/document_detail/2863947.html) interface.
    * 
    * This parameter is required.
    * 
@@ -63105,7 +63180,7 @@ export class UpdateOriginPoolShrinkRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The ID of the origin pool, which can be obtained by calling the [ListOriginPools](~~ListOriginPools~~) interface.
+   * The ID of the origin pool, which can be obtained by calling the [ListOriginPools](https://help.aliyun.com/document_detail/2863947.html) interface.
    * 
    * This parameter is required.
    * 
@@ -63482,6 +63557,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
    * 4433
    */
   originHttpsPort?: string;
+  originMtls?: string;
   /**
    * @remarks
    * Protocol used for the origin request. Possible values:
@@ -63501,6 +63577,7 @@ export class UpdateOriginRuleRequest extends $dara.Model {
    * origin.example.com
    */
   originSni?: string;
+  originVerify?: string;
   /**
    * @remarks
    * Use range chunked transfer to download files from the origin. Possible values:
@@ -63555,8 +63632,10 @@ export class UpdateOriginRuleRequest extends $dara.Model {
       originHost: 'OriginHost',
       originHttpPort: 'OriginHttpPort',
       originHttpsPort: 'OriginHttpsPort',
+      originMtls: 'OriginMtls',
       originScheme: 'OriginScheme',
       originSni: 'OriginSni',
+      originVerify: 'OriginVerify',
       range: 'Range',
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
@@ -63572,8 +63651,10 @@ export class UpdateOriginRuleRequest extends $dara.Model {
       originHost: 'string',
       originHttpPort: 'string',
       originHttpsPort: 'string',
+      originMtls: 'string',
       originScheme: 'string',
       originSni: 'string',
+      originVerify: 'string',
       range: 'string',
       rule: 'string',
       ruleEnable: 'string',
@@ -63805,6 +63886,13 @@ export class UpdatePageResponse extends $dara.Model {
 }
 
 export class UpdateRatePlanSpecRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable auto payment.
+   * 
+   * @example
+   * true
+   */
   autoPay?: boolean;
   /**
    * @example
@@ -63817,6 +63905,12 @@ export class UpdateRatePlanSpecRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The specification update type. Valid values:
+   * 
+   * *   DOWNGRADE
+   * *   UPGRADE
+   * 
    * @example
    * UPGRADE
    */
@@ -70463,12 +70557,20 @@ export default class Client extends OpenApi {
       query["OriginHttpsPort"] = request.originHttpsPort;
     }
 
+    if (!$dara.isNull(request.originMtls)) {
+      query["OriginMtls"] = request.originMtls;
+    }
+
     if (!$dara.isNull(request.originScheme)) {
       query["OriginScheme"] = request.originScheme;
     }
 
     if (!$dara.isNull(request.originSni)) {
       query["OriginSni"] = request.originSni;
+    }
+
+    if (!$dara.isNull(request.originVerify)) {
+      query["OriginVerify"] = request.originVerify;
     }
 
     if (!$dara.isNull(request.range)) {
@@ -74323,7 +74425,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询套餐实例状态
+   * Query Package Instance Status
+   * 
+   * @remarks
+   * You can only query the status of a package instance after purchasing and creating it.
    * 
    * @param request - DescribeRatePlanInstanceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74359,7 +74464,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询套餐实例状态
+   * Query Package Instance Status
+   * 
+   * @remarks
+   * You can only query the status of a package instance after purchasing and creating it.
    * 
    * @param request - DescribeRatePlanInstanceStatusRequest
    * @returns DescribeRatePlanInstanceStatusResponse
@@ -82468,12 +82576,20 @@ export default class Client extends OpenApi {
       query["OriginHttpsPort"] = request.originHttpsPort;
     }
 
+    if (!$dara.isNull(request.originMtls)) {
+      query["OriginMtls"] = request.originMtls;
+    }
+
     if (!$dara.isNull(request.originScheme)) {
       query["OriginScheme"] = request.originScheme;
     }
 
     if (!$dara.isNull(request.originSni)) {
       query["OriginSni"] = request.originSni;
+    }
+
+    if (!$dara.isNull(request.originVerify)) {
+      query["OriginVerify"] = request.originVerify;
     }
 
     if (!$dara.isNull(request.range)) {
