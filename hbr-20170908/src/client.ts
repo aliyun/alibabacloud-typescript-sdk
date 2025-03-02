@@ -1828,6 +1828,23 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJobDetail extends $d
   /**
    * @remarks
    * The ecs instance infos.
+   * 
+   * @example
+   * {
+   *   "i-xxxxxxxx": {
+   *     "hostName": "test",
+   *     "instanceName": "test",
+   *     "instanceType": "ecs.c7.xlarge",
+   *     "osType": "linux",
+   *     "diskIds": [
+   *       "d-xxxxxxxx01",
+   *       "d-xxxxxxxx02"
+   *     ],
+   *     "osNameEn": "Rocky Linux 8.8 64 bit",
+   *     "osName": "Rocky Linux 8.8 64位",
+   *     "platform": "Rocky Linux"
+   *   }
+   * }
    */
   instanceInfos?: { [key: string]: any };
   /**
@@ -1957,6 +1974,76 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJobPaths extends $da
     if(Array.isArray(this.path)) {
       $dara.Model.validateArray(this.path);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJobReport extends $dara.Model {
+  /**
+   * @remarks
+   * List of failed files
+   * 
+   * @example
+   * /temp/report/158975xxxxxx4625/r-0001hfxxxxxymsspjjtl/job-0001hfxxxxxymsspjjtl_failed.zip
+   */
+  failedFiles?: string;
+  /**
+   * @remarks
+   * Report generation status.
+   * 
+   * @example
+   * COMPLETE
+   */
+  reportTaskStatus?: string;
+  /**
+   * @remarks
+   * List of skipped files
+   * 
+   * @example
+   * /temp/report/158975xxxxxx4625/r-0001hfxxxxxymsspjjtl/job-0001hfxxxxxymsspjjtl_skipped.zip
+   */
+  skippedFiles?: string;
+  /**
+   * @remarks
+   * List of successful files.
+   * 
+   * @example
+   * /temp/report/158975xxxxxx4625/r-0001hfxxxxxymsspjjtl/job-0001hfxxxxxymsspjjtl_success.zip
+   */
+  successFiles?: string;
+  /**
+   * @remarks
+   * List of all files. (This field is not returned for data synchronization)
+   * 
+   * @example
+   * /temp/report/158975xxxxxx4625/job-0001hfxxxxxymsspjjtl/job-0001hfxxxxxymsspjjtl_total.csv
+   */
+  totalFiles?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failedFiles: 'FailedFiles',
+      reportTaskStatus: 'ReportTaskStatus',
+      skippedFiles: 'SkippedFiles',
+      successFiles: 'SuccessFiles',
+      totalFiles: 'TotalFiles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedFiles: 'string',
+      reportTaskStatus: 'string',
+      skippedFiles: 'string',
+      successFiles: 'string',
+      totalFiles: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -2270,6 +2357,11 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJob extends $dara.Mo
   progress?: number;
   /**
    * @remarks
+   * Task Report
+   */
+  report?: DescribeBackupJobs2ResponseBodyBackupJobsBackupJobReport;
+  /**
+   * @remarks
    * The type of the data source. Valid values:
    * 
    * *   **ECS_FILE**: ECS files
@@ -2384,6 +2476,7 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJob extends $dara.Mo
       planId: 'PlanId',
       prefix: 'Prefix',
       progress: 'Progress',
+      report: 'Report',
       sourceType: 'SourceType',
       speed: 'Speed',
       speedLimit: 'SpeedLimit',
@@ -2435,6 +2528,7 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJob extends $dara.Mo
       planId: 'string',
       prefix: 'string',
       progress: 'number',
+      report: DescribeBackupJobs2ResponseBodyBackupJobsBackupJobReport,
       sourceType: 'string',
       speed: 'number',
       speedLimit: 'string',
@@ -2455,6 +2549,9 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJob extends $dara.Mo
     }
     if(this.paths && typeof (this.paths as any).validate === 'function') {
       (this.paths as any).validate();
+    }
+    if(this.report && typeof (this.report as any).validate === 'function') {
+      (this.report as any).validate();
     }
     super.validate();
   }
@@ -7557,6 +7654,17 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
   bytesTotal?: number;
   /**
    * @remarks
+   * Indicates whether the disk backup point can be deleted. This parameter is valid only if the value of SourceType is UDM_ECS_DISK.
+   * 
+   * @example
+   * false
+   * 
+   * **if can be null:**
+   * true
+   */
+  canBeDeleted?: boolean;
+  /**
+   * @remarks
    * The time when the backup snapshot was completed. The value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
@@ -7752,6 +7860,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
       advancedRetentionType: 'AdvancedRetentionType',
       backupType: 'BackupType',
       bytesTotal: 'BytesTotal',
+      canBeDeleted: 'CanBeDeleted',
       completeTime: 'CompleteTime',
       createTime: 'CreateTime',
       createdTime: 'CreatedTime',
@@ -7781,6 +7890,7 @@ export class DescribeUdmSnapshotsResponseBodySnapshots extends $dara.Model {
       advancedRetentionType: 'string',
       backupType: 'string',
       bytesTotal: 'number',
+      canBeDeleted: 'boolean',
       completeTime: 'number',
       createTime: 'number',
       createdTime: 'number',
@@ -11791,6 +11901,13 @@ export class CreateBackupPlanRequest extends $dara.Model {
    * {"dataSourceId": "ds-123456789", "path": "/changelist"}
    */
   changeListPath?: string;
+  /**
+   * @remarks
+   * The ID of the client group that executes the data synchronization plan. This parameter is required only for data synchronization.
+   * 
+   * @example
+   * cl-***************
+   */
   clusterId?: string;
   /**
    * @remarks
@@ -11826,6 +11943,13 @@ export class CreateBackupPlanRequest extends $dara.Model {
    * 15897534xxxx4625
    */
   crossAccountUserId?: number;
+  /**
+   * @remarks
+   * The ID of the data source. This parameter is required only for data synchronization.
+   * 
+   * @example
+   * ds-****************
+   */
   dataSourceId?: string;
   /**
    * @remarks
@@ -11936,7 +12060,7 @@ export class CreateBackupPlanRequest extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * Table store instance details.
+   * The details about the Tablestore instance.
    */
   otsDetail?: OtsDetail;
   /**
@@ -11990,13 +12114,14 @@ export class CreateBackupPlanRequest extends $dara.Model {
   schedule?: string;
   /**
    * @remarks
-   * Data source type, with the following options:
+   * The type of the data source. Valid values:
    * 
-   * - **ECS_FILE**: Backs up ECS files
-   * - **OSS**: Backs up Alibaba Cloud OSS
-   * - **NAS**: Backs up Alibaba Cloud NAS
-   * - **OTS**: Backs up Alibaba Cloud OTS
-   * - **UDM_ECS**: Backs up the entire ECS instance
+   * *   **ECS_FILE**: Elastic Compute Service (ECS) files
+   * *   **OSS**: Object Storage Service (OSS) buckets
+   * *   **NAS**: File Storage NAS (NAS) file systems
+   * *   **OTS**: Tablestore instances
+   * *   **UDM_ECS**: ECS instances
+   * *   **SYNC**: data synchronization
    * 
    * This parameter is required.
    * 
@@ -12157,6 +12282,13 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
    * {"dataSourceId": "ds-123456789", "path": "/changelist"}
    */
   changeListPath?: string;
+  /**
+   * @remarks
+   * The ID of the client group that executes the data synchronization plan. This parameter is required only for data synchronization.
+   * 
+   * @example
+   * cl-***************
+   */
   clusterId?: string;
   /**
    * @remarks
@@ -12192,6 +12324,13 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
    * 15897534xxxx4625
    */
   crossAccountUserId?: number;
+  /**
+   * @remarks
+   * The ID of the data source. This parameter is required only for data synchronization.
+   * 
+   * @example
+   * ds-****************
+   */
   dataSourceId?: string;
   /**
    * @remarks
@@ -12302,7 +12441,7 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
   options?: string;
   /**
    * @remarks
-   * Table store instance details.
+   * The details about the Tablestore instance.
    */
   otsDetailShrink?: string;
   /**
@@ -12356,13 +12495,14 @@ export class CreateBackupPlanShrinkRequest extends $dara.Model {
   schedule?: string;
   /**
    * @remarks
-   * Data source type, with the following options:
+   * The type of the data source. Valid values:
    * 
-   * - **ECS_FILE**: Backs up ECS files
-   * - **OSS**: Backs up Alibaba Cloud OSS
-   * - **NAS**: Backs up Alibaba Cloud NAS
-   * - **OTS**: Backs up Alibaba Cloud OTS
-   * - **UDM_ECS**: Backs up the entire ECS instance
+   * *   **ECS_FILE**: Elastic Compute Service (ECS) files
+   * *   **OSS**: Object Storage Service (OSS) buckets
+   * *   **NAS**: File Storage NAS (NAS) file systems
+   * *   **OTS**: Tablestore instances
+   * *   **UDM_ECS**: ECS instances
+   * *   **SYNC**: data synchronization
    * 
    * This parameter is required.
    * 
@@ -15276,7 +15416,7 @@ export class CreateVaultRequest extends $dara.Model {
   vaultRegionId?: string;
   /**
    * @remarks
-   * The storage class of the backup vault. Valid value: **STANDARD**, which indicates standard storage.
+   * The storage type of the backup vault. Valid value: **STANDARD**, which indicates standard storage.
    * 
    * @example
    * STANDARD
@@ -15293,6 +15433,13 @@ export class CreateVaultRequest extends $dara.Model {
    * STANDARD
    */
   vaultType?: string;
+  /**
+   * @remarks
+   * Whether to enable the vault worm feature. Once the worm feature is enabled, the vault and all its backup data cannot be deleted before they automatically expire. After enabling the worm feature, it is not supported to disable it. The worm feature is only effective for standard and archive backup vault.
+   * 
+   * @example
+   * false
+   */
   wormEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -22535,6 +22682,7 @@ export class DescribeVaultsRequest extends $dara.Model {
    * v-*********************
    */
   vaultId?: string;
+  vaultName?: string;
   /**
    * @remarks
    * The region ID to which the backup vault belongs.
@@ -22561,6 +22709,7 @@ export class DescribeVaultsRequest extends $dara.Model {
       status: 'Status',
       tag: 'Tag',
       vaultId: 'VaultId',
+      vaultName: 'VaultName',
       vaultRegionId: 'VaultRegionId',
       vaultType: 'VaultType',
     };
@@ -22574,6 +22723,7 @@ export class DescribeVaultsRequest extends $dara.Model {
       status: 'string',
       tag: { 'type': 'array', 'itemType': DescribeVaultsRequestTag },
       vaultId: 'string',
+      vaultName: 'string',
       vaultRegionId: 'string',
       vaultType: 'string',
     };
@@ -28212,6 +28362,13 @@ export class UpdateVaultRequest extends $dara.Model {
    * vaultname
    */
   vaultName?: string;
+  /**
+   * @remarks
+   * Whether to enable the vault worm feature. Once the worm feature is enabled, the vault and all its backup data cannot be deleted before they automatically expire. After enabling the worm feature, it is not supported to disable it. The worm feature is only effective for standard and archive backup vault.
+   * 
+   * @example
+   * true
+   */
   wormEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -32668,6 +32825,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.vaultId)) {
       query["VaultId"] = request.vaultId;
+    }
+
+    if (!$dara.isNull(request.vaultName)) {
+      query["VaultName"] = request.vaultName;
     }
 
     if (!$dara.isNull(request.vaultRegionId)) {
