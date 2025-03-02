@@ -5,6 +5,263 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class DescribeNumberHLRResponseBodyDataCall extends $dara.Model {
+  /**
+   * @remarks
+   * call
+   * 
+   * @example
+   * 示例值
+   */
+  cleansedCode?: string;
+  /**
+   * @example
+   * 22
+   */
+  maxLength?: number;
+  /**
+   * @example
+   * 21
+   */
+  minLength?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cleansedCode: 'CleansedCode',
+      maxLength: 'MaxLength',
+      minLength: 'MinLength',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cleansedCode: 'string',
+      maxLength: 'number',
+      minLength: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNumberHLRResponseBodyDataLive extends $dara.Model {
+  /**
+   * @example
+   * 示例值
+   */
+  deviceStatus?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  roaming?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  roamingCountry?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  subscriberStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceStatus: 'DeviceStatus',
+      roaming: 'Roaming',
+      roamingCountry: 'RoamingCountry',
+      subscriberStatus: 'SubscriberStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceStatus: 'string',
+      roaming: 'string',
+      roamingCountry: 'string',
+      subscriberStatus: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNumberHLRResponseBodyDataSms extends $dara.Model {
+  /**
+   * @remarks
+   * sms
+   * 
+   * @example
+   * 58
+   */
+  cleansedCode?: number;
+  /**
+   * @example
+   * 59
+   */
+  maxLength?: number;
+  /**
+   * @example
+   * 2
+   */
+  minLength?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cleansedCode: 'CleansedCode',
+      maxLength: 'MaxLength',
+      minLength: 'MinLength',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cleansedCode: 'number',
+      maxLength: 'number',
+      minLength: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNumberHLRResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 示例值示例值
+   */
+  blocked?: string;
+  call?: DescribeNumberHLRResponseBodyDataCall;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  carrier?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  city?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  countryIso3?: string;
+  live?: DescribeNumberHLRResponseBodyDataLive;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  phoneType?: string;
+  sms?: DescribeNumberHLRResponseBodyDataSms;
+  static names(): { [key: string]: string } {
+    return {
+      blocked: 'Blocked',
+      call: 'Call',
+      carrier: 'Carrier',
+      city: 'City',
+      countryIso3: 'CountryIso3',
+      live: 'Live',
+      phoneType: 'PhoneType',
+      sms: 'Sms',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blocked: 'string',
+      call: DescribeNumberHLRResponseBodyDataCall,
+      carrier: 'string',
+      city: 'string',
+      countryIso3: 'string',
+      live: DescribeNumberHLRResponseBodyDataLive,
+      phoneType: 'string',
+      sms: DescribeNumberHLRResponseBodyDataSms,
+    };
+  }
+
+  validate() {
+    if(this.call && typeof (this.call as any).validate === 'function') {
+      (this.call as any).validate();
+    }
+    if(this.live && typeof (this.live as any).validate === 'function') {
+      (this.live as any).validate();
+    }
+    if(this.sms && typeof (this.sms as any).validate === 'function') {
+      (this.sms as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNumberMccMncResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 示例值示例值
+   */
+  countryIso3?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  mcc?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  mnc?: string;
+  /**
+   * @example
+   * true
+   */
+  ported?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      countryIso3: 'CountryIso3',
+      mcc: 'Mcc',
+      mnc: 'Mnc',
+      ported: 'Ported',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      countryIso3: 'string',
+      mcc: 'string',
+      mnc: 'string',
+      ported: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPhoneNumberIdentificationResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
@@ -67,6 +324,270 @@ export class GetPhoneNumberIdentificationUrlResponseBodyData extends $dara.Model
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNumberHLRRequest extends $dara.Model {
+  /**
+   * @example
+   * 示例值示例值
+   */
+  authCode?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      ownerId: 'OwnerId',
+      phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      ownerId: 'number',
+      phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNumberHLRResponseBody extends $dara.Model {
+  /**
+   * @example
+   * None
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: DescribeNumberHLRResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * 1C3B8084-3A7D-570B-BC84-BF945A9CF65E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: DescribeNumberHLRResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNumberHLRResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNumberHLRResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNumberHLRResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNumberMccMncRequest extends $dara.Model {
+  /**
+   * @example
+   * 示例值
+   */
+  authCode?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 86123434345
+   */
+  phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      ownerId: 'OwnerId',
+      phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      ownerId: 'number',
+      phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNumberMccMncResponseBody extends $dara.Model {
+  /**
+   * @example
+   * -
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: DescribeNumberMccMncResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * CC3BB6D2-2FDF-4321-9DCE-B38165CE4C47
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: DescribeNumberMccMncResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNumberMccMncResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNumberMccMncResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNumberMccMncResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
     super.validate();
   }
 
@@ -469,6 +990,132 @@ export default class Client extends OpenApi {
     }
 
     return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * HLR服务
+   * 
+   * @param request - DescribeNumberHLRRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNumberHLRResponse
+   */
+  async describeNumberHLRWithOptions(request: DescribeNumberHLRRequest, runtime: $dara.RuntimeOptions): Promise<DescribeNumberHLRResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNumberHLR",
+      version: "2023-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeNumberHLRResponse>(await this.callApi(params, req, runtime), new DescribeNumberHLRResponse({}));
+    } else {
+      return $dara.cast<DescribeNumberHLRResponse>(await this.execute(params, req, runtime), new DescribeNumberHLRResponse({}));
+    }
+
+  }
+
+  /**
+   * HLR服务
+   * 
+   * @param request - DescribeNumberHLRRequest
+   * @returns DescribeNumberHLRResponse
+   */
+  async describeNumberHLR(request: DescribeNumberHLRRequest): Promise<DescribeNumberHLRResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeNumberHLRWithOptions(request, runtime);
+  }
+
+  /**
+   * 号码百科国际站号码归属服务
+   * 
+   * @param request - DescribeNumberMccMncRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNumberMccMncResponse
+   */
+  async describeNumberMccMncWithOptions(request: DescribeNumberMccMncRequest, runtime: $dara.RuntimeOptions): Promise<DescribeNumberMccMncResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNumberMccMnc",
+      version: "2023-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeNumberMccMncResponse>(await this.callApi(params, req, runtime), new DescribeNumberMccMncResponse({}));
+    } else {
+      return $dara.cast<DescribeNumberMccMncResponse>(await this.execute(params, req, runtime), new DescribeNumberMccMncResponse({}));
+    }
+
+  }
+
+  /**
+   * 号码百科国际站号码归属服务
+   * 
+   * @param request - DescribeNumberMccMncRequest
+   * @returns DescribeNumberMccMncResponse
+   */
+  async describeNumberMccMnc(request: DescribeNumberMccMncRequest): Promise<DescribeNumberMccMncResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeNumberMccMncWithOptions(request, runtime);
   }
 
   /**
