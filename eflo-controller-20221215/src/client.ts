@@ -1065,6 +1065,359 @@ export class CreateDiagnosticTaskRequestAiJobLogInfo extends $dara.Model {
   }
 }
 
+export class CreateNetTestTaskRequestCommTestHosts extends $dara.Model {
+  /**
+   * @example
+   * 169.253.253.15
+   */
+  IP?: string;
+  /**
+   * @example
+   * e01-tw-bqisacl3z6l
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * i111670831721110797708
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * VBw
+   */
+  serverName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      IP: 'IP',
+      nodeId: 'NodeId',
+      resourceId: 'ResourceId',
+      serverName: 'ServerName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IP: 'string',
+      nodeId: 'string',
+      resourceId: 'string',
+      serverName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetTestTaskRequestCommTest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  GPUNum?: number;
+  hosts?: CreateNetTestTaskRequestCommTestHosts[];
+  /**
+   * @example
+   * intention_v4
+   */
+  model?: string;
+  /**
+   * @example
+   * ACCL
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      GPUNum: 'GPUNum',
+      hosts: 'Hosts',
+      model: 'Model',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GPUNum: 'number',
+      hosts: { 'type': 'array', 'itemType': CreateNetTestTaskRequestCommTestHosts },
+      model: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hosts)) {
+      $dara.Model.validateArray(this.hosts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetTestTaskRequestDelayTestHosts extends $dara.Model {
+  /**
+   * @example
+   * bond1
+   */
+  bond?: string;
+  /**
+   * @example
+   * 125.210.225.48
+   */
+  IP?: string;
+  /**
+   * @example
+   * e01-cn-fou43an0a05
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * e01-cn-bcd3u1aee06
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * NQU
+   */
+  serverName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bond: 'Bond',
+      IP: 'IP',
+      nodeId: 'NodeId',
+      resourceId: 'ResourceId',
+      serverName: 'ServerName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bond: 'string',
+      IP: 'string',
+      nodeId: 'string',
+      resourceId: 'string',
+      serverName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetTestTaskRequestDelayTest extends $dara.Model {
+  hosts?: CreateNetTestTaskRequestDelayTestHosts[];
+  static names(): { [key: string]: string } {
+    return {
+      hosts: 'Hosts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hosts: { 'type': 'array', 'itemType': CreateNetTestTaskRequestDelayTestHosts },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hosts)) {
+      $dara.Model.validateArray(this.hosts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetTestTaskRequestTrafficTestClients extends $dara.Model {
+  /**
+   * @example
+   * bond1
+   */
+  bond?: string;
+  /**
+   * @example
+   * 192.168.1.1
+   */
+  IP?: string;
+  /**
+   * @example
+   * e01-tw-w5elqg7pw18
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * e01-cn-20s41p6cx01
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * xMv
+   */
+  serverName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bond: 'Bond',
+      IP: 'IP',
+      nodeId: 'NodeId',
+      resourceId: 'ResourceId',
+      serverName: 'ServerName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bond: 'string',
+      IP: 'string',
+      nodeId: 'string',
+      resourceId: 'string',
+      serverName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetTestTaskRequestTrafficTestServers extends $dara.Model {
+  /**
+   * @example
+   * bond1
+   */
+  bond?: string;
+  /**
+   * @example
+   * 47.121.110.190
+   */
+  IP?: string;
+  /**
+   * @example
+   * e01-tw-bqisacl3z6l
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * e01-cn-wwo3etaqu0b
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * xMv
+   */
+  serverName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bond: 'Bond',
+      IP: 'IP',
+      nodeId: 'NodeId',
+      resourceId: 'ResourceId',
+      serverName: 'ServerName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bond: 'string',
+      IP: 'string',
+      nodeId: 'string',
+      resourceId: 'string',
+      serverName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetTestTaskRequestTrafficTest extends $dara.Model {
+  clients?: CreateNetTestTaskRequestTrafficTestClients[];
+  /**
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @example
+   * False
+   */
+  GDR?: boolean;
+  /**
+   * @example
+   * TCP
+   */
+  protocol?: string;
+  /**
+   * @example
+   * 1
+   */
+  QP?: number;
+  servers?: CreateNetTestTaskRequestTrafficTestServers[];
+  /**
+   * @example
+   * Fullmesh
+   */
+  trafficModel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clients: 'Clients',
+      duration: 'Duration',
+      GDR: 'GDR',
+      protocol: 'Protocol',
+      QP: 'QP',
+      servers: 'Servers',
+      trafficModel: 'TrafficModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clients: { 'type': 'array', 'itemType': CreateNetTestTaskRequestTrafficTestClients },
+      duration: 'number',
+      GDR: 'boolean',
+      protocol: 'string',
+      QP: 'number',
+      servers: { 'type': 'array', 'itemType': CreateNetTestTaskRequestTrafficTestServers },
+      trafficModel: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.clients)) {
+      $dara.Model.validateArray(this.clients);
+    }
+    if(Array.isArray(this.servers)) {
+      $dara.Model.validateArray(this.servers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterResponseBodyComponents extends $dara.Model {
   /**
    * @remarks
@@ -1616,6 +1969,331 @@ export class DescribeInvocationsResponseBodyInvocations extends $dara.Model {
   validate() {
     if(Array.isArray(this.invocation)) {
       $dara.Model.validateArray(this.invocation);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetTestResultResponseBodyCommTestHosts extends $dara.Model {
+  /**
+   * @example
+   * 169.253.253.15
+   */
+  IP?: string;
+  /**
+   * @example
+   * i111670831721110797708
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * VBw
+   */
+  serverName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      IP: 'IP',
+      resourceId: 'ResourceId',
+      serverName: 'ServerName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IP: 'string',
+      resourceId: 'string',
+      serverName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetTestResultResponseBodyCommTest extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
+  GPUNum?: string;
+  hosts?: DescribeNetTestResultResponseBodyCommTestHosts[];
+  /**
+   * @example
+   * intention_v4
+   */
+  model?: string;
+  /**
+   * @example
+   * ACCL
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      GPUNum: 'GPUNum',
+      hosts: 'Hosts',
+      model: 'Model',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GPUNum: 'string',
+      hosts: { 'type': 'array', 'itemType': DescribeNetTestResultResponseBodyCommTestHosts },
+      model: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hosts)) {
+      $dara.Model.validateArray(this.hosts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetTestResultResponseBodyDelayTestHosts extends $dara.Model {
+  /**
+   * @example
+   * bond1
+   */
+  bond?: string;
+  /**
+   * @example
+   * 125.210.225.48
+   */
+  IP?: string;
+  /**
+   * @example
+   * e01-cn-bcd3u1aee06
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * NQU
+   */
+  serverName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bond: 'Bond',
+      IP: 'IP',
+      resourceId: 'ResourceId',
+      serverName: 'ServerName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bond: 'string',
+      IP: 'string',
+      resourceId: 'string',
+      serverName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetTestResultResponseBodyDelayTest extends $dara.Model {
+  hosts?: DescribeNetTestResultResponseBodyDelayTestHosts[];
+  static names(): { [key: string]: string } {
+    return {
+      hosts: 'Hosts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hosts: { 'type': 'array', 'itemType': DescribeNetTestResultResponseBodyDelayTestHosts },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hosts)) {
+      $dara.Model.validateArray(this.hosts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetTestResultResponseBodyTrafficTestClients extends $dara.Model {
+  /**
+   * @example
+   * bond1
+   */
+  bond?: string;
+  /**
+   * @example
+   * 192.168.1.1
+   */
+  IP?: string;
+  /**
+   * @example
+   * e01-cn-20s41p6cx01
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * xMv
+   */
+  serverName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bond: 'Bond',
+      IP: 'IP',
+      resourceId: 'ResourceId',
+      serverName: 'ServerName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bond: 'string',
+      IP: 'string',
+      resourceId: 'string',
+      serverName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetTestResultResponseBodyTrafficTestServers extends $dara.Model {
+  /**
+   * @example
+   * bond1
+   */
+  bond?: string;
+  /**
+   * @example
+   * 47.121.110.190
+   */
+  IP?: string;
+  /**
+   * @example
+   * e01-cn-wwo3etaqu0b
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * xMv
+   */
+  serverName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bond: 'Bond',
+      IP: 'IP',
+      resourceId: 'ResourceId',
+      serverName: 'ServerName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bond: 'string',
+      IP: 'string',
+      resourceId: 'string',
+      serverName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetTestResultResponseBodyTrafficTest extends $dara.Model {
+  clients?: DescribeNetTestResultResponseBodyTrafficTestClients[];
+  /**
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @example
+   * False
+   */
+  GDR?: string;
+  /**
+   * @example
+   * TCP
+   */
+  protocol?: string;
+  /**
+   * @example
+   * 1
+   */
+  QP?: number;
+  servers?: DescribeNetTestResultResponseBodyTrafficTestServers[];
+  /**
+   * @example
+   * Fullmesh
+   */
+  trafficModel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clients: 'Clients',
+      duration: 'Duration',
+      GDR: 'GDR',
+      protocol: 'Protocol',
+      QP: 'QP',
+      servers: 'Servers',
+      trafficModel: 'TrafficModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clients: { 'type': 'array', 'itemType': DescribeNetTestResultResponseBodyTrafficTestClients },
+      duration: 'number',
+      GDR: 'string',
+      protocol: 'string',
+      QP: 'number',
+      servers: { 'type': 'array', 'itemType': DescribeNetTestResultResponseBodyTrafficTestServers },
+      trafficModel: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.clients)) {
+      $dara.Model.validateArray(this.clients);
+    }
+    if(Array.isArray(this.servers)) {
+      $dara.Model.validateArray(this.servers);
     }
     super.validate();
   }
@@ -3121,6 +3799,92 @@ export class ListClustersResponseBodyClusters extends $dara.Model {
   }
 }
 
+export class ListDiagnosticResultsResponseBodyDiagnosticResults extends $dara.Model {
+  /**
+   * @example
+   * i118578141694745246055
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * pjlab-lingjun
+   */
+  clusterName?: string;
+  /**
+   * @example
+   * 2024-01-15T02:01:12Z
+   */
+  creationTime?: string;
+  diagContent?: string;
+  /**
+   * @example
+   * 123
+   */
+  diagId?: string;
+  /**
+   * @example
+   * Success
+   */
+  diagResult?: string;
+  /**
+   * @example
+   * 2024-10-16T02:04Z
+   */
+  finishedTime?: string;
+  /**
+   * @example
+   * e01-cn-bl03ofg6206
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * proxy-rps.mos.csvw.com
+   */
+  serverName?: string;
+  /**
+   * @example
+   * succeed
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      creationTime: 'CreationTime',
+      diagContent: 'DiagContent',
+      diagId: 'DiagId',
+      diagResult: 'DiagResult',
+      finishedTime: 'FinishedTime',
+      resourceId: 'ResourceId',
+      serverName: 'ServerName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterName: 'string',
+      creationTime: 'string',
+      diagContent: 'string',
+      diagId: 'string',
+      diagResult: 'string',
+      finishedTime: 'string',
+      resourceId: 'string',
+      serverName: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFreeNodesResponseBodyNodes extends $dara.Model {
   /**
    * @remarks
@@ -3209,6 +3973,236 @@ export class ListFreeNodesResponseBodyNodes extends $dara.Model {
       resourceGroupId: 'string',
       sn: 'string',
       zoneId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImagesResponseBodyImages extends $dara.Model {
+  /**
+   * @remarks
+   * Architecture
+   * 
+   * @example
+   * x86_64
+   */
+  architecture?: string;
+  /**
+   * @remarks
+   * Description
+   * 
+   * @example
+   * alibaba cloud linux 3 full for H800
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Image ID
+   * 
+   * @example
+   * i190951671671438639388
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * Image name
+   * 
+   * @example
+   * CentOS_7.9_x86_64_FULL_20221110
+   */
+  imageName?: string;
+  /**
+   * @remarks
+   * Image version
+   * 
+   * @example
+   * 7.9
+   */
+  imageVersion?: string;
+  /**
+   * @remarks
+   * node count
+   * 
+   * @example
+   * 20
+   */
+  nodeCount?: number;
+  /**
+   * @remarks
+   * Platform
+   * 
+   * @example
+   * ALinux3
+   */
+  platform?: string;
+  /**
+   * @remarks
+   * File MD5
+   * 
+   * @example
+   * 40741292480fc6d778138adcf8c
+   */
+  releaseFileMd5?: string;
+  /**
+   * @remarks
+   * Image size
+   * 
+   * @example
+   * 5.8G
+   */
+  releaseFileSize?: number;
+  /**
+   * @remarks
+   * image type
+   * 
+   * @example
+   * Public
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'Architecture',
+      description: 'Description',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
+      imageVersion: 'ImageVersion',
+      nodeCount: 'NodeCount',
+      platform: 'Platform',
+      releaseFileMd5: 'ReleaseFileMd5',
+      releaseFileSize: 'ReleaseFileSize',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: 'string',
+      description: 'string',
+      imageId: 'string',
+      imageName: 'string',
+      imageVersion: 'string',
+      nodeCount: 'number',
+      platform: 'string',
+      releaseFileMd5: 'string',
+      releaseFileSize: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineNetworkInfoRequestMachineHpnInfo extends $dara.Model {
+  /**
+   * @example
+   * C1
+   */
+  hpnZone?: string;
+  /**
+   * @example
+   * efg2.C48cNHmcn
+   */
+  machineType?: string;
+  /**
+   * @example
+   * cn-heyuan
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hpnZone: 'HpnZone',
+      machineType: 'MachineType',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hpnZone: 'string',
+      machineType: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineNetworkInfoResponseBodyMachineNetworkInfo extends $dara.Model {
+  /**
+   * @example
+   * vpc/acl
+   */
+  clusterNet?: string;
+  /**
+   * @example
+   * true
+   */
+  enableJumboFrame?: boolean;
+  /**
+   * @example
+   * B1
+   */
+  hpnZone?: string;
+  /**
+   * @example
+   * true
+   */
+  isDpuMode?: boolean;
+  /**
+   * @example
+   * efg1.nvga8n
+   */
+  machineType?: string;
+  /**
+   * @example
+   * XX-7.0
+   */
+  netArch?: string;
+  /**
+   * @example
+   * cn-heyuan
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterNet: 'ClusterNet',
+      enableJumboFrame: 'EnableJumboFrame',
+      hpnZone: 'HpnZone',
+      isDpuMode: 'IsDpuMode',
+      machineType: 'MachineType',
+      netArch: 'NetArch',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterNet: 'string',
+      enableJumboFrame: 'boolean',
+      hpnZone: 'string',
+      isDpuMode: 'boolean',
+      machineType: 'string',
+      netArch: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3333,6 +4327,432 @@ export class ListMachineTypesResponseBodyMachineTypes extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetTestResultsResponseBodyNetTestResultsCommTestHosts extends $dara.Model {
+  /**
+   * @example
+   * 10.51.16.21
+   */
+  IP?: string;
+  /**
+   * @example
+   * e01-cn-wwo3eteze19
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * www.xinjiaoyu.com
+   */
+  serverName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      IP: 'IP',
+      resourceId: 'ResourceId',
+      serverName: 'ServerName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IP: 'string',
+      resourceId: 'string',
+      serverName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetTestResultsResponseBodyNetTestResultsCommTest extends $dara.Model {
+  /**
+   * @example
+   * 4
+   */
+  GPUNum?: string;
+  hosts?: ListNetTestResultsResponseBodyNetTestResultsCommTestHosts[];
+  /**
+   * @example
+   * AllToAll
+   */
+  model?: string;
+  /**
+   * @example
+   * ACCL
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      GPUNum: 'GPUNum',
+      hosts: 'Hosts',
+      model: 'Model',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      GPUNum: 'string',
+      hosts: { 'type': 'array', 'itemType': ListNetTestResultsResponseBodyNetTestResultsCommTestHosts },
+      model: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hosts)) {
+      $dara.Model.validateArray(this.hosts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetTestResultsResponseBodyNetTestResultsDelayTestHosts extends $dara.Model {
+  /**
+   * @example
+   * bond1
+   */
+  bond?: string;
+  /**
+   * @example
+   * pgm-bp174z988a27wre71o.pg.rds.aliyuncs.com
+   */
+  IP?: string;
+  /**
+   * @example
+   * e01-cn-wwo3eteze19
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * WrF
+   */
+  serverName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bond: 'Bond',
+      IP: 'IP',
+      resourceId: 'ResourceId',
+      serverName: 'ServerName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bond: 'string',
+      IP: 'string',
+      resourceId: 'string',
+      serverName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetTestResultsResponseBodyNetTestResultsDelayTest extends $dara.Model {
+  hosts?: ListNetTestResultsResponseBodyNetTestResultsDelayTestHosts[];
+  static names(): { [key: string]: string } {
+    return {
+      hosts: 'Hosts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hosts: { 'type': 'array', 'itemType': ListNetTestResultsResponseBodyNetTestResultsDelayTestHosts },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.hosts)) {
+      $dara.Model.validateArray(this.hosts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients extends $dara.Model {
+  /**
+   * @example
+   * bond1
+   */
+  bond?: string;
+  /**
+   * @example
+   * 74.73.100.1
+   */
+  IP?: string;
+  /**
+   * @example
+   * e01-cn-20p36bqet39
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * prod-gf-cn.juequling.com
+   */
+  serverName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bond: 'Bond',
+      IP: 'IP',
+      resourceId: 'ResourceId',
+      serverName: 'ServerName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bond: 'string',
+      IP: 'string',
+      resourceId: 'string',
+      serverName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetTestResultsResponseBodyNetTestResultsTrafficTestServers extends $dara.Model {
+  /**
+   * @example
+   * bond1
+   */
+  bond?: string;
+  /**
+   * @example
+   * 10.1.168.183
+   */
+  IP?: string;
+  /**
+   * @example
+   * e01-cn-wwo3eteze19
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * prod-gf-cn.juequling.com
+   */
+  serverName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bond: 'Bond',
+      IP: 'IP',
+      resourceId: 'ResourceId',
+      serverName: 'ServerName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bond: 'string',
+      IP: 'string',
+      resourceId: 'string',
+      serverName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetTestResultsResponseBodyNetTestResultsTrafficTest extends $dara.Model {
+  clients?: ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients[];
+  /**
+   * @example
+   * 1
+   */
+  duration?: number;
+  /**
+   * @example
+   * True
+   */
+  GDR?: string;
+  /**
+   * @example
+   * TCP
+   */
+  protocol?: string;
+  /**
+   * @example
+   * RDMA
+   */
+  QP?: number;
+  servers?: ListNetTestResultsResponseBodyNetTestResultsTrafficTestServers[];
+  /**
+   * @example
+   * Fullmesh
+   */
+  trafficModel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clients: 'Clients',
+      duration: 'Duration',
+      GDR: 'GDR',
+      protocol: 'Protocol',
+      QP: 'QP',
+      servers: 'Servers',
+      trafficModel: 'TrafficModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clients: { 'type': 'array', 'itemType': ListNetTestResultsResponseBodyNetTestResultsTrafficTestClients },
+      duration: 'number',
+      GDR: 'string',
+      protocol: 'string',
+      QP: 'number',
+      servers: { 'type': 'array', 'itemType': ListNetTestResultsResponseBodyNetTestResultsTrafficTestServers },
+      trafficModel: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.clients)) {
+      $dara.Model.validateArray(this.clients);
+    }
+    if(Array.isArray(this.servers)) {
+      $dara.Model.validateArray(this.servers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetTestResultsResponseBodyNetTestResults extends $dara.Model {
+  /**
+   * @example
+   * i110667211718265012218
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * test
+   */
+  clusterName?: string;
+  commTest?: ListNetTestResultsResponseBodyNetTestResultsCommTest;
+  /**
+   * @example
+   * 2024-01-19T02:18:12Z
+   */
+  creationTime?: string;
+  delayTest?: ListNetTestResultsResponseBodyNetTestResultsDelayTest;
+  /**
+   * @example
+   * 2024-10-30T02:07Z
+   */
+  finishedTime?: string;
+  /**
+   * @example
+   * NetDiag
+   */
+  netTestType?: string;
+  /**
+   * @example
+   * 01
+   */
+  networkMode?: string;
+  /**
+   * @example
+   * 80
+   */
+  port?: string;
+  /**
+   * @example
+   * InProgress
+   */
+  status?: string;
+  /**
+   * @example
+   * String	i-uf6i0tv2refv8wz*****
+   */
+  testId?: string;
+  trafficTest?: ListNetTestResultsResponseBodyNetTestResultsTrafficTest;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      commTest: 'CommTest',
+      creationTime: 'CreationTime',
+      delayTest: 'DelayTest',
+      finishedTime: 'FinishedTime',
+      netTestType: 'NetTestType',
+      networkMode: 'NetworkMode',
+      port: 'Port',
+      status: 'Status',
+      testId: 'TestId',
+      trafficTest: 'TrafficTest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterName: 'string',
+      commTest: ListNetTestResultsResponseBodyNetTestResultsCommTest,
+      creationTime: 'string',
+      delayTest: ListNetTestResultsResponseBodyNetTestResultsDelayTest,
+      finishedTime: 'string',
+      netTestType: 'string',
+      networkMode: 'string',
+      port: 'string',
+      status: 'string',
+      testId: 'string',
+      trafficTest: ListNetTestResultsResponseBodyNetTestResultsTrafficTest,
+    };
+  }
+
+  validate() {
+    if(this.commTest && typeof (this.commTest as any).validate === 'function') {
+      (this.commTest as any).validate();
+    }
+    if(this.delayTest && typeof (this.delayTest as any).validate === 'function') {
+      (this.delayTest as any).validate();
+    }
+    if(this.trafficTest && typeof (this.trafficTest as any).validate === 'function') {
+      (this.trafficTest as any).validate();
+    }
     super.validate();
   }
 
@@ -3599,6 +5019,40 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
     if(Array.isArray(this.tagResource)) {
       $dara.Model.validateArray(this.tagResource);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserClusterTypesResponseBodyClusterTypes extends $dara.Model {
+  /**
+   * @example
+   * Public
+   */
+  accessType?: string;
+  /**
+   * @example
+   * AckEdgePro
+   */
+  typeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessType: 'AccessType',
+      typeName: 'TypeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessType: 'string',
+      typeName: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -3995,6 +5449,119 @@ export class ChangeResourceGroupResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ChangeResourceGroupResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseSessionRequest extends $dara.Model {
+  /**
+   * @example
+   * i207023871669364793713
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 03f53c719015a9ad4f4f55d66cac2dac161b18e8065ca75a3220b89de389c980
+   */
+  sessionToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'SessionId',
+      sessionToken: 'SessionToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+      sessionToken: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseSessionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 07AA3A1F-321E-50D8-B834-88C411331C94
+   */
+  requestId?: string;
+  /**
+   * @example
+   * i206495551737511455528
+   */
+  sessionId?: string;
+  /**
+   * @remarks
+   * ClosingActive
+   * 
+   * @example
+   * Inactive
+   */
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      sessionId: 'SessionId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      sessionId: 'string',
+      state: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseSessionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloseSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CloseSessionResponseBody,
     };
   }
 
@@ -4555,6 +6122,345 @@ export class CreateDiagnosticTaskResponse extends $dara.Model {
   }
 }
 
+export class CreateNetTestTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * i119982311660892626523
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * Eflo-YJ-Test-Cluster
+   */
+  clusterName?: string;
+  commTest?: CreateNetTestTaskRequestCommTest;
+  delayTest?: CreateNetTestTaskRequestDelayTest;
+  /**
+   * @example
+   * DelayTest
+   */
+  netTestType?: string;
+  /**
+   * @example
+   * 2
+   */
+  networkMode?: string;
+  /**
+   * @example
+   * 23604
+   */
+  port?: string;
+  trafficTest?: CreateNetTestTaskRequestTrafficTest;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      commTest: 'CommTest',
+      delayTest: 'DelayTest',
+      netTestType: 'NetTestType',
+      networkMode: 'NetworkMode',
+      port: 'Port',
+      trafficTest: 'TrafficTest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterName: 'string',
+      commTest: CreateNetTestTaskRequestCommTest,
+      delayTest: CreateNetTestTaskRequestDelayTest,
+      netTestType: 'string',
+      networkMode: 'string',
+      port: 'string',
+      trafficTest: CreateNetTestTaskRequestTrafficTest,
+    };
+  }
+
+  validate() {
+    if(this.commTest && typeof (this.commTest as any).validate === 'function') {
+      (this.commTest as any).validate();
+    }
+    if(this.delayTest && typeof (this.delayTest as any).validate === 'function') {
+      (this.delayTest as any).validate();
+    }
+    if(this.trafficTest && typeof (this.trafficTest as any).validate === 'function') {
+      (this.trafficTest as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetTestTaskShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * i119982311660892626523
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * Eflo-YJ-Test-Cluster
+   */
+  clusterName?: string;
+  commTestShrink?: string;
+  delayTestShrink?: string;
+  /**
+   * @example
+   * DelayTest
+   */
+  netTestType?: string;
+  /**
+   * @example
+   * 2
+   */
+  networkMode?: string;
+  /**
+   * @example
+   * 23604
+   */
+  port?: string;
+  trafficTestShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      commTestShrink: 'CommTest',
+      delayTestShrink: 'DelayTest',
+      netTestType: 'NetTestType',
+      networkMode: 'NetworkMode',
+      port: 'Port',
+      trafficTestShrink: 'TrafficTest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterName: 'string',
+      commTestShrink: 'string',
+      delayTestShrink: 'string',
+      netTestType: 'string',
+      networkMode: 'string',
+      port: 'string',
+      trafficTestShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetTestTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * dr-uf6i0tv2refv8wz*****
+   */
+  testId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      testId: 'TestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      testId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetTestTaskResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNetTestTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateNetTestTaskResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSessionRequest extends $dara.Model {
+  /**
+   * @example
+   * e01-cn-kvw44e6dn04
+   */
+  nodeId?: string;
+  sessionType?: string;
+  /**
+   * @example
+   * 1669340937156
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeId: 'NodeId',
+      sessionType: 'SessionType',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeId: 'string',
+      sessionType: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSessionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 887FA855-89F4-5DB3-B305-C5879EC480E6
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2A59143F1
+   */
+  serverSn?: string;
+  /**
+   * @example
+   * i207023871669364793713
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 03f53c719015a9ad4f4f55d66cac2dac161b18e8065ca75a3220b89de389c980
+   */
+  sessionToken?: string;
+  /**
+   * @example
+   * ws://x.x.x.x:xx/calypso_web_console
+   */
+  wssEndpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      serverSn: 'ServerSn',
+      sessionId: 'SessionId',
+      sessionToken: 'SessionToken',
+      wssEndpoint: 'WssEndpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      serverSn: 'string',
+      sessionId: 'string',
+      sessionToken: 'string',
+      wssEndpoint: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSessionResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSessionResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteClusterRequest extends $dara.Model {
   /**
    * @remarks
@@ -5048,6 +6954,176 @@ export class DescribeInvocationsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeInvocationsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetTestResultRequest extends $dara.Model {
+  /**
+   * @example
+   * dr-uf6i0tv2refv8wz*****
+   */
+  testId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      testId: 'TestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      testId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetTestResultResponseBody extends $dara.Model {
+  /**
+   * @example
+   * i119982311660892626523
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * Standard_Cluster
+   */
+  clusterName?: string;
+  commTest?: DescribeNetTestResultResponseBodyCommTest;
+  /**
+   * @example
+   * 2024-10-15T10:25:42+08:00
+   */
+  creationTime?: string;
+  delayTest?: DescribeNetTestResultResponseBodyDelayTest;
+  /**
+   * @example
+   * 2024-10-16T02:04Z
+   */
+  finishedTime?: string;
+  /**
+   * @example
+   * DelayTest
+   */
+  netTestType?: string;
+  /**
+   * @example
+   * 23604
+   */
+  port?: string;
+  /**
+   * @example
+   * 8F065DDD-6996-5973-9691-9EC57BD0072E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * {}
+   */
+  resultDetial?: string;
+  /**
+   * @example
+   * Failed
+   */
+  status?: string;
+  /**
+   * @example
+   * af35ce53-7c35-4277-834a-fbf49c316a96
+   */
+  testId?: string;
+  trafficTest?: DescribeNetTestResultResponseBodyTrafficTest;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      commTest: 'CommTest',
+      creationTime: 'CreationTime',
+      delayTest: 'DelayTest',
+      finishedTime: 'FinishedTime',
+      netTestType: 'NetTestType',
+      port: 'Port',
+      requestId: 'RequestId',
+      resultDetial: 'ResultDetial',
+      status: 'Status',
+      testId: 'TestId',
+      trafficTest: 'TrafficTest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterName: 'string',
+      commTest: DescribeNetTestResultResponseBodyCommTest,
+      creationTime: 'string',
+      delayTest: DescribeNetTestResultResponseBodyDelayTest,
+      finishedTime: 'string',
+      netTestType: 'string',
+      port: 'string',
+      requestId: 'string',
+      resultDetial: 'string',
+      status: 'string',
+      testId: 'string',
+      trafficTest: DescribeNetTestResultResponseBodyTrafficTest,
+    };
+  }
+
+  validate() {
+    if(this.commTest && typeof (this.commTest as any).validate === 'function') {
+      (this.commTest as any).validate();
+    }
+    if(this.delayTest && typeof (this.delayTest as any).validate === 'function') {
+      (this.delayTest as any).validate();
+    }
+    if(this.trafficTest && typeof (this.trafficTest as any).validate === 'function') {
+      (this.trafficTest as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeNetTestResultResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeNetTestResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeNetTestResultResponseBody,
     };
   }
 
@@ -6373,6 +8449,139 @@ export class ListClustersResponse extends $dara.Model {
   }
 }
 
+export class ListDiagnosticResultsRequest extends $dara.Model {
+  /**
+   * @example
+   * NetDiag
+   */
+  diagType?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * a3f2224a5ec7224116c4f5246120abe4
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * rg-acfmywpvugkh7kq
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagType: 'DiagType',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagType: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDiagnosticResultsResponseBody extends $dara.Model {
+  diagnosticResults?: ListDiagnosticResultsResponseBodyDiagnosticResults[];
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * a3f2224a5ec7224116c4f5246120abe4
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * AC4F0004-7BCE-52E0-891B-CAC7D64E3368
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnosticResults: 'DiagnosticResults',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnosticResults: { 'type': 'array', 'itemType': ListDiagnosticResultsResponseBodyDiagnosticResults },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.diagnosticResults)) {
+      $dara.Model.validateArray(this.diagnosticResults);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDiagnosticResultsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDiagnosticResultsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDiagnosticResultsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFreeNodesRequest extends $dara.Model {
   /**
    * @remarks
@@ -6528,6 +8737,261 @@ export class ListFreeNodesResponse extends $dara.Model {
   }
 }
 
+export class ListImagesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Architecture
+   * 
+   * @example
+   * x86_64
+   */
+  architecture?: string;
+  /**
+   * @remarks
+   * Image version
+   * 
+   * @example
+   * 7.9
+   */
+  imageVersion?: string;
+  /**
+   * @remarks
+   * Platform
+   * 
+   * @example
+   * ALinux3
+   */
+  platform?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architecture: 'Architecture',
+      imageVersion: 'ImageVersion',
+      platform: 'Platform',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architecture: 'string',
+      imageVersion: 'string',
+      platform: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImagesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Image details
+   */
+  images?: ListImagesResponseBodyImages[];
+  /**
+   * @remarks
+   * NextToken for the next page, include this value when requesting the next page
+   * 
+   * @example
+   * 3a6b93229825ac667104463b56790c91
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 0FC4A1C7-421C-5EAB-9361-4C0338EFA287
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': ListImagesResponseBodyImages },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.images)) {
+      $dara.Model.validateArray(this.images);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImagesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListImagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListImagesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineNetworkInfoRequest extends $dara.Model {
+  machineHpnInfo?: ListMachineNetworkInfoRequestMachineHpnInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      machineHpnInfo: 'MachineHpnInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      machineHpnInfo: { 'type': 'array', 'itemType': ListMachineNetworkInfoRequestMachineHpnInfo },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.machineHpnInfo)) {
+      $dara.Model.validateArray(this.machineHpnInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineNetworkInfoShrinkRequest extends $dara.Model {
+  machineHpnInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      machineHpnInfoShrink: 'MachineHpnInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      machineHpnInfoShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineNetworkInfoResponseBody extends $dara.Model {
+  machineNetworkInfo?: ListMachineNetworkInfoResponseBodyMachineNetworkInfo[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      machineNetworkInfo: 'MachineNetworkInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      machineNetworkInfo: { 'type': 'array', 'itemType': ListMachineNetworkInfoResponseBodyMachineNetworkInfo },
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.machineNetworkInfo)) {
+      $dara.Model.validateArray(this.machineNetworkInfo);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMachineNetworkInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMachineNetworkInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMachineNetworkInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMachineTypesRequest extends $dara.Model {
   /**
    * @remarks
@@ -6625,6 +9089,139 @@ export class ListMachineTypesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListMachineTypesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetTestResultsRequest extends $dara.Model {
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * DelayTest
+   */
+  netTestType?: string;
+  /**
+   * @example
+   * 3a6b93229825ac667104463b56790c91
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * rg-acfmxno4vh5muoq
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      netTestType: 'NetTestType',
+      nextToken: 'NextToken',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      netTestType: 'string',
+      nextToken: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetTestResultsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  netTestResults?: ListNetTestResultsResponseBodyNetTestResults[];
+  /**
+   * @example
+   * 3a6b93229825ac667104463b56790c91
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 3C683243-7915-57FB-9570-A2932C1C0F78
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      netTestResults: 'NetTestResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      netTestResults: { 'type': 'array', 'itemType': ListNetTestResultsResponseBodyNetTestResults },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.netTestResults)) {
+      $dara.Model.validateArray(this.netTestResults);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNetTestResultsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNetTestResultsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNetTestResultsResponseBody,
     };
   }
 
@@ -6936,6 +9533,84 @@ export class ListTagResourcesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagResourcesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserClusterTypesResponseBody extends $dara.Model {
+  clusterTypes?: ListUserClusterTypesResponseBodyClusterTypes[];
+  /**
+   * @example
+   * 3a6b93229825ac667104463b56790c91
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterTypes: 'ClusterTypes',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterTypes: { 'type': 'array', 'itemType': ListUserClusterTypesResponseBodyClusterTypes },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.clusterTypes)) {
+      $dara.Model.validateArray(this.clusterTypes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserClusterTypesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListUserClusterTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListUserClusterTypesResponseBody,
     };
   }
 
@@ -8567,10 +11242,17 @@ export class StopInvocationResponse extends $dara.Model {
 
 export class StopNodesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False.
+   * 
    * @example
    * False
    */
   ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * List of nodes.
+   */
   nodes?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8600,10 +11282,17 @@ export class StopNodesRequest extends $dara.Model {
 
 export class StopNodesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Whether to allow skipping failed node tasks, default value is False.
+   * 
    * @example
    * False
    */
   ignoreFailedNodeTasks?: boolean;
+  /**
+   * @remarks
+   * List of nodes.
+   */
   nodesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8630,11 +11319,17 @@ export class StopNodesShrinkRequest extends $dara.Model {
 
 export class StopNodesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
    */
   requestId?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * i155847351716171893489
    */
@@ -9031,7 +11726,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ApproveOperationResponse>(await this.callApi(params, req, runtime), new ApproveOperationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ApproveOperationResponse>(await this.callApi(params, req, runtime), new ApproveOperationResponse({}));
+    } else {
+      return $dara.cast<ApproveOperationResponse>(await this.execute(params, req, runtime), new ApproveOperationResponse({}));
+    }
+
   }
 
   /**
@@ -9081,7 +11781,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    } else {
+      return $dara.cast<ChangeResourceGroupResponse>(await this.execute(params, req, runtime), new ChangeResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -9093,6 +11798,57 @@ export default class Client extends OpenApi {
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 断开连接
+   * 
+   * @param request - CloseSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloseSessionResponse
+   */
+  async closeSessionWithOptions(request: CloseSessionRequest, runtime: $dara.RuntimeOptions): Promise<CloseSessionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.sessionToken)) {
+      body["SessionToken"] = request.sessionToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloseSession",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CloseSessionResponse>(await this.callApi(params, req, runtime), new CloseSessionResponse({}));
+    } else {
+      return $dara.cast<CloseSessionResponse>(await this.execute(params, req, runtime), new CloseSessionResponse({}));
+    }
+
+  }
+
+  /**
+   * 断开连接
+   * 
+   * @param request - CloseSessionRequest
+   * @returns CloseSessionResponse
+   */
+  async closeSession(request: CloseSessionRequest): Promise<CloseSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.closeSessionWithOptions(request, runtime);
   }
 
   /**
@@ -9187,7 +11943,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
+    } else {
+      return $dara.cast<CreateClusterResponse>(await this.execute(params, req, runtime), new CreateClusterResponse({}));
+    }
+
   }
 
   /**
@@ -9251,7 +12012,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<CreateDiagnosticTaskResponse>(await this.callApi(params, req, runtime), new CreateDiagnosticTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateDiagnosticTaskResponse>(await this.callApi(params, req, runtime), new CreateDiagnosticTaskResponse({}));
+    } else {
+      return $dara.cast<CreateDiagnosticTaskResponse>(await this.execute(params, req, runtime), new CreateDiagnosticTaskResponse({}));
+    }
+
   }
 
   /**
@@ -9263,6 +12029,150 @@ export default class Client extends OpenApi {
   async createDiagnosticTask(request: CreateDiagnosticTaskRequest): Promise<CreateDiagnosticTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDiagnosticTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建网络测试任务
+   * 
+   * @param tmpReq - CreateNetTestTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNetTestTaskResponse
+   */
+  async createNetTestTaskWithOptions(tmpReq: CreateNetTestTaskRequest, runtime: $dara.RuntimeOptions): Promise<CreateNetTestTaskResponse> {
+    tmpReq.validate();
+    let request = new CreateNetTestTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.commTest)) {
+      request.commTestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commTest, "CommTest", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.delayTest)) {
+      request.delayTestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.delayTest, "DelayTest", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.trafficTest)) {
+      request.trafficTestShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.trafficTest, "TrafficTest", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.clusterName)) {
+      body["ClusterName"] = request.clusterName;
+    }
+
+    if (!$dara.isNull(request.commTestShrink)) {
+      body["CommTest"] = request.commTestShrink;
+    }
+
+    if (!$dara.isNull(request.delayTestShrink)) {
+      body["DelayTest"] = request.delayTestShrink;
+    }
+
+    if (!$dara.isNull(request.netTestType)) {
+      body["NetTestType"] = request.netTestType;
+    }
+
+    if (!$dara.isNull(request.networkMode)) {
+      body["NetworkMode"] = request.networkMode;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      body["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.trafficTestShrink)) {
+      body["TrafficTest"] = request.trafficTestShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNetTestTask",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateNetTestTaskResponse>(await this.callApi(params, req, runtime), new CreateNetTestTaskResponse({}));
+    } else {
+      return $dara.cast<CreateNetTestTaskResponse>(await this.execute(params, req, runtime), new CreateNetTestTaskResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建网络测试任务
+   * 
+   * @param request - CreateNetTestTaskRequest
+   * @returns CreateNetTestTaskResponse
+   */
+  async createNetTestTask(request: CreateNetTestTaskRequest): Promise<CreateNetTestTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createNetTestTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建Web Terminal会话
+   * 
+   * @param request - CreateSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSessionResponse
+   */
+  async createSessionWithOptions(request: CreateSessionRequest, runtime: $dara.RuntimeOptions): Promise<CreateSessionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.sessionType)) {
+      body["SessionType"] = request.sessionType;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSession",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateSessionResponse>(await this.callApi(params, req, runtime), new CreateSessionResponse({}));
+    } else {
+      return $dara.cast<CreateSessionResponse>(await this.execute(params, req, runtime), new CreateSessionResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建Web Terminal会话
+   * 
+   * @param request - CreateSessionRequest
+   * @returns CreateSessionResponse
+   */
+  async createSession(request: CreateSessionRequest): Promise<CreateSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSessionWithOptions(request, runtime);
   }
 
   /**
@@ -9293,7 +12203,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
+    } else {
+      return $dara.cast<DeleteClusterResponse>(await this.execute(params, req, runtime), new DeleteClusterResponse({}));
+    }
+
   }
 
   /**
@@ -9335,7 +12250,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeClusterResponse>(await this.callApi(params, req, runtime), new DescribeClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeClusterResponse>(await this.callApi(params, req, runtime), new DescribeClusterResponse({}));
+    } else {
+      return $dara.cast<DescribeClusterResponse>(await this.execute(params, req, runtime), new DescribeClusterResponse({}));
+    }
+
   }
 
   /**
@@ -9389,7 +12309,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeInvocationsResponse>(await this.callApi(params, req, runtime), new DescribeInvocationsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeInvocationsResponse>(await this.callApi(params, req, runtime), new DescribeInvocationsResponse({}));
+    } else {
+      return $dara.cast<DescribeInvocationsResponse>(await this.execute(params, req, runtime), new DescribeInvocationsResponse({}));
+    }
+
   }
 
   /**
@@ -9401,6 +12326,53 @@ export default class Client extends OpenApi {
   async describeInvocations(request: DescribeInvocationsRequest): Promise<DescribeInvocationsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeInvocationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询网络测试结果
+   * 
+   * @param request - DescribeNetTestResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNetTestResultResponse
+   */
+  async describeNetTestResultWithOptions(request: DescribeNetTestResultRequest, runtime: $dara.RuntimeOptions): Promise<DescribeNetTestResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.testId)) {
+      body["TestId"] = request.testId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNetTestResult",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeNetTestResultResponse>(await this.callApi(params, req, runtime), new DescribeNetTestResultResponse({}));
+    } else {
+      return $dara.cast<DescribeNetTestResultResponse>(await this.execute(params, req, runtime), new DescribeNetTestResultResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询网络测试结果
+   * 
+   * @param request - DescribeNetTestResultRequest
+   * @returns DescribeNetTestResultResponse
+   */
+  async describeNetTestResult(request: DescribeNetTestResultRequest): Promise<DescribeNetTestResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeNetTestResultWithOptions(request, runtime);
   }
 
   /**
@@ -9431,7 +12403,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeNodeResponse>(await this.callApi(params, req, runtime), new DescribeNodeResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeNodeResponse>(await this.callApi(params, req, runtime), new DescribeNodeResponse({}));
+    } else {
+      return $dara.cast<DescribeNodeResponse>(await this.execute(params, req, runtime), new DescribeNodeResponse({}));
+    }
+
   }
 
   /**
@@ -9473,7 +12450,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    } else {
+      return $dara.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
+    }
+
   }
 
   /**
@@ -9519,7 +12501,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeSendFileResultsResponse>(await this.callApi(params, req, runtime), new DescribeSendFileResultsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeSendFileResultsResponse>(await this.callApi(params, req, runtime), new DescribeSendFileResultsResponse({}));
+    } else {
+      return $dara.cast<DescribeSendFileResultsResponse>(await this.execute(params, req, runtime), new DescribeSendFileResultsResponse({}));
+    }
+
   }
 
   /**
@@ -9561,7 +12548,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeTaskResponse>(await this.callApi(params, req, runtime), new DescribeTaskResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeTaskResponse>(await this.callApi(params, req, runtime), new DescribeTaskResponse({}));
+    } else {
+      return $dara.cast<DescribeTaskResponse>(await this.execute(params, req, runtime), new DescribeTaskResponse({}));
+    }
+
   }
 
   /**
@@ -9603,7 +12595,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
+    } else {
+      return $dara.cast<DescribeZonesResponse>(await this.execute(params, req, runtime), new DescribeZonesResponse({}));
+    }
+
   }
 
   /**
@@ -9679,7 +12676,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ExtendClusterResponse>(await this.callApi(params, req, runtime), new ExtendClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ExtendClusterResponse>(await this.callApi(params, req, runtime), new ExtendClusterResponse({}));
+    } else {
+      return $dara.cast<ExtendClusterResponse>(await this.execute(params, req, runtime), new ExtendClusterResponse({}));
+    }
+
   }
 
   /**
@@ -9733,7 +12735,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListClusterNodesResponse>(await this.callApi(params, req, runtime), new ListClusterNodesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListClusterNodesResponse>(await this.callApi(params, req, runtime), new ListClusterNodesResponse({}));
+    } else {
+      return $dara.cast<ListClusterNodesResponse>(await this.execute(params, req, runtime), new ListClusterNodesResponse({}));
+    }
+
   }
 
   /**
@@ -9783,7 +12790,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
+    } else {
+      return $dara.cast<ListClustersResponse>(await this.execute(params, req, runtime), new ListClustersResponse({}));
+    }
+
   }
 
   /**
@@ -9795,6 +12807,65 @@ export default class Client extends OpenApi {
   async listClusters(request: ListClustersRequest): Promise<ListClustersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listClustersWithOptions(request, runtime);
+  }
+
+  /**
+   * 诊断任务列表
+   * 
+   * @param request - ListDiagnosticResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDiagnosticResultsResponse
+   */
+  async listDiagnosticResultsWithOptions(request: ListDiagnosticResultsRequest, runtime: $dara.RuntimeOptions): Promise<ListDiagnosticResultsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.diagType)) {
+      body["DiagType"] = request.diagType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDiagnosticResults",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListDiagnosticResultsResponse>(await this.callApi(params, req, runtime), new ListDiagnosticResultsResponse({}));
+    } else {
+      return $dara.cast<ListDiagnosticResultsResponse>(await this.execute(params, req, runtime), new ListDiagnosticResultsResponse({}));
+    }
+
+  }
+
+  /**
+   * 诊断任务列表
+   * 
+   * @param request - ListDiagnosticResultsRequest
+   * @returns ListDiagnosticResultsResponse
+   */
+  async listDiagnosticResults(request: ListDiagnosticResultsRequest): Promise<ListDiagnosticResultsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDiagnosticResultsWithOptions(request, runtime);
   }
 
   /**
@@ -9841,7 +12912,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListFreeNodesResponse>(await this.callApi(params, req, runtime), new ListFreeNodesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListFreeNodesResponse>(await this.callApi(params, req, runtime), new ListFreeNodesResponse({}));
+    } else {
+      return $dara.cast<ListFreeNodesResponse>(await this.execute(params, req, runtime), new ListFreeNodesResponse({}));
+    }
+
   }
 
   /**
@@ -9853,6 +12929,114 @@ export default class Client extends OpenApi {
   async listFreeNodes(request: ListFreeNodesRequest): Promise<ListFreeNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFreeNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the list of images available to the user
+   * 
+   * @param request - ListImagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListImagesResponse
+   */
+  async listImagesWithOptions(request: ListImagesRequest, runtime: $dara.RuntimeOptions): Promise<ListImagesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.architecture)) {
+      body["Architecture"] = request.architecture;
+    }
+
+    if (!$dara.isNull(request.imageVersion)) {
+      body["ImageVersion"] = request.imageVersion;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      body["Platform"] = request.platform;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListImages",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListImagesResponse>(await this.callApi(params, req, runtime), new ListImagesResponse({}));
+    } else {
+      return $dara.cast<ListImagesResponse>(await this.execute(params, req, runtime), new ListImagesResponse({}));
+    }
+
+  }
+
+  /**
+   * Query the list of images available to the user
+   * 
+   * @param request - ListImagesRequest
+   * @returns ListImagesResponse
+   */
+  async listImages(request: ListImagesRequest): Promise<ListImagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listImagesWithOptions(request, runtime);
+  }
+
+  /**
+   * 使用HPNZone和机型查询机型网络配置
+   * 
+   * @param tmpReq - ListMachineNetworkInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMachineNetworkInfoResponse
+   */
+  async listMachineNetworkInfoWithOptions(tmpReq: ListMachineNetworkInfoRequest, runtime: $dara.RuntimeOptions): Promise<ListMachineNetworkInfoResponse> {
+    tmpReq.validate();
+    let request = new ListMachineNetworkInfoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.machineHpnInfo)) {
+      request.machineHpnInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.machineHpnInfo, "MachineHpnInfo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.machineHpnInfoShrink)) {
+      body["MachineHpnInfo"] = request.machineHpnInfoShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMachineNetworkInfo",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListMachineNetworkInfoResponse>(await this.callApi(params, req, runtime), new ListMachineNetworkInfoResponse({}));
+    } else {
+      return $dara.cast<ListMachineNetworkInfoResponse>(await this.execute(params, req, runtime), new ListMachineNetworkInfoResponse({}));
+    }
+
+  }
+
+  /**
+   * 使用HPNZone和机型查询机型网络配置
+   * 
+   * @param request - ListMachineNetworkInfoRequest
+   * @returns ListMachineNetworkInfoResponse
+   */
+  async listMachineNetworkInfo(request: ListMachineNetworkInfoRequest): Promise<ListMachineNetworkInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMachineNetworkInfoWithOptions(request, runtime);
   }
 
   /**
@@ -9883,7 +13067,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListMachineTypesResponse>(await this.callApi(params, req, runtime), new ListMachineTypesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListMachineTypesResponse>(await this.callApi(params, req, runtime), new ListMachineTypesResponse({}));
+    } else {
+      return $dara.cast<ListMachineTypesResponse>(await this.execute(params, req, runtime), new ListMachineTypesResponse({}));
+    }
+
   }
 
   /**
@@ -9895,6 +13084,65 @@ export default class Client extends OpenApi {
   async listMachineTypes(request: ListMachineTypesRequest): Promise<ListMachineTypesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listMachineTypesWithOptions(request, runtime);
+  }
+
+  /**
+   * 网络测试列表
+   * 
+   * @param request - ListNetTestResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNetTestResultsResponse
+   */
+  async listNetTestResultsWithOptions(request: ListNetTestResultsRequest, runtime: $dara.RuntimeOptions): Promise<ListNetTestResultsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.netTestType)) {
+      body["NetTestType"] = request.netTestType;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNetTestResults",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNetTestResultsResponse>(await this.callApi(params, req, runtime), new ListNetTestResultsResponse({}));
+    } else {
+      return $dara.cast<ListNetTestResultsResponse>(await this.execute(params, req, runtime), new ListNetTestResultsResponse({}));
+    }
+
+  }
+
+  /**
+   * 网络测试列表
+   * 
+   * @param request - ListNetTestResultsRequest
+   * @returns ListNetTestResultsResponse
+   */
+  async listNetTestResults(request: ListNetTestResultsRequest): Promise<ListNetTestResultsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listNetTestResultsWithOptions(request, runtime);
   }
 
   /**
@@ -9937,7 +13185,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListNodeGroupsResponse>(await this.callApi(params, req, runtime), new ListNodeGroupsResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListNodeGroupsResponse>(await this.callApi(params, req, runtime), new ListNodeGroupsResponse({}));
+    } else {
+      return $dara.cast<ListNodeGroupsResponse>(await this.execute(params, req, runtime), new ListNodeGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -9995,7 +13248,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $dara.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -10007,6 +13265,43 @@ export default class Client extends OpenApi {
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户可以使用的集群类型
+   * 
+   * @param request - ListUserClusterTypesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserClusterTypesResponse
+   */
+  async listUserClusterTypesWithOptions(runtime: $dara.RuntimeOptions): Promise<ListUserClusterTypesResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUserClusterTypes",
+      version: "2022-12-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListUserClusterTypesResponse>(await this.callApi(params, req, runtime), new ListUserClusterTypesResponse({}));
+    } else {
+      return $dara.cast<ListUserClusterTypesResponse>(await this.execute(params, req, runtime), new ListUserClusterTypesResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询用户可以使用的集群类型
+   * @returns ListUserClusterTypesResponse
+   */
+  async listUserClusterTypes(): Promise<ListUserClusterTypesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUserClusterTypesWithOptions(runtime);
   }
 
   /**
@@ -10051,7 +13346,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RebootNodesResponse>(await this.callApi(params, req, runtime), new RebootNodesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RebootNodesResponse>(await this.callApi(params, req, runtime), new RebootNodesResponse({}));
+    } else {
+      return $dara.cast<RebootNodesResponse>(await this.execute(params, req, runtime), new RebootNodesResponse({}));
+    }
+
   }
 
   /**
@@ -10111,7 +13411,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ReimageNodesResponse>(await this.callApi(params, req, runtime), new ReimageNodesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ReimageNodesResponse>(await this.callApi(params, req, runtime), new ReimageNodesResponse({}));
+    } else {
+      return $dara.cast<ReimageNodesResponse>(await this.execute(params, req, runtime), new ReimageNodesResponse({}));
+    }
+
   }
 
   /**
@@ -10223,7 +13528,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<RunCommandResponse>(await this.callApi(params, req, runtime), new RunCommandResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<RunCommandResponse>(await this.callApi(params, req, runtime), new RunCommandResponse({}));
+    } else {
+      return $dara.cast<RunCommandResponse>(await this.execute(params, req, runtime), new RunCommandResponse({}));
+    }
+
   }
 
   /**
@@ -10311,7 +13621,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<SendFileResponse>(await this.callApi(params, req, runtime), new SendFileResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SendFileResponse>(await this.callApi(params, req, runtime), new SendFileResponse({}));
+    } else {
+      return $dara.cast<SendFileResponse>(await this.execute(params, req, runtime), new SendFileResponse({}));
+    }
+
   }
 
   /**
@@ -10367,7 +13682,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<ShrinkClusterResponse>(await this.callApi(params, req, runtime), new ShrinkClusterResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ShrinkClusterResponse>(await this.callApi(params, req, runtime), new ShrinkClusterResponse({}));
+    } else {
+      return $dara.cast<ShrinkClusterResponse>(await this.execute(params, req, runtime), new ShrinkClusterResponse({}));
+    }
+
   }
 
   /**
@@ -10419,7 +13739,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StopInvocationResponse>(await this.callApi(params, req, runtime), new StopInvocationResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopInvocationResponse>(await this.callApi(params, req, runtime), new StopInvocationResponse({}));
+    } else {
+      return $dara.cast<StopInvocationResponse>(await this.execute(params, req, runtime), new StopInvocationResponse({}));
+    }
+
   }
 
   /**
@@ -10434,7 +13759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关机节点
+   * Shut down the nodes
    * 
    * @param tmpReq - StopNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10471,11 +13796,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<StopNodesResponse>(await this.callApi(params, req, runtime), new StopNodesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopNodesResponse>(await this.callApi(params, req, runtime), new StopNodesResponse({}));
+    } else {
+      return $dara.cast<StopNodesResponse>(await this.execute(params, req, runtime), new StopNodesResponse({}));
+    }
+
   }
 
   /**
-   * 关机节点
+   * Shut down the nodes
    * 
    * @param request - StopNodesRequest
    * @returns StopNodesResponse
@@ -10525,7 +13855,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $dara.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -10583,7 +13918,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $dara.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
