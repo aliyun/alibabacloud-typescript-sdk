@@ -457,6 +457,7 @@ export class CreateTaskRequestParametersTranscription extends $dara.Model {
   model?: string;
   outputLevel?: number;
   phraseId?: string;
+  realtimeDiarizationEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       additionalStreamOutputLevel: 'AdditionalStreamOutputLevel',
@@ -466,6 +467,7 @@ export class CreateTaskRequestParametersTranscription extends $dara.Model {
       model: 'Model',
       outputLevel: 'OutputLevel',
       phraseId: 'PhraseId',
+      realtimeDiarizationEnabled: 'RealtimeDiarizationEnabled',
     };
   }
 
@@ -478,6 +480,7 @@ export class CreateTaskRequestParametersTranscription extends $dara.Model {
       model: 'string',
       outputLevel: 'number',
       phraseId: 'string',
+      realtimeDiarizationEnabled: 'boolean',
     };
   }
 
