@@ -3939,6 +3939,7 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
    * [\\"{\\\\\\"dbmtl_probs_is_valid_play\\\\\\":0.00032182207107543945,\\\\\\"dbmtl_y_play_time\\\\\\":0.0043269748210906982}\\"]
    */
   scores?: string;
+  serviceName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -3958,6 +3959,7 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
       logUserId: 'LogUserId',
       sceneName: 'SceneName',
       scores: 'Scores',
+      serviceName: 'ServiceName',
       userFeatures: 'UserFeatures',
     };
   }
@@ -3973,6 +3975,7 @@ export class BackflowFeatureConsistencyCheckJobDataRequest extends $dara.Model {
       logUserId: 'string',
       sceneName: 'string',
       scores: 'string',
+      serviceName: 'string',
       userFeatures: 'string',
     };
   }
@@ -20773,6 +20776,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.scores)) {
       body["Scores"] = request.scores;
+    }
+
+    if (!$dara.isNull(request.serviceName)) {
+      body["ServiceName"] = request.serviceName;
     }
 
     if (!$dara.isNull(request.userFeatures)) {
