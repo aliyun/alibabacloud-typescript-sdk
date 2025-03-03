@@ -3607,16 +3607,10 @@ export class DrivingDirectionResponseBody extends $dara.Model {
    * ECB2144C-E277-5434-80E6-12D26678D364
    */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
-  success?: boolean;
   static names(): { [key: string]: string } {
     return {
       data: 'data',
       requestId: 'requestId',
-      success: 'success',
     };
   }
 
@@ -3624,7 +3618,6 @@ export class DrivingDirectionResponseBody extends $dara.Model {
     return {
       data: { 'type': 'array', 'itemType': DrivingDirectionResponseBodyData },
       requestId: 'string',
-      success: 'boolean',
     };
   }
 
