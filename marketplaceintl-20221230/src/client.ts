@@ -5,6 +5,47 @@ import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import * as $dara from '@darabonba/typescript';
 
+export class NoticeInstanceUserResponseBodyAccessDeniedDetail extends $dara.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PushMeteringDataRequestMeteringData extends $dara.Model {
   /**
    * @example
@@ -52,6 +93,139 @@ export class PushMeteringDataRequestMeteringData extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NoticeInstanceUserRequest extends $dara.Model {
+  /**
+   * @example
+   * 5000000264872
+   */
+  instanceId?: number;
+  noticeParam?: string;
+  /**
+   * @example
+   * 1
+   */
+  noticeType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      noticeParam: 'NoticeParam',
+      noticeType: 'NoticeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'number',
+      noticeParam: 'string',
+      noticeType: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NoticeInstanceUserResponseBody extends $dara.Model {
+  accessDeniedDetail?: NoticeInstanceUserResponseBodyAccessDeniedDetail;
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * Instance 5723f7ee-952d-411f-94f4-b942a550d9b8 does not exist.
+   */
+  message?: string;
+  /**
+   * @example
+   * A6A33748-D573-593C-A3BC-593E33D68311
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  result?: boolean;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: NoticeInstanceUserResponseBodyAccessDeniedDetail,
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.accessDeniedDetail && typeof (this.accessDeniedDetail as any).validate === 'function') {
+      (this.accessDeniedDetail as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NoticeInstanceUserResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: NoticeInstanceUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: NoticeInstanceUserResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
     super.validate();
   }
 
@@ -218,6 +392,61 @@ export default class Client extends OpenApi {
     }
 
     return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * isv推送实例消息给用户
+   * 
+   * @param request - NoticeInstanceUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns NoticeInstanceUserResponse
+   */
+  async noticeInstanceUserWithOptions(request: NoticeInstanceUserRequest, runtime: $dara.RuntimeOptions): Promise<NoticeInstanceUserResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.noticeParam)) {
+      body["NoticeParam"] = request.noticeParam;
+    }
+
+    if (!$dara.isNull(request.noticeType)) {
+      body["NoticeType"] = request.noticeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "NoticeInstanceUser",
+      version: "2022-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<NoticeInstanceUserResponse>(await this.callApi(params, req, runtime), new NoticeInstanceUserResponse({}));
+    } else {
+      return $dara.cast<NoticeInstanceUserResponse>(await this.execute(params, req, runtime), new NoticeInstanceUserResponse({}));
+    }
+
+  }
+
+  /**
+   * isv推送实例消息给用户
+   * 
+   * @param request - NoticeInstanceUserRequest
+   * @returns NoticeInstanceUserResponse
+   */
+  async noticeInstanceUser(request: NoticeInstanceUserRequest): Promise<NoticeInstanceUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.noticeInstanceUserWithOptions(request, runtime);
   }
 
   /**
