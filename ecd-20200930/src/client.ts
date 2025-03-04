@@ -450,21 +450,42 @@ export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels exte
 
 export class BindConfigGroupRequestResourceInfos extends $dara.Model {
   /**
+   * @remarks
+   * The service type of the resource.
+   * 
+   * Valid value:
+   * 
+   * *   CLOUD_DESKTOP: the cloud computer service.
+   * 
    * @example
    * CLOUD_DESKTOP
    */
   productType?: string;
   /**
+   * @remarks
+   * The ID of the resource.
+   * 
    * @example
    * ecd-1bo4xotjvwyon****
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The region ID of the resource.
+   * 
    * @example
    * cn-hangzhou
    */
   resourceRegionId?: string;
   /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * Valid values:
+   * 
+   * *   RESOURCE_GROUP: the resource group
+   * *   CLOUD_DESKTOP: the cloud computer service.
+   * 
    * @example
    * CLOUD_DESKTOP
    */
@@ -684,38 +705,87 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrder extends $dar
 
 export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to allow end users to configure scheduled tasks.
+   * 
    * @example
    * true
    */
   allowClientSetting?: boolean;
   /**
+   * @remarks
+   * The CRON expression for the scheduled task.
+   * 
+   * >  The time must be in UTC. For example, for 24:00 (UTC+8), you must set the value to 0 0 16 ? \\* 1,2,3,4,5,6,7
+   * 
    * @example
    * 0 0 16 ? * 1,2,3,4,5,6,7
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * Specifies whether to forcibly execute the scheduled task.
+   * 
    * @example
    * true
    */
   enforce?: boolean;
   /**
+   * @remarks
+   * The interval at which the scheduled task is executed. Unit: minutes.
+   * 
    * @example
    * 10
    */
   interval?: number;
   /**
+   * @remarks
+   * The type of the scheduled operation. If you set TimerType to NoConnect, you can specify this parameter.
+   * 
+   * Valid values:
+   * 
+   * *   Hibernate: scheduled hibernation.
+   * *   Shutdown: scheduled shutdown.
+   * 
    * @example
    * Shutdown
    */
   operationType?: string;
+  /**
+   * @remarks
+   * The process whitelist. If whitelisted processes are running, the scheduled task upon inactivity does not take effect.
+   */
   processWhitelist?: string[];
   /**
+   * @remarks
+   * The reset operation for cloud computers.
+   * 
+   * Valid values:
+   * 
+   * *   RESET_TYPE_SYSTEM: resets only the system disks of cloud computers.
+   * *   RESET_TYPE_USER_DISK: resets only the data disks of cloud computers.
+   * *   RESET_TYPE_BOTH: resets the system disks and data disks of cloud computers.
+   * 
    * @example
    * RESET_TYPE_SYSTEM
    */
   resetType?: string;
   /**
    * @remarks
+   * The type of the scheduled task.
+   * 
+   * Valid values:
+   * 
+   * *   NoOperationDisconnect: scheduled disconnection upon inactivity.
+   * *   NoConnect: scheduled disconnection upon specified operation (OperationType).
+   * *   TimerBoot: scheduled start.
+   * *   TimerReset: scheduled reset.
+   * *   NoOperationShutdown: scheduled shutdown upon inactivity.
+   * *   NoOperationHibernate: scheduled hibernation upon inactivity.
+   * *   TimerShutdown: scheduled shutdown.
+   * *   NoOperationReboot: scheduled restart upon inactivity.
+   * *   TimerReboot: scheduled restart.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -723,6 +793,14 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
    */
   timerType?: string;
   /**
+   * @remarks
+   * The method to trigger the scheduled task upon inactivity.
+   * 
+   * Valid values:
+   * 
+   * *   Advanced: intelligent detection.
+   * *   Standard: standard detection.
+   * 
    * @example
    * Standard
    */
@@ -770,7 +848,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
 export class CreateDesktopGroupRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. If you specify the `Tag` parameter, you must also specify the `Key` parameter. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`. You cannot specify an empty string as a tag key.
+   * The tag key. You cannot specify an empty string as a tag key. A tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
    * 
    * This parameter is required.
    * 
@@ -780,7 +858,7 @@ export class CreateDesktopGroupRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
+   * The tag value. You can specify an empty string as a tag key. A tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
    * 
    * This parameter is required.
    * 
@@ -943,14 +1021,94 @@ export class CreateDesktopsRequestBundleModels extends $dara.Model {
 }
 
 export class CreateDesktopsRequestDesktopAttachment extends $dara.Model {
+  /**
+   * @remarks
+   * The category of the data disk. Valid values:
+   * 
+   * *   cloud_auto: SSD
+   * *   cloud_essd: ESSD
+   * 
+   * @example
+   * cloud_auto
+   */
   dataDiskCategory?: string;
+  /**
+   * @remarks
+   * The performance level of the data disk. Valid values:
+   * 
+   * - PL0 (default)
+   * - PL1
+   * 
+   * @example
+   * PL0
+   */
   dataDiskPerLevel?: string;
+  /**
+   * @remarks
+   * The size of the data disk. Unit: GiB.
+   * 
+   * @example
+   * 40
+   */
   dataDiskSize?: number;
+  /**
+   * @remarks
+   * The default display language:
+   * 
+   * - zh-CN: Simplified Chinese
+   * - zh-HK: Traditional Chinese
+   * - en-US: English
+   * - ja-JP: Japanese
+   * 
+   * @example
+   * zh-CN
+   */
   defaultLanguage?: string;
+  /**
+   * @remarks
+   * The desktop type. You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) operation to query the IDs of supported desktop types.
+   * 
+   * @example
+   * eds.enterprise_office.8c16g
+   */
   desktopType?: string;
+  /**
+   * @remarks
+   * The ID of the image.
+   * 
+   * @example
+   * m-39ddhdb0ggzjx*****
+   */
   imageId?: string;
+  /**
+   * @remarks
+   * The category of the system disk. Valid values:
+   * 
+   * *   cloud_auto: SSD
+   * *   cloud_essd: ESSD
+   * 
+   * @example
+   * cloud_auto
+   */
   systemDiskCategory?: string;
+  /**
+   * @remarks
+   * The performance level of the system disk. Valid values:
+   * 
+   * - PL0 (default)
+   * - PL1
+   * 
+   * @example
+   * PL0
+   */
   systemDiskPerLevel?: string;
+  /**
+   * @remarks
+   * The size of the system disk. Unit: GiB.
+   * 
+   * @example
+   * 40
+   */
   systemDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1757,7 +1915,7 @@ export class CreateDesktopsShrinkRequestUserCommands extends $dara.Model {
 export class CreatePolicyGroupRequestAuthorizeAccessPolicyRule extends $dara.Model {
   /**
    * @remarks
-   * The IPv4 CIDR block that you want to access from the client. The value is an IPv4 CIDR block.
+   * The client CIDR block from which end users can connect to cloud computers. The value is an IPv4 CIDR block.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -1797,7 +1955,7 @@ export class CreatePolicyGroupRequestAuthorizeAccessPolicyRule extends $dara.Mod
 export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.Model {
   /**
    * @remarks
-   * The IPv4 CIDR block of the security group rule.
+   * The object to which the security group rule applies. The value is an IPv4 CIDR block.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -1817,45 +1975,11 @@ export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
    * 
    * Valid values:
    * 
-   * *   TCP
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   UDP
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   ALL: all protocols
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   GRE
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   ICMP: ICMP (IPv4)
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   TCP: the Transmission Control Protocol (TCP) protocol.
+   * *   UDP: the User Datagram Protocol (UDP) protocol.
+   * *   ALL: all protocols.
+   * *   GRE: the Generic Routing Encapsulation (GRE) protocol.
+   * *   ICMP: the Internet Control Message Protocol (ICMP) for IPv4.
    * 
    * @example
    * tcp
@@ -1863,29 +1987,12 @@ export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   ipProtocol?: string;
   /**
    * @remarks
-   * The authorization policy of the security group rule.
+   * The authorization of the security group rule.
    * 
    * Valid values:
    * 
-   * *   drop: denies all access requests
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     If no denied messages are returned, the requests timed out or failed.
-   * 
-   *     <!-- -->
-   * 
-   * *   accept: accepts all access requests
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     This value is the default value.
-   * 
-   *     <!-- -->
+   * *   drop: denies all access requests. If no messages of access denied are returned, the requests timed out or failed.
+   * *   accept (default): accepts all requests.
    * 
    * @example
    * accept
@@ -1895,12 +2002,12 @@ export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
    * @remarks
    * The port range of the security group rule. The value range of this parameter varies based on the value of the IpProtocol parameter.
    * 
-   * *   If you set the IpProtocol parameter to TCP or UDP, the value range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-   * *   If you set the IpProtocol parameter to ICMP, the start port number and the end port number are -1/-1.
-   * *   If you set the IpProtocol parameter to GRE, the start port number and the end port number are -1/-1.
-   * *   If you set the IpProtocol parameter to ALL, the start port number and the end port number are -1/-1.
+   * *   If the IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+   * *   If the IpProtocol parameter is set to ICMP, set the value to -1/-1.
+   * *   If the IpProtocol parameter is set to GRE, set the value to -1/-1.
+   * *   If the IpProtocol parameter is set to ALL, set the value to -1/-1.
    * 
-   * For more information about the common ports of applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+   * For more information about the common ports applied in EDS, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
    * 
    * @example
    * 22/22
@@ -1908,7 +2015,7 @@ export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   portRange?: string;
   /**
    * @remarks
-   * The priority of the security group rule. A smaller value specifies a higher priority.\\
+   * The priority of the security group rule. A smaller value indicates a higher priority.\\
    * Valid values: 1 to 60.\\
    * Default value: 1.
    * 
@@ -1922,21 +2029,8 @@ export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
    * 
    * Valid values:
    * 
-   * *   outflow: outbound
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   inflow: inbound
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   outflow: outbound.
+   * *   inflow: inbound.
    * 
    * @example
    * inflow
@@ -1978,59 +2072,17 @@ export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
 export class CreatePolicyGroupRequestClientType extends $dara.Model {
   /**
    * @remarks
-   * The type of the client.
+   * The type of the Alibaba Cloud Workspace client.
    * 
-   * > By default, if you do not specify the ClientType parameter, all types of clients can be used to connect to cloud desktops.
+   * >  If you do not specify the `ClientType` parameter, all types of the client are allowed by default.
    * 
    * Valid values:
    * 
-   * *   html5: web clients
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   android: Android clients
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   linux: Alibaba Cloud Workspace clients
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   ios: iOS clients
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   windows: Windows clients
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   macos: macOS clients
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   html5: web client
+   * *   android: Android client
+   * *   ios: iOS client
+   * *   windows: Windows client
+   * *   macos: macOS client
    * 
    * @example
    * windows
@@ -2038,27 +2090,14 @@ export class CreatePolicyGroupRequestClientType extends $dara.Model {
   clientType?: string;
   /**
    * @remarks
-   * Specifies whether a specific client type can be used to connect to the cloud desktop.
+   * Specifies whether to allow end users to use a specific type of the client to connect to cloud computers.
    * 
-   * > By default, if you do not specify the ClientType parameter, all types of clients can be used to connect to cloud desktops.
+   * >  If you do not specify the `ClientType` parameter, all types of the client are allowed by default.
    * 
    * Valid values:
    * 
-   * *   OFF: Clients of the specified type cannot be used to connect to cloud desktops.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   ON: Clients of the specified type can be used to connect to cloud desktops.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   OFF
+   * *   ON
    * 
    * @example
    * ON
@@ -2088,7 +2127,34 @@ export class CreatePolicyGroupRequestClientType extends $dara.Model {
 }
 
 export class CreatePolicyGroupRequestDeviceRedirects extends $dara.Model {
+  /**
+   * @remarks
+   * The peripheral type.
+   * 
+   * Valid values:
+   * 
+   * *   printer
+   * *   scanner
+   * *   camera
+   * *   adb: the Android Debug Bridge (ADB) device.
+   * 
+   * @example
+   * camera
+   */
   deviceType?: string;
+  /**
+   * @remarks
+   * The redirection type.
+   * 
+   * Valid values:
+   * 
+   * *   deviceRedirect: device redirection
+   * *   usbRedirect: USB redirection
+   * *   off: redirection disabled
+   * 
+   * @example
+   * deviceRedirect
+   */
   redirectType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2114,11 +2180,72 @@ export class CreatePolicyGroupRequestDeviceRedirects extends $dara.Model {
 }
 
 export class CreatePolicyGroupRequestDeviceRules extends $dara.Model {
+  /**
+   * @remarks
+   * The device name.
+   * 
+   * @example
+   * sandisk
+   */
   deviceName?: string;
+  /**
+   * @remarks
+   * The product ID.
+   * 
+   * @example
+   * 0x55b1
+   */
   devicePid?: string;
+  /**
+   * @remarks
+   * The peripheral type.
+   * 
+   * Valid values:
+   * 
+   * *   usbKey
+   * *   other
+   * *   graphicsTablet
+   * *   printer
+   * *   cardReader
+   * *   scanner
+   * *   storage
+   * *   camera
+   * *   adb
+   * *   networkInterfaceCard: the NIC device.
+   * 
+   * @example
+   * storage
+   */
   deviceType?: string;
+  /**
+   * @remarks
+   * The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * 
+   * @example
+   * 0x0781
+   */
   deviceVid?: string;
+  /**
+   * @remarks
+   * The link optimization command.
+   * 
+   * @example
+   * 2:0
+   */
   optCommand?: string;
+  /**
+   * @remarks
+   * The redirection type.
+   * 
+   * Valid values:
+   * 
+   * *   deviceRedirect: device redirection
+   * *   usbRedirect: USB redirection
+   * *   off: redirection disabled
+   * 
+   * @example
+   * usbRedirect
+   */
   redirectType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2154,7 +2281,7 @@ export class CreatePolicyGroupRequestDeviceRules extends $dara.Model {
 export class CreatePolicyGroupRequestDomainResolveRule extends $dara.Model {
   /**
    * @remarks
-   * The description of the policy.
+   * The description of domain name resolution rule.
    * 
    * @example
    * system policy
@@ -2170,25 +2297,12 @@ export class CreatePolicyGroupRequestDomainResolveRule extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Specifies whether to allow the policy.
+   * Specifies whether to allow the domain name resolution rule.
    * 
    * Valid values:
    * 
-   * *   allow
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   block
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   allow: allows the rule.
+   * *   block: denies the rule.
    * 
    * @example
    * allow
@@ -2748,6 +2862,17 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
    * 2021-09-30T06:09Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The category of the data disk. Valid values:
+   * 
+   * *   cloud_efficiency: ultra disk
+   * *   cloud_auto: SSD
+   * *   cloud_essd: ESSD (supported by specific specifications)
+   * 
+   * @example
+   * cloud_efficiency
+   */
   dataDiskCategory?: string;
   /**
    * @remarks
@@ -2816,6 +2941,13 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   /**
    * @remarks
    * The OS language of the image.
+   * 
+   * Valid values:
+   * 
+   * *   en-US: English
+   * *   zh-HK: Chinese, Traditional (Hong Kong, China)
+   * *   zh-CN: Simplified Chinese
+   * *   ja-JP: Japanese
    * 
    * @example
    * en-US
@@ -2939,6 +3071,17 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
    * Sufficient
    */
   stockState?: string;
+  /**
+   * @remarks
+   * The category of the system disk. Valid values:
+   * 
+   * *   cloud_efficiency: ultra disk
+   * *   cloud_auto: SSD
+   * *   cloud_essd: ESSD (supported by specific specifications)
+   * 
+   * @example
+   * cloud_efficiency
+   */
   systemDiskCategory?: string;
   /**
    * @remarks
@@ -3296,6 +3439,13 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
    * 1.0.4 202012021700
    */
   clientVersion?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
   /**
    * @remarks
@@ -3772,29 +3922,77 @@ export class DescribeCloudDriveUsersResponseBodyCloudDriveUsers extends $dara.Mo
 
 export class DescribeConfigGroupResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of resources that are bound to the configuration group.
+   * 
    * @example
    * 4
    */
   bindCount?: number;
+  /**
+   * @remarks
+   * The number of bound cloud computers.
+   */
   bindCountMap?: { [key: string]: number };
+  /**
+   * @remarks
+   * The description of the configuration group.
+   * 
+   * @example
+   * ScheduledTask
+   */
   description?: string;
   /**
+   * @remarks
+   * The ID of the configuration group.
+   * 
    * @example
    * ccg-0cid8v30an12****
    */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the configuration group.
+   * 
+   * @example
+   * ScheduledTask
+   */
   name?: string;
   /**
+   * @remarks
+   * The service type of the configuration group.
+   * 
+   * Valid values:
+   * 
+   * *   CLOUD_DESKTOP: the cloud computer service.
+   * 
    * @example
    * CLOUD_DESKTOP
    */
   productType?: string;
   /**
+   * @remarks
+   * The state of the configuration group.
+   * 
+   * Valid values:
+   * 
+   * *   AVAILABLE: The configuration group is available.
+   * *   UNAVAILABLE: The configuration group is deleted.
+   * *   DELETING: The configuration group is being deleted.
+   * *   UPDATING: The configuration group is being modified.
+   * 
    * @example
    * AVAILABLE
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the configuration group.
+   * 
+   * Valid values:
+   * 
+   * *   Timer: the scheduled task type.
+   * 
    * @example
    * Timer
    */
@@ -5247,6 +5445,13 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
    * DemoOfficeSite
    */
   officeSiteName?: string;
+  /**
+   * @remarks
+   * Indicates whether the switch to check session status of cloud computers is turned on.
+   * 
+   * @example
+   * true
+   */
   osSessionStatus?: string;
   /**
    * @remarks
@@ -5311,6 +5516,20 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
    * Connected
    */
   sessionStatus?: string;
+  /**
+   * @remarks
+   * The billing method of cloud computers.
+   * 
+   * Valid values:
+   * 
+   * *   duration: hourly plan (available for users in the whitelist)
+   * *   postPaid: pay-as-you-go
+   * *   monthPackage: monthly subscription (120-hour computing plan and 250-hour computing plan)
+   * *   prePaid: monthly subscription (Unlimited computing plan)
+   * 
+   * @example
+   * monthPackage
+   */
   subPayType?: string;
   /**
    * @remarks
@@ -5418,6 +5637,13 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
    * 1
    */
   gpuCount?: number;
+  /**
+   * @remarks
+   * The GPU memory size. Unit: MB. This parameter applies to GPU-enabled cloud computers only.
+   * 
+   * @example
+   * 2048
+   */
   gpuMemory?: number;
   /**
    * @remarks
@@ -5435,6 +5661,13 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
    * ecd.graphics
    */
   instanceTypeFamily?: string;
+  /**
+   * @remarks
+   * The number of sessions supported by the current specification.
+   * 
+   * @example
+   * 4
+   */
   maxSessionCount?: number;
   /**
    * @remarks
@@ -5444,7 +5677,18 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
    * 23552
    */
   memorySize?: string;
+  /**
+   * @remarks
+   * The array of sales modes.
+   */
   scopes?: string[];
+  /**
+   * @remarks
+   * The stock status.
+   * 
+   * @example
+   * Sufficient
+   */
   stockState?: string;
   /**
    * @remarks
@@ -5505,7 +5749,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
 export class DescribeDesktopsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. If you specify the `Tag` parameter, you must also specify the `Key` parameter. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`. You cannot specify an empty string as a tag key.
+   * The tag key. If you specify the `Tag` parameter, you must also specify the `Key` parameter. The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun` and contain only spaces.
    * 
    * @example
    * TestKey
@@ -5513,7 +5757,7 @@ export class DescribeDesktopsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * The tag value. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
    * 
    * @example
    * TestValue
@@ -5543,6 +5787,17 @@ export class DescribeDesktopsRequestTag extends $dara.Model {
 }
 
 export class DescribeDesktopsResponseBodyDesktopsDisks extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the disk. Valid values:
+   * 
+   * *   cloud_efficiency: ultra disk.
+   * *   cloud_auto: standard SSD.
+   * *   cloud_essd: enhanced SSD (ESSD).
+   * 
+   * @example
+   * cloud_auto
+   */
   diskCategory?: string;
   /**
    * @remarks
@@ -5588,14 +5843,16 @@ export class DescribeDesktopsResponseBodyDesktopsDisks extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The performance level (PL) of the disk when an enhanced SSD (ESSD) is used. Valid values:
+   * The performance level (PL) of the disk when an enterprise SSD (ESSD) is used.
    * 
-   * *   PL0
+   * For more information about the differences among enterprise SSDs (ESSDs) at different PLs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * 
+   * Valid values:
+   * 
    * *   PL1
-   * *   PL2
+   * *   PL0
    * *   PL3
-   * 
-   * For more information about the differences among ESSDs at different PLs, see [Enhanced SSDs](https://help.aliyun.com/document_detail/122389.html).
+   * *   PL2
    * 
    * @example
    * PL0
@@ -5633,7 +5890,7 @@ export class DescribeDesktopsResponseBodyDesktopsDisks extends $dara.Model {
 export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model {
   /**
    * @remarks
-   * The current image version of the cloud desktop.
+   * The current image version of the cloud computer.
    * 
    * @example
    * 0.0.0-D-20220102.000000
@@ -5641,7 +5898,7 @@ export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model 
   currentAppVersion?: string;
   /**
    * @remarks
-   * The image version to which the cloud desktop can be updated.
+   * The version number to which the image of the cloud computer can be updated.
    * 
    * @example
    * 0.0.0-R-20220307.190736
@@ -5649,7 +5906,7 @@ export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model 
   newAppVersion?: string;
   /**
    * @remarks
-   * The description of the image version to which the cloud desktop can be updated.
+   * The description of the version to which the image of the cloud computer can be updated.
    * 
    * @example
    * Upgrade package for testing 03-07
@@ -5657,7 +5914,7 @@ export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model 
   releaseNote?: string;
   /**
    * @remarks
-   * The English description of the image version to which the cloud desktop can be updated.
+   * The English description of the version to which the image of the cloud computer can be updated.
    * 
    * @example
    * Release note
@@ -5711,7 +5968,21 @@ export class DescribeDesktopsResponseBodyDesktopsFotaUpdate extends $dara.Model 
 }
 
 export class DescribeDesktopsResponseBodyDesktopsResourceGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the enterprise resource group.
+   * 
+   * @example
+   * rg-4hsvzbbmqdzu3s****
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the enterprise resource group.
+   * 
+   * @example
+   * Resource group 01
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5739,7 +6010,7 @@ export class DescribeDesktopsResponseBodyDesktopsResourceGroups extends $dara.Mo
 export class DescribeDesktopsResponseBodyDesktopsSessions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the end user who logged on to the cloud desktop.
+   * The ID of the end user that connects to the cloud computer.
    * 
    * @example
    * 29615820929547****
@@ -5747,7 +6018,7 @@ export class DescribeDesktopsResponseBodyDesktopsSessions extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The time when the desktop session was established.
+   * The time when the cloud computer session was established.
    * 
    * @example
    * 2021-03-07T08:23Z
@@ -5829,7 +6100,7 @@ export class DescribeDesktopsResponseBodyDesktopsTags extends $dara.Model {
 export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   /**
    * @remarks
-   * The number of sessions that are allowed for each cloud desktop in the multi-session desktop group.
+   * The number of concurrent sessions of each cloud computer in a multi-session cloud computer pool.
    * 
    * @example
    * 10
@@ -5837,7 +6108,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   bindAmount?: number;
   /**
    * @remarks
-   * The ID of the desktop template that is used to create the cloud desktop.
+   * The ID of the template used to create the cloud computer.
    * 
    * @example
    * b-2g65ljy4291vl****
@@ -5845,7 +6116,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   bundleId?: string;
   /**
    * @remarks
-   * The name of the desktop template that is used to create the cloud desktop.
+   * The name of the template used to create the cloud computer.
    * 
    * @example
    * Name
@@ -5853,25 +6124,12 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   bundleName?: string;
   /**
    * @remarks
-   * The billing method of the cloud desktop.
+   * The billing method of the cloud computer.
    * 
-   * Default value: PostPaid. Valid values:
+   * Valid values:
    * 
-   * *   Postpaid: pay-as-you-go
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
+   * *   Postpaid (default): pay-as-you-go
    * *   PrePaid: subscription
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * PostPaid
@@ -5921,7 +6179,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The time when the cloud desktop was created.
+   * The time when the cloud computer was created.
    * 
    * @example
    * 2020-11-06T08:28Z
@@ -5945,7 +6203,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   dataDiskSize?: string;
   /**
    * @remarks
-   * The ID of the desktop group to which the cloud desktop belongs. Default value: null.
+   * The ID of the cloud computer pool to which cloud computers belong. Default value: null.``
    * 
    * @example
    * null
@@ -5953,7 +6211,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The cloud desktop ID.
+   * The cloud computer ID.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -5961,7 +6219,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The cloud desktop name.
+   * The cloud computer name.
    * 
    * @example
    * testDesktopName
@@ -5969,7 +6227,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The status of the cloud desktop.
+   * The cloud computer status.
    * 
    * @example
    * Running
@@ -5977,7 +6235,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   desktopStatus?: string;
   /**
    * @remarks
-   * The type of the cloud desktop.
+   * The cloud computer type.
    * 
    * @example
    * ecd.basic.large
@@ -5985,7 +6243,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The directory ID. The value of this parameter is the same as the workspace ID that is indicated by the OfficeSiteId parameter.
+   * The directory ID, which is the same as the office network ID (OfficeSiteId).
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -6001,7 +6259,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   directoryType?: string;
   /**
    * @remarks
-   * Details of the disks.
+   * The information about the disks.
    */
   disks?: DescribeDesktopsResponseBodyDesktopsDisks[];
   /**
@@ -6022,12 +6280,12 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   downgradedTimes?: number;
   /**
    * @remarks
-   * The IDs of the end users who are authorized to connect to the cloud desktop.
+   * The end user IDs.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The time when the subscription cloud desktop expires.
+   * The time when a subscription cloud computer expired.
    * 
    * @example
    * 2021-12-31T15:59Z
@@ -6035,12 +6293,12 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   expiredTime?: string;
   /**
    * @remarks
-   * The information about the image version that the cloud desktop uses.
+   * The information about the image version of the cloud computer.
    */
   fotaUpdate?: DescribeDesktopsResponseBodyDesktopsFotaUpdate;
   /**
    * @remarks
-   * Indicates whether the cloud desktop is a GPU-accelerated desktop.
+   * Indicates whether the cloud computer uses GPUs.
    * 
    * @example
    * 0
@@ -6056,7 +6314,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   gpuCount?: number;
   /**
    * @remarks
-   * The version number of the GPU driver of the cloud desktop.
+   * The GPU driver version used by the cloud computer.
    * 
    * @example
    * null
@@ -6104,25 +6362,13 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The flag that is used to manage the cloud desktop.
+   * The flag that is used to manage the cloud computer.
    * 
    * Valid values:
    * 
-   * *   Updating: The configurations of the cloud desktop are being updated.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
+   * *   Migrating: The cloud computer is being migrated.
+   * *   Updating: The configurations of the cloud computer are being updated.
    * *   NoFlag: No flags are available.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * NoFlag
@@ -6130,7 +6376,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   managementFlag?: string;
   /**
    * @remarks
-   * The flags that are used to manage the cloud desktops.
+   * The flags that are used to manage the cloud computers.
    */
   managementFlags?: string[];
   /**
@@ -6143,7 +6389,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The ID of the secondary network interface controller (NIC) created by the RAM or Active Directory (AD) user in Elastic Desktop Service (EDS). You do not have permissions to modify this parameter.
+   * The ID of the supplementary network interface controller (NIC) created by EDS within an RAM user or Active Directory (AD) user. You cannot modify the ID.
    * 
    * @example
    * 123456
@@ -6151,7 +6397,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   networkInterfaceId?: string;
   /**
    * @remarks
-   * The IP address of the secondary NIC that is created by the RAM or AD user in EDS.
+   * The IP address of the supplementary NIC created by EDS within an RAM or AD user.
    * 
    * @example
    * 192.168.74.165
@@ -6159,7 +6405,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   networkInterfaceIp?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -6167,7 +6413,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The office network name.
    * 
    * @example
    * test
@@ -6175,25 +6421,12 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   officeSiteName?: string;
   /**
    * @remarks
-   * The account type of the workspace.
+   * The account type of the office network.
    * 
    * Valid values:
    * 
    * *   SIMPLE: convenience account
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * *   AD_CONNECTOR: enterprise AD account
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * SIMPLE
@@ -6201,33 +6434,13 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   officeSiteType?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) type of the workspace.
+   * The VPC type of the office network.
    * 
    * Valid values:
    * 
    * *   standard
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * *   customized
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * *   basic
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * basic
@@ -6243,13 +6456,16 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The information about the OS platform. Valid values:
+   * The information about the OS platform.
    * 
-   * *   CentOS
+   * Valid values:
+   * 
    * *   Ubuntu
-   * *   Windows Server 2016
-   * *   Windows Server 2019
+   * *   Windows Server 2022
    * *   UOS
+   * *   CentOS
+   * *   Windows Server 2019
+   * *   Windows Server 2016
    * 
    * @example
    * Ubuntu
@@ -6265,7 +6481,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The policy IDs.
+   * The IDs of the cloud computer policies.
    */
   policyGroupIdList?: string[];
   /**
@@ -6278,12 +6494,12 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   policyGroupName?: string;
   /**
    * @remarks
-   * The policy names.
+   * The names of the cloud computer policies.
    */
   policyGroupNameList?: string[];
   /**
    * @remarks
-   * The progress when the cloud desktop was created.
+   * The progress of creating the cloud computer.
    * 
    * @example
    * 100%
@@ -6295,26 +6511,17 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   HDX: High-definition Experience (HDX) protocol
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   ASP: Adaptive Streaming Protocol (ASP) developed by Alibaba Cloud
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   HDX
+   * *   ASP
    * 
    * @example
    * ASP
    */
   protocolType?: string;
+  /**
+   * @remarks
+   * The information about the enterprise resource groups.
+   */
   resourceGroups?: DescribeDesktopsResponseBodyDesktopsResourceGroups[];
   /**
    * @remarks
@@ -6344,12 +6551,12 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   sessionType?: string;
   /**
    * @remarks
-   * The information about the desktop sessions of end users.
+   * The session information about cloud computers connected by end users.
    */
   sessions?: DescribeDesktopsResponseBodyDesktopsSessions[];
   /**
    * @remarks
-   * The ID of the snapshot policy.
+   * The snapshot policy ID.
    * 
    * @example
    * sp-gi007jgyc3kcey2bb
@@ -6365,7 +6572,15 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   snapshotPolicyName?: string;
   /**
    * @remarks
-   * The time when the cloud desktop was first started.
+   * The standard start time.
+   * 
+   * @example
+   * 2025-02-24T06:38:02Z
+   */
+  standardStartTime?: string;
+  /**
+   * @remarks
+   * The time when the cloud computer was first started.
    * 
    * @example
    * 2020-11-06T08:31Z
@@ -6418,7 +6633,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   volumeEncryptionKey?: string;
   /**
    * @remarks
-   * The zone type. Default value: **AvailabilityZone**. This value indicates Alibaba Cloud zones.
+   * The zone type. Default value: `AvailabilityZone`. This value indicates Alibaba Cloud zones.
    * 
    * @example
    * AvailabilityZone
@@ -6478,6 +6693,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       sessions: 'Sessions',
       snapshotPolicyId: 'SnapshotPolicyId',
       snapshotPolicyName: 'SnapshotPolicyName',
+      standardStartTime: 'StandardStartTime',
       startTime: 'StartTime',
       supportHibernation: 'SupportHibernation',
       systemDiskCategory: 'SystemDiskCategory',
@@ -6543,6 +6759,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
       sessions: { 'type': 'array', 'itemType': DescribeDesktopsResponseBodyDesktopsSessions },
       snapshotPolicyId: 'string',
       snapshotPolicyName: 'string',
+      standardStartTime: 'string',
       startTime: 'string',
       supportHibernation: 'boolean',
       systemDiskCategory: 'string',
@@ -7710,16 +7927,25 @@ export class DescribeDirectoriesResponseBodyDirectories extends $dara.Model {
    */
   ADConnectors?: DescribeDirectoriesResponseBodyDirectoriesADConnectors[];
   /**
+   * @remarks
+   * The hostname of the domain controller.
+   * 
    * @example
    * dc001
    */
   adHostname?: string;
   /**
+   * @remarks
+   * The hostname of the backup domain controller.
+   * 
    * @example
    * dc002
    */
   backupDCHostname?: string;
   /**
+   * @remarks
+   * The DNS address of the backup domain controller.
+   * 
    * @example
    * 192.168.2.100
    */
@@ -9313,7 +9539,21 @@ export class DescribeInvocationsResponseBodyInvocations extends $dara.Model {
    * Pending
    */
   invocationStatus?: string;
+  /**
+   * @remarks
+   * The total number of cloud computers on which the command is executed.
+   * 
+   * @example
+   * 1
+   */
   invokeDesktopCount?: number;
+  /**
+   * @remarks
+   * The total number of cloud computers on which the command is executed successfully.
+   * 
+   * @example
+   * 1
+   */
   invokeDesktopSucceedCount?: number;
   /**
    * @remarks
@@ -9598,7 +9838,21 @@ export class DescribeModificationPriceResponseBodyPriceInfo extends $dara.Model 
 }
 
 export class DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery group.
+   * 
+   * @example
+   * aig-0bz55ibznu9p7****
+   */
   appInstanceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the delivery group.
+   * 
+   * @example
+   * DemoDeliveryGroup
+   */
   appInstanceGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9664,7 +9918,21 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups extends 
 }
 
 export class DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the office network.
+   * 
+   * @example
+   * cn-hangzhou+dir-363353****
+   */
   officeSiteId?: string;
+  /**
+   * @remarks
+   * The name of the office network.
+   * 
+   * @example
+   * DemoOfficeNetwork
+   */
   officeSiteName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9690,7 +9958,15 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites extends $d
 }
 
 export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
+  /**
+   * @remarks
+   * > This parameter is not publicly available.
+   */
   allowOperateUserDrive?: boolean;
+  /**
+   * @remarks
+   * The array of the app steaming delivery groups bound with UPM-supported NAS.
+   */
   appInstanceGroups?: DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups[];
   /**
    * @remarks
@@ -9817,6 +10093,10 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
    * test
    */
   officeSiteName?: string;
+  /**
+   * @remarks
+   * The array of office networks.
+   */
   officeSites?: DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites[];
   /**
    * @remarks
@@ -9834,6 +10114,16 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The storage type of the NAS file system. Valid values:
+   * 
+   * - Upm: UPM NAS
+   * - ShareNas: Shared NAS
+   * 
+   * @example
+   * Upm
+   */
   scene?: string;
   /**
    * @remarks
@@ -10347,7 +10637,24 @@ export class DescribeOfficeSitesResponseBodyOfficeSitesLogs extends $dara.Model 
 }
 
 export class DescribeOfficeSitesResponseBodyOfficeSitesResourceAmounts extends $dara.Model {
+  /**
+   * @remarks
+   * The amount of resources.
+   * 
+   * @example
+   * 1
+   */
   amount?: number;
+  /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * - desktop: cloud computers
+   * - desktopGroup: shared cloud computers
+   * 
+   * @example
+   * desktop
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10378,6 +10685,13 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * Details of AD connectors.
    */
   ADConnectors?: DescribeOfficeSitesResponseBodyOfficeSitesADConnectors[];
+  /**
+   * @remarks
+   * The ID of the GA instance.
+   * 
+   * @example
+   * ga-bp1astu3yrplkzoo2****
+   */
   acceleratorId?: string;
   /**
    * @remarks
@@ -10457,7 +10771,18 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * 2021-05-06T05:58Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The custom gateway.
+   * 
+   * @example
+   * gw-****.com
+   */
   customAccessPoint?: string;
+  /**
+   * @remarks
+   * The array of custom DNS addresses.
+   */
   customDnsAddress?: string[];
   /**
    * @remarks
@@ -10628,6 +10953,16 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * np-amtp8e8q1o9e4****
    */
   networkPackageId?: string;
+  /**
+   * @remarks
+   * The network version. App Streaming is supported by the new version. Valid values:
+   * 
+   * - DEFAULT: the legacy version
+   * - NM: the new version
+   * 
+   * @example
+   * NM
+   */
   nmVersion?: string;
   /**
    * @remarks
@@ -10695,6 +11030,10 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * 2
    */
   rdsLicenseStatus?: string;
+  /**
+   * @remarks
+   * The amount of resources.
+   */
   resourceAmounts?: DescribeOfficeSitesResponseBodyOfficeSitesResourceAmounts[];
   /**
    * @remarks
@@ -10791,6 +11130,13 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * 0
    */
   totalEdsCountForGroup?: number;
+  /**
+   * @remarks
+   * The total number of network cards.
+   * 
+   * @example
+   * 1
+   */
   totalResourceAmount?: number;
   /**
    * @remarks
@@ -11062,7 +11408,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecuri
    * Valid values:
    * 
    * *   drop: denies all access requests.
-   * *   accept: accepts all access requests.
+   * *   accept: accepts all requests.
    * 
    * @example
    * accept
@@ -11138,7 +11484,6 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes ext
    * Valid values:
    * 
    * *   html5: web client
-   * *   linux: Alibaba Cloud Workspace hardware terminal
    * *   android: Android client
    * *   windows: Windows client
    * *   ios: iOS client
@@ -11150,7 +11495,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes ext
   clientType?: string;
   /**
    * @remarks
-   * Indicates whether a specific type of client is allowed to connect to the cloud desktop.
+   * Indicates whether end users are allowed to use a specific type of the client to connect to cloud computers.
    * 
    * Valid values:
    * 
@@ -11185,7 +11530,32 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes ext
 }
 
 export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects extends $dara.Model {
+  /**
+   * @remarks
+   * The peripheral type.
+   * 
+   * Valid values:
+   * 
+   * *   printer
+   * *   scanner
+   * *   camera
+   * *   adb: the Android Debug Bridge (ADB) device.
+   * 
+   * @example
+   * camera
+   */
   deviceType?: string;
+  /**
+   * @remarks
+   * The redirection type. Valid values:
+   * 
+   * *   usbRedirect
+   * *   deviceRedirect
+   * *   off: direction disabled.
+   * 
+   * @example
+   * usbRedirect
+   */
   redirectType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11211,11 +11581,72 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects
 }
 
 export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules extends $dara.Model {
+  /**
+   * @remarks
+   * The device name.
+   * 
+   * @example
+   * sandisk
+   */
   deviceName?: string;
+  /**
+   * @remarks
+   * The product ID (PID).
+   * 
+   * @example
+   * 0x55b1
+   */
   devicePid?: string;
+  /**
+   * @remarks
+   * The peripheral type.
+   * 
+   * Valid values:
+   * 
+   * *   usbKey
+   * *   other
+   * *   graphicsTablet
+   * *   printer
+   * *   cardReader
+   * *   scanner
+   * *   storage
+   * *   camera
+   * *   adb
+   * *   networkInterfaceCard: the NIC device.
+   * 
+   * @example
+   * storage
+   */
   deviceType?: string;
+  /**
+   * @remarks
+   * The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * 
+   * @example
+   * 0x0781
+   */
   deviceVid?: string;
+  /**
+   * @remarks
+   * The link optimization command.
+   * 
+   * @example
+   * 2:0
+   */
   optCommand?: string;
+  /**
+   * @remarks
+   * The redirection type.
+   * 
+   * Valid values:
+   * 
+   * *   deviceRedirect
+   * *   usbRedirect
+   * *   off: redirection disabled.
+   * 
+   * @example
+   * usbRedirect
+   */
   redirectType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11259,7 +11690,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRu
   description?: string;
   /**
    * @remarks
-   * The domain name.
+   * The destination domain name.
    * 
    * @example
    * *.com
@@ -11267,7 +11698,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRu
   domain?: string;
   /**
    * @remarks
-   * Indicates whether the domain name resolution is allowed. Valid values:
+   * Indicates whether the domain name resolution rule is allowed.
+   * 
+   * Valid values:
    * 
    * *   allow
    * *   block
@@ -11464,9 +11897,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedire
 export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether users have the administrator permissions after they connect to cloud desktops.
+   * Indicates whether end users are granted the administrator permissions.
    * 
-   * >  This parameter is in invitational preview and not available to the public.
+   * >  This parameter is in invitational preview for specific users and not available to the public.
    * 
    * @example
    * deny
@@ -11474,12 +11907,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   adminAccess?: string;
   /**
    * @remarks
-   * Indicates whether the anti-screenshot feature is enabled. Valid values:
+   * Indicates whether the anti-screenshot feature is enabled.
    * 
+   * Valid values:
+   * 
+   * *   off (default)
    * *   on
-   * *   off
-   * 
-   * Default value: off.
    * 
    * @example
    * off
@@ -11487,7 +11920,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   appContentProtection?: string;
   /**
    * @remarks
-   * The client CIDR blocks in a whitelist.
+   * The client IP address whitelist. End users can access cloud computers only from the IP addresses in the whitelist.
    */
   authorizeAccessPolicyRules?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules[];
   /**
@@ -11510,7 +11943,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   cameraRedirect?: string;
   /**
    * @remarks
-   * The logon methods.
+   * The logon method control rules to limit the type of the Alibaba Cloud Workspace client used by end users to connect to cloud computers.
    */
   clientTypes?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes[];
   /**
@@ -11519,18 +11952,31 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * 
    * Valid values:
    * 
-   * *   read: One-way transfer is allowed.
-   * *   readwrite: Two-way transfer is allowed.
-   * *   off: Two-way transfer is not allowed.
+   * *   read: specifies one-way transfer. You can copy files only from local devices to cloud computers.
+   * *   readwrite: specifies two-way transfer. You can copy files between local devices and cloud computers.
+   * *   write: specifies one-way transfer. You can only copy files from cloud computers to local devices.
+   * *   off: disables both one-way and two-way transfer. Files cannot be copied between local devices and cloud computers.
    * 
    * @example
    * readwrite
    */
   clipboard?: string;
+  /**
+   * @remarks
+   * Indicates whether the Color Enhancement switch is turned on in design and 3D scenarios.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
+   * 
+   * @example
+   * off
+   */
   colorEnhancement?: string;
   /**
    * @remarks
-   * The CPU underclocking duration. Valid values: 30 to 120.
+   * The CPU underclocking duration. Valid values: 30 to 120. Unit: seconds.
    * 
    * @example
    * 30
@@ -11543,7 +11989,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   cpuProcessors?: string[];
   /**
    * @remarks
-   * Indicates whether the switch for CPU protection mode is turned on. Valid values: on and off.
+   * Indicates whether the CPU spike protection switch is turned on.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * on
@@ -11551,7 +12002,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   cpuProtectedMode?: string;
   /**
    * @remarks
-   * The overall CPU utilization. Valid values: 70 to 90.
+   * The overall CPU usage. Valid values: 70 to 90. Unit: percentage (%).
    * 
    * @example
    * 70
@@ -11559,7 +12010,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   cpuRateLimit?: number;
   /**
    * @remarks
-   * The overall CPU sampling duration. Valid values: 10 to 60.
+   * The overall CPU sampling duration. Valid values: 10 to 60. Unit: seconds.
    * 
    * @example
    * 10
@@ -11567,20 +12018,59 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   cpuSampleDuration?: number;
   /**
    * @remarks
-   * The usage of a single CPU. Valid values: 70 to 100.
+   * The single-CPU usage. Valid values: 70 to 100. Unit: %.
    * 
    * @example
    * 70
    */
   cpuSingleRateLimit?: number;
+  /**
+   * @remarks
+   * The number of cloud computers bound with this policy.
+   * 
+   * @example
+   * 1
+   */
   desktopCount?: number;
+  /**
+   * @remarks
+   * The number of shared cloud computers bound with this policy.
+   * 
+   * @example
+   * 1
+   */
   desktopGroupCount?: number;
+  deviceConnectHint?: string;
+  /**
+   * @remarks
+   * The device redirection rules.
+   */
   deviceRedirects?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects[];
+  /**
+   * @remarks
+   * The custom peripheral rules.
+   */
   deviceRules?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules[];
+  /**
+   * @remarks
+   * The display mode.
+   * 
+   * Valid values:
+   * 
+   * *   clientCustom: suitable for user-defined scenarios.
+   * *   adminOffice: suitable for daily office scenarios.
+   * *   adminDesign: suitable for 3D application scenarios.
+   * *   adminCustom: administrator-customized scenarios
+   * 
+   * @example
+   * adminCustom
+   */
   displayMode?: string;
   /**
    * @remarks
-   * Indicates whether the access control for domain names is enabled. The domain names can contain wildcard characters (\\*). Multiple domain names are separated by commas (,). Valid values:
+   * Specifies whether to enable the access control for domain names. Domain names support wildcards (\\*). Separate multiple domain names with commas (,).
+   * 
+   * Valid values:
    * 
    * *   off
    * *   on
@@ -11591,7 +12081,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   domainList?: string;
   /**
    * @remarks
-   * The rule of domain name resolution.
+   * The domain name resolution rules.
    */
   domainResolveRule?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule[];
   /**
@@ -11609,8 +12099,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   domainResolveRuleType?: string;
   /**
    * @remarks
-   * The number of cloud desktops that are associated with the policy.\\
-   * This parameter is returned only for custom policies.
+   * The number of cloud computers that are associated with the policy. The number of cloud computers that are associated only with custom policies is returned.
    * 
    * @example
    * 1
@@ -11618,7 +12107,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   edsCount?: number;
   /**
    * @remarks
-   * Indicates whether the switch for end users to ask for assistance from the administrator is turned on. Valid values: on and off.
+   * Indicates whether the Contact Administrator for Help switch is turned on.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * on
@@ -11626,16 +12120,28 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   endUserApplyAdminCoordinate?: string;
   /**
    * @remarks
-   * Indicates whether the switch for stream collaboration between end users is turned on. Valid values: on and off.
+   * Indicates whether the User Stream Collaboration switch is turned on.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * on
    */
   endUserGroupCoordinate?: string;
+  /**
+   * @remarks
+   * Transfers files.
+   * 
+   * @example
+   * null
+   */
   fileTransfer?: string;
   /**
    * @remarks
-   * Indicates whether the image quality feature is enabled for Graphics cloud desktops. If you have high requirements for desktop performance and user experience, we recommend that you enable this feature. For example, you can enable this feature in professional graphic design scenarios.
+   * Indicates whether the Image Quality Control feature is enabled. If you have high requirements on the performance and user experience in scenarios such as professional design, we recommend that you enable this feature.
    * 
    * Valid values:
    * 
@@ -11648,7 +12154,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   gpuAcceleration?: string;
   /**
    * @remarks
-   * Indicates whether the access policy on HTML5 clients is allowed.
+   * Specifies whether to allow web client access.
    * 
    * Valid values:
    * 
@@ -11661,14 +12167,14 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   html5Access?: string;
   /**
    * @remarks
-   * The file transfer policy for HTML5 clients.
+   * The file transfer feature on the web client.
    * 
    * Valid values:
    * 
-   * *   all: Files can be uploaded and downloaded between your local computer and HTML5 clients.
-   * *   download: Files on HTML5 clients can be downloaded to your local computer.
-   * *   upload: Files on your local computer can be uploaded to HTML5 clients.
-   * *   off (default): File transfer between HTML5 clients and your computer is disabled.
+   * *   all: Files can be uploaded and downloaded between local computers and the web client.
+   * *   download: Files on the web client can be downloaded to local computers.
+   * *   upload: Files on local computers can be uploaded to the web client.
+   * *   off (default): Files cannot be transferred between the web client and local computers.
    * 
    * @example
    * off
@@ -11676,12 +12182,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The protocol that is used for network communication. Valid values:
+   * The protocol for network communication.
    * 
-   * *   TCP: Only TCP can be used.
-   * *   BOTH: TCP or UDP can be used. The system switches between TCP and UDP based on the actual network condition.
+   * Valid values:
    * 
-   * Default value: TCP.
+   * *   TCP (default): TCP.
+   * *   BOTH: TCP and UDP.
    * 
    * @example
    * BOTH
@@ -11693,18 +12199,25 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * 
    * Valid values:
    * 
-   * *   read: read-only
-   * *   readwrite: read and write
-   * *   off: no permissions
+   * *   read: read-only. Local disk mapping is available on cloud computers. However, you can only read (copy) local files but cannot modify the files.
+   * *   readwrite: read and write. Local disk mapping is available on cloud computers. You can read (copy) and write (modify) local files.
+   * *   off (default): none.
    * 
    * @example
    * readwrite
    */
   localDrive?: string;
+  /**
+   * @remarks
+   * The maximum retry period for reconnecting to cloud computers when the cloud computers are disconnected due to none-human reasons. Valid values: 30 to 7200. Unit: seconds.
+   * 
+   * @example
+   * 120
+   */
   maxReconnectTime?: number;
   /**
    * @remarks
-   * The duration required for underclocking memory by a single process. Valid values: 30 to 120.
+   * The memory underclocking duration for a single process. Valid values: 30 to 120. Unit: seconds.
    * 
    * @example
    * 30
@@ -11717,7 +12230,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   memoryProcessors?: string[];
   /**
    * @remarks
-   * Indicates whether the switch for memory protection mode is turned on. Valid values: on and off.
+   * Indicates whether the memory spike protection switch is turned on.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * on
@@ -11725,7 +12243,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   memoryProtectedMode?: string;
   /**
    * @remarks
-   * The overall memory usage. Valid values: 70 to 90.
+   * The overall memory usage. Valid values: 70 to 90. Unit: %.
    * 
    * @example
    * 70
@@ -11733,7 +12251,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   memoryRateLimit?: number;
   /**
    * @remarks
-   * The overall sampling duration of memory statistics. Valid values: 30 to 60.
+   * The overall memory sampling duration. Valid values: 30 to 60. Unit: seconds.
    * 
    * @example
    * 30
@@ -11741,17 +12259,45 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   memorySampleDuration?: number;
   /**
    * @remarks
-   * The memory usage of a single process. Valid values: 30 to 60.
+   * The memory usage of a single process. Valid values: 30 to 60. Unit: %.
    * 
    * @example
    * 30
    */
   memorySingleRateLimit?: number;
+  /**
+   * @remarks
+   * Specifies whether to display the restart button in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace mobile clients (including the Android client and the iOS client).
+   * 
+   * > Mobile clients of V7.4 and higher versions required.
+   * 
+   * Valid values:
+   * 
+   * - off: not provided.
+   * - on: provided.
+   * 
+   * @example
+   * off
+   */
   mobileRestart?: string;
+  /**
+   * @remarks
+   * Specifies whether to display the shut down button in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace mobile clients (including the Android client and the iOS client).
+   * 
+   * > Mobile clients of V7.4 and higher versions required.
+   * 
+   * Valid values:
+   * 
+   * - off: not provided.
+   * - on: provided.
+   * 
+   * @example
+   * off
+   */
   mobileShutdown?: string;
   /**
    * @remarks
-   * The policy name.
+   * The name of the cloud computer policy.
    * 
    * @example
    * testPolicyGroupName
@@ -11759,14 +12305,14 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   name?: string;
   /**
    * @remarks
-   * Indicates whether the network redirection feature is enabled. Valid values:
+   * Indicates whether the network redirection feature is enabled.
    * 
+   * >  This parameter is in invitational preview for specific users and not available to the public.
+   * 
+   * Valid values:
+   * 
+   * *   off (default)
    * *   on
-   * *   off
-   * 
-   * Default value: off.
-   * 
-   * >  This parameter is in invitational preview and not available to the public.
    * 
    * @example
    * off
@@ -11776,12 +12322,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * @remarks
    * The network redirection rule.
    * 
-   * >  This parameter is in invitational preview and not available to the public.
+   * >  This parameter is in invitational preview for specific users and not available to the public.
    */
   netRedirectRule?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule[];
   /**
    * @remarks
-   * The policy ID.
+   * The ID of the cloud computer policy.
    * 
    * @example
    * pg-gx2x1dhsmthe9****
@@ -11789,7 +12335,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   policyGroupId?: string;
   /**
    * @remarks
-   * The policy type.
+   * The type of the cloud computer policy.
    * 
    * Valid values:
    * 
@@ -11802,7 +12348,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   policyGroupType?: string;
   /**
    * @remarks
-   * The policy status.
+   * The status of the cloud computer policy.
    * 
    * Valid values:
    * 
@@ -11815,7 +12361,13 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   policyStatus?: string;
   /**
    * @remarks
-   * Indicates whether user preemption is allowed. The value is fixed to `off`, which indicates that user preemption is not allowed.
+   * The cloud computer preemption feature.
+   * 
+   * >  To ensure user experience and data security, when a cloud computer is used by an end user, other end users cannot connect to the cloud computer. By default, this parameter is set to `off`, which cannot be modified.
+   * 
+   * Valid values:
+   * 
+   * *   off: Preemption is not allowed.
    * 
    * @example
    * off
@@ -11823,7 +12375,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   preemptLogin?: string;
   /**
    * @remarks
-   * The names of the users that are allowed to connect to the cloud desktop to which another user is logged on.
+   * The usernames that can preempt to connect to the cloud computer.
    */
   preemptLoginUsers?: string[];
   /**
@@ -11839,15 +12391,27 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * on
    */
   printerRedirection?: string;
+  /**
+   * @remarks
+   * Indicates whether the Image Quality Enhancement switch is turned on for design and 3D scenarios.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
+   * 
+   * @example
+   * off
+   */
   qualityEnhancement?: string;
   /**
    * @remarks
-   * Indicates whether the custom screen recording feature is enabled. Valid values:
+   * Indicates whether the custom screen recording feature is enabled.
    * 
+   * Valid values:
+   * 
+   * *   off (default)
    * *   on
-   * *   off
-   * 
-   * Default value: off.
    * 
    * @example
    * off
@@ -11861,8 +12425,23 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * 30
    */
   recordContentExpires?: number;
+  /**
+   * @remarks
+   * The recording duration since a target event is detected by the screen recording audit policy. Unit: Minute. Valid values: 10-60.
+   * 
+   * @example
+   * 10
+   */
   recordEventDuration?: number;
+  /**
+   * @remarks
+   * The array of absolute paths of the monitored files in the screen recording audit policy.
+   */
   recordEventFilePaths?: string[];
+  /**
+   * @remarks
+   * The array of absolute paths of the monitored registry entries in the screen recording audit policy.
+   */
   recordEventRegisters?: string[];
   /**
    * @remarks
@@ -11870,9 +12449,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * 
    * Valid values:
    * 
-   * *   ALLTIME: All operations that are performed by end users on cloud desktops are recorded. The recording starts immediately when end users connect to cloud desktops and ends after the end users disconnect from the cloud desktops.
-   * *   PERIOD: The operations that are performed by end users on cloud desktops during a specified period of time are recorded. You must specify the start time and the end time of the recording.
-   * *   OFF: The screen recording feature is disabled.
+   * *   byaction_cmd_ft: enables the operation-triggered screen recording upon command execution and file transfer.
+   * *   ALLTIME: enables the whole-process screen recording. That is, the recording starts when cloud computers are connected and ends when the cloud computers are disconnected.
+   * *   PERIOD: enables the interval-based screen recording. You must specify an interval between the start time and end time of this type of recording.
+   * *   byaction_commands: enables the operation-triggered screen recording upon command execution.
+   * *   OFF: disables the screen recording feature.
+   * *   byaction_file_transfer: enables the operation-triggered screen recording upon file transfer.
    * 
    * @example
    * OFF
@@ -11880,10 +12462,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recording?: string;
   /**
    * @remarks
-   * Indicates whether to record audio or video data that is generated on the cloud desktop during screen recording. Valid values:
+   * Indicates whether audio files generated from cloud computers are recorded.
    * 
-   * *   on: records audio and video data.
-   * *   off: records only video data.
+   * Valid values:
+   * 
+   * *   off (default): records only video files.
+   * *   on: records video and audio files.
    * 
    * @example
    * on
@@ -11891,7 +12475,14 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordingAudio?: string;
   /**
    * @remarks
-   * This parameter is used with the Recording parameter to generate a screen recording file after you specify the duration of screen recording.
+   * The file length of the screen recording. Unit: minutes. Screen recording files are split based on the specified file length and uploaded to Object Storage Service (OSS) buckets. When a screen recording file reaches 300 MB in size, the system preferentially performs rolling update for the file.
+   * 
+   * Valid values:
+   * 
+   * *   10
+   * *   20
+   * *   30
+   * *   60
    * 
    * @example
    * 10
@@ -11907,7 +12498,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordingEndTime?: string;
   /**
    * @remarks
-   * The period in which the screen recording audit is valid. Valid values: 15 to 180. Unit: day.
+   * The retention period of the screen recording file. Valid values: 1 to 180. Unit: days.
    * 
    * @example
    * 15
@@ -11915,7 +12506,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordingExpires?: number;
   /**
    * @remarks
-   * The frame rate of screen recording. Unit: fps. Valid values:
+   * The frame rate of screen recording. Unit: fps.
+   * 
+   * Valid values:
    * 
    * *   2
    * *   5
@@ -11936,7 +12529,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordingStartTime?: string;
   /**
    * @remarks
-   * Indicates whether the client notification of screen recording is enabled. Valid values: on and off.
+   * Indicates whether the screen recording notification feature is enabled after end users log on to the Alibaba Cloud Workspace client.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * off
@@ -11952,25 +12550,55 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordingUserNotifyMessage?: string;
   /**
    * @remarks
-   * The permissions on the keyboard and mouse to control the cloud desktop during remote assistance. Valid values:
+   * The permissions on keyboard and mouse control during remote assistance.
    * 
-   * *   fullControl: The keyboard and mouse are fully controlled.
-   * *   optionalControl: By default, you do not have the permissions on the keyboard or mouse to control the cloud desktop during remote assistance. You can apply for the permissions.
-   * *   disableControl: The keyboard and mouse are not controlled.
+   * Valid values:
+   * 
+   * *   optionalControl: By default, you are not granted the permissions. You can apply for the permissions.
+   * *   fullControl: You are granted the full permissions.
+   * *   disableControl: You are not granted the permissions.
    * 
    * @example
    * fullControl
    */
   remoteCoordinate?: string;
+  /**
+   * @remarks
+   * Resets the cloud computer.
+   * 
+   * @example
+   * null
+   */
   resetDesktop?: string;
+  resolutionHeight?: number;
+  resolutionModel?: string;
+  resolutionWidth?: number;
+  /**
+   * @remarks
+   * The number of resource groups bound with this policy.
+   * 
+   * @example
+   * 1
+   */
   resourceGroupCount?: number;
+  /**
+   * @remarks
+   * The region of the cloud computer policy.
+   * 
+   * > The value of a region-less policy is `center`.
+   * 
+   * @example
+   * center
+   */
   resourceRegionId?: string;
   /**
    * @remarks
-   * The effective scope of the policy. Valid values:
+   * The effective scope of the policy.
    * 
+   * Valid values:
+   * 
+   * *   IP: The policy takes effect based on the IP address.
    * *   GLOBAL: The policy takes effect globally.
-   * *   IP: The policy takes effect based on IP addresses.
    * 
    * @example
    * GLOBAL
@@ -11978,12 +12606,53 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   scope?: string;
   /**
    * @remarks
-   * This parameter is required when Scope is set to IP. This parameter takes effect when Scope is set to IP.
+   * This parameter is required when the `Scope` parameter is set to `IP`.````
    */
   scopeValue?: string[];
+  /**
+   * @remarks
+   * Indicates whether the Smooth Enhancement switch is turned on.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
+   * 
+   * @example
+   * off
+   */
   smoothEnhancement?: string;
+  /**
+   * @remarks
+   * Specifies whether to provide the Metrics function in the DesktopAssistant. Valid values:
+   * 
+   * - off: not provided.
+   * - on: provided.
+   * 
+   * @example
+   * on
+   */
   statusMonitor?: string;
+  /**
+   * @remarks
+   * The streaming mode.
+   * 
+   * Valid values:
+   * 
+   * *   intelligent: suitable for daily office scenarios (Intelligent Mode).
+   * *   smooth: suitable for design and 3D application scenarios (Smooth Mode).
+   * 
+   * @example
+   * smooth
+   */
   streamingMode?: string;
+  /**
+   * @remarks
+   * The destination frame rate. Valid values: 10 to 60. Unit: fps.
+   * 
+   * @example
+   * 30
+   */
   targetFps?: number;
   /**
    * @remarks
@@ -12003,14 +12672,59 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * The USB redirection rule.
    */
   usbSupplyRedirectRule?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule[];
+  /**
+   * @remarks
+   * The average bitrate for video encoding. Valid values: 1000 to 50000.
+   * 
+   * @example
+   * 1000
+   */
   videoEncAvgKbps?: number;
+  /**
+   * @remarks
+   * The maximum quantizer parameter (QP) of video files. A larger QP value indicates worse video quality. Valid values: 0 to 51.
+   * 
+   * @example
+   * 20
+   */
   videoEncMaxQP?: number;
+  /**
+   * @remarks
+   * The minimum quantizer parameter (QP) of video files. A smaller QP value indicates higher video quality. Valid values: 0 to 51.
+   * 
+   * @example
+   * 20
+   */
   videoEncMinQP?: number;
+  /**
+   * @remarks
+   * The peak bitrate for video encoding. Valid values: 1000 to 50000.
+   * 
+   * @example
+   * 1000
+   */
   videoEncPeakKbps?: number;
+  /**
+   * @remarks
+   * The video encoding feature.
+   * 
+   * Valid values:
+   * 
+   * *   qualityFirst: The priority given to the image quality.
+   * *   bandwidthFirst: The priority given to the bitrate.
+   * 
+   * @example
+   * qualityFirst
+   */
   videoEncPolicy?: string;
   /**
    * @remarks
-   * Indicates whether the multimedia redirection feature is enabled. Valid values: on and off.
+   * Indicates whether the multimedia redirection feature is enabled.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * off
@@ -12033,12 +12747,13 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   visualQuality?: string;
   /**
    * @remarks
-   * Indicates whether the watermarking feature is enabled.
+   * The watermarking feature.
    * 
    * Valid values:
    * 
-   * *   off
-   * *   on
+   * *   blind: Invisible watermarks are applied.
+   * *   off: The watermarking feature is disabled.
+   * *   on: Visible watermarks are applied.
    * 
    * @example
    * on
@@ -12046,7 +12761,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermark?: string;
   /**
    * @remarks
-   * Indicates whether the anti-screen photo feature is enabled for invisible watermarks. Valid values: on and off.
+   * Indicates whether the anti-screen photo feature is enabled for invisible watermarks.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * off
@@ -12062,7 +12782,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermarkColor?: number;
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * If you set `WatermarkType` to `custom`, you must also specify `WatermarkCustomText`.
    * 
    * @example
    * test
@@ -12086,7 +12806,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermarkFontSize?: number;
   /**
    * @remarks
-   * The font style of the watermark. Valid values:
+   * The watermark font style.
+   * 
+   * Valid values:
    * 
    * *   plain
    * *   bold
@@ -12097,7 +12819,13 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermarkFontStyle?: string;
   /**
    * @remarks
-   * The invisible watermark enhancement feature. Valid values: low, medium, and high.
+   * The watermark enhancement feature.
+   * 
+   * Valid values:
+   * 
+   * *   high
+   * *   low
+   * *   medium
    * 
    * @example
    * medium
@@ -12105,7 +12833,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermarkPower?: string;
   /**
    * @remarks
-   * The number of watermark rows. This parameter is now invalid.
+   * The number of watermark rows.
+   * 
+   * >  This parameter is not available for public use.
    * 
    * @example
    * 5
@@ -12113,7 +12843,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermarkRowAmount?: number;
   /**
    * @remarks
-   * Indicates whether the security priority for invisible watermarks is enabled. Valid values: on and off.
+   * Indicates whether the security priority feature is enabled for invisible watermarks.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * on
@@ -12143,19 +12878,35 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermarkTransparencyValue?: number;
   /**
    * @remarks
-   * The watermark type.
+   * The watermark content.
    * 
    * Valid values:
    * 
-   * *   HostName,EndUserId: The watermark is displayed in the following format: Rightmost 15 characters of the cloud desktop ID,Username.
-   * *   EndUserId: The username is displayed.
-   * *   EndUserId,HostName: The watermark is displayed in the following format: Username,Rightmost 15 characters of the cloud desktop ID.
-   * *   HostName: The rightmost 15 characters of the cloud desktop ID are displayed.
+   * *   EndUserId: the username.
+   * *   Custom
+   * *   DesktopIp: the IP address of the cloud computer.
+   * *   ClientIp: the IP address of the Alibaba Cloud Workspace client.
+   * *   HostName: the rightmost 15 digits of the cloud computer ID.
+   * *   ClientTime: the current time displayed on the cloud computer.
    * 
    * @example
    * EndUserId
    */
   watermarkType?: string;
+  /**
+   * @remarks
+   * Specifies whether to provide the AI Assistant function in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace desktop clients (including the Windows client and the macOS client).
+   * 
+   * > Desktop clients of V7.7 and higher versions required.
+   * 
+   * Valid values:
+   * 
+   * - off: the AI Aisstant function is not provided.
+   * - on: the AI Aisstant function is provided.
+   * 
+   * @example
+   * on
+   */
   wyAssistant?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12175,6 +12926,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       cpuSingleRateLimit: 'CpuSingleRateLimit',
       desktopCount: 'DesktopCount',
       desktopGroupCount: 'DesktopGroupCount',
+      deviceConnectHint: 'DeviceConnectHint',
       deviceRedirects: 'DeviceRedirects',
       deviceRules: 'DeviceRules',
       displayMode: 'DisplayMode',
@@ -12225,6 +12977,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       recordingUserNotifyMessage: 'RecordingUserNotifyMessage',
       remoteCoordinate: 'RemoteCoordinate',
       resetDesktop: 'ResetDesktop',
+      resolutionHeight: 'ResolutionHeight',
+      resolutionModel: 'ResolutionModel',
+      resolutionWidth: 'ResolutionWidth',
       resourceGroupCount: 'ResourceGroupCount',
       resourceRegionId: 'ResourceRegionId',
       scope: 'Scope',
@@ -12277,6 +13032,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       cpuSingleRateLimit: 'number',
       desktopCount: 'number',
       desktopGroupCount: 'number',
+      deviceConnectHint: 'string',
       deviceRedirects: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects },
       deviceRules: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules },
       displayMode: 'string',
@@ -12327,6 +13083,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       recordingUserNotifyMessage: 'string',
       remoteCoordinate: 'string',
       resetDesktop: 'string',
+      resolutionHeight: 'number',
+      resolutionModel: 'string',
+      resolutionWidth: 'number',
       resourceGroupCount: 'number',
       resourceRegionId: 'string',
       scope: 'string',
@@ -12485,7 +13244,7 @@ export class DescribePriceResponseBodyPriceInfoPricePromotions extends $dara.Mod
 export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
-   * The unit of the currency.
+   * The unit of currency (USD).
    * 
    * @example
    * CNY
@@ -12493,12 +13252,16 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The discounted price.
+   * The discounted amount.
    * 
    * @example
    * 0
    */
   discountPrice?: number;
+  /**
+   * @remarks
+   * The orders.
+   */
   orderLines?: { [key: string]: string };
   /**
    * @remarks
@@ -12510,13 +13273,20 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
   originalPrice?: number;
   /**
    * @remarks
-   * The details of the promotion.
+   * The promotions.
    */
   promotions?: DescribePriceResponseBodyPriceInfoPricePromotions[];
+  /**
+   * @remarks
+   * The price under an effective savings plan.
+   * 
+   * @example
+   * 50.00
+   */
   spPrice?: number;
   /**
    * @remarks
-   * The actual price that is paid. The original price minus the discounted part equals the actual price.
+   * The actual price. The original price minus the discounted amount equals the actual price.
    * 
    * @example
    * 2.796
@@ -12602,11 +13372,25 @@ export class DescribePriceResponseBodyPriceInfoRules extends $dara.Model {
 }
 
 export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether a free enterprise drive is available.
+   * 
+   * @example
+   * true
+   */
   freeCdsQuota?: boolean;
+  /**
+   * @remarks
+   * The free capacity provided by the enterprise drive. Unit: GiB.
+   * 
+   * @example
+   * 100
+   */
   freeCdsSize?: number;
   /**
    * @remarks
-   * The information about the price.
+   * The price.
    */
   price?: DescribePriceResponseBodyPriceInfoPrice;
   /**
@@ -12803,11 +13587,17 @@ export class DescribeRecordingsResponseBodyRecordings extends $dara.Model {
 
 export class DescribeRefundPriceResponseBodyPriceInfo extends $dara.Model {
   /**
+   * @remarks
+   * The unit of currency (USD).
+   * 
    * @example
    * CNY
    */
   currency?: string;
   /**
+   * @remarks
+   * The amount of the refund.
+   * 
    * @example
    * 3990.75
    */
@@ -13206,7 +13996,21 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
    * 30
    */
   remainTime?: number;
+  /**
+   * @remarks
+   * The ID of the restore point.
+   * 
+   * @example
+   * rp-btgmaa20wkcju****
+   */
   restorePointId?: string;
+  /**
+   * @remarks
+   * The name of the restore point.
+   * 
+   * @example
+   * DataDiskBackup
+   */
   restorePointName?: string;
   /**
    * @remarks
@@ -13395,42 +14199,98 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
 
 export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether end users can configure scheduled tasks.
+   * 
    * @example
    * true
    */
   allowClientSetting?: boolean;
   /**
+   * @remarks
+   * The CRON expression for the scheduled task.
+   * 
    * @example
    * 0 0 16 ? * 1,2,3,4,5,6,7
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * Specifies whether to forcibly execute the scheduled task. A value of true specifies the scheduled task will run forcefully, ignoring the cloud computer and connection status.
+   * 
    * @example
    * false
    */
   enforce?: boolean;
   /**
+   * @remarks
+   * The interval at which the scheduled task is executed. Unit: minutes.
+   * 
    * @example
    * 10
    */
   interval?: number;
   /**
+   * @remarks
+   * The type of the scheduled disconnection task.
+   * 
+   * Valid values:
+   * 
+   * *   Hibernate: scheduled hibernation.
+   * *   Shutdown: scheduled shutdown.
+   * 
    * @example
    * Shutdown
    */
   operationType?: string;
+  /**
+   * @remarks
+   * The process whitelist. If whitelisted processes are running, the scheduled task upon inactivity does not take effect.
+   */
   processWhitelist?: string[];
   /**
+   * @remarks
+   * The reset operation of the scheduled task.
+   * 
+   * Valid values:
+   * 
+   * *   RESET_TYPE_SYSTEM: resets the system disk.
+   * *   RESET_TYPE_USER_DISK: resets the data disk.
+   * *   RESET_TYPE_BOTH: resets the system disk and data disk.
+   * 
    * @example
    * RESET_TYPE_SYSTEM
    */
   resetType?: string;
   /**
+   * @remarks
+   * The type of the scheduled task.
+   * 
+   * Valid values:
+   * 
+   * *   NoOperationDisconnect: scheduled disconnection upon inactivity.
+   * *   NoConnect: scheduled disconnection upon specified operation (OperationType).
+   * *   TimerBoot: scheduled start.
+   * *   TimerReset: scheduled reset.
+   * *   NoOperationShutdown: scheduled shutdown upon inactivity.
+   * *   NoOperationHibernate: scheduled hibernation upon inactivity.
+   * *   TimerShutdown: scheduled shutdown.
+   * *   NoOperationReboot: scheduled restart upon inactivity.
+   * *   TimerReboot: scheduled restart.
+   * 
    * @example
    * TimerBoot
    */
   timerType?: string;
   /**
+   * @remarks
+   * The method to trigger the scheduled task upon inactivity.
+   * 
+   * Valid values:
+   * 
+   * *   Advanced: intelligent detection.
+   * *   Standard: standard detection.
+   * 
    * @example
    * Standard
    */
@@ -13477,30 +14337,76 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
 
 export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The number of resources that are bound to the configuration group.
+   * 
    * @example
    * 50
    */
   bindCount?: number;
+  /**
+   * @remarks
+   * The number of bound resources.
+   */
   bindCountMap?: { [key: string]: number };
+  /**
+   * @remarks
+   * The scheduled task configuration groups.
+   */
   configTimers?: DescribeTimerGroupResponseBodyDataConfigTimers[];
+  /**
+   * @remarks
+   * The description of the configuration group.
+   */
   description?: string;
   /**
+   * @remarks
+   * The ID of the configuration group.
+   * 
    * @example
    * cg-75aazkg2tnqb2*****
    */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the configuration group.
+   */
   name?: string;
   /**
+   * @remarks
+   * The service type of the configuration group.
+   * 
+   * Valid value:
+   * 
+   * *   CLOUD_DESKTOP: the cloud computer service.
+   * 
    * @example
    * CLOUD_DESKTOP
    */
   productType?: string;
   /**
+   * @remarks
+   * The state of the configuration group.
+   * 
+   * Valid values:
+   * 
+   * *   AVAILABLE: The configuration group is available.
+   * *   UNAVAILABLE: The configuration group is deleted.
+   * *   DELETING: The configuration group is being deleted.
+   * *   UPDATING: The configuration group is being modified.
+   * 
    * @example
    * AVAILABLE
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the configuration group.
+   * 
+   * Valid value:
+   * 
+   * *   Timer: the scheduled task type.
+   * 
    * @example
    * Timer
    */
@@ -15759,6 +16665,13 @@ export class ListCdsFilesResponseBodyFileModels extends $dara.Model {
 }
 
 export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
+  /**
+   * @remarks
+   * The number of assigned cloud computers.
+   * 
+   * @example
+   * 2
+   */
   assignedDesktopNumber?: number;
   /**
    * @remarks
@@ -15768,6 +16681,13 @@ export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
    * Alice
    */
   displayName?: string;
+  /**
+   * @remarks
+   * The email address.
+   * 
+   * @example
+   * user@example.com
+   */
   email?: string;
   /**
    * @remarks
@@ -15777,6 +16697,13 @@ export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
    * Alice
    */
   endUser?: string;
+  /**
+   * @remarks
+   * The mobile number.
+   * 
+   * @example
+   * 130********
+   */
   phone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16479,8 +17406,29 @@ export class ModifyDesktopOversoldUserGroupResponseBodyData extends $dara.Model 
 }
 
 export class ModifyDesktopSpecRequestResourceSpecs extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the cloud computer.
+   * 
+   * @example
+   * ecd-4543qyik164a4****
+   */
   desktopId?: string;
+  /**
+   * @remarks
+   * The target size of the system disk. Valid values: 80-500 GiB. The value must be a multiple of 10.
+   * 
+   * @example
+   * 80
+   */
   rootDiskSizeGib?: number;
+  /**
+   * @remarks
+   * The target size of the data disk. Valid values: 80-500 GiB. The value must be a multiple of 10.
+   * 
+   * @example
+   * 20
+   */
   userDiskSizeGib?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16738,7 +17686,7 @@ export class ModifyDesktopTimerRequestDesktopTimers extends $dara.Model {
 export class ModifyDesktopsPolicyGroupResponseBodyModifyResults extends $dara.Model {
   /**
    * @remarks
-   * The result of the modification. A value of success indicates that the policy is modified. If the policy failed to be modified, an error message is returned.
+   * The returned message. If the request was successful, `success` is returned. If the request failed, an error message is returned.
    * 
    * @example
    * success
@@ -16746,7 +17694,7 @@ export class ModifyDesktopsPolicyGroupResponseBodyModifyResults extends $dara.Mo
   code?: string;
   /**
    * @remarks
-   * The ID of the cloud desktop.
+   * The cloud computer ID.
    * 
    * @example
    * ecd-7w78ozhjcwa3u****
@@ -16788,7 +17736,7 @@ export class ModifyDesktopsPolicyGroupResponseBodyModifyResults extends $dara.Mo
 export class ModifyPolicyGroupRequestAuthorizeAccessPolicyRule extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block that the client can access.
+   * The client CIDR block from which end users can connect to cloud computers. The value is an IPv4 CIDR block.
    * 
    * This parameter is required.
    * 
@@ -16838,7 +17786,7 @@ export class ModifyPolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   cidrIp?: string;
   /**
    * @remarks
-   * The description of security group rule N.
+   * The description of the security group rule.
    * 
    * @example
    * test
@@ -16846,13 +17794,15 @@ export class ModifyPolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The protocol type of security group rule N. Valid values:
+   * The protocol type of the security group rule.
    * 
-   * *   tcp: TCP
-   * *   udp: UDP
-   * *   icmp: ICMP (IPv4)
-   * *   gre: GRE
-   * *   all: all protocols
+   * Valid values:
+   * 
+   * *   UDP: the User Datagram Protocol (UDP) protocol.
+   * *   TCP: the Transmission Control Protocol (TCP) protocol.
+   * *   ALL: all protocols.
+   * *   GRE: the Generic Routing Encapsulation (GRE) protocol.
+   * *   ICMP: the Internet Control Message Protocol (ICMP) for (IPv4)
    * 
    * @example
    * tcp
@@ -16860,10 +17810,12 @@ export class ModifyPolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   ipProtocol?: string;
   /**
    * @remarks
-   * The authorization policy of security group rule N. Valid values:
+   * The authorization of the security group rule.
    * 
-   * *   accept: specifies the Allow policy that allows all access requests.
-   * *   drop: specifies the Deny policy that denies all access requests. If no messages of access denied are returned, the requests time out or failed.
+   * Valid values:
+   * 
+   * *   drop: denies all access requests. If no messages of access denied are returned, the requests timed out or failed.
+   * *   accept: accepts all requests.
    * 
    * @example
    * accept
@@ -16871,14 +17823,14 @@ export class ModifyPolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   policy?: string;
   /**
    * @remarks
-   * The port range of security group rule N. The value of the port range is determined by the protocol type specified by the AuthorizeSecurityPolicyRule.N.IpProtocol parameter.
+   * The port range of the security group rule. The value range of this parameter varies based on the value of the IpProtocol parameter.
    * 
-   * *   When the AuthorizeSecurityPolicyRule.N.IpProtocol parameter is set to tcp or udp, the port range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-   * *   When AuthorizeSecurityPolicyRule.N.IpProtocol is set to icmp, set the value to -1/-1.
-   * *   When AuthorizeSecurityPolicyRule.N.IpProtocol is set to gre, set the value to -1/-1.
-   * *   When AuthorizeSecurityPolicyRule.N.IpProtocol is set to all, set the value to -1/-1.
+   * *   If the IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+   * *   If the IpProtocol parameter is set to ICMP, set the value to -1/-1.
+   * *   If the IpProtocol parameter is set to GRE, set the value to -1/-1.
+   * *   If the IpProtocol parameter is set to ALL, set the value to -1/-1.
    * 
-   * For more information about the common ports of typical applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+   * For more information about the common ports applied in EDS, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
    * 
    * @example
    * 22/22
@@ -16886,11 +17838,7 @@ export class ModifyPolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   portRange?: string;
   /**
    * @remarks
-   * The priority of security group rule N. A smaller value indicates a higher priority.
-   * 
-   * Valid values: 1 to 60.
-   * 
-   * Default value: 1.
+   * The priority of the security group rule. A smaller value indicates a higher priority. Valid values: 1 to 60. Default value: 1
    * 
    * @example
    * 1
@@ -16898,10 +17846,12 @@ export class ModifyPolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   priority?: string;
   /**
    * @remarks
-   * The direction of security group rule N. Valid values:
+   * The direction of the security group rule.
    * 
-   * *   inflow: inbound
+   * Valid values:
+   * 
    * *   outflow: outbound
+   * *   inflow: inbound
    * 
    * @example
    * inflow
@@ -16943,16 +17893,17 @@ export class ModifyPolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
 export class ModifyPolicyGroupRequestClientType extends $dara.Model {
   /**
    * @remarks
-   * The type of client that you want to use to connect to the cloud desktop. Valid values:
+   * The type of the Alibaba Cloud Workspace client.
    * 
-   * * windows: the Windows client
-   * * linux: C-Key Series Cloud Computer TC and A Series Cloud Computer TC
-   * * macos: the macOS client
-   * * ios: the iOS client
-   * * android: the Android client
-   * * html5: the web client
+   * >  If you do not specify the `ClientType` parameter, all types of the client are allowed by default.
    * 
-   * > By default, if you do not configure the ClientType-related parameters, all types of clients are allowed to connect to the cloud desktop.
+   * Valid values:
+   * 
+   * *   html5: web client
+   * *   android: Android client
+   * *   windows: Windows client
+   * *   ios: iOS client
+   * *   macos: macOS client
    * 
    * @example
    * windows
@@ -16960,12 +17911,14 @@ export class ModifyPolicyGroupRequestClientType extends $dara.Model {
   clientType?: string;
   /**
    * @remarks
-   * The logon method. This parameter specifies whether a specific type of the client is allowed to connect to the cloud desktop. Valid values:
+   * Specifies whether to allow end users to use a specific type of the client to connect to cloud computers.
    * 
-   * * on: allowed.
-   * * off: disallowed.
+   * >  If you do not specify the `ClientType` parameter, all types of the client are allowed by default.
    * 
-   * > By default, if you do not configure the ClientType-related parameters, all types of clients are allowed to log on to cloud desktops.
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * ON
@@ -16995,7 +17948,34 @@ export class ModifyPolicyGroupRequestClientType extends $dara.Model {
 }
 
 export class ModifyPolicyGroupRequestDeviceRedirects extends $dara.Model {
+  /**
+   * @remarks
+   * The peripheral type.
+   * 
+   * Valid values:
+   * 
+   * *   printer
+   * *   scanner
+   * *   camera
+   * *   adb: the Android Debug Bridge (ADB) device
+   * 
+   * @example
+   * camera
+   */
   deviceType?: string;
+  /**
+   * @remarks
+   * The redirection type.
+   * 
+   * Valid values:
+   * 
+   * *   deviceRedirect: device redirection
+   * *   usbRedirect: USB redirection
+   * *   off: redirection disabled
+   * 
+   * @example
+   * usbRedirect
+   */
   redirectType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17021,11 +18001,72 @@ export class ModifyPolicyGroupRequestDeviceRedirects extends $dara.Model {
 }
 
 export class ModifyPolicyGroupRequestDeviceRules extends $dara.Model {
+  /**
+   * @remarks
+   * The device name.
+   * 
+   * @example
+   * sandisk
+   */
   deviceName?: string;
+  /**
+   * @remarks
+   * The product ID (PID).
+   * 
+   * @example
+   * 0x0781
+   */
   devicePid?: string;
+  /**
+   * @remarks
+   * The peripheral type.
+   * 
+   * Valid values:
+   * 
+   * *   usbKey
+   * *   other
+   * *   graphicsTablet
+   * *   printer
+   * *   cardReader
+   * *   scanner
+   * *   storage
+   * *   camera
+   * *   adb
+   * *   networkInterfaceCard: the NIC device
+   * 
+   * @example
+   * storage
+   */
   deviceType?: string;
+  /**
+   * @remarks
+   * The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * 
+   * @example
+   * 0x55b1
+   */
   deviceVid?: string;
+  /**
+   * @remarks
+   * The link optimization command.
+   * 
+   * @example
+   * 2:0
+   */
   optCommand?: string;
+  /**
+   * @remarks
+   * The redirection type.
+   * 
+   * Valid values:
+   * 
+   * *   deviceRedirect: device redirection
+   * *   usbRedirect: USB redirection
+   * *   off: redirection disabled
+   * 
+   * @example
+   * usbRedirect
+   */
   redirectType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17061,7 +18102,7 @@ export class ModifyPolicyGroupRequestDeviceRules extends $dara.Model {
 export class ModifyPolicyGroupRequestDomainResolveRule extends $dara.Model {
   /**
    * @remarks
-   * The description of the DNS rule.
+   * The description of domain name resolution rule.
    * 
    * @example
    * description policy
@@ -17077,25 +18118,12 @@ export class ModifyPolicyGroupRequestDomainResolveRule extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Specifies whether to allow the DNS rule.
+   * Specifies whether to allow the domain name resolution rule.
    * 
    * Valid values:
    * 
    * *   allow
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * *   block
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * block
@@ -17129,7 +18157,7 @@ export class ModifyPolicyGroupRequestDomainResolveRule extends $dara.Model {
 export class ModifyPolicyGroupRequestRevokeAccessPolicyRule extends $dara.Model {
   /**
    * @remarks
-   * The IPv4 CIDR block that can be accessed from the client.
+   * The client CIDR block that you want to delete. After it is deleted, end users cannot connect to cloud computers from the CIDR block. The value is an IPv4 CIDR block.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -17137,7 +18165,7 @@ export class ModifyPolicyGroupRequestRevokeAccessPolicyRule extends $dara.Model 
   cidrIp?: string;
   /**
    * @remarks
-   * The description of the client IP address whitelist that you want to delete.
+   * The description of the client IP addresses that you want to delete from the whitelist.
    * 
    * @example
    * test
@@ -17169,7 +18197,7 @@ export class ModifyPolicyGroupRequestRevokeAccessPolicyRule extends $dara.Model 
 export class ModifyPolicyGroupRequestRevokeSecurityPolicyRule extends $dara.Model {
   /**
    * @remarks
-   * The IPv4 CIDR block of the security group rule.
+   * The object of the security group rule that you want to delete. The value is an IPv4 CIDR block.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -17177,7 +18205,7 @@ export class ModifyPolicyGroupRequestRevokeSecurityPolicyRule extends $dara.Mode
   cidrIp?: string;
   /**
    * @remarks
-   * The description of the security group rule.
+   * The description of the security group rule that you want to delete.
    * 
    * @example
    * test
@@ -17185,13 +18213,15 @@ export class ModifyPolicyGroupRequestRevokeSecurityPolicyRule extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * The protocol type of the security group rule. Valid values:
+   * The protocol type of the security group rule that you want to delete.
    * 
-   * * TCP
-   * * UDP
-   * * ICMP: ICMP (IPv4)
-   * * GRE
-   * * ALL
+   * Valid values:
+   * 
+   * *   TCP
+   * *   UDP
+   * *   ALL
+   * *   GRE
+   * *   ICMP
    * 
    * @example
    * tcp
@@ -17199,12 +18229,12 @@ export class ModifyPolicyGroupRequestRevokeSecurityPolicyRule extends $dara.Mode
   ipProtocol?: string;
   /**
    * @remarks
-   * The authorization policy of the security group rule that you want to delete. Valid values:
+   * The authorization of the security group rule that you want to delete.
    * 
-   * * accept: allows all access requests.
-   * * drop: disallows all access requests. If no denied messages are returned, the requests timed out or failed.
+   * Valid values:
    * 
-   * Default value: accept.
+   * *   drop: denies all access requests. If no messages of access denied are returned, the requests timed out or failed.
+   * *   accept (default): accepts all requests.
    * 
    * @example
    * accept
@@ -17212,14 +18242,14 @@ export class ModifyPolicyGroupRequestRevokeSecurityPolicyRule extends $dara.Mode
   policy?: string;
   /**
    * @remarks
-   * The port range of the security group rule that you want to delete. The value of the port range is determined by the protocol type specified by the IpProtocol parameter.
+   * The port range of the security group rule that you want to delete. The value range of this parameter varies based on the value of the IpProtocol parameter.
    * 
-   * * If the IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. The start port number and the end port number are separated by a forward slash (/). Example: 1/200.
-   * * If the IpProtocol parameter is set to ICMP, the port range is -1/-1.
-   * * If the IpProtocol parameter is set to GRE, the port range is -1/-1.
-   * * If the IpProtocol parameter is set to ALL, the port range is -1/-1.
+   * *   If the IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+   * *   If the IpProtocol parameter is set to ICMP, set the value to -1/-1.
+   * *   If the IpProtocol parameter is set to GRE, set the value to -1/-1.
+   * *   If the IpProtocol parameter is set to ALL, set the value to -1/-1.
    * 
-   * For more information about the common ports of typical applications, see [Common ports](https://www.alibabacloud.com/help/en/ecs/user-guide/common-ports?spm=a2c63.p38356.0.0.56b87f2c2SJTAw).
+   * For more information about the common ports applied in EDS, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
    * 
    * @example
    * 22/22
@@ -17227,11 +18257,7 @@ export class ModifyPolicyGroupRequestRevokeSecurityPolicyRule extends $dara.Mode
   portRange?: string;
   /**
    * @remarks
-   * The priority of the security group rule. A smaller value indicates a higher priority.
-   * 
-   * Valid values: 1 to 60.
-   * 
-   * Default value: 1.
+   * The priority of the security group rule that you want to delete. A smaller value indicates a higher priority. Valid values: 1 to 60. Default value: 1.
    * 
    * @example
    * 1
@@ -17239,10 +18265,12 @@ export class ModifyPolicyGroupRequestRevokeSecurityPolicyRule extends $dara.Mode
   priority?: string;
   /**
    * @remarks
-   * The direction of the security group rule that you want to delete. Valid values:
+   * The direction of the security group rule that you want to delete.
    * 
-   * * inflow: inbound
-   * * outflow: outbound
+   * Valid values:
+   * 
+   * *   outflow: outbound
+   * *   inflow: inbound
    * 
    * @example
    * outflow
@@ -17284,7 +18312,7 @@ export class ModifyPolicyGroupRequestRevokeSecurityPolicyRule extends $dara.Mode
 export class ModifyPolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
   /**
    * @remarks
-   * The description of the rule.
+   * The rule description.
    * 
    * @example
    * Test rule
@@ -17292,7 +18320,7 @@ export class ModifyPolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The class of the device. This parameter is required when you set the usbRuleType parameter to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes?spm=a2c63.p38356.0.0.56b84b03GUn4kJ).
+   * The device class. This parameter is required when `usbRuleType` is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
    * 
    * @example
    * 0Eh
@@ -17300,7 +18328,7 @@ export class ModifyPolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
   deviceClass?: string;
   /**
    * @remarks
-   * The subclass of the device. This parameter is required when you set the usbRuleType parameter to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes?spm=a2c63.p38356.0.0.56b84b03GUn4kJ).
+   * The device subclass. This parameter is required when `usbRuleType` is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
    * 
    * @example
    * xxh
@@ -17308,7 +18336,7 @@ export class ModifyPolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
   deviceSubclass?: string;
   /**
    * @remarks
-   * The ID of the service.
+   * The product ID (PID).
    * 
    * @example
    * 08**
@@ -17316,10 +18344,12 @@ export class ModifyPolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * Specifies whether to allow USB redirection. Valid values:
+   * Specifies whether to allow USB redirection.
    * 
-   * * 1: allowed.
-   * * 2: disallowed.
+   * Valid values:
+   * 
+   * *   1: allows USB redirection.
+   * *   2: forbids USB redirection.
    * 
    * @example
    * 1
@@ -17327,10 +18357,12 @@ export class ModifyPolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
   usbRedirectType?: number;
   /**
    * @remarks
-   * The type of the USB redirection rule. Valid values:
+   * The type of the USB redirection rule.
    * 
-   * * 1: device class.
-   * * 2: device vendor.
+   * Valid values:
+   * 
+   * *   1: by device class
+   * *   2: by device vendor
    * 
    * @example
    * 1
@@ -17338,7 +18370,7 @@ export class ModifyPolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
   usbRuleType?: number;
   /**
    * @remarks
-   * The ID of the vendor. For more information, see[ Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf?spm=a2c63.p38356.0.0.56b84b03GUn4kJ&file=vendor_ids032322.pdf_1.pdf).
+   * The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
    * 
    * @example
    * 04**
@@ -17379,42 +18411,100 @@ export class ModifyPolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
 
 export class ModifyTimerGroupRequestConfigTimers extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to allow end users to configure scheduled tasks.
+   * 
    * @example
    * true
    */
   allowClientSetting?: boolean;
   /**
+   * @remarks
+   * The CRON expression for the scheduled task.
+   * 
+   * >  The time must be in UTC. For example, for 24:00 (UTC+8), you must set the value to 0 0 16 ? \\* 1,2,3,4,5,6,7.
+   * 
    * @example
    * 0 0 16 ? * 1,2,3,4,5,6,7
    */
   cronExpression?: string;
   /**
+   * @remarks
+   * Specifies whether to forcibly execute the scheduled task. A value of true specifies the scheduled task will run forcefully, ignoring the cloud computer and connection status.
+   * 
    * @example
    * false
    */
   enforce?: boolean;
   /**
+   * @remarks
+   * The interval at which the scheduled task is executed. Unit: minutes.
+   * 
    * @example
    * 10
    */
   interval?: number;
   /**
+   * @remarks
+   * The type of the scheduled operation. If you set TimerType to NoConnect, you can specify this parameter.
+   * 
+   * Valid values:
+   * 
+   * *   Hibernate: scheduled hibernation.
+   * *   Shutdown: scheduled shutdown.
+   * 
    * @example
    * Shutdown
    */
   operationType?: string;
+  /**
+   * @remarks
+   * The process whitelist. If whitelisted processes are running, the scheduled task upon inactivity does not take effect.
+   */
   processWhitelist?: string[];
   /**
+   * @remarks
+   * The reset operation.
+   * 
+   * Valid values:
+   * 
+   * *   RESET_TYPE_SYSTEM: resets the system disk.
+   * *   RESET_TYPE_USER_DISK: resets the data disk.
+   * *   RESET_TYPE_BOTH: resets the system disk and data disk.
+   * 
    * @example
    * RESET_TYPE_SYSTEM
    */
   resetType?: string;
   /**
+   * @remarks
+   * The type of the scheduled task.
+   * 
+   * Valid values:
+   * 
+   * *   NoOperationDisconnect: scheduled disconnection upon inactivity.
+   * *   NoConnect: scheduled disconnection upon specified operation (OperationType).
+   * *   TimerBoot: scheduled start.
+   * *   TimerReset: scheduled reset.
+   * *   NoOperationShutdown: scheduled shutdown upon inactivity.
+   * *   NoOperationHibernate: scheduled hibernation upon inactivity.
+   * *   TimerShutdown: scheduled shutdown.
+   * *   NoOperationReboot: scheduled restart upon inactivity.
+   * *   TimerReboot: scheduled restart.
+   * 
    * @example
    * TIMER_BOOT
    */
   timerType?: string;
   /**
+   * @remarks
+   * The method to trigger the scheduled task upon inactivity.
+   * 
+   * Valid values:
+   * 
+   * *   Advanced: intelligent detection.
+   * *   Standard: standard detection.
+   * 
    * @example
    * Standard
    */
@@ -18218,21 +19308,42 @@ export class TagResourcesRequestTag extends $dara.Model {
 
 export class UnbindConfigGroupRequestResourceInfos extends $dara.Model {
   /**
+   * @remarks
+   * The service type of the resource.
+   * 
+   * Valid value:
+   * 
+   * *   CLOUD_DESKTOP: the cloud computer service.
+   * 
    * @example
    * CLOUD_DESKTOP
    */
   productType?: string;
   /**
+   * @remarks
+   * The ID of the resource.
+   * 
    * @example
    * ecd-ctwj0bk3l5nz****
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The region ID of the resource.
+   * 
    * @example
    * cn-chengdu
    */
   resourceRegionId?: string;
   /**
+   * @remarks
+   * The type of the resource.
+   * 
+   * Valid values:
+   * 
+   * *   RESOURCE_GROUP: the resource group.
+   * *   CLOUD_DESKTOP: the cloud computer service.
+   * 
    * @example
    * CLOUD_DESKTOP
    */
@@ -20345,6 +21456,8 @@ export class AttachEndUserResponse extends $dara.Model {
 export class BindConfigGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the configuration group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20352,12 +21465,17 @@ export class BindConfigGroupRequest extends $dara.Model {
    */
   groupId?: string;
   /**
+   * @remarks
+   * The ID of the region. Set the value to `cn-shanghai`.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The resources to which you want to bind the configuration group.
+   * 
    * This parameter is required.
    */
   resourceInfos?: BindConfigGroupRequestResourceInfos[];
@@ -20391,11 +21509,17 @@ export class BindConfigGroupRequest extends $dara.Model {
 
 export class BindConfigGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the configuration group.
+   * 
    * @example
    * ccg-0chlk9b65lj****
    */
   groupId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * E54EB497-D7B7-5F04-B744-D8DFA7B******
    */
@@ -20989,7 +22113,7 @@ export class CancelCopyImageResponse extends $dara.Model {
 export class ClonePolicyGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the policy.
+   * The name of the cloud computer policy that you want to create.
    * 
    * This parameter is required.
    * 
@@ -20999,7 +22123,7 @@ export class ClonePolicyGroupRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the policy that you want to clone.
+   * The ID of the destination cloud computer policy that you want to clone.
    * 
    * This parameter is required.
    * 
@@ -21009,7 +22133,7 @@ export class ClonePolicyGroupRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
@@ -21045,7 +22169,7 @@ export class ClonePolicyGroupRequest extends $dara.Model {
 export class ClonePolicyGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the new policy.
+   * The ID of the new cloud computer policy.
    * 
    * @example
    * pg-7jcaznnx6go6n****
@@ -22300,7 +23424,21 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
    * beijing-ad01
    */
   adHostname?: string;
+  /**
+   * @remarks
+   * The hostname of the backup domain controller.
+   * 
+   * @example
+   * dc002
+   */
   backupDCHostname?: string;
+  /**
+   * @remarks
+   * The DNS address of the backup domain controller.
+   * 
+   * @example
+   * 192.168.2.100
+   */
   backupDns?: string;
   /**
    * @remarks
@@ -22519,6 +23657,10 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
    * child.example.com
    */
   subDomainName?: string;
+  /**
+   * @remarks
+   * The array of the vSwitch IDs.
+   */
   vSwitchId?: string[];
   /**
    * @remarks
@@ -22988,6 +24130,185 @@ export class CreateAutoSnapshotPolicyResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateAutoSnapshotPolicyResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBandwidthResourcePackagesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The number of the data transfer plans that you want to create at the same time. Valid values: 1 to 20. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  amount?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable the auto-payment feature.
+   * 
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * The size of the data transfer plan. Valid values: 10 to 1000. Unit: GiB.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  packageSize?: number;
+  /**
+   * @remarks
+   * The subscription duration. The valid values of this parameter vary based on the value of `PeriodUnit`.
+   * 
+   * *   If `PeriodUnit` is set to `Month`, the valid values of Period are 1, 3, and 6.
+   * *   If `PeriodUnit` is set to `Year`, the valid value of Period is 1.
+   * 
+   * Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration.
+   * 
+   * Valid values:
+   * 
+   * *   Month (default)
+   * *   Year
+   * 
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * The ID of the promotional activity.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
+  promotionId?: string;
+  /**
+   * @remarks
+   * The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      autoPay: 'AutoPay',
+      packageSize: 'PackageSize',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      promotionId: 'PromotionId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      autoPay: 'boolean',
+      packageSize: 'number',
+      period: 'number',
+      periodUnit: 'string',
+      promotionId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBandwidthResourcePackagesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 24251717783****
+   */
+  orderId?: number;
+  /**
+   * @remarks
+   * The ID of a request.
+   * 
+   * @example
+   * AE7B699F-625C-587E-BC5F-1395CA969681
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBandwidthResourcePackagesResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateBandwidthResourcePackagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateBandwidthResourcePackagesResponseBody,
     };
   }
 
@@ -24319,15 +25640,37 @@ export class CreateCloudDriveUsersResponse extends $dara.Model {
 }
 
 export class CreateConfigGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of configuration groups.
+   */
   configTimers?: CreateConfigGroupRequestConfigTimers[];
+  /**
+   * @remarks
+   * The description of the configuration group.
+   * 
+   * @example
+   * ScheduledTask
+   */
   description?: string;
   /**
    * @remarks
+   * The name of the configuration group.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ScheduledTask
    */
   name?: string;
   /**
    * @remarks
+   * The service type of the configuration group.
+   * 
+   * Valid value:
+   * 
+   * *   CLOUD_DESKTOP: the cloud computer service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24335,12 +25678,21 @@ export class CreateConfigGroupRequest extends $dara.Model {
    */
   productType?: string;
   /**
+   * @remarks
+   * The ID of the region. Set the value to `cn-shanghai`.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The type of the configuration group.
+   * 
+   * Valid value:
+   * 
+   * *   Timer: the scheduled task type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24383,12 +25735,25 @@ export class CreateConfigGroupRequest extends $dara.Model {
 
 export class CreateConfigGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the configuration group.
+   * 
    * @example
    * ccg-0ctwi5zbswtql****
    */
   groupId?: string;
+  /**
+   * @remarks
+   * The creation result of the configuration group.
+   * 
+   * @example
+   * success
+   */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * EE9472BC-0B5D-5458-85CD-C52BDD******
    */
@@ -24456,7 +25821,9 @@ export class CreateConfigGroupResponse extends $dara.Model {
 export class CreateDesktopGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The end users whom you want to add to all types of desktop groups.
+   * The types of the users.
+   * 
+   * >  This parameter is not publicly available.
    * 
    * @example
    * Alice
@@ -24464,7 +25831,12 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   allClassifyUsers?: boolean;
   /**
    * @remarks
-   * Specifies whether to automatically create cloud desktops in the desktop group if you set the billing method to subscription. If you set the ChargeType parameter to PrePaid, this parameter is required.
+   * Specifies whether to enable batch-based automatic creation of subscription cloud computers for the shared group. This parameter is required if you set `ChargeType` to `PrePaid`.
+   * 
+   * Valid values:
+   * 
+   * *   0: enables batch-based automatic creation of subscription cloud computers.
+   * *   1: disables batch-based automatic creation of subscription cloud computers.
    * 
    * @example
    * 1
@@ -24472,7 +25844,12 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   allowAutoSetup?: number;
   /**
    * @remarks
-   * Specifies whether to reserve cloud desktops if you set the billing method to pay-as-you-go. If you set the ChargeType parameter to PostPaid, this parameter is required. Valid values: 0: does not allow the system to reserve cloud desktops. N: allows the system to reserve N cloud desktops. The variable N must be an integer that ranges from 1 to 100.
+   * The maximum number of pay-as-you-go cloud computers that can be reserved in the shared group. This parameter is required if you set `ChargeType` to `PostPaid`. Valid values:
+   * 
+   * *   0: does not reserve any cloud computers.
+   * *   N: reserves N cloud computers (1≤ N ≤ 100).
+   * 
+   * >  Setting this parameter to 0 means no cloud computers will be reserved in the shared group. In this case, the system must create, start, and assign cloud computers to end users upon request, which can be time-consuming. To improve user experience, we recommend that you reserve a specific number of cloud computers.
    * 
    * @example
    * 1
@@ -24480,7 +25857,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   allowBufferCount?: number;
   /**
    * @remarks
-   * Specifies whether to enable automatic payment.
+   * Specifies whether to automatically complete the payment for subscription orders.
    * 
    * @example
    * true
@@ -24488,25 +25865,12 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal.
+   * Specifies whether to enable auto-renewal for the shared subscription group.
    * 
    * Valid values:
    * 
    * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * false
@@ -24514,7 +25878,9 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The number of sessions that are allowed per cloud desktop in a multi-session desktop group.
+   * The number of concurrent sessions of the multi-session shared group.
+   * 
+   * >  This parameter is not publicly available.
    * 
    * @example
    * 1
@@ -24522,7 +25888,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   bindAmount?: number;
   /**
    * @remarks
-   * The ID of the desktop template.
+   * The ID of the cloud computer template.
    * 
    * @example
    * b-je9hani001wfn****
@@ -24530,7 +25896,8 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   bundleId?: string;
   /**
    * @remarks
-   * The number of cloud desktops that you want to purchase. Valid values: 0 to 200.
+   * *   For shared subscription groups, this parameter defines the initial number of cloud computers to be created. Valid values: 0 to 200.
+   * *   For shared pay-as-you-go groups, this parameter defines the minimum initial number of cloud computers to be created. Valid values: 0 to `MaxDesktopsCount`. Default value: 1.
    * 
    * @example
    * 3
@@ -24538,7 +25905,12 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   buyDesktopsCount?: number;
   /**
    * @remarks
-   * The billing method of the cloud desktops in the desktop group.
+   * The billing method of the shared group.
+   * 
+   * Valid values:
+   * 
+   * *   PostPaid: pay-as-you-go.
+   * *   PrePaid: subscription.
    * 
    * This parameter is required.
    * 
@@ -24548,7 +25920,14 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The type of the desktop group.
+   * The type of the cloud computers in the shared group.
+   * 
+   * >  This parameter is not publicly available.
+   * 
+   * Valid values:
+   * 
+   * *   teacher: cloud computers designed for teachers.
+   * *   student: cloud computers designed for students.
    * 
    * @example
    * teacher
@@ -24564,7 +25943,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The remarks on the desktop group.
+   * The remarks of the shared group.
    * 
    * @example
    * test
@@ -24572,36 +25951,95 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   comments?: string;
   /**
    * @remarks
-   * The maximum period of time during which the session is connected. When the specified maximum period of time is reached, the session automatically disconnects. Unit: milliseconds. This parameter is required only for cloud desktops in the same desktop group.
+   * The maximum duration for which each session remains connected. The session is automatically disconnected once the specified maximum time limit is reached. Unit: milliseconds. Valid values: 900000 to 345600000. That is, the session can be connected for 15 to 5,760 minutes (4 days).
    * 
    * @example
    * 300000
    */
   connectDuration?: number;
+  /**
+   * @remarks
+   * The category of the data disk.
+   * 
+   * Valid values:
+   * 
+   * *   cloud_auto: the standard SSD.
+   * *   cloud_essd: the ESSD.
+   * 
+   * @example
+   * cloud_auto
+   */
   dataDiskCategory?: string;
+  /**
+   * @remarks
+   * The PL of the data disk of the ESSD category. Default value: PL0.
+   * 
+   * Valid values:
+   * 
+   * *   PL1
+   * *   PL0
+   * 
+   * @example
+   * PL0
+   */
   dataDiskPerLevel?: string;
+  /**
+   * @remarks
+   * The size of the data disk. Unit: GB. Valid values: 0 to 16380. The value must be an integral multiple of 20.
+   * 
+   * *   A value of 0 means no data disk is attached.
+   * *   If the selected plan includes a standard SSD, the data disk size must be at least 20 GB.
+   * 
+   * Default value: 0.
+   * 
+   * @example
+   * 80
+   */
   dataDiskSize?: number;
   /**
    * @remarks
-   * The default number of cloud desktops to create when you create the desktop group. Default value: 1.
+   * The default number of cloud computers that you want to create at the same time in the shared group. Default value: 1.
    * 
    * @example
    * 1
    */
   defaultInitDesktopCount?: number;
+  /**
+   * @remarks
+   * The language of the OS.
+   * 
+   * Valid values:
+   * 
+   * *   en-US: English.
+   * *   zh-HK: Traditional Chinese.
+   * *   zh-CN: Simplified Chinese
+   * *   ja-JP: Japanese.
+   * 
+   * @example
+   * zh-CN
+   */
   defaultLanguage?: string;
   /**
    * @remarks
-   * The name of the desktop group.
+   * The name of the shared group. The name can be up to 30 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
    * 
    * @example
    * desktopGroupName1
    */
   desktopGroupName?: string;
+  /**
+   * @remarks
+   * The specifications of the cloud computer. You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) operation to query all the supported specifications.
+   * 
+   * @example
+   * eds.enterprise_office.16c64g
+   */
   desktopType?: string;
   /**
    * @remarks
    * The ID of the directory.
+   * 
+   * >  This parameter is not publicly available.
    * 
    * @example
    * hide
@@ -24609,40 +26047,87 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The end users that can use the desktop group.
+   * The IDs of the end users.
    */
   endUserIds?: string[];
+  /**
+   * @remarks
+   * Specifies whether the shared group is exclusive. You must set this parameter to `Exclusive` when `SessionType` is set to `MultipleSession`.
+   * 
+   * @example
+   * Exclusive
+   */
   exclusiveType?: string;
   /**
    * @remarks
-   * The File Storage NAS (NAS) file system that is used after data roaming is enabled.
+   * The ID of the File Storage NAS (NAS) file system for the user data roaming feature.
+   * 
+   * >  This parameter is not publicly available.
    * 
    * @example
    * 04f314****
    */
   fileSystemId?: string;
+  /**
+   * @remarks
+   * The number of shared groups for the single-cloud computer type. You must specify this parameter if you set `MultiResource` to `false`. Valid values: 1 to 5. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
   groupAmount?: number;
   /**
    * @remarks
-   * The desktop group version.
+   * The version of the shared group.
    * 
    * @example
    * 2
    */
   groupVersion?: number;
+  /**
+   * @remarks
+   * The hostname series of the cloud computer. This parameter is supported exclusively when the office network operates on Active Directory (AD) and the cloud computer runs on a Windows operating system.
+   * 
+   * Naming conventions:
+   * 
+   * *   A hostname must be 2 to 15 characters in length
+   * *   and can contain only letters, digits, and hyphens (-). It cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
+   * 
+   * If you want to create multiple cloud computers, specify their hostnames in the `name_prefix[begin_number,bits]name_suffix` format. For example, if you set Hostname to ecd-[1,4]-test, the hostnames of the cloud computers will be assigned sequentially as ecd-0001-test, ecd-0002-test, and so on.
+   * 
+   * *   `name_prefix`: the prefix of the hostname.
+   * *   `[begin_number,bits]`: the sequential number in the hostname. The `begin_number` value is the starting number. Valid values of begin_number: 0 to 999999. Default value: 0. The `bits` value is the number of digits. Valid values: 1 to 6. Default value: 6.
+   * *   `name_suffix`: the suffix of the hostname.
+   * 
+   * @example
+   * testhost
+   */
   hostname?: string;
   /**
    * @remarks
-   * The maximum period of time for which a session remains idle. If an end user performs no operations on a cloud desktop by using keyboards or mouses during a session, the session becomes idle. When the specified maximum period of time is reached, the session automatically disconnects. Unit: milliseconds. This parameter is required only for cloud desktops in the same desktop group.
+   * The duration after which a session is terminated if no keyboard or mouse activity is detected. When an end user connects to a cloud computer, a session is initiated. If no input from the keyboard or mouse is detected within this specified timeframe, the session is automatically closed. Unit: milliseconds. Valid values: 360000 to 3600000 (6 minutes to 60 minutes)
+   * 
+   * The system prompts end users to save their data 30 seconds before a session is disconnected. To avoid data loss, end users must save their session data upon receiving the prompt.
+   * 
+   * >  This parameter is suitable only for cloud computers whose image version is v1.0.2 or later.
    * 
    * @example
    * 300000
    */
   idleDisconnectDuration?: number;
+  /**
+   * @remarks
+   * The ID of the image.
+   * 
+   * @example
+   * m-gx2x1dhsmusr2****
+   */
   imageId?: string;
   /**
    * @remarks
-   * The retention period of the cloud desktop after the end user disconnects from the cloud desktop. Unit: milliseconds.
+   * The duration for which each session remains active after disconnection. Valid values: 180000 (3 minutes) to 345600000 (4 days). Unit: milliseconds. If you set this parameter to 0, the session is permanently retained after disconnection.
+   * 
+   * When a session is disconnected, take note of the following items: 1. If the end user does not resume the session within the specified duration, the session will close, and all unsaved data will be cleared. 2. If the end user resumes the session within the specified duration, the session data will remain accessible for continued use.
    * 
    * @example
    * 6000
@@ -24650,7 +26135,14 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   keepDuration?: number;
   /**
    * @remarks
-   * The load balancing policy of the multi-session desktop group.
+   * The load balancing policy of the multi-session shared group.
+   * 
+   * >  This parameter is not publicly available.
+   * 
+   * Valid values:
+   * 
+   * *   0: depth-first
+   * *   1: breadth first
    * 
    * @example
    * 0
@@ -24658,7 +26150,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   loadPolicy?: number;
   /**
    * @remarks
-   * The maximum number of cloud desktops that the desktop group can contain. Valid values: 0 to 200.
+   * The maximum number of pay-as-you-go cloud computers that can be automatically provisioned at the same time in the shared group. Valid values: 0 to 500.
    * 
    * @example
    * 50
@@ -24666,16 +26158,28 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   maxDesktopsCount?: number;
   /**
    * @remarks
-   * The minimum number of cloud desktops that must be contained in the desktop group if you set the billing method to subscription. If you set the ChargeType parameter to PrePaid, this parameter is required. Valid values: 0 to the value of MaxDesktopsCount. Default value: 1.
+   * The minimum number of subscription cloud computers that can be automatically provisioned at the same time in the shared group. This parameter is required if you set `ChargeType` to `PrePaid`. Default value: 1. Valid values: 0 to `MaxDesktopsCount`.
    * 
    * @example
    * 1
    */
   minDesktopsCount?: number;
+  /**
+   * @remarks
+   * Specifies whether the shared group is a multi-cloud computer type.
+   * 
+   * Valid values:
+   * 
+   * *   true: a multi-cloud computer type.
+   * *   false: a single-cloud computer type.
+   * 
+   * @example
+   * false
+   */
   multiResource?: boolean;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The ID of the office network.
    * 
    * This parameter is required.
    * 
@@ -24685,7 +26189,14 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The type of the desktop group.
+   * The session type of the shared group.
+   * 
+   * >  This parameter is not publicly available.
+   * 
+   * Valid values:
+   * 
+   * *   0: single-session.
+   * *   1: multi-session.
    * 
    * @example
    * 0
@@ -24693,16 +26204,16 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   ownType?: number;
   /**
    * @remarks
-   * The subscription period of the cloud desktops in the desktop group. The unit is specified by the PeriodUnit parameter. The Period parameter takes effect only if you set the ChargeType parameter to PrePaid.
+   * The subscription duration of the shared group. This parameter is required if you set `ChargeType` to `PrePaid`. You must specify the subscription duration unit by using `PeriodUnit`.
    * 
-   * *   Valid values if you set the PeriodUnit parameter to Month:
+   * *   If you set `PeriodUnit` to `Month`, valid values of this parameter:
    * 
    *     *   1
    *     *   2
    *     *   3
    *     *   6
    * 
-   * *   Valid values if you set the PeriodUnit parameter to Year:
+   * *   If you set `PeriodUnit` to `Year`, valid values of this parameter:
    * 
    *     *   1
    *     *   2
@@ -24734,16 +26245,31 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to enable data roaming.
+   * Specifies whether to enable user data roaming.
+   * 
+   * >  This parameter is not publicly available.
    * 
    * @example
    * false
    */
   profileFollowSwitch?: boolean;
+  /**
+   * @remarks
+   * The ID of the coupon.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_*****
+   */
   promotionId?: string;
   /**
    * @remarks
-   * The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session desktop group. `Ratio of connected sessions = Number of connected sessions/(Total number of cloud desktops × Maximum number of sessions allowed for each cloud desktop) × 100%`. When the specified threshold is reached, new cloud desktops are automatically created. When the specified threshold is not reached, idle cloud desktops are released.
+   * The threshold for the ratio of connected sessions. This parameter defines the condition that activates automatic scaling of cloud computers in a multi-session shared group. The ratio of connected sessions is calculated by using the following formula:
+   * 
+   * `Ratio of connected sessions = Number of connected sessions/(Total number of cloud computers × Maximum number of sessions allowed for each cloud computer) × 100%`.
+   * 
+   * If the connected session ratio exceeds the specified threshold, new cloud computers are provisioned. If the ratio falls below the threshold, idle cloud computers are deleted.
+   * 
+   * >  This parameter is not publicly available.
    * 
    * @example
    * 0.5
@@ -24751,7 +26277,7 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   ratioThreshold?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
    * 
    * This parameter is required.
    * 
@@ -24761,7 +26287,14 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies which type of the disk to reset for cloud desktops in the desktop group.
+   * The reset option of the shared group.
+   * 
+   * Valid values:
+   * 
+   * *   0: Reset is not required.
+   * *   1: Only the system disk is reset.
+   * *   2: Only the data disk is reset.
+   * *   3: Both the system disk and the data disk are reset.
    * 
    * @example
    * 0
@@ -24771,30 +26304,89 @@ export class CreateDesktopGroupRequest extends $dara.Model {
    * @remarks
    * The ID of the scaling policy.
    * 
-   * > This parameter is unavailable.
+   * >  This parameter is not publicly available.
    * 
    * @example
    * hide
    */
   scaleStrategyId?: string;
+  /**
+   * @remarks
+   * The type of the session.
+   * 
+   * Valid values:
+   * 
+   * *   SingleSession
+   * *   MultipleSession
+   * 
+   * @example
+   * SingleSession
+   */
   sessionType?: string;
+  /**
+   * @remarks
+   * The ID of the automatic snapshot policy.
+   * 
+   * @example
+   * sp-28mp6my0l6zow****
+   */
   snapshotPolicyId?: string;
   /**
    * @remarks
-   * The period of time before the idle cloud desktop is stopped. When the specified period of time is reached, the idle cloud desktop automatically stops. If an end user connects to a stopped cloud desktop, the cloud desktop automatically starts. Unit: milliseconds.
+   * The maximum period of inactivity allowed before a cloud computer is automatically stopped. If the idle duration reaches the specified limit, the system stops the cloud computer. When an end user reconnects to the stopped cloud computer, it automatically restarts. Unit: milliseconds.
    * 
    * @example
    * 300000
    */
   stopDuration?: number;
+  /**
+   * @remarks
+   * The category of the system disk.
+   * 
+   * Valid values:
+   * 
+   * *   cloud_auto: the standard SSD.
+   * *   cloud_essd: the Enterprise SSD (ESSD).
+   * 
+   * @example
+   * cloud_auto
+   */
   systemDiskCategory?: string;
+  /**
+   * @remarks
+   * The performance level (PL) of the system disk of the ESSD category. Default value: PL0.
+   * 
+   * Valid values:
+   * 
+   * *   PL1
+   * *   PL0
+   * 
+   * @example
+   * PL0
+   */
   systemDiskPerLevel?: string;
+  /**
+   * @remarks
+   * The size of the system disk. Unit: GiB.
+   * 
+   * >  The system disk must be at least as large as the image.
+   * 
+   * @example
+   * 80
+   */
   systemDiskSize?: number;
   /**
    * @remarks
-   * The tags that you want to attach to the cloud computer pool. You can specify 1 to 20 tags.
+   * The tags. You can specify up to 20 tags.
    */
   tag?: CreateDesktopGroupRequestTag[];
+  /**
+   * @remarks
+   * The ID of the timer group.
+   * 
+   * @example
+   * ccg-0caoeogrk9m5****
+   */
   timerGroupId?: string;
   /**
    * @remarks
@@ -24814,7 +26406,9 @@ export class CreateDesktopGroupRequest extends $dara.Model {
   volumeEncryptionKey?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) in which you want to create the desktop group.
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * >  This parameter is not publicly available.
    * 
    * @example
    * hide
@@ -24960,12 +26554,16 @@ export class CreateDesktopGroupRequest extends $dara.Model {
 export class CreateDesktopGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the desktop group.
+   * The ID of the shared group.
    * 
    * @example
    * dg-2i8qxpv6t1a03****
    */
   desktopGroupId?: string;
+  /**
+   * @remarks
+   * The IDs of the shared groups.
+   */
   desktopGroupIds?: string[];
   /**
    * @remarks
@@ -25247,6 +26845,10 @@ export class CreateDesktopsRequest extends $dara.Model {
    * PrePaid
    */
   chargeType?: string;
+  /**
+   * @remarks
+   * The input parameters used when no templates are used.
+   */
   desktopAttachment?: CreateDesktopsRequestDesktopAttachment;
   /**
    * @remarks
@@ -25417,14 +27019,42 @@ export class CreateDesktopsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-3mtuc28rx95lx****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the saving plan.
+   * 
+   * @example
+   * spn-4b945dc4Wktd****
+   */
   savingPlanId?: string;
+  /**
+   * @remarks
+   * The ID of the auto-snapshot policy.
+   * 
+   * @example
+   * sp-28mp6my0l6zow****
+   */
   snapshotPolicyId?: string;
   /**
    * @remarks
    * The tags that you want to add to the cloud desktop.
    */
   tag?: CreateDesktopsRequestTag[];
+  /**
+   * @remarks
+   * The ID of the timer group.
+   * 
+   * @example
+   * ccg-0caoeogrk9m5****
+   */
   timerGroupId?: string;
   /**
    * @remarks
@@ -25666,6 +27296,10 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
    * PrePaid
    */
   chargeType?: string;
+  /**
+   * @remarks
+   * The input parameters used when no templates are used.
+   */
   desktopAttachmentShrink?: string;
   /**
    * @remarks
@@ -25836,14 +27470,42 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-3mtuc28rx95lx****
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the saving plan.
+   * 
+   * @example
+   * spn-4b945dc4Wktd****
+   */
   savingPlanId?: string;
+  /**
+   * @remarks
+   * The ID of the auto-snapshot policy.
+   * 
+   * @example
+   * sp-28mp6my0l6zow****
+   */
   snapshotPolicyId?: string;
   /**
    * @remarks
    * The tags that you want to add to the cloud desktop.
    */
   tag?: CreateDesktopsShrinkRequestTag[];
+  /**
+   * @remarks
+   * The ID of the timer group.
+   * 
+   * @example
+   * ccg-0caoeogrk9m5****
+   */
   timerGroupId?: string;
   /**
    * @remarks
@@ -26918,9 +28580,9 @@ export class CreateNetworkPackageResponse extends $dara.Model {
 export class CreatePolicyGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether users have the administrator permissions after they connect to cloud desktops.
+   * Specifies whether end users have the administrator permissions.
    * 
-   * >  This parameter is in invitational preview and not available to the public.
+   * >  This parameter is in invitational preview for specific users and not available to the public.
    * 
    * @example
    * deny
@@ -26954,7 +28616,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   appContentProtection?: string;
   /**
    * @remarks
-   * The client IP address whitelists. Only the client IP addresses in whitelists can access the cloud desktop.
+   * The client IP address whitelist. After you configure the whitelist, end users can access cloud computers only from the IP addresses in the whitelist.
    */
   authorizeAccessPolicyRule?: CreatePolicyGroupRequestAuthorizeAccessPolicyRule[];
   /**
@@ -26990,7 +28652,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   cameraRedirect?: string;
   /**
    * @remarks
-   * The logon methods. You can use this parameter to determine which clients can be used to connect to the cloud desktop.
+   * The logon method control rules to limit the type of the Alibaba Cloud Workspace client used by end users to connect to cloud computers.
    */
   clientType?: CreatePolicyGroupRequestClientType[];
   /**
@@ -26999,45 +28661,30 @@ export class CreatePolicyGroupRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   read: specifies one-way transfer
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     You can copy data from your local computer to the cloud desktop, but cannot copy data from the cloud desktop to your local computer.
-   * 
-   *     <!-- -->
-   * 
-   * *   readwrite: specifies two-way transfer
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     You can copy data between your local computer and the cloud desktop.
-   * 
-   *     <!-- -->
-   * 
-   * *   off: disables both one-way and two-way transfer
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     You cannot copy data between your local computer and the cloud desktop. This value is the default value.
-   * 
-   *     <!-- -->
+   * *   read: specifies one-way transfer. You can copy files only from local devices to cloud computers.
+   * *   readwrite: specifies two-way transfer. You can copy files between local devices and cloud computers.
+   * *   write: specifies one-way transfer. You can only copy files from cloud computers to local devices.
+   * *   off (default): disables both one-way and two-way transfer. Files cannot be copied between local devices and cloud computers.
    * 
    * @example
    * off
    */
   clipboard?: string;
+  /**
+   * @remarks
+   * The device redirection rules.
+   */
   deviceRedirects?: CreatePolicyGroupRequestDeviceRedirects[];
+  /**
+   * @remarks
+   * The custom peripheral rules.
+   */
   deviceRules?: CreatePolicyGroupRequestDeviceRules[];
   /**
    * @remarks
-   * Access control for domain names. The wildcard character (\\*) is supported for domain names. Separate multiple domain names with commas (,). Valid values:
+   * Specifies whether the access control for domain names is enabled. Domain names support wildcards (\\*). Separate multiple domain names with commas (,).
+   * 
+   * Valid values:
    * 
    * *   off
    * *   on
@@ -27048,7 +28695,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   domainList?: string;
   /**
    * @remarks
-   * The details of the domain name resolution policy.
+   * The details of the domain name resolution rule.
    */
   domainResolveRule?: CreatePolicyGroupRequestDomainResolveRule[];
   /**
@@ -27079,7 +28726,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   domainResolveRuleType?: string;
   /**
    * @remarks
-   * Specifies whether to allow end users to seek assistance from the administrator. Valid values: ON OFF
+   * Specifies whether to turn on the Contact Administrator for Help switch.
+   * 
+   * Valid values:
+   * 
+   * *   OFF
+   * *   ON
    * 
    * @example
    * ON
@@ -27087,7 +28739,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   endUserApplyAdminCoordinate?: string;
   /**
    * @remarks
-   * The switch for collaboration between end users. Valid values: ON OFF
+   * Specifies whether to turn on the User Stream Collaboration switch.
+   * 
+   * Valid values:
+   * 
+   * *   OFF
+   * *   ON
    * 
    * @example
    * ON
@@ -27095,25 +28752,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   endUserGroupCoordinate?: string;
   /**
    * @remarks
-   * Specifies whether to enable the image display quality feature for the Graphics cloud desktop. If you have high requirements for desktop performance and user experience, we recommend that you enable this feature. For example, you can enable this feature in professional design scenarios.
+   * Specifies whether to enable the Image Quality Control feature. If you have high requirements on the performance and user experience in scenarios such as professional design, we recommend that you enable this feature.
    * 
    * Valid values:
    * 
    * *   off
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * *   on
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * off
@@ -27121,27 +28765,14 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   gpuAcceleration?: string;
   /**
    * @remarks
-   * The policy for HTML5 client access.
+   * Specifies whether to allow web client access.
    * 
-   * > We recommend that you use the ClientType parameter to manage the type of Alibaba Cloud Workspace clients for desktop connection.
+   * >  We recommend that you use the ClientType-related parameters to control the Alibaba Cloud Workspace client type for cloud computer logon.``
    * 
    * Valid values:
    * 
-   * *   off: HTML5 client access is disabled. This value is the default value.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   on: HTML5 client access is enabled.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   off (default)
+   * *   on
    * 
    * @example
    * off
@@ -27149,41 +28780,14 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   html5Access?: string;
   /**
    * @remarks
-   * The file transfer policy for HTML5 clients.
+   * The file transfer feature on the web client.
    * 
    * Valid values:
    * 
-   * *   all: Files can be uploaded and downloaded between your computer and HTML5 clients.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   download: Files on HTML5 clients can be downloaded to your computer.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   upload: Files on your computer can be uploaded to HTML5 clients.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   off: File transfer between HTML5 clients and your computer is disabled. This value is the default value.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   all: Files can be uploaded and downloaded between local computers and the web client.
+   * *   download: Files on the web client can be downloaded to local computers.
+   * *   upload: Files on local computers can be uploaded to the web client.
+   * *   off (default): Files cannot be transferred between the web client and local computers.
    * 
    * @example
    * off
@@ -27191,7 +28795,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The protocol that you want to use for network communication. Valid values: -TCP: Only TCP is allowed. -BOTH: Automatic switch between TCP and UDP is allowed. Default value: TCP.
+   * The protocol for network communication.
+   * 
+   * Valid values:
+   * 
+   * *   TCP (default): TCP
+   * *   BOTH: TCP and UDP
    * 
    * @example
    * both
@@ -27203,40 +28812,21 @@ export class CreatePolicyGroupRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   read: read-only
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     The disks on your local computer are mapped to the cloud desktop. You can only read (copy) files on the local computer.
-   * 
-   *     <!-- -->
-   * 
-   * *   readwrite: read and write
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     The disks on your local computer are mapped to the cloud desktop. You can read (copy) and modify files on your local computer.
-   * 
-   *     <!-- -->
-   * 
-   * *   off:
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     The disks on your local computer are not mapped to the cloud desktop. This value is the default value.
-   * 
-   *     <!-- -->
+   * *   read: read-only. Local disk mapping is available on cloud computers. However, you can only read (copy) local files but cannot modify the files.
+   * *   readwrite: read and write. Local disk mapping is available on cloud computers. You can read (copy) and write (modify) local files.
+   * *   off (default): disabled. Local disk mapping is unavailable on cloud computers.
    * 
    * @example
    * off
    */
   localDrive?: string;
+  /**
+   * @remarks
+   * The maximum retry period for reconnecting to cloud computers when the cloud computers are disconnected due to none-human reasons. Valid values: 30 to 7200. Unit: seconds.
+   * 
+   * @example
+   * 120
+   */
   maxReconnectTime?: number;
   /**
    * @remarks
@@ -27276,9 +28866,13 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   netRedirect?: string;
   /**
    * @remarks
-   * Specifies whether to allow user preemption.
+   * The cloud computer preemption feature.
    * 
-   * > To improve user experience and ensure data security, multiple end users cannot connect to the same cloud desktop at the same time. The default value of this parameter is `off`, and the value cannot be changed.
+   * >  To ensure user experience and data security, when a cloud computer is used by an end user, other end users cannot connect to the cloud computer. By default, this parameter is set to `off`, which cannot be modified.
+   * 
+   * Valid values:
+   * 
+   * *   off (default): Multiple end users cannot connect to the same cloud computer at the same time.
    * 
    * @example
    * off
@@ -27286,9 +28880,9 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   preemptLogin?: string;
   /**
    * @remarks
-   * The names of the users that are allowed to connect to the same cloud desktop at the same time. You can specify up to five usernames.
+   * The usernames that are allowed to connect to the cloud computer in use. You can specify up to five usernames.
    * 
-   * > To improve user experience and ensure data security, we recommend that you disable the user preemption feature.
+   * >  To ensure user experience and data security, other end users cannot connect to the cloud computer that is used by an end user.
    * 
    * @example
    * Alice
@@ -27356,33 +28950,17 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordContentExpires?: number;
   /**
    * @remarks
-   * Specifies whether to enable screen recording.
+   * Specifies whether to enable the screen recording feature.
    * 
    * Valid values:
    * 
-   * *   ALLTIME: All operations that are performed by end users on cloud desktops are recorded. The recording starts immediately when end users connect to cloud desktops and ends when the end users disconnect from the cloud desktops.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   PERIOD: The operations that are performed by end users on cloud desktops during a specified period of time are recorded. You must set the start time and end time for the recording period.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   OFF: Screen recording is disabled.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   byaction_cmd_ft: enables the operation-triggered screen recording upon command execution and file transfer.
+   * *   ALLTIME: enables the whole-process screen recording. That is, the recording starts when cloud computers are connected and ends when the cloud computers are disconnected.
+   * *   session: enables the screen recording for session lifecycle listening.
+   * *   PERIOD: enables the interval-based screen recording. You must specify an interval between the start time and end time of this type of recording.
+   * *   byaction_commands: enables the operation-triggered screen recording upon command execution.
+   * *   OFF: disables the screen recording feature.
+   * *   byaction_file_transfer: enables the operation-triggered screen recording upon file transfer.
    * 
    * @example
    * OFF
@@ -27390,10 +28968,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recording?: string;
   /**
    * @remarks
-   * Specifies whether to record audio data during the screen recording. Valid values:
+   * Specifies whether to record audio files generated from cloud computers.
    * 
-   * *   on: records audio and video data
-   * *   off: records only video data
+   * Valid values:
+   * 
+   * *   off: records only video files.
+   * *   on: records video and audio files.
    * 
    * @example
    * on
@@ -27401,7 +28981,14 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingAudio?: string;
   /**
    * @remarks
-   * The duration from the time when the screen recording starts to the time when the screen recording stops. If you specify the Recording parameter, you must also specify the RecordingDuration parameter. When the specified duration ends, a recording file is generated.
+   * The file length of the screen recording. Unit: minutes. Screen recording files are split based on the specified file length and uploaded to Object Storage Service (OSS) buckets. When a screen recording file reaches 300 MB in size, the system preferentially performs rolling update for the file.
+   * 
+   * Valid values:
+   * 
+   * *   10
+   * *   20
+   * *   30
+   * *   60
    * 
    * @example
    * 15
@@ -27409,7 +28996,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingDuration?: number;
   /**
    * @remarks
-   * The time when the screen recording stops. Specify the value in the HH:MM:SS format. The value of this parameter is valid only if you set the Recording parameter to PERIOD.
+   * The time when the screen recording ends. The value is in the HH:MM:SS format. The value is meaningful only when you set the `Recording` parameter to `PERIOD`.
    * 
    * @example
    * 08:59:00
@@ -27417,7 +29004,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingEndTime?: string;
   /**
    * @remarks
-   * The duration in which the screen recording is valid. Unit: days.
+   * The retention period of the screen recording file. Valid values: 1 to 180. Unit: days.
    * 
    * @example
    * 15
@@ -27425,16 +29012,13 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingExpires?: number;
   /**
    * @remarks
-   * The frame rate of screen recording.
+   * The frame rate of screen recording. Unit: fps.
    * 
    * Valid values:
    * 
    * *   2
-   * 
    * *   5
-   * 
-   * *  10
-   * 
+   * *   10
    * *   15
    * 
    * @example
@@ -27443,7 +29027,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingFps?: number;
   /**
    * @remarks
-   * The time when screen recording starts. Specify the value in the HH:MM:SS format. The value of this parameter is valid only if you set the Recording parameter to PERIOD.
+   * The time when the screen recording starts. The value is in the HH:MM:SS format. The value is meaningful only when you set the `Recording` parameter to `PERIOD`.
    * 
    * @example
    * 08:00:00
@@ -27451,7 +29035,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingStartTime?: string;
   /**
    * @remarks
-   * Specifies whether the feature to send screen recording notifications to clients is enabled. Valid values: on and off.
+   * Specifies whether to enable the screen recording notification feature after end users log on to the Alibaba Cloud Workspace client.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * off
@@ -27459,7 +29048,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingUserNotify?: string;
   /**
    * @remarks
-   * The notification content sent to clients when screen recording is enabled. By default, you do not need to specify this parameter.
+   * The notification content of screen recording. By default, this parameter is left empty.
    * 
    * @example
    * Your desktop is being recorded.
@@ -27467,7 +29056,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingUserNotifyMessage?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
@@ -27505,10 +29094,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   remoteCoordinate?: string;
   /**
    * @remarks
-   * The effective scope of the policy. Valid values:
+   * The effective scope of the policy.
    * 
+   * Valid values:
+   * 
+   * *   IP: The policy takes effect based on the IP address.
    * *   GLOBAL: The policy takes effect globally.
-   * *   IP: The policy takes effect for specified IP addresses.
    * 
    * @example
    * GLOBAL
@@ -27516,7 +29107,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The effective CIDR block ranges. If you set the Scope parameter to IP, you must specify this parameter.
+   * This parameter is required when the `Scope` parameter is set to `IP`.````
    */
   scopeValue?: string[];
   /**
@@ -27552,10 +29143,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   usbSupplyRedirectRule?: CreatePolicyGroupRequestUsbSupplyRedirectRule[];
   /**
    * @remarks
-   * Specifies whether to enable the multimedia redirection feature. Valid values:
+   * Specifies whether to enable the multimedia redirection switch.
    * 
-   * *   on: Multimedia redirection is enabled.
-   * *   off: Multimedia redirection is disabled.
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * on
@@ -27605,25 +29198,13 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   visualQuality?: string;
   /**
    * @remarks
-   * Specifies whether to enable watermarking.
+   * The watermarking feature.
    * 
    * Valid values:
    * 
-   * *   off: Watermarking is disabled. This value is the default value.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   on: Watermarking is enabled.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   blind: Invisible watermarks are applied.
+   * *   off (default): The watermarking feature is disabled.
+   * *   on: Visible watermarks are applied.
    * 
    * @example
    * off
@@ -27631,7 +29212,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermark?: string;
   /**
    * @remarks
-   * The anti-screen photo feature. Valid values: on and off.
+   * Specifies whether to enable the anti-screen photo feature for invisible watermarks.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * off
@@ -27639,7 +29225,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkAntiCam?: string;
   /**
    * @remarks
-   * The font color of the watermark. Valid values: 0 to 16777215.
+   * The font color in red, green, and blue (RGB) of the watermark. Valid values: 0 to 16777215.
    * 
    * @example
    * 0
@@ -27647,7 +29233,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkColor?: number;
   /**
    * @remarks
-   * The inclination angle of the watermark. Valid values: -10 to -30.
+   * The watermark rotation. Valid values: -10 to -30.
    * 
    * @example
    * -10
@@ -27655,7 +29241,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkDegree?: number;
   /**
    * @remarks
-   * The font size of the watermark. Valid values: 10 to 20.
+   * The watermark font size. Valid values: 10 to 20.
    * 
    * @example
    * 10
@@ -27663,7 +29249,9 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkFontSize?: number;
   /**
    * @remarks
-   * The font style of the watermark. Valid values:
+   * The watermark font style.
+   * 
+   * Valid values:
    * 
    * *   plain
    * *   bold
@@ -27674,7 +29262,13 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkFontStyle?: string;
   /**
    * @remarks
-   * The invisible watermark enhancement feature. Valid values: low, medium, and high.
+   * The watermark enhancement feature.
+   * 
+   * Valid values:
+   * 
+   * *   high
+   * *   low
+   * *   medium
    * 
    * @example
    * medium
@@ -27682,7 +29276,9 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkPower?: string;
   /**
    * @remarks
-   * The number of watermark rows. This parameter is now invalid.
+   * The number of watermark rows.
+   * 
+   * >  This parameter is not available for public use.
    * 
    * @example
    * 5
@@ -27690,7 +29286,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkRowAmount?: number;
   /**
    * @remarks
-   * The security priority for invisible watermarks. Valid values: on and off.
+   * Specifies whether to enable the security priority feature for invisible watermarks.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * on
@@ -27732,7 +29333,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkTransparency?: string;
   /**
    * @remarks
-   * The transparency of the watermark. A larger value specifies that the watermark is less transparent. Valid values: 10 to 100.
+   * The watermark opacity. A larger value indicates more opaque watermarks. Valid values: 10 to 100.
    * 
    * @example
    * 10
@@ -27740,30 +29341,37 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkTransparencyValue?: number;
   /**
    * @remarks
-   * The type of the watermark. You can specify multiple types of watermarks at the same time. Separate multiple watermark types with commas (,).
+   * The watermark content. You can select up to three items as the watermark content. Separate multiple items with commas (,).
+   * 
+   * >  If you set this parameter to `Custom`, specify `WatermarkCustomText`
    * 
    * Valid values:
    * 
-   * *   EndUserId: The ID of the end user is displayed.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   HostName: The rightmost 15 characters of the cloud desktop ID are displayed.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * *   EndUserId: the username.
+   * *   Custom: the custom text.
+   * *   DesktopIp: the IP address of the cloud computer.
+   * *   ClientIp: the IP address of the Alibaba Cloud Workspace client.
+   * *   HostName: the rightmost 15 digits of the cloud computer ID.
+   * *   ClientTime: the current time displayed on the cloud computer.
    * 
    * @example
    * EndUserId
    */
   watermarkType?: string;
+  /**
+   * @remarks
+   * Specifies whether to provide the AI Assistant function in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace desktop clients (including the Windows client and the macOS client).
+   * 
+   * > Desktop clients of V7.7 and higher versions required.
+   * 
+   * Valid values:
+   * 
+   * - off: the AI Aisstant function is not provided.
+   * - on: the AI Aisstant function is provided.
+   * 
+   * @example
+   * on
+   */
   wyAssistant?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27928,7 +29536,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
 export class CreatePolicyGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the policy.
+   * The cloud computer policy ID.
    * 
    * @example
    * pg-gx2x1dhsmthe9****
@@ -29389,8 +30997,15 @@ export class DeleteCloudDriveUsersResponse extends $dara.Model {
 }
 
 export class DeleteConfigGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the configuration groups that you want to delete.
+   */
   groupIds?: string[];
   /**
+   * @remarks
+   * The ID of the region. Set the value to `cn-shanghai`.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -29423,6 +31038,9 @@ export class DeleteConfigGroupRequest extends $dara.Model {
 
 export class DeleteConfigGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F7E4322D-D679-5ACB-A909-490D2F0E****
    */
@@ -30501,7 +32119,7 @@ export class DeleteOfficeSitesResponse extends $dara.Model {
 export class DeletePolicyGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the policy. You can specify 1 to 100 policy IDs.
+   * The cloud computer policy IDs. You can specify 1 to 100 policies.
    * 
    * This parameter is required.
    * 
@@ -30511,7 +32129,7 @@ export class DeletePolicyGroupsRequest extends $dara.Model {
   policyGroupId?: string[];
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by EDS.
    * 
    * This parameter is required.
    * 
@@ -30852,6 +32470,13 @@ export class DescribeAclEntriesRequest extends $dara.Model {
    * AAAAAV3MpHK1AP0pfERHZN5pu6kRxd1mKkNnHlUy14zdjl/I
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The office network ID.
+   * 
+   * @example
+   * cn-shanghai+dir-631324****
+   */
   officeSiteId?: string;
   /**
    * @remarks
@@ -31227,7 +32852,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   desktopTypeFamily?: string;
   /**
    * @remarks
-   * This parameter is now in invitational preview and not publicly available.
+   * >  This parameter is not available for public use.
    * 
    * @example
    * This parameter is now in invitational preview and unavailable.
@@ -31267,10 +32892,24 @@ export class DescribeBundlesRequest extends $dara.Model {
    * 1
    */
   gpuCount?: number;
+  /**
+   * @remarks
+   * The GPU driver type.
+   * 
+   * Valid values:
+   * 
+   * *   T4
+   * *   A10
+   * *   G28
+   * *   G39
+   * 
+   * @example
+   * T4
+   */
   gpuDriverType?: string;
   /**
    * @remarks
-   * The image ID.
+   * The image IDs.
    */
   imageId?: string[];
   /**
@@ -31342,7 +32981,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   protocolType?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
@@ -31368,11 +33007,10 @@ export class DescribeBundlesRequest extends $dara.Model {
   selectedBundle?: boolean;
   /**
    * @remarks
-   * The type of the session.
+   * The type of the session. Valide values:
    * 
-   * Enumeration Value:
-   * * **SingleSession**
-   * * **MultipleSession**
+   * - SingleSession
+   * - MultipleSession
    * 
    * @example
    * SingleSession
@@ -31464,7 +33102,7 @@ export class DescribeBundlesRequest extends $dara.Model {
 export class DescribeBundlesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the queried cloud computer templates.
+   * The details of the cloud computer templates.
    */
   bundles?: DescribeBundlesResponseBodyBundles[];
   /**
@@ -32746,34 +34384,75 @@ export class DescribeCloudDriveUsersResponse extends $dara.Model {
 
 export class DescribeConfigGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the configuration group.
+   * 
    * @example
    * cg-i1ruuudp92qpj****
    */
   groupId?: string;
+  /**
+   * @remarks
+   * The IDs of the configuration groups.
+   */
   groupIds?: string[];
+  /**
+   * @remarks
+   * The name of the configuration group.
+   * 
+   * @example
+   * ScheduledTask
+   */
   name?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The service type of the configuration group.
+   * 
+   * Valid value:
+   * 
+   * *   CLOUD_DESKTOP: the cloud computer service.
+   * 
    * @example
    * CLOUD_DESKTOP
    */
   productType?: string;
   /**
+   * @remarks
+   * The ID of the region. Set the value to `cn-shanghai`.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The status of the configuration groups.
+   */
   statuses?: string[];
   /**
+   * @remarks
+   * The type of the configuration group.
+   * 
+   * Valid value:
+   * 
+   * *   Timer: the scheduled task type.
+   * 
    * @example
    * Timer
    */
@@ -32822,23 +34501,39 @@ export class DescribeConfigGroupRequest extends $dara.Model {
 }
 
 export class DescribeConfigGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration groups.
+   */
   data?: DescribeConfigGroupResponseBodyData[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 20
    */
@@ -34014,6 +35709,13 @@ export class DescribeDesktopOversoldUserGroupResponse extends $dara.Model {
 }
 
 export class DescribeDesktopSessionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to turn on the switch to check session status of cloud computers.
+   * 
+   * @example
+   * true
+   */
   checkOsSession?: boolean;
   /**
    * @remarks
@@ -34044,6 +35746,13 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
    * testUser
    */
   endUserId?: string;
+  /**
+   * @remarks
+   * The ID the end user. It is the same as EndUserId. Either one of these two parameters is required.
+   * 
+   * @example
+   * alice
+   */
   endUserIdFilter?: string;
   /**
    * @remarks
@@ -34071,7 +35780,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
@@ -34100,6 +35809,20 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
    * 2023-01-28T02:31:43Z
    */
   startTime?: string;
+  /**
+   * @remarks
+   * The billing method of cloud computers.
+   * 
+   * Valid values:
+   * 
+   * *   duration: hourly plan (available for users in the whitelist)
+   * *   postPaid: pay-as-you-go
+   * *   monthPackage: monthly subscription (the 120-hour/250-hour computing plan)
+   * *   prePaid: monthly subscription (the Unlimited computing plan)
+   * 
+   * @example
+   * monthPackage
+   */
   subPayType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34160,7 +35883,7 @@ export class DescribeDesktopSessionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of the session.
+   * Details of sessions.
    */
   sessions?: DescribeDesktopSessionsResponseBodySessions[];
   /**
@@ -34439,6 +36162,10 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
    * ecd.graphics.xlarge
    */
   desktopTypeId?: string;
+  /**
+   * @remarks
+   * The array of specifications.
+   */
   desktopTypeIdList?: string[];
   /**
    * @remarks
@@ -34448,7 +36175,27 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
    * 1
    */
   gpuCount?: number;
+  /**
+   * @remarks
+   * The type of the pre-installed GPU driver. Valid values:
+   * 
+   * - T4
+   * - A10
+   * - G28
+   * - G39
+   * 
+   * @example
+   * A10
+   */
   gpuDriverType?: string;
+  /**
+   * @remarks
+   * The GPU memory size. Unit: MB.
+   * 
+   * @example
+   * 2048
+   */
+  gpuMemory?: number;
   /**
    * @remarks
    * The name of the instance family.
@@ -34525,6 +36272,16 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
    * 4
    */
   memorySize?: number;
+  /**
+   * @remarks
+   * The sort criterion. If left empty, the entries will be in descending order based on the creation time. Valid values:
+   * 
+   * - Memory: sort by memory size
+   * - Cpu: sort by number of CPU cores
+   * 
+   * @example
+   * Memory
+   */
   orderBy?: string;
   /**
    * @remarks
@@ -34544,9 +36301,43 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The sales mode. Valid values:
+   * 
+   * - MonthPackage: monthly subscription
+   * - FastBuy: fast buy
+   * 
+   * @example
+   * FastBuy
+   */
   scope?: string;
+  /**
+   * @remarks
+   * The sort order. Valid values:
+   * 
+   * - ASC: in ascending order [default]
+   * - DESC: in descending order
+   * 
+   * @example
+   * ASC
+   */
   sortType?: string;
+  /**
+   * @remarks
+   * The number of sessions supported.
+   * 
+   * @example
+   * 2
+   */
   supportMinSessionCount?: number;
+  /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34558,6 +36349,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
       desktopTypeIdList: 'DesktopTypeIdList',
       gpuCount: 'GpuCount',
       gpuDriverType: 'GpuDriverType',
+      gpuMemory: 'GpuMemory',
       instanceTypeFamily: 'InstanceTypeFamily',
       memorySize: 'MemorySize',
       orderBy: 'OrderBy',
@@ -34580,6 +36372,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
       desktopTypeIdList: { 'type': 'array', 'itemType': 'string' },
       gpuCount: 'number',
       gpuDriverType: 'string',
+      gpuMemory: 'number',
       instanceTypeFamily: 'string',
       memorySize: 'number',
       orderBy: 'string',
@@ -34682,7 +36475,12 @@ export class DescribeDesktopTypesResponse extends $dara.Model {
 export class DescribeDesktopsRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the cloud desktop.
+   * The billing method of the cloud computer.
+   * 
+   * Valid values:
+   * 
+   * *   Postpaid (default): pay-as-you-go
+   * *   PrePaid: subscription
    * 
    * @example
    * PostPaid
@@ -34690,7 +36488,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The ID of the desktop group. If you specify the `DesktopId` parameter, ignore the `DesktopGroupId` parameter. If you do not specify the `DesktopId` parameter, specify the `DesktopGroupId` parameter in the call to request all IDs of the cloud desktops in the specified desktop group.
+   * The ID of the cloud computer pool. If you specify `OnlyDesktopGroup`, ignore `DesktopGroupId`. If you leave `DesktopId` empty, all IDs of the cloud computers in the cloud computer pool are queried.````
    * 
    * @example
    * dg-2i8qxpv6t1a03****
@@ -34698,7 +36496,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The IDs of the cloud desktops. You can specify 1 to 100 cloud desktop IDs.
+   * The cloud computer IDs. You can specify the IDs of 1 to 100 cloud computers.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -34706,7 +36504,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   desktopId?: string[];
   /**
    * @remarks
-   * The name of the cloud desktop.
+   * The cloud computer name.
    * 
    * @example
    * testDesktopName
@@ -34714,7 +36512,18 @@ export class DescribeDesktopsRequest extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The status of the cloud desktop.
+   * The cloud computer status.
+   * 
+   * Valid values:
+   * 
+   * *   Stopped
+   * *   Starting
+   * *   Rebuilding
+   * *   Running
+   * *   Stopping
+   * *   Expired
+   * *   Deleted
+   * *   Pending
    * 
    * @example
    * Running
@@ -34722,12 +36531,12 @@ export class DescribeDesktopsRequest extends $dara.Model {
   desktopStatus?: string;
   /**
    * @remarks
-   * The list of desktop status.
+   * The list of cloud computer status.
    */
   desktopStatusList?: string[];
   /**
    * @remarks
-   * The new desktop type. You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) operation to query the IDs of supported desktop types.
+   * The cloud computer type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of all supported types.
    * 
    * @example
    * eds.general.2c8g
@@ -34735,7 +36544,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The ID of the directory, The ID is the same as the workspace ID.
+   * The directory ID, which is the same as the office network ID.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -34743,9 +36552,9 @@ export class DescribeDesktopsRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The IDs of the end users that are assigned the cloud desktop. You can specify 1 to 100 end user IDs.
+   * The authorized users of the cloud computer. You can specify the IDs of 1 to 100 users.
    * 
-   * > Only one end user can use the cloud desktop at a time.
+   * >  During a specific period of time, only one user can connect to and use the cloud computer.
    * 
    * @example
    * alice
@@ -34753,7 +36562,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   endUserId?: string[];
   /**
    * @remarks
-   * The IDs of the end users that are excluded from the end users that are assigned the cloud desktop. You can specify 1 to 100 end user IDs.
+   * The list of authorized users that you want to exclude from the cloud computer. You can specify the IDs of 1 to 100 users.
    * 
    * @example
    * andy
@@ -34761,27 +36570,44 @@ export class DescribeDesktopsRequest extends $dara.Model {
   excludedEndUserId?: string[];
   /**
    * @remarks
-   * The time when the subscription cloud desktop expires.
+   * The time when a subscription cloud computer expires.
    * 
    * @example
    * 2022-12-31T15:59:59Z
    */
   expiredTime?: string;
+  /**
+   * @remarks
+   * Specifies whether to query the information about the enterprise resource group.
+   * 
+   * @example
+   * true
+   */
   fillResourceGroup?: boolean;
   /**
    * @remarks
-   * Specifies whether to filter cloud desktops in the desktop group.
+   * Specifies whether to exclude pooled cloud computers.
+   * 
+   * Valid values:
+   * 
+   * *   true (default)
+   * *   false
    * 
    * @example
    * false
    */
   filterDesktopGroup?: boolean;
+  /**
+   * @remarks
+   * The ID of the elastic GPU pool.
+   * 
+   * @example
+   * gp-0bm2iz1v6m6nx****
+   */
   gpuInstanceGroupId?: string;
   /**
    * @remarks
-   * The ID of the desktop group.
-   * 
-   * > The desktop group feature is in invitational preview. If you want to use this feature, submit a ticket.
+   * The ID of the cloud computer pool.
    * 
    * @example
    * dg-boyczi8enfyc5****
@@ -34811,6 +36637,18 @@ export class DescribeDesktopsRequest extends $dara.Model {
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * Specifies whether the shared group is a multi-cloud computer type.
+   * 
+   * Valid values:
+   * 
+   * - true: a multi-cloud computer type.
+   * - false: a single-cloud computer type.
+   * 
+   * @example
+   * false
+   */
   multiResource?: boolean;
   /**
    * @remarks
@@ -34822,7 +36660,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The office network ID.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -34830,7 +36668,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * The office network name.
    * 
    * @example
    * testName
@@ -34838,7 +36676,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   officeSiteName?: string;
   /**
    * @remarks
-   * The progress when the cloud desktop was created.
+   * Specifies whether to query pooled cloud computers.
    * 
    * @example
    * true
@@ -34846,14 +36684,28 @@ export class DescribeDesktopsRequest extends $dara.Model {
   onlyDesktopGroup?: boolean;
   /**
    * @remarks
-   * The types of the OSs.
+   * The operating systems (OSs).
    */
   osTypes?: string[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the policy.
+   * The ID of the cloud computer policy.
    * 
    * @example
    * system-all-enabled-policy
@@ -34861,16 +36713,33 @@ export class DescribeDesktopsRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * The type of the protocol.
+   * The protocol.
+   * 
+   * Valid values:
+   * 
+   * *   HDX: High-definition Experience (HDX) protocol
+   * *   ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
    * 
    * @example
    * ASP
    */
   protocolType?: string;
+  /**
+   * @remarks
+   * The ID of the network throttling rule.
+   * 
+   * @example
+   * qos-5605u0gelk200****
+   */
   qosRuleId?: string;
   /**
    * @remarks
-   * Specifies whether to query the information about image update of the cloud desktop.
+   * Specifies whether to query the image update information about the cloud computer.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false (default)
    * 
    * @example
    * false
@@ -34878,7 +36747,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   queryFotaUpdate?: boolean;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
@@ -34886,6 +36755,13 @@ export class DescribeDesktopsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the enterprise resource group.
+   * 
+   * @example
+   * rg-4hsvzbbmqdzu3s****
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -34895,10 +36771,24 @@ export class DescribeDesktopsRequest extends $dara.Model {
    * sp-hb12mclyne09xw***
    */
   snapshotPolicyId?: string;
+  /**
+   * @remarks
+   * The billing method of the cloud computer.
+   * 
+   * Valid values:
+   * 
+   * *   duration: hourly plan (available for users in the whitelist)
+   * *   postPaid: pay-as-you-go
+   * *   monthPackage: monthly subscription (120-hour or 250-hour computing plan)
+   * *   prePaid: monthly subscription (unlimited-hour computing plan)
+   * 
+   * @example
+   * monthPackage
+   */
   subPayType?: string;
   /**
    * @remarks
-   * The tags. A tag is a key-value pair that consists of a tag key and a tag value. Tags are used to identify resources. You can use tags to manage cloud desktops by group for easy searching and batch operations. For more information, see [Use tags to manage cloud desktops](https://help.aliyun.com/document_detail/203781.html).
+   * The tags that you want to add to the cloud computer. A tag is a key-value pair that consists of a tag key and a tag value. Tags are used to identify resources. You can use tags to manage cloud computers by group. This facilitates search and batch operations. For more information, see [Use tags to manage cloud computers](https://help.aliyun.com/document_detail/203781.html).
    */
   tag?: DescribeDesktopsRequestTag[];
   /**
@@ -35024,7 +36914,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
 export class DescribeDesktopsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the cloud desktops.
+   * The information about the cloud computers.
    */
   desktops?: DescribeDesktopsResponseBodyDesktops[];
   /**
@@ -35035,7 +36925,21 @@ export class DescribeDesktopsResponseBody extends $dara.Model {
    * caeba0bbb2be03f84eb48b699f0a4883
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   /**
    * @remarks
@@ -35047,7 +36951,7 @@ export class DescribeDesktopsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of cloud desktops.
+   * The total number of cloud computers.
    * 
    * @example
    * 1
@@ -35123,6 +37027,8 @@ export class DescribeDesktopsResponse extends $dara.Model {
 }
 
 export class DescribeDesktopsInGroupRequest extends $dara.Model {
+  customEndTimePeriod?: number;
+  customStartTimePeriod?: number;
   /**
    * @remarks
    * The ID of the cloud computer pool.
@@ -35182,6 +37088,8 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      customEndTimePeriod: 'CustomEndTimePeriod',
+      customStartTimePeriod: 'CustomStartTimePeriod',
       desktopGroupId: 'DesktopGroupId',
       ignoreDeleted: 'IgnoreDeleted',
       maxResults: 'MaxResults',
@@ -35193,6 +37101,8 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      customEndTimePeriod: 'number',
+      customStartTimePeriod: 'number',
       desktopGroupId: 'string',
       ignoreDeleted: 'boolean',
       maxResults: 'number',
@@ -37353,6 +39263,18 @@ export class DescribeInvocationsRequest extends $dara.Model {
    * test1
    */
   endUserId?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the execution results of all cloud computers if the command is executed on multiple cloud computers.
+   * 
+   * Valid values:
+   * 
+   * - true: returned.
+   * - false: not returned.
+   * 
+   * @example
+   * false
+   */
   includeInvokeDesktops?: boolean;
   /**
    * @remarks
@@ -38450,6 +40372,10 @@ export class DescribeOfficeSitesResponse extends $dara.Model {
 }
 
 export class DescribePolicyGroupsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The array of cloud computer policy IDs to be excluded.
+   */
   externalPolicyGroupIds?: string[];
   /**
    * @remarks
@@ -38470,9 +40396,11 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
    * caeba0bbb2be03f84eb48b699f0a4883
    */
   nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
   /**
    * @remarks
-   * The policy IDs. You can specify one or more policy IDs.
+   * The IDs of the cloud computer policies.
    * 
    * @example
    * system-all-enabled-policy
@@ -38480,7 +40408,7 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   policyGroupId?: string[];
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
@@ -38490,13 +40418,13 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The effective scope of the policy. Valid values:
+   * The effective scope of the cloud computer policy.
    * 
-   * *   GLOBAL: The policy takes effect globally.
-   * *   IP: The policy takes effect based on the IP address.
-   * *   ALL: The policy takes effect without limits.
+   * Valid values:
    * 
-   * Default value: GLOBAL.
+   * *   ALL
+   * *   IP
+   * *   GLOBAL
    * 
    * @example
    * ALL
@@ -38507,6 +40435,8 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
       externalPolicyGroupIds: 'ExternalPolicyGroupIds',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       policyGroupId: 'PolicyGroupId',
       regionId: 'RegionId',
       scope: 'Scope',
@@ -38518,6 +40448,8 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
       externalPolicyGroupIds: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
       nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       policyGroupId: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       scope: 'string',
@@ -38540,9 +40472,10 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
 }
 
 export class DescribePolicyGroupsResponseBody extends $dara.Model {
+  count?: number;
   /**
    * @remarks
-   * The details of the policies.
+   * The details of the cloud computer policies.
    */
   describePolicyGroups?: DescribePolicyGroupsResponseBodyDescribePolicyGroups[];
   /**
@@ -38553,6 +40486,8 @@ export class DescribePolicyGroupsResponseBody extends $dara.Model {
    * caeba0bbb2be03f84eb48b699f0a****
    */
   nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
   /**
    * @remarks
    * The request ID.
@@ -38563,16 +40498,22 @@ export class DescribePolicyGroupsResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      count: 'Count',
       describePolicyGroups: 'DescribePolicyGroups',
       nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      count: 'number',
       describePolicyGroups: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroups },
       nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       requestId: 'string',
     };
   }
@@ -38627,7 +40568,7 @@ export class DescribePolicyGroupsResponse extends $dara.Model {
 export class DescribePriceRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the resources. Default value: 1.
+   * The number of resources. Default value: 1.
    * 
    * @example
    * 1
@@ -38637,20 +40578,41 @@ export class DescribePriceRequest extends $dara.Model {
    * @remarks
    * The maximum public bandwidth. Unit: Mbit/s.
    * 
-   * *   Valid values if the PayByTraffic parameter is set to PayByBandwidth: 10 to 1000
-   * *   Valid values if the PayByTraffic parameter is set to PayByTraffic: 10 to 200
+   * *   Valid values if you set InternetChargeType to PayByBandwidth: 10 to 1000.
+   * *   Valid values if you set InternetChargeType to InternetChargeType: 10 to 200.
    * 
    * @example
    * 10
    */
   bandwidth?: number;
+  /**
+   * @remarks
+   * The type of hourly plan if you use the Monthly Subscription billing method. If you set `ResourceType` to `DesktopMonthPackage`, you must specify this parameter.
+   * 
+   * Valid values:
+   * 
+   * *   120: the 120-hour computing plan.
+   * *   250: the 250-hour computing plan.
+   * 
+   * @example
+   * 120
+   */
   duration?: number;
+  /**
+   * @remarks
+   * The number of cloud computers in the cloud computer pool. Default value: 1.
+   * 
+   * >  This parameter takes effect only if you set `ResourceType` to `DesktopGroup`.
+   * 
+   * @example
+   * 1
+   */
   groupDesktopCount?: number;
   /**
    * @remarks
    * The resource specifications.
    * 
-   * *   If you set ResourceType to Desktop, set this parameter to one of the following values:
+   * *   If you set `ResourceType` to `Desktop`, you must specify this parameter.
    * 
    *     *   ecd.basic.small
    *     *   ecd.basic.large
@@ -38671,9 +40633,9 @@ export class DescribePriceRequest extends $dara.Model {
    *     *   eds.general.8c32g
    *     *   eds.general.16c32g
    * 
-   * *   If you set ResourceType to OfficeSite, set this parameter to large.
+   * *   If you set `ResourceType` to `DesktopGroup`, set the value of this parameter to `large`.
    * 
-   * *   If you set ResourceType to Bandwidth, leave this parameter empty.
+   * *   If you set `ResourceType` to `Bandwidth`, you can leave this parameter empty.
    * 
    * @example
    * eds.general.2c2g
@@ -38681,10 +40643,12 @@ export class DescribePriceRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The metering method of the Internet access package. Valid values:
+   * The metering method for network traffic.
    * 
-   * *   PayByBandwidth: pay-by-bandwidth
-   * *   PayByTraffic: pay-by-data-transfer
+   * Valid values:
+   * 
+   * *   PayByTraffic: You are charged for the actually consumed traffic.
+   * *   PayByBandwidth: You are charged by a fixed bandwidth.
    * 
    * @example
    * PayByTraffic
@@ -38692,12 +40656,12 @@ export class DescribePriceRequest extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The OS. Valid values:
+   * The OS type.
    * 
-   * *   Windows
+   * Valid values:
+   * 
    * *   Linux
-   * 
-   * Default value: Windows.
+   * *   Windows (default)
    * 
    * @example
    * Windows
@@ -38705,7 +40669,13 @@ export class DescribePriceRequest extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The subscription duration. Default value: 1.
+   * The subscription duration. The valid values of this parameter vary based on the value of `PeriodUnit`.
+   * 
+   * *   If you set `PeriodUnit` to `Hour`, set the value of this parameter to 1.
+   * *   If you set `PeriodUnit` to `Month`, set the value of this parameter to 1, 2, 3, or 6.
+   * *   If you set `PeriodUnit` to `Year`, set the value of this parameter to 1, 2, or 3.
+   * 
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -38713,13 +40683,13 @@ export class DescribePriceRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the billing cycle. Valid values:
+   * The billing cycle.
    * 
-   * *   Hour
+   * Valid values:
+   * 
    * *   Month
    * *   Year
-   * 
-   * Default value: Hour.
+   * *   Hour (default)
    * 
    * @example
    * Hour
@@ -38735,7 +40705,7 @@ export class DescribePriceRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by EDS.
    * 
    * This parameter is required.
    * 
@@ -38745,31 +40715,40 @@ export class DescribePriceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource type. Valid values:
+   * The resource type.
    * 
-   * *   Desktop: cloud desktop
-   * *   OfficeSite: workspace
-   * *   Bandwidth: network bandwidth
+   * Valid values:
    * 
-   * Default value: Desktop.
+   * *   DesktopMonthPackage: the monthly subscription plan (also known as the 120-hour or 250-hour computing plan).
+   * *   Desktop (default): the pay-as-you-go cloud computer or the monthly subscription cloud computer (also known as the Unlimited computing plan).
+   * *   Bandwidth: the premium bandwidth plan.
+   * *   DesktopGroup: the cloud computer pool.
    * 
    * @example
    * Desktop
    */
   resourceType?: string;
+  /**
+   * @example
+   * 40
+   */
   rootDiskCategory?: string;
   /**
    * @remarks
-   * The system disk size. Unit: GiB.
+   * The size of the system disk. Unit: GiB. If you set `ResourceType` to `Desktop`, you must specify this parameter.
    * 
    * @example
    * 80
    */
   rootDiskSizeGib?: number;
+  /**
+   * @example
+   * 80
+   */
   userDiskCategory?: string;
   /**
    * @remarks
-   * The data disk size. Unit: GiB.
+   * The size of the data disk. Unit: GiB.
    * 
    * @example
    * 100
@@ -38829,7 +40808,7 @@ export class DescribePriceRequest extends $dara.Model {
 export class DescribePriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price details.
+   * The price information.
    */
   priceInfo?: DescribePriceResponseBodyPriceInfo;
   /**
@@ -39362,16 +41341,28 @@ export class DescribeRecordingsResponse extends $dara.Model {
 export class DescribeRefundPriceRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of cloud computer N. Valid values of N: 1 to 20.
+   * 
    * This parameter is required.
    */
   desktopId?: string[];
   /**
+   * @remarks
+   * The unsubscription type.
+   * 
+   * Valid values:
+   * 
+   * *   RemainRefund: refunds the remaining balance and releases resources.
+   * *   RenewRefund: refunds only the renewal fee and adjusts the expiration date accordingly.
+   * 
    * @example
    * RemainRefund
    */
   refundType?: string;
   /**
    * @remarks
+   * The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39407,8 +41398,15 @@ export class DescribeRefundPriceRequest extends $dara.Model {
 }
 
 export class DescribeRefundPriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The price details.
+   */
   priceInfo?: DescribeRefundPriceResponseBodyPriceInfo;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -40170,6 +42168,8 @@ export class DescribeSnapshotsResponse extends $dara.Model {
 export class DescribeTimerGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the configuration group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -40177,6 +42177,9 @@ export class DescribeTimerGroupRequest extends $dara.Model {
    */
   groupId?: string;
   /**
+   * @remarks
+   * The ID of the region. Set the value to `cn-shanghai`.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -40205,8 +42208,15 @@ export class DescribeTimerGroupRequest extends $dara.Model {
 }
 
 export class DescribeTimerGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the configuration group.
+   */
   data?: DescribeTimerGroupResponseBodyData;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -43294,6 +45304,13 @@ export class GetConnectionTicketRequest extends $dara.Model {
 }
 
 export class GetConnectionTicketResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the cloud computer.
+   * 
+   * @example
+   * ecd-gx2x1dhsmucyy****
+   */
   desktopId?: string;
   /**
    * @remarks
@@ -43303,6 +45320,23 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The credential that is returned to connect to the cloud computer. Before you use the credential, you must Base64 decode the content of the credential, save the credential as an xxx.ica file, and then open the file. Python sample code:
+   * 
+   *     import base64
+   *     response = {
+   *         "Ticket": "W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********",
+   *         "RequestId": "1CBAFFAB-B697-4049-A9B1-67E1FC5F****",
+   *     }
+   *     f = open (\\"xxx.ica\\", \\"w\\")
+   *     out = base64.b64decode(response[\\"Ticket\\"])
+   *     f.write(out)
+   *     f.close()
+   * 
+   * @example
+   * W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********
+   */
   taskCode?: string;
   /**
    * @remarks
@@ -43312,6 +45346,13 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
    * 2afbad19-778a-4fc5-9674-1f19c638****
    */
   taskId?: string;
+  /**
+   * @remarks
+   * The ID of the cloud computer connection task.
+   * 
+   * @example
+   * 2afbad19-778a-4fc5-9674-1f19c638****
+   */
   taskMessage?: string;
   /**
    * @remarks
@@ -43349,17 +45390,7 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The credential that is returned to connect to the cloud computer. Before you use the credential, you must Base64 decode the content of the credential, save the credential as an xxx.ica file, and then open the file. Python sample code:
-   * 
-   *     import base64
-   *     response = {
-   *         "Ticket": "W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********",
-   *         "RequestId": "1CBAFFAB-B697-4049-A9B1-67E1FC5F****",
-   *     }
-   *     f = open (\\"xxx.ica\\", \\"w\\")
-   *     out = base64.b64decode(response[\\"Ticket\\"])
-   *     f.write(out)
-   *     f.close()
+   * The credential of the cloud computer connection.
    * 
    * @example
    * W0VuY29kaW5nXQ0KSW5wdXRFbmNvZGluZz1V********
@@ -44026,7 +46057,7 @@ export class HibernateDesktopsRequest extends $dara.Model {
   desktopId?: string[];
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
@@ -44744,6 +46775,13 @@ export class ListCdsFilesResponse extends $dara.Model {
 }
 
 export class ListDirectoryUsersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * > This parameter is not publicly available. The value can be 1 or left empty.
+   * 
+   * @example
+   * 1
+   */
   assignedInfo?: string;
   /**
    * @remarks
@@ -44763,6 +46801,13 @@ export class ListDirectoryUsersRequest extends $dara.Model {
    * alice
    */
   filter?: string;
+  /**
+   * @remarks
+   * Specifies whether to return the users with assigned cloud computers only.
+   * 
+   * @example
+   * true
+   */
   includeAssignedUser?: boolean;
   /**
    * @remarks
@@ -44802,6 +46847,18 @@ export class ListDirectoryUsersRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The sort type.
+   * 
+   * Valide values:
+   * 
+   * - asc: cloud computers assigned to users on bottom
+   * - desc: cloud computers assigned to users on top
+   * 
+   * @example
+   * asc
+   */
   sortType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -46375,7 +48432,21 @@ export class ModifyADConnectorOfficeSiteRequest extends $dara.Model {
    * beijing-ad01
    */
   adHostname?: string;
+  /**
+   * @remarks
+   * The hostname of the backup domain controller.
+   * 
+   * @example
+   * dc002
+   */
   backupDCHostname?: string;
+  /**
+   * @remarks
+   * The DNS address of the backup domain controller.
+   * 
+   * @example
+   * 192.168.2.100
+   */
   backupDns?: string;
   /**
    * @remarks
@@ -48208,17 +50279,36 @@ export class ModifyCloudDriveUsersResponse extends $dara.Model {
 }
 
 export class ModifyConfigGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the configuration group.
+   * 
+   * @example
+   * ScheduledTask
+   */
   description?: string;
   /**
    * @remarks
+   * The ID of the configuration group.
+   * 
    * This parameter is required.
    * 
    * @example
    * cg-i1ruuudp92qpj****
    */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the configuration group.
+   * 
+   * @example
+   * ScheduledTask
+   */
   name?: string;
   /**
+   * @remarks
+   * The ID of the region. Set the value to `cn-shanghai`.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -48252,11 +50342,17 @@ export class ModifyConfigGroupRequest extends $dara.Model {
 
 export class ModifyConfigGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the configuration group.
+   * 
    * @example
    * cg-i1ruuudp92qpj****
    */
   groupId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -49702,7 +51798,20 @@ export class ModifyDesktopSpecRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The array of resource specification templates.
+   */
   resourceSpecs?: ModifyDesktopSpecRequestResourceSpecs[];
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * > This parameter is optional for non-subscribed cloud computers.
+   * 
+   * @example
+   * DesktopMonthPackage
+   */
   resourceType?: string;
   /**
    * @remarks
@@ -49816,6 +51925,10 @@ export class ModifyDesktopSpecResponseBody extends $dara.Model {
    * 123456789
    */
   orderId?: string;
+  /**
+   * @remarks
+   * The array of order IDs.
+   */
   orderIds?: number[];
   /**
    * @remarks
@@ -50030,7 +52143,7 @@ export class ModifyDesktopTimerResponse extends $dara.Model {
 export class ModifyDesktopsPolicyGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud desktop. You can specify one or more desktop IDs. The value is a JSON array.
+   * The cloud computer IDs. You can specify one or more cloud computers IDs. The value is a JSON array.
    * 
    * This parameter is required.
    * 
@@ -50040,7 +52153,9 @@ export class ModifyDesktopsPolicyGroupRequest extends $dara.Model {
   desktopId?: string[];
   /**
    * @remarks
-   * The ID of the policy.
+   * The ID of the cloud computer policy that you want to associate with cloud computers.
+   * 
+   * >  If the `PolicyGroupIds` parameter is used, ignore the current parameter.
    * 
    * @example
    * pg-gx2x1dhsmthe9****
@@ -50048,12 +52163,14 @@ export class ModifyDesktopsPolicyGroupRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * 策略ID列表。
+   * The IDs of the cloud computer policies that you want to associate with cloud computers.
+   * 
+   * >  You can specify up to one cloud computer policy that takes effect globally, and up to four cloud computer policies that apply to specific IP addresses. If you specify more than one cloud computer policy that takes effect globally, only the policy first associate with the cloud computer can take effect.
    */
   policyGroupIds?: string[];
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
@@ -50097,7 +52214,7 @@ export class ModifyDesktopsPolicyGroupRequest extends $dara.Model {
 export class ModifyDesktopsPolicyGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The modification results.
+   * The request results.
    */
   modifyResults?: ModifyDesktopsPolicyGroupResponseBodyModifyResults[];
   /**
@@ -50172,12 +52289,15 @@ export class ModifyDesktopsPolicyGroupResponse extends $dara.Model {
 export class ModifyDiskSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically complete the payment. Valid values:
+   * Specifies whether to enable the automatic payment feature.
    * 
-   * *   `true`: automatically completes the payment. Make sure that your Alibaba Cloud account has sufficient balance. If your Alibaba Cloud account does not have sufficient balance, abnormal orders are generated.
-   * *   `false`: does not complete the payment. In this case, an order is generated, but no payment is made. You can log on to the Elastic Desktop Service (EDS) console and complete the payment based on the order ID on the **Orders** page.
+   * *   If you set the value to `true`, ensure your account has sufficient balance to avoid generating abnormal orders.
+   * *   If you set the value to `false`, go to the **Expenses and Costs** page to complete the payment based on the order number.
    * 
-   * Default value: `true`.
+   * Valid values:
+   * 
+   * *   true (default): enables the automatic payment feature.
+   * *   false: generates the order and manually complete the payment.
    * 
    * @example
    * false
@@ -50185,7 +52305,7 @@ export class ModifyDiskSpecRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The ID of the cloud desktop.
+   * The ID of the cloud computer.
    * 
    * This parameter is required.
    * 
@@ -50203,7 +52323,7 @@ export class ModifyDiskSpecRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
    * 
    * This parameter is required.
    * 
@@ -50211,14 +52331,17 @@ export class ModifyDiskSpecRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resellerOwnerUid?: number;
   /**
    * @remarks
-   * The performance level (PL) of the system disk. If the cloud desktop type is Graphics or High Frequency, you can set the PL of the system disk. Valid values:
+   * The PL of the system disk. Only Enterprise Graphics or High Frequency cloud computers support disk PL adjustments.
    * 
-   * *   PL0
+   * Valid values:
+   * 
    * *   PL1
-   * *   PL2
+   * *   PL0
    * *   PL3
+   * *   PL2
    * 
    * @example
    * PL1
@@ -50226,12 +52349,14 @@ export class ModifyDiskSpecRequest extends $dara.Model {
   rootDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The PL of the data disk. If the cloud desktop type is Graphics or High Frequency, you can set the PL of the data disk. Valid values:
+   * The PL of the data disk. Only Enterprise Graphics or High Frequency cloud computers support disk PL adjustments.
    * 
-   * *   PL0
+   * Valid values:
+   * 
    * *   PL1
-   * *   PL2
+   * *   PL0
    * *   PL3
+   * *   PL2
    * 
    * @example
    * PL1
@@ -50243,6 +52368,7 @@ export class ModifyDiskSpecRequest extends $dara.Model {
       desktopId: 'DesktopId',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      resellerOwnerUid: 'ResellerOwnerUid',
       rootDiskPerformanceLevel: 'RootDiskPerformanceLevel',
       userDiskPerformanceLevel: 'UserDiskPerformanceLevel',
     };
@@ -50254,6 +52380,7 @@ export class ModifyDiskSpecRequest extends $dara.Model {
       desktopId: 'string',
       promotionId: 'string',
       regionId: 'string',
+      resellerOwnerUid: 'number',
       rootDiskPerformanceLevel: 'string',
       userDiskPerformanceLevel: 'string',
     };
@@ -50271,7 +52398,7 @@ export class ModifyDiskSpecRequest extends $dara.Model {
 export class ModifyDiskSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order. You can obtain the order ID on the [Orders](https://usercenter2-intl.aliyun.com/order/list?pageIndex=1\\&pageSize=20\\&spm=5176.12818093.top-nav.ditem-ord.36f016d0OQFmJa) page in Alibaba Cloud User Center.
+   * The ID of the order. You can obtain the ID of an order from the [Expenses and Costs > Orders](https://usercenter2-intl.aliyun.com/order/list) page.
    * 
    * @example
    * 219861020660568
@@ -51452,6 +53579,114 @@ export class ModifyOfficeSiteCrossDesktopAccessResponse extends $dara.Model {
   }
 }
 
+export class ModifyOfficeSiteDnsInfoRequest extends $dara.Model {
+  dnsAddress?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou+dir-778418****
+   */
+  officeSiteId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dnsAddress: 'DnsAddress',
+      officeSiteId: 'OfficeSiteId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsAddress: { 'type': 'array', 'itemType': 'string' },
+      officeSiteId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.dnsAddress)) {
+      $dara.Model.validateArray(this.dnsAddress);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyOfficeSiteDnsInfoResponseBody extends $dara.Model {
+  /**
+   * @example
+   * F7E4322D-D679-5ACB-A909-490D2F0E****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyOfficeSiteDnsInfoResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyOfficeSiteDnsInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyOfficeSiteDnsInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyOfficeSiteMfaEnabledRequest extends $dara.Model {
   /**
    * @remarks
@@ -51594,9 +53829,9 @@ export class ModifyOfficeSiteMfaEnabledResponse extends $dara.Model {
 export class ModifyPolicyGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the end user has administrator permissions after the end user connects to the cloud desktop.
+   * Specifies whether end users have the administrator permissions.
    * 
-   * >  This parameter is in invitational preview and not available to the public.
+   * >  This parameter is in invitational preview for specific users and not available to the public.
    * 
    * @example
    * deny
@@ -51604,12 +53839,12 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   adminAccess?: string;
   /**
    * @remarks
-   * Specifies whether to enable the anti-screenshot feature. Valid values:
+   * Specifies whether to enable the anti-screenshot feature.
    * 
-   * * on
-   * * off
+   * Valid values:
    * 
-   * Default value: off.
+   * *   off (default)
+   * *   on
    * 
    * @example
    * on
@@ -51617,7 +53852,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   appContentProtection?: string;
   /**
    * @remarks
-   * The client CIDR blocks in the whitelist.
+   * The client IP address whitelist.
    */
   authorizeAccessPolicyRule?: ModifyPolicyGroupRequestAuthorizeAccessPolicyRule[];
   /**
@@ -51627,12 +53862,12 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   authorizeSecurityPolicyRule?: ModifyPolicyGroupRequestAuthorizeSecurityPolicyRule[];
   /**
    * @remarks
-   * Specifies whether to enable the webcam redirection feature. Valid values:
+   * Specifies whether to enable the webcam redirection feature.
    * 
-   * * on
-   * * off
+   * Valid values:
    * 
-   * Default value: on.
+   * *   off
+   * *   on (default)
    * 
    * @example
    * on
@@ -51640,33 +53875,45 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   cameraRedirect?: string;
   /**
    * @remarks
-   * The logon methods.
+   * The logon method control rules to limit the type of the Alibaba Cloud Workspace client used by end users to connect to cloud computers.
    */
   clientType?: ModifyPolicyGroupRequestClientType[];
   /**
    * @remarks
-   * The permissions on clipboards. Valid values:
+   * The permissions on the clipboard.
    * 
-   * *   read: specifies one-way transfer. You can copy data from your computer to cloud desktops, but cannot copy data from cloud desktops to your computer.
-   * *   readwrite: specifies two-way transfer. You can copy data between your computer and cloud desktops.
-   * *   off: specifies that the two-way transfer is disabled. You cannot copy data between your computer and cloud desktops.
+   * Valid values:
+   * 
+   * *   read: specifies one-way transfer. You can copy files only from local devices to cloud computers.
+   * *   readwrite: specifies two-way transfer You can copy files between local devices and cloud computers.
+   * *   write: specifies one-way transfer. You can only copy files from cloud computers to local devices.
+   * *   off: disables both one-way and two-way transfer. Files cannot be copied between local devices and cloud computers.
    * 
    * @example
    * off
    */
   clipboard?: string;
+  /**
+   * @remarks
+   * The device redirection rules.
+   */
   deviceRedirects?: ModifyPolicyGroupRequestDeviceRedirects[];
   /**
+   * @remarks
+   * The custom peripheral rules.
+   * 
    * **if can be null:**
    * false
    */
   deviceRules?: ModifyPolicyGroupRequestDeviceRules[];
   /**
    * @remarks
-   * The domain blacklist or whitelist. Wildcard domains are supported. Separate domain names with commas (,). Valid values:
+   * Specifies whether the access control for domain names is enabled. Domain names support wildcards (\\*). Separate multiple domain names with commas (,).
    * 
-   * *   [black:],example1.com,example2.com: the domain name blacklist.
-   * *   [white:],example1.com,example2.com: the domain name whitelist.
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * [black:],example1.com,example2.com
@@ -51674,12 +53921,17 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   domainList?: string;
   /**
    * @remarks
-   * The details of the DNS rule.
+   * The details of the domain name resolution rules.
    */
   domainResolveRule?: ModifyPolicyGroupRequestDomainResolveRule[];
   /**
    * @remarks
-   * The DNS rule type.
+   * The type of the domain name resolution rule.
+   * 
+   * Valid values:
+   * 
+   * *   OFF
+   * *   ON
    * 
    * @example
    * OFF
@@ -51687,9 +53939,12 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   domainResolveRuleType?: string;
   /**
    * @remarks
-   * The user applies for the administrator assistance switch. Value range: 
-   * * on 
-   * * off
+   * Specifies whether to turn on the Contact Administrator for Help switch.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * on
@@ -51697,9 +53952,12 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   endUserApplyAdminCoordinate?: string;
   /**
    * @remarks
-   * The flow collaboration switch between users. Value range: 
-   * * on 
-   * * off
+   * Specifies whether to turn on the User Stream Collaboration switch.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * on
@@ -51707,10 +53965,12 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   endUserGroupCoordinate?: string;
   /**
    * @remarks
-   * Specifies whether to enable the image display quality feature for the Graphics cloud desktop. If your business requires high desktop performance and optimal user experience, we recommend that you enable this feature. For example, you can enable this policy in professional design scenarios. Valid values:
+   * Specifies whether to enable the Image Quality Control feature for Graphic-based cloud computers. If you have high requirements on the performance and user experience in scenarios such as professional design, we recommend that you enable this feature.
    * 
-   * * on
-   * * off
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * off
@@ -51718,14 +53978,14 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   gpuAcceleration?: string;
   /**
    * @remarks
-   * Specifies whether to allow the access from HTM5 clients to a cloud desktop. Valid values:
+   * Specifies whether to allow web client access.
    * 
-   * *   on: allows the access.
-   * *   off: denies the access.
+   * >  We recommend that you specify the ClientType-related parameters to control the Alibaba Cloud Workspace client type for cloud computer connection.``
    * 
-   * Default value: off.
+   * Valid values:
    * 
-   * >  We recommend that you use the ClientType-related parameters to control the EDS client type for cloud desktop logon.
+   * *   off
+   * *   on
    * 
    * @example
    * off
@@ -51733,14 +53993,14 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   html5Access?: string;
   /**
    * @remarks
-   * The file transfer policy for HTML5 clients. Valid values:
+   * The file transfer feature on the web client.
    * 
-   * *   off: Files cannot be uploaded from or downloaded to HTML5 clients.
-   * *   upload: Files can be uploaded from HTML5 clients.
-   * *   download: Files can be downloaded to HTML5 clients.
-   * *   all: Files can be uploaded from and downloaded to HTML5 clients.
+   * Valid values:
    * 
-   * Default value: off.
+   * *   all: Files can be uploaded and downloaded between local computers and the web client.
+   * *   download: Files on the web client can be downloaded to local computers.
+   * *   upload: Files on local computers can be uploaded to the web client.
+   * *   off (default): Files cannot be transferred between the web client and local computers.
    * 
    * @example
    * off
@@ -51748,12 +54008,12 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The protocol that you want to use for network communication. Valid values:
+   * The protocol for network communication.
    * 
-   * * TCP: Only the TCP protocol is used.
-   * * BOTH: allows automatic switchover between the TCP protocol and the UDP protocol.
+   * Valid values:
    * 
-   * Default value: TCP.
+   * *   TCP (default): TCP
+   * *   BOTH: TCP and UDP
    * 
    * @example
    * BOTH
@@ -51761,20 +54021,29 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   internetCommunicationProtocol?: string;
   /**
    * @remarks
-   * The permissions on local disk mapping. Valid values:
+   * The permissions on local disk mapping.
    * 
-   * *   read: read-only permissions. Local disks are mapped to cloud desktops. You can only read (copy) local files but cannot modify them.
-   * *   readwrite: read and write permissions. Local disks are mapped to cloud desktops. You can read (copy) and modify local files.
-   * *   off: no permissions. Local disks are not mapped to cloud desktops.
+   * Valid values:
+   * 
+   * *   read: read-only. Local disk mapping is available on cloud computers. However, you can only read (copy) local files but cannot modify the files.
+   * *   readwrite: read and write. Local disk mapping is available on cloud computers. You can read (copy) and write (modify) local files.
+   * *   off (default): no permissions. Local disk mapping is unavailable on cloud computers.
    * 
    * @example
    * off
    */
   localDrive?: string;
+  /**
+   * @remarks
+   * The maximum retry period for reconnecting to cloud computers when the cloud computers are disconnected due to none-human reasons. Valid values: 30 to 7200. Unit: seconds.
+   * 
+   * @example
+   * 120
+   */
   maxReconnectTime?: number;
   /**
    * @remarks
-   * The name of the policy.
+   * The name of the cloud computer policy.
    * 
    * @example
    * testPolicyGroupName
@@ -51782,12 +54051,14 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network redirection feature. Valid values:
+   * Specifies whether to enable network redirection.
    * 
-   * * on
-   * * off
+   * >  This parameter is in invitational preview for specific users and not available to the public.
    * 
-   * Default value: off.
+   * Valid values:
+   * 
+   * *   off (default)
+   * *   on
    * 
    * @example
    * on
@@ -51795,7 +54066,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   netRedirect?: string;
   /**
    * @remarks
-   * The ID of the policy.
+   * The ID of the cloud computer policy.
    * 
    * This parameter is required.
    * 
@@ -51805,7 +54076,13 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to allow user preemption. Default value: off. You cannot change the value.
+   * The cloud computer preemption feature.
+   * 
+   * >  To ensure user experience and data security, when a cloud computer is used by an end user, other end users cannot connect to the cloud computer. By default, this parameter is set to `off`, which cannot be modified.
+   * 
+   * Valid values:
+   * 
+   * *   off (default): Multiple end users cannot connect to the same cloud computer at the same time.
    * 
    * @example
    * off
@@ -51813,17 +54090,19 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   preemptLogin?: string;
   /**
    * @remarks
-   * The names of the users that are allowed to connect to the same cloud desktop at the same time. You can specify up to five usernames.
+   * The usernames that are allowed to connect to the cloud computer in use. You can specify up to five usernames.
    * 
-   * > To improve user experience and ensure data security, multiple end users cannot connect to the same cloud desktop at the same time.
+   * >  To ensure user experience and data security, other end users cannot connect to the cloud computer that is used by an end user.
    */
   preemptLoginUser?: string[];
   /**
    * @remarks
-   * Specifies whether to enable printer redirection. Valid values:
+   * The printer redirection feature.
    * 
-   * *   off: disables printer redirection.
-   * *   on: enables printer redirection.
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * off
@@ -51831,12 +54110,12 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   printerRedirection?: string;
   /**
    * @remarks
-   * Specifies whether to enable the custom screen recording feature. Valid values:
+   * Specifies whether to enable the custom screen recording feature.
    * 
-   * * on
-   * * off
+   * Valid values:
    * 
-   * Default value: off.
+   * *   off (default)
+   * *   on
    * 
    * @example
    * OFF
@@ -51852,11 +54131,17 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   recordContentExpires?: number;
   /**
    * @remarks
-   * Specifies whether to enable screen recording. Valid values:
+   * Specifies whether to enable the screen recording feature.
    * 
-   * * OFF: disabled.
-   * * ALLTIME: All operations that are performed by an end user on the cloud desktop are recorded. The recording immediately starts when the end user connects to the cloud desktop and ends after the end user disconnects from the cloud desktop.
-   * * PERIOD: The operations that are performed by an end user on the cloud desktop during a specific period of time are recorded. You must specify the start time and the end time of the recording.
+   * Valid values:
+   * 
+   * *   byaction_cmd_ft: enables the operation-triggered screen recording upon command execution and file transfer.
+   * *   ALLTIME: enables the whole-process screen recording. That is, the recording starts when cloud computers are connected and ends when the cloud computers are disconnected.
+   * *   session: enables the screen recording for session lifecycle listening.
+   * *   PERIOD: enables the interval-based screen recording. You must specify an interval between the start time and end time of this type of recording.
+   * *   byaction_commands: enables the operation-triggered screen recording upon command execution.
+   * *   OFF: disables the screen recording feature.
+   * *   byaction_file_transfer: enables the operation-triggered screen recording upon file transfer.
    * 
    * @example
    * OFF
@@ -51864,10 +54149,12 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   recording?: string;
   /**
    * @remarks
-   * Specifies whether to record the sound that is generated on the cloud desktop during screen recording. Valid values:
+   * Specifies whether to record the audio files generated from cloud computers.
    * 
-   * * on
-   * * off
+   * Valid values:
+   * 
+   * *   off: records only video files.
+   * *   on: records video and audio files.
    * 
    * @example
    * on
@@ -51875,7 +54162,14 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   recordingAudio?: string;
   /**
    * @remarks
-   * This parameter takes effect based on the Recording-related parameters. You can specify a time range for screen recording, and recording files are generated after the specified end time is reached.
+   * The file length of the screen recording. Unit: minutes. Screen recording files are split based on the specified file length and uploaded to Object Storage Service (OSS) buckets. When a screen recording file reaches 300 MB in size, the system preferentially performs rolling update for the file.
+   * 
+   * Valid values:
+   * 
+   * *   10
+   * *   20
+   * *   30
+   * *   60
    * 
    * @example
    * 15
@@ -51883,7 +54177,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   recordingDuration?: number;
   /**
    * @remarks
-   * The time when the screen recording ends. Specify the value in the HH:MM:SS format. The value is valid only when you set the Recording parameter to PERIOD.
+   * The time when the screen recording stops. Specify the value in the HH:MM:SS format. The value is meaningful only when you set `Recording` to `PERIOD`.
    * 
    * @example
    * 08:59:00
@@ -51891,7 +54185,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   recordingEndTime?: string;
   /**
    * @remarks
-   * The period in which the screen recording audit is valid. Valid values: 15 to 180. Unit: days.
+   * The retention period of the screen recording file. Valid values: 1 to 180. Unit: days.
    * 
    * @example
    * 30
@@ -51899,12 +54193,14 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   recordingExpires?: number;
   /**
    * @remarks
-   * The frame rate of screen recording. Unit: fps. Valid values:
+   * The frame rate of screen recording. Unit: fps.
    * 
-   * * 2
-   * * 5
-   * * 10
-   * * 15
+   * Valid values:
+   * 
+   * *   2
+   * *   5
+   * *   10
+   * *   15
    * 
    * @example
    * 5
@@ -51912,7 +54208,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   recordingFps?: number;
   /**
    * @remarks
-   * The time when the screen recording starts. Specify the value in the HH:MM:SS format. The value is valid only when you set the Recording parameter to PERIOD.
+   * The time when the screen recording starts. Specify the value in the HH:MM:SS format. The value is meaningful only when you set the `Recording` parameter to `PERIOD`.
    * 
    * @example
    * 08:00:00
@@ -51920,7 +54216,12 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   recordingStartTime?: string;
   /**
    * @remarks
-   * Specifies whether to enable the screen recording notification feature. Valid values: on and off. on and off (default).
+   * Specifies whether to enable the screen recording notification feature after end users log on to the Alibaba Cloud Workspace client.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * off
@@ -51928,7 +54229,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   recordingUserNotify?: string;
   /**
    * @remarks
-   * The content of the screen recording notification sent to the client. By default, you do not need to specify this parameter.
+   * The notification content of screen recording. By default, this parameter is left empty.
    * 
    * @example
    * Your desktop is being recorded.
@@ -51936,7 +54237,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   recordingUserNotifyMessage?: string;
   /**
    * @remarks
-   * The ID of the region where the cloud desktop resides.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
@@ -51946,11 +54247,13 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The permissions on the keyboard and mouse to control the cloud desktop during remote assistance. Valid values:
+   * The permissions on keyboard and mouse control during remote assistance.
    * 
-   * * fullControl: The keyboard and mouse can be fully controlled.
-   * * optionalControl: By default, this feature is disabled. You can apply for permissions to enable the feature.
-   * * disableControl: The keyboard and mouse cannot be controlled.
+   * Valid values:
+   * 
+   * *   optionalControl: By default, you are not granted the permissions. You can apply for the permissions.
+   * *   fullControl: You are granted the full permissions.
+   * *   disableControl: You are not granted the permissions.
    * 
    * @example
    * fullControl
@@ -51958,7 +54261,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   remoteCoordinate?: string;
   /**
    * @remarks
-   * The security group rules that you want to delete.
+   * The client IP addresses that you want to delete from the whitelist.
    */
   revokeAccessPolicyRule?: ModifyPolicyGroupRequestRevokeAccessPolicyRule[];
   /**
@@ -51968,10 +54271,12 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   revokeSecurityPolicyRule?: ModifyPolicyGroupRequestRevokeSecurityPolicyRule[];
   /**
    * @remarks
-   * The effective scope of the policy. Valid values:
+   * The effective scope of the policy.
    * 
-   * * GLOBAL: takes effect globally.
-   * * IP: takes effect based on the IP address.
+   * Valid values:
+   * 
+   * *   IP: The policy takes effect based on the IP address.
+   * *   GLOBAL: The policy takes effect globally.
    * 
    * @example
    * GLOBAL
@@ -51979,15 +54284,17 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * This parameter is required when the Scope parameter is set to IP.
+   * This parameter is required when the `Scope` parameter is set to `IP`.````
    */
   scopeValue?: string[];
   /**
    * @remarks
-   * Specifies whether to enable USB redirection. Valid values:
+   * Specifies whether to enable the USB redirection feature.
    * 
-   * *   on: enables USB redirection.
-   * *   off: disables USB redirection.
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * off
@@ -52008,12 +54315,14 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   videoRedirect?: string;
   /**
    * @remarks
-   * Specify whether to enable the policy of image display quality. Valid values:
+   * The image display quality.
    * 
-   * *   on: enables the policy of image display quality.
-   * *   off: disables the policy of image display quality.
+   * Valid values:
    * 
-   * Default value: off.
+   * *   high: high-definition (HD)
+   * *   low: smoothness
+   * *   lossless: no quality loss
+   * *   medium (default): scenario-specific adaptation
    * 
    * @example
    * low
@@ -52021,10 +54330,13 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   visualQuality?: string;
   /**
    * @remarks
-   * Specifies whether to enable watermarking. Valid values:
+   * The watermarking feature.
    * 
-   * *   on: enables watermarking.
-   * *   off: disables watermarking.
+   * Valid values:
+   * 
+   * *   blind: Invisible watermarks are applied.
+   * *   off: The watermarking feature is disabled.
+   * *   on: Visible watermarks are applied.
    * 
    * @example
    * off
@@ -52032,7 +54344,12 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   watermark?: string;
   /**
    * @remarks
-   * Specifies whether to enable the anti-screen photo feature for invisible watermarks. on and off (default).
+   * Specifies whether to enable the anti-screen photo feature for invisible watermarks.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * off
@@ -52040,7 +54357,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   watermarkAntiCam?: string;
   /**
    * @remarks
-   * The font color of the watermark. Valid values: 0 to 16777215.
+   * The font color in red, green, and blue (RGB) of the watermark. Valid values: 0 to 16777215.
    * 
    * @example
    * 0
@@ -52048,7 +54365,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   watermarkColor?: number;
   /**
    * @remarks
-   * The inclination angle of the watermark. Value values: -10 to -30.
+   * The watermark rotation. Valid values: -10 to -30.
    * 
    * @example
    * -10
@@ -52056,7 +54373,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   watermarkDegree?: number;
   /**
    * @remarks
-   * The font size of the watermark. Valid values: 10 to 50
+   * The watermark font size. Valid values: 10 to 20.
    * 
    * @example
    * 10
@@ -52064,10 +54381,12 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   watermarkFontSize?: number;
   /**
    * @remarks
-   * The font style of the watermark. Valid values:
+   * The watermark font style.
    * 
-   * * plain
-   * * bold
+   * Valid values:
+   * 
+   * *   plain
+   * *   bold
    * 
    * @example
    * plain
@@ -52075,7 +54394,13 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   watermarkFontStyle?: string;
   /**
    * @remarks
-   * The watermark enhancement feature. Valid values: low, medium, and high.
+   * The watermark enhancement feature.
+   * 
+   * Valid values:
+   * 
+   * *   high
+   * *   low
+   * *   medium
    * 
    * @example
    * medium
@@ -52083,7 +54408,9 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   watermarkPower?: string;
   /**
    * @remarks
-   * The number of watermark rows. This parameter is not in use.
+   * The number of watermark rows.
+   * 
+   * >  This parameter is not available for public use.
    * 
    * @example
    * 3
@@ -52091,7 +54418,12 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   watermarkRowAmount?: number;
   /**
    * @remarks
-   * The security priority rule for invisible watermarks. Valid values: on and off.
+   * Specifies whether to enable the security priority feature for invisible watermarks.
+   * 
+   * Valid values:
+   * 
+   * *   off
+   * *   on
    * 
    * @example
    * off
@@ -52099,11 +54431,13 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   watermarkSecurity?: string;
   /**
    * @remarks
-   * The transparency of the watermark. The valid values include:
+   * The watermark transparency.
    * 
-   * *   LIGHT
-   * *   MIDDLE
+   * Valid values:
+   * 
+   * *   LIGHT (default)
    * *   DARK
+   * *   MIDDLE
    * 
    * @example
    * LIGHT
@@ -52111,7 +54445,7 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   watermarkTransparency?: string;
   /**
    * @remarks
-   * The transparency of the watermark. A larger value indicates a less transparent watermark. Valid values: 10 to 100.
+   * The watermark opacity. A larger value indicates more opaque watermarks. Valid values: 10 to 100.
    * 
    * @example
    * 10
@@ -52119,15 +54453,37 @@ export class ModifyPolicyGroupRequest extends $dara.Model {
   watermarkTransparencyValue?: number;
   /**
    * @remarks
-   * The type of the watermark. You can specify multiple watermark types at a time. Separate watermark types with commas (,). Valid values:
+   * The watermark content. You can select up to three items as the watermark content. Separate multiple items with commas (,).
+   * 
+   * >  If you set this parameter to `Custom`, you must specify `WatermarkCustomText`.
+   * 
+   * Valid values:
    * 
    * *   EndUserId: the username
-   * *   HostName: the last 15 characters of the cloud desktop ID
+   * *   Custom: the custom text
+   * *   DesktopIp: the IP address of the cloud computer
+   * *   ClientIp: the IP address of the Alibaba Cloud Workspace client
+   * *   HostName: the rightmost 15 digits of the cloud computer ID
+   * *   ClientTime: the current time displayed on the cloud computer
    * 
    * @example
    * EndUserId
    */
   watermarkType?: string;
+  /**
+   * @remarks
+   * Specifies whether to provide the AI Assistant function in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace desktop clients (including the Windows client and the macOS client).
+   * 
+   * > Desktop clients of V7.7 and higher versions required.
+   * 
+   * Valid values:
+   * 
+   * - off: the AI Aisstant function is not provided.
+   * - on: the AI Aisstant function is provided.
+   * 
+   * @example
+   * on
+   */
   wyAssistant?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52367,18 +54723,35 @@ export class ModifyPolicyGroupResponse extends $dara.Model {
 }
 
 export class ModifyTimerGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration groups.
+   */
   configTimers?: ModifyTimerGroupRequestConfigTimers[];
+  /**
+   * @remarks
+   * The description of the configuration group.
+   */
   description?: string;
   /**
    * @remarks
+   * The ID of the configuration group.
+   * 
    * This parameter is required.
    * 
    * @example
    * cg-i1ruuudp92qpj****
    */
   groupId?: string;
+  /**
+   * @remarks
+   * The name of the configuration group.
+   */
   name?: string;
   /**
+   * @remarks
+   * The ID of the region. Set the value to `cn-shanghai`.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -52417,11 +54790,17 @@ export class ModifyTimerGroupRequest extends $dara.Model {
 
 export class ModifyTimerGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the configuration group.
+   * 
    * @example
    * cg-i1ruuudp92qpj****
    */
   groupId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
@@ -53739,17 +56118,35 @@ export class RemoveUserFromDesktopOversoldUserGroupResponse extends $dara.Model 
 
 export class RenewDesktopGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the auto-payment feature.
+   * 
+   * Valid values:
+   * 
+   * *   true (default): enables the auto-payment feature. Make sure that your account balance is sufficient. Otherwise, an abnormal order is generated.
+   * *   false: disables the auto-payment feature. In this case, an order is generated but you need to make the payment manually. You can log on to the EDS console and complete the payment based on the order ID on the Orders page.
+   * 
    * @example
    * true
    */
   autoPay?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable auto-renewal.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * false
    */
   autoRenew?: boolean;
   /**
    * @remarks
+   * The ID of the cloud computer pool.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53757,17 +56154,35 @@ export class RenewDesktopGroupRequest extends $dara.Model {
    */
   desktopGroupId?: string;
   /**
+   * @remarks
+   * The renewal duration. Valid values of this parameter are determined by the value of the `PeriodUnit` parameter.
+   * 
+   * *   Valid values if you set the `PeriodUnit` parameter to `Month`: 1, 2, 3, and 6
+   * *   Valid values if you set the `PeriodUnit` parameter to `Year`: 1, 2, 3, 4, and 5
+   * 
+   * Default value: 1
+   * 
    * @example
    * 1
    */
   period?: number;
   /**
+   * @remarks
+   * The unit of the renewal duration specified by the `Period` parameter.
+   * 
+   * Valid values:
+   * 
+   * *   Month (default)
+   * *   Year
+   * 
    * @example
    * Month
    */
   periodUnit?: string;
   /**
    * @remarks
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53806,8 +56221,15 @@ export class RenewDesktopGroupRequest extends $dara.Model {
 }
 
 export class RenewDesktopGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The order IDs.
+   */
   orderId?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E55E6732-2028-52FA-AB06-EA29C36B****
    */
@@ -53971,36 +56393,26 @@ export class RenewDesktopsRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the auto-payment feature.
    * 
-   * Default value: true. Valid values:
+   * Valid values:
    * 
-   * *   true: enables the auto-payment feature.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     Make sure that you have sufficient balance in your Alibaba Cloud account. Otherwise, your order becomes invalid.
-   * 
-   *     <!-- -->
-   * 
-   * *   false: disables the auto-payment feature. In this case, an order is generated, and no payment is automatically made.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     You can log on to the Elastic Desktop Service console and complete the payment based on the order ID on the Orders page.
-   * 
-   *     <!-- -->
+   * *   true (default): enables the auto-payment feature. Make sure that your account balance is sufficient. Otherwise, an abnormal order is generated.
+   * *   false: disables the auto-payment feature. In this case, an order is generated but you need to complete the payment. You can log on to the EDS console and complete the payment based on the order ID on the Orders page.
    * 
    * @example
    * true
    */
   autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable the auto-renewal feature.
+   * 
+   * @example
+   * false
+   */
   autoRenew?: boolean;
   /**
    * @remarks
-   * The IDs of the cloud computers. Only IDs of subscription cloud computers are supported.
+   * The cloud computer IDs. You can only renew monthly subscription cloud computers.
    * 
    * This parameter is required.
    * 
@@ -54057,7 +56469,7 @@ export class RenewDesktopsRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
@@ -54065,6 +56477,13 @@ export class RenewDesktopsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * >  This field is not available for public use.
+   * 
+   * @example
+   * null
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -54210,6 +56629,7 @@ export class RenewNetworkPackagesRequest extends $dara.Model {
    * true
    */
   autoPay?: boolean;
+  autoRenew?: boolean;
   /**
    * @remarks
    * The IDs of premium bandwidth plans. You can specify up to 100 IDs.
@@ -54263,6 +56683,7 @@ export class RenewNetworkPackagesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
       networkPackageId: 'NetworkPackageId',
       period: 'Period',
       periodUnit: 'PeriodUnit',
@@ -54274,6 +56695,7 @@ export class RenewNetworkPackagesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+      autoRenew: 'boolean',
       networkPackageId: { 'type': 'array', 'itemType': 'string' },
       period: 'number',
       periodUnit: 'string',
@@ -56924,17 +59346,28 @@ export class TagResourcesResponse extends $dara.Model {
 
 export class UnbindConfigGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the region. Set the value to `cn-shanghai`.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The resources from which you want to unbind the configuration group.
+   * 
    * This parameter is required.
    */
   resourceInfos?: UnbindConfigGroupRequestResourceInfos[];
   /**
    * @remarks
+   * The type of the configuration group.
+   * 
+   * Valid value:
+   * 
+   * *   Timer: the scheduled task type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56970,8 +59403,15 @@ export class UnbindConfigGroupRequest extends $dara.Model {
 }
 
 export class UnbindConfigGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the configuration groups.
+   */
   groupIds?: string[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * AD0FF13D-FC7D-56AD-934F-91C8487*****
    */
@@ -57659,6 +60099,15 @@ export class UploadImageRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The size of the system disk. Unit: GB.
+   * 
+   * > The size of the system disk cannot be smaller than the size of the image.
+   * 
+   * @example
+   * 80
+   */
   systemDiskSize?: string;
   static names(): { [key: string]: string } {
     return {
@@ -57964,11 +60413,15 @@ export class VerifyCenResponse extends $dara.Model {
 export class WakeupDesktopsRequest extends $dara.Model {
   /**
    * @remarks
+   * The IDs of the cloud computers. You can specify the IDs of 1 to 100 cloud computers.
+   * 
    * This parameter is required.
    */
   desktopId?: string[];
   /**
    * @remarks
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58003,6 +60456,9 @@ export class WakeupDesktopsRequest extends $dara.Model {
 
 export class WakeupDesktopsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6557DBA9-CF3E-5C1B-B1F1-68FDA599****
    */
@@ -58925,7 +61381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定配置组
+   * Binds a configuration group to resources.
    * 
    * @param request - BindConfigGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58969,7 +61425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定配置组
+   * Binds a configuration group to resources.
    * 
    * @param request - BindConfigGroupRequest
    * @returns BindConfigGroupResponse
@@ -59196,7 +61652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clones an existing policy.
+   * Clones an existing policy to quickly create a policy.
    * 
    * @param request - ClonePolicyGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59240,7 +61696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clones an existing policy.
+   * Clones an existing policy to quickly create a policy.
    * 
    * @param request - ClonePolicyGroupRequest
    * @returns ClonePolicyGroupResponse
@@ -59972,6 +62428,77 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates data transfer plans.
+   * 
+   * @param request - CreateBandwidthResourcePackagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBandwidthResourcePackagesResponse
+   */
+  async createBandwidthResourcePackagesWithOptions(request: CreateBandwidthResourcePackagesRequest, runtime: $dara.RuntimeOptions): Promise<CreateBandwidthResourcePackagesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.packageSize)) {
+      query["PackageSize"] = request.packageSize;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBandwidthResourcePackages",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateBandwidthResourcePackagesResponse>(await this.callApi(params, req, runtime), new CreateBandwidthResourcePackagesResponse({}));
+    } else {
+      return $dara.cast<CreateBandwidthResourcePackagesResponse>(await this.execute(params, req, runtime), new CreateBandwidthResourcePackagesResponse({}));
+    }
+
+  }
+
+  /**
+   * Creates data transfer plans.
+   * 
+   * @param request - CreateBandwidthResourcePackagesRequest
+   * @returns CreateBandwidthResourcePackagesResponse
+   */
+  async createBandwidthResourcePackages(request: CreateBandwidthResourcePackagesRequest): Promise<CreateBandwidthResourcePackagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBandwidthResourcePackagesWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a custom cloud computer template.
    * 
    * @remarks
@@ -60419,7 +62946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建配置组
+   * Creates a configuration group. A configuration group stores the setup details for scheduled tasks on cloud computers.
    * 
    * @param request - CreateConfigGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60475,7 +63002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建配置组
+   * Creates a configuration group. A configuration group stores the setup details for scheduled tasks on cloud computers.
    * 
    * @param request - CreateConfigGroupRequest
    * @returns CreateConfigGroupResponse
@@ -60486,12 +63013,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cloud computer pool (formerly desktop group).
+   * Creates a shared group.
    * 
    * @remarks
-   * Before you call this operation to create a desktop group, make sure that the following operations are complete:
-   * *   You are familiar with the features, usage limits, and scaling policies of desktop groups. For more information, see [Overview](https://help.aliyun.com/document_detail/290959.html) of desktop groups.
-   * *   Resources, such as workspaces, users, desktop templates, and policies, are created.
+   *   To learn about the features, application scenarios, usage limits, scaling policies, and other details of shared groups, refer to [Overview](https://help.aliyun.com/document_detail/290959.html).
+   * *   Before you call this operation, make sure that the required resources, such as the office network, cloud computer template, and policies, are created.
    * 
    * @param request - CreateDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60747,12 +63273,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cloud computer pool (formerly desktop group).
+   * Creates a shared group.
    * 
    * @remarks
-   * Before you call this operation to create a desktop group, make sure that the following operations are complete:
-   * *   You are familiar with the features, usage limits, and scaling policies of desktop groups. For more information, see [Overview](https://help.aliyun.com/document_detail/290959.html) of desktop groups.
-   * *   Resources, such as workspaces, users, desktop templates, and policies, are created.
+   *   To learn about the features, application scenarios, usage limits, scaling policies, and other details of shared groups, refer to [Overview](https://help.aliyun.com/document_detail/290959.html).
+   * *   Before you call this operation, make sure that the required resources, such as the office network, cloud computer template, and policies, are created.
    * 
    * @param request - CreateDesktopGroupRequest
    * @returns CreateDesktopGroupResponse
@@ -61369,10 +63894,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a policy.
+   * Creates a cloud computer policy.
    * 
    * @remarks
-   * A policy is a set of security rules that are used to control security configurations when end users use cloud desktops. A policy contains basic features, such as USB redirection and watermarking, and other features, such as security group control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+   * A cloud computer policy is a collection of rules to manage cloud computers in performance and security. For example, you can create a basic policy that involves the disk mapping, USB redirection, watermarking features and rules such as DNS rules. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
    * 
    * @param request - CreatePolicyGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61632,10 +64157,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a policy.
+   * Creates a cloud computer policy.
    * 
    * @remarks
-   * A policy is a set of security rules that are used to control security configurations when end users use cloud desktops. A policy contains basic features, such as USB redirection and watermarking, and other features, such as security group control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+   * A cloud computer policy is a collection of rules to manage cloud computers in performance and security. For example, you can create a basic policy that involves the disk mapping, USB redirection, watermarking features and rules such as DNS rules. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
    * 
    * @param request - CreatePolicyGroupRequest
    * @returns CreatePolicyGroupResponse
@@ -62166,7 +64691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除配置组
+   * Deletes a configuration group.
    * 
    * @param request - DeleteConfigGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -62206,7 +64731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除配置组
+   * Deletes a configuration group.
    * 
    * @param request - DeleteConfigGroupRequest
    * @returns DeleteConfigGroupResponse
@@ -62734,7 +65259,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more custom policies.
+   * Deletes one or more custom cloud computer policies.
+   * 
+   * @remarks
+   *   You cannot delete the cloud computer policy created by the Elastic Desktop Service (EDS) system.
+   * *   You cannot delete the cloud computer policies that are associated with cloud computers.
    * 
    * @param request - DeletePolicyGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -62774,7 +65303,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more custom policies.
+   * Deletes one or more custom cloud computer policies.
+   * 
+   * @remarks
+   *   You cannot delete the cloud computer policy created by the Elastic Desktop Service (EDS) system.
+   * *   You cannot delete the cloud computer policies that are associated with cloud computers.
    * 
    * @param request - DeletePolicyGroupsRequest
    * @returns DeletePolicyGroupsResponse
@@ -63598,7 +66131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询配置组
+   * Queries configuration groups.
    * 
    * @param request - DescribeConfigGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -63666,7 +66199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询配置组
+   * Queries configuration groups.
    * 
    * @param request - DescribeConfigGroupRequest
    * @returns DescribeConfigGroupResponse
@@ -64303,6 +66836,10 @@ export default class Client extends OpenApi {
       query["GpuDriverType"] = request.gpuDriverType;
     }
 
+    if (!$dara.isNull(request.gpuMemory)) {
+      query["GpuMemory"] = request.gpuMemory;
+    }
+
     if (!$dara.isNull(request.instanceTypeFamily)) {
       query["InstanceTypeFamily"] = request.instanceTypeFamily;
     }
@@ -64376,7 +66913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the details of the cloud desktop.
+   * Queries the details of cloud computers.
    * 
    * @param request - DescribeDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64552,7 +67089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the details of the cloud desktop.
+   * Queries the details of cloud computers.
    * 
    * @param request - DescribeDesktopsRequest
    * @returns DescribeDesktopsResponse
@@ -64572,6 +67109,14 @@ export default class Client extends OpenApi {
   async describeDesktopsInGroupWithOptions(request: DescribeDesktopsInGroupRequest, runtime: $dara.RuntimeOptions): Promise<DescribeDesktopsInGroupResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.customEndTimePeriod)) {
+      query["CustomEndTimePeriod"] = request.customEndTimePeriod;
+    }
+
+    if (!$dara.isNull(request.customStartTimePeriod)) {
+      query["CustomStartTimePeriod"] = request.customStartTimePeriod;
+    }
+
     if (!$dara.isNull(request.desktopGroupId)) {
       query["DesktopGroupId"] = request.desktopGroupId;
     }
@@ -65746,7 +68291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about one or more policies.
+   * Queries the details of a cloud computer policy.
    * 
    * @param request - DescribePolicyGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65765,6 +68310,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!$dara.isNull(request.policyGroupId)) {
@@ -65802,7 +68355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about one or more policies.
+   * Queries the details of a cloud computer policy.
    * 
    * @param request - DescribePolicyGroupsRequest
    * @returns DescribePolicyGroupsResponse
@@ -65813,7 +68366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the price information of desktop resources in Elastic Desktop Service (EDS).
+   * Queries the prices of Elastic Desktop Service (EDS) resources.
    * 
    * @remarks
    * ## Usage notes
@@ -65917,7 +68470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the price information of desktop resources in Elastic Desktop Service (EDS).
+   * Queries the prices of Elastic Desktop Service (EDS) resources.
    * 
    * @remarks
    * ## Usage notes
@@ -66200,6 +68753,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the refund amount for unsubscribing from a cloud computer.
+   * 
    * @param request - DescribeRefundPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRefundPriceResponse
@@ -66242,6 +68797,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the refund amount for unsubscribing from a cloud computer.
+   * 
    * @param request - DescribeRefundPriceRequest
    * @returns DescribeRefundPriceResponse
    */
@@ -66531,7 +69088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询定时任务配置
+   * Queries a scheduled task configuration group.
    * 
    * @param request - DescribeTimerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -66571,7 +69128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询定时任务配置
+   * Queries a scheduled task configuration group.
    * 
    * @param request - DescribeTimerGroupRequest
    * @returns DescribeTimerGroupResponse
@@ -69605,7 +72162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改配置组
+   * Modifies the basic information of a configuration group.
    * 
    * @param request - ModifyConfigGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -69653,7 +72210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改配置组
+   * Modifies the basic information of a configuration group.
    * 
    * @param request - ModifyConfigGroupRequest
    * @returns ModifyConfigGroupResponse
@@ -70444,10 +73001,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the policies that are configured for a cloud desktop.
+   * Changes an existing cloud computer policy for cloud computers.
    * 
    * @remarks
-   * The cloud desktops that you want to restart by calling this operation must be in the Running state.
+   * The cloud computers for which you want to change their policies must be in the Running state.
    * 
    * @param request - ModifyDesktopsPolicyGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70495,10 +73052,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the policies that are configured for a cloud desktop.
+   * Changes an existing cloud computer policy for cloud computers.
    * 
    * @remarks
-   * The cloud desktops that you want to restart by calling this operation must be in the Running state.
+   * The cloud computers for which you want to change their policies must be in the Running state.
    * 
    * @param request - ModifyDesktopsPolicyGroupRequest
    * @returns ModifyDesktopsPolicyGroupResponse
@@ -70509,19 +73066,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the configurations of a cloud desktop, including the number of vCPUs, memory size, and disk size.
+   * Changes the performance level (PL) of a system disk or data disk.
    * 
    * @remarks
-   * You can call this operation to change the configurations, such as the desktop type and disk size, of a cloud desktop.
-   * *   Before you call this operation, you must know the cloud desktop types and the disk sizes for each type of cloud desktop that Elastic Desktop Service (EDS) provides.
-   * *   When you change the configurations of a cloud desktop, you must change the desktop type or the size of the system disk or data disk. You must configure at least one of the following parameters: DesktopType, RootDiskSizeGib, and UserDiskSizeGib. Take note of the following items:
-   * 1\\. Desktop types include the specifications of vCPUs, memory, and GPUs. You can change only the desktop type, instead of one of the specifications.
-   * 2\\. You cannot change a cloud desktop from the General Office type to a non-General Office type, or from a non-General Office type to the General Office type. You cannot change a cloud desktop from the Graphics type to a non-Graphics type, or from a non-Graphics type to the Graphics type.
-   * 3\\. You can only increase the sizes of system and data disks. You cannot decrease the sizes of system and data disks.
-   * 4\\. If your cloud desktop uses the subscription billing method, the price difference is calculated based on the price before and after configuration changes. You may receive a refund, or must pay for the price difference.
-   * 5\\. If you need to change the configurations of a cloud desktop multiple times, we recommend that you wait at least 5 minutes between consecutive operations on the cloud desktop.
-   * 6\\. The cloud desktop for which you want to change the desktop type must be in the Stopped state.
-   * *   The changes do not affect your personal data on the cloud desktop.
+   * When creating a cloud computer in Elastic Desktop Service (EDS) Enterprise, you can use a template to define specifications that align with your business needs. By default, Enterprise Graphics or High Frequency cloud computers utilize Enterprise SSDs (ESSDs). You can customize the disk capacity and performance level (PL) of these ESSDs, and adjust the PL for both system and data disks as needed.
+   * >  Only Enterprise Graphics or High Frequency cloud computers support disk PL adjustments.
    * 
    * @param request - ModifyDiskSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70544,6 +73093,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resellerOwnerUid)) {
+      query["ResellerOwnerUid"] = request.resellerOwnerUid;
     }
 
     if (!$dara.isNull(request.rootDiskPerformanceLevel)) {
@@ -70577,19 +73130,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the configurations of a cloud desktop, including the number of vCPUs, memory size, and disk size.
+   * Changes the performance level (PL) of a system disk or data disk.
    * 
    * @remarks
-   * You can call this operation to change the configurations, such as the desktop type and disk size, of a cloud desktop.
-   * *   Before you call this operation, you must know the cloud desktop types and the disk sizes for each type of cloud desktop that Elastic Desktop Service (EDS) provides.
-   * *   When you change the configurations of a cloud desktop, you must change the desktop type or the size of the system disk or data disk. You must configure at least one of the following parameters: DesktopType, RootDiskSizeGib, and UserDiskSizeGib. Take note of the following items:
-   * 1\\. Desktop types include the specifications of vCPUs, memory, and GPUs. You can change only the desktop type, instead of one of the specifications.
-   * 2\\. You cannot change a cloud desktop from the General Office type to a non-General Office type, or from a non-General Office type to the General Office type. You cannot change a cloud desktop from the Graphics type to a non-Graphics type, or from a non-Graphics type to the Graphics type.
-   * 3\\. You can only increase the sizes of system and data disks. You cannot decrease the sizes of system and data disks.
-   * 4\\. If your cloud desktop uses the subscription billing method, the price difference is calculated based on the price before and after configuration changes. You may receive a refund, or must pay for the price difference.
-   * 5\\. If you need to change the configurations of a cloud desktop multiple times, we recommend that you wait at least 5 minutes between consecutive operations on the cloud desktop.
-   * 6\\. The cloud desktop for which you want to change the desktop type must be in the Stopped state.
-   * *   The changes do not affect your personal data on the cloud desktop.
+   * When creating a cloud computer in Elastic Desktop Service (EDS) Enterprise, you can use a template to define specifications that align with your business needs. By default, Enterprise Graphics or High Frequency cloud computers utilize Enterprise SSDs (ESSDs). You can customize the disk capacity and performance level (PL) of these ESSDs, and adjust the PL for both system and data disks as needed.
+   * >  Only Enterprise Graphics or High Frequency cloud computers support disk PL adjustments.
    * 
    * @param request - ModifyDiskSpecRequest
    * @returns ModifyDiskSpecResponse
@@ -71130,6 +73675,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改工作区DNS信息
+   * 
+   * @param request - ModifyOfficeSiteDnsInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyOfficeSiteDnsInfoResponse
+   */
+  async modifyOfficeSiteDnsInfoWithOptions(request: ModifyOfficeSiteDnsInfoRequest, runtime: $dara.RuntimeOptions): Promise<ModifyOfficeSiteDnsInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dnsAddress)) {
+      query["DnsAddress"] = request.dnsAddress;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyOfficeSiteDnsInfo",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ModifyOfficeSiteDnsInfoResponse>(await this.callApi(params, req, runtime), new ModifyOfficeSiteDnsInfoResponse({}));
+    } else {
+      return $dara.cast<ModifyOfficeSiteDnsInfoResponse>(await this.execute(params, req, runtime), new ModifyOfficeSiteDnsInfoResponse({}));
+    }
+
+  }
+
+  /**
+   * 修改工作区DNS信息
+   * 
+   * @param request - ModifyOfficeSiteDnsInfoRequest
+   * @returns ModifyOfficeSiteDnsInfoResponse
+   */
+  async modifyOfficeSiteDnsInfo(request: ModifyOfficeSiteDnsInfoRequest): Promise<ModifyOfficeSiteDnsInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyOfficeSiteDnsInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Enables or disables multi-factor authentication (MFA) for an enterprise Active Directory (AD) office network (formerly workspace).
    * 
    * @param request - ModifyOfficeSiteMfaEnabledRequest
@@ -71185,7 +73785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a policy.
+   * Modifies the cloud computer policy.
    * 
    * @param request - ModifyPolicyGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -71457,7 +74057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a policy.
+   * Modifies the cloud computer policy.
    * 
    * @param request - ModifyPolicyGroupRequest
    * @returns ModifyPolicyGroupResponse
@@ -71468,7 +74068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改定时任务配置
+   * Modifies a scheduled task configuration group.
    * 
    * @param request - ModifyTimerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -71520,7 +74120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改定时任务配置
+   * Modifies a scheduled task configuration group.
    * 
    * @param request - ModifyTimerGroupRequest
    * @returns ModifyTimerGroupResponse
@@ -72053,6 +74653,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Renew a subscription cloud computer pool.
+   * 
    * @param request - RenewDesktopGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RenewDesktopGroupResponse
@@ -72107,6 +74709,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Renew a subscription cloud computer pool.
+   * 
    * @param request - RenewDesktopGroupRequest
    * @returns RenewDesktopGroupResponse
    */
@@ -72171,7 +74775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renew subscription cloud computers.
+   * Renews monthly subscription cloud computers.
    * 
    * @param request - RenewDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72235,7 +74839,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renew subscription cloud computers.
+   * Renews monthly subscription cloud computers.
    * 
    * @param request - RenewDesktopsRequest
    * @returns RenewDesktopsResponse
@@ -72257,6 +74861,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
     }
 
     if (!$dara.isNull(request.networkPackageId)) {
@@ -73441,7 +76049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑配置组
+   * Unbinds a configuration group from resources.
    * 
    * @param request - UnbindConfigGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73485,7 +76093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑配置组
+   * Unbinds a configuration group from resources.
    * 
    * @param request - UnbindConfigGroupRequest
    * @returns UnbindConfigGroupResponse
@@ -73898,6 +76506,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Wakes up cloud computers.
+   * 
+   * @remarks
+   * Only cloud computers that are in the Hibernated state can be waked up.
+   * 
    * @param request - WakeupDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns WakeupDesktopsResponse
@@ -73936,6 +76549,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Wakes up cloud computers.
+   * 
+   * @remarks
+   * Only cloud computers that are in the Hibernated state can be waked up.
+   * 
    * @param request - WakeupDesktopsRequest
    * @returns WakeupDesktopsResponse
    */
