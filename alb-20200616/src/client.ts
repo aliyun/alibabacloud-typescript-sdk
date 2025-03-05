@@ -479,10 +479,10 @@ export class CreateListenerRequestCaCertificates extends $dara.Model {
    * @remarks
    * The ID of the CA certificate.
    * 
-   * >  This parameter is required if you set **CaEnabled** to **true**.
+   * >  This parameter is required if **CaEnabled** is set to **true**.
    * 
    * @example
-   * 12315790212_166f8204689_1714763408_70998****
+   * 123157*******
    */
   certificateId?: string;
   static names(): { [key: string]: string } {
@@ -509,12 +509,10 @@ export class CreateListenerRequestCaCertificates extends $dara.Model {
 export class CreateListenerRequestCertificates extends $dara.Model {
   /**
    * @remarks
-   * The ID of the certificate. Only server certificates are supported. You can specify at most 20 certificates IDs.
-   * 
-   * >  This parameter is required when you set **ListenerProtocol** to **HTTPS** or **QUIC**.
+   * The ID of the certificate. Only server certificates are supported. You can specify up to 20 certificate IDs.
    * 
    * @example
-   * 12315790212_166f8204689_1714763408_70998****
+   * 103705*******
    */
   certificateId?: string;
   static names(): { [key: string]: string } {
@@ -546,7 +544,7 @@ export class CreateListenerRequestDefaultActionsForwardGroupConfigServerGroupTup
    * This parameter is required.
    * 
    * @example
-   * rsp-cige6j****
+   * sgp-8ilqs4axp6******
    */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
@@ -612,9 +610,9 @@ export class CreateListenerRequestDefaultActions extends $dara.Model {
   forwardGroupConfig?: CreateListenerRequestDefaultActionsForwardGroupConfig;
   /**
    * @remarks
-   * The action. You can specify only one type. Valid value example:
+   * The action type. You can specify only one action type. Valid value:
    * 
-   * **ForwardGroup**: forwards requests to multiple server groups.
+   * **ForwardGroup**: forwards requests to multiple Server groups.
    * 
    * This parameter is required.
    * 
@@ -651,20 +649,20 @@ export class CreateListenerRequestDefaultActions extends $dara.Model {
 export class CreateListenerRequestQuicConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the QUIC listener that you want to associate with the ALB instance. This parameter is required if you set **QuicUpgradeEnabled** to **true**.
+   * The ID of the QUIC listener that you want to associate with the HTTPS listener. Only HTTPS listeners support this parameter. This parameter is required when **QuicUpgradeEnabled** is set to **true**.
    * 
-   * >  The original listener and the QUIC listener must belong to the same ALB instance.
+   * >  The HTTPS listener and the QUIC listener must be added to the same ALB instance. Make sure that the QUIC listener is not associated with any other listeners.
    * 
    * @example
-   * lsr-bp1bpn0kn908w4nbw****
+   * lsn-o4u54y73wq7b******
    */
   quicListenerId?: string;
   /**
    * @remarks
    * Specifies whether to enable QUIC upgrade. Valid values:
    * 
-   * *   **true**:
-   * *   **false** (default)
+   * *   **true**: enables QUIC upgrade.
+   * *   **false** (default): disables QUIC upgrade.
    * 
    * >  Only HTTPS listeners support this parameter.
    * 
@@ -738,11 +736,11 @@ export class CreateListenerRequestTag extends $dara.Model {
 export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
   /**
    * @remarks
-   * The name of the custom header. This parameter takes effect only when you set **XForwardedForClientCertClientVerifyEnabled** to **true**.
+   * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertClientVerifyEnabled** is set to **true**.
    * 
-   * The name must be 1 to 40 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
+   * The name must be 1 to 40 characters in length, and can contain lowercase letters, hyphens (-), underscores (_), and digits.
    * 
-   * > Only HTTPS listeners support this parameter.
+   * >  Only HTTPS listeners support this parameter.
    * 
    * @example
    * test_client-verify-alias_123456
@@ -752,8 +750,8 @@ export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
    * @remarks
    * Specifies whether to use the `X-Forwarded-Clientcert-clientverify` header to retrieve the verification result of the client certificate. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * *   **true**: uses the X-Forwarded-Clientcert-clientverify header.
+   * *   **false** (default): does not use the X-Forwarded-Clientcert-clientverify header.
    * 
    * >  Only HTTPS listeners support this parameter.
    * 
@@ -765,7 +763,7 @@ export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
    * @remarks
    * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertFingerprintEnabled** is set to **true**.
    * 
-   * The name must be 1 to 40 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
+   * The name must be 1 to 40 characters in length, and can contain lowercase letters, hyphens (-), underscores (_), and digits.
    * 
    * >  Only HTTPS listeners support this parameter.
    * 
@@ -777,8 +775,8 @@ export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
    * @remarks
    * Specifies whether to use the `X-Forwarded-Clientcert-fingerprint` header to retrieve the fingerprint of the client certificate. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * *   **true**: uses the X-Forwarded-Clientcert-fingerprint header.
+   * *   **false** (default): does not use the X-Forwarded-Clientcert-fingerprint header.
    * 
    * >  Only HTTPS listeners support this parameter.
    * 
@@ -790,7 +788,7 @@ export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
    * @remarks
    * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertIssuerDNEnabled** is set to **true**.
    * 
-   * The name must be 1 to 40 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
+   * The name must be 1 to 40 characters in length, and can contain lowercase letters, hyphens (-), underscores (_), and digits.
    * 
    * >  Only HTTPS listeners support this parameter.
    * 
@@ -802,8 +800,8 @@ export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
    * @remarks
    * Specifies whether to use the `X-Forwarded-Clientcert-issuerdn` header to retrieve information about the authority that issues the client certificate. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * *   **true**: uses the X-Forwarded-Clientcert-issuerdn header.
+   * *   **false** (default): does not use the X-Forwarded-Clientcert-issuerdn header.
    * 
    * >  Only HTTPS listeners support this parameter.
    * 
@@ -815,7 +813,7 @@ export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
    * @remarks
    * The name of the custom header. This parameter takes effect only when **XForwardedForClientCertSubjectDNEnabled** is set to **true**.
    * 
-   * The name must be 1 to 40 characters in length, and can contain letters, digits, hyphens (-), and underscores (_).
+   * The name must be 1 to 40 characters in length, and can contain lowercase letters, hyphens (-), underscores (_), and digits.
    * 
    * >  Only HTTPS listeners support this parameter.
    * 
@@ -827,8 +825,8 @@ export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
    * @remarks
    * Specifies whether to use the `X-Forwarded-Clientcert-subjectdn` header to retrieve information about the owner of the client certificate. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * *   **true**: uses the X-Forwarded-Clientcert-subjectdn header.
+   * *   **false** (default): does not use the X-Forwarded-Clientcert-subjectdn header.
    * 
    * >  Only HTTPS listeners support this parameter.
    * 
@@ -838,7 +836,7 @@ export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
   XForwardedForClientCertSubjectDNEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow the ALB instance to retrieve client IP addresses from the X-Forwarded-For header. Valid values:
+   * Specifies whether to allow the ALB instance to retrieve client IP addresses from the `X-Forwarded-For` header. Valid values:
    * 
    * *   **true**
    * *   **false** (default)
@@ -853,7 +851,7 @@ export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
    * @remarks
    * The trusted proxy IP address.
    * 
-   * ALB instances traverse the IP addresses in the `X-Forwarded-For` header from the rightmost IP address to the leftmost IP address. The first IP address that is not on the trusted IP address list is considered the client IP address. Requests from the client IP address are throttled.
+   * ALB traverses `X-Forwarded-For` backwards and selects the first IP address that is not in the trusted IP list as the originating IP address of the client, which will be throttled if source IP address throttling is enabled.
    * 
    * @example
    * 10.1.1.0/24
@@ -863,8 +861,8 @@ export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
    * @remarks
    * Specifies whether to use the `X-Forwarded-Client-srcport` header to retrieve the client port. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * *   **true**: uses the X-Forwarded-Client-srcport header.
+   * *   **false** (default): does not use the X-Forwarded-Client-srcport header.
    * 
    * >  HTTP and HTTPS listeners support this parameter.
    * 
@@ -885,14 +883,40 @@ export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
    * true
    */
   XForwardedForEnabled?: boolean;
-  XForwardedForHostEnabled?: boolean;
-  XForwardedForProcessingMode?: string;
   /**
    * @remarks
-   * Specifies whether to use the `X-Forwarded-Proto` header to retrieve the listener protocol. Valid values:
+   * Specifies whether to use the `X-Forwarded-Host` header to retrieve the client domain name. Valid values:
    * 
    * *   **true**
    * *   **false** (default)
+   * 
+   * >  This parameter is available for HTTP, HTTPS, and QUIC listeners.
+   * 
+   * @example
+   * false
+   */
+  XForwardedForHostEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies how the `X-Forwarded-For` header is processed. This parameter takes effect only when **XForwardedForEnabled** is set to **true**. Valid values:
+   * 
+   * *   **append** (default)
+   * *   **remove**
+   * 
+   * > *   If this parameter is set to **append**, ALB appends the IP address of the last hop to the existing `X-Forwarded-For` header in the request before the request is sent to backend servers.
+   * > *   If this parameter is set to **remove**, ALB removes the `X-Forwarded-For` header in the request before the request is sent to backend servers, no matter whether the request carries the `X-Forwarded-For` header.
+   * > *   This parameter is only available for HTTP and HTTPS listeners.
+   * 
+   * @example
+   * append
+   */
+  XForwardedForProcessingMode?: string;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Proto` header to retrieve the listener protocol of the ALB instance. Valid values:
+   * 
+   * *   **true**: uses the X-Forwarded-Proto header.
+   * *   **false** (default): does not use the X-Forwarded-Proto header.
    * 
    * >  HTTP, HTTPS, and QUIC listeners support this parameter.
    * 
@@ -904,8 +928,8 @@ export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
    * @remarks
    * Specifies whether to use the `SLB-ID` header to retrieve the ID of the ALB instance. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * *   **true**: uses the SLB-ID header.
+   * *   **false** (default): does not use the SLB-ID header.
    * 
    * >  HTTP, HTTPS, and QUIC listeners support this parameter.
    * 
@@ -917,8 +941,8 @@ export class CreateListenerRequestXForwardedForConfig extends $dara.Model {
    * @remarks
    * Specifies whether to use the `X-Forwarded-Port` header to retrieve the listener port of the ALB instance. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * *   **true**: uses the X-Forwarded-Port header.
+   * *   **false** (default): does not use the X-Forwarded-Port header.
    * 
    * >  HTTP, HTTPS, and QUIC listeners support this parameter.
    * 
@@ -3675,14 +3699,14 @@ export class CreateServerGroupRequestConnectionDrainConfig extends $dara.Model {
 export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status codes that indicate healthy backend servers.
+   * The HTTP status code that indicates healthy backend servers.
    */
   healthCheckCodes?: string[];
   /**
    * @remarks
    * The backend port that is used for health checks.
    * 
-   * Valid values: **0** to **65535**.
+   * Valid values: **0** to **65535**
    * 
    * The default value is **0**, which specifies that the port of a backend server is used for health checks.
    * 
@@ -3715,7 +3739,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
    * 
    *     *   The domain name must be 1 to 80 characters in length.
    *     *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
-   *     *   The domain name can contain at least one period (.) but cannot start or end with a period (.).
+   *     *   The domain name must contain at least one period (.) but cannot start or end with a period (.).
    *     *   The rightmost domain label of the domain name can contain only letters, and cannot contain digits or hyphens (-).
    *     *   The domain name cannot start or end with a hyphen (-).
    * 
@@ -3737,9 +3761,9 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckHttpVersion?: string;
   /**
    * @remarks
-   * The interval at which health checks are performed. Unit: seconds.
+   * The interval at which health checks are performed. Unit: seconds
    * 
-   * Valid values: **1** to **50**.
+   * Valid values: **1** to **50**
    * 
    * Default value: **2**.
    * 
@@ -3763,7 +3787,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckMethod?: string;
   /**
    * @remarks
-   * The path that is used for health checks.
+   * The URL that is used for health checks.
    * 
    * The URL must be 1 to 80 characters in length, and can contain letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
    * 
@@ -3788,11 +3812,11 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
   healthCheckProtocol?: string;
   /**
    * @remarks
-   * The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the backend server is declared unhealthy. Unit: seconds.
+   * The timeout period of a health check response. If a backend server does not respond within the specified timeout period, the backend server is declared unhealthy. Unit: seconds
    * 
-   * Valid values: **1** to **300**.
+   * Valid values: **1** to **300**
    * 
-   * Default value: **5**.
+   * Default value: **5**
    * 
    * @example
    * 5
@@ -3802,7 +3826,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
    * @remarks
    * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health check status of the backend server changes from **fail** to **success**.
    * 
-   * Valid values: **2** to **10**.
+   * Valid values: **2** to **10**
    * 
    * Default value: **3**.
    * 
@@ -3814,9 +3838,9 @@ export class CreateServerGroupRequestHealthCheckConfig extends $dara.Model {
    * @remarks
    * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health check status of the backend server changes from **success** to **fail**.
    * 
-   * Valid values: **2** to **10**.
+   * Valid values: **2** to **10**
    * 
-   * Default value: **3**.
+   * Default value: **3**
    * 
    * @example
    * 3
@@ -3929,11 +3953,11 @@ export class CreateServerGroupRequestStickySessionConfig extends $dara.Model {
   cookie?: string;
   /**
    * @remarks
-   * The maximum amount of time to wait before the session cookie expires. Unit: seconds.
+   * The maximum amount of time to wait before the session cookie expires. Unit: seconds
    * 
-   * Valid values: **1** to **86400**.
+   * Valid values: **1** to **86400**
    * 
-   * Default value: **1000**.
+   * Default value: **1000**
    * 
    * >  This parameter takes effect only when **StickySessionEnabled** is set to **true** and **StickySessionType** is set to **Insert**.
    * 
@@ -3958,8 +3982,8 @@ export class CreateServerGroupRequestStickySessionConfig extends $dara.Model {
    * @remarks
    * The method that is used to handle cookies. Valid values:
    * 
-   * *   **Insert** (default value): inserts a cookie. The first time a client accesses SLB, SLB inserts the SERVERID cookie into the HTTP or HTTPS response packet. Subsequent requests from the client that carry this cookie are forwarded to the same backend server as the first request.
-   * *   **Server**: rewrites a cookie. SLB rewrites the custom cookies in requests from a client. Subsequent requests from the client that carry the new cookie are forwarded to the same backend server as the first request.
+   * *   **Insert** (default value): inserts a cookie. The first time a client accesses ALB, ALB inserts the SERVERID cookie into the HTTP or HTTPS response packet. Subsequent requests from the client that carry this cookie are forwarded to the same backend server as the first request.
+   * *   **Server**: rewrites a cookie. ALB rewrites the custom cookies in requests from a client. Subsequent requests from the client that carry the new cookie are forwarded to the same backend server as the first request.
    * 
    * >  This parameter takes effect when the **StickySessionEnabled** parameter is set to **true**.
    * 
@@ -4847,16 +4871,44 @@ export class GetListenerAttributeResponseBodyXForwardedForConfig extends $dara.M
    * @remarks
    * Indicates whether the `X-Forwarded-For` header is used to retrieve the client IP address. Valid values:
    * 
-   * *   **true**
+   * *   **true** (default)
    * *   **false**
    * 
-   * > This parameter is available only when you create an HTTP or HTTPS listener.
+   * > *   If this parameter is set to **true**, the default value of the **XForwardedForProcessingMode** parameter is **append**. You can change it to **remove**.
+   * > *   If this parameter is set to **false**, the `X-Forwarded-For` header in the request is not modified in any way before the request is sent to backend servers.
+   * > *   This parameter is only available for HTTP and HTTPS listeners.
    * 
    * @example
    * true
    */
   XForwardedForEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Host` header to retrieve the client domain name. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  This parameter is available for HTTP, HTTPS, and QUIC listeners.
+   * 
+   * @example
+   * false
+   */
   XForwardedForHostEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies how the `X-Forwarded-For` header is processed. This parameter takes effect only when **XForwardedForEnabled** is set to **true**. Valid values:
+   * 
+   * *   **append** (default)
+   * *   **remove**
+   * 
+   * > *   If this parameter is set to **append**, ALB appends the IP address of the last hop to the existing `X-Forwarded-For` header in the request before the request is sent to backend servers.
+   * > *   If this parameter is set to **remove**, ALB removes the `X-Forwarded-For` header in the request before the request is sent to backend servers, no matter whether the request carries the `X-Forwarded-For` header.
+   * > *   This parameter is only available for HTTP and HTTPS listeners.
+   * 
+   * @example
+   * append
+   */
   XForwardedForProcessingMode?: string;
   /**
    * @remarks
@@ -6709,6 +6761,7 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
    * 4
    */
   healthyThreshold?: number;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The tags.
@@ -6740,6 +6793,7 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
       healthCheckTemplateName: 'HealthCheckTemplateName',
       healthCheckTimeout: 'HealthCheckTimeout',
       healthyThreshold: 'HealthyThreshold',
+      resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
       unhealthyThreshold: 'UnhealthyThreshold',
     };
@@ -6759,6 +6813,7 @@ export class ListHealthCheckTemplatesResponseBodyHealthCheckTemplates extends $d
       healthCheckTemplateName: 'string',
       healthCheckTimeout: 'number',
       healthyThreshold: 'number',
+      resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': ListHealthCheckTemplatesResponseBodyHealthCheckTemplatesTags },
       unhealthyThreshold: 'number',
     };
@@ -7316,16 +7371,44 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $dara
    * @remarks
    * Specifies whether to use the `X-Forwarded-For` header to retrieve client IP addresses. Valid values:
    * 
-   * *   **true**
+   * *   **true** (default)
    * *   **false**
    * 
-   * >  This parameter is returned only for HTTP and HTTPS listeners.
+   * > *   If this parameter is set to **true**, the default value of the **XForwardedForProcessingMode** parameter is **append**. You can change it to **remove**.
+   * > *   If this parameter is set to **false**, the `X-Forwarded-For` header in the request is not modified in any way before the request is sent to backend servers.
+   * > *   Both HTTP and HTTPS listeners support this parameter.
    * 
    * @example
    * true
    */
   XForwardedForEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Host` header to retrieve client domain names. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  HTTP, HTTPS, and QUIC listeners all support this parameter.
+   * 
+   * @example
+   * false
+   */
   XForwardedForHostEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies how the `X-Forwarded-For` header is processed. This parameter takes effect only when **XForwardedForEnabled** is set to **true**. Valid values:
+   * 
+   * *   **append** (default)
+   * *   **remove**
+   * 
+   * > *   If this parameter is set to **append**, ALB appends the IP address of the last hop to the existing `X-Forwarded-For` header in the request before the request is sent to backend servers.
+   * > *   If this parameter is set to **remove**, ALB removes the `X-Forwarded-For` header in the request before the request is sent to backend servers, no matter whether the request carries the `X-Forwarded-For` header.
+   * > *   Both HTTP and HTTPS listeners support this parameter.
+   * 
+   * @example
+   * append
+   */
   XForwardedForProcessingMode?: string;
   /**
    * @remarks
@@ -8341,6 +8424,9 @@ export class ListRulesResponseBodyRulesRuleActionsForwardGroupConfigServerGroupS
   /**
    * @remarks
    * If the value of N in ServerGroupTuple.N is larger than 1, you can enable or disable session persistence for server groups.
+   * 
+   * @example
+   * true
    */
   enabled?: boolean;
   /**
@@ -11786,11 +11872,11 @@ export class UpdateListenerAttributeRequestQuicConfig extends $dara.Model {
 export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Model {
   /**
    * @remarks
-   * The name of the custom header. The header takes effect only when you set **XForwardedForClientCertClientVerifyEnabled** to **true**.
+   * The name of the custom header. The header takes effect only when you set **XForwardedForClientCertClientVerifyEnabled **to **true**.
    * 
-   * The name must be 1 to 40 characters in length. The name can contain lowercase letters, digits, hyphens (-), and underscores (-).
+   * The name must be 1 to 40 characters in length. It can contain lowercase letters, digits, hyphens (-), and underscores (_).
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * >  This parameter is only available for HTTPS listeners.
    * 
    * @example
    * test_client-verify-alias_123456
@@ -11803,7 +11889,7 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Mod
    * *   **true**
    * *   **false**
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * >  This parameter is only available for HTTPS listeners.
    * 
    * @example
    * false
@@ -11813,9 +11899,9 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Mod
    * @remarks
    * The name of the custom header. The header takes effect only when you set **XForwardedForClientCertFingerprintEnabled** to **true**.
    * 
-   * The name must be 1 to 40 characters in length. The name can contain lowercase letters, digits, hyphens (-), and underscores (-).
+   * The name must be 1 to 40 characters in length. It can contain lowercase letters, digits, hyphens (-), and underscores (_).
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * >  This parameter is only available for HTTPS listeners.
    * 
    * @example
    * test_finger-print-alias_123456
@@ -11828,7 +11914,7 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Mod
    * *   **true**
    * *   **false**
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * >  This parameter is only available for HTTPS listeners.
    * 
    * @example
    * false
@@ -11838,9 +11924,9 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Mod
    * @remarks
    * The name of the custom header. The header takes effect only when you set **XForwardedForClientCertIssuerDNEnabled** to **true**.
    * 
-   * The name must be 1 to 40 characters in length. The name can contain lowercase letters, digits, hyphens (-), and underscores (-).
+   * The name must be 1 to 40 characters in length. It can contain lowercase letters, digits, hyphens (-), and underscores (_).
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * >  This parameter is only available for HTTPS listeners.
    * 
    * @example
    * test_issue-dn-alias_123456
@@ -11853,7 +11939,7 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Mod
    * *   **true**
    * *   **false**
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * >  This parameter is only available for HTTPS listeners.
    * 
    * @example
    * false
@@ -11861,11 +11947,11 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Mod
   XForwardedForClientCertIssuerDNEnabled?: boolean;
   /**
    * @remarks
-   * The name of the custom header. This parameter is valid only if the **XForwardedForClientCertSubjectDNEnabled** parameter is set to true.****
+   * The name of the custom header. This parameter is valid only if the **XForwardedForClientCertSubjectDNEnabled** parameter is set to **true**.
    * 
-   * The name must be 1 to 40 characters in length, The name can contain lowercase letters, digits, hyphens (-), and underscores (-).
+   * The name must be 1 to 40 characters in length. It can contain lowercase letters, digits, hyphens (-), and underscores (_).
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * >  This parameter is only available for HTTPS listeners.
    * 
    * @example
    * test_subject-dn-alias_123456
@@ -11878,7 +11964,7 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Mod
    * *   **true**
    * *   **false**
    * 
-   * >  Only HTTPS listeners support this parameter.
+   * >  This parameter is only available for HTTPS listeners.
    * 
    * @example
    * false
@@ -11891,7 +11977,7 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Mod
    * *   **true**
    * *   **false**
    * 
-   * >  HTTP and HTTPS listeners support this parameter.
+   * >  This parameter is only available for HTTP and HTTPS listeners.
    * 
    * @example
    * false
@@ -11909,12 +11995,12 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Mod
   XForwardedForClientSourceIpsTrusted?: string;
   /**
    * @remarks
-   * Specifies whether to use the `XForwardedFor_ClientSrcPort` header to retrieve the client port. Valid values:
+   * Specifies whether to use the `X-Forwarded-Client-srcport` header to retrieve the client port. Valid values:
    * 
    * *   **true**
    * *   **false**
    * 
-   * >  HTTP and HTTPS listeners support this parameter.
+   * >  This parameter is only available for HTTP and HTTPS listeners.
    * 
    * @example
    * false
@@ -11922,18 +12008,46 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Mod
   XForwardedForClientSrcPortEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to use the `X-Forwarded-For` header to retrieve client IP addresses. Valid values:
+   * Specifies whether to use the `X-Forwarded-For` header to retrieve the client IP address. Valid values:
    * 
-   * *   **true**
+   * *   **true** (default)
    * *   **false**
    * 
-   * >  HTTP and HTTPS listeners support this parameter.
+   * > *   If this parameter is set to **true**, the default value of the **XForwardedForProcessingMode** parameter is **append**. You can change it to **remove**.
+   * > *   If this parameter is set to **false**, the `X-Forwarded-For` header in the request is not modified in any way before the request is sent to backend servers.
+   * > *   This parameter is only available for HTTP and HTTPS listeners.
    * 
    * @example
    * true
    */
   XForwardedForEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the `X-Forwarded-Host` header to retrieve the client domain name. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * >  This parameter is available for HTTP, HTTPS, and QUIC listeners.
+   * 
+   * @example
+   * false
+   */
   XForwardedForHostEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies how the `X-Forwarded-For` header is processed. This parameter takes effect only when **XForwardedForEnabled** is set to **true**. Valid values:
+   * 
+   * *   **append** (default)
+   * *   **remove**
+   * 
+   * > *   If this parameter is set to **append**, ALB appends the IP address of the last hop to the existing `X-Forwarded-For` header in the request before the request is sent to backend servers.
+   * > *   If this parameter is set to **remove**, ALB removes the `X-Forwarded-For` header in the request before the request is sent to backend servers, no matter whether the request carries the `X-Forwarded-For` header.
+   * > *   This parameter is only available for HTTP and HTTPS listeners.
+   * 
+   * @example
+   * append
+   */
   XForwardedForProcessingMode?: string;
   /**
    * @remarks
@@ -11942,7 +12056,7 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Mod
    * *   **true**
    * *   **false**
    * 
-   * >  HTTP, HTTPS, and QUIC listeners support this parameter.
+   * >  This parameter is available for HTTP, HTTPS, and QUIC listeners.
    * 
    * @example
    * false
@@ -11955,7 +12069,7 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Mod
    * *   **true**
    * *   **false**
    * 
-   * >  HTTP, HTTPS, and QUIC listeners support this parameter.
+   * >  This parameter is available for HTTP, HTTPS, and QUIC listeners.
    * 
    * @example
    * false
@@ -11968,7 +12082,7 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $dara.Mod
    * *   **true**
    * *   **false**
    * 
-   * >  HTTP, HTTPS, and QUIC listeners support this parameter.
+   * >  This parameter is available for HTTP, HTTPS, and QUIC listeners.
    * 
    * @example
    * false
@@ -16543,6 +16657,7 @@ export class CreateHealthCheckTemplateRequest extends $dara.Model {
    * 4
    */
   healthyThreshold?: number;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The tags.
@@ -16575,6 +16690,7 @@ export class CreateHealthCheckTemplateRequest extends $dara.Model {
       healthCheckTemplateName: 'HealthCheckTemplateName',
       healthCheckTimeout: 'HealthCheckTimeout',
       healthyThreshold: 'HealthyThreshold',
+      resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
       unhealthyThreshold: 'UnhealthyThreshold',
     };
@@ -16595,6 +16711,7 @@ export class CreateHealthCheckTemplateRequest extends $dara.Model {
       healthCheckTemplateName: 'string',
       healthCheckTimeout: 'number',
       healthyThreshold: 'number',
+      resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': CreateHealthCheckTemplateRequestTag },
       unhealthyThreshold: 'number',
     };
@@ -16949,18 +17066,18 @@ export class CreateListenerResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The listener ID.
+   * The ID of the listener.
    * 
    * @example
-   * lsr-bp1bpn0kn908w4nbw****
+   * lsn-o4u54y73wq7b******
    */
   listenerId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   * CEF72CEB-54B6-4AE8-B225-F876*******
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -17880,13 +17997,9 @@ export class CreateServerGroupRequest extends $dara.Model {
    * *   **true** (default)
    * *   **false**
    * 
-   * > 
-   * 
-   * *   Basic ALB instances do not support server groups that have cross-zone load balancing disabled. Only Standard and WAF-enabled ALB instances support server groups that have cross-zone load balancing.
-   * 
-   * *   Cross-zone load balancing can be disabled for server groups of the server and IP type, but not for server groups of the Function Compute type.
-   * 
-   * *   When cross-zone load balancing is disabled, session persistence cannot be enabled.
+   * > *   Basic ALB instances do not support server groups that have cross-zone load balancing disabled. Only Standard and WAF-enabled ALB instances support server groups that have cross-zone load balancing.
+   * > *   Cross-zone load balancing can be disabled for server groups of the server and IP type, but not for server groups of the Function Compute type.
+   * > *   When cross-zone load balancing is disabled, session persistence cannot be enabled.
    * 
    * @example
    * true
@@ -17910,6 +18023,13 @@ export class CreateServerGroupRequest extends $dara.Model {
    * This parameter is required.
    */
   healthCheckConfig?: CreateServerGroupRequestHealthCheckConfig;
+  /**
+   * @remarks
+   * Specifies whether to enable Ipv6.
+   * 
+   * @example
+   * false
+   */
   ipv6Enabled?: boolean;
   /**
    * @remarks
@@ -20611,8 +20731,11 @@ export class EnableLoadBalancerAccessLogRequest extends $dara.Model {
 
 export class EnableLoadBalancerAccessLogResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the asynchronous job.
+   * 
    * @example
-   * ff7713ca-5818-4120-85e3-0bf9e27e9103
+   * ff7713ca-5818-4120-85e3-0bf9fr******
    */
   jobId?: string;
   /**
@@ -20620,7 +20743,7 @@ export class EnableLoadBalancerAccessLogResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
+   * 593B0448-D13E-4C56-AC0D-FDF0FD******
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -20981,6 +21104,7 @@ export class GetHealthCheckTemplateAttributeResponseBody extends $dara.Model {
    * DB1AFC33-DAE8-528E-AA4D-4A6AABE71945
    */
   requestId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The tags.
@@ -21011,6 +21135,7 @@ export class GetHealthCheckTemplateAttributeResponseBody extends $dara.Model {
       healthCheckTimeout: 'HealthCheckTimeout',
       healthyThreshold: 'HealthyThreshold',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
       unhealthyThreshold: 'UnhealthyThreshold',
     };
@@ -21031,6 +21156,7 @@ export class GetHealthCheckTemplateAttributeResponseBody extends $dara.Model {
       healthCheckTimeout: 'number',
       healthyThreshold: 'number',
       requestId: 'string',
+      resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': GetHealthCheckTemplateAttributeResponseBodyTags },
       unhealthyThreshold: 'number',
     };
@@ -22834,6 +22960,7 @@ export class ListHealthCheckTemplatesRequest extends $dara.Model {
    * FFmyTO70tTpLG6I3FmYAXGKPd****
    */
   nextToken?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The tags.
@@ -22845,6 +22972,7 @@ export class ListHealthCheckTemplatesRequest extends $dara.Model {
       healthCheckTemplateNames: 'HealthCheckTemplateNames',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      resourceGroupId: 'ResourceGroupId',
       tag: 'Tag',
     };
   }
@@ -22855,6 +22983,7 @@ export class ListHealthCheckTemplatesRequest extends $dara.Model {
       healthCheckTemplateNames: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
       nextToken: 'string',
+      resourceGroupId: 'string',
       tag: { 'type': 'array', 'itemType': ListHealthCheckTemplatesRequestTag },
     };
   }
@@ -28846,11 +28975,8 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
    * 
    * After connection draining is enabled, SLB remains data transmission for a period of time after a backend server is removed or declared unhealthy.
    * 
-   * > 
-   * 
-   * *   Basic SLB instances do not support connection draining. Standard and WAF-enabled SLB instances support connection draining.
-   * 
-   * *   Server groups of the server and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
+   * > *   Basic SLB instances do not support connection draining. Standard and WAF-enabled SLB instances support connection draining.
+   * > *   Server groups of the server and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
    */
   connectionDrainConfig?: UpdateServerGroupAttributeRequestConnectionDrainConfig;
   /**
@@ -28860,13 +28986,9 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
    * *   **true** (default)
    * *   **false**
    * 
-   * > 
-   * 
-   * *   Basic ALB instances do not support server groups that have cross-zone load balancing disabled. Only Standard and WAF-enabled ALB instances support server groups that have cross-zone load balancing.
-   * 
-   * *   Cross-zone load balancing can be disabled for server groups of the server and IP type, but not for server groups of the Function Compute type.
-   * 
-   * *   When cross-zone load balancing is disabled, session persistence cannot be enabled.
+   * > *   Basic ALB instances do not support server groups that have cross-zone load balancing disabled. Only Standard and WAF-enabled ALB instances support server groups that have cross-zone load balancing.
+   * >*   Cross-zone load balancing can be disabled for server groups of the server and IP type, but not for server groups of the Function Compute type.
+   * >*   When cross-zone load balancing is disabled, session persistence cannot be enabled.
    * 
    * @example
    * true
@@ -28952,6 +29074,9 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable persistent TCP connections.
+   * 
+   * @example
+   * true
    */
   upstreamKeepaliveEnabled?: boolean;
   static names(): { [key: string]: string } {
@@ -29959,6 +30084,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.healthyThreshold)) {
       query["HealthyThreshold"] = request.healthyThreshold;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.tag)) {
@@ -32406,6 +32535,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.tag)) {
