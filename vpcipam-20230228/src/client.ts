@@ -57,6 +57,40 @@ export class CreateIpamPoolRequestTag extends $dara.Model {
   }
 }
 
+export class CreateIpamResourceDiscoveryRequestTag extends $dara.Model {
+  /**
+   * @example
+   * FinanceDept
+   */
+  key?: string;
+  /**
+   * @example
+   * FinanceJoshua
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIpamScopeRequestTag extends $dara.Model {
   key?: string;
   value?: string;
@@ -840,6 +874,7 @@ export class ListIpamResourceDiscoveriesResponseBodyIpamResourceDiscoveries exte
    * rg-aek2sermdd6****
    */
   resourceGroupId?: string;
+  shareType?: string;
   tags?: ListIpamResourceDiscoveriesResponseBodyIpamResourceDiscoveriesTags[];
   /**
    * @example
@@ -857,6 +892,7 @@ export class ListIpamResourceDiscoveriesResponseBodyIpamResourceDiscoveries exte
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      shareType: 'ShareType',
       tags: 'Tags',
       type: 'Type',
     };
@@ -873,6 +909,7 @@ export class ListIpamResourceDiscoveriesResponseBodyIpamResourceDiscoveries exte
       ownerId: 'number',
       regionId: 'string',
       resourceGroupId: 'string',
+      shareType: 'string',
       tags: { 'type': 'array', 'itemType': ListIpamResourceDiscoveriesResponseBodyIpamResourceDiscoveriesTags },
       type: 'string',
     };
@@ -885,6 +922,68 @@ export class ListIpamResourceDiscoveriesResponseBodyIpamResourceDiscoveries exte
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations extends $dara.Model {
+  /**
+   * @example
+   * ipam-ccxbnsbhew0d6t****
+   */
+  ipamId?: string;
+  /**
+   * @example
+   * ipam-res-disco-jt5f2af2u6nk2z321****
+   */
+  ipamResourceDiscoveryId?: string;
+  /**
+   * @example
+   * 1210123456******
+   */
+  ipamResourceDiscoveryOwnerId?: string;
+  /**
+   * @example
+   * Created
+   */
+  ipamResourceDiscoveryStatus?: string;
+  /**
+   * @example
+   * custom
+   */
+  ipamResourceDiscoveryType?: string;
+  /**
+   * @example
+   * Created
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipamId: 'IpamId',
+      ipamResourceDiscoveryId: 'IpamResourceDiscoveryId',
+      ipamResourceDiscoveryOwnerId: 'IpamResourceDiscoveryOwnerId',
+      ipamResourceDiscoveryStatus: 'IpamResourceDiscoveryStatus',
+      ipamResourceDiscoveryType: 'IpamResourceDiscoveryType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipamId: 'string',
+      ipamResourceDiscoveryId: 'string',
+      ipamResourceDiscoveryOwnerId: 'string',
+      ipamResourceDiscoveryStatus: 'string',
+      ipamResourceDiscoveryType: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -1069,11 +1168,21 @@ export class ListIpamScopesResponseBodyIpamScopes extends $dara.Model {
 
 export class ListIpamsRequestTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * 
+   * The tag key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The tag key must start with a letter but cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
+   * 
    * @example
    * FinanceDept
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length. It must start with a letter and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
    * @example
    * FinanceJoshua
    */
@@ -1103,11 +1212,17 @@ export class ListIpamsRequestTags extends $dara.Model {
 
 export class ListIpamsResponseBodyIpamsTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * FinanceDept
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * FinanceJoshua
    */
@@ -1137,64 +1252,122 @@ export class ListIpamsResponseBodyIpamsTags extends $dara.Model {
 
 export class ListIpamsResponseBodyIpams extends $dara.Model {
   /**
+   * @remarks
+   * The time when the IPAM was created.
+   * 
    * @example
    * 2022-07-01T02:05:23Z
    */
   createTime?: string;
+  /**
+   * @example
+   * ipam-res-disco-assoc-jt5fac8twugdbbgip****
+   */
   defaultResourceDiscoveryAssociationId?: string;
+  /**
+   * @example
+   * ipam-res-disco-jt5f2af2u6nk2z321****
+   */
   defaultResourceDiscoveryId?: string;
   /**
+   * @remarks
+   * The description of the IPAM.
+   * 
    * @example
    * test description
    */
   ipamDescription?: string;
   /**
+   * @remarks
+   * The ID of the IPAM.
+   * 
    * @example
    * ipam-ccxbnsbhew0d6t****
    */
   ipamId?: string;
   /**
+   * @remarks
+   * The name of the IPAM.
+   * 
    * @example
    * test
    */
   ipamName?: string;
   /**
+   * @remarks
+   * The status of the IPAM. Valid values:
+   * 
+   * *   **Creating**
+   * *   **Created**
+   * *   **Deleting**
+   * *   **Deleted**
+   * 
    * @example
    * Created
    */
   ipamStatus?: string;
+  /**
+   * @remarks
+   * The effective regions of the IPAM.
+   */
   operatingRegionList?: string[];
   /**
+   * @remarks
+   * The Alibaba Cloud account that owns the IPAM.
+   * 
    * @example
    * 1210123456******
    */
   ownerId?: number;
   /**
+   * @remarks
+   * The default private scope created by the system after the IPAM is created.
+   * 
    * @example
    * ipam-scope-okoerbco6unqfr****
    */
   privateDefaultScopeId?: string;
   /**
+   * @remarks
+   * The default public scope created by the system after the IPAM is created.
+   * 
    * @example
    * ipam-scope-ovb76p1g1m19dr****
    */
   publicDefaultScopeId?: string;
   /**
+   * @remarks
+   * The region ID of the IPAM.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * 1
+   */
   resourceDiscoveryAssociationCount?: number;
   /**
+   * @remarks
+   * The resource group ID of the IPAM.
+   * 
    * @example
    * rg-aek2dbprgpt****
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The number of IPAM scopes. Value: **2 to 5**.
+   * 
    * @example
    * 2
    */
   scopeCount?: number;
+  /**
+   * @remarks
+   * The tag list.
+   */
   tags?: ListIpamsResponseBodyIpamsTags[];
   static names(): { [key: string]: string } {
     return {
@@ -1477,6 +1650,144 @@ export class AddIpamPoolCidrResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AddIpamPoolCidrResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateIpamResourceDiscoveryRequest extends $dara.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-ccxbnsbhew0d6t****
+   */
+  ipamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-res-disco-jt5f2af2u6nk2z321****
+   */
+  ipamResourceDiscoveryId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ipamId: 'IpamId',
+      ipamResourceDiscoveryId: 'IpamResourceDiscoveryId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ipamId: 'string',
+      ipamResourceDiscoveryId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateIpamResourceDiscoveryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * E897D16A-50EB-543F-B002-C5A26AB818FF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateIpamResourceDiscoveryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateIpamResourceDiscoveryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssociateIpamResourceDiscoveryResponseBody,
     };
   }
 
@@ -2174,6 +2485,168 @@ export class CreateIpamPoolAllocationResponse extends $dara.Model {
   }
 }
 
+export class CreateIpamResourceDiscoveryRequest extends $dara.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @example
+   * description
+   */
+  ipamResourceDiscoveryDescription?: string;
+  /**
+   * @example
+   * name
+   */
+  ipamResourceDiscoveryName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  operatingRegionList?: string[];
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-aek2sermdd6****
+   */
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  tag?: CreateIpamResourceDiscoveryRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ipamResourceDiscoveryDescription: 'IpamResourceDiscoveryDescription',
+      ipamResourceDiscoveryName: 'IpamResourceDiscoveryName',
+      operatingRegionList: 'OperatingRegionList',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ipamResourceDiscoveryDescription: 'string',
+      ipamResourceDiscoveryName: 'string',
+      operatingRegionList: { 'type': 'array', 'itemType': 'string' },
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      tag: { 'type': 'array', 'itemType': CreateIpamResourceDiscoveryRequestTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.operatingRegionList)) {
+      $dara.Model.validateArray(this.operatingRegionList);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIpamResourceDiscoveryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ipam-res-disco-jt5f2af2u6nk2z321****
+   */
+  ipamResourceDiscoveryId?: string;
+  /**
+   * @example
+   * BB2C39DE-CEB8-595A-981A-F2EFCBE7324E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipamResourceDiscoveryId: 'IpamResourceDiscoveryId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipamResourceDiscoveryId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIpamResourceDiscoveryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIpamResourceDiscoveryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateIpamResourceDiscoveryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIpamScopeRequest extends $dara.Model {
   /**
    * @example
@@ -2837,6 +3310,134 @@ export class DeleteIpamPoolCidrResponse extends $dara.Model {
   }
 }
 
+export class DeleteIpamResourceDiscoveryRequest extends $dara.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-res-disco-jt5f2af2u6nk2z321****
+   */
+  ipamResourceDiscoveryId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ipamResourceDiscoveryId: 'IpamResourceDiscoveryId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ipamResourceDiscoveryId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIpamResourceDiscoveryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 9F8315CB-560E-5F1E-B069-6E44B440CAF8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIpamResourceDiscoveryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIpamResourceDiscoveryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIpamResourceDiscoveryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteIpamScopeRequest extends $dara.Model {
   /**
    * @example
@@ -2947,6 +3548,144 @@ export class DeleteIpamScopeResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteIpamScopeResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DissociateIpamResourceDiscoveryRequest extends $dara.Model {
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-ccxbnsbhew0d6t****
+   */
+  ipamId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-res-disco-jt5f2af2u6nk2z321****
+   */
+  ipamResourceDiscoveryId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ipamId: 'IpamId',
+      ipamResourceDiscoveryId: 'IpamResourceDiscoveryId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ipamId: 'string',
+      ipamResourceDiscoveryId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DissociateIpamResourceDiscoveryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 86137597-443F-5B66-B9B6-8514E0C50B8F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DissociateIpamResourceDiscoveryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DissociateIpamResourceDiscoveryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DissociateIpamResourceDiscoveryResponseBody,
     };
   }
 
@@ -3140,6 +3879,136 @@ export class GetIpamPoolAllocationResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetIpamPoolAllocationResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpamPoolNextAvailableCidrRequest extends $dara.Model {
+  /**
+   * @example
+   * 172.68.0.0/26
+   */
+  cidrBlock?: string;
+  /**
+   * @example
+   * 26
+   */
+  cidrMask?: number;
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
+  ipamPoolId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      cidrMask: 'CidrMask',
+      clientToken: 'ClientToken',
+      ipamPoolId: 'IpamPoolId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      cidrMask: 'number',
+      clientToken: 'string',
+      ipamPoolId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpamPoolNextAvailableCidrResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 172.68.0.0/26
+   */
+  cidrBlock?: string;
+  /**
+   * @example
+   * 29FC6758-9B7C-5CC7-8CBF-4DD846FE7D82
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpamPoolNextAvailableCidrResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIpamPoolNextAvailableCidrResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIpamPoolNextAvailableCidrResponseBody,
     };
   }
 
@@ -4133,6 +5002,7 @@ export class ListIpamResourceDiscoveriesRequest extends $dara.Model {
    * test
    */
   ipamResourceDiscoveryName?: string;
+  isShared?: boolean;
   /**
    * @example
    * 10
@@ -4170,6 +5040,7 @@ export class ListIpamResourceDiscoveriesRequest extends $dara.Model {
     return {
       ipamResourceDiscoveryIds: 'IpamResourceDiscoveryIds',
       ipamResourceDiscoveryName: 'IpamResourceDiscoveryName',
+      isShared: 'IsShared',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       ownerAccount: 'OwnerAccount',
@@ -4187,6 +5058,7 @@ export class ListIpamResourceDiscoveriesRequest extends $dara.Model {
     return {
       ipamResourceDiscoveryIds: { 'type': 'array', 'itemType': 'string' },
       ipamResourceDiscoveryName: 'string',
+      isShared: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       ownerAccount: 'string',
@@ -4293,6 +5165,172 @@ export class ListIpamResourceDiscoveriesResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListIpamResourceDiscoveriesResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpamResourceDiscoveryAssociationsRequest extends $dara.Model {
+  /**
+   * @example
+   * ipam-ccxbnsbhew0d6t****
+   */
+  ipamId?: string;
+  /**
+   * @example
+   * ipam-res-disco-jt5f2af2u6nk2z321****
+   */
+  ipamResourceDiscoveryId?: string;
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ipamId: 'IpamId',
+      ipamResourceDiscoveryId: 'IpamResourceDiscoveryId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipamId: 'string',
+      ipamResourceDiscoveryId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpamResourceDiscoveryAssociationsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
+  count?: number;
+  ipamResourceDiscoveryAssociations?: ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations[];
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * FFmyTO70tTpLG6I3FmYAXGKPd****
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * F28A239E-F88D-500E-ADE7-FA5E8CA3A170
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      ipamResourceDiscoveryAssociations: 'IpamResourceDiscoveryAssociations',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      ipamResourceDiscoveryAssociations: { 'type': 'array', 'itemType': ListIpamResourceDiscoveryAssociationsResponseBodyIpamResourceDiscoveryAssociations },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.ipamResourceDiscoveryAssociations)) {
+      $dara.Model.validateArray(this.ipamResourceDiscoveryAssociations);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIpamResourceDiscoveryAssociationsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIpamResourceDiscoveryAssociationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIpamResourceDiscoveryAssociationsResponseBody,
     };
   }
 
@@ -4500,18 +5538,36 @@ export class ListIpamScopesResponse extends $dara.Model {
 }
 
 export class ListIpamsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of IPAMs. Valid values of N: 1 to 100. A maximum of 100 IPAMs can be queried at a time.
+   */
   ipamIds?: string[];
   /**
+   * @remarks
+   * The name of the IPAM.
+   * 
+   * It must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * test
    */
   ipamName?: string;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: **1** to **100**. Default value: **10**.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   You do not need to specify this parameter for the first request.
+   * *   You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
    */
@@ -4520,6 +5576,8 @@ export class ListIpamsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the region where the IPAM pool is hosted. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4527,12 +5585,19 @@ export class ListIpamsRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource group ID of the IPAM.
+   * 
    * @example
    * rg-aek2sermdd6****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The tag information.
+   */
   tags?: ListIpamsRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -4582,24 +5647,47 @@ export class ListIpamsRequest extends $dara.Model {
 }
 
 export class ListIpamsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 10
+   */
   count?: number;
+  /**
+   * @remarks
+   * The IPAMs.
+   */
   ipams?: ListIpamsResponseBodyIpams[];
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
+   * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 23CA0A0B-B0F5-5495-B355-7D9A9203A46B
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of entries.
+   * 
    * @example
    * 10
    */
@@ -5679,6 +6767,160 @@ export class UpdateIpamPoolAllocationResponse extends $dara.Model {
   }
 }
 
+export class UpdateIpamResourceDiscoveryRequest extends $dara.Model {
+  addOperatingRegion?: string[];
+  /**
+   * @example
+   * 123e4567-e89b-12d3-a456-426655440000
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @example
+   * test description
+   */
+  ipamResourceDiscoveryDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-res-disco-jt5f2af2u6nk2z321****
+   */
+  ipamResourceDiscoveryId?: string;
+  /**
+   * @example
+   * test
+   */
+  ipamResourceDiscoveryName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  removeOperatingRegion?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addOperatingRegion: 'AddOperatingRegion',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ipamResourceDiscoveryDescription: 'IpamResourceDiscoveryDescription',
+      ipamResourceDiscoveryId: 'IpamResourceDiscoveryId',
+      ipamResourceDiscoveryName: 'IpamResourceDiscoveryName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      removeOperatingRegion: 'RemoveOperatingRegion',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addOperatingRegion: { 'type': 'array', 'itemType': 'string' },
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ipamResourceDiscoveryDescription: 'string',
+      ipamResourceDiscoveryId: 'string',
+      ipamResourceDiscoveryName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      removeOperatingRegion: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.addOperatingRegion)) {
+      $dara.Model.validateArray(this.addOperatingRegion);
+    }
+    if(Array.isArray(this.removeOperatingRegion)) {
+      $dara.Model.validateArray(this.removeOperatingRegion);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIpamResourceDiscoveryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * BB2C39DE-CEB8-595A-981A-F2EFCBE7324E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIpamResourceDiscoveryResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateIpamResourceDiscoveryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateIpamResourceDiscoveryResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateIpamScopeRequest extends $dara.Model {
   /**
    * @example
@@ -5901,6 +7143,85 @@ export default class Client extends OpenApi {
   async addIpamPoolCidr(request: AddIpamPoolCidrRequest): Promise<AddIpamPoolCidrResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.addIpamPoolCidrWithOptions(request, runtime);
+  }
+
+  /**
+   * 关联资源发现和IPAM实例。
+   * 
+   * @param request - AssociateIpamResourceDiscoveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateIpamResourceDiscoveryResponse
+   */
+  async associateIpamResourceDiscoveryWithOptions(request: AssociateIpamResourceDiscoveryRequest, runtime: $dara.RuntimeOptions): Promise<AssociateIpamResourceDiscoveryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.ipamId)) {
+      query["IpamId"] = request.ipamId;
+    }
+
+    if (!$dara.isNull(request.ipamResourceDiscoveryId)) {
+      query["IpamResourceDiscoveryId"] = request.ipamResourceDiscoveryId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AssociateIpamResourceDiscovery",
+      version: "2023-02-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AssociateIpamResourceDiscoveryResponse>(await this.callApi(params, req, runtime), new AssociateIpamResourceDiscoveryResponse({}));
+    } else {
+      return $dara.cast<AssociateIpamResourceDiscoveryResponse>(await this.execute(params, req, runtime), new AssociateIpamResourceDiscoveryResponse({}));
+    }
+
+  }
+
+  /**
+   * 关联资源发现和IPAM实例。
+   * 
+   * @param request - AssociateIpamResourceDiscoveryRequest
+   * @returns AssociateIpamResourceDiscoveryResponse
+   */
+  async associateIpamResourceDiscovery(request: AssociateIpamResourceDiscoveryRequest): Promise<AssociateIpamResourceDiscoveryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.associateIpamResourceDiscoveryWithOptions(request, runtime);
   }
 
   /**
@@ -6252,6 +7573,97 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建自定义类型资源发现。
+   * 
+   * @param request - CreateIpamResourceDiscoveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIpamResourceDiscoveryResponse
+   */
+  async createIpamResourceDiscoveryWithOptions(request: CreateIpamResourceDiscoveryRequest, runtime: $dara.RuntimeOptions): Promise<CreateIpamResourceDiscoveryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.ipamResourceDiscoveryDescription)) {
+      query["IpamResourceDiscoveryDescription"] = request.ipamResourceDiscoveryDescription;
+    }
+
+    if (!$dara.isNull(request.ipamResourceDiscoveryName)) {
+      query["IpamResourceDiscoveryName"] = request.ipamResourceDiscoveryName;
+    }
+
+    if (!$dara.isNull(request.operatingRegionList)) {
+      query["OperatingRegionList"] = request.operatingRegionList;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateIpamResourceDiscovery",
+      version: "2023-02-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateIpamResourceDiscoveryResponse>(await this.callApi(params, req, runtime), new CreateIpamResourceDiscoveryResponse({}));
+    } else {
+      return $dara.cast<CreateIpamResourceDiscoveryResponse>(await this.execute(params, req, runtime), new CreateIpamResourceDiscoveryResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建自定义类型资源发现。
+   * 
+   * @param request - CreateIpamResourceDiscoveryRequest
+   * @returns CreateIpamResourceDiscoveryResponse
+   */
+  async createIpamResourceDiscovery(request: CreateIpamResourceDiscoveryRequest): Promise<CreateIpamResourceDiscoveryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createIpamResourceDiscoveryWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - CreateIpamScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateIpamScopeResponse
@@ -6599,6 +8011,81 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除自定义类型的资源发现。
+   * 
+   * @param request - DeleteIpamResourceDiscoveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIpamResourceDiscoveryResponse
+   */
+  async deleteIpamResourceDiscoveryWithOptions(request: DeleteIpamResourceDiscoveryRequest, runtime: $dara.RuntimeOptions): Promise<DeleteIpamResourceDiscoveryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.ipamResourceDiscoveryId)) {
+      query["IpamResourceDiscoveryId"] = request.ipamResourceDiscoveryId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteIpamResourceDiscovery",
+      version: "2023-02-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteIpamResourceDiscoveryResponse>(await this.callApi(params, req, runtime), new DeleteIpamResourceDiscoveryResponse({}));
+    } else {
+      return $dara.cast<DeleteIpamResourceDiscoveryResponse>(await this.execute(params, req, runtime), new DeleteIpamResourceDiscoveryResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除自定义类型的资源发现。
+   * 
+   * @param request - DeleteIpamResourceDiscoveryRequest
+   * @returns DeleteIpamResourceDiscoveryResponse
+   */
+  async deleteIpamResourceDiscovery(request: DeleteIpamResourceDiscoveryRequest): Promise<DeleteIpamResourceDiscoveryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteIpamResourceDiscoveryWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DeleteIpamScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteIpamScopeResponse
@@ -6670,6 +8157,85 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解关联资源发现和IPAM实例。
+   * 
+   * @param request - DissociateIpamResourceDiscoveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DissociateIpamResourceDiscoveryResponse
+   */
+  async dissociateIpamResourceDiscoveryWithOptions(request: DissociateIpamResourceDiscoveryRequest, runtime: $dara.RuntimeOptions): Promise<DissociateIpamResourceDiscoveryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.ipamId)) {
+      query["IpamId"] = request.ipamId;
+    }
+
+    if (!$dara.isNull(request.ipamResourceDiscoveryId)) {
+      query["IpamResourceDiscoveryId"] = request.ipamResourceDiscoveryId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DissociateIpamResourceDiscovery",
+      version: "2023-02-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DissociateIpamResourceDiscoveryResponse>(await this.callApi(params, req, runtime), new DissociateIpamResourceDiscoveryResponse({}));
+    } else {
+      return $dara.cast<DissociateIpamResourceDiscoveryResponse>(await this.execute(params, req, runtime), new DissociateIpamResourceDiscoveryResponse({}));
+    }
+
+  }
+
+  /**
+   * 解关联资源发现和IPAM实例。
+   * 
+   * @param request - DissociateIpamResourceDiscoveryRequest
+   * @returns DissociateIpamResourceDiscoveryResponse
+   */
+  async dissociateIpamResourceDiscovery(request: DissociateIpamResourceDiscoveryRequest): Promise<DissociateIpamResourceDiscoveryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dissociateIpamResourceDiscoveryWithOptions(request, runtime);
+  }
+
+  /**
    * 查询指定IPAM地址池CIDR分配的信息
    * 
    * @param request - GetIpamPoolAllocationRequest
@@ -6710,6 +8276,49 @@ export default class Client extends OpenApi {
   async getIpamPoolAllocation(request: GetIpamPoolAllocationRequest): Promise<GetIpamPoolAllocationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getIpamPoolAllocationWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取地址池可用CIDR。
+   * 
+   * @param request - GetIpamPoolNextAvailableCidrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIpamPoolNextAvailableCidrResponse
+   */
+  async getIpamPoolNextAvailableCidrWithOptions(request: GetIpamPoolNextAvailableCidrRequest, runtime: $dara.RuntimeOptions): Promise<GetIpamPoolNextAvailableCidrResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIpamPoolNextAvailableCidr",
+      version: "2023-02-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetIpamPoolNextAvailableCidrResponse>(await this.callApi(params, req, runtime), new GetIpamPoolNextAvailableCidrResponse({}));
+    } else {
+      return $dara.cast<GetIpamPoolNextAvailableCidrResponse>(await this.execute(params, req, runtime), new GetIpamPoolNextAvailableCidrResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取地址池可用CIDR。
+   * 
+   * @param request - GetIpamPoolNextAvailableCidrRequest
+   * @returns GetIpamPoolNextAvailableCidrResponse
+   */
+  async getIpamPoolNextAvailableCidr(request: GetIpamPoolNextAvailableCidrRequest): Promise<GetIpamPoolNextAvailableCidrResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getIpamPoolNextAvailableCidrWithOptions(request, runtime);
   }
 
   /**
@@ -7160,6 +8769,10 @@ export default class Client extends OpenApi {
       query["IpamResourceDiscoveryName"] = request.ipamResourceDiscoveryName;
     }
 
+    if (!$dara.isNull(request.isShared)) {
+      query["IsShared"] = request.isShared;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -7231,6 +8844,85 @@ export default class Client extends OpenApi {
   async listIpamResourceDiscoveries(request: ListIpamResourceDiscoveriesRequest): Promise<ListIpamResourceDiscoveriesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listIpamResourceDiscoveriesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看资源发现和IPAM的关联关系。
+   * 
+   * @param request - ListIpamResourceDiscoveryAssociationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIpamResourceDiscoveryAssociationsResponse
+   */
+  async listIpamResourceDiscoveryAssociationsWithOptions(request: ListIpamResourceDiscoveryAssociationsRequest, runtime: $dara.RuntimeOptions): Promise<ListIpamResourceDiscoveryAssociationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ipamId)) {
+      query["IpamId"] = request.ipamId;
+    }
+
+    if (!$dara.isNull(request.ipamResourceDiscoveryId)) {
+      query["IpamResourceDiscoveryId"] = request.ipamResourceDiscoveryId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIpamResourceDiscoveryAssociations",
+      version: "2023-02-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListIpamResourceDiscoveryAssociationsResponse>(await this.callApi(params, req, runtime), new ListIpamResourceDiscoveryAssociationsResponse({}));
+    } else {
+      return $dara.cast<ListIpamResourceDiscoveryAssociationsResponse>(await this.execute(params, req, runtime), new ListIpamResourceDiscoveryAssociationsResponse({}));
+    }
+
+  }
+
+  /**
+   * 查看资源发现和IPAM的关联关系。
+   * 
+   * @param request - ListIpamResourceDiscoveryAssociationsRequest
+   * @returns ListIpamResourceDiscoveryAssociationsResponse
+   */
+  async listIpamResourceDiscoveryAssociations(request: ListIpamResourceDiscoveryAssociationsRequest): Promise<ListIpamResourceDiscoveryAssociationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listIpamResourceDiscoveryAssociationsWithOptions(request, runtime);
   }
 
   /**
@@ -7325,7 +9017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询ipam
+   * Queries IP Address Managers (IPAMs).
    * 
    * @param request - ListIpamsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7401,7 +9093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询ipam
+   * Queries IP Address Managers (IPAMs).
    * 
    * @param request - ListIpamsRequest
    * @returns ListIpamsResponse
@@ -7970,6 +9662,97 @@ export default class Client extends OpenApi {
   async updateIpamPoolAllocation(request: UpdateIpamPoolAllocationRequest): Promise<UpdateIpamPoolAllocationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateIpamPoolAllocationWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新自定义类型资源发现。
+   * 
+   * @param request - UpdateIpamResourceDiscoveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIpamResourceDiscoveryResponse
+   */
+  async updateIpamResourceDiscoveryWithOptions(request: UpdateIpamResourceDiscoveryRequest, runtime: $dara.RuntimeOptions): Promise<UpdateIpamResourceDiscoveryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.addOperatingRegion)) {
+      query["AddOperatingRegion"] = request.addOperatingRegion;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.ipamResourceDiscoveryDescription)) {
+      query["IpamResourceDiscoveryDescription"] = request.ipamResourceDiscoveryDescription;
+    }
+
+    if (!$dara.isNull(request.ipamResourceDiscoveryId)) {
+      query["IpamResourceDiscoveryId"] = request.ipamResourceDiscoveryId;
+    }
+
+    if (!$dara.isNull(request.ipamResourceDiscoveryName)) {
+      query["IpamResourceDiscoveryName"] = request.ipamResourceDiscoveryName;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.removeOperatingRegion)) {
+      query["RemoveOperatingRegion"] = request.removeOperatingRegion;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateIpamResourceDiscovery",
+      version: "2023-02-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateIpamResourceDiscoveryResponse>(await this.callApi(params, req, runtime), new UpdateIpamResourceDiscoveryResponse({}));
+    } else {
+      return $dara.cast<UpdateIpamResourceDiscoveryResponse>(await this.execute(params, req, runtime), new UpdateIpamResourceDiscoveryResponse({}));
+    }
+
+  }
+
+  /**
+   * 更新自定义类型资源发现。
+   * 
+   * @param request - UpdateIpamResourceDiscoveryRequest
+   * @returns UpdateIpamResourceDiscoveryResponse
+   */
+  async updateIpamResourceDiscovery(request: UpdateIpamResourceDiscoveryRequest): Promise<UpdateIpamResourceDiscoveryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateIpamResourceDiscoveryWithOptions(request, runtime);
   }
 
   /**
