@@ -4636,6 +4636,119 @@ export class ListArtifactsResponseBodyArtifacts extends $dara.Model {
   }
 }
 
+export class ListResellersRequestFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+   * 
+   * *   ResellerUid: the uid of the distributor.
+   * *   Name: the name of the distributor.
+   * 
+   * @example
+   * Name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Filter value array.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.value)) {
+      $dara.Model.validateArray(this.value);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResellersResponseBodySupplierInformation extends $dara.Model {
+  /**
+   * @remarks
+   * The description of distributor.
+   * 
+   * @example
+   * It is a XXXX  company
+   */
+  supplierDesc?: string;
+  /**
+   * @remarks
+   * The Logo of distributor
+   * 
+   * @example
+   * https://service-info-public.oss-cn-hangzhou.aliyuncs.com/31978070/service-image/d5c3b585-ff6b-4e4e-8885-xxxx.png
+   */
+  supplierLogo?: string;
+  /**
+   * @remarks
+   * The name of the distributor
+   * 
+   * @example
+   * Distributor A
+   */
+  supplierName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the distributor.
+   * 
+   * @example
+   * 152xxxxxxxxxxx
+   */
+  supplierUid?: number;
+  /**
+   * @remarks
+   * The URL of the distributor.
+   * 
+   * @example
+   * http://www.aliyun.com
+   */
+  supplierUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      supplierDesc: 'SupplierDesc',
+      supplierLogo: 'SupplierLogo',
+      supplierName: 'SupplierName',
+      supplierUid: 'SupplierUid',
+      supplierUrl: 'SupplierUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      supplierDesc: 'string',
+      supplierLogo: 'string',
+      supplierName: 'string',
+      supplierUid: 'number',
+      supplierUrl: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceInstanceDeployDetailsRequestFilter extends $dara.Model {
   /**
    * @remarks
@@ -17252,6 +17365,173 @@ export class ListArtifactsResponse extends $dara.Model {
   }
 }
 
+export class ListResellersRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filters.
+   */
+  filter?: ListResellersRequestFilter[];
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * AAAAAWVmrOoWHbw/80lX0TWxe/s=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: { 'type': 'array', 'itemType': ListResellersRequestFilter },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.filter)) {
+      $dara.Model.validateArray(this.filter);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResellersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * AAAAAW8kZY+u1sYOaYf5JmgmDQQ=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A361BA9E-xxxx-xxxx-xxxx-C26E5180456E
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * distributor informations
+   */
+  supplierInformation?: ListResellersResponseBodySupplierInformation[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 4
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      supplierInformation: 'SupplierInformation',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      supplierInformation: { 'type': 'array', 'itemType': ListResellersResponseBodySupplierInformation },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.supplierInformation)) {
+      $dara.Model.validateArray(this.supplierInformation);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResellersResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListResellersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListResellersResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceInstanceDeployDetailsRequest extends $dara.Model {
   /**
    * @remarks
@@ -17741,11 +18021,6 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of a resource.
-   */
-  resourceARN?: string[];
-  /**
-   * @remarks
    * The ID of the service instance.
    * 
    * This parameter is required.
@@ -17773,7 +18048,6 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
-      resourceARN: 'ResourceARN',
       serviceInstanceId: 'ServiceInstanceId',
       serviceInstanceResourceType: 'ServiceInstanceResourceType',
       tag: 'Tag',
@@ -17786,7 +18060,6 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
-      resourceARN: { 'type': 'array', 'itemType': 'string' },
       serviceInstanceId: 'string',
       serviceInstanceResourceType: 'string',
       tag: { 'type': 'array', 'itemType': ListServiceInstanceResourcesRequestTag },
@@ -17796,9 +18069,6 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.filters)) {
       $dara.Model.validateArray(this.filters);
-    }
-    if(Array.isArray(this.resourceARN)) {
-      $dara.Model.validateArray(this.resourceARN);
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
@@ -26774,6 +27044,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Paginated query of distributor information list
+   * 
+   * @param request - ListResellersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResellersResponse
+   */
+  async listResellersWithOptions(request: ListResellersRequest, runtime: $dara.RuntimeOptions): Promise<ListResellersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListResellers",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListResellersResponse>(await this.callApi(params, req, runtime), new ListResellersResponse({}));
+    } else {
+      return $dara.cast<ListResellersResponse>(await this.execute(params, req, runtime), new ListResellersResponse({}));
+    }
+
+  }
+
+  /**
+   * Paginated query of distributor information list
+   * 
+   * @param request - ListResellersRequest
+   * @returns ListResellersResponse
+   */
+  async listResellers(request: ListResellersRequest): Promise<ListResellersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listResellersWithOptions(request, runtime);
+  }
+
+  /**
    * 查询服务实例部署详情
    * 
    * @param request - ListServiceInstanceDeployDetailsRequest
@@ -26951,10 +27280,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.resourceARN)) {
-      query["ResourceARN"] = request.resourceARN;
     }
 
     if (!$dara.isNull(request.serviceInstanceId)) {
