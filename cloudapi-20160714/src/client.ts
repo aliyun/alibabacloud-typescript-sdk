@@ -15373,6 +15373,126 @@ export class DescribePluginApisResponseBodyApiSummarys extends $dara.Model {
   }
 }
 
+export class DescribePluginGroupsResponseBodyGroupSummarysGroupPluginSummary extends $dara.Model {
+  /**
+   * @remarks
+   * API root path
+   * 
+   * @example
+   * /rpew
+   */
+  basePath?: string;
+  /**
+   * @remarks
+   * Description
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * API group ID
+   * 
+   * @example
+   * 4ed31575e2de43de8c51eb1217a1f56b
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * API group name
+   * 
+   * @example
+   * ECP_API
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * Region ID where the API group is located
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Stage name Alias
+   * 
+   * @example
+   * DEV
+   */
+  stageAlias?: string;
+  /**
+   * @remarks
+   * Environment name, possible values:
+   * 
+   * - **RELEASE**: Production
+   * - **PRE**: Pre-release
+   * - **TEST**: Testing
+   * 
+   * @example
+   * RELEASE
+   */
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      basePath: 'BasePath',
+      description: 'Description',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      regionId: 'RegionId',
+      stageAlias: 'StageAlias',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      basePath: 'string',
+      description: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      regionId: 'string',
+      stageAlias: 'string',
+      stageName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePluginGroupsResponseBodyGroupSummarys extends $dara.Model {
+  groupPluginSummary?: DescribePluginGroupsResponseBodyGroupSummarysGroupPluginSummary[];
+  static names(): { [key: string]: string } {
+    return {
+      groupPluginSummary: 'GroupPluginSummary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupPluginSummary: { 'type': 'array', 'itemType': DescribePluginGroupsResponseBodyGroupSummarysGroupPluginSummary },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.groupPluginSummary)) {
+      $dara.Model.validateArray(this.groupPluginSummary);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePluginSchemasResponseBodyPluginSchemasPluginSchema extends $dara.Model {
   /**
    * @example
@@ -15907,6 +16027,132 @@ export class DescribePluginsByApiResponseBodyPlugins extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       pluginAttribute: { 'type': 'array', 'itemType': DescribePluginsByApiResponseBodyPluginsPluginAttribute },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.pluginAttribute)) {
+      $dara.Model.validateArray(this.pluginAttribute);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePluginsByGroupResponseBodyPluginsPluginAttribute extends $dara.Model {
+  /**
+   * @remarks
+   * Creation time, in GMT
+   * 
+   * @example
+   * 2024-12-20T02:05:57Z
+   */
+  createdTime?: string;
+  /**
+   * @remarks
+   * Plugin description
+   * 
+   * @example
+   * traffic controll
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Last modified time, in GMT
+   * 
+   * @example
+   * 2022-03-15T02:30:18Z
+   */
+  modifiedTime?: string;
+  /**
+   * @remarks
+   * Plugin definition statement
+   * 
+   * @example
+   * {\\"unit\\":\\"MINUTE\\",\\"apiDefault\\":20}
+   */
+  pluginData?: string;
+  /**
+   * @remarks
+   * Plugin ID
+   * 
+   * @example
+   * 5e204eeb4aa94c919a49f471ad3fc716
+   */
+  pluginId?: string;
+  /**
+   * @remarks
+   * Plugin name
+   * 
+   * @example
+   * firstPlugin
+   */
+  pluginName?: string;
+  /**
+   * @remarks
+   * Plugin type
+   * 
+   * @example
+   * trafficControl
+   */
+  pluginType?: string;
+  /**
+   * @remarks
+   * 插件所在Region
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      description: 'Description',
+      modifiedTime: 'ModifiedTime',
+      pluginData: 'PluginData',
+      pluginId: 'PluginId',
+      pluginName: 'PluginName',
+      pluginType: 'PluginType',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      description: 'string',
+      modifiedTime: 'string',
+      pluginData: 'string',
+      pluginId: 'string',
+      pluginName: 'string',
+      pluginType: 'string',
+      regionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePluginsByGroupResponseBodyPlugins extends $dara.Model {
+  pluginAttribute?: DescribePluginsByGroupResponseBodyPluginsPluginAttribute[];
+  static names(): { [key: string]: string } {
+    return {
+      pluginAttribute: 'PluginAttribute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pluginAttribute: { 'type': 'array', 'itemType': DescribePluginsByGroupResponseBodyPluginsPluginAttribute },
     };
   }
 
@@ -20568,6 +20814,134 @@ export class AttachApiProductResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AttachApiProductResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachGroupPluginRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the API group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 08ae4aa0f95e4321849ee57f4e0b3077
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The ID of the plug-in to be bound.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 05df2b52a3644a3a8b1935ab8ab59e9d
+   */
+  pluginId?: string;
+  securityToken?: string;
+  /**
+   * @remarks
+   * The environment in which the API is requested. Valid values:
+   * 
+   * *   **RELEASE**: the production environment
+   * *   **PRE**: the pre-release environment
+   * *   **TEST**: the test environment
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * RELEASE
+   */
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      pluginId: 'PluginId',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      pluginId: 'string',
+      securityToken: 'string',
+      stageName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachGroupPluginResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D6E46F10-F26C-4AA0-BB69-FE2743D9AE62
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachGroupPluginResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachGroupPluginResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachGroupPluginResponseBody,
     };
   }
 
@@ -40064,6 +40438,196 @@ export class DescribePluginApisResponse extends $dara.Model {
   }
 }
 
+export class DescribePluginGroupsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * API group description
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * API group ID
+   * 
+   * @example
+   * 8cc2a3cbe3394524b6e71be5db9b02a3
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * API group name
+   * 
+   * @example
+   * crm_custom_service
+   */
+  groupName?: string;
+  /**
+   * @remarks
+   * Pagination parameter: current page number
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Pagination parameter: number of items per page
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * API Gateway plugin ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1f3bde29b43d4d53989248327ff737f2
+   */
+  pluginId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      pluginId: 'PluginId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      pluginId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePluginGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Collection of group information
+   */
+  groupSummarys?: DescribePluginGroupsResponseBodyGroupSummarys;
+  /**
+   * @remarks
+   * Pagination parameter: current page number
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Pagination parameter: number of items per page, default value 10
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 765BC99E-F583-5A80-9A42-42AC125C2CDC
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Total number of returned results
+   * 
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupSummarys: 'GroupSummarys',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupSummarys: DescribePluginGroupsResponseBodyGroupSummarys,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(this.groupSummarys && typeof (this.groupSummarys as any).validate === 'function') {
+      (this.groupSummarys as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePluginGroupsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePluginGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePluginGroupsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePluginSchemasRequest extends $dara.Model {
   /**
    * @example
@@ -40645,6 +41209,182 @@ export class DescribePluginsByApiResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribePluginsByApiResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePluginsByGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Group ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 08ae4aa0f95e4321849ee57f4e0b3077
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * Pagination parameter: current page number
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Pagination parameter: number of items per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  securityToken?: string;
+  /**
+   * @remarks
+   * Specifies the environment of the API to operate on.
+   * 
+   * - **RELEASE**: Production
+   * - **PRE**: Pre-release
+   * - **TEST**: Test
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * RELEASE
+   */
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      securityToken: 'string',
+      stageName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePluginsByGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Pagination parameter: current page number
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Pagination parameter: number of items per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Returns information about the plugins
+   */
+  plugins?: DescribePluginsByGroupResponseBodyPlugins;
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 5F5574BA-F22B-563D-841E-C817964F517F
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Total number of results returned
+   * 
+   * @example
+   * 32
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      plugins: 'Plugins',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      plugins: DescribePluginsByGroupResponseBodyPlugins,
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(this.plugins && typeof (this.plugins as any).validate === 'function') {
+      (this.plugins as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePluginsByGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribePluginsByGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribePluginsByGroupResponseBody,
     };
   }
 
@@ -42826,6 +43566,134 @@ export class DetachApiProductResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DetachApiProductResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachGroupPluginRequest extends $dara.Model {
+  /**
+   * @remarks
+   * API group ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0009db9c828549768a200320714b8930
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * API Gateway plugin ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a96926e82f994915a8da40a119374537
+   */
+  pluginId?: string;
+  securityToken?: string;
+  /**
+   * @remarks
+   * Specify the environment of the API to operate on.
+   * 
+   * - **RELEASE**: Production
+   * - **PRE**: Pre-release
+   * - **TEST**: Test
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * RELEASE
+   */
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      pluginId: 'PluginId',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      pluginId: 'string',
+      securityToken: 'string',
+      stageName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachGroupPluginResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 3707E6FA-749C-5352-B72A-ABE95D9DEA49
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachGroupPluginResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachGroupPluginResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachGroupPluginResponseBody,
     };
   }
 
@@ -54627,6 +55495,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Attach plugin to API group.
+   * 
+   * @param request - AttachGroupPluginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachGroupPluginResponse
+   */
+  async attachGroupPluginWithOptions(request: AttachGroupPluginRequest, runtime: $dara.RuntimeOptions): Promise<AttachGroupPluginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AttachGroupPlugin",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<AttachGroupPluginResponse>(await this.callApi(params, req, runtime), new AttachGroupPluginResponse({}));
+    } else {
+      return $dara.cast<AttachGroupPluginResponse>(await this.execute(params, req, runtime), new AttachGroupPluginResponse({}));
+    }
+
+  }
+
+  /**
+   * Attach plugin to API group.
+   * 
+   * @param request - AttachGroupPluginRequest
+   * @returns AttachGroupPluginResponse
+   */
+  async attachGroupPlugin(request: AttachGroupPluginRequest): Promise<AttachGroupPluginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.attachGroupPluginWithOptions(request, runtime);
+  }
+
+  /**
    * Binds a plug-in to an API.
    * 
    * @remarks
@@ -62373,6 +63300,77 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the list of groups bound to a plugin based on the plugin ID
+   * 
+   * @param request - DescribePluginGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePluginGroupsResponse
+   */
+  async describePluginGroupsWithOptions(request: DescribePluginGroupsRequest, runtime: $dara.RuntimeOptions): Promise<DescribePluginGroupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePluginGroups",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribePluginGroupsResponse>(await this.callApi(params, req, runtime), new DescribePluginGroupsResponse({}));
+    } else {
+      return $dara.cast<DescribePluginGroupsResponse>(await this.execute(params, req, runtime), new DescribePluginGroupsResponse({}));
+    }
+
+  }
+
+  /**
+   * Query the list of groups bound to a plugin based on the plugin ID
+   * 
+   * @param request - DescribePluginGroupsRequest
+   * @returns DescribePluginGroupsResponse
+   */
+  async describePluginGroups(request: DescribePluginGroupsRequest): Promise<DescribePluginGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePluginGroupsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询插件列表
    * 
    * @param request - DescribePluginSchemasRequest
@@ -62634,6 +63632,69 @@ export default class Client extends OpenApi {
   async describePluginsByApi(request: DescribePluginsByApiRequest): Promise<DescribePluginsByApiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describePluginsByApiWithOptions(request, runtime);
+  }
+
+  /**
+   * Query Plugins Bound to API Group
+   * 
+   * @param request - DescribePluginsByGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePluginsByGroupResponse
+   */
+  async describePluginsByGroupWithOptions(request: DescribePluginsByGroupRequest, runtime: $dara.RuntimeOptions): Promise<DescribePluginsByGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePluginsByGroup",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DescribePluginsByGroupResponse>(await this.callApi(params, req, runtime), new DescribePluginsByGroupResponse({}));
+    } else {
+      return $dara.cast<DescribePluginsByGroupResponse>(await this.execute(params, req, runtime), new DescribePluginsByGroupResponse({}));
+    }
+
+  }
+
+  /**
+   * Query Plugins Bound to API Group
+   * 
+   * @param request - DescribePluginsByGroupRequest
+   * @returns DescribePluginsByGroupResponse
+   */
+  async describePluginsByGroup(request: DescribePluginsByGroupRequest): Promise<DescribePluginsByGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePluginsByGroupWithOptions(request, runtime);
   }
 
   /**
@@ -63553,6 +64614,65 @@ export default class Client extends OpenApi {
   async detachApiProduct(request: DetachApiProductRequest): Promise<DetachApiProductResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.detachApiProductWithOptions(request, runtime);
+  }
+
+  /**
+   * Unbind group plugin
+   * 
+   * @param request - DetachGroupPluginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachGroupPluginResponse
+   */
+  async detachGroupPluginWithOptions(request: DetachGroupPluginRequest, runtime: $dara.RuntimeOptions): Promise<DetachGroupPluginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetachGroupPlugin",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DetachGroupPluginResponse>(await this.callApi(params, req, runtime), new DetachGroupPluginResponse({}));
+    } else {
+      return $dara.cast<DetachGroupPluginResponse>(await this.execute(params, req, runtime), new DetachGroupPluginResponse({}));
+    }
+
+  }
+
+  /**
+   * Unbind group plugin
+   * 
+   * @param request - DetachGroupPluginRequest
+   * @returns DetachGroupPluginResponse
+   */
+  async detachGroupPlugin(request: DetachGroupPluginRequest): Promise<DetachGroupPluginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.detachGroupPluginWithOptions(request, runtime);
   }
 
   /**
