@@ -10,6 +10,47 @@ import { OpenApiUtil, $OpenApiUtil } from '@alicloud/openapi-core';
 import { Readable } from 'stream';
 import * as $dara from '@darabonba/typescript';
 
+export class GetErrorMinuteStatTrendResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 120
+   */
+  errorCount?: number;
+  /**
+   * @example
+   * 1200
+   */
+  launchCount?: number;
+  /**
+   * @example
+   * 2023-05-20 13:01
+   */
+  timePoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCount: 'errorCount',
+      launchCount: 'launchCount',
+      timePoint: 'timePoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCount: 'number',
+      launchCount: 'number',
+      timePoint: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetH5PageTrendResponseBodyData extends $dara.Model {
   /**
    * @example
@@ -295,6 +336,47 @@ export class GetNativePageTrendResponseBodyData extends $dara.Model {
       crashRate: 'number',
       loadCnt: 'number',
       slowLoadRate: 'number',
+      timePoint: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkMinuteTrendResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 120
+   */
+  errorCount?: number;
+  /**
+   * @example
+   * 1200
+   */
+  requestCount?: number;
+  /**
+   * @example
+   * 2023-05-20 09:08
+   */
+  timePoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCount: 'errorCount',
+      requestCount: 'requestCount',
+      timePoint: 'timePoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCount: 'number',
+      requestCount: 'number',
       timePoint: 'string',
     };
   }
@@ -710,6 +792,138 @@ export class DeleteSymRecordsResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSymRecordsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErrorMinuteStatTrendRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5fb6001a73749c24fd9cb356
+   */
+  dataSourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-09-27 09:07
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'dataSourceId',
+      startTime: 'startTime',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      startTime: 'string',
+      type: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErrorMinuteStatTrendResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: GetErrorMinuteStatTrendResponseBodyData[];
+  /**
+   * @example
+   * succeed in handling request
+   */
+  msg?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      msg: 'msg',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': GetErrorMinuteStatTrendResponseBodyData },
+      msg: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetErrorMinuteStatTrendResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetErrorMinuteStatTrendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetErrorMinuteStatTrendResponseBody,
     };
   }
 
@@ -1157,6 +1371,128 @@ export class GetNativePageTrendResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetNativePageTrendResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkMinuteTrendRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5fb6001a73749c24fd9cb356
+   */
+  dataSourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-09-27 09:07
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'dataSourceId',
+      startTime: 'startTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkMinuteTrendResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: GetNetworkMinuteTrendResponseBodyData[];
+  /**
+   * @example
+   * succeed in handling request
+   */
+  msg?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      msg: 'msg',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': GetNetworkMinuteTrendResponseBodyData },
+      msg: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.data)) {
+      $dara.Model.validateArray(this.data);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetNetworkMinuteTrendResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNetworkMinuteTrendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetNetworkMinuteTrendResponseBody,
     };
   }
 
@@ -2217,6 +2553,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取分钟粒度稳定性统计数据
+   * 
+   * @param request - GetErrorMinuteStatTrendRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetErrorMinuteStatTrendResponse
+   */
+  async getErrorMinuteStatTrendWithOptions(request: GetErrorMinuteStatTrendRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetErrorMinuteStatTrendResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataSourceId)) {
+      query["dataSourceId"] = request.dataSourceId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetErrorMinuteStatTrend",
+      version: "2022-02-14",
+      protocol: "HTTPS",
+      pathname: `/stat/GetErrorMinuteStatTrend`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetErrorMinuteStatTrendResponse>(await this.callApi(params, req, runtime), new GetErrorMinuteStatTrendResponse({}));
+    } else {
+      return $dara.cast<GetErrorMinuteStatTrendResponse>(await this.execute(params, req, runtime), new GetErrorMinuteStatTrendResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取分钟粒度稳定性统计数据
+   * 
+   * @param request - GetErrorMinuteStatTrendRequest
+   * @returns GetErrorMinuteStatTrendResponse
+   */
+  async getErrorMinuteStatTrend(request: GetErrorMinuteStatTrendRequest): Promise<GetErrorMinuteStatTrendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getErrorMinuteStatTrendWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取H5页面性能统计数据
    * 
    * @param request - GetH5PageTrendRequest
@@ -2412,6 +2806,60 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getNativePageTrendWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取分钟粒度网络统计数据
+   * 
+   * @param request - GetNetworkMinuteTrendRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNetworkMinuteTrendResponse
+   */
+  async getNetworkMinuteTrendWithOptions(request: GetNetworkMinuteTrendRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<GetNetworkMinuteTrendResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataSourceId)) {
+      query["dataSourceId"] = request.dataSourceId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNetworkMinuteTrend",
+      version: "2022-02-14",
+      protocol: "HTTPS",
+      pathname: `/stat/getNetworkMinuteTrend`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetNetworkMinuteTrendResponse>(await this.callApi(params, req, runtime), new GetNetworkMinuteTrendResponse({}));
+    } else {
+      return $dara.cast<GetNetworkMinuteTrendResponse>(await this.execute(params, req, runtime), new GetNetworkMinuteTrendResponse({}));
+    }
+
+  }
+
+  /**
+   * 获取分钟粒度网络统计数据
+   * 
+   * @param request - GetNetworkMinuteTrendRequest
+   * @returns GetNetworkMinuteTrendResponse
+   */
+  async getNetworkMinuteTrend(request: GetNetworkMinuteTrendRequest): Promise<GetNetworkMinuteTrendResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getNetworkMinuteTrendWithOptions(request, headers, runtime);
   }
 
   /**
