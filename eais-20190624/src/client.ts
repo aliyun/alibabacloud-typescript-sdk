@@ -576,6 +576,7 @@ export class DescribeEaisResponseBodyInstancesInstance extends $dara.Model {
    * http://121.41.**.24:8888
    */
   jupyterUrl?: string;
+  paymentType?: string;
   /**
    * @example
    * cn-shenzhen
@@ -616,6 +617,7 @@ export class DescribeEaisResponseBodyInstancesInstance extends $dara.Model {
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
       jupyterUrl: 'JupyterUrl',
+      paymentType: 'PaymentType',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
@@ -639,6 +641,7 @@ export class DescribeEaisResponseBodyInstancesInstance extends $dara.Model {
       instanceName: 'string',
       instanceType: 'string',
       jupyterUrl: 'string',
+      paymentType: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       securityGroupId: 'string',
