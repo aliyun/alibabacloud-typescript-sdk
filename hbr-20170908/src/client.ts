@@ -852,11 +852,11 @@ export class CreatePolicyV2RequestRulesDataSourceFilters extends $dara.Model {
    * @remarks
    * The type of the data source. Valid value:
    * 
-   * *   **UDM_ECS**: Elastic Compute Service (ECS) instance This type of data source is supported only if the **RuleType** parameter is set to **UDM_ECS_ONLY**.
-   * *   **OSS**: Object Storage Service (OSS) bucket This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
-   * *   **NAS**: File Storage NAS (NAS) file system This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
-   * *   **ECS_FILE**: ECS file This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
-   * *   **OTS**: Tablestore instance This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+   * *   **UDM_ECS**: Elastic Compute Service (ECS) instance This type of data source is supported only if the **PolicyType** parameter is set to **UDM_ECS_ONLY**.
+   * *   **OSS**: Object Storage Service (OSS) bucket This type of data source is supported only if the **PolicyType** parameter is set to **STANDARD**.
+   * *   **NAS**: File Storage NAS (NAS) file system This type of data source is supported only if the **PolicyType** parameter is set to **STANDARD**.
+   * *   **ECS_FILE**: ECS file This type of data source is supported only if the **PolicyType** parameter is set to **STANDARD**.
+   * *   **OTS**: Tablestore instance This type of data source is supported only if the **PolicyType** parameter is set to **STANDARD**.
    * 
    * @example
    * UDM_ECS
@@ -1039,8 +1039,9 @@ export class CreatePolicyV2RequestRules extends $dara.Model {
   replicationRegionId?: string;
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **TRANSITION** or **REPLICATION**.
+   * This parameter is required only if the **RuleType** parameter is set to **BACKUP**, **TRANSITION** or **REPLICATION**.
    * 
+   * *   If the **RuleType** parameter is set to **BACKUP**, this parameter specifies the retention period of the backup data. The priority is lower than the Retention field of the rule with RuleType=TRANSITION. Minimum value: 1. Maximum value: 364635. Unit: days.
    * *   If the **RuleType** parameter is set to **TRANSITION**, this parameter specifies the retention period of the backup data. Minimum value: 1. Maximum value: 364635. Unit: days.
    * *   If the **RuleType** parameter is set to **REPLICATION**, this parameter specifies the retention period of remote backups. Minimum value: 1. Maximum value: 364635. Unit: days.
    * 
@@ -1060,6 +1061,7 @@ export class CreatePolicyV2RequestRules extends $dara.Model {
    * *   **BACKUP**: backup rule
    * *   **TRANSITION**: lifecycle rule
    * *   **REPLICATION**: replication rule
+   * *   **TAG**: tag rule
    * 
    * This parameter is required.
    * 
@@ -3619,6 +3621,7 @@ export class DescribeClientsResponseBodyClientsClient extends $dara.Model {
    * 1554347313
    */
   createdTime?: number;
+  heartBeatTime?: number;
   /**
    * @remarks
    * The instance ID.
@@ -3719,6 +3722,7 @@ export class DescribeClientsResponseBodyClientsClient extends $dara.Model {
       clientVersion: 'ClientVersion',
       clusterId: 'ClusterId',
       createdTime: 'CreatedTime',
+      heartBeatTime: 'HeartBeatTime',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       maxVersion: 'MaxVersion',
@@ -3740,6 +3744,7 @@ export class DescribeClientsResponseBodyClientsClient extends $dara.Model {
       clientVersion: 'string',
       clusterId: 'string',
       createdTime: 'number',
+      heartBeatTime: 'number',
       instanceId: 'string',
       instanceName: 'string',
       maxVersion: 'string',
@@ -10196,6 +10201,14 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
    * This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the resource tag filter rule.
    */
   tagFilters?: UpdatePolicyV2RequestRulesTagFilters[];
+  /**
+   * @remarks
+   * This parameter is required only if the RuleType parameter is set to BACKUP. The ID of the backup vault.
+   * 
+   * @example
+   * v-0001************aseg
+   */
+  vaultId?: string;
   static names(): { [key: string]: string } {
     return {
       archiveDays: 'ArchiveDays',
@@ -10211,6 +10224,7 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
       ruleType: 'RuleType',
       schedule: 'Schedule',
       tagFilters: 'TagFilters',
+      vaultId: 'VaultId',
     };
   }
 
@@ -10229,6 +10243,7 @@ export class UpdatePolicyV2RequestRules extends $dara.Model {
       ruleType: 'string',
       schedule: 'string',
       tagFilters: { 'type': 'array', 'itemType': UpdatePolicyV2RequestRulesTagFilters },
+      vaultId: 'string',
     };
   }
 
@@ -15416,7 +15431,11 @@ export class CreateVaultRequest extends $dara.Model {
   vaultRegionId?: string;
   /**
    * @remarks
-   * The storage type of the backup vault. Valid value: **STANDARD**, which indicates standard storage.
+   * The storage type of the backup vault. Valid value: 
+   * - **STANDARD**: standard storage.
+   * - **ARCHIVE**: deprected.
+   * - **COLD_ARCHIVE**: deprected.
+   * - **IA**: deprected.
    * 
    * @example
    * STANDARD
