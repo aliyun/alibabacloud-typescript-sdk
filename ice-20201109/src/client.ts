@@ -128,12 +128,15 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
   greeting?: string;
+  interruptWords?: string[];
   llmHistory?: AIAgentTemplateConfigAvatarChat3DLlmHistory[];
   llmHistoryLimit?: number;
+  llmSystemPrompt?: string;
   maxIdleTime?: number;
   useVoiceprint?: boolean;
   userOfflineTimeout?: number;
   userOnlineTimeout?: number;
+  vadLevel?: number;
   voiceId?: string;
   voiceIdList?: string[];
   voiceprintId?: string;
@@ -151,12 +154,15 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
       greeting: 'Greeting',
+      interruptWords: 'InterruptWords',
       llmHistory: 'LlmHistory',
       llmHistoryLimit: 'LlmHistoryLimit',
+      llmSystemPrompt: 'LlmSystemPrompt',
       maxIdleTime: 'MaxIdleTime',
       useVoiceprint: 'UseVoiceprint',
       userOfflineTimeout: 'UserOfflineTimeout',
       userOnlineTimeout: 'UserOnlineTimeout',
+      vadLevel: 'VadLevel',
       voiceId: 'VoiceId',
       voiceIdList: 'VoiceIdList',
       voiceprintId: 'VoiceprintId',
@@ -177,12 +183,15 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
       greeting: 'string',
+      interruptWords: { 'type': 'array', 'itemType': 'string' },
       llmHistory: { 'type': 'array', 'itemType': AIAgentTemplateConfigAvatarChat3DLlmHistory },
       llmHistoryLimit: 'number',
+      llmSystemPrompt: 'string',
       maxIdleTime: 'number',
       useVoiceprint: 'boolean',
       userOfflineTimeout: 'number',
       userOnlineTimeout: 'number',
+      vadLevel: 'number',
       voiceId: 'string',
       voiceIdList: { 'type': 'array', 'itemType': 'string' },
       voiceprintId: 'string',
@@ -193,6 +202,9 @@ export class AIAgentTemplateConfigAvatarChat3D extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.interruptWords)) {
+      $dara.Model.validateArray(this.interruptWords);
+    }
     if(Array.isArray(this.llmHistory)) {
       $dara.Model.validateArray(this.llmHistory);
     }
@@ -242,12 +254,15 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
   greeting?: string;
+  interruptWords?: string[];
   llmHistory?: AIAgentTemplateConfigVisionChatLlmHistory[];
   llmHistoryLimit?: number;
+  llmSystemPrompt?: string;
   maxIdleTime?: number;
   useVoiceprint?: boolean;
   userOfflineTimeout?: number;
   userOnlineTimeout?: number;
+  vadLevel?: number;
   voiceId?: string;
   voiceIdList?: string[];
   voiceprintId?: string;
@@ -264,12 +279,15 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
       greeting: 'Greeting',
+      interruptWords: 'InterruptWords',
       llmHistory: 'LlmHistory',
       llmHistoryLimit: 'LlmHistoryLimit',
+      llmSystemPrompt: 'LlmSystemPrompt',
       maxIdleTime: 'MaxIdleTime',
       useVoiceprint: 'UseVoiceprint',
       userOfflineTimeout: 'UserOfflineTimeout',
       userOnlineTimeout: 'UserOnlineTimeout',
+      vadLevel: 'VadLevel',
       voiceId: 'VoiceId',
       voiceIdList: 'VoiceIdList',
       voiceprintId: 'VoiceprintId',
@@ -289,12 +307,15 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
       greeting: 'string',
+      interruptWords: { 'type': 'array', 'itemType': 'string' },
       llmHistory: { 'type': 'array', 'itemType': AIAgentTemplateConfigVisionChatLlmHistory },
       llmHistoryLimit: 'number',
+      llmSystemPrompt: 'string',
       maxIdleTime: 'number',
       useVoiceprint: 'boolean',
       userOfflineTimeout: 'number',
       userOnlineTimeout: 'number',
+      vadLevel: 'number',
       voiceId: 'string',
       voiceIdList: { 'type': 'array', 'itemType': 'string' },
       voiceprintId: 'string',
@@ -305,6 +326,9 @@ export class AIAgentTemplateConfigVisionChat extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.interruptWords)) {
+      $dara.Model.validateArray(this.interruptWords);
+    }
     if(Array.isArray(this.llmHistory)) {
       $dara.Model.validateArray(this.llmHistory);
     }
@@ -356,12 +380,15 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
   greeting?: string;
+  interruptWords?: string[];
   llmHistory?: AIAgentTemplateConfigVoiceChatLlmHistory[];
   llmHistoryLimit?: number;
+  llmSystemPrompt?: string;
   maxIdleTime?: number;
   useVoiceprint?: boolean;
   userOfflineTimeout?: number;
   userOnlineTimeout?: number;
+  vadLevel?: number;
   voiceId?: string;
   voiceIdList?: string[];
   voiceprintId?: string;
@@ -380,12 +407,15 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
       greeting: 'Greeting',
+      interruptWords: 'InterruptWords',
       llmHistory: 'LlmHistory',
       llmHistoryLimit: 'LlmHistoryLimit',
+      llmSystemPrompt: 'LlmSystemPrompt',
       maxIdleTime: 'MaxIdleTime',
       useVoiceprint: 'UseVoiceprint',
       userOfflineTimeout: 'UserOfflineTimeout',
       userOnlineTimeout: 'UserOnlineTimeout',
+      vadLevel: 'VadLevel',
       voiceId: 'VoiceId',
       voiceIdList: 'VoiceIdList',
       voiceprintId: 'VoiceprintId',
@@ -407,12 +437,15 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
       greeting: 'string',
+      interruptWords: { 'type': 'array', 'itemType': 'string' },
       llmHistory: { 'type': 'array', 'itemType': AIAgentTemplateConfigVoiceChatLlmHistory },
       llmHistoryLimit: 'number',
+      llmSystemPrompt: 'string',
       maxIdleTime: 'number',
       useVoiceprint: 'boolean',
       userOfflineTimeout: 'number',
       userOnlineTimeout: 'number',
+      vadLevel: 'number',
       voiceId: 'string',
       voiceIdList: { 'type': 'array', 'itemType': 'string' },
       voiceprintId: 'string',
@@ -423,6 +456,9 @@ export class AIAgentTemplateConfigVoiceChat extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.interruptWords)) {
+      $dara.Model.validateArray(this.interruptWords);
+    }
     if(Array.isArray(this.llmHistory)) {
       $dara.Model.validateArray(this.llmHistory);
     }
@@ -855,7 +891,7 @@ export class VodPackagingConfigStreamSelection extends $dara.Model {
 export class AddAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
   /**
    * @remarks
-   * 广告分片的CDN前缀
+   * The CDN prefix for ad segments.
    * 
    * @example
    * http://cdn.com/
@@ -863,7 +899,7 @@ export class AddAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
   adSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * 视频内容分片的CDN前缀
+   * The CDN prefix for content segments.
    * 
    * @example
    * http://cdn.com/
@@ -895,7 +931,7 @@ export class AddAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
 export class AddAdInsertionResponseBodyConfigManifestEndpointConfig extends $dara.Model {
   /**
    * @remarks
-   * HLS清单播放端点前缀
+   * The prefix of the playback endpoint for HLS manifests.
    */
   hlsPrefix?: string;
   static names(): { [key: string]: string } {
@@ -922,7 +958,7 @@ export class AddAdInsertionResponseBodyConfigManifestEndpointConfig extends $dar
 export class AddAdInsertionResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * 广告标记透传
+   * Indicates whether ad marker passthrough is enabled.
    * 
    * @example
    * ON
@@ -930,7 +966,7 @@ export class AddAdInsertionResponseBodyConfig extends $dara.Model {
   adMarkerPassthrough?: string;
   /**
    * @remarks
-   * 广告策略服务器URL
+   * The request URL of ADS.
    * 
    * @example
    * http://ads.com/ad1?param1=[palyer_params.p1]
@@ -938,12 +974,12 @@ export class AddAdInsertionResponseBodyConfig extends $dara.Model {
   adsUrl?: string;
   /**
    * @remarks
-   * CDN配置
+   * The CDN configurations.
    */
   cdnConfig?: AddAdInsertionResponseBodyConfigCdnConfig;
   /**
    * @remarks
-   * 动态配置别名
+   * The player parameter variables and aliases.
    * 
    * @example
    * { "player_params.p1": { "1": "abc" } }
@@ -951,7 +987,7 @@ export class AddAdInsertionResponseBodyConfig extends $dara.Model {
   configAliases?: string;
   /**
    * @remarks
-   * 内容URL前缀
+   * The URL prefix for the source content.
    * 
    * @example
    * https://source.com/
@@ -959,7 +995,7 @@ export class AddAdInsertionResponseBodyConfig extends $dara.Model {
   contentUrlPrefix?: string;
   /**
    * @remarks
-   * 创建时间
+   * The time when the configuration was created.
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -967,7 +1003,7 @@ export class AddAdInsertionResponseBodyConfig extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * 修改时间
+   * The time when the configuration was last modified.
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -975,12 +1011,12 @@ export class AddAdInsertionResponseBodyConfig extends $dara.Model {
   lastModified?: string;
   /**
    * @remarks
-   * 清单播放端点配置
+   * The playback endpoint configuration.
    */
   manifestEndpointConfig?: AddAdInsertionResponseBodyConfigManifestEndpointConfig;
   /**
    * @remarks
-   * 广告插入配置名称
+   * The name of the ad insertion configuration.
    * 
    * @example
    * my_ad
@@ -988,7 +1024,7 @@ export class AddAdInsertionResponseBodyConfig extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 个性化配置阈值
+   * The personalization threshold.
    * 
    * @example
    * 5
@@ -996,7 +1032,7 @@ export class AddAdInsertionResponseBodyConfig extends $dara.Model {
   personalizationThreshold?: number;
   /**
    * @remarks
-   * slate广告URL
+   * The URL of the slate ad.
    * 
    * @example
    * http://storage.com/slate1.mp4
@@ -1610,7 +1646,7 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfos extends $dara.Mode
 export class AddMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   /**
    * @remarks
-   * Input URL
+   * The source URL.
    * 
    * @example
    * rtmp://1.2.3.4:1935/live/AliTestInput_8666ec062190f00e263012666319a5be
@@ -1640,7 +1676,7 @@ export class AddMediaConnectFlowInputResponseBodyContent extends $dara.Model {
 export class AddMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
   /**
    * @remarks
-   * Output address
+   * The output URL.
    * 
    * @example
    * srt://1.2.3.4:1025
@@ -1804,8 +1840,15 @@ export class AddTemplateResponseBodyTemplate extends $dara.Model {
 }
 
 export class BatchCreateVodPackagingAssetRequestAssetsInput extends $dara.Model {
+  /**
+   * @remarks
+   * The URL of the media file. You can only specify a M3U8 file stored in Object Storage Service (OSS).
+   */
   media?: string;
   /**
+   * @remarks
+   * The input type. Only OSS is supported.
+   * 
    * @example
    * OSS
    */
@@ -1835,15 +1878,25 @@ export class BatchCreateVodPackagingAssetRequestAssetsInput extends $dara.Model 
 
 export class BatchCreateVodPackagingAssetRequestAssets extends $dara.Model {
   /**
+   * @remarks
+   * The name of the asset. The name must be unique and can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * 30min_movie
    */
   assetName?: string;
   /**
+   * @remarks
+   * The content ID in the digital rights management (DRM) system. The maximum length is 256 characters. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * movie
    */
   contentId?: string;
+  /**
+   * @remarks
+   * The asset input configurations.
+   */
   input?: BatchCreateVodPackagingAssetRequestAssetsInput;
   static names(): { [key: string]: string } {
     return {
@@ -1874,13 +1927,23 @@ export class BatchCreateVodPackagingAssetRequestAssets extends $dara.Model {
 }
 
 export class BatchCreateVodPackagingAssetResponseBodyResultList extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the ingested asset.
+   */
   asset?: VodPackagingAsset;
   /**
+   * @remarks
+   * The error code for failed ingestion.
+   * 
    * @example
    * InvalidParameter.PackagingAssetAlreadyExists
    */
   code?: string;
   /**
+   * @remarks
+   * The error message for failed ingestion.
+   * 
    * @example
    * The specified packagingAsset "inputMovie" already exists
    */
@@ -2827,21 +2890,33 @@ export class CreateEditingProjectResponseBodyProject extends $dara.Model {
 
 export class CreateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints extends $dara.Model {
   /**
+   * @remarks
+   * The ingest endpoint ID.
+   * 
    * @example
    * ingest1
    */
   id?: string;
   /**
+   * @remarks
+   * The password.
+   * 
    * @example
    * 2F9e******b569c8
    */
   password?: string;
   /**
+   * @remarks
+   * The ingest endpoint URL.
+   * 
    * @example
    * http://xxx-1.packagepush-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
    */
   url?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * us12******das
    */
@@ -2876,9 +2951,7 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoin
 export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dara.Model {
   /**
    * @remarks
-   * 频道名称，字符必须为大小写英文字母或-、_。
-   * 1 ~ 200个字符。
-   * 格式：[A-Za-z0-9_-]+
+   * The channel name.
    * 
    * @example
    * example-channel
@@ -2886,7 +2959,7 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   channelName?: string;
   /**
    * @remarks
-   * 代表创建时间的资源属性字段
+   * The time when the channel was created. It is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -2894,21 +2967,25 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   createTime?: string;
   /**
    * @remarks
-   * 频道描述，最大1000个字符
+   * The channel description.
    */
   description?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * @example
    * channel-group-1
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The ingest endpoints.
+   */
   ingestEndpoints?: CreateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints[];
   /**
    * @remarks
-   * 最后修改时间
+   * The time when the channel was last modified. It is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -2916,7 +2993,7 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   lastModified?: string;
   /**
    * @remarks
-   * 输入协议，目前仅支持HLS
+   * The ingest protocol. Only HLS is supported.
    * 
    * @example
    * HLS
@@ -2924,7 +3001,7 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   protocol?: string;
   /**
    * @remarks
-   * 输入流m3u8切片个数，2～100
+   * The number of M3U8 segments.
    * 
    * @example
    * 3
@@ -2932,7 +3009,7 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   segmentCount?: number;
   /**
    * @remarks
-   * 输入流切片时长，1～30
+   * The segment duration.
    * 
    * @example
    * 5
@@ -2981,7 +3058,7 @@ export class CreateLivePackageChannelResponseBodyLivePackageChannel extends $dar
 export class CreateLivePackageChannelGroupResponseBodyLivePackageChannelGroup extends $dara.Model {
   /**
    * @remarks
-   * 创建时间
+   * The time when the channel group was created. It is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -2989,12 +3066,12 @@ export class CreateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
   createTime?: string;
   /**
    * @remarks
-   * 描述
+   * The channel group description.
    */
   description?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * @example
    * example-group
@@ -3002,7 +3079,7 @@ export class CreateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
   groupName?: string;
   /**
    * @remarks
-   * 修改时间
+   * The time when the channel group was last modified. It is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -3010,7 +3087,7 @@ export class CreateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
   lastModified?: string;
   /**
    * @remarks
-   * 源站域名
+   * The origin domain.
    * 
    * @example
    * example.com
@@ -3048,7 +3125,7 @@ export class CreateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
 export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint extends $dara.Model {
   /**
    * @remarks
-   * 回源授权码，与IpWhitelist必选其一
+   * The authorization code.
    * 
    * @example
    * Abcded123
@@ -3056,7 +3133,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   authorizationCode?: string;
   /**
    * @remarks
-   * 频道名称
+   * The channel name.
    * 
    * @example
    * channel-1
@@ -3064,7 +3141,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   channelName?: string;
   /**
    * @remarks
-   * 创建时间
+   * The time when the endpoint was created.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -3072,12 +3149,12 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   createTime?: string;
   /**
    * @remarks
-   * 端点描述
+   * The endpoint description.
    */
   description?: string;
   /**
    * @remarks
-   * 端点名称
+   * The endpoint name.
    * 
    * @example
    * endpoint-1
@@ -3085,7 +3162,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   endpointName?: string;
   /**
    * @remarks
-   * 源站端点回源播放地址
+   * The endpoint URL.
    * 
    * @example
    * https://xxx.packagepull-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
@@ -3093,7 +3170,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   endpointUrl?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * @example
    * channel-group-1
@@ -3101,7 +3178,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   groupName?: string;
   /**
    * @remarks
-   * IP黑名单，支持无类别域间路由（CIDR），逗号分隔
+   * The IP address blacklist.
    * 
    * @example
    * 103.21.222.1/32,192.168.100.0/24
@@ -3109,7 +3186,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   ipBlacklist?: string;
   /**
    * @remarks
-   * IP白名单，支持无类别域间路由（CIDR），逗号分隔，与AuthorizationCode必选其一
+   * The IP address whitelist.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1/24
@@ -3117,7 +3194,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   ipWhitelist?: string;
   /**
    * @remarks
-   * 最后修改时间
+   * The time when the endpoint was last modified.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -3125,7 +3202,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   lastModified?: string;
   /**
    * @remarks
-   * 播放列表名
+   * The playlist name.
    * 
    * @example
    * manifest
@@ -3133,7 +3210,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   manifestName?: string;
   /**
    * @remarks
-   * 端点分发协议，暂只支持HLS
+   * The protocol. Only HLS is supported.
    * 
    * @example
    * HLS
@@ -3141,7 +3218,7 @@ export class CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   protocol?: string;
   /**
    * @remarks
-   * 时移天数，最大30天，0表示不支持时移
+   * The number of days that time-shifted content is available. Maximum value: 30.
    * 
    * @example
    * 1
@@ -3504,7 +3581,7 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfig extends $dara.Mode
 export class CreateMediaConnectFlowResponseBodyContent extends $dara.Model {
   /**
    * @remarks
-   * Flow instance ID
+   * The flow ID.
    * 
    * @example
    * 34900dc6-90ec-4968-af3c-fcd87f231a5f
@@ -3519,6 +3596,964 @@ export class CreateMediaConnectFlowResponseBodyContent extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       flowId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestAudioSettingsAudioCodecSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The audio bitrate. Unit: bit/s. Valid values: 8000 to 1000000. The value must be divisible by 1000.
+   * 
+   * @example
+   * 200000
+   */
+  bitrate?: number;
+  /**
+   * @remarks
+   * The audio codec profile. When AudioCodec is set to aac, AAC-LOW and AAC-MAIN are supported. When AudioCodec is set to libfdk_aac, AAC-LOW, AAC-HE, and AAC-HEV2 are supported.
+   * 
+   * @example
+   * AAC-LOW
+   */
+  profile?: string;
+  /**
+   * @remarks
+   * The audio sample rate. Unit: Hz. Valid values: 22050, 32000, 44100, 48000, and 96000.
+   * 
+   * @example
+   * 44100
+   */
+  sampleRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      profile: 'Profile',
+      sampleRate: 'SampleRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'number',
+      profile: 'string',
+      sampleRate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestAudioSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The audio codec. If it is not specified, the source specification is used. Valid values: aac and libfdk_aac.
+   * 
+   * @example
+   * libfdk_aac
+   */
+  audioCodec?: string;
+  /**
+   * @remarks
+   * The audio encoding settings.
+   */
+  audioCodecSetting?: CreateMediaLiveChannelRequestAudioSettingsAudioCodecSetting;
+  /**
+   * @remarks
+   * The name of the audio selector.
+   * 
+   * @example
+   * a1
+   */
+  audioSelectorName?: string;
+  /**
+   * @remarks
+   * Enter a three-letter ISO 639-2 language code. If the audio track selected by the audio selector has a language code, the language code specified in the audio selector is used. If the selected audio track does not have a language code, or if the audio selector cannot find a track that matches its criteria, this language code is used.
+   * 
+   * @example
+   * eng
+   */
+  languageCode?: string;
+  /**
+   * @remarks
+   * The tag that identifies the language of the RTMP input. It can be referenced by the output. The maximum length is 32 characters. Supported characters:
+   * 
+   * *   Unicode letters
+   * *   Digits (0-9)
+   * *   Underscore (_)
+   * *   Hyphen (-)
+   * *   Space (a space cannot be at the beginning or end)
+   * 
+   * @example
+   * English
+   */
+  languageName?: string;
+  /**
+   * @remarks
+   * The name of the audio settings. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * audio1
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioCodec: 'AudioCodec',
+      audioCodecSetting: 'AudioCodecSetting',
+      audioSelectorName: 'AudioSelectorName',
+      languageCode: 'LanguageCode',
+      languageName: 'LanguageName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioCodec: 'string',
+      audioCodecSetting: CreateMediaLiveChannelRequestAudioSettingsAudioCodecSetting,
+      audioSelectorName: 'string',
+      languageCode: 'string',
+      languageName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(this.audioCodecSetting && typeof (this.audioCodecSetting as any).validate === 'function') {
+      (this.audioCodecSetting as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioLanguageSelection extends $dara.Model {
+  /**
+   * @remarks
+   * Enter a three-letter ISO 639-2 language code from within an audio source.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eng
+   */
+  languageCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      languageCode: 'LanguageCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      languageCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioPidSelection extends $dara.Model {
+  /**
+   * @remarks
+   * Enter a specific PID from within a source.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
+  pid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pid: 'Pid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pid: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioTrackSelection extends $dara.Model {
+  /**
+   * @remarks
+   * Specify one or more audio tracks from within a source using Track ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  trackId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      trackId: 'TrackId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trackId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestInputAttachmentsAudioSelectors extends $dara.Model {
+  /**
+   * @remarks
+   * The audio language selection.
+   */
+  audioLanguageSelection?: CreateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioLanguageSelection;
+  /**
+   * @remarks
+   * The audio PID selection.
+   */
+  audioPidSelection?: CreateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioPidSelection;
+  /**
+   * @remarks
+   * The audio track selection.
+   */
+  audioTrackSelection?: CreateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioTrackSelection[];
+  /**
+   * @remarks
+   * The name of the audio selector. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myselector
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioLanguageSelection: 'AudioLanguageSelection',
+      audioPidSelection: 'AudioPidSelection',
+      audioTrackSelection: 'AudioTrackSelection',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioLanguageSelection: CreateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioLanguageSelection,
+      audioPidSelection: CreateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioPidSelection,
+      audioTrackSelection: { 'type': 'array', 'itemType': CreateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioTrackSelection },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(this.audioLanguageSelection && typeof (this.audioLanguageSelection as any).validate === 'function') {
+      (this.audioLanguageSelection as any).validate();
+    }
+    if(this.audioPidSelection && typeof (this.audioPidSelection as any).validate === 'function') {
+      (this.audioPidSelection as any).validate();
+    }
+    if(Array.isArray(this.audioTrackSelection)) {
+      $dara.Model.validateArray(this.audioTrackSelection);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestInputAttachments extends $dara.Model {
+  /**
+   * @remarks
+   * The audio selectors.
+   */
+  audioSelectors?: CreateMediaLiveChannelRequestInputAttachmentsAudioSelectors[];
+  /**
+   * @remarks
+   * The ID of the associated input.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myinput
+   */
+  inputId?: string;
+  /**
+   * @remarks
+   * The tag that identifies the language of the RTMP input. It can be referenced by the output. The maximum length is 32 characters. Supported characters:
+   * 
+   * *   Unicode letters
+   * *   Digits (0-9)
+   * *   Underscore (_)
+   * *   Hyphen (-)
+   * *   Space (a space cannot be at the beginning or end)
+   * 
+   * @example
+   * English
+   */
+  languageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioSelectors: 'AudioSelectors',
+      inputId: 'InputId',
+      languageName: 'LanguageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSelectors: { 'type': 'array', 'itemType': CreateMediaLiveChannelRequestInputAttachmentsAudioSelectors },
+      inputId: 'string',
+      languageName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audioSelectors)) {
+      $dara.Model.validateArray(this.audioSelectors);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestOutputGroupsMediaPackageGroupSetting extends $dara.Model {
+  /**
+   * @remarks
+   * ChannelName in MediaPackage.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myPackageChannel
+   */
+  channelName?: string;
+  /**
+   * @remarks
+   * GroupName in MediaPackage.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myPackageGroup
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestOutputGroupsOutputsMediaPackageOutputSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The manifest audio group ID. To associate several audio tracks into one group, assign the same audio group ID. Viewers can select a track as needed. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 40 characters in length.
+   * 
+   * @example
+   * audiogroup
+   */
+  audioGroupId?: string;
+  /**
+   * @remarks
+   * The manifest name modifier. The child manifests include this modifier in their M3U8 file names. Letters, digits, hyphens (-), and underscores (_) are supported. The maximum length is 40 characters.
+   * 
+   * @example
+   * 480p
+   */
+  nameModifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioGroupId: 'AudioGroupId',
+      nameModifier: 'NameModifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioGroupId: 'string',
+      nameModifier: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestOutputGroupsOutputs extends $dara.Model {
+  /**
+   * @remarks
+   * The referenced AudioSettings.
+   */
+  audioSettingNames?: string[];
+  /**
+   * @remarks
+   * The settings of the output delivered to MediaPackage.
+   */
+  mediaPackageOutputSetting?: CreateMediaLiveChannelRequestOutputGroupsOutputsMediaPackageOutputSetting;
+  /**
+   * @remarks
+   * The media type of the output. Valid values:
+   * 
+   * *   0: Audio and Video.
+   * *   1: Audio. If you set the value to 1, you cannot reference VideoSettings.
+   * *   2: Video. If you set the value to 2, you cannot reference AudioSettings.
+   * 
+   * @example
+   * 0
+   */
+  mediaType?: number;
+  /**
+   * @remarks
+   * The name of the output. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * output1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The name of the referenced VideoSettings.
+   * 
+   * @example
+   * myVideo1
+   */
+  videoSettingName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioSettingNames: 'AudioSettingNames',
+      mediaPackageOutputSetting: 'MediaPackageOutputSetting',
+      mediaType: 'MediaType',
+      name: 'Name',
+      videoSettingName: 'VideoSettingName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSettingNames: { 'type': 'array', 'itemType': 'string' },
+      mediaPackageOutputSetting: CreateMediaLiveChannelRequestOutputGroupsOutputsMediaPackageOutputSetting,
+      mediaType: 'number',
+      name: 'string',
+      videoSettingName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audioSettingNames)) {
+      $dara.Model.validateArray(this.audioSettingNames);
+    }
+    if(this.mediaPackageOutputSetting && typeof (this.mediaPackageOutputSetting as any).validate === 'function') {
+      (this.mediaPackageOutputSetting as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestOutputGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The MediaPackage destination.
+   */
+  mediaPackageGroupSetting?: CreateMediaLiveChannelRequestOutputGroupsMediaPackageGroupSetting;
+  /**
+   * @remarks
+   * The name of the output group. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * group1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The outputs in the output group.
+   * 
+   * This parameter is required.
+   */
+  outputs?: CreateMediaLiveChannelRequestOutputGroupsOutputs[];
+  /**
+   * @remarks
+   * The output group type. Only MediaPackage is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MediaPackage
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaPackageGroupSetting: 'MediaPackageGroupSetting',
+      name: 'Name',
+      outputs: 'Outputs',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaPackageGroupSetting: CreateMediaLiveChannelRequestOutputGroupsMediaPackageGroupSetting,
+      name: 'string',
+      outputs: { 'type': 'array', 'itemType': CreateMediaLiveChannelRequestOutputGroupsOutputs },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.mediaPackageGroupSetting && typeof (this.mediaPackageGroupSetting as any).validate === 'function') {
+      (this.mediaPackageGroupSetting as any).validate();
+    }
+    if(Array.isArray(this.outputs)) {
+      $dara.Model.validateArray(this.outputs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestVideoSettingsVideoCodecSettingCodecDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The video encoding level. It is not supported yet.
+   * 
+   * @example
+   * H264_LEVEL_AUTO
+   */
+  level?: string;
+  /**
+   * @remarks
+   * The H.264 profile. Valid values: BASELINE, HIGH, and MAIN. Default value: MAIN. The parameter takes effect only when the codec is H.264.
+   * 
+   * @example
+   * MAIN
+   */
+  profile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      level: 'Level',
+      profile: 'Profile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      level: 'string',
+      profile: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestVideoSettingsVideoCodecSettingFramerate extends $dara.Model {
+  /**
+   * @remarks
+   * The frame rate mode. Valid values: SPECIFIED (fixed frame rate) and FROM_SOURCE (use source specification).
+   * 
+   * @example
+   * SPECIFIED
+   */
+  framerateControl?: string;
+  /**
+   * @remarks
+   * The denominator of the fixed frame rate. The parameter is required when FramerateControl is set to SPECIFIED. Valid values: 1 to 60. The numerator must be divisible by the denominator.
+   * 
+   * @example
+   * 1
+   */
+  framerateDenominator?: number;
+  /**
+   * @remarks
+   * The numerator of the fixed frame rate. The parameter is required when FramerateControl is set to SPECIFIED. Valid values: 1 to 60. The numerator must be divisible by the denominator.
+   * 
+   * @example
+   * 25
+   */
+  framerateNumerator?: number;
+  static names(): { [key: string]: string } {
+    return {
+      framerateControl: 'FramerateControl',
+      framerateDenominator: 'FramerateDenominator',
+      framerateNumerator: 'FramerateNumerator',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      framerateControl: 'string',
+      framerateDenominator: 'number',
+      framerateNumerator: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestVideoSettingsVideoCodecSettingGop extends $dara.Model {
+  /**
+   * @remarks
+   * The number of B frames. Valid values: 1 to 3.
+   * 
+   * @example
+   * 3
+   */
+  bframesNum?: number;
+  /**
+   * @remarks
+   * The GOP size. When GopSizeUnits is set to SECONDS, the value range is from 1 to 20. When GopSizeUnits is set to FRAMES, the value range is from 1 to 3000.
+   * 
+   * @example
+   * 90
+   */
+  gopSize?: number;
+  /**
+   * @remarks
+   * The GOP size unit. Valid values: FRAMES and SECONDS.
+   * 
+   * @example
+   * FRAMES
+   */
+  gopSizeUnits?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bframesNum: 'BframesNum',
+      gopSize: 'GopSize',
+      gopSizeUnits: 'GopSizeUnits',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bframesNum: 'number',
+      gopSize: 'number',
+      gopSizeUnits: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestVideoSettingsVideoCodecSettingRate extends $dara.Model {
+  /**
+   * @remarks
+   * The video bitrate. Unit: bit/s. If you set it to 0 or leave it empty, the source specification is used. Valid values: 50000 to 6000000. The value must be divisible by 1000.
+   * 
+   * @example
+   * 2500000
+   */
+  bitrate?: number;
+  /**
+   * @remarks
+   * The video buffer size. Unit: bit/s. Valid values: 100000 to 6000000. The value must be divisible by 1000.
+   * 
+   * @example
+   * 6000000
+   */
+  bufferSize?: number;
+  /**
+   * @remarks
+   * The maximum bitrate. Unit: bit/s. Valid values: 100000 to 6000000. The value must be divisible by 1000.
+   * 
+   * @example
+   * 6000000
+   */
+  maxBitrate?: number;
+  /**
+   * @remarks
+   * The bitrate control mode. Valid values: CBR, ABR, and VBR.
+   * 
+   * @example
+   * ABR
+   */
+  rateControlMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      bufferSize: 'BufferSize',
+      maxBitrate: 'MaxBitrate',
+      rateControlMode: 'RateControlMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'number',
+      bufferSize: 'number',
+      maxBitrate: 'number',
+      rateControlMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestVideoSettingsVideoCodecSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The video encoding settings.
+   */
+  codecDetail?: CreateMediaLiveChannelRequestVideoSettingsVideoCodecSettingCodecDetail;
+  /**
+   * @remarks
+   * The frame rate. If it is not specified, the source specification is used.
+   */
+  framerate?: CreateMediaLiveChannelRequestVideoSettingsVideoCodecSettingFramerate;
+  /**
+   * @remarks
+   * The GOP setting. If it is not specified, the source specification is used.
+   */
+  gop?: CreateMediaLiveChannelRequestVideoSettingsVideoCodecSettingGop;
+  /**
+   * @remarks
+   * The video encoding rate. If it is not specified, the source specification is used.
+   */
+  rate?: CreateMediaLiveChannelRequestVideoSettingsVideoCodecSettingRate;
+  static names(): { [key: string]: string } {
+    return {
+      codecDetail: 'CodecDetail',
+      framerate: 'Framerate',
+      gop: 'Gop',
+      rate: 'Rate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codecDetail: CreateMediaLiveChannelRequestVideoSettingsVideoCodecSettingCodecDetail,
+      framerate: CreateMediaLiveChannelRequestVideoSettingsVideoCodecSettingFramerate,
+      gop: CreateMediaLiveChannelRequestVideoSettingsVideoCodecSettingGop,
+      rate: CreateMediaLiveChannelRequestVideoSettingsVideoCodecSettingRate,
+    };
+  }
+
+  validate() {
+    if(this.codecDetail && typeof (this.codecDetail as any).validate === 'function') {
+      (this.codecDetail as any).validate();
+    }
+    if(this.framerate && typeof (this.framerate as any).validate === 'function') {
+      (this.framerate as any).validate();
+    }
+    if(this.gop && typeof (this.gop as any).validate === 'function') {
+      (this.gop as any).validate();
+    }
+    if(this.rate && typeof (this.rate as any).validate === 'function') {
+      (this.rate as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequestVideoSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The height of the output. Valid values: 0 to 2000. If you set it to 0 or leave it empty, the height automatically adapts to the specified width to maintain the original aspect ratio.
+   * 
+   * @example
+   * 720
+   */
+  height?: number;
+  /**
+   * @remarks
+   * The name of the video settings. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * video1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The video codec. Valid values: H264 and H265.
+   * 
+   * @example
+   * H264
+   */
+  videoCodec?: string;
+  /**
+   * @remarks
+   * The video encoding settings.
+   */
+  videoCodecSetting?: CreateMediaLiveChannelRequestVideoSettingsVideoCodecSetting;
+  /**
+   * @remarks
+   * The width of the output. Valid values: 0 to 2000. If you set it to 0 or leave it empty, the width automatically adapts to the specified height to maintain the original aspect ratio.
+   * 
+   * @example
+   * 1280
+   */
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      name: 'Name',
+      videoCodec: 'VideoCodec',
+      videoCodecSetting: 'VideoCodecSetting',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      name: 'string',
+      videoCodec: 'string',
+      videoCodecSetting: CreateMediaLiveChannelRequestVideoSettingsVideoCodecSetting,
+      width: 'number',
+    };
+  }
+
+  validate() {
+    if(this.videoCodecSetting && typeof (this.videoCodecSetting as any).validate === 'function') {
+      (this.videoCodecSetting as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveInputRequestInputSettings extends $dara.Model {
+  flowId?: string;
+  flowOutputName?: string;
+  /**
+   * @remarks
+   * The source URL where the stream is pulled from. This parameter is required for PULL inputs.
+   * 
+   * @example
+   * rtmp://domain/app/stream
+   */
+  sourceUrl?: string;
+  /**
+   * @remarks
+   * The name of the pushed stream. This parameter is required for PUSH inputs. It can be up to 255 characters in length.
+   * 
+   * @example
+   * mystream
+   */
+  streamName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+      flowOutputName: 'FlowOutputName',
+      sourceUrl: 'SourceUrl',
+      streamName: 'StreamName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+      flowOutputName: 'string',
+      sourceUrl: 'string',
+      streamName: 'string',
     };
   }
 
@@ -3633,8 +4668,15 @@ export class CreatePipelineResponseBodyPipeline extends $dara.Model {
 }
 
 export class CreateVodPackagingAssetRequestInput extends $dara.Model {
+  /**
+   * @remarks
+   * The URL of the media file. Only M3U8 files stored in OSS are supported.
+   */
   media?: string;
   /**
+   * @remarks
+   * The input type. Only Object Storage Service (OSS) is supported.
+   * 
    * @example
    * OSS
    */
@@ -3664,16 +4706,43 @@ export class CreateVodPackagingAssetRequestInput extends $dara.Model {
 
 export class CreateVodPackagingConfigurationRequestPackageConfigDrmProvider extends $dara.Model {
   /**
+   * @remarks
+   * The encryption method. Valid values:
+   * 
+   * *   AES_128: Advanced Encryption Standard (AES) with 128-bit key length.
+   * *   SAMPLE_AES: an encryption method that encrypts individual media samples.
+   * 
    * @example
    * AES_128
    */
   encryptionMethod?: string;
   /**
+   * @remarks
+   * A 128-bit, 16-byte hex value represented by a 32-character string that is used with the key for encrypting data blocks. If you leave this parameter empty, MediaPackage creates a constant initialization vector (IV). If it is specified, the value is passed to the DRM service.
+   * 
    * @example
    * 00001111222233334444555566667777
    */
   IV?: string;
+  /**
+   * @remarks
+   * The ID of the DRM system. The maximum number of system IDs allowed is determined by the protocol type. Limits:
+   * 
+   * *   DASH: 2
+   * *   HLS: 1
+   * *   HLS_CMAF: 2
+   * 
+   * Apple FairPlay, Google Widevine, and Microsoft PlayReady are supported. Their system IDs are as follows:
+   * 
+   * *   Apple FairPlay: 94ce86fb-07ff-4f43-adb8-93d2fa968ca2
+   * *   Google Widevine: edef8ba9-79d6-4ace-a3c8-27dcd51d21e
+   * *   Microsoft PlayReady: 9a04f079-9840-4286-ab92-e65be0885f95
+   */
   systemIds?: string[];
+  /**
+   * @remarks
+   * The URL of the DRM key provider.
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3707,16 +4776,29 @@ export class CreateVodPackagingConfigurationRequestPackageConfigDrmProvider exte
 
 export class CreateVodPackagingConfigurationRequestPackageConfigStreamSelection extends $dara.Model {
   /**
+   * @remarks
+   * The maximum bitrate of the video stream. Unit: bit/s.
+   * 
    * @example
    * 1000000000
    */
   maxVideoBitsPerSecond?: number;
   /**
+   * @remarks
+   * The minimum bitrate of the video stream. Unit: bit/s.
+   * 
    * @example
    * 100000
    */
   minVideoBitsPerSecond?: number;
   /**
+   * @remarks
+   * The order of manifest files in the master playlist. Valid values:
+   * 
+   * *   ORIGINAL: sorts the manifest files in the same order as the source.
+   * *   VIDEO_BITRATE_ASCENDING: sorts the manifest files in ascending order of bitrates, from lowest to highest.
+   * *   VIDEO_BITRATE_DESCENDING: sorts the manifest files in descending order of bitrates, from highest to lowest.
+   * 
    * @example
    * ORIGINAL
    */
@@ -3748,20 +4830,33 @@ export class CreateVodPackagingConfigurationRequestPackageConfigStreamSelection 
 
 export class CreateVodPackagingConfigurationRequestPackageConfig extends $dara.Model {
   /**
+   * @remarks
+   * The settings of digital rights management (DRM) encryption.
+   * 
    * **if can be null:**
    * true
    */
   drmProvider?: CreateVodPackagingConfigurationRequestPackageConfigDrmProvider;
   /**
+   * @remarks
+   * The manifest name. The name can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * index
    */
   manifestName?: string;
   /**
+   * @remarks
+   * The duration of each segment in a packaged stream. Unit: seconds. MediaPackage rounds segments to the nearest multiple of the input segment duration. Valid values: 1 to 30.
+   * 
    * @example
    * 6
    */
   segmentDuration?: number;
+  /**
+   * @remarks
+   * The settings of stream selection.
+   */
   streamSelection?: CreateVodPackagingConfigurationRequestPackageConfigStreamSelection;
   static names(): { [key: string]: string } {
     return {
@@ -3963,27 +5058,42 @@ export class DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList extends $da
 
 export class DescribeAIAgentInstanceResponseBodyInstance extends $dara.Model {
   /**
+   * @remarks
+   * The URL of the call log file.
+   * 
    * @example
    * https://example.com/call_logs/12345
    */
   callLogUrl?: string;
   /**
+   * @remarks
+   * The runtime configurations of the AI agent.
+   * 
    * @example
    * {"VoiceChat":{"AgentUserId":"voice_agent_001","ChannelId":"voice_channel_001","AuthToken":"your_voice_chat_auth_token"}}
    */
   runtimeConfig?: AIAgentRuntimeConfig;
   sessionId?: string;
   /**
+   * @remarks
+   * The state of the AI agent. Valid values: Finished and Executing.
+   * 
    * @example
    * Finished
    */
   status?: string;
   /**
+   * @remarks
+   * The template configurations of the AI agent.
+   * 
    * @example
    * {"VoiceChat": {"AppId": "your_voice_chat_app_id"}}
    */
   templateConfig?: AIAgentTemplateConfig;
   /**
+   * @remarks
+   * The custom information.
+   * 
    * @example
    * {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}
    */
@@ -4489,6 +5599,40 @@ export class DetectAudioForCustomizedVoiceJobResponseBodyData extends $dara.Mode
   }
 }
 
+export class GenerateAIAgentCallRequestChatSyncConfig extends $dara.Model {
+  /**
+   * @example
+   * ******005e4f309379701645f4****
+   */
+  IMAIAgentId?: string;
+  /**
+   * @example
+   * 4167626d312034b2b1c3b7f2f3e41884
+   */
+  receiverId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      IMAIAgentId: 'IMAIAgentId',
+      receiverId: 'ReceiverId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IMAIAgentId: 'string',
+      receiverId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateKMSDataKeyResponseBodyDataKey extends $dara.Model {
   /**
    * @remarks
@@ -4542,7 +5686,7 @@ export class GenerateKMSDataKeyResponseBodyDataKey extends $dara.Model {
 export class GetAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
   /**
    * @remarks
-   * 广告分片的CDN前缀
+   * The CDN prefix for accessing ad segments.
    * 
    * @example
    * http://cdn.com/
@@ -4550,7 +5694,7 @@ export class GetAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
   adSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * 视频内容分片的CDN前缀
+   * The CDN prefix for accessing content segments.
    * 
    * @example
    * http://cdn.com/
@@ -4582,7 +5726,7 @@ export class GetAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
 export class GetAdInsertionResponseBodyConfigManifestEndpointConfig extends $dara.Model {
   /**
    * @remarks
-   * HLS清单播放端点前缀
+   * The playback endpoint prefix for accessing HLS manifests.
    */
   hlsPrefix?: string;
   static names(): { [key: string]: string } {
@@ -4609,7 +5753,7 @@ export class GetAdInsertionResponseBodyConfigManifestEndpointConfig extends $dar
 export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * 广告标记透传
+   * Indicates whether ad marker passthrough is enabled.
    * 
    * @example
    * ON
@@ -4617,7 +5761,7 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   adMarkerPassthrough?: string;
   /**
    * @remarks
-   * 广告策略服务器URL
+   * The URL of the ad decision server (ADS).
    * 
    * @example
    * http://ads.com/ad1?param1=[palyer_params.p1]
@@ -4625,12 +5769,12 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   adsUrl?: string;
   /**
    * @remarks
-   * CDN配置
+   * The CDN configurations.
    */
   cdnConfig?: GetAdInsertionResponseBodyConfigCdnConfig;
   /**
    * @remarks
-   * 动态配置别名
+   * The aliases for dynamic variable replacement.
    * 
    * @example
    * {
@@ -4642,7 +5786,7 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   configAliases?: string;
   /**
    * @remarks
-   * 内容URL前缀
+   * The prefix of the source URL.
    * 
    * @example
    * https://source.com/
@@ -4650,7 +5794,7 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   contentUrlPrefix?: string;
   /**
    * @remarks
-   * 创建时间
+   * The time when the configuration was created.
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -4658,7 +5802,7 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * 修改时间
+   * The time when the configuration was last modified.
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -4666,12 +5810,12 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   lastModified?: string;
   /**
    * @remarks
-   * 清单播放端点配置
+   * The playback endpoint prefix for accessing manifests.
    */
   manifestEndpointConfig?: GetAdInsertionResponseBodyConfigManifestEndpointConfig;
   /**
    * @remarks
-   * 广告插入配置名称
+   * The name of the configuration.
    * 
    * @example
    * my_ad
@@ -4679,7 +5823,7 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 个性化配置阈值
+   * The personalization threshold.
    * 
    * @example
    * 5
@@ -4687,7 +5831,7 @@ export class GetAdInsertionResponseBodyConfig extends $dara.Model {
   personalizationThreshold?: number;
   /**
    * @remarks
-   * slate广告URL
+   * The URL of the slate ad.
    * 
    * @example
    * http://storage.com/slate1.mp4
@@ -7563,21 +8707,33 @@ export class GetLiveEditingJobResponseBodyLiveEditingJob extends $dara.Model {
 
 export class GetLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints extends $dara.Model {
   /**
+   * @remarks
+   * The ingest endpoint ID.
+   * 
    * @example
    * ingest1
    */
   id?: string;
   /**
+   * @remarks
+   * The password.
+   * 
    * @example
    * 2F9e******b569c8
    */
   password?: string;
   /**
+   * @remarks
+   * The ingest endpoint URL.
+   * 
    * @example
    * http://xxx-1.packagepush-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
    */
   url?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * us12******das
    */
@@ -7612,9 +8768,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints 
 export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.Model {
   /**
    * @remarks
-   * 频道名称，字符必须为大小写英文字母或-、_。
-   * 1 ~ 200个字符。
-   * 格式：[A-Za-z0-9_-]+
+   * The channel name.
    * 
    * @example
    * ch4
@@ -7622,7 +8776,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
   channelName?: string;
   /**
    * @remarks
-   * 代表创建时间的资源属性字段
+   * The time when the channel was created.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -7630,21 +8784,25 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
   createTime?: string;
   /**
    * @remarks
-   * 频道描述，最大1000个字符
+   * The channel description.
    */
   description?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * @example
    * channel-group-1
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The ingest endpoints.
+   */
   ingestEndpoints?: GetLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints[];
   /**
    * @remarks
-   * 最后修改时间
+   * The time when the endpoint was last modified.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -7652,7 +8810,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
   lastModified?: string;
   /**
    * @remarks
-   * 输入协议，目前仅支持HLS
+   * The ingest protocol. Only HLS is supported.
    * 
    * @example
    * HLS
@@ -7660,7 +8818,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
   protocol?: string;
   /**
    * @remarks
-   * 输入流m3u8切片个数，2～100
+   * The number of M3U8 segments.
    * 
    * @example
    * 3
@@ -7668,7 +8826,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
   segmentCount?: number;
   /**
    * @remarks
-   * 输入流切片时长，1～30
+   * The segment duration.
    * 
    * @example
    * 5
@@ -7717,7 +8875,7 @@ export class GetLivePackageChannelResponseBodyLivePackageChannel extends $dara.M
 export class GetLivePackageChannelGroupResponseBodyLivePackageChannelGroup extends $dara.Model {
   /**
    * @remarks
-   * 创建时间
+   * The time when the channel group was created. It is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -7725,12 +8883,15 @@ export class GetLivePackageChannelGroupResponseBodyLivePackageChannelGroup exten
   createTime?: string;
   /**
    * @remarks
-   * 描述
+   * The channel group description.
+   * 
+   * @example
+   * Updated description of the channel group.
    */
   description?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * @example
    * channel-group-1
@@ -7738,7 +8899,7 @@ export class GetLivePackageChannelGroupResponseBodyLivePackageChannelGroup exten
   groupName?: string;
   /**
    * @remarks
-   * 修改时间
+   * The time when the channel group was last modified. It is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -7746,7 +8907,7 @@ export class GetLivePackageChannelGroupResponseBodyLivePackageChannelGroup exten
   lastModified?: string;
   /**
    * @remarks
-   * 源站域名
+   * The origin domain.
    * 
    * @example
    * example.com
@@ -7784,7 +8945,7 @@ export class GetLivePackageChannelGroupResponseBodyLivePackageChannelGroup exten
 export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint extends $dara.Model {
   /**
    * @remarks
-   * 回源授权码，与IpWhitelist必选其一
+   * The authorization code.
    * 
    * @example
    * Abc123Def456
@@ -7792,7 +8953,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   authorizationCode?: string;
   /**
    * @remarks
-   * 频道名称
+   * The channel name.
    * 
    * @example
    * channel-1
@@ -7800,7 +8961,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   channelName?: string;
   /**
    * @remarks
-   * 创建时间
+   * The time when the endpoint was created.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -7808,12 +8969,12 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   createTime?: string;
   /**
    * @remarks
-   * 端点描述
+   * The endpoint description.
    */
   description?: string;
   /**
    * @remarks
-   * 端点名称
+   * The endpoint name.
    * 
    * @example
    * endpoint-1
@@ -7821,7 +8982,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   endpointName?: string;
   /**
    * @remarks
-   * 源站端点回源播放地址
+   * The endpoint URL.
    * 
    * @example
    * https://xxx.packagepull-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
@@ -7829,7 +8990,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   endpointUrl?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * @example
    * channel-group-1
@@ -7837,7 +8998,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   groupName?: string;
   /**
    * @remarks
-   * IP黑名单，支持无类别域间路由（CIDR），逗号分隔
+   * The IP address blacklist.
    * 
    * @example
    * 10.21.222.1/32
@@ -7845,7 +9006,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   ipBlacklist?: string;
   /**
    * @remarks
-   * IP白名单，支持无类别域间路由（CIDR），逗号分隔，与AuthorizationCode必选其一
+   * The IP address whitelist.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1/24
@@ -7853,7 +9014,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   ipWhitelist?: string;
   /**
    * @remarks
-   * 最后修改时间
+   * The time when the endpoint was last modified.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -7861,7 +9022,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   lastModified?: string;
   /**
    * @remarks
-   * 播放列表名
+   * The playlist name.
    * 
    * @example
    * manifest
@@ -7869,7 +9030,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   manifestName?: string;
   /**
    * @remarks
-   * 端点分发协议，暂只支持HLS
+   * The distribution protocol.
    * 
    * @example
    * HLS
@@ -7877,7 +9038,7 @@ export class GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint e
   protocol?: string;
   /**
    * @remarks
-   * 时移天数，最大30天，0表示不支持时移
+   * The number of days that time-shifted content is available.
    * 
    * @example
    * 5
@@ -8907,7 +10068,7 @@ export class GetLiveTranscodeTemplateResponseBodyTemplateContent extends $dara.M
 export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   /**
    * @remarks
-   * Flow creation time
+   * The time when the flow was created.
    * 
    * @example
    * 2024-07-18T01:29:24Z
@@ -8915,7 +10076,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Flow instance ID
+   * The flow ID.
    * 
    * @example
    * 34900dc6-90ec-4968-af3c-fcd87f231a5f
@@ -8923,7 +10084,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * Flow instance name
+   * The flow name.
    * 
    * @example
    * AliTestFlow
@@ -8931,7 +10092,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   flowName?: string;
   /**
    * @remarks
-   * Flow status
+   * The state of the flow.
    * 
    * @example
    * online
@@ -8939,7 +10100,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
   flowStatus?: string;
   /**
    * @remarks
-   * Flow start time
+   * The time when the flow is started.
    * 
    * @example
    * 2024-07-18T01:39:24Z
@@ -8977,7 +10138,7 @@ export class GetMediaConnectFlowResponseBodyContent extends $dara.Model {
 export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   /**
    * @remarks
-   * IP whitelist, in CIDR format, multiple IP segments separated by commas
+   * The IP address whitelist in CIDR format. CIDR blocks are separated with commas (,).
    * 
    * @example
    * 10.211.0.0/17
@@ -8985,7 +10146,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   cidrs?: string;
   /**
    * @remarks
-   * Flow creation time
+   * The time when the flow was created.
    * 
    * @example
    * 2024-07-18T01:29:24Z
@@ -8993,7 +10154,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Input name
+   * The source name.
    * 
    * @example
    * AliTestInput
@@ -9001,7 +10162,15 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   inputName?: string;
   /**
    * @remarks
-   * Input type
+   * The source type.
+   * 
+   * Valid values:
+   * 
+   * *   RTMP-PUSH
+   * *   SRT-Caller
+   * *   RTMP-PULL
+   * *   SRT-Listener
+   * *   Flow
    * 
    * @example
    * RTMP-PUSH
@@ -9009,7 +10178,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   inputProtocol?: string;
   /**
    * @remarks
-   * Input URL
+   * The source URL.
    * 
    * @example
    * rtmp://1.2.3.4:1935/live/AliTestInput_8666ec062190f00e263012666319a5be
@@ -9017,7 +10186,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   inputUrl?: string;
   /**
    * @remarks
-   * Input bitrate, in bps
+   * The maximum bitrate. Unit: bit/s.
    * 
    * @example
    * 2000000
@@ -9025,7 +10194,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   maxBitrate?: number;
   /**
    * @remarks
-   * Peer Flow instance ID, required when the output type is Flow
+   * The ID of the source flow. This parameter is returned when the source type is Flow.
    * 
    * @example
    * 05c3adf4-aa0e-421d-a991-48ceae3e642e
@@ -9033,7 +10202,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   pairFlowId?: string;
   /**
    * @remarks
-   * Peer Flow output name, required only when the input type is Flow
+   * The output of the source flow. This parameter is returned when the source type is Flow.
    * 
    * @example
    * AliTestOutput
@@ -9041,7 +10210,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   pairOutputName?: string;
   /**
    * @remarks
-   * SRT latency, in ms, required only when the input type is SRT-Listener/SRT-Caller
+   * The latency for the SRT stream. Unit: milliseconds. This parameter is returned when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 1000
@@ -9049,7 +10218,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   srtLatency?: number;
   /**
    * @remarks
-   * SRT encryption key, required only when the input type is SRT-Listener/SRT-Caller
+   * The SRT key. This parameter is returned when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * FICUBPX4Q77DYHRF
@@ -9057,7 +10226,14 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
   srtPassphrase?: string;
   /**
    * @remarks
-   * SRT encryption length, required only when the input type is SRT-Listener/SRT-Caller
+   * The encryption key length. This parameter is returned when the source type is SRT-Listener or SRT-Caller.
+   * 
+   * Valid values:
+   * 
+   * *   0
+   * *   16
+   * *   24
+   * *   32
    * 
    * @example
    * 32
@@ -9107,7 +10283,7 @@ export class GetMediaConnectFlowInputResponseBodyContent extends $dara.Model {
 export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
   /**
    * @remarks
-   * IP whitelist in CIDR format, multiple IP segments separated by commas
+   * The IP address whitelist in CIDR format. CIDR blocks are separated with commas (,).
    * 
    * @example
    * 10.211.0.0/17
@@ -9115,7 +10291,7 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
   cidrs?: string;
   /**
    * @remarks
-   * Flow creation time
+   * The time when the flow was created.
    * 
    * @example
    * 2024-07-18T01:29:24Z
@@ -9123,7 +10299,7 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Output name
+   * The output name.
    * 
    * @example
    * AliTestInput
@@ -9131,7 +10307,15 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
   outputName?: string;
   /**
    * @remarks
-   * Output protocol
+   * The output type.
+   * 
+   * Valid values:
+   * 
+   * *   RTMP-PUSH
+   * *   SRT-Caller
+   * *   RTMP-PULL
+   * *   SRT-Listener
+   * *   Flow
    * 
    * @example
    * SRT-PULL
@@ -9139,7 +10323,7 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
   outputProtocol?: string;
   /**
    * @remarks
-   * Output URL
+   * The output URL.
    * 
    * @example
    * srt://1.2.3.4:1025
@@ -9147,7 +10331,7 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
   outputUrl?: string;
   /**
    * @remarks
-   * Peer Flow instance ID, required when the output type is Flow
+   * The ID of the destination flow. This parameter is returned when the output type is Flow.
    * 
    * @example
    * 805fbdd0-575e-4146-b35d-ec7f63937b20
@@ -9155,7 +10339,7 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
   pairFlowId?: string;
   /**
    * @remarks
-   * Peer Flow\\"s input name, required when the output type is Flow
+   * The source name of the destination flow. This parameter is returned when the output type is Flow.
    * 
    * @example
    * AliTestInput
@@ -9163,7 +10347,7 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
   pairInputName?: string;
   /**
    * @remarks
-   * Player limit
+   * The maximum number of viewers.
    * 
    * @example
    * 5
@@ -9171,7 +10355,7 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
   playerLimit?: number;
   /**
    * @remarks
-   * SRT latency, in milliseconds, required only when the input type is SRT-Listener/SRT-Caller
+   * The latency for the SRT stream. Unit: milliseconds. This parameter is returned when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 1000
@@ -9179,7 +10363,7 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
   srtLatency?: number;
   /**
    * @remarks
-   * SRT encryption key, required only when the input type is SRT-Listener/SRT-Caller
+   * The SRT key. This parameter is returned when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * FICUBPX4Q77DYHRF
@@ -9187,7 +10371,14 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
   srtPassphrase?: string;
   /**
    * @remarks
-   * SRT encryption length, required only when the input type is SRT-Listener/SRT-Caller
+   * The encryption key length. This parameter is returned when the source type is SRT-Listener or SRT-Caller.
+   * 
+   * Valid values:
+   * 
+   * *   0
+   * *   16
+   * *   24
+   * *   32
    * 
    * @example
    * 32
@@ -9235,8 +10426,20 @@ export class GetMediaConnectFlowOutputResponseBodyContent extends $dara.Model {
 }
 
 export class GetMediaConvertJobResponseBodyJobConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The inputs of the transcoding task.
+   */
   inputs?: MediaConvertInput[];
+  /**
+   * @remarks
+   * The output group configurations.
+   */
   outputGroups?: MediaConvertOutputGroup[];
+  /**
+   * @remarks
+   * The output configurations.
+   */
   outputs?: MediaConvertOutput[];
   static names(): { [key: string]: string } {
     return {
@@ -9273,16 +10476,90 @@ export class GetMediaConvertJobResponseBodyJobConfig extends $dara.Model {
 }
 
 export class GetMediaConvertJobResponseBodyJob extends $dara.Model {
+  /**
+   * @remarks
+   * The idempotency key of the request for creating the transcoding task.
+   * 
+   * @example
+   * 780018cb-55ba-466d-8acc-946c0c319a0e
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The error code returned when the transcoding task failed.
+   * 
+   * @example
+   * InvalidParameter.ResourceContentBad
+   */
   code?: string;
+  /**
+   * @remarks
+   * The configurations of the transcoding task.
+   */
   config?: GetMediaConvertJobResponseBodyJobConfig;
+  /**
+   * @remarks
+   * The ID of the transcoding task, which is a 32-bit string.
+   * 
+   * @example
+   * ******4579b5e748b99a27f6d6******
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The error message returned when the transcoding task failed.
+   * 
+   * @example
+   * The resource operated InputFile is bad
+   */
   message?: string;
+  /**
+   * @remarks
+   * The details of the transcoded outputs, each corresponding to an output configuration.
+   */
   outputDetails?: MediaConvertOutputDetail[];
+  /**
+   * @remarks
+   * The details of the output groups, each corresponding to an output group configuration.
+   */
   outputGroupDetails?: MediaConvertOutputGroupDetail[];
+  /**
+   * @remarks
+   * The ID of the queue.
+   * 
+   * @example
+   * 83500cb2a3b94fabb0956e38d64bd16d
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The ID of the request for creating the transcoding task.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The status of the transcoding task. Valid values:
+   * 
+   * *   Inited: The task is initialized.
+   * *   Running
+   * *   Success
+   * *   Failed
+   * *   Cancelled
+   * 
+   * @example
+   * Success
+   */
   state?: string;
+  /**
+   * @remarks
+   * The user data.
+   * 
+   * @example
+   * {"videoId":"ddd333"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11457,6 +12734,1252 @@ export class GetMediaInfoJobResponseBodyMediaInfoJob extends $dara.Model {
     }
     if(this.submitResultJson) {
       $dara.Model.validateMap(this.submitResultJson);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelAudioSettingsAudioCodecSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The audio bitrate. Unit: bit/s.
+   * 
+   * @example
+   * 200000
+   */
+  bitrate?: number;
+  /**
+   * @remarks
+   * The audio codec profile.
+   * 
+   * @example
+   * AAC-LOW
+   */
+  profile?: string;
+  /**
+   * @remarks
+   * The audio sample rate. Unit: Hz.
+   * 
+   * @example
+   * 44100
+   */
+  sampleRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      profile: 'Profile',
+      sampleRate: 'SampleRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'number',
+      profile: 'string',
+      sampleRate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelAudioSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The audio codec.
+   * 
+   * @example
+   * aac
+   */
+  audioCodec?: string;
+  /**
+   * @remarks
+   * The audio encoding settings.
+   */
+  audioCodecSetting?: GetMediaLiveChannelResponseBodyChannelAudioSettingsAudioCodecSetting;
+  /**
+   * @remarks
+   * The name of the audio selector.
+   * 
+   * @example
+   * myselector
+   */
+  audioSelectorName?: string;
+  /**
+   * @remarks
+   * A three-letter ISO 639-2 language code.
+   * 
+   * @example
+   * eng
+   */
+  languageCode?: string;
+  /**
+   * @remarks
+   * The name of the language.
+   * 
+   * @example
+   * English
+   */
+  languageName?: string;
+  /**
+   * @remarks
+   * The name of the audio settings.
+   * 
+   * @example
+   * zhuanfengzhuang
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioCodec: 'AudioCodec',
+      audioCodecSetting: 'AudioCodecSetting',
+      audioSelectorName: 'AudioSelectorName',
+      languageCode: 'LanguageCode',
+      languageName: 'LanguageName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioCodec: 'string',
+      audioCodecSetting: GetMediaLiveChannelResponseBodyChannelAudioSettingsAudioCodecSetting,
+      audioSelectorName: 'string',
+      languageCode: 'string',
+      languageName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(this.audioCodecSetting && typeof (this.audioCodecSetting as any).validate === 'function') {
+      (this.audioCodecSetting as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelInputAttachmentsAudioSelectorsAudioLanguageSelection extends $dara.Model {
+  /**
+   * @remarks
+   * A three-letter ISO 639-2 language code from within an audio source.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eng
+   */
+  languageCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      languageCode: 'LanguageCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      languageCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelInputAttachmentsAudioSelectorsAudioPidSelection extends $dara.Model {
+  /**
+   * @remarks
+   * A PID from within a source.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
+  pid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pid: 'Pid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pid: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelInputAttachmentsAudioSelectorsAudioTrackSelection extends $dara.Model {
+  /**
+   * @remarks
+   * The track ID from within a source.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  trackId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      trackId: 'TrackId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trackId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelInputAttachmentsAudioSelectors extends $dara.Model {
+  /**
+   * @remarks
+   * The audio language selection.
+   */
+  audioLanguageSelection?: GetMediaLiveChannelResponseBodyChannelInputAttachmentsAudioSelectorsAudioLanguageSelection;
+  /**
+   * @remarks
+   * The audio PID selection.
+   */
+  audioPidSelection?: GetMediaLiveChannelResponseBodyChannelInputAttachmentsAudioSelectorsAudioPidSelection;
+  /**
+   * @remarks
+   * The audio track selection.
+   */
+  audioTrackSelection?: GetMediaLiveChannelResponseBodyChannelInputAttachmentsAudioSelectorsAudioTrackSelection[];
+  /**
+   * @remarks
+   * The name of the audio selector.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myselector
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioLanguageSelection: 'AudioLanguageSelection',
+      audioPidSelection: 'AudioPidSelection',
+      audioTrackSelection: 'AudioTrackSelection',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioLanguageSelection: GetMediaLiveChannelResponseBodyChannelInputAttachmentsAudioSelectorsAudioLanguageSelection,
+      audioPidSelection: GetMediaLiveChannelResponseBodyChannelInputAttachmentsAudioSelectorsAudioPidSelection,
+      audioTrackSelection: { 'type': 'array', 'itemType': GetMediaLiveChannelResponseBodyChannelInputAttachmentsAudioSelectorsAudioTrackSelection },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(this.audioLanguageSelection && typeof (this.audioLanguageSelection as any).validate === 'function') {
+      (this.audioLanguageSelection as any).validate();
+    }
+    if(this.audioPidSelection && typeof (this.audioPidSelection as any).validate === 'function') {
+      (this.audioPidSelection as any).validate();
+    }
+    if(Array.isArray(this.audioTrackSelection)) {
+      $dara.Model.validateArray(this.audioTrackSelection);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelInputAttachments extends $dara.Model {
+  /**
+   * @remarks
+   * The audio selectors.
+   */
+  audioSelectors?: GetMediaLiveChannelResponseBodyChannelInputAttachmentsAudioSelectors[];
+  /**
+   * @remarks
+   * The ID of the associated input.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  inputId?: string;
+  /**
+   * @remarks
+   * The name of the input.
+   * 
+   * @example
+   * myinput
+   */
+  inputName?: string;
+  /**
+   * @remarks
+   * The language name.
+   * 
+   * @example
+   * eng
+   */
+  languageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioSelectors: 'AudioSelectors',
+      inputId: 'InputId',
+      inputName: 'InputName',
+      languageName: 'LanguageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSelectors: { 'type': 'array', 'itemType': GetMediaLiveChannelResponseBodyChannelInputAttachmentsAudioSelectors },
+      inputId: 'string',
+      inputName: 'string',
+      languageName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audioSelectors)) {
+      $dara.Model.validateArray(this.audioSelectors);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelOutputGroupsMediaPackageGroupSetting extends $dara.Model {
+  /**
+   * @remarks
+   * ChannelName in MediaPackage.
+   * 
+   * @example
+   * myPackageChannel
+   */
+  channelName?: string;
+  /**
+   * @remarks
+   * GroupName in MediaPackage.
+   * 
+   * @example
+   * myPackageGroup
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelOutputGroupsOutputsMediaPackageOutputSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The manifest audio group ID.
+   * 
+   * @example
+   * audiogroup
+   */
+  audioGroupId?: string;
+  /**
+   * @remarks
+   * The manifest name modifier. The child manifests include this modifier in their M3U8 file names.
+   * 
+   * @example
+   * 480p
+   */
+  nameModifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioGroupId: 'AudioGroupId',
+      nameModifier: 'NameModifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioGroupId: 'string',
+      nameModifier: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelOutputGroupsOutputs extends $dara.Model {
+  /**
+   * @remarks
+   * The referenced AudioSettings.
+   */
+  audioSettingNames?: string[];
+  /**
+   * @remarks
+   * The settings of the output delivered to MediaPackage.
+   */
+  mediaPackageOutputSetting?: GetMediaLiveChannelResponseBodyChannelOutputGroupsOutputsMediaPackageOutputSetting;
+  /**
+   * @remarks
+   * The media type of the output.
+   * 
+   * @example
+   * 0
+   */
+  mediaType?: number;
+  /**
+   * @remarks
+   * The name of the output.
+   * 
+   * @example
+   * output1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The name of the referenced VideoSettings.
+   * 
+   * @example
+   * myVideo1
+   */
+  videoSettingName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioSettingNames: 'AudioSettingNames',
+      mediaPackageOutputSetting: 'MediaPackageOutputSetting',
+      mediaType: 'MediaType',
+      name: 'Name',
+      videoSettingName: 'VideoSettingName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSettingNames: { 'type': 'array', 'itemType': 'string' },
+      mediaPackageOutputSetting: GetMediaLiveChannelResponseBodyChannelOutputGroupsOutputsMediaPackageOutputSetting,
+      mediaType: 'number',
+      name: 'string',
+      videoSettingName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audioSettingNames)) {
+      $dara.Model.validateArray(this.audioSettingNames);
+    }
+    if(this.mediaPackageOutputSetting && typeof (this.mediaPackageOutputSetting as any).validate === 'function') {
+      (this.mediaPackageOutputSetting as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelOutputGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The MediaPackage destination.
+   */
+  mediaPackageGroupSetting?: GetMediaLiveChannelResponseBodyChannelOutputGroupsMediaPackageGroupSetting;
+  /**
+   * @remarks
+   * The URL for monitoring the output group. The parameter is returned only when the output gourp type is MediaPackage.
+   * 
+   * @example
+   * rtmp://xxx
+   */
+  monitorUrl?: string;
+  /**
+   * @remarks
+   * The name of the output group.
+   * 
+   * @example
+   * group1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The outputs in the output group.
+   */
+  outputs?: GetMediaLiveChannelResponseBodyChannelOutputGroupsOutputs[];
+  /**
+   * @remarks
+   * The output group type.
+   * 
+   * @example
+   * MediaPackage
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaPackageGroupSetting: 'MediaPackageGroupSetting',
+      monitorUrl: 'MonitorUrl',
+      name: 'Name',
+      outputs: 'Outputs',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaPackageGroupSetting: GetMediaLiveChannelResponseBodyChannelOutputGroupsMediaPackageGroupSetting,
+      monitorUrl: 'string',
+      name: 'string',
+      outputs: { 'type': 'array', 'itemType': GetMediaLiveChannelResponseBodyChannelOutputGroupsOutputs },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.mediaPackageGroupSetting && typeof (this.mediaPackageGroupSetting as any).validate === 'function') {
+      (this.mediaPackageGroupSetting as any).validate();
+    }
+    if(Array.isArray(this.outputs)) {
+      $dara.Model.validateArray(this.outputs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSettingCodecDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The video encoding level. It is not supported yet.
+   * 
+   * @example
+   * H264_LEVEL_AUTO
+   */
+  level?: string;
+  /**
+   * @remarks
+   * The H.264 profile.
+   * 
+   * @example
+   * MAIN
+   */
+  profile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      level: 'Level',
+      profile: 'Profile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      level: 'string',
+      profile: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSettingFramerate extends $dara.Model {
+  /**
+   * @remarks
+   * The frame rate mode.
+   * 
+   * @example
+   * SPECIFIED
+   */
+  framerateControl?: string;
+  /**
+   * @remarks
+   * The denominator of the fixed frame rate.
+   * 
+   * @example
+   * 1
+   */
+  framerateDenominator?: number;
+  /**
+   * @remarks
+   * The numerator of the fixed frame rate.
+   * 
+   * @example
+   * 25
+   */
+  framerateNumerator?: number;
+  static names(): { [key: string]: string } {
+    return {
+      framerateControl: 'FramerateControl',
+      framerateDenominator: 'FramerateDenominator',
+      framerateNumerator: 'FramerateNumerator',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      framerateControl: 'string',
+      framerateDenominator: 'number',
+      framerateNumerator: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSettingGop extends $dara.Model {
+  /**
+   * @remarks
+   * The number of B frames.
+   * 
+   * @example
+   * 3
+   */
+  bframesNum?: number;
+  /**
+   * @remarks
+   * The GOP size.
+   * 
+   * @example
+   * 90
+   */
+  gopSize?: number;
+  /**
+   * @remarks
+   * The GOP size unit.
+   * 
+   * @example
+   * FRAMES
+   */
+  gopSizeUnits?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bframesNum: 'BframesNum',
+      gopSize: 'GopSize',
+      gopSizeUnits: 'GopSizeUnits',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bframesNum: 'number',
+      gopSize: 'number',
+      gopSizeUnits: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSettingRate extends $dara.Model {
+  /**
+   * @remarks
+   * The video bitrate. Unit: bit/s.
+   * 
+   * @example
+   * 2500000
+   */
+  bitrate?: number;
+  /**
+   * @remarks
+   * The video buffer size. Unit: bit/s.
+   * 
+   * @example
+   * 6000000
+   */
+  bufferSize?: number;
+  /**
+   * @remarks
+   * The maximum bitrate. Unit: bit/s.
+   * 
+   * @example
+   * 6000000
+   */
+  maxBitrate?: number;
+  /**
+   * @remarks
+   * The bitrate control mode.
+   * 
+   * @example
+   * ABR
+   */
+  rateControlMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      bufferSize: 'BufferSize',
+      maxBitrate: 'MaxBitrate',
+      rateControlMode: 'RateControlMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'number',
+      bufferSize: 'number',
+      maxBitrate: 'number',
+      rateControlMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The video encoding settings.
+   */
+  codecDetail?: GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSettingCodecDetail;
+  /**
+   * @remarks
+   * The frame rate.
+   */
+  framerate?: GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSettingFramerate;
+  /**
+   * @remarks
+   * The GOP setting.
+   */
+  gop?: GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSettingGop;
+  /**
+   * @remarks
+   * The video encoding rate.
+   */
+  rate?: GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSettingRate;
+  static names(): { [key: string]: string } {
+    return {
+      codecDetail: 'CodecDetail',
+      framerate: 'Framerate',
+      gop: 'Gop',
+      rate: 'Rate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codecDetail: GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSettingCodecDetail,
+      framerate: GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSettingFramerate,
+      gop: GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSettingGop,
+      rate: GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSettingRate,
+    };
+  }
+
+  validate() {
+    if(this.codecDetail && typeof (this.codecDetail as any).validate === 'function') {
+      (this.codecDetail as any).validate();
+    }
+    if(this.framerate && typeof (this.framerate as any).validate === 'function') {
+      (this.framerate as any).validate();
+    }
+    if(this.gop && typeof (this.gop as any).validate === 'function') {
+      (this.gop as any).validate();
+    }
+    if(this.rate && typeof (this.rate as any).validate === 'function') {
+      (this.rate as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannelVideoSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The height of the video in pixels.
+   * 
+   * @example
+   * 720
+   */
+  height?: number;
+  /**
+   * @remarks
+   * The name of the video settings.
+   * 
+   * @example
+   * video1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The video codec.
+   * 
+   * @example
+   * H264
+   */
+  videoCodec?: string;
+  /**
+   * @remarks
+   * The video encoding settings.
+   */
+  videoCodecSetting?: GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSetting;
+  /**
+   * @remarks
+   * The width of the video in pixels.
+   * 
+   * @example
+   * 1280
+   */
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      name: 'Name',
+      videoCodec: 'VideoCodec',
+      videoCodecSetting: 'VideoCodecSetting',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      name: 'string',
+      videoCodec: 'string',
+      videoCodecSetting: GetMediaLiveChannelResponseBodyChannelVideoSettingsVideoCodecSetting,
+      width: 'number',
+    };
+  }
+
+  validate() {
+    if(this.videoCodecSetting && typeof (this.videoCodecSetting as any).validate === 'function') {
+      (this.videoCodecSetting as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBodyChannel extends $dara.Model {
+  /**
+   * @remarks
+   * The audio settings.
+   */
+  audioSettings?: GetMediaLiveChannelResponseBodyChannelAudioSettings[];
+  /**
+   * @remarks
+   * The ID of the channel.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  channelId?: string;
+  /**
+   * @remarks
+   * The time when the channel was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-12-03T06:56:42Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The inputs associated with the channel.
+   */
+  inputAttachments?: GetMediaLiveChannelResponseBodyChannelInputAttachments[];
+  /**
+   * @remarks
+   * The time when the channel was last started. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. If the channel has never been started since it was created, an empty string is returned.
+   * 
+   * @example
+   * 2024-12-03T06:56:42Z
+   */
+  lastStartTime?: string;
+  /**
+   * @remarks
+   * The time when the channel was last stopped. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. If the channel has never stopped since it was created, an empty string is returned.
+   * 
+   * @example
+   * 2024-12-03T06:56:42Z
+   */
+  lastStopTime?: string;
+  /**
+   * @remarks
+   * The channel name.
+   * 
+   * @example
+   * mych
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The output groups.
+   */
+  outputGroups?: GetMediaLiveChannelResponseBodyChannelOutputGroups[];
+  /**
+   * @remarks
+   * The state of the channel. Valid values: IDLE, STARTING, RUNNING, RECOVERING, and STOPPING.
+   * 
+   * @example
+   * IDLE
+   */
+  state?: string;
+  /**
+   * @remarks
+   * The video settings.
+   */
+  videoSettings?: GetMediaLiveChannelResponseBodyChannelVideoSettings[];
+  static names(): { [key: string]: string } {
+    return {
+      audioSettings: 'AudioSettings',
+      channelId: 'ChannelId',
+      createTime: 'CreateTime',
+      inputAttachments: 'InputAttachments',
+      lastStartTime: 'LastStartTime',
+      lastStopTime: 'LastStopTime',
+      name: 'Name',
+      outputGroups: 'OutputGroups',
+      state: 'State',
+      videoSettings: 'VideoSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSettings: { 'type': 'array', 'itemType': GetMediaLiveChannelResponseBodyChannelAudioSettings },
+      channelId: 'string',
+      createTime: 'string',
+      inputAttachments: { 'type': 'array', 'itemType': GetMediaLiveChannelResponseBodyChannelInputAttachments },
+      lastStartTime: 'string',
+      lastStopTime: 'string',
+      name: 'string',
+      outputGroups: { 'type': 'array', 'itemType': GetMediaLiveChannelResponseBodyChannelOutputGroups },
+      state: 'string',
+      videoSettings: { 'type': 'array', 'itemType': GetMediaLiveChannelResponseBodyChannelVideoSettings },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audioSettings)) {
+      $dara.Model.validateArray(this.audioSettings);
+    }
+    if(Array.isArray(this.inputAttachments)) {
+      $dara.Model.validateArray(this.inputAttachments);
+    }
+    if(Array.isArray(this.outputGroups)) {
+      $dara.Model.validateArray(this.outputGroups);
+    }
+    if(Array.isArray(this.videoSettings)) {
+      $dara.Model.validateArray(this.videoSettings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveInputResponseBodyInputInputInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The endpoint that the stream is pushed to. This parameter is returned for PUSH inputs.
+   * 
+   * @example
+   * rtmp://domain/app/stream
+   */
+  destHost?: string;
+  flowId?: string;
+  flowOutputName?: string;
+  /**
+   * @remarks
+   * The URL for input monitoring.
+   * 
+   * @example
+   * rtmp://domain/app/stream_for_monitor
+   */
+  monitorUrl?: string;
+  /**
+   * @remarks
+   * The source URL where the stream is pulled from. This parameter is returned for PULL inputs.
+   * 
+   * @example
+   * rtmp://domain/app/stream
+   */
+  sourceUrl?: string;
+  /**
+   * @remarks
+   * The name of the pushed stream. This parameter is returned for PUSH inputs.
+   * 
+   * @example
+   * mystream
+   */
+  streamName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destHost: 'DestHost',
+      flowId: 'FlowId',
+      flowOutputName: 'FlowOutputName',
+      monitorUrl: 'MonitorUrl',
+      sourceUrl: 'SourceUrl',
+      streamName: 'StreamName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destHost: 'string',
+      flowId: 'string',
+      flowOutputName: 'string',
+      monitorUrl: 'string',
+      sourceUrl: 'string',
+      streamName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveInputResponseBodyInput extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the channels associated with the input.
+   */
+  channelIds?: string[];
+  /**
+   * @remarks
+   * The time when the input was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-12-03T06:56:42Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the input.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  inputId?: string;
+  /**
+   * @remarks
+   * The input configurations.
+   */
+  inputInfos?: GetMediaLiveInputResponseBodyInputInputInfos[];
+  /**
+   * @remarks
+   * The name of the input.
+   * 
+   * @example
+   * myinput
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The IDs of the security groups associated with the input.
+   */
+  securityGroupIds?: string[];
+  /**
+   * @remarks
+   * The input type.
+   * 
+   * @example
+   * RTMP_PUSH
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelIds: 'ChannelIds',
+      createTime: 'CreateTime',
+      inputId: 'InputId',
+      inputInfos: 'InputInfos',
+      name: 'Name',
+      securityGroupIds: 'SecurityGroupIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelIds: { 'type': 'array', 'itemType': 'string' },
+      createTime: 'string',
+      inputId: 'string',
+      inputInfos: { 'type': 'array', 'itemType': GetMediaLiveInputResponseBodyInputInputInfos },
+      name: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.channelIds)) {
+      $dara.Model.validateArray(this.channelIds);
+    }
+    if(Array.isArray(this.inputInfos)) {
+      $dara.Model.validateArray(this.inputInfos);
+    }
+    if(Array.isArray(this.securityGroupIds)) {
+      $dara.Model.validateArray(this.securityGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveInputSecurityGroupResponseBodySecurityGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the security group was created. It follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-06-13T08:31:56Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The IDs of the inputs associated with the security group.
+   */
+  inputIds?: string[];
+  /**
+   * @remarks
+   * The name of the security group.
+   * 
+   * @example
+   * mysg
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The security group rules.
+   */
+  whitelistRules?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      inputIds: 'InputIds',
+      name: 'Name',
+      securityGroupId: 'SecurityGroupId',
+      whitelistRules: 'WhitelistRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      inputIds: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      securityGroupId: 'string',
+      whitelistRules: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inputIds)) {
+      $dara.Model.validateArray(this.inputIds);
+    }
+    if(Array.isArray(this.whitelistRules)) {
+      $dara.Model.validateArray(this.whitelistRules);
     }
     super.validate();
   }
@@ -19050,15 +21573,29 @@ export class GetVideoListResponseBodyMediaList extends $dara.Model {
 
 export class GetVodPackagingAssetResponseBodyAssetEgressEndpoints extends $dara.Model {
   /**
+   * @remarks
+   * The name of the packaging configuration.
+   * 
    * @example
    * hls_3s
    */
   configurationName?: string;
   /**
+   * @remarks
+   * The asset status. Valid values:
+   * 
+   * *   Queuing: The asset is waiting for packaging.
+   * *   Playable: The asset is packaged and playable.
+   * *   Failed: The asset fails to be packaged.
+   * 
    * @example
    * Playable
    */
   status?: string;
+  /**
+   * @remarks
+   * The playback URL. If the asset fails to be packaged, no playback URL is returned.
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19086,8 +21623,15 @@ export class GetVodPackagingAssetResponseBodyAssetEgressEndpoints extends $dara.
 }
 
 export class GetVodPackagingAssetResponseBodyAssetInput extends $dara.Model {
+  /**
+   * @remarks
+   * The URL of the media file. Only M3U8 files stored in OSS are supported.
+   */
   media?: string;
   /**
+   * @remarks
+   * The input type. Only Object Storage Service (OSS) is supported.
+   * 
    * @example
    * OSS
    */
@@ -19117,26 +21661,46 @@ export class GetVodPackagingAssetResponseBodyAssetInput extends $dara.Model {
 
 export class GetVodPackagingAssetResponseBodyAsset extends $dara.Model {
   /**
+   * @remarks
+   * The name of the asset.
+   * 
    * @example
    * 30min_movie
    */
   assetName?: string;
   /**
+   * @remarks
+   * The content ID in the DRM system. The maximum length is 256 characters. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * movie
    */
   contentId?: string;
   /**
+   * @remarks
+   * The time when the asset was created. It follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2024-11-21T06:45:32Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The egress endpoints, each corresponding to a packaging configuration.
+   */
   egressEndpoints?: GetVodPackagingAssetResponseBodyAssetEgressEndpoints[];
   /**
+   * @remarks
+   * The name of the packaging group.
+   * 
    * @example
    * vod_hls
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The asset input configurations.
+   */
   input?: GetVodPackagingAssetResponseBodyAssetInput;
   static names(): { [key: string]: string } {
     return {
@@ -19382,24 +21946,30 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
    * user
    */
   producer?: string;
+  reasoningText?: string;
   /**
    * @example
    * f27f9b9be28642a88e18****
    */
   roundId?: string;
+  source?: string;
   text?: string;
   /**
    * @example
    * 1734511087000
    */
   time?: number;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       dialogueId: 'DialogueId',
       producer: 'Producer',
+      reasoningText: 'ReasoningText',
       roundId: 'RoundId',
+      source: 'Source',
       text: 'Text',
       time: 'Time',
+      type: 'Type',
     };
   }
 
@@ -19407,9 +21977,12 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
     return {
       dialogueId: 'string',
       producer: 'string',
+      reasoningText: 'string',
       roundId: 'string',
+      source: 'string',
       text: 'string',
       time: 'number',
+      type: 'string',
     };
   }
 
@@ -19424,26 +21997,44 @@ export class ListAIAgentDialoguesResponseBodyDialogues extends $dara.Model {
 
 export class ListAIAgentInstanceResponseBodyInstances extends $dara.Model {
   /**
+   * @remarks
+   * The URL of the call log file for the AI agent. The structure of the file is CallLog in the JSON format.
+   * 
    * @example
    * https://example.com/call_logs/12345.json
    */
   callLogUrl?: string;
   /**
+   * @remarks
+   * The runtime configurations of the AI agent.
+   * 
    * @example
    * {"VoiceChat":{"AgentUserId":"voice_agent_001","ChannelId":"voice_channel_001","AuthToken":"your_voice_chat_auth_token"}}
    */
   runtimeConfig?: AIAgentRuntimeConfig;
   /**
+   * @remarks
+   * The state of the instance. Valid values:
+   * 
+   * *   Executing
+   * *   Finished
+   * 
    * @example
    * Finished
    */
   status?: string;
   /**
+   * @remarks
+   * The template configurations of the AI agent.
+   * 
    * @example
    * {"VoiceChat": {"VoiceId": "zhixiaoxia"}}
    */
   templateConfig?: AIAgentTemplateConfig;
   /**
+   * @remarks
+   * The custom information.
+   * 
    * @example
    * {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}
    */
@@ -19486,7 +22077,7 @@ export class ListAIAgentInstanceResponseBodyInstances extends $dara.Model {
 export class ListAdInsertionsResponseBodyConfigsCdnConfig extends $dara.Model {
   /**
    * @remarks
-   * 广告分片的CDN前缀
+   * The CDN prefix for ad segments.
    * 
    * @example
    * http://cdn.com/
@@ -19494,7 +22085,7 @@ export class ListAdInsertionsResponseBodyConfigsCdnConfig extends $dara.Model {
   adSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * 视频内容分片的CDN前缀
+   * The CDN prefix for content segments.
    * 
    * @example
    * http://cdn.com/
@@ -19526,7 +22117,7 @@ export class ListAdInsertionsResponseBodyConfigsCdnConfig extends $dara.Model {
 export class ListAdInsertionsResponseBodyConfigsManifestEndpointConfig extends $dara.Model {
   /**
    * @remarks
-   * HLS清单播放端点前缀
+   * The prefix of the playback endpoint for HLS manifests.
    */
   hlsPrefix?: string;
   static names(): { [key: string]: string } {
@@ -19553,7 +22144,7 @@ export class ListAdInsertionsResponseBodyConfigsManifestEndpointConfig extends $
 export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * 广告标记透传
+   * Indicates whether ad marker passthrough is enabled.
    * 
    * @example
    * ON
@@ -19561,7 +22152,7 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   adMarkerPassthrough?: string;
   /**
    * @remarks
-   * 广告策略服务器URL
+   * The request URL of the ad decision server (ADS).
    * 
    * @example
    * http://ads.com/ad1?param1=[palyer_params.p1]
@@ -19569,12 +22160,12 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   adsUrl?: string;
   /**
    * @remarks
-   * CDN配置
+   * The CDN configurations.
    */
   cdnConfig?: ListAdInsertionsResponseBodyConfigsCdnConfig;
   /**
    * @remarks
-   * 动态配置别名
+   * The player parameter variables and aliases.
    * 
    * @example
    * {
@@ -19586,7 +22177,7 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   configAliases?: string;
   /**
    * @remarks
-   * 内容URL前缀
+   * The URL prefix for the source content.
    * 
    * @example
    * https://source.com/
@@ -19594,7 +22185,7 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   contentUrlPrefix?: string;
   /**
    * @remarks
-   * 创建时间
+   * The time when the configuration was created.
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -19602,7 +22193,7 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * 修改时间
+   * The time when the configuration was last modified.
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -19610,12 +22201,12 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   lastModified?: string;
   /**
    * @remarks
-   * 清单播放端点配置
+   * The playback endpoint configuration.
    */
   manifestEndpointConfig?: ListAdInsertionsResponseBodyConfigsManifestEndpointConfig;
   /**
    * @remarks
-   * 广告插入配置名称
+   * The name of the ad insertion configuration.
    * 
    * @example
    * my_ad
@@ -19623,7 +22214,7 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 个性化配置阈值
+   * The personalization threshold that defines the maximum duration of underfilled time allowed in an ad break.
    * 
    * @example
    * 5
@@ -19631,7 +22222,7 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
   personalizationThreshold?: number;
   /**
    * @remarks
-   * slate广告URL
+   * The URL of the slate ad.
    * 
    * @example
    * http://storage.com/slate1.mp4
@@ -19685,33 +22276,55 @@ export class ListAdInsertionsResponseBodyConfigs extends $dara.Model {
 }
 
 export class ListAlertsResponseBodyAlerts extends $dara.Model {
+  /**
+   * @remarks
+   * The alert type.
+   */
   category?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * ScheduleError
    */
   code?: string;
   /**
+   * @remarks
+   * The time when the alert was received in UTC.
+   * 
    * @example
    * 2024-07-16T10:03Z
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The time when the alert was modified in UTC.
+   * 
    * @example
    * 2024-07-16T10:03Z
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * xxxxx
    */
   message?: string;
   /**
+   * @remarks
+   * The ARN of the related resource.
+   * 
    * @example
    * acs:ims:mediaweaver:<regionId>:<userId>:vodSource/mySourceLocation/MySource
    */
   relatedResourceArns?: string;
   /**
+   * @remarks
+   * The ARN of the resource.
+   * 
    * @example
    * acs:ims:mediaweaver:<regionId>:<userId>:vodSource/mySourceLocation/MySource
    */
@@ -20296,22 +22909,38 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
 
 export class ListChannelAlertsResponseBodyProgramAlerts extends $dara.Model {
   /**
+   * @remarks
+   * The ARN of the program.
+   * 
    * @example
    * acs:ims:mediaweaver:<regionId>:<userId>:program/myChannel/MyProgram
    */
   arn?: string;
+  /**
+   * @remarks
+   * The alert type.
+   */
   category?: string;
   /**
+   * @remarks
+   * The number of alerts.
+   * 
    * @example
    * 4
    */
   count?: number;
   /**
+   * @remarks
+   * The time when the alert was last modified in UTC.
+   * 
    * @example
    * 2024-07-16T10:03Z
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The name of the program.
+   * 
    * @example
    * program_name
    */
@@ -21459,7 +24088,7 @@ export class ListEditingProjectsResponseBodyProjectList extends $dara.Model {
 export class ListLivePackageChannelGroupsResponseBodyLivePackageChannelGroups extends $dara.Model {
   /**
    * @remarks
-   * 创建时间
+   * The time when the channel group was created. It is in the `yyyy-MM-ddTHH:mm:ssZ` format and displayed in UTC.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -21467,12 +24096,12 @@ export class ListLivePackageChannelGroupsResponseBodyLivePackageChannelGroups ex
   createTime?: string;
   /**
    * @remarks
-   * 描述
+   * The channel group description.
    */
   description?: string;
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The channel group name.
    * 
    * @example
    * testChannelGroup
@@ -21480,7 +24109,7 @@ export class ListLivePackageChannelGroupsResponseBodyLivePackageChannelGroups ex
   groupName?: string;
   /**
    * @remarks
-   * 修改时间
+   * The time when the channel group was last modified. It is in the `yyyy-MM-ddTHH:mm:ssZ` format and displayed in UTC.
    * 
    * @example
    * 2023-04-02T12:00:00Z
@@ -21488,7 +24117,7 @@ export class ListLivePackageChannelGroupsResponseBodyLivePackageChannelGroups ex
   lastModified?: string;
   /**
    * @remarks
-   * 源站域名
+   * The origin domain.
    * 
    * @example
    * origin.example.com
@@ -21525,21 +24154,33 @@ export class ListLivePackageChannelGroupsResponseBodyLivePackageChannelGroups ex
 
 export class ListLivePackageChannelsResponseBodyLivePackageChannelsIngestEndpoints extends $dara.Model {
   /**
+   * @remarks
+   * The ingest endpoint ID.
+   * 
    * @example
    * ingest1
    */
   id?: string;
   /**
+   * @remarks
+   * The password.
+   * 
    * @example
    * 2F9e9******18b569c8
    */
   password?: string;
   /**
+   * @remarks
+   * The ingest endpoint URL.
+   * 
    * @example
    * http://xxx-1.packagepush-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
    */
   url?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * us12******das
    */
@@ -21574,9 +24215,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannelsIngestEndpoin
 export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dara.Model {
   /**
    * @remarks
-   * 频道名称，字符必须为大小写英文字母或-、_。
-   * 1 ~ 200个字符。
-   * 格式：[A-Za-z0-9_-]+
+   * The channel name.
    * 
    * @example
    * ch3
@@ -21584,7 +24223,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
   channelName?: string;
   /**
    * @remarks
-   * 代表创建时间的资源属性字段
+   * The time when the channel was created.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -21592,21 +24231,25 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
   createTime?: string;
   /**
    * @remarks
-   * 频道描述，最大1000个字符
+   * The channel description.
    */
   description?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * @example
    * channel-group-1
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The ingest endpoints.
+   */
   ingestEndpoints?: ListLivePackageChannelsResponseBodyLivePackageChannelsIngestEndpoints[];
   /**
    * @remarks
-   * 最后修改时间
+   * The time when the channel was last modified.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -21614,7 +24257,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
   lastModified?: string;
   /**
    * @remarks
-   * 输入协议，目前仅支持HLS
+   * The ingest protocol. Only HLS is supported.
    * 
    * @example
    * HLS
@@ -21622,7 +24265,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
   protocol?: string;
   /**
    * @remarks
-   * 输入流m3u8切片个数，2～100
+   * The number of M3U8 segments.
    * 
    * @example
    * 3
@@ -21630,7 +24273,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
   segmentCount?: number;
   /**
    * @remarks
-   * 输入流切片时长，1～30
+   * The segment duration.
    * 
    * @example
    * 5
@@ -21679,7 +24322,7 @@ export class ListLivePackageChannelsResponseBodyLivePackageChannels extends $dar
 export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoints extends $dara.Model {
   /**
    * @remarks
-   * 回源授权码，与IpWhitelist必选其一
+   * The authorization code.
    * 
    * @example
    * Abc123Def456
@@ -21687,7 +24330,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   authorizationCode?: string;
   /**
    * @remarks
-   * 频道名称
+   * The channel name.
    * 
    * @example
    * channel-1
@@ -21695,7 +24338,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   channelName?: string;
   /**
    * @remarks
-   * 创建时间
+   * The time when the endpoint was created.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -21703,12 +24346,12 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   createTime?: string;
   /**
    * @remarks
-   * 端点描述
+   * The endpoint description.
    */
   description?: string;
   /**
    * @remarks
-   * 端点名称
+   * The endpoint name.
    * 
    * @example
    * endpoint-1
@@ -21716,7 +24359,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   endpointName?: string;
   /**
    * @remarks
-   * 源站端点回源播放地址
+   * The endpoint URL.
    * 
    * @example
    * https://xxx.packagepull-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest.m3u8
@@ -21724,7 +24367,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   endpointUrl?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * @example
    * channel-group-1
@@ -21732,7 +24375,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   groupName?: string;
   /**
    * @remarks
-   * IP黑名单，支持无类别域间路由（CIDR），逗号分隔
+   * The IP address blacklist.
    * 
    * @example
    * 10.21.222.1/32,192.168.100.0/24
@@ -21740,7 +24383,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   ipBlacklist?: string;
   /**
    * @remarks
-   * IP白名单，支持无类别域间路由（CIDR），逗号分隔，与AuthorizationCode必选其一
+   * The IP address whitelist.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1/24
@@ -21748,7 +24391,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   ipWhitelist?: string;
   /**
    * @remarks
-   * 最后修改时间
+   * The time when the endpoint was last modified.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -21756,7 +24399,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   lastModified?: string;
   /**
    * @remarks
-   * 播放列表名
+   * The playlist name.
    * 
    * @example
    * manifest
@@ -21764,7 +24407,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   manifestName?: string;
   /**
    * @remarks
-   * 端点分发协议，暂只支持HLS
+   * The distribution protocol.
    * 
    * @example
    * HLS
@@ -21772,7 +24415,7 @@ export class ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoint
   protocol?: string;
   /**
    * @remarks
-   * 时移天数，最大30天，0表示不支持时移
+   * The number of days that time-shifted content is available.
    * 
    * @example
    * 1
@@ -24447,6 +27090,1252 @@ export class ListMediaInfoJobsResponseBodyJobs extends $dara.Model {
     }
     if(this.submitResultJson) {
       $dara.Model.validateMap(this.submitResultJson);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsAudioSettingsAudioCodecSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The audio bitrate. Unit: bit/s.
+   * 
+   * @example
+   * 200000
+   */
+  bitrate?: number;
+  /**
+   * @remarks
+   * The audio codec profile.
+   * 
+   * @example
+   * AAC-LOW
+   */
+  profile?: string;
+  /**
+   * @remarks
+   * The audio sample rate. Unit: Hz.
+   * 
+   * @example
+   * 44100
+   */
+  sampleRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      profile: 'Profile',
+      sampleRate: 'SampleRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'number',
+      profile: 'string',
+      sampleRate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsAudioSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The audio codec.
+   * 
+   * @example
+   * aac
+   */
+  audioCodec?: string;
+  /**
+   * @remarks
+   * The audio encoding settings.
+   */
+  audioCodecSetting?: ListMediaLiveChannelsResponseBodyChannelsAudioSettingsAudioCodecSetting;
+  /**
+   * @remarks
+   * The name of the audio selector.
+   * 
+   * @example
+   * myselector
+   */
+  audioSelectorName?: string;
+  /**
+   * @remarks
+   * A three-letter ISO 639-2 language code.
+   * 
+   * @example
+   * eng
+   */
+  languageCode?: string;
+  /**
+   * @remarks
+   * The name of the language.
+   * 
+   * @example
+   * English
+   */
+  languageName?: string;
+  /**
+   * @remarks
+   * The name of the audio settings.
+   * 
+   * @example
+   * zhuanfengzhuang
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioCodec: 'AudioCodec',
+      audioCodecSetting: 'AudioCodecSetting',
+      audioSelectorName: 'AudioSelectorName',
+      languageCode: 'LanguageCode',
+      languageName: 'LanguageName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioCodec: 'string',
+      audioCodecSetting: ListMediaLiveChannelsResponseBodyChannelsAudioSettingsAudioCodecSetting,
+      audioSelectorName: 'string',
+      languageCode: 'string',
+      languageName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(this.audioCodecSetting && typeof (this.audioCodecSetting as any).validate === 'function') {
+      (this.audioCodecSetting as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioLanguageSelection extends $dara.Model {
+  /**
+   * @remarks
+   * A three-letter ISO 639-2 language code from within an audio source.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eng
+   */
+  languageCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      languageCode: 'LanguageCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      languageCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioPidSelection extends $dara.Model {
+  /**
+   * @remarks
+   * A PID from within a source.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
+  pid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pid: 'Pid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pid: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioTrackSelection extends $dara.Model {
+  /**
+   * @remarks
+   * The track ID from within a source.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  trackId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      trackId: 'TrackId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trackId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectors extends $dara.Model {
+  /**
+   * @remarks
+   * The audio language selection.
+   */
+  audioLanguageSelection?: ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioLanguageSelection;
+  /**
+   * @remarks
+   * The audio PID selection.
+   */
+  audioPidSelection?: ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioPidSelection;
+  /**
+   * @remarks
+   * The audio track selection.
+   */
+  audioTrackSelection?: ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioTrackSelection[];
+  /**
+   * @remarks
+   * The name of the audio selector.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myselector
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioLanguageSelection: 'AudioLanguageSelection',
+      audioPidSelection: 'AudioPidSelection',
+      audioTrackSelection: 'AudioTrackSelection',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioLanguageSelection: ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioLanguageSelection,
+      audioPidSelection: ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioPidSelection,
+      audioTrackSelection: { 'type': 'array', 'itemType': ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectorsAudioTrackSelection },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(this.audioLanguageSelection && typeof (this.audioLanguageSelection as any).validate === 'function') {
+      (this.audioLanguageSelection as any).validate();
+    }
+    if(this.audioPidSelection && typeof (this.audioPidSelection as any).validate === 'function') {
+      (this.audioPidSelection as any).validate();
+    }
+    if(Array.isArray(this.audioTrackSelection)) {
+      $dara.Model.validateArray(this.audioTrackSelection);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsInputAttachments extends $dara.Model {
+  /**
+   * @remarks
+   * The audio selectors.
+   */
+  audioSelectors?: ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectors[];
+  /**
+   * @remarks
+   * The ID of the input.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  inputId?: string;
+  /**
+   * @remarks
+   * The name of the input.
+   * 
+   * @example
+   * myinput
+   */
+  inputName?: string;
+  /**
+   * @remarks
+   * The name of the language.
+   * 
+   * @example
+   * eng
+   */
+  languageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioSelectors: 'AudioSelectors',
+      inputId: 'InputId',
+      inputName: 'InputName',
+      languageName: 'LanguageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSelectors: { 'type': 'array', 'itemType': ListMediaLiveChannelsResponseBodyChannelsInputAttachmentsAudioSelectors },
+      inputId: 'string',
+      inputName: 'string',
+      languageName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audioSelectors)) {
+      $dara.Model.validateArray(this.audioSelectors);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsOutputGroupsMediaPackageGroupSetting extends $dara.Model {
+  /**
+   * @remarks
+   * ChannelName in MediaPackage.
+   * 
+   * @example
+   * myPackageChannel
+   */
+  channelName?: string;
+  /**
+   * @remarks
+   * GroupName in MediaPackage.
+   * 
+   * @example
+   * myPackageGroup
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputsMediaPackageOutputSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The manifest audio group ID.
+   * 
+   * @example
+   * audiogroup
+   */
+  audioGroupId?: string;
+  /**
+   * @remarks
+   * The manifest name modifier. The child manifests include this modifier in their M3U8 file names.
+   * 
+   * @example
+   * 480p
+   */
+  nameModifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioGroupId: 'AudioGroupId',
+      nameModifier: 'NameModifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioGroupId: 'string',
+      nameModifier: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputs extends $dara.Model {
+  /**
+   * @remarks
+   * The referenced AudioSettings.
+   */
+  audioSettingNames?: string[];
+  /**
+   * @remarks
+   * The settings of the output delivered to MediaPackage.
+   */
+  mediaPackageOutputSetting?: ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputsMediaPackageOutputSetting;
+  /**
+   * @remarks
+   * The media type of the output.
+   * 
+   * @example
+   * 0
+   */
+  mediaType?: number;
+  /**
+   * @remarks
+   * The name of the output.
+   * 
+   * @example
+   * output1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The name of the referenced VideoSettings.
+   * 
+   * @example
+   * myVideo1
+   */
+  videoSettingName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioSettingNames: 'AudioSettingNames',
+      mediaPackageOutputSetting: 'MediaPackageOutputSetting',
+      mediaType: 'MediaType',
+      name: 'Name',
+      videoSettingName: 'VideoSettingName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSettingNames: { 'type': 'array', 'itemType': 'string' },
+      mediaPackageOutputSetting: ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputsMediaPackageOutputSetting,
+      mediaType: 'number',
+      name: 'string',
+      videoSettingName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audioSettingNames)) {
+      $dara.Model.validateArray(this.audioSettingNames);
+    }
+    if(this.mediaPackageOutputSetting && typeof (this.mediaPackageOutputSetting as any).validate === 'function') {
+      (this.mediaPackageOutputSetting as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsOutputGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The MediaPackage destination.
+   */
+  mediaPackageGroupSetting?: ListMediaLiveChannelsResponseBodyChannelsOutputGroupsMediaPackageGroupSetting;
+  /**
+   * @remarks
+   * The URL for monitoring the output group. The parameter is returned only when the output gourp type is MediaPackage.
+   * 
+   * @example
+   * rtmp://xxx
+   */
+  monitorUrl?: string;
+  /**
+   * @remarks
+   * The name of the output group.
+   * 
+   * @example
+   * group1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The outputs in the output group.
+   */
+  outputs?: ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputs[];
+  /**
+   * @remarks
+   * The output group type.
+   * 
+   * @example
+   * MediaPackage
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaPackageGroupSetting: 'MediaPackageGroupSetting',
+      monitorUrl: 'MonitorUrl',
+      name: 'Name',
+      outputs: 'Outputs',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaPackageGroupSetting: ListMediaLiveChannelsResponseBodyChannelsOutputGroupsMediaPackageGroupSetting,
+      monitorUrl: 'string',
+      name: 'string',
+      outputs: { 'type': 'array', 'itemType': ListMediaLiveChannelsResponseBodyChannelsOutputGroupsOutputs },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.mediaPackageGroupSetting && typeof (this.mediaPackageGroupSetting as any).validate === 'function') {
+      (this.mediaPackageGroupSetting as any).validate();
+    }
+    if(Array.isArray(this.outputs)) {
+      $dara.Model.validateArray(this.outputs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingCodecDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The video encoding level. It is not supported yet.
+   * 
+   * @example
+   * H264_LEVEL_AUTO
+   */
+  level?: string;
+  /**
+   * @remarks
+   * The H.264 profile.
+   * 
+   * @example
+   * MAIN
+   */
+  profile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      level: 'Level',
+      profile: 'Profile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      level: 'string',
+      profile: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingFramerate extends $dara.Model {
+  /**
+   * @remarks
+   * The frame rate mode.
+   * 
+   * @example
+   * SPECIFIED
+   */
+  framerateControl?: string;
+  /**
+   * @remarks
+   * The denominator of the fixed frame rate.
+   * 
+   * @example
+   * 1
+   */
+  framerateDenominator?: number;
+  /**
+   * @remarks
+   * The numerator of the fixed frame rate.
+   * 
+   * @example
+   * 25
+   */
+  framerateNumerator?: number;
+  static names(): { [key: string]: string } {
+    return {
+      framerateControl: 'FramerateControl',
+      framerateDenominator: 'FramerateDenominator',
+      framerateNumerator: 'FramerateNumerator',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      framerateControl: 'string',
+      framerateDenominator: 'number',
+      framerateNumerator: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingGop extends $dara.Model {
+  /**
+   * @remarks
+   * The number of B frames.
+   * 
+   * @example
+   * 3
+   */
+  bframesNum?: number;
+  /**
+   * @remarks
+   * The GOP size.
+   * 
+   * @example
+   * 90
+   */
+  gopSize?: number;
+  /**
+   * @remarks
+   * The GOP size unit.
+   * 
+   * @example
+   * FRAMES
+   */
+  gopSizeUnits?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bframesNum: 'BframesNum',
+      gopSize: 'GopSize',
+      gopSizeUnits: 'GopSizeUnits',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bframesNum: 'number',
+      gopSize: 'number',
+      gopSizeUnits: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingRate extends $dara.Model {
+  /**
+   * @remarks
+   * The video bitrate. Unit: bit/s.
+   * 
+   * @example
+   * 2500000
+   */
+  bitrate?: number;
+  /**
+   * @remarks
+   * The video buffer size. Unit: bit/s.
+   * 
+   * @example
+   * 6000000
+   */
+  bufferSize?: number;
+  /**
+   * @remarks
+   * The maximum bitrate. Unit: bit/s.
+   * 
+   * @example
+   * 6000000
+   */
+  maxBitrate?: number;
+  /**
+   * @remarks
+   * The bitrate control mode.
+   * 
+   * @example
+   * ABR
+   */
+  rateControlMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      bufferSize: 'BufferSize',
+      maxBitrate: 'MaxBitrate',
+      rateControlMode: 'RateControlMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'number',
+      bufferSize: 'number',
+      maxBitrate: 'number',
+      rateControlMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The video encoding settings.
+   */
+  codecDetail?: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingCodecDetail;
+  /**
+   * @remarks
+   * The frame rate.
+   */
+  framerate?: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingFramerate;
+  /**
+   * @remarks
+   * The GOP setting.
+   */
+  gop?: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingGop;
+  /**
+   * @remarks
+   * The video encoding rate.
+   */
+  rate?: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingRate;
+  static names(): { [key: string]: string } {
+    return {
+      codecDetail: 'CodecDetail',
+      framerate: 'Framerate',
+      gop: 'Gop',
+      rate: 'Rate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codecDetail: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingCodecDetail,
+      framerate: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingFramerate,
+      gop: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingGop,
+      rate: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSettingRate,
+    };
+  }
+
+  validate() {
+    if(this.codecDetail && typeof (this.codecDetail as any).validate === 'function') {
+      (this.codecDetail as any).validate();
+    }
+    if(this.framerate && typeof (this.framerate as any).validate === 'function') {
+      (this.framerate as any).validate();
+    }
+    if(this.gop && typeof (this.gop as any).validate === 'function') {
+      (this.gop as any).validate();
+    }
+    if(this.rate && typeof (this.rate as any).validate === 'function') {
+      (this.rate as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannelsVideoSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The height of the video in pixels.
+   * 
+   * @example
+   * 720
+   */
+  height?: number;
+  /**
+   * @remarks
+   * The name of the video settings.
+   * 
+   * @example
+   * video1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The video codec.
+   * 
+   * @example
+   * H264
+   */
+  videoCodec?: string;
+  /**
+   * @remarks
+   * The video encoding settings.
+   */
+  videoCodecSetting?: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSetting;
+  /**
+   * @remarks
+   * The width of the video in pixels.
+   * 
+   * @example
+   * 1280
+   */
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      name: 'Name',
+      videoCodec: 'VideoCodec',
+      videoCodecSetting: 'VideoCodecSetting',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      name: 'string',
+      videoCodec: 'string',
+      videoCodecSetting: ListMediaLiveChannelsResponseBodyChannelsVideoSettingsVideoCodecSetting,
+      width: 'number',
+    };
+  }
+
+  validate() {
+    if(this.videoCodecSetting && typeof (this.videoCodecSetting as any).validate === 'function') {
+      (this.videoCodecSetting as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBodyChannels extends $dara.Model {
+  /**
+   * @remarks
+   * The audio settings.
+   */
+  audioSettings?: ListMediaLiveChannelsResponseBodyChannelsAudioSettings[];
+  /**
+   * @remarks
+   * The ID of the channel.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  channelId?: string;
+  /**
+   * @remarks
+   * The time when the channel was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-12-03T06:56:42Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The inputs associated with the channel.
+   */
+  inputAttachments?: ListMediaLiveChannelsResponseBodyChannelsInputAttachments[];
+  /**
+   * @remarks
+   * The time when the channel was last started. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. If the channel has never been started since it was created, an empty string is returned.
+   * 
+   * @example
+   * 2024-12-03T06:56:42Z
+   */
+  lastStartTime?: string;
+  /**
+   * @remarks
+   * The time when the channel was last stopped. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. If the channel has never stopped since it was created, an empty string is returned.
+   * 
+   * @example
+   * 2024-12-03T06:56:42Z
+   */
+  lastStopTime?: string;
+  /**
+   * @remarks
+   * The name of the channel.
+   * 
+   * @example
+   * mych
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The output groups.
+   */
+  outputGroups?: ListMediaLiveChannelsResponseBodyChannelsOutputGroups[];
+  /**
+   * @remarks
+   * The state of the channel. Valid values: IDLE, STARTING, RUNNING, RECOVERING, and STOPPING.
+   * 
+   * @example
+   * IDLE
+   */
+  state?: string;
+  /**
+   * @remarks
+   * The video settings.
+   */
+  videoSettings?: ListMediaLiveChannelsResponseBodyChannelsVideoSettings[];
+  static names(): { [key: string]: string } {
+    return {
+      audioSettings: 'AudioSettings',
+      channelId: 'ChannelId',
+      createTime: 'CreateTime',
+      inputAttachments: 'InputAttachments',
+      lastStartTime: 'LastStartTime',
+      lastStopTime: 'LastStopTime',
+      name: 'Name',
+      outputGroups: 'OutputGroups',
+      state: 'State',
+      videoSettings: 'VideoSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSettings: { 'type': 'array', 'itemType': ListMediaLiveChannelsResponseBodyChannelsAudioSettings },
+      channelId: 'string',
+      createTime: 'string',
+      inputAttachments: { 'type': 'array', 'itemType': ListMediaLiveChannelsResponseBodyChannelsInputAttachments },
+      lastStartTime: 'string',
+      lastStopTime: 'string',
+      name: 'string',
+      outputGroups: { 'type': 'array', 'itemType': ListMediaLiveChannelsResponseBodyChannelsOutputGroups },
+      state: 'string',
+      videoSettings: { 'type': 'array', 'itemType': ListMediaLiveChannelsResponseBodyChannelsVideoSettings },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audioSettings)) {
+      $dara.Model.validateArray(this.audioSettings);
+    }
+    if(Array.isArray(this.inputAttachments)) {
+      $dara.Model.validateArray(this.inputAttachments);
+    }
+    if(Array.isArray(this.outputGroups)) {
+      $dara.Model.validateArray(this.outputGroups);
+    }
+    if(Array.isArray(this.videoSettings)) {
+      $dara.Model.validateArray(this.videoSettings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveInputSecurityGroupsResponseBodySecurityGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the security group was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-12-03T06:56:42Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The IDs of the inputs associated with the security group.
+   */
+  inputIds?: string[];
+  /**
+   * @remarks
+   * The security group name.
+   * 
+   * @example
+   * mysg
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The security group rules.
+   */
+  whitelistRules?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      inputIds: 'InputIds',
+      name: 'Name',
+      securityGroupId: 'SecurityGroupId',
+      whitelistRules: 'WhitelistRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      inputIds: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      securityGroupId: 'string',
+      whitelistRules: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inputIds)) {
+      $dara.Model.validateArray(this.inputIds);
+    }
+    if(Array.isArray(this.whitelistRules)) {
+      $dara.Model.validateArray(this.whitelistRules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveInputsResponseBodyInputsInputInfos extends $dara.Model {
+  /**
+   * @remarks
+   * The endpoint that the stream is pushed to. This parameter is returned for PUSH inputs.
+   * 
+   * @example
+   * rtmp://domain/app/stream
+   */
+  destHost?: string;
+  flowId?: string;
+  flowOutputName?: string;
+  /**
+   * @remarks
+   * The URL for input monitoring.
+   * 
+   * @example
+   * rtmp://domain/app/stream_for_monitor
+   */
+  monitorUrl?: string;
+  /**
+   * @remarks
+   * The source URL where the stream is pulled from. This parameter is returned for PULL inputs.
+   * 
+   * @example
+   * rtmp://domain/app/stream
+   */
+  sourceUrl?: string;
+  /**
+   * @remarks
+   * The name of the pushed stream. This parameter is returned for PUSH inputs.
+   * 
+   * @example
+   * mystream
+   */
+  streamName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      destHost: 'DestHost',
+      flowId: 'FlowId',
+      flowOutputName: 'FlowOutputName',
+      monitorUrl: 'MonitorUrl',
+      sourceUrl: 'SourceUrl',
+      streamName: 'StreamName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destHost: 'string',
+      flowId: 'string',
+      flowOutputName: 'string',
+      monitorUrl: 'string',
+      sourceUrl: 'string',
+      streamName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveInputsResponseBodyInputs extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the channels associated with the input.
+   */
+  channelIds?: string[];
+  /**
+   * @remarks
+   * The time when the input was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-12-03T06:56:42Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The ID of the input.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  inputId?: string;
+  /**
+   * @remarks
+   * The input configurations.
+   */
+  inputInfos?: ListMediaLiveInputsResponseBodyInputsInputInfos[];
+  /**
+   * @remarks
+   * The name of the input.
+   * 
+   * @example
+   * myinput
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The IDs of the security groups associated with the input.
+   */
+  securityGroupIds?: string[];
+  /**
+   * @remarks
+   * The input type.
+   * 
+   * @example
+   * RTMP_PUSH
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelIds: 'ChannelIds',
+      createTime: 'CreateTime',
+      inputId: 'InputId',
+      inputInfos: 'InputInfos',
+      name: 'Name',
+      securityGroupIds: 'SecurityGroupIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelIds: { 'type': 'array', 'itemType': 'string' },
+      createTime: 'string',
+      inputId: 'string',
+      inputInfos: { 'type': 'array', 'itemType': ListMediaLiveInputsResponseBodyInputsInputInfos },
+      name: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.channelIds)) {
+      $dara.Model.validateArray(this.channelIds);
+    }
+    if(Array.isArray(this.inputInfos)) {
+      $dara.Model.validateArray(this.inputInfos);
+    }
+    if(Array.isArray(this.securityGroupIds)) {
+      $dara.Model.validateArray(this.securityGroupIds);
     }
     super.validate();
   }
@@ -28208,8 +32097,15 @@ export class ListTranscodeJobsResponseBodyJobs extends $dara.Model {
 }
 
 export class ListVodPackagingAssetsResponseBodyAssetsInput extends $dara.Model {
+  /**
+   * @remarks
+   * The URL of the media file. Only M3U8 files stored in OSS are supported.
+   */
   media?: string;
   /**
+   * @remarks
+   * The input type. Only Object Storage Service (OSS) is supported.
+   * 
    * @example
    * OSS
    */
@@ -28239,25 +32135,41 @@ export class ListVodPackagingAssetsResponseBodyAssetsInput extends $dara.Model {
 
 export class ListVodPackagingAssetsResponseBodyAssets extends $dara.Model {
   /**
+   * @remarks
+   * The name of the VOD packaging asset.
+   * 
    * @example
    * 30min_movie
    */
   assetName?: string;
   /**
+   * @remarks
+   * The time when the asset was ingested. It follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2024-11-21T06:45:32Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The asset description.
+   * 
    * @example
    * movie 30min
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the packaging group.
+   * 
    * @example
    * vod_hls
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The asset input configurations.
+   */
   input?: ListVodPackagingAssetsResponseBodyAssetsInput;
   static names(): { [key: string]: string } {
     return {
@@ -34317,6 +38229,46 @@ export class SearchPublicMediaInfoResponseBodyPublicMediaInfos extends $dara.Mod
   }
 }
 
+export class StartAIAgentInstanceRequestChatSyncConfig extends $dara.Model {
+  /**
+   * @remarks
+   * IM的智能体Id。
+   * 
+   * @example
+   * ******005e4f309379701645f4****
+   */
+  IMAIAgentId?: string;
+  /**
+   * @remarks
+   * 接收用户Id。
+   * 
+   * @example
+   * 4167626d312034b2b1c3b7f2f3e41884
+   */
+  receiverId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      IMAIAgentId: 'IMAIAgentId',
+      receiverId: 'ReceiverId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IMAIAgentId: 'string',
+      receiverId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartRtcRobotInstanceRequestConfig extends $dara.Model {
   asrMaxSilence?: number;
   /**
@@ -35562,8 +39514,20 @@ export class SubmitMediaCensorJobRequestScheduleConfig extends $dara.Model {
 }
 
 export class SubmitMediaConvertJobResponseBodyJobConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The inputs of the transcoding task.
+   */
   inputs?: MediaConvertInput[];
+  /**
+   * @remarks
+   * The output group configurations.
+   */
   outputGroups?: MediaConvertOutputGroup[];
+  /**
+   * @remarks
+   * The output configurations.
+   */
   outputs?: MediaConvertOutput[];
   static names(): { [key: string]: string } {
     return {
@@ -35600,40 +39564,90 @@ export class SubmitMediaConvertJobResponseBodyJobConfig extends $dara.Model {
 }
 
 export class SubmitMediaConvertJobResponseBodyJob extends $dara.Model {
+  /**
+   * @remarks
+   * The idempotency key of the request for creating the transcoding task.
+   * 
+   * @example
+   * FB7F25E9-AD9B-1603-8AF6-F1E42DF2E706
+   */
   clientToken?: string;
   /**
+   * @remarks
+   * The error code returned when the transcoding task failed.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The configurations of the transcoding task.
+   */
   config?: SubmitMediaConvertJobResponseBodyJobConfig;
   /**
+   * @remarks
+   * The ID of the transcoding task.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The error message returned when the transcoding task failed.
+   * 
    * @example
    * ok
    */
   message?: string;
+  /**
+   * @remarks
+   * The details of the transcoded outputs.
+   */
   outputDetails?: MediaConvertOutputDetail[];
+  /**
+   * @remarks
+   * The details of the output groups.
+   */
   outputGroupDetails?: MediaConvertOutputGroupDetail[];
   /**
+   * @remarks
+   * The ID of the queue.
+   * 
    * @example
    * 3780049
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * A2129C9F-CE95-58B5-B8C1-07758FF6C86F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the transcoding task. Valid values:
+   * 
+   * *   Inited: The task is initialized.
+   * *   Running
+   * *   Success
+   * *   Failed
+   * *   Cancelled
+   * 
    * @example
    * Created
    */
   state?: string;
+  /**
+   * @remarks
+   * The user data.
+   * 
+   * @example
+   * {"videoId":"abcd"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44650,7 +48664,7 @@ export class SubmitVideoTranslationJobResponseBodyData extends $dara.Model {
 export class UpdateAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
   /**
    * @remarks
-   * 广告分片的CDN前缀
+   * The CDN prefix for ad segments.
    * 
    * @example
    * http://cdn.com/
@@ -44658,7 +48672,7 @@ export class UpdateAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
   adSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * 视频内容分片的CDN前缀
+   * The CDN prefix for content segments.
    * 
    * @example
    * http://cdn.com/
@@ -44690,7 +48704,7 @@ export class UpdateAdInsertionResponseBodyConfigCdnConfig extends $dara.Model {
 export class UpdateAdInsertionResponseBodyConfigManifestEndpointConfig extends $dara.Model {
   /**
    * @remarks
-   * HLS清单播放端点前缀
+   * The prefix of the playback endpoint for HLS manifests.
    */
   hlsPrefix?: string;
   static names(): { [key: string]: string } {
@@ -44717,7 +48731,7 @@ export class UpdateAdInsertionResponseBodyConfigManifestEndpointConfig extends $
 export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * 广告标记透传
+   * Indicates whether ad marker passthrough is enabled.
    * 
    * @example
    * ON
@@ -44725,7 +48739,7 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   adMarkerPassthrough?: string;
   /**
    * @remarks
-   * 广告策略服务器URL
+   * The request URL of ADS.
    * 
    * @example
    * http://ads.com/ad1?param1=[palyer_params.p1]
@@ -44733,12 +48747,12 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   adsUrl?: string;
   /**
    * @remarks
-   * CDN配置
+   * The CDN configurations.
    */
   cdnConfig?: UpdateAdInsertionResponseBodyConfigCdnConfig;
   /**
    * @remarks
-   * 动态配置别名
+   * The player parameter variables and aliases.
    * 
    * @example
    * { "player_params.p1": { "1": "abc" } }
@@ -44746,7 +48760,7 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   configAliases?: string;
   /**
    * @remarks
-   * 内容URL前缀
+   * The URL prefix for the source content.
    * 
    * @example
    * https://source.com/
@@ -44754,7 +48768,7 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   contentUrlPrefix?: string;
   /**
    * @remarks
-   * 创建时间
+   * The time when the configuration was created.
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -44762,7 +48776,7 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * 修改时间
+   * The time when the configuration was last modified.
    * 
    * @example
    * 2024-06-13T08:26:09Z
@@ -44770,12 +48784,12 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   lastModified?: string;
   /**
    * @remarks
-   * 清单播放端点配置
+   * The playback endpoint configuration.
    */
   manifestEndpointConfig?: UpdateAdInsertionResponseBodyConfigManifestEndpointConfig;
   /**
    * @remarks
-   * 广告插入配置名称
+   * The name of the ad insertion configuration.
    * 
    * @example
    * my_ad
@@ -44783,7 +48797,7 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 个性化配置阈值
+   * The personalization threshold.
    * 
    * @example
    * 5
@@ -44791,7 +48805,7 @@ export class UpdateAdInsertionResponseBodyConfig extends $dara.Model {
   personalizationThreshold?: number;
   /**
    * @remarks
-   * slate广告URL
+   * The URL of the slate ad.
    * 
    * @example
    * http://storage.com/slate1.mp4
@@ -44876,21 +48890,33 @@ export class UpdateAvatarTrainingJobResponseBodyData extends $dara.Model {
 
 export class UpdateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints extends $dara.Model {
   /**
+   * @remarks
+   * The ingest endpoint ID.
+   * 
    * @example
    * ingest1
    */
   id?: string;
   /**
+   * @remarks
+   * The password.
+   * 
    * @example
    * 2F9e******b569c8
    */
   password?: string;
   /**
+   * @remarks
+   * The ingest endpoint URL.
+   * 
    * @example
    * http://xxx-1.packagepush-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
    */
   url?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * us12******das
    */
@@ -44925,9 +48951,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoin
 export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dara.Model {
   /**
    * @remarks
-   * 频道名称，字符必须为大小写英文字母或-、_。
-   * 1 ~ 200个字符。
-   * 格式：[A-Za-z0-9_-]+
+   * The channel name.
    * 
    * @example
    * channel-1
@@ -44935,7 +48959,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   channelName?: string;
   /**
    * @remarks
-   * 代表创建时间的资源属性字段
+   * The time when the channel was created.
    * 
    * @example
    * 2024-07-16T02:24:42Z
@@ -44943,21 +48967,25 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   createTime?: string;
   /**
    * @remarks
-   * 频道描述，最大1000个字符
+   * The channel description. It can be up to 1,000 characters in length.
    */
   description?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * @example
    * channel-group-1
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The ingest endpoints.
+   */
   ingestEndpoints?: UpdateLivePackageChannelResponseBodyLivePackageChannelIngestEndpoints[];
   /**
    * @remarks
-   * 最后修改时间
+   * The time when the channel was last modified.
    * 
    * @example
    * 2024-07-16T02:24:42Z
@@ -44965,7 +48993,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   lastModified?: string;
   /**
    * @remarks
-   * 输入协议，目前仅支持HLS
+   * The ingest protocol. Only HLS is supported.
    * 
    * @example
    * HLS
@@ -44973,7 +49001,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   protocol?: string;
   /**
    * @remarks
-   * 输入流m3u8切片个数，2～100
+   * The number of segments.
    * 
    * @example
    * 3
@@ -44981,7 +49009,7 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
   segmentCount?: number;
   /**
    * @remarks
-   * 输入流切片时长，1～30
+   * The segment duration.
    * 
    * @example
    * 5
@@ -45029,21 +49057,33 @@ export class UpdateLivePackageChannelResponseBodyLivePackageChannel extends $dar
 
 export class UpdateLivePackageChannelCredentialsResponseBodyIngestEndpoints extends $dara.Model {
   /**
+   * @remarks
+   * The ingest endpoint ID. `input1` indicates primary and `input2` indicates secondary.
+   * 
    * @example
    * input1
    */
   id?: string;
   /**
+   * @remarks
+   * The password.
+   * 
    * @example
    * examplePassword123
    */
   password?: string;
   /**
+   * @remarks
+   * The ingest endpoint URL.
+   * 
    * @example
    * rtmp://example.com/live/input1
    */
   url?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * user1
    */
@@ -45078,7 +49118,7 @@ export class UpdateLivePackageChannelCredentialsResponseBodyIngestEndpoints exte
 export class UpdateLivePackageChannelGroupResponseBodyLivePackageChannelGroup extends $dara.Model {
   /**
    * @remarks
-   * 创建时间
+   * The time when the channel group was created. It is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -45086,7 +49126,7 @@ export class UpdateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
   createTime?: string;
   /**
    * @remarks
-   * 描述
+   * The channel group description.
    * 
    * @example
    * Updated description of the channel group.
@@ -45094,7 +49134,7 @@ export class UpdateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
   description?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * @example
    * example-group-name
@@ -45102,7 +49142,7 @@ export class UpdateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
   groupName?: string;
   /**
    * @remarks
-   * 修改时间
+   * The time when the channel group was last modified. It is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -45110,7 +49150,7 @@ export class UpdateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
   lastModified?: string;
   /**
    * @remarks
-   * 源站域名
+   * The origin domain.
    * 
    * @example
    * example-origin.com
@@ -45148,7 +49188,7 @@ export class UpdateLivePackageChannelGroupResponseBodyLivePackageChannelGroup ex
 export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint extends $dara.Model {
   /**
    * @remarks
-   * 回源授权码，与IpWhitelist必选其一
+   * The authorization code.
    * 
    * @example
    * Abc123Def456
@@ -45156,7 +49196,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   authorizationCode?: string;
   /**
    * @remarks
-   * 频道名称
+   * The channel name.
    * 
    * @example
    * channel-1
@@ -45164,7 +49204,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   channelName?: string;
   /**
    * @remarks
-   * 创建时间
+   * The time when the endpoint was created.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -45172,12 +49212,12 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   createTime?: string;
   /**
    * @remarks
-   * 端点描述
+   * The endpoint description.
    */
   description?: string;
   /**
    * @remarks
-   * 端点名称
+   * The endpoint name.
    * 
    * @example
    * endpoint-1
@@ -45185,7 +49225,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   endpointName?: string;
   /**
    * @remarks
-   * 源站端点回源播放地址
+   * The endpoint URL.
    * 
    * @example
    * https://xxx.packagepull-abcxxx.ap-southeast-1.aliyuncsiceintl.com/v1/group01/1/ch01/manifest
@@ -45193,7 +49233,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   endpointUrl?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * @example
    * channel-group-1
@@ -45201,7 +49241,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   groupName?: string;
   /**
    * @remarks
-   * IP黑名单，支持无类别域间路由（CIDR），逗号分隔
+   * The IP address blacklist. It supports subnet masks. Multiple IP addresses are separated by commas (,).
    * 
    * @example
    * 10.21.222.1/32,192.168.100.0/24
@@ -45209,7 +49249,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   ipBlacklist?: string;
   /**
    * @remarks
-   * IP白名单，支持无类别域间路由（CIDR），逗号分隔，与AuthorizationCode必选其一
+   * The IP address whitelist. It supports subnet masks. Multiple IP addresses are separated by commas (,).
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1/24
@@ -45217,7 +49257,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   ipWhitelist?: string;
   /**
    * @remarks
-   * 最后修改时间
+   * The time when the endpoint was last modified.
    * 
    * @example
    * 2023-04-01T12:00:00Z
@@ -45225,7 +49265,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   lastModified?: string;
   /**
    * @remarks
-   * 播放列表名
+   * The playlist name. Default value: manifest.
    * 
    * @example
    * manifest
@@ -45233,7 +49273,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   manifestName?: string;
   /**
    * @remarks
-   * 端点分发协议，暂只支持HLS
+   * The protocol. Only HLS is supported.
    * 
    * @example
    * HLS
@@ -45241,7 +49281,7 @@ export class UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoin
   protocol?: string;
   /**
    * @remarks
-   * 时移天数，最大30天，0表示不支持时移
+   * The number of days that time-shifted content is available. Maximum value: 30.
    * 
    * @example
    * 5
@@ -45729,6 +49769,964 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfig extends $dara.Mode
     if(this.videoParams && typeof (this.videoParams as any).validate === 'function') {
       (this.videoParams as any).validate();
     }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestAudioSettingsAudioCodecSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The audio bitrate. Unit: bit/s. Valid values: 8000 to 1000000. The value must be divisible by 1000.
+   * 
+   * @example
+   * 200000
+   */
+  bitrate?: number;
+  /**
+   * @remarks
+   * The audio codec profile. When AudioCodec is set to aac, AAC-LOW and AAC-MAIN are supported. When AudioCodec is set to libfdk_aac, AAC-LOW, AAC-HE, and AAC-HEV2 are supported.
+   * 
+   * @example
+   * AAC-LOW
+   */
+  profile?: string;
+  /**
+   * @remarks
+   * The audio sample rate. Unit: Hz. Valid values: 22050, 32000, 44100, 48000, and 96000.
+   * 
+   * @example
+   * 44100
+   */
+  sampleRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      profile: 'Profile',
+      sampleRate: 'SampleRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'number',
+      profile: 'string',
+      sampleRate: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestAudioSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The audio codec. If it is not specified, the source specification is used. Valid values: aac and libfdk_aac.
+   * 
+   * @example
+   * libfdk_aac
+   */
+  audioCodec?: string;
+  /**
+   * @remarks
+   * The audio encoding settings.
+   */
+  audioCodecSetting?: UpdateMediaLiveChannelRequestAudioSettingsAudioCodecSetting;
+  /**
+   * @remarks
+   * The name of the audio selector.
+   * 
+   * @example
+   * a1
+   */
+  audioSelectorName?: string;
+  /**
+   * @remarks
+   * Enter a three-letter ISO 639-2 language code. If the audio track selected by the audio selector has a language code, the language code specified in the audio selector is used. If the selected audio track does not have a language code, or if the audio selector cannot find a track that matches its criteria, this language code is used.
+   * 
+   * @example
+   * eng
+   */
+  languageCode?: string;
+  /**
+   * @remarks
+   * The tag that identifies the language of the RTMP input. It can be referenced by the output. The maximum length is 32 characters. Supported characters:
+   * 
+   * *   Unicode letters
+   * *   Digits (0-9)
+   * *   Underscore (_)
+   * *   Hyphen (-)
+   * *   Space (a space cannot be at the beginning or end)
+   * 
+   * @example
+   * English
+   */
+  languageName?: string;
+  /**
+   * @remarks
+   * The name of the audio settings. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * audio1
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioCodec: 'AudioCodec',
+      audioCodecSetting: 'AudioCodecSetting',
+      audioSelectorName: 'AudioSelectorName',
+      languageCode: 'LanguageCode',
+      languageName: 'LanguageName',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioCodec: 'string',
+      audioCodecSetting: UpdateMediaLiveChannelRequestAudioSettingsAudioCodecSetting,
+      audioSelectorName: 'string',
+      languageCode: 'string',
+      languageName: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(this.audioCodecSetting && typeof (this.audioCodecSetting as any).validate === 'function') {
+      (this.audioCodecSetting as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioLanguageSelection extends $dara.Model {
+  /**
+   * @remarks
+   * Enter a three-letter ISO 639-2 language code from within an audio source.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eng
+   */
+  languageCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      languageCode: 'LanguageCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      languageCode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioPidSelection extends $dara.Model {
+  /**
+   * @remarks
+   * Enter a specific PID from within a source.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
+  pid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pid: 'Pid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pid: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioTrackSelection extends $dara.Model {
+  /**
+   * @remarks
+   * Specify one or more audio tracks from within a source using Track ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  trackId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      trackId: 'TrackId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trackId: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestInputAttachmentsAudioSelectors extends $dara.Model {
+  /**
+   * @remarks
+   * The audio language selection.
+   */
+  audioLanguageSelection?: UpdateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioLanguageSelection;
+  /**
+   * @remarks
+   * The audio PID selection.
+   */
+  audioPidSelection?: UpdateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioPidSelection;
+  /**
+   * @remarks
+   * The audio track selection.
+   */
+  audioTrackSelection?: UpdateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioTrackSelection[];
+  /**
+   * @remarks
+   * The name of the audio selector. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myselector
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioLanguageSelection: 'AudioLanguageSelection',
+      audioPidSelection: 'AudioPidSelection',
+      audioTrackSelection: 'AudioTrackSelection',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioLanguageSelection: UpdateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioLanguageSelection,
+      audioPidSelection: UpdateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioPidSelection,
+      audioTrackSelection: { 'type': 'array', 'itemType': UpdateMediaLiveChannelRequestInputAttachmentsAudioSelectorsAudioTrackSelection },
+      name: 'string',
+    };
+  }
+
+  validate() {
+    if(this.audioLanguageSelection && typeof (this.audioLanguageSelection as any).validate === 'function') {
+      (this.audioLanguageSelection as any).validate();
+    }
+    if(this.audioPidSelection && typeof (this.audioPidSelection as any).validate === 'function') {
+      (this.audioPidSelection as any).validate();
+    }
+    if(Array.isArray(this.audioTrackSelection)) {
+      $dara.Model.validateArray(this.audioTrackSelection);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestInputAttachments extends $dara.Model {
+  /**
+   * @remarks
+   * The audio selectors.
+   */
+  audioSelectors?: UpdateMediaLiveChannelRequestInputAttachmentsAudioSelectors[];
+  /**
+   * @remarks
+   * The ID of the associated input.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myinput
+   */
+  inputId?: string;
+  /**
+   * @remarks
+   * The tag that identifies the language of the RTMP input. It can be referenced by the output. The maximum length is 32 characters. Supported characters:
+   * 
+   * *   Unicode letters
+   * *   Digits (0-9)
+   * *   Underscore (_)
+   * *   Hyphen (-)
+   * *   Space (a space cannot be at the beginning or end)
+   * 
+   * @example
+   * English
+   */
+  languageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioSelectors: 'AudioSelectors',
+      inputId: 'InputId',
+      languageName: 'LanguageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSelectors: { 'type': 'array', 'itemType': UpdateMediaLiveChannelRequestInputAttachmentsAudioSelectors },
+      inputId: 'string',
+      languageName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audioSelectors)) {
+      $dara.Model.validateArray(this.audioSelectors);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestOutputGroupsMediaPackageGroupSetting extends $dara.Model {
+  /**
+   * @remarks
+   * ChannelName in MediaPackage.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myPackageChannel
+   */
+  channelName?: string;
+  /**
+   * @remarks
+   * GroupName in MediaPackage.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myPackageGroup
+   */
+  groupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelName: 'ChannelName',
+      groupName: 'GroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelName: 'string',
+      groupName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestOutputGroupsOutputsMediaPackageOutputSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The manifest audio group ID. To associate several audio tracks into one group, assign the same audio group ID. Viewers can select a track as needed. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 40 characters in length.
+   * 
+   * @example
+   * audiogroup
+   */
+  audioGroupId?: string;
+  /**
+   * @remarks
+   * The manifest name modifier. The child manifests include this modifier in their M3U8 file names. Letters, digits, hyphens (-), and underscores (_) are supported. The maximum length is 40 characters.
+   * 
+   * @example
+   * 480p
+   */
+  nameModifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioGroupId: 'AudioGroupId',
+      nameModifier: 'NameModifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioGroupId: 'string',
+      nameModifier: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestOutputGroupsOutputs extends $dara.Model {
+  /**
+   * @remarks
+   * The referenced AudioSettings.
+   */
+  audioSettingNames?: string[];
+  /**
+   * @remarks
+   * The settings of the output delivered to MediaPackage.
+   */
+  mediaPackageOutputSetting?: UpdateMediaLiveChannelRequestOutputGroupsOutputsMediaPackageOutputSetting;
+  /**
+   * @remarks
+   * The media type of the output. Valid values:
+   * 
+   * *   0: Audio and Video
+   * *   1: Audio If you set the value to 1, you cannot reference VideoSettings.
+   * *   2: Video. If you set the value to 2, you cannot reference AudioSettings.
+   * 
+   * @example
+   * 0
+   */
+  mediaType?: number;
+  /**
+   * @remarks
+   * The name of the output. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * output1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The name of the referenced VideoSettings.
+   * 
+   * @example
+   * myVideo1
+   */
+  videoSettingName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioSettingNames: 'AudioSettingNames',
+      mediaPackageOutputSetting: 'MediaPackageOutputSetting',
+      mediaType: 'MediaType',
+      name: 'Name',
+      videoSettingName: 'VideoSettingName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSettingNames: { 'type': 'array', 'itemType': 'string' },
+      mediaPackageOutputSetting: UpdateMediaLiveChannelRequestOutputGroupsOutputsMediaPackageOutputSetting,
+      mediaType: 'number',
+      name: 'string',
+      videoSettingName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audioSettingNames)) {
+      $dara.Model.validateArray(this.audioSettingNames);
+    }
+    if(this.mediaPackageOutputSetting && typeof (this.mediaPackageOutputSetting as any).validate === 'function') {
+      (this.mediaPackageOutputSetting as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestOutputGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The MediaPackage destination.
+   */
+  mediaPackageGroupSetting?: UpdateMediaLiveChannelRequestOutputGroupsMediaPackageGroupSetting;
+  /**
+   * @remarks
+   * The name of the output group. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * group1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The outputs in the output group.
+   * 
+   * This parameter is required.
+   */
+  outputs?: UpdateMediaLiveChannelRequestOutputGroupsOutputs[];
+  /**
+   * @remarks
+   * The output group type. Only MediaPackage is supported.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * MediaPackage
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaPackageGroupSetting: 'MediaPackageGroupSetting',
+      name: 'Name',
+      outputs: 'Outputs',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaPackageGroupSetting: UpdateMediaLiveChannelRequestOutputGroupsMediaPackageGroupSetting,
+      name: 'string',
+      outputs: { 'type': 'array', 'itemType': UpdateMediaLiveChannelRequestOutputGroupsOutputs },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.mediaPackageGroupSetting && typeof (this.mediaPackageGroupSetting as any).validate === 'function') {
+      (this.mediaPackageGroupSetting as any).validate();
+    }
+    if(Array.isArray(this.outputs)) {
+      $dara.Model.validateArray(this.outputs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSettingCodecDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The video encoding level. It is not supported yet.
+   * 
+   * @example
+   * H264_LEVEL_AUTO
+   */
+  level?: string;
+  /**
+   * @remarks
+   * The H.264 profile. Valid values: BASELINE, HIGH, and MAIN. Default value: MAIN. The parameter takes effect only when the codec is H.264.
+   * 
+   * @example
+   * MAIN
+   */
+  profile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      level: 'Level',
+      profile: 'Profile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      level: 'string',
+      profile: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSettingFramerate extends $dara.Model {
+  /**
+   * @remarks
+   * The frame rate mode. Valid values: SPECIFIED (fixed frame rate) and FROM_SOURCE (use source specification).
+   * 
+   * @example
+   * SPECIFIED
+   */
+  framerateControl?: string;
+  /**
+   * @remarks
+   * The denominator of the fixed frame rate. The parameter is required when FramerateControl is set to SPECIFIED. Valid values: 1 to 60. The numerator must be divisible by the denominator.
+   * 
+   * @example
+   * 1
+   */
+  framerateDenominator?: number;
+  /**
+   * @remarks
+   * The numerator of the fixed frame rate. The parameter is required when FramerateControl is set to SPECIFIED. Valid values: 1 to 60. The numerator must be divisible by the denominator.
+   * 
+   * @example
+   * 25
+   */
+  framerateNumerator?: number;
+  static names(): { [key: string]: string } {
+    return {
+      framerateControl: 'FramerateControl',
+      framerateDenominator: 'FramerateDenominator',
+      framerateNumerator: 'FramerateNumerator',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      framerateControl: 'string',
+      framerateDenominator: 'number',
+      framerateNumerator: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSettingGop extends $dara.Model {
+  /**
+   * @remarks
+   * The number of B frames. Valid values: 1 to 3.
+   * 
+   * @example
+   * 3
+   */
+  bframesNum?: number;
+  /**
+   * @remarks
+   * The GOP size. When GopSizeUnits is set to SECONDS, the value range is from 1 to 20. When GopSizeUnits is set to FRAMES, the value range is from 1 to 3000.
+   * 
+   * @example
+   * 90
+   */
+  gopSize?: number;
+  /**
+   * @remarks
+   * The GOP size unit. Valid values: FRAMES and SECONDS.
+   * 
+   * @example
+   * FRAMES
+   */
+  gopSizeUnits?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bframesNum: 'BframesNum',
+      gopSize: 'GopSize',
+      gopSizeUnits: 'GopSizeUnits',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bframesNum: 'number',
+      gopSize: 'number',
+      gopSizeUnits: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSettingRate extends $dara.Model {
+  /**
+   * @remarks
+   * The video bitrate. Unit: bit/s. If you set it to 0 or leave it empty, the source specification is used. Valid values: 50000 to 6000000. The value must be divisible by 1000.
+   * 
+   * @example
+   * 2500000
+   */
+  bitrate?: number;
+  /**
+   * @remarks
+   * The video buffer size. Unit: bit/s. Valid values: 100000 to 6000000. The value must be divisible by 1000.
+   * 
+   * @example
+   * 6000000
+   */
+  bufferSize?: number;
+  /**
+   * @remarks
+   * The maximum bitrate. Unit: bit/s. Valid values: 100000 to 6000000. The value must be divisible by 1000.
+   * 
+   * @example
+   * 6000000
+   */
+  maxBitrate?: number;
+  /**
+   * @remarks
+   * The bitrate control mode. Valid values: CBR, ABR, and VBR.
+   * 
+   * @example
+   * ABR
+   */
+  rateControlMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      bufferSize: 'BufferSize',
+      maxBitrate: 'MaxBitrate',
+      rateControlMode: 'RateControlMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'number',
+      bufferSize: 'number',
+      maxBitrate: 'number',
+      rateControlMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The video encoding settings.
+   */
+  codecDetail?: UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSettingCodecDetail;
+  /**
+   * @remarks
+   * The frame rate. If it is not specified, the source specification is used.
+   */
+  framerate?: UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSettingFramerate;
+  /**
+   * @remarks
+   * The GOP setting. If it is not specified, the source specification is used.
+   */
+  gop?: UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSettingGop;
+  /**
+   * @remarks
+   * The video encoding rate. If it is not specified, the source specification is used.
+   */
+  rate?: UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSettingRate;
+  static names(): { [key: string]: string } {
+    return {
+      codecDetail: 'CodecDetail',
+      framerate: 'Framerate',
+      gop: 'Gop',
+      rate: 'Rate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codecDetail: UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSettingCodecDetail,
+      framerate: UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSettingFramerate,
+      gop: UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSettingGop,
+      rate: UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSettingRate,
+    };
+  }
+
+  validate() {
+    if(this.codecDetail && typeof (this.codecDetail as any).validate === 'function') {
+      (this.codecDetail as any).validate();
+    }
+    if(this.framerate && typeof (this.framerate as any).validate === 'function') {
+      (this.framerate as any).validate();
+    }
+    if(this.gop && typeof (this.gop as any).validate === 'function') {
+      (this.gop as any).validate();
+    }
+    if(this.rate && typeof (this.rate as any).validate === 'function') {
+      (this.rate as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequestVideoSettings extends $dara.Model {
+  /**
+   * @remarks
+   * The height of the output. Valid values: 0 to 2000. If you set it to 0 or leave it empty, the height automatically adapts to the specified width to maintain the original aspect ratio.
+   * 
+   * @example
+   * 720
+   */
+  height?: number;
+  /**
+   * @remarks
+   * The name of the video settings. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * video1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The video codec. Valid values: H264 and H265.
+   * 
+   * @example
+   * H264
+   */
+  videoCodec?: string;
+  /**
+   * @remarks
+   * The video encoding settings.
+   */
+  videoCodecSetting?: UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSetting;
+  /**
+   * @remarks
+   * The width of the output. Valid values: 0 to 2000. If you set it to 0 or leave it empty, the width automatically adapts to the specified height to maintain the original aspect ratio.
+   * 
+   * @example
+   * 1280
+   */
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      name: 'Name',
+      videoCodec: 'VideoCodec',
+      videoCodecSetting: 'VideoCodecSetting',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      name: 'string',
+      videoCodec: 'string',
+      videoCodecSetting: UpdateMediaLiveChannelRequestVideoSettingsVideoCodecSetting,
+      width: 'number',
+    };
+  }
+
+  validate() {
+    if(this.videoCodecSetting && typeof (this.videoCodecSetting as any).validate === 'function') {
+      (this.videoCodecSetting as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveInputRequestInputSettings extends $dara.Model {
+  flowId?: string;
+  flowOutputName?: string;
+  /**
+   * @remarks
+   * The source URL where the stream is pulled from. This parameter is required for PULL inputs.
+   * 
+   * @example
+   * rtmp://domain/app/stream
+   */
+  sourceUrl?: string;
+  /**
+   * @remarks
+   * The name of the pushed stream. This parameter is required for PUSH inputs. It can be up to 255 characters in length.
+   * 
+   * @example
+   * mystream
+   */
+  streamName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flowId: 'FlowId',
+      flowOutputName: 'FlowOutputName',
+      sourceUrl: 'SourceUrl',
+      streamName: 'StreamName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flowId: 'string',
+      flowOutputName: 'string',
+      sourceUrl: 'string',
+      streamName: 'string',
+    };
+  }
+
+  validate() {
     super.validate();
   }
 
@@ -47173,7 +52171,12 @@ export class VodPackagingGroup extends $dara.Model {
 export class AddAdInsertionRequest extends $dara.Model {
   /**
    * @remarks
-   * 内容URL前缀
+   * Specifies whether to enable ad marker passthrough. Default value: OFF.
+   * 
+   * Valid values:
+   * 
+   * *   OFF: Disable.
+   * *   ON: Enable.
    * 
    * @example
    * ON
@@ -47181,7 +52184,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   adMarkerPassthrough?: string;
   /**
    * @remarks
-   * 广告策略服务器URL
+   * The request URL of the ad decision server (ADS). HTTP and HTTPS are supported. The maximum length is 2,048 characters.
    * 
    * This parameter is required.
    * 
@@ -47191,7 +52194,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   adsUrl?: string;
   /**
    * @remarks
-   * 广告分片的CDN前缀
+   * The CDN prefix for ad segments. HTTP and HTTPS are supported. The maximum length is 512 characters.
    * 
    * @example
    * http://cdn.com/
@@ -47199,20 +52202,23 @@ export class AddAdInsertionRequest extends $dara.Model {
   cdnAdSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * 视频内容分片的CDN前缀
+   * The CDN prefix for content segments. HTTP and HTTPS are supported. The maximum length is 512 characters.
    * 
    * @example
    * http://cdn.com/
    */
   cdnContentSegmentUrlPrefix?: string;
   /**
+   * @remarks
+   * The idempotency key that is used to avoid repeated submission. The value can be up to 200 characters in length.
+   * 
    * @example
    * ****0311a423d11a5f7dee713535****
    */
   clientToken?: string;
   /**
    * @remarks
-   * 动态配置别名
+   * A JSON string that specifies the player parameter variables and aliases. You can add up to 20 player_params.{name} entries. The name field can be up to 150 characters in length. Each player parameter can include up to 50 key-value pairs. A key can be up to 150 characters long, and a value can be up to 500 characters. Example: { "player_params.{name}": { "{key}": "{value}" } }
    * 
    * @example
    * { "player_params.p1": { "1": "abc" } }
@@ -47220,7 +52226,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   configAliases?: string;
   /**
    * @remarks
-   * 内容URL前缀
+   * The URL prefix for the source content. HTTP and HTTPS are supported. The maximum length is 512 characters.
    * 
    * This parameter is required.
    * 
@@ -47230,7 +52236,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   contentUrlPrefix?: string;
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The name of the configuration. The name must be unique and can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
    * 
    * This parameter is required.
    * 
@@ -47240,7 +52246,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 个性化配置阈值
+   * Specifies the maximum duration of underfilled time allowed in an ad break. Unit: seconds. Default value: 8 seconds.
    * 
    * @example
    * 5
@@ -47248,7 +52254,7 @@ export class AddAdInsertionRequest extends $dara.Model {
   personalizationThreshold?: number;
   /**
    * @remarks
-   * slate广告URL
+   * The HTTP or HTTPS URL of the slate ad. Only MP4 format is supported. The maximum length is 2,048 characters.
    * 
    * @example
    * http://storage.com/slate1.mp4
@@ -47294,8 +52300,15 @@ export class AddAdInsertionRequest extends $dara.Model {
 }
 
 export class AddAdInsertionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ad insertion configuration.
+   */
   config?: AddAdInsertionResponseBodyConfig;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
@@ -47747,7 +52760,7 @@ export class AddFavoritePublicMediaResponse extends $dara.Model {
 export class AddMediaConnectFlowInputRequest extends $dara.Model {
   /**
    * @remarks
-   * IP whitelist, in CIDR format, separated by commas if multiple IP ranges are specified
+   * The IP address whitelist in CIDR format. Separate multiple CIDR blocks with commas (,).
    * 
    * @example
    * 19.168.1.1/32,18.168.1.1/16
@@ -47755,7 +52768,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   cidrs?: string;
   /**
    * @remarks
-   * Flow instance ID
+   * The flow ID.
    * 
    * This parameter is required.
    * 
@@ -47765,7 +52778,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * Input URL, required when the input type is RTMP-PULL/SRT-Listener
+   * The source URL. This parameter is required when the source type is RTMP-PULL or SRT-Listener.
    * 
    * @example
    * rtmp://pull.test.alivecdn.com/live/alitest
@@ -47773,7 +52786,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   inputFromUrl?: string;
   /**
    * @remarks
-   * Input name
+   * The source name.
    * 
    * This parameter is required.
    * 
@@ -47783,7 +52796,15 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   inputName?: string;
   /**
    * @remarks
-   * Input type
+   * The source type.
+   * 
+   * Valid values:
+   * 
+   * *   RTMP-PUSH
+   * *   SRT-Caller
+   * *   RTMP-PULL
+   * *   SRT-Listener
+   * *   Flow
    * 
    * This parameter is required.
    * 
@@ -47793,7 +52814,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   inputProtocol?: string;
   /**
    * @remarks
-   * Input bitrate, in bps
+   * The maximum bitrate. Unit: bit/s.
    * 
    * @example
    * 2000000
@@ -47801,7 +52822,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   maxBitrate?: number;
   /**
    * @remarks
-   * Paired Flow ID, required when the input type is Flow
+   * The ID of the source flow. This parameter is required when the source type is Flow.
    * 
    * @example
    * 805fbdd0-575e-4146-b35d-ec7f63937b20
@@ -47809,7 +52830,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   pairFlowId?: string;
   /**
    * @remarks
-   * Output name of the paired Flow, required when the input type is Flow
+   * The output of the source flow. This parameter is required when the source type is Flow.
    * 
    * @example
    * AliTestOutput
@@ -47817,7 +52838,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   pairOutputName?: string;
   /**
    * @remarks
-   * SRT latency, required when the input type is SRT-Listener/SRT-Caller
+   * The latency for the SRT stream. This parameter is required the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 1000
@@ -47825,7 +52846,7 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   srtLatency?: number;
   /**
    * @remarks
-   * SRT encryption key, required when the input type is SRT-Listener/SRT-Caller
+   * The SRT key. This parameter is required when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * BETTERG08S01
@@ -47833,7 +52854,14 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
   srtPassphrase?: string;
   /**
    * @remarks
-   * SRT encryption length, required when the input type is SRT-Listener/SRT-Caller
+   * The encryption key length. This parameter is required when the source type is SRT-Listener or SRT-Caller.
+   * 
+   * Valid values:
+   * 
+   * *   0
+   * *   16
+   * *   24
+   * *   32
    * 
    * @example
    * 32
@@ -47883,12 +52911,12 @@ export class AddMediaConnectFlowInputRequest extends $dara.Model {
 export class AddMediaConnectFlowInputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body
+   * The response body.
    */
   content?: AddMediaConnectFlowInputResponseBodyContent;
   /**
    * @remarks
-   * Description of the API call
+   * The call description.
    * 
    * @example
    * OK
@@ -47896,7 +52924,7 @@ export class AddMediaConnectFlowInputResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 请求ID
+   * The ID of the request.
    * 
    * @example
    * 11357BE8-4C54-58EA-890A-5AB646EDE4B2
@@ -47904,7 +52932,7 @@ export class AddMediaConnectFlowInputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned error code, 0 indicates success
+   * The returned error code. A value of 0 indicates the call is successful.
    * 
    * @example
    * 0
@@ -47978,7 +53006,7 @@ export class AddMediaConnectFlowInputResponse extends $dara.Model {
 export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   /**
    * @remarks
-   * IP whitelist, in CIDR format, separated by commas if multiple IP segments are provided
+   * The IP address whitelist in CIDR format. Separate multiple CIDR blocks with commas (,).
    * 
    * @example
    * 83.17.231.31/32
@@ -47986,7 +53014,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   cidrs?: string;
   /**
    * @remarks
-   * Flow instance ID
+   * The flow ID.
    * 
    * This parameter is required.
    * 
@@ -47996,7 +53024,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * Output name
+   * The output name.
    * 
    * This parameter is required.
    * 
@@ -48006,7 +53034,15 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   outputName?: string;
   /**
    * @remarks
-   * Output protocol
+   * The output type.
+   * 
+   * Valid values:
+   * 
+   * *   RTMP-PUSH
+   * *   SRT-Caller
+   * *   RTMP-PULL
+   * *   SRT-Listener
+   * *   Flow
    * 
    * This parameter is required.
    * 
@@ -48016,7 +53052,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   outputProtocol?: string;
   /**
    * @remarks
-   * Output address, required when the output type is RTMP-PUSH/SRT-Caller mode
+   * The output URL. This parameter is required when OutputProtocol is set to RTMP-PUSH or SRT-Caller.
    * 
    * @example
    * rtmp://push.test.alivecdn.com/live/alitest
@@ -48024,7 +53060,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   outputToUrl?: string;
   /**
    * @remarks
-   * Paired Flow instance ID, required when the output type is Flow
+   * The ID of the destination flow. This parameter is required when OutputProtocol is set to Flow.
    * 
    * @example
    * 8666ec062190f00e263012666319a5be
@@ -48032,7 +53068,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   pairFlowId?: string;
   /**
    * @remarks
-   * Input name of the paired Flow, required when the output type is Flow
+   * The source name of the destination flow. This parameter is required when OutputProtocol is set to Flow.
    * 
    * @example
    * AliTestInput
@@ -48040,7 +53076,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   pairInputName?: string;
   /**
    * @remarks
-   * Maximum number of players
+   * The maximum number of viewers.
    * 
    * @example
    * 5
@@ -48048,7 +53084,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   playerLimit?: number;
   /**
    * @remarks
-   * SRT latency, required only when the input type is SRT-Listener/SRT-Caller
+   * The latency for the SRT stream. This parameter is required when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 1000
@@ -48056,7 +53092,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   srtLatency?: number;
   /**
    * @remarks
-   * SRT passphrase, required only when the input type is SRT-Listener/SRT-Caller
+   * The SRT key. This parameter is required when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * BETTERG08S01
@@ -48064,7 +53100,7 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
   srtPassphrase?: string;
   /**
    * @remarks
-   * SRT encryption length, required only when the input type is SRT-Listener/SRT-Caller
+   * The encryption key length. This parameter is required when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 32
@@ -48114,12 +53150,12 @@ export class AddMediaConnectFlowOutputRequest extends $dara.Model {
 export class AddMediaConnectFlowOutputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body
+   * The response body.
    */
   content?: AddMediaConnectFlowOutputResponseBodyContent;
   /**
    * @remarks
-   * Description of the API call
+   * The call description.
    * 
    * @example
    * ok
@@ -48127,7 +53163,7 @@ export class AddMediaConnectFlowOutputResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 请求ID
+   * The ID of the request.
    * 
    * @example
    * 11AA9E73-FBA0-58DC-97BA-D606D847BCB6
@@ -48135,7 +53171,7 @@ export class AddMediaConnectFlowOutputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned error code, 0 indicates success
+   * The returned error code. A value of 0 indicates that the call is successful.
    * 
    * @example
    * 0
@@ -48689,8 +53725,15 @@ export class AlterSearchIndexResponse extends $dara.Model {
 }
 
 export class BatchCreateVodPackagingAssetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The assets that you want to ingest.
+   */
   assets?: BatchCreateVodPackagingAssetRequestAssets[];
   /**
+   * @remarks
+   * The name of the packaging group.
+   * 
    * @example
    * vod_hls
    */
@@ -48722,8 +53765,15 @@ export class BatchCreateVodPackagingAssetRequest extends $dara.Model {
 }
 
 export class BatchCreateVodPackagingAssetShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The assets that you want to ingest.
+   */
   assetsShrink?: string;
   /**
+   * @remarks
+   * The name of the packaging group.
+   * 
    * @example
    * vod_hls
    */
@@ -48753,15 +53803,25 @@ export class BatchCreateVodPackagingAssetShrinkRequest extends $dara.Model {
 
 export class BatchCreateVodPackagingAssetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The name of the packaging group.
+   * 
    * @example
    * vod_hls
    */
   groupName?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The results of asset ingestion.
+   */
   resultList?: BatchCreateVodPackagingAssetResponseBodyResultList[];
   static names(): { [key: string]: string } {
     return {
@@ -49454,17 +54514,25 @@ export class CreateAvatarTrainingJobResponse extends $dara.Model {
 
 export class CreateChannelRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable access control.
+   * 
    * @example
    * false
    */
   accessPolicy?: boolean;
   /**
+   * @remarks
+   * The token for accessing the channel.
+   * 
    * @example
    * xxxxx
    */
   accessToken?: string;
   /**
    * @remarks
+   * The name of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49473,6 +54541,8 @@ export class CreateChannelRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
+   * The tier of the channel. Valid values: basic and standard.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49480,17 +54550,25 @@ export class CreateChannelRequest extends $dara.Model {
    */
   channelTier?: string;
   /**
+   * @remarks
+   * The source location of the filler slate.
+   * 
    * @example
    * MySourceLocation
    */
   fillerSourceLocationName?: string;
   /**
+   * @remarks
+   * The name of the filler slate.
+   * 
    * @example
    * FillerSource
    */
   fillerSourceName?: string;
   /**
    * @remarks
+   * The channel output configurations.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49507,6 +54585,8 @@ export class CreateChannelRequest extends $dara.Model {
   outPutConfigList?: string;
   /**
    * @remarks
+   * The playback mode. Valid values: loop and linear.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49549,8 +54629,15 @@ export class CreateChannelRequest extends $dara.Model {
 }
 
 export class CreateChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The channel information.
+   */
   channel?: ChannelAssemblyChannel;
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
@@ -50308,9 +55395,7 @@ export class CreateEditingProjectResponse extends $dara.Model {
 export class CreateLivePackageChannelRequest extends $dara.Model {
   /**
    * @remarks
-   * 频道名称，字符必须为大小写英文字母或-、_。
-   * 1 ~ 200个字符。
-   * 格式：[A-Za-z0-9_-]+
+   * The channel name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
    * 
    * This parameter is required.
    * 
@@ -50318,15 +55403,22 @@ export class CreateLivePackageChannelRequest extends $dara.Model {
    * channel-1
    */
   channelName?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * ****12e8864746a0a398****
+   */
   clientToken?: string;
   /**
    * @remarks
-   * 频道描述，最大1000个字符
+   * The channel description. It can be up to 1,000 characters in length.
    */
   description?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
    * 
    * This parameter is required.
    * 
@@ -50336,7 +55428,7 @@ export class CreateLivePackageChannelRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * 输入协议，目前仅支持HLS
+   * The ingest protocol. Only HLS is supported.
    * 
    * This parameter is required.
    * 
@@ -50346,14 +55438,17 @@ export class CreateLivePackageChannelRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * 输入流m3u8切片个数，2～100
+   * The number of M3U8 segments. Valid values: 2 to 100.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 3
    */
   segmentCount?: number;
   /**
    * @remarks
-   * 输入流切片时长，1～30
+   * The segment duration. Valid values: 1 to 30.
    * 
    * This parameter is required.
    * 
@@ -50395,7 +55490,18 @@ export class CreateLivePackageChannelRequest extends $dara.Model {
 }
 
 export class CreateLivePackageChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the live package channel.
+   */
   livePackageChannel?: CreateLivePackageChannelResponseBodyLivePackageChannel;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50459,11 +55565,22 @@ export class CreateLivePackageChannelResponse extends $dara.Model {
 }
 
 export class CreateLivePackageChannelGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * ****12e8864746a0a398****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * The channel group description. It can be up to 1,000 characters in length.
+   */
   description?: string;
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The channel group name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
    * 
    * This parameter is required.
    * 
@@ -50497,8 +55614,15 @@ export class CreateLivePackageChannelGroupRequest extends $dara.Model {
 }
 
 export class CreateLivePackageChannelGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the channel group.
+   */
   livePackageChannelGroup?: CreateLivePackageChannelGroupResponseBodyLivePackageChannelGroup;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426614174000
    */
@@ -50567,7 +55691,7 @@ export class CreateLivePackageChannelGroupResponse extends $dara.Model {
 export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * 回源授权码，与IpWhitelist必选其一
+   * The authorization code. It can be up to 200 characters in length. You must configure AuthorizationCode, IpWhitelist, or both. Format: [A-Za-z0-9-_.]+
    * 
    * @example
    * AbcDef123
@@ -50575,9 +55699,7 @@ export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
   authorizationCode?: string;
   /**
    * @remarks
-   * 频道名称。
-   * 1 ~ 200个字符。
-   * 正则匹配输入：[A-Za-z0-9_-]+
+   * The channel name.
    * 
    * This parameter is required.
    * 
@@ -50585,17 +55707,22 @@ export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
    * channel-1
    */
   channelName?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * ****0311a423d11a5f7dee713535****
+   */
   clientToken?: string;
   /**
    * @remarks
-   * 端点描述，最大1000个字符
+   * The endpoint description.
    */
   description?: string;
   /**
    * @remarks
-   * 端点名称，要求在单个频道中唯一。
-   * 1 ~ 200个字符。
-   * 正则匹配输入：[A-Za-z0-9_-]+
+   * The origin endpoint name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
    * 
    * This parameter is required.
    * 
@@ -50605,9 +55732,7 @@ export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * 频道组名称。
-   * 1 ~ 200个字符。
-   * 正则匹配输入：[A-Za-z0-9_-]+
+   * The channel group name.
    * 
    * This parameter is required.
    * 
@@ -50617,7 +55742,7 @@ export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * IP黑名单，支持无类别域间路由（CIDR），逗号分隔
+   * The IP address blacklist. It supports subnet masks. 0.0.0.0/0 is not allowed. It can be up to 1,000 characters in length. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * 103.21.222.1/32,192.168.100.0/24
@@ -50625,7 +55750,7 @@ export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
   ipBlacklist?: string;
   /**
    * @remarks
-   * IP白名单，支持无类别域间路由（CIDR），逗号分隔，与AuthorizationCode必选其一
+   * The IP address whitelist. It supports subnet masks. 0.0.0.0/0 is not allowed. It can be up to 1,000 characters in length. Separate multiple IP addresses with commas (,). You must configure AuthorizationCode, IpWhitelist, or both.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1/24
@@ -50633,9 +55758,7 @@ export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
   ipWhitelist?: string;
   /**
    * @remarks
-   * 播放列表名，缺省为manifest。
-   * 1 ~ 100个字符。
-   * 正则匹配输入：[A-Za-z0-9_]+
+   * The playlist name. Default value: manifest.
    * 
    * @example
    * manifest
@@ -50643,7 +55766,7 @@ export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
   manifestName?: string;
   /**
    * @remarks
-   * 端点分发协议，暂只支持HLS
+   * The distribution protocol.
    * 
    * This parameter is required.
    * 
@@ -50653,7 +55776,7 @@ export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * 时移天数，最大30天，0表示不支持时移
+   * The number of days that time-shifted content is available. Maximum value: 30. Default value: 0, which indicates that time shifting is not supported.
    * 
    * @example
    * 1
@@ -50701,7 +55824,18 @@ export class CreateLivePackageOriginEndpointRequest extends $dara.Model {
 }
 
 export class CreateLivePackageOriginEndpointResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the origin endpoint.
+   */
   livePackageOriginEndpoint?: CreateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51262,7 +56396,7 @@ export class CreateLiveTranscodeTemplateResponse extends $dara.Model {
 export class CreateMediaConnectFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * Flow instance name
+   * The flow name.
    * 
    * This parameter is required.
    * 
@@ -51272,7 +56406,7 @@ export class CreateMediaConnectFlowRequest extends $dara.Model {
   flowName?: string;
   /**
    * @remarks
-   * Region to which the Flow instance belongs
+   * The region in which the flow resides.
    * 
    * This parameter is required.
    * 
@@ -51306,12 +56440,12 @@ export class CreateMediaConnectFlowRequest extends $dara.Model {
 export class CreateMediaConnectFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body
+   * The response body.
    */
   content?: CreateMediaConnectFlowResponseBodyContent;
   /**
    * @remarks
-   * Description information returned by the interface
+   * The returned message.
    * 
    * @example
    * OK
@@ -51319,7 +56453,7 @@ export class CreateMediaConnectFlowResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Request ID
+   * The ID of the request.
    * 
    * @example
    * 86D92F9D-65E8-58A2-85D1-9DEEECC172E8
@@ -51327,7 +56461,7 @@ export class CreateMediaConnectFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned error code, 0 indicates success
+   * The returned error code. A value of 0 indicates the call is successful.
    * 
    * @example
    * 0
@@ -51380,6 +56514,594 @@ export class CreateMediaConnectFlowResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateMediaConnectFlowResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The audio settings.
+   */
+  audioSettings?: CreateMediaLiveChannelRequestAudioSettings[];
+  /**
+   * @remarks
+   * The associated inputs.
+   * 
+   * This parameter is required.
+   */
+  inputAttachments?: CreateMediaLiveChannelRequestInputAttachments[];
+  /**
+   * @remarks
+   * The name of the channel. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mych
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The output groups.
+   * 
+   * This parameter is required.
+   */
+  outputGroups?: CreateMediaLiveChannelRequestOutputGroups[];
+  /**
+   * @remarks
+   * The video settings.
+   */
+  videoSettings?: CreateMediaLiveChannelRequestVideoSettings[];
+  static names(): { [key: string]: string } {
+    return {
+      audioSettings: 'AudioSettings',
+      inputAttachments: 'InputAttachments',
+      name: 'Name',
+      outputGroups: 'OutputGroups',
+      videoSettings: 'VideoSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSettings: { 'type': 'array', 'itemType': CreateMediaLiveChannelRequestAudioSettings },
+      inputAttachments: { 'type': 'array', 'itemType': CreateMediaLiveChannelRequestInputAttachments },
+      name: 'string',
+      outputGroups: { 'type': 'array', 'itemType': CreateMediaLiveChannelRequestOutputGroups },
+      videoSettings: { 'type': 'array', 'itemType': CreateMediaLiveChannelRequestVideoSettings },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audioSettings)) {
+      $dara.Model.validateArray(this.audioSettings);
+    }
+    if(Array.isArray(this.inputAttachments)) {
+      $dara.Model.validateArray(this.inputAttachments);
+    }
+    if(Array.isArray(this.outputGroups)) {
+      $dara.Model.validateArray(this.outputGroups);
+    }
+    if(Array.isArray(this.videoSettings)) {
+      $dara.Model.validateArray(this.videoSettings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The audio settings.
+   */
+  audioSettingsShrink?: string;
+  /**
+   * @remarks
+   * The associated inputs.
+   * 
+   * This parameter is required.
+   */
+  inputAttachmentsShrink?: string;
+  /**
+   * @remarks
+   * The name of the channel. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mych
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The output groups.
+   * 
+   * This parameter is required.
+   */
+  outputGroupsShrink?: string;
+  /**
+   * @remarks
+   * The video settings.
+   */
+  videoSettingsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioSettingsShrink: 'AudioSettings',
+      inputAttachmentsShrink: 'InputAttachments',
+      name: 'Name',
+      outputGroupsShrink: 'OutputGroups',
+      videoSettingsShrink: 'VideoSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSettingsShrink: 'string',
+      inputAttachmentsShrink: 'string',
+      name: 'string',
+      outputGroupsShrink: 'string',
+      videoSettingsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the channel.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  channelId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelId: 'ChannelId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveChannelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMediaLiveChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMediaLiveChannelResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveInputRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The input settings. An input can have up to two sources: primary and backup sources.
+   * 
+   * This parameter is required.
+   */
+  inputSettings?: CreateMediaLiveInputRequestInputSettings[];
+  /**
+   * @remarks
+   * The name of the input. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myinput
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The IDs of the security groups to be associated with the input. This parameter is required for PUSH inputs.
+   * 
+   * @example
+   * ["G6G4X5T4SZYPSTT5"]
+   */
+  securityGroupIds?: string[];
+  /**
+   * @remarks
+   * The input type. Valid values: RTMP_PUSH, RTMP_PULL, SRT_PUSH, and SRT_PULL.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * RTMP_PUSH
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputSettings: 'InputSettings',
+      name: 'Name',
+      securityGroupIds: 'SecurityGroupIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputSettings: { 'type': 'array', 'itemType': CreateMediaLiveInputRequestInputSettings },
+      name: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inputSettings)) {
+      $dara.Model.validateArray(this.inputSettings);
+    }
+    if(Array.isArray(this.securityGroupIds)) {
+      $dara.Model.validateArray(this.securityGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveInputShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The input settings. An input can have up to two sources: primary and backup sources.
+   * 
+   * This parameter is required.
+   */
+  inputSettingsShrink?: string;
+  /**
+   * @remarks
+   * The name of the input. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myinput
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The IDs of the security groups to be associated with the input. This parameter is required for PUSH inputs.
+   * 
+   * @example
+   * ["G6G4X5T4SZYPSTT5"]
+   */
+  securityGroupIdsShrink?: string;
+  /**
+   * @remarks
+   * The input type. Valid values: RTMP_PUSH, RTMP_PULL, SRT_PUSH, and SRT_PULL.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * RTMP_PUSH
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputSettingsShrink: 'InputSettings',
+      name: 'Name',
+      securityGroupIdsShrink: 'SecurityGroupIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputSettingsShrink: 'string',
+      name: 'string',
+      securityGroupIdsShrink: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveInputResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the input.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  inputId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputId: 'InputId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveInputResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMediaLiveInputResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMediaLiveInputResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveInputSecurityGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the security group. Letters, digits, hyphens (-), and underscores (_) are supported. The maximum length is 64 characters.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mysg
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The security group rules.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["10.1.1.0/24", "11.11.11.11/0"]
+   */
+  whitelistRules?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      whitelistRules: 'WhitelistRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      whitelistRules: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.whitelistRules)) {
+      $dara.Model.validateArray(this.whitelistRules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveInputSecurityGroupShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the security group. Letters, digits, hyphens (-), and underscores (_) are supported. The maximum length is 64 characters.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mysg
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The security group rules.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * ["10.1.1.0/24", "11.11.11.11/0"]
+   */
+  whitelistRulesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      whitelistRulesShrink: 'WhitelistRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      whitelistRulesShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveInputSecurityGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  securityGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      securityGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMediaLiveInputSecurityGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateMediaLiveInputSecurityGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateMediaLiveInputSecurityGroupResponseBody,
     };
   }
 
@@ -51533,12 +57255,17 @@ export class CreatePipelineResponse extends $dara.Model {
 
 export class CreateProgramRequest extends $dara.Model {
   /**
+   * @remarks
+   * The information about ad breaks.
+   * 
    * @example
    * [{"MessageType":"SPLICE_INSERT","OffsetMillis":1000,"SourceLocationName":"MySourceLocation","SourceName":"MyAdSource","SpliceInsertSettings":{"AvailNumber":0,"AvailExpected":0,"SpliceEventID":1,"UniqueProgramID":0}}]
    */
   adBreaks?: string;
   /**
    * @remarks
+   * The name of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51546,12 +57273,17 @@ export class CreateProgramRequest extends $dara.Model {
    */
   channelName?: string;
   /**
+   * @remarks
+   * Extracts a clip from the source.
+   * 
    * @example
    * {StartOffsetMillis: 213123, EndOffsetMillis: 213134}
    */
   clipRange?: string;
   /**
    * @remarks
+   * The name of the program.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51560,6 +57292,8 @@ export class CreateProgramRequest extends $dara.Model {
   programName?: string;
   /**
    * @remarks
+   * The source location.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51568,6 +57302,8 @@ export class CreateProgramRequest extends $dara.Model {
   sourceLocationName?: string;
   /**
    * @remarks
+   * The name of the source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51576,6 +57312,8 @@ export class CreateProgramRequest extends $dara.Model {
   sourceName?: string;
   /**
    * @remarks
+   * The source type of the program.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51584,6 +57322,8 @@ export class CreateProgramRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
+   * The program transition method.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51626,8 +57366,15 @@ export class CreateProgramRequest extends $dara.Model {
 }
 
 export class CreateProgramResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the program.
+   */
   program?: ChannelAssemblyProgram;
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
@@ -51962,6 +57709,8 @@ export class CreateSearchLibResponse extends $dara.Model {
 export class CreateSourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The source configurations.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51974,6 +57723,8 @@ export class CreateSourceRequest extends $dara.Model {
   httpPackageConfigurations?: string;
   /**
    * @remarks
+   * The name of the source location.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51982,6 +57733,8 @@ export class CreateSourceRequest extends $dara.Model {
   sourceLocationName?: string;
   /**
    * @remarks
+   * The name of the source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51990,6 +57743,8 @@ export class CreateSourceRequest extends $dara.Model {
   sourceName?: string;
   /**
    * @remarks
+   * The source type. Valid values: vodSource and liveSource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52025,10 +57780,17 @@ export class CreateSourceRequest extends $dara.Model {
 
 export class CreateSourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The source information.
+   */
   source?: ChannelAssemblySource;
   static names(): { [key: string]: string } {
     return {
@@ -52094,6 +57856,8 @@ export class CreateSourceResponse extends $dara.Model {
 export class CreateSourceLocationRequest extends $dara.Model {
   /**
    * @remarks
+   * The protocol and hostname of the source location.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52101,17 +57865,25 @@ export class CreateSourceLocationRequest extends $dara.Model {
    */
   baseUrl?: string;
   /**
+   * @remarks
+   * Specifies whether to use an independent domain name to access the segments.
+   * 
    * @example
    * true
    */
   enableSegmentDelivery?: boolean;
   /**
+   * @remarks
+   * The domain name used to access the segments.
+   * 
    * @example
    * http://xxxxx.com
    */
   segmentDeliveryUrl?: string;
   /**
    * @remarks
+   * The name of the source location.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52147,10 +57919,17 @@ export class CreateSourceLocationRequest extends $dara.Model {
 
 export class CreateSourceLocationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The source location information.
+   */
   sourceLocation?: ChannelAssemblySourceLocation;
   static names(): { [key: string]: string } {
     return {
@@ -52663,25 +58442,41 @@ export class CreateUploadStreamResponse extends $dara.Model {
 
 export class CreateVodPackagingAssetRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the asset. The name must be unique and can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * hls_3s
    */
   assetName?: string;
   /**
+   * @remarks
+   * The content ID in the digital rights management (DRM) system. The maximum length is 256 characters. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * movie
    */
   contentId?: string;
   /**
+   * @remarks
+   * The asset description.
+   * 
    * @example
    * HLS 3 second packaging
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the packaging group.
+   * 
    * @example
    * vod_hls
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The asset input configurations.
+   */
   input?: CreateVodPackagingAssetRequestInput;
   static names(): { [key: string]: string } {
     return {
@@ -52717,25 +58512,41 @@ export class CreateVodPackagingAssetRequest extends $dara.Model {
 
 export class CreateVodPackagingAssetShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the asset. The name must be unique and can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * hls_3s
    */
   assetName?: string;
   /**
+   * @remarks
+   * The content ID in the digital rights management (DRM) system. The maximum length is 256 characters. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * movie
    */
   contentId?: string;
   /**
+   * @remarks
+   * The asset description.
+   * 
    * @example
    * HLS 3 second packaging
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the packaging group.
+   * 
    * @example
    * vod_hls
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The asset input configurations.
+   */
   inputShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -52767,8 +58578,15 @@ export class CreateVodPackagingAssetShrinkRequest extends $dara.Model {
 }
 
 export class CreateVodPackagingAssetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the asset.
+   */
   asset?: VodPackagingAsset;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 25818875-5F78-4A13-BEF6-D7393642CA58
    */
@@ -52836,22 +58654,42 @@ export class CreateVodPackagingAssetResponse extends $dara.Model {
 
 export class CreateVodPackagingConfigurationRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the packaging configuration. The name must be unique in an account and can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * hls_3s
    */
   configurationName?: string;
   /**
+   * @remarks
+   * The description of the packaging configuration.
+   * 
    * @example
    * HLS 3s vod packaging
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the packaging group. The name can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * vod_hls
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The packaging configuration.
+   */
   packageConfig?: CreateVodPackagingConfigurationRequestPackageConfig;
   /**
+   * @remarks
+   * The package type.
+   * 
+   * *   HLS: packages content into TS segments for delivery over the HLS protocol.
+   * *   HLS_CMAF: packages content into CMAF segments for delivery over the HLS protocol.
+   * *   DASH: packages content for delivery over the DASH protocol.
+   * 
    * @example
    * HLS
    */
@@ -52890,22 +58728,42 @@ export class CreateVodPackagingConfigurationRequest extends $dara.Model {
 
 export class CreateVodPackagingConfigurationShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the packaging configuration. The name must be unique in an account and can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * hls_3s
    */
   configurationName?: string;
   /**
+   * @remarks
+   * The description of the packaging configuration.
+   * 
    * @example
    * HLS 3s vod packaging
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the packaging group. The name can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * vod_hls
    */
   groupName?: string;
+  /**
+   * @remarks
+   * The packaging configuration.
+   */
   packageConfigShrink?: string;
   /**
+   * @remarks
+   * The package type.
+   * 
+   * *   HLS: packages content into TS segments for delivery over the HLS protocol.
+   * *   HLS_CMAF: packages content into CMAF segments for delivery over the HLS protocol.
+   * *   DASH: packages content for delivery over the DASH protocol.
+   * 
    * @example
    * HLS
    */
@@ -52940,8 +58798,15 @@ export class CreateVodPackagingConfigurationShrinkRequest extends $dara.Model {
 }
 
 export class CreateVodPackagingConfigurationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The packaging configuration.
+   */
   packagingConfiguration?: VodPackagingConfiguration;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -53009,11 +58874,17 @@ export class CreateVodPackagingConfigurationResponse extends $dara.Model {
 
 export class CreateVodPackagingGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The packaging group description.
+   * 
    * @example
    * vod hls packaging
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the packaging group. The name must be unique in an account and can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * vod_hls
    */
@@ -53042,8 +58913,15 @@ export class CreateVodPackagingGroupRequest extends $dara.Model {
 }
 
 export class CreateVodPackagingGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The packaging group information.
+   */
   packagingGroup?: VodPackagingGroup;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -53321,7 +59199,7 @@ export class DeleteAIAgentDialogueResponse extends $dara.Model {
 export class DeleteAdInsertionRequest extends $dara.Model {
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The name of the configuration that you want to delete.
    * 
    * This parameter is required.
    * 
@@ -53352,6 +59230,9 @@ export class DeleteAdInsertionRequest extends $dara.Model {
 
 export class DeleteAdInsertionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -53636,6 +59517,8 @@ export class DeleteCategoryResponse extends $dara.Model {
 export class DeleteChannelRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53665,11 +59548,20 @@ export class DeleteChannelRequest extends $dara.Model {
 
 export class DeleteChannelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -54408,7 +60300,7 @@ export class DeleteEditingProjectsResponse extends $dara.Model {
 export class DeleteLivePackageChannelRequest extends $dara.Model {
   /**
    * @remarks
-   * 频道名称
+   * The channel name.
    * 
    * This parameter is required.
    * 
@@ -54418,7 +60310,7 @@ export class DeleteLivePackageChannelRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * This parameter is required.
    * 
@@ -54450,6 +60342,13 @@ export class DeleteLivePackageChannelRequest extends $dara.Model {
 }
 
 export class DeleteLivePackageChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 20B3A1B6-4BD2-5DE6-BCBC-098C9B4F4E91
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -54510,9 +60409,12 @@ export class DeleteLivePackageChannelResponse extends $dara.Model {
 export class DeleteLivePackageChannelGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The channel group name.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * group1
    */
   groupName?: string;
   static names(): { [key: string]: string } {
@@ -54539,7 +60441,10 @@ export class DeleteLivePackageChannelGroupRequest extends $dara.Model {
 export class DeleteLivePackageChannelGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The request ID.
+   * 
+   * @example
+   * 5D87B753-0250-5D9D-B248-D40C3271F864
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -54601,7 +60506,7 @@ export class DeleteLivePackageChannelGroupResponse extends $dara.Model {
 export class DeleteLivePackageOriginEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * 频道名称
+   * The channel name.
    * 
    * This parameter is required.
    * 
@@ -54611,7 +60516,7 @@ export class DeleteLivePackageOriginEndpointRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * 端点名称
+   * The endpoint name.
    * 
    * This parameter is required.
    * 
@@ -54621,7 +60526,7 @@ export class DeleteLivePackageOriginEndpointRequest extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * This parameter is required.
    * 
@@ -54655,6 +60560,13 @@ export class DeleteLivePackageOriginEndpointRequest extends $dara.Model {
 }
 
 export class DeleteLivePackageOriginEndpointResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5D87B753-0250-5D9D-B248-D40C3271F864
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55410,7 +61322,7 @@ export class DeleteLiveTranscodeTemplateResponse extends $dara.Model {
 export class DeleteMediaConnectFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * Flow instance ID
+   * The flow ID.
    * 
    * This parameter is required.
    * 
@@ -55442,7 +61354,7 @@ export class DeleteMediaConnectFlowRequest extends $dara.Model {
 export class DeleteMediaConnectFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body
+   * The response body.
    * 
    * @example
    * ""
@@ -55450,7 +61362,7 @@ export class DeleteMediaConnectFlowResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Description of the API call
+   * The call description.
    * 
    * @example
    * OK
@@ -55458,7 +61370,7 @@ export class DeleteMediaConnectFlowResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Request ID
+   * The ID of the request.
    * 
    * @example
    * 5AEC17BD-D80B-5F78-BE1B-F07DFA0C8622
@@ -55466,7 +61378,7 @@ export class DeleteMediaConnectFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned error code, where `0` indicates success
+   * The returned error code. A value of `0` indicates the call is successful.
    * 
    * @example
    * 0
@@ -55537,7 +61449,7 @@ export class DeleteMediaConnectFlowResponse extends $dara.Model {
 export class DeleteMediaConnectFlowInputRequest extends $dara.Model {
   /**
    * @remarks
-   * Flow instance ID
+   * The flow ID.
    * 
    * This parameter is required.
    * 
@@ -55569,7 +61481,7 @@ export class DeleteMediaConnectFlowInputRequest extends $dara.Model {
 export class DeleteMediaConnectFlowInputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body
+   * The response body.
    * 
    * @example
    * ""
@@ -55577,7 +61489,7 @@ export class DeleteMediaConnectFlowInputResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Description of the API call
+   * The call description.
    * 
    * @example
    * OK
@@ -55585,7 +61497,7 @@ export class DeleteMediaConnectFlowInputResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 请求ID
+   * The ID of the request.
    * 
    * @example
    * C0C02296-113C-5838-8FE9-8F3A32998DDC
@@ -55593,7 +61505,7 @@ export class DeleteMediaConnectFlowInputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned error code, 0 indicates success
+   * The returned error code. A value of 0 indicates the call is successful.
    * 
    * @example
    * 0
@@ -55664,7 +61576,7 @@ export class DeleteMediaConnectFlowInputResponse extends $dara.Model {
 export class DeleteMediaConnectFlowOutputRequest extends $dara.Model {
   /**
    * @remarks
-   * Flow instance ID
+   * The flow ID.
    * 
    * This parameter is required.
    * 
@@ -55674,7 +61586,7 @@ export class DeleteMediaConnectFlowOutputRequest extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * Output name
+   * The name of the output that you want to delete.
    * 
    * This parameter is required.
    * 
@@ -55708,7 +61620,7 @@ export class DeleteMediaConnectFlowOutputRequest extends $dara.Model {
 export class DeleteMediaConnectFlowOutputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body
+   * The response body.
    * 
    * @example
    * ""
@@ -55716,7 +61628,7 @@ export class DeleteMediaConnectFlowOutputResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Description of the API call
+   * The call description.
    * 
    * @example
    * OK
@@ -55724,7 +61636,7 @@ export class DeleteMediaConnectFlowOutputResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Request ID
+   * The ID of the request.
    * 
    * @example
    * DF73E08E-F807-50F5-A2BD-B76391EAE8FF
@@ -55732,7 +61644,7 @@ export class DeleteMediaConnectFlowOutputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned error code, 0 indicates success
+   * The returned error code. A value of 0 indicates the call is successful.
    * 
    * @example
    * 0
@@ -56074,6 +61986,297 @@ export class DeleteMediaInfosResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteMediaInfosResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaLiveChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the channel.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  channelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelId: 'ChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaLiveChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaLiveChannelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMediaLiveChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMediaLiveChannelResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaLiveInputRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the input.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  inputId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputId: 'InputId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaLiveInputResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaLiveInputResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMediaLiveInputResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMediaLiveInputResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaLiveInputSecurityGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  securityGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaLiveInputSecurityGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMediaLiveInputSecurityGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteMediaLiveInputSecurityGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteMediaLiveInputSecurityGroupResponseBody,
     };
   }
 
@@ -56468,6 +62671,8 @@ export class DeletePlayInfoResponse extends $dara.Model {
 export class DeleteProgramRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56476,6 +62681,8 @@ export class DeleteProgramRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
+   * The name of the program.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56507,11 +62714,17 @@ export class DeleteProgramRequest extends $dara.Model {
 
 export class DeleteProgramResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -56671,12 +62884,17 @@ export class DeleteSmartJobResponse extends $dara.Model {
 
 export class DeleteSourceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to use delete markers.
+   * 
    * @example
    * true
    */
   softDelete?: boolean;
   /**
    * @remarks
+   * The name of the source location.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56685,6 +62903,8 @@ export class DeleteSourceRequest extends $dara.Model {
   sourceLocationName?: string;
   /**
    * @remarks
+   * The name of the source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56693,6 +62913,8 @@ export class DeleteSourceRequest extends $dara.Model {
   sourceName?: string;
   /**
    * @remarks
+   * The source type. Valid values: vodSource and liveSource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56728,11 +62950,20 @@ export class DeleteSourceRequest extends $dara.Model {
 
 export class DeleteSourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -56797,12 +63028,17 @@ export class DeleteSourceResponse extends $dara.Model {
 
 export class DeleteSourceLocationRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to use delete markers.
+   * 
    * @example
    * true
    */
   softDelete?: boolean;
   /**
    * @remarks
+   * The name of the source location.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56834,11 +63070,20 @@ export class DeleteSourceLocationRequest extends $dara.Model {
 
 export class DeleteSourceLocationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid value:
+   * 
+   * *   true: The request succeeded.
+   * *   false: The request failed.
+   * 
    * @example
    * true
    */
@@ -56998,6 +63243,9 @@ export class DeleteTemplateResponse extends $dara.Model {
 
 export class DeleteVodPackagingAssetRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the VOD packaging asset.
+   * 
    * @example
    * 30min_movie
    */
@@ -57025,6 +63273,9 @@ export class DeleteVodPackagingAssetRequest extends $dara.Model {
 
 export class DeleteVodPackagingAssetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -57087,6 +63338,9 @@ export class DeleteVodPackagingAssetResponse extends $dara.Model {
 
 export class DeleteVodPackagingConfigurationRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the packaging configuration.
+   * 
    * @example
    * hls_3s
    */
@@ -57114,6 +63368,9 @@ export class DeleteVodPackagingConfigurationRequest extends $dara.Model {
 
 export class DeleteVodPackagingConfigurationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -57176,6 +63433,9 @@ export class DeleteVodPackagingConfigurationResponse extends $dara.Model {
 
 export class DeleteVodPackagingGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the packaging group.
+   * 
    * @example
    * vod_hls
    */
@@ -57203,6 +63463,9 @@ export class DeleteVodPackagingGroupRequest extends $dara.Model {
 
 export class DeleteVodPackagingGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 13cbb83e-043c-4728-ac35-*****
    */
@@ -57266,6 +63529,8 @@ export class DeleteVodPackagingGroupResponse extends $dara.Model {
 export class DescribeAIAgentInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AI agent that you want to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57294,8 +63559,15 @@ export class DescribeAIAgentInstanceRequest extends $dara.Model {
 }
 
 export class DescribeAIAgentInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the AI agent.
+   */
   instance?: DescribeAIAgentInstanceResponseBodyInstance;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
    */
@@ -58096,6 +64368,13 @@ export class DescribeNotifyConfigResponseBody extends $dara.Model {
    */
   enableNotify?: boolean;
   /**
+   * @remarks
+   * The event types. If this parameter is empty, all event types are selected.
+   * 
+   * *   agent_start: The agent is started.
+   * *   agent_stop: The agent is stopped.
+   * *   error: An error occurred.
+   * 
    * @example
    * agent_start,agent_stop,error
    */
@@ -58899,21 +65178,42 @@ export class DropSearchLibResponse extends $dara.Model {
 export class GenerateAIAgentCallRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AI agent.
+   * 
    * This parameter is required.
    * 
    * @example
    * 39f8e0bc005e4f309379701645f4****
    */
   AIAgentId?: string;
+  chatSyncConfig?: GenerateAIAgentCallRequestChatSyncConfig;
   /**
+   * @remarks
+   * The time when the token expires. Unit: seconds. Default value: 3600. Valid values: 0 to 604800.
+   * 
    * @example
    * 3600
    */
   expire?: number;
+  /**
+   * @example
+   * fw1gr0bc005e4f309379701645f4****
+   */
   sessionId?: string;
+  /**
+   * @remarks
+   * The template configurations of the AI agent. The specified configurations are merged with the template configurations that are specified in the console. If you do not specify this parameter, the system uses the default configurations for an AI agent created in the console.
+   */
   templateConfig?: AIAgentTemplateConfig;
+  /**
+   * @example
+   * {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}
+   */
   userData?: string;
   /**
+   * @remarks
+   * The username of the AI agent in the channel. If you do not specify this parameter, the system automatically generates a username. The value can be up to 64 characters in length.
+   * 
    * @example
    * 877ae632caae49b1afc81c2e8194ffb4
    */
@@ -58921,6 +65221,7 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       AIAgentId: 'AIAgentId',
+      chatSyncConfig: 'ChatSyncConfig',
       expire: 'Expire',
       sessionId: 'SessionId',
       templateConfig: 'TemplateConfig',
@@ -58932,6 +65233,7 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       AIAgentId: 'string',
+      chatSyncConfig: GenerateAIAgentCallRequestChatSyncConfig,
       expire: 'number',
       sessionId: 'string',
       templateConfig: AIAgentTemplateConfig,
@@ -58941,6 +65243,9 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.chatSyncConfig && typeof (this.chatSyncConfig as any).validate === 'function') {
+      (this.chatSyncConfig as any).validate();
+    }
     if(this.templateConfig && typeof (this.templateConfig as any).validate === 'function') {
       (this.templateConfig as any).validate();
     }
@@ -58955,21 +65260,42 @@ export class GenerateAIAgentCallRequest extends $dara.Model {
 export class GenerateAIAgentCallShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AI agent.
+   * 
    * This parameter is required.
    * 
    * @example
    * 39f8e0bc005e4f309379701645f4****
    */
   AIAgentId?: string;
+  chatSyncConfigShrink?: string;
   /**
+   * @remarks
+   * The time when the token expires. Unit: seconds. Default value: 3600. Valid values: 0 to 604800.
+   * 
    * @example
    * 3600
    */
   expire?: number;
+  /**
+   * @example
+   * fw1gr0bc005e4f309379701645f4****
+   */
   sessionId?: string;
+  /**
+   * @remarks
+   * The template configurations of the AI agent. The specified configurations are merged with the template configurations that are specified in the console. If you do not specify this parameter, the system uses the default configurations for an AI agent created in the console.
+   */
   templateConfigShrink?: string;
+  /**
+   * @example
+   * {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}
+   */
   userData?: string;
   /**
+   * @remarks
+   * The username of the AI agent in the channel. If you do not specify this parameter, the system automatically generates a username. The value can be up to 64 characters in length.
+   * 
    * @example
    * 877ae632caae49b1afc81c2e8194ffb4
    */
@@ -58977,6 +65303,7 @@ export class GenerateAIAgentCallShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       AIAgentId: 'AIAgentId',
+      chatSyncConfigShrink: 'ChatSyncConfig',
       expire: 'Expire',
       sessionId: 'SessionId',
       templateConfigShrink: 'TemplateConfig',
@@ -58988,6 +65315,7 @@ export class GenerateAIAgentCallShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       AIAgentId: 'string',
+      chatSyncConfigShrink: 'string',
       expire: 'number',
       sessionId: 'string',
       templateConfigShrink: 'string',
@@ -59007,31 +65335,49 @@ export class GenerateAIAgentCallShrinkRequest extends $dara.Model {
 
 export class GenerateAIAgentCallResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The username of the AI agent in the Alibaba Real-Time Communication (ARTC) channel.
+   * 
    * @example
    * 877ae632caae49b1afc81c2e8194ffb4
    */
   AIAgentUserId?: string;
   /**
+   * @remarks
+   * The ARTC channel ID.
+   * 
    * @example
    * 70f22d5784194938a7e387052f2b3208
    */
   channelId?: string;
   /**
+   * @remarks
+   * The ID of the AI agent.
+   * 
    * @example
    * 39f8e0bc005e4f309379701645f4****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ARTC token of the client.
+   * 
    * @example
    * eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx
    */
   token?: string;
   /**
+   * @remarks
+   * The username in the ARTC channel.
+   * 
    * @example
    * user123
    */
@@ -59345,7 +65691,7 @@ export class GenerateMessageChatTokenResponse extends $dara.Model {
 export class GetAdInsertionRequest extends $dara.Model {
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The name of the ad insertion configuration that you want to query.
    * 
    * This parameter is required.
    * 
@@ -59375,8 +65721,15 @@ export class GetAdInsertionRequest extends $dara.Model {
 }
 
 export class GetAdInsertionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ad insertion configuration.
+   */
   config?: GetAdInsertionResponseBodyConfig;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
@@ -59960,6 +66313,8 @@ export class GetCategoriesResponse extends $dara.Model {
 export class GetChannelRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59988,8 +66343,15 @@ export class GetChannelRequest extends $dara.Model {
 }
 
 export class GetChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The channel information.
+   */
   channel?: ChannelAssemblyChannel;
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
@@ -61439,7 +67801,7 @@ export class GetLiveEditingJobResponse extends $dara.Model {
 export class GetLivePackageChannelRequest extends $dara.Model {
   /**
    * @remarks
-   * 频道名称
+   * The channel name.
    * 
    * This parameter is required.
    * 
@@ -61449,7 +67811,7 @@ export class GetLivePackageChannelRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * This parameter is required.
    * 
@@ -61481,8 +67843,15 @@ export class GetLivePackageChannelRequest extends $dara.Model {
 }
 
 export class GetLivePackageChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the live package channel.
+   */
   livePackageChannel?: GetLivePackageChannelResponseBodyLivePackageChannel;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * RequestId-12345678
    */
@@ -61551,7 +67920,7 @@ export class GetLivePackageChannelResponse extends $dara.Model {
 export class GetLivePackageChannelGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * This parameter is required.
    * 
@@ -61581,8 +67950,15 @@ export class GetLivePackageChannelGroupRequest extends $dara.Model {
 }
 
 export class GetLivePackageChannelGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the channel group.
+   */
   livePackageChannelGroup?: GetLivePackageChannelGroupResponseBodyLivePackageChannelGroup;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * req-abcdefg123456
    */
@@ -61651,7 +68027,7 @@ export class GetLivePackageChannelGroupResponse extends $dara.Model {
 export class GetLivePackageOriginEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * 频道名称
+   * The channel name.
    * 
    * This parameter is required.
    * 
@@ -61661,7 +68037,7 @@ export class GetLivePackageOriginEndpointRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * 端点名称
+   * The endpoint name.
    * 
    * This parameter is required.
    * 
@@ -61671,7 +68047,7 @@ export class GetLivePackageOriginEndpointRequest extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * This parameter is required.
    * 
@@ -61705,8 +68081,15 @@ export class GetLivePackageOriginEndpointRequest extends $dara.Model {
 }
 
 export class GetLivePackageOriginEndpointResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the origin endpoints.
+   */
   livePackageOriginEndpoint?: GetLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * requestIdExample123
    */
@@ -62619,7 +69002,7 @@ export class GetLiveTranscodeTemplateResponse extends $dara.Model {
 export class GetMediaConnectFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * Flow instance ID
+   * The flow ID.
    * 
    * This parameter is required.
    * 
@@ -62651,12 +69034,12 @@ export class GetMediaConnectFlowRequest extends $dara.Model {
 export class GetMediaConnectFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body
+   * The response body.
    */
   content?: GetMediaConnectFlowResponseBodyContent;
   /**
    * @remarks
-   * Interface call description information
+   * The call description.
    * 
    * @example
    * OK
@@ -62664,7 +69047,7 @@ export class GetMediaConnectFlowResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 请求ID
+   * The ID of the request.
    * 
    * @example
    * FB503AEF-118E-1516-89E2-7B227EA1AC20
@@ -62672,7 +69055,7 @@ export class GetMediaConnectFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return status code, 0 indicates success
+   * The returned code. A value of 0 indicates the call is successful.
    * 
    * @example
    * 0
@@ -62746,7 +69129,7 @@ export class GetMediaConnectFlowResponse extends $dara.Model {
 export class GetMediaConnectFlowInputRequest extends $dara.Model {
   /**
    * @remarks
-   * Flow instance ID
+   * The flow ID.
    * 
    * This parameter is required.
    * 
@@ -62778,12 +69161,12 @@ export class GetMediaConnectFlowInputRequest extends $dara.Model {
 export class GetMediaConnectFlowInputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body
+   * The response body.
    */
   content?: GetMediaConnectFlowInputResponseBodyContent;
   /**
    * @remarks
-   * Interface call description
+   * The call description.
    * 
    * @example
    * OK
@@ -62791,7 +69174,7 @@ export class GetMediaConnectFlowInputResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 请求ID
+   * The ID of the request.
    * 
    * @example
    * D4C231DF-103A-55FF-8D09-E699552457DE
@@ -62799,7 +69182,7 @@ export class GetMediaConnectFlowInputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned error code, 0 indicates success
+   * The returned error code. A value of 0 indicates the call is successful.
    * 
    * @example
    * 0
@@ -62873,7 +69256,7 @@ export class GetMediaConnectFlowInputResponse extends $dara.Model {
 export class GetMediaConnectFlowOutputRequest extends $dara.Model {
   /**
    * @remarks
-   * Flow instance ID
+   * The flow ID.
    * 
    * This parameter is required.
    * 
@@ -62883,7 +69266,7 @@ export class GetMediaConnectFlowOutputRequest extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * Output name
+   * The name of the output that you want to query.
    * 
    * This parameter is required.
    * 
@@ -62917,12 +69300,12 @@ export class GetMediaConnectFlowOutputRequest extends $dara.Model {
 export class GetMediaConnectFlowOutputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body
+   * The response body.
    */
   content?: GetMediaConnectFlowOutputResponseBodyContent;
   /**
    * @remarks
-   * API call description
+   * The call description.
    * 
    * @example
    * OK
@@ -62930,7 +69313,7 @@ export class GetMediaConnectFlowOutputResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Request ID
+   * The ID of the request.
    * 
    * @example
    * 0DB23DCE-0D69-598B-AA7C-7268D55E2F89
@@ -62938,7 +69321,7 @@ export class GetMediaConnectFlowOutputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned error code, 0 indicates success
+   * The returned error code. A value of 0 indicates the call is successful.
    * 
    * @example
    * 0
@@ -63011,6 +69394,9 @@ export class GetMediaConnectFlowOutputResponse extends $dara.Model {
 
 export class GetMediaConvertJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the transcoding task.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
@@ -63037,10 +69423,17 @@ export class GetMediaConvertJobRequest extends $dara.Model {
 }
 
 export class GetMediaConvertJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The transcoding task.
+   */
   job?: GetMediaConvertJobResponseBodyJob;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
+   * 
+   * @example
+   * 4BAEA8E8-1C16-5CD3-AC50-CCBA81A53402
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -63338,6 +69731,327 @@ export class GetMediaInfoJobResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetMediaInfoJobResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the channel.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  channelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelId: 'ChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The channel information.
+   */
+  channel?: GetMediaLiveChannelResponseBodyChannel;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'Channel',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: GetMediaLiveChannelResponseBodyChannel,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.channel && typeof (this.channel as any).validate === 'function') {
+      (this.channel as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveChannelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMediaLiveChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMediaLiveChannelResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveInputRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the input.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  inputId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputId: 'InputId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveInputResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The input information.
+   */
+  input?: GetMediaLiveInputResponseBodyInput;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      input: 'Input',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      input: GetMediaLiveInputResponseBodyInput,
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    if(this.input && typeof (this.input as any).validate === 'function') {
+      (this.input as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveInputResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMediaLiveInputResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMediaLiveInputResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveInputSecurityGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  securityGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveInputSecurityGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The security group information.
+   */
+  securityGroup?: GetMediaLiveInputSecurityGroupResponseBodySecurityGroup;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      securityGroup: 'SecurityGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      securityGroup: GetMediaLiveInputSecurityGroupResponseBodySecurityGroup,
+    };
+  }
+
+  validate() {
+    if(this.securityGroup && typeof (this.securityGroup as any).validate === 'function') {
+      (this.securityGroup as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaLiveInputSecurityGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMediaLiveInputSecurityGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetMediaLiveInputSecurityGroupResponseBody,
     };
   }
 
@@ -63928,6 +70642,8 @@ export class GetPlayInfoResponse extends $dara.Model {
 export class GetProgramRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63936,6 +70652,8 @@ export class GetProgramRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
+   * The name of the program.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63966,8 +70684,15 @@ export class GetProgramRequest extends $dara.Model {
 }
 
 export class GetProgramResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the program.
+   */
   program?: ChannelAssemblyProgram;
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
@@ -64670,6 +71395,8 @@ export class GetSnapshotUrlsResponse extends $dara.Model {
 export class GetSourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The source location.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64678,6 +71405,8 @@ export class GetSourceRequest extends $dara.Model {
   sourceLocationName?: string;
   /**
    * @remarks
+   * The name of the source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64686,6 +71415,8 @@ export class GetSourceRequest extends $dara.Model {
   sourceName?: string;
   /**
    * @remarks
+   * The source type. Valid values: vodSource and liveSource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64719,10 +71450,17 @@ export class GetSourceRequest extends $dara.Model {
 
 export class GetSourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The source information.
+   */
   source?: ChannelAssemblySource;
   static names(): { [key: string]: string } {
     return {
@@ -64788,6 +71526,8 @@ export class GetSourceResponse extends $dara.Model {
 export class GetSourceLocationRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the source location.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64817,10 +71557,17 @@ export class GetSourceLocationRequest extends $dara.Model {
 
 export class GetSourceLocationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The source location information.
+   */
   sourceLocation?: ChannelAssemblySourceLocation;
   static names(): { [key: string]: string } {
     return {
@@ -65909,6 +72656,9 @@ export class GetVideoListResponse extends $dara.Model {
 
 export class GetVodPackagingAssetRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the VOD packaging asset.
+   * 
    * @example
    * 30min_movie
    */
@@ -65935,8 +72685,15 @@ export class GetVodPackagingAssetRequest extends $dara.Model {
 }
 
 export class GetVodPackagingAssetResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the asset.
+   */
   asset?: GetVodPackagingAssetResponseBodyAsset;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0622C702-41BE-467E-AF2E-883D4517962E
    */
@@ -66004,6 +72761,9 @@ export class GetVodPackagingAssetResponse extends $dara.Model {
 
 export class GetVodPackagingConfigurationRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the packaging configuration.
+   * 
    * @example
    * hls_3s
    */
@@ -66030,8 +72790,15 @@ export class GetVodPackagingConfigurationRequest extends $dara.Model {
 }
 
 export class GetVodPackagingConfigurationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the packaging configuration.
+   */
   packagingConfiguration?: VodPackagingConfiguration;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -66099,6 +72866,9 @@ export class GetVodPackagingConfigurationResponse extends $dara.Model {
 
 export class GetVodPackagingGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the packaging group. The name must be unique and can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
+   * 
    * @example
    * vod_hls
    */
@@ -66125,8 +72895,15 @@ export class GetVodPackagingGroupRequest extends $dara.Model {
 }
 
 export class GetVodPackagingGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the packaging group.
+   */
   packagingGroup?: VodPackagingGroup;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ****36-3C1E-4417-BDB2-1E034F****
    */
@@ -66619,6 +73396,8 @@ export class ListAIAgentDialoguesResponse extends $dara.Model {
 export class ListAIAgentInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AI agent.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -66626,21 +73405,33 @@ export class ListAIAgentInstanceRequest extends $dara.Model {
    */
   AIAgentId?: string;
   /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. This parameter does not have a default value.
+   * 
    * @example
    * 2023-01-02T00:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1. Valid values: 1 to 100.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Valid values: 0 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. This parameter does not have a default value.
+   * 
    * @example
    * 2023-01-01T00:00:00Z
    */
@@ -66675,8 +73466,15 @@ export class ListAIAgentInstanceRequest extends $dara.Model {
 }
 
 export class ListAIAgentInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of the AI agents.
+   */
   instances?: ListAIAgentInstanceResponseBodyInstances[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
    */
@@ -66745,7 +73543,7 @@ export class ListAIAgentInstanceResponse extends $dara.Model {
 export class ListAdInsertionsRequest extends $dara.Model {
   /**
    * @remarks
-   * 按广告名称查询，支持模糊匹配
+   * The configuration name. Fuzzy match is supported.
    * 
    * @example
    * ad
@@ -66753,7 +73551,7 @@ export class ListAdInsertionsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * 获取后续数据的最大记录数，使用此方式获取数据时分页参数将无效
+   * The maximum number of entries to retrieve in a subsequent request. If this parameter is used, the pagination parameters become invalid. Default value: 10.
    * 
    * @example
    * 10
@@ -66761,7 +73559,7 @@ export class ListAdInsertionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 获取后续数据的Token，使用此方式获取数据时分页参数将无效
+   * The token that is used in the next request to retrieve a new page of results. If this parameter is used, the pagination parameters become invalid.
    * 
    * @example
    * ******8EqYpQbZ6Eh7+Zz8DxVYoQ*****
@@ -66769,7 +73567,7 @@ export class ListAdInsertionsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 分页参数，页码
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -66777,7 +73575,7 @@ export class ListAdInsertionsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * 分页参数，页宽
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -66785,7 +73583,7 @@ export class ListAdInsertionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 分页参数，排序方式，asc:按创建时间升序，desc:按创建时间降序
+   * The sorting order of the configurations by creation time. asc: ascending. desc: descending.
    * 
    * @example
    * asc
@@ -66823,10 +73621,14 @@ export class ListAdInsertionsRequest extends $dara.Model {
 }
 
 export class ListAdInsertionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Array
+   */
   configs?: ListAdInsertionsResponseBodyConfigs[];
   /**
    * @remarks
-   * 获取后续数据的最大记录数，使用此方式获取数据时分页参数将无效
+   * The maximum number of entries to retrieve in a subsequent request. If this parameter is used, the pagination parameters become invalid.
    * 
    * @example
    * 10
@@ -66834,7 +73636,7 @@ export class ListAdInsertionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 获取后续数据的Token，使用此方式获取数据时分页参数将无效
+   * The token that is used in the next request to retrieve a new page of results. If this parameter is used, the pagination parameters become invalid.
    * 
    * @example
    * ******8EqYpQbZ6Eh7+Zz8DxVYoQ*****
@@ -66842,7 +73644,7 @@ export class ListAdInsertionsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 分页参数，页码
+   * The page number.
    * 
    * @example
    * 1
@@ -66850,7 +73652,7 @@ export class ListAdInsertionsResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * 分页参数，页宽
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -66858,7 +73660,7 @@ export class ListAdInsertionsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -66866,7 +73668,7 @@ export class ListAdInsertionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 分页参数，排序方式，asc:按创建时间升序，desc:按创建时间降序
+   * The sorting order of the configurations by creation time. asc: ascending. desc: descending.
    * 
    * @example
    * asc
@@ -66874,7 +73676,7 @@ export class ListAdInsertionsResponseBody extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * 总记录数
+   * The total number of entries returned.
    * 
    * @example
    * 10
@@ -66954,29 +73756,47 @@ export class ListAdInsertionsResponse extends $dara.Model {
 }
 
 export class ListAlertsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The alert type.
+   */
   category?: string;
   /**
+   * @remarks
+   * The end of the time range to query.
+   * 
    * @example
    * 2024-11-22T16:10:45Z
    */
   gmtEnd?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
    * @example
    * 2024-11-21T16:10:45Z
    */
   gmtStart?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * The ARN of the source or program.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -66984,11 +73804,17 @@ export class ListAlertsRequest extends $dara.Model {
    */
   resourceArn?: string;
   /**
+   * @remarks
+   * The sorting order. By default, the query results are sorted by creation time in descending order. Valid values: asc and desc.
+   * 
    * @example
    * asc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The sorting order by modification time. Valid values: asc and desc.
+   * 
    * @example
    * asc
    */
@@ -67029,23 +73855,39 @@ export class ListAlertsRequest extends $dara.Model {
 }
 
 export class ListAlertsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The alerts.
+   */
   alerts?: ListAlertsResponseBodyAlerts[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -67732,29 +74574,47 @@ export class ListBatchMediaProducingJobsResponse extends $dara.Model {
 }
 
 export class ListChannelAlertsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The alert type.
+   */
   category?: string;
   /**
+   * @remarks
+   * The end of the time range to query.
+   * 
    * @example
    * 2024-11-21T16:10:45Z
    */
   gmtEnd?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
    * @example
    * 2024-11-21T16:10:45Z
    */
   gmtStart?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The ARN of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -67762,6 +74622,9 @@ export class ListChannelAlertsRequest extends $dara.Model {
    */
   resourceArn?: string;
   /**
+   * @remarks
+   * The sorting order by modification time. Valid values: asc and desc.
+   * 
    * @example
    * desc
    */
@@ -67801,22 +74664,38 @@ export class ListChannelAlertsRequest extends $dara.Model {
 
 export class ListChannelAlertsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The alerts.
+   */
   programAlerts?: ListChannelAlertsResponseBodyProgramAlerts[];
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of alerts returned.
+   * 
    * @example
    * 4
    */
@@ -67890,41 +74769,65 @@ export class ListChannelAlertsResponse extends $dara.Model {
 
 export class ListChannelsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the channel.
+   * 
    * @example
    * MyChannel
    */
   channelName?: string;
   /**
+   * @remarks
+   * The tier of the channel. Valid values: basic and standard.
+   * 
    * @example
    * basic
    */
   channelTier?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The playback mode. Valid values: loop and linear.
+   * 
    * @example
    * loop
    */
   playbackMode?: string;
   /**
+   * @remarks
+   * The sorting order by creation time. Valid values: asc and desc.
+   * 
    * @example
    * asc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The sorting order by modification time. Valid values: asc and desc.
+   * 
    * @example
    * desc
    */
   sortByModifiedTime?: string;
   /**
+   * @remarks
+   * The channel status. A value of 0 specifies stopped. A value of 1 specifies started.
+   * 
    * @example
    * 0
    */
@@ -67965,23 +74868,39 @@ export class ListChannelsRequest extends $dara.Model {
 }
 
 export class ListChannelsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The channels.
+   */
   channelList?: ChannelAssemblyChannel[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of channels returned.
+   * 
    * @example
    * 180
    */
@@ -69244,23 +76163,32 @@ export class ListEditingProjectsResponse extends $dara.Model {
 export class ListLivePackageChannelGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * 描述
+   * The channel group name or description. Fuzzy match is supported.
    * 
    * @example
    * channel-group
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sort order by creation time. Default value: desc.
+   * 
    * @example
    * desc
    */
@@ -69293,24 +76221,47 @@ export class ListLivePackageChannelGroupsRequest extends $dara.Model {
 }
 
 export class ListLivePackageChannelGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The channel groups returned.
+   */
   livePackageChannelGroups?: ListLivePackageChannelGroupsResponseBodyLivePackageChannelGroups[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5D87B753-0250-5D9D-B248-D40C3271F864
+   */
   requestId?: string;
   /**
+   * @remarks
+   * The sort order.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -69387,6 +76338,8 @@ export class ListLivePackageChannelGroupsResponse extends $dara.Model {
 export class ListLivePackageChannelsRequest extends $dara.Model {
   /**
    * @remarks
+   * The channel group name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69395,23 +76348,37 @@ export class ListLivePackageChannelsRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * 列表操作私有参数
+   * The channel name or description. Fuzzy match is supported.
    * 
    * @example
    * group-1
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sort order by creation time. Default value: desc.
+   * 
+   * Valid values:
+   * 
+   * *   asc
+   * *   desc
+   * 
    * @example
    * desc
    */
@@ -69446,24 +76413,44 @@ export class ListLivePackageChannelsRequest extends $dara.Model {
 }
 
 export class ListLivePackageChannelsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The live package channels.
+   */
   livePackageChannels?: ListLivePackageChannelsResponseBodyLivePackageChannels[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   */
   requestId?: string;
   /**
+   * @remarks
+   * The sort order. Valid values: asc and desc (default).
+   * 
    * @example
    * asc/desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 15
    */
@@ -69540,6 +76527,8 @@ export class ListLivePackageChannelsResponse extends $dara.Model {
 export class ListLivePackageOriginEndpointsRequest extends $dara.Model {
   /**
    * @remarks
+   * The channel name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69548,6 +76537,8 @@ export class ListLivePackageOriginEndpointsRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
+   * The channel group name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69555,21 +76546,33 @@ export class ListLivePackageOriginEndpointsRequest extends $dara.Model {
    */
   groupName?: string;
   /**
+   * @remarks
+   * The endpoint name or description. Fuzzy match is supported.
+   * 
    * @example
    * endpoint-
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sort order by creation time. Valid values: asc and desc (default).
+   * 
    * @example
    * desc
    */
@@ -69606,28 +76609,47 @@ export class ListLivePackageOriginEndpointsRequest extends $dara.Model {
 }
 
 export class ListLivePackageOriginEndpointsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The origin endpoints returned.
+   */
   livePackageOriginEndpoints?: ListLivePackageOriginEndpointsResponseBodyLivePackageOriginEndpoints[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * b9f90a7ac8904db28dc18e0c2a72c75d
    */
   requestId?: string;
   /**
+   * @remarks
+   * The sort order. Valid values: `asc` and `desc` (default).
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 10
    */
@@ -71779,6 +78801,554 @@ export class ListMediaInfoJobsResponse extends $dara.Model {
   }
 }
 
+export class ListMediaLiveChannelsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The keyword of the query. You can perform a fuzzy search on channel ID or name.
+   * 
+   * @example
+   * 123
+   */
+  keyword?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value:
+   * 
+   * *   If you do not specify this parameter or if you set a value smaller than 10, the default value is 10.
+   * *   If you set a value greater than 100, the default value is 100.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a4883
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The number of entries to be skipped in the query. If the number of entries you attempt to skip exceeds the number of entries that meet the condition, an empty list is returned.
+   * 
+   * @example
+   * 20
+   */
+  skip?: number;
+  /**
+   * @remarks
+   * The sorting order of the channels by creation time. Default value: asc. Valid values: desc and asc. asc indicates the ascending order, and desc indicates the descending order.
+   * 
+   * @example
+   * desc
+   */
+  sortOrder?: string;
+  /**
+   * @remarks
+   * The state of channels you want to query. You can separate multiple states with commas (,) in a JSON array.
+   * 
+   * @example
+   * ["IDLE","RUNNING"]
+   */
+  states?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      skip: 'Skip',
+      sortOrder: 'SortOrder',
+      states: 'States',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      skip: 'number',
+      sortOrder: 'string',
+      states: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The channels.
+   */
+  channels?: ListMediaLiveChannelsResponseBodyChannels[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a4883
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': ListMediaLiveChannelsResponseBodyChannels },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.channels)) {
+      $dara.Model.validateArray(this.channels);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveChannelsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMediaLiveChannelsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMediaLiveChannelsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveInputSecurityGroupsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The keyword of the query. You can perform a fuzzy search on security group ID or name.
+   * 
+   * @example
+   * 123
+   */
+  keyword?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: If you do not specify this parameter or if you set a value smaller than 10, the default value is 10. If you set a value greater than 100, the default value is 100.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a4883
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The number of entries to be skipped in the query. If the number of entries you attempt to skip exceeds the number of entries that meet the condition, an empty list is returned.
+   * 
+   * @example
+   * 20
+   */
+  skip?: number;
+  /**
+   * @remarks
+   * The sorting order of the security groups by creation time. Default value: asc. Valid values: desc and asc. asc indicates the ascending order, and desc indicates the descending order.
+   * 
+   * @example
+   * desc
+   */
+  sortOrder?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      skip: 'Skip',
+      sortOrder: 'SortOrder',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      skip: 'number',
+      sortOrder: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveInputSecurityGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a4883
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 123e4567-e89b-12d3-a456-426614174000
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The security groups.
+   */
+  securityGroups?: ListMediaLiveInputSecurityGroupsResponseBodySecurityGroups[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      securityGroups: 'SecurityGroups',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      securityGroups: { 'type': 'array', 'itemType': ListMediaLiveInputSecurityGroupsResponseBodySecurityGroups },
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.securityGroups)) {
+      $dara.Model.validateArray(this.securityGroups);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveInputSecurityGroupsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMediaLiveInputSecurityGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMediaLiveInputSecurityGroupsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveInputsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The keyword of the query. You can perform a fuzzy search on input ID or name.
+   * 
+   * @example
+   * 123
+   */
+  keyword?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: If you do not specify this parameter or if you set a value smaller than 10, the default value is 10. If you set a value greater than 100, the default value is 100.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a4883
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The number of entries to be skipped in the query. If the number of entries you attempt to skip exceeds the number of entries that meet the condition, an empty list is returned.
+   * 
+   * @example
+   * 20
+   */
+  skip?: number;
+  /**
+   * @remarks
+   * The sorting order of the inputs by creation time. Default value: asc. Valid values: desc and asc. asc indicates the ascending order, and desc indicates the descending order.
+   * 
+   * @example
+   * desc
+   */
+  sortOrder?: string;
+  /**
+   * @remarks
+   * The type of inputs you want to query. You can separate multiple input types with commas (,) in a JSON array.
+   * 
+   * @example
+   * ["RTMP_PUSH","SRT_PULL"]
+   */
+  types?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyword: 'Keyword',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      skip: 'Skip',
+      sortOrder: 'SortOrder',
+      types: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyword: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      skip: 'number',
+      sortOrder: 'string',
+      types: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveInputsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The inputs.
+   */
+  inputs?: ListMediaLiveInputsResponseBodyInputs[];
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a4883
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 200
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputs: 'Inputs',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputs: { 'type': 'array', 'itemType': ListMediaLiveInputsResponseBodyInputs },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inputs)) {
+      $dara.Model.validateArray(this.inputs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMediaLiveInputsResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListMediaLiveInputsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListMediaLiveInputsResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMediaMarksRequest extends $dara.Model {
   /**
    * @remarks
@@ -72424,6 +79994,8 @@ export class ListPipelinesResponse extends $dara.Model {
 export class ListProgramsRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -72431,21 +80003,36 @@ export class ListProgramsRequest extends $dara.Model {
    */
   channelName?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: string;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The name of the program.
+   * 
    * @example
    * program1
    */
   programName?: string;
   /**
+   * @remarks
+   * The sorting order. By default, the query results are sorted by creation time in descending order. Valid values:
+   * 
+   * *   asc: ascending order.
+   * *   desc: descending order.
+   * 
    * @example
    * desc
    */
@@ -72481,22 +80068,38 @@ export class ListProgramsRequest extends $dara.Model {
 
 export class ListProgramsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The programs.
+   */
   programs?: ChannelAssemblyProgram[];
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of programs returned.
+   * 
    * @example
    * 100
    */
@@ -72798,6 +80401,8 @@ export class ListPublicMediaBasicInfosResponse extends $dara.Model {
 export class ListSchedulesRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -72805,17 +80410,25 @@ export class ListSchedulesRequest extends $dara.Model {
    */
   channelName?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The time window of the program schedule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -72851,22 +80464,38 @@ export class ListSchedulesRequest extends $dara.Model {
 
 export class ListSchedulesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The program schedule.
+   */
   programs?: ChannelAssemblyScheduleData[];
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 5
    */
@@ -73693,31 +81322,50 @@ export class ListSnapshotJobsResponse extends $dara.Model {
 
 export class ListSourceLocationsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to ignore source locations marked as deleted. A value of true means ignoring source locations marked as deleted.
+   * 
    * @example
    * true
    */
   filterState?: boolean;
   /**
+   * @remarks
+   * *   The page number.
+   * *   Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting order. By default, the query results are sorted by creation time in descending order.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The sorting order of the source locations based on the time when they were last modified.
+   * 
    * @example
    * desc
    */
   sortByModifiedTime?: string;
   /**
+   * @remarks
+   * The name of the source location.
+   * 
    * @example
    * MySourceLocation
    */
@@ -73755,22 +81403,38 @@ export class ListSourceLocationsRequest extends $dara.Model {
 
 export class ListSourceLocationsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The source locations.
+   */
   sourceLocationList?: ChannelAssemblySourceLocation[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -73844,41 +81508,65 @@ export class ListSourceLocationsResponse extends $dara.Model {
 
 export class ListSourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to ignore sources marked as deleted.
+   * 
    * @example
    * true
    */
   filterState?: boolean;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The sorting order. By default, the query results are sorted by creation time in descending order. Valid values: asc and desc.
+   * 
    * @example
    * asc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The sorting order by modification time. Valid values: asc and desc.
+   * 
    * @example
    * desc
    */
   sortByModifiedTime?: string;
   /**
+   * @remarks
+   * The name of the source location.
+   * 
    * @example
    * MySourceLocation
    */
   sourceLocationName?: string;
   /**
+   * @remarks
+   * The name of the source.
+   * 
    * @example
    * MyVodSource
    */
   sourceName?: string;
   /**
+   * @remarks
+   * The source type. Valid values: vodSource and liveSource.
+   * 
    * @example
    * vodSource
    */
@@ -73920,22 +81608,38 @@ export class ListSourcesRequest extends $dara.Model {
 
 export class ListSourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The sources.
+   */
   sourceList?: ChannelAssemblySource[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -74568,26 +82272,44 @@ export class ListTranscodeJobsResponse extends $dara.Model {
 
 export class ListVodPackagingAssetsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the packaging group.
+   * 
    * @example
    * vod_hls
    */
   groupName?: string;
   /**
+   * @remarks
+   * The search keyword. The names of the returned assets are prefixed with this keyword.
+   * 
    * @example
    * movie
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting order of the assets based on the time when they were ingested. Valid values:
+   * 
+   * *   desc (default): descending order.
+   * *   asc: ascending order.
+   * 
    * @example
    * desc
    */
@@ -74622,28 +82344,50 @@ export class ListVodPackagingAssetsRequest extends $dara.Model {
 }
 
 export class ListVodPackagingAssetsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The VOD packaging assets.
+   */
   assets?: ListVodPackagingAssetsResponseBodyAssets[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The sorting order of the assets based on the time when they were ingested. Valid values:
+   * 
+   * *   desc: descending order.
+   * *   asc: ascending order.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -74719,26 +82463,44 @@ export class ListVodPackagingAssetsResponse extends $dara.Model {
 
 export class ListVodPackagingConfigurationsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the packaging group.
+   * 
    * @example
    * vod_hls
    */
   groupName?: string;
   /**
+   * @remarks
+   * The search keyword. The names of the returned packaging configurations contain the keyword.
+   * 
    * @example
    * hls
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting order of the packaging configurations based on the time when they were created. Valid values:
+   * 
+   * *   desc (default): descending order.
+   * *   asc: ascending order.
+   * 
    * @example
    * desc
    */
@@ -74773,28 +82535,50 @@ export class ListVodPackagingConfigurationsRequest extends $dara.Model {
 }
 
 export class ListVodPackagingConfigurationsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The packaging configurations.
+   */
   packagingConfigurations?: VodPackagingConfiguration[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The sorting order of the packaging configurations based on the time when they were created. Valid values:
+   * 
+   * *   desc: descending order.
+   * *   asc: ascending order.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 5
    */
@@ -74870,21 +82654,36 @@ export class ListVodPackagingConfigurationsResponse extends $dara.Model {
 
 export class ListVodPackagingGroupsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The search keyword. The names of the returned packaging groups contain the keyword.
+   * 
    * @example
    * hls
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting order of the packaging groups based on the time when they were created. Valid values:
+   * 
+   * *   desc (default): descending order.
+   * *   asc: ascending order.
+   * 
    * @example
    * desc
    */
@@ -74917,28 +82716,50 @@ export class ListVodPackagingGroupsRequest extends $dara.Model {
 }
 
 export class ListVodPackagingGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The packaging groups.
+   */
   packagingGroups?: VodPackagingGroup[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The sorting order of the packaging groups based on the time when they were created. Valid values:
+   * 
+   * *   desc: descending order.
+   * *   asc: ascending order.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 5
    */
@@ -79299,6 +87120,8 @@ export class SearchPublicMediaInfoResponse extends $dara.Model {
 export class SendAIAgentDataChannelMessageRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AI agent in the conversation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -79307,6 +87130,8 @@ export class SendAIAgentDataChannelMessageRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The DataChannel message you want to send. You must specify a JSON string. The value can be up to 8,192 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -79338,6 +87163,9 @@ export class SendAIAgentDataChannelMessageRequest extends $dara.Model {
 
 export class SendAIAgentDataChannelMessageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
    */
@@ -79400,6 +87228,9 @@ export class SendAIAgentDataChannelMessageResponse extends $dara.Model {
 
 export class SendAIAgentSpeechRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether the broadcast can interrupt the ongoing speech. Default value: true
+   * 
    * @example
    * true
    */
@@ -79809,6 +87640,149 @@ export class SendLiveTranscodeJobCommandResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SendLiveTranscodeJobCommandResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageChatTextRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  AIAgentId?: string;
+  /**
+   * @example
+   * online
+   */
+  mode?: string;
+  /**
+   * @example
+   * true
+   */
+  needArchiving?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 60000042053
+   */
+  receiverId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f27f9b9be28642a88e18****
+   */
+  sessionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  text?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * announcement
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      AIAgentId: 'AIAgentId',
+      mode: 'Mode',
+      needArchiving: 'NeedArchiving',
+      receiverId: 'ReceiverId',
+      sessionId: 'SessionId',
+      text: 'Text',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIAgentId: 'string',
+      mode: 'string',
+      needArchiving: 'boolean',
+      receiverId: 'string',
+      sessionId: 'string',
+      text: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageChatTextResponseBody extends $dara.Model {
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageChatTextResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendMessageChatTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendMessageChatTextResponseBody,
     };
   }
 
@@ -80318,6 +88292,8 @@ export class SetEventCallbackResponse extends $dara.Model {
 export class SetNotifyConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AI agent.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80325,12 +88301,17 @@ export class SetNotifyConfigRequest extends $dara.Model {
    */
   AIAgentId?: string;
   /**
+   * @remarks
+   * The URL for receiving callback notifications. By default, this parameter is left empty.
+   * 
    * @example
    * http://customer.com/callback
    */
   callbackUrl?: string;
   /**
    * @remarks
+   * Specifies whether to enable event notifications.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80338,11 +88319,21 @@ export class SetNotifyConfigRequest extends $dara.Model {
    */
   enableNotify?: boolean;
   /**
+   * @remarks
+   * The event types. If you do not specify this parameter, all event types are selected.
+   * 
+   * *   agent_start
+   * *   agent_stop
+   * *   error
+   * 
    * @example
    * agent_start,agent_stop,error
    */
   eventTypes?: string;
   /**
+   * @remarks
+   * The authentication token for callback. The token is carried in the Authorization header of a callback request. By default, this parameter is left empty.
+   * 
    * @example
    * eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx
    */
@@ -80378,6 +88369,9 @@ export class SetNotifyConfigRequest extends $dara.Model {
 
 export class SetNotifyConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 771A1414-27BF-53E6-AB73-EFCB*****ACF
    */
@@ -80441,6 +88435,8 @@ export class SetNotifyConfigResponse extends $dara.Model {
 export class StartAIAgentInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AI agent created in the [IMS](https://ims.console.aliyun.com/ai/robot/list) console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80449,9 +88445,18 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
   AIAgentId?: string;
   /**
    * @remarks
+   * 同步聊天记录配置。
+   */
+  chatSyncConfig?: StartAIAgentInstanceRequestChatSyncConfig;
+  /**
+   * @remarks
    * This parameter is required.
    */
   runtimeConfig?: AIAgentRuntimeConfig;
+  /**
+   * @example
+   * f213fbc005e4f309379701645f4****
+   */
   sessionId?: string;
   templateConfig?: AIAgentTemplateConfig;
   /**
@@ -80462,6 +88467,7 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       AIAgentId: 'AIAgentId',
+      chatSyncConfig: 'ChatSyncConfig',
       runtimeConfig: 'RuntimeConfig',
       sessionId: 'SessionId',
       templateConfig: 'TemplateConfig',
@@ -80472,6 +88478,7 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       AIAgentId: 'string',
+      chatSyncConfig: StartAIAgentInstanceRequestChatSyncConfig,
       runtimeConfig: AIAgentRuntimeConfig,
       sessionId: 'string',
       templateConfig: AIAgentTemplateConfig,
@@ -80480,6 +88487,9 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.chatSyncConfig && typeof (this.chatSyncConfig as any).validate === 'function') {
+      (this.chatSyncConfig as any).validate();
+    }
     if(this.runtimeConfig && typeof (this.runtimeConfig as any).validate === 'function') {
       (this.runtimeConfig as any).validate();
     }
@@ -80497,6 +88507,8 @@ export class StartAIAgentInstanceRequest extends $dara.Model {
 export class StartAIAgentInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AI agent created in the [IMS](https://ims.console.aliyun.com/ai/robot/list) console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80505,9 +88517,18 @@ export class StartAIAgentInstanceShrinkRequest extends $dara.Model {
   AIAgentId?: string;
   /**
    * @remarks
+   * 同步聊天记录配置。
+   */
+  chatSyncConfigShrink?: string;
+  /**
+   * @remarks
    * This parameter is required.
    */
   runtimeConfigShrink?: string;
+  /**
+   * @example
+   * f213fbc005e4f309379701645f4****
+   */
   sessionId?: string;
   templateConfigShrink?: string;
   /**
@@ -80518,6 +88539,7 @@ export class StartAIAgentInstanceShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       AIAgentId: 'AIAgentId',
+      chatSyncConfigShrink: 'ChatSyncConfig',
       runtimeConfigShrink: 'RuntimeConfig',
       sessionId: 'SessionId',
       templateConfigShrink: 'TemplateConfig',
@@ -80528,6 +88550,7 @@ export class StartAIAgentInstanceShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       AIAgentId: 'string',
+      chatSyncConfigShrink: 'string',
       runtimeConfigShrink: 'string',
       sessionId: 'string',
       templateConfigShrink: 'string',
@@ -80616,6 +88639,8 @@ export class StartAIAgentInstanceResponse extends $dara.Model {
 export class StartChannelRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -80645,11 +88670,17 @@ export class StartChannelRequest extends $dara.Model {
 
 export class StartChannelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -80694,6 +88725,103 @@ export class StartChannelResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartChannelResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartMediaLiveChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the channel.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  channelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelId: 'ChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartMediaLiveChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartMediaLiveChannelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartMediaLiveChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartMediaLiveChannelResponseBody,
     };
   }
 
@@ -81147,6 +89275,8 @@ export class StopAIAgentInstanceResponse extends $dara.Model {
 export class StopChannelRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -81176,11 +89306,20 @@ export class StopChannelRequest extends $dara.Model {
 
 export class StopChannelResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -81225,6 +89364,103 @@ export class StopChannelResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopChannelResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopMediaLiveChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the channel.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  channelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelId: 'ChannelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopMediaLiveChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopMediaLiveChannelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopMediaLiveChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopMediaLiveChannelResponseBody,
     };
   }
 
@@ -85275,13 +93511,36 @@ export class SubmitMediaCensorJobResponse extends $dara.Model {
 }
 
 export class SubmitMediaConvertJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The idempotency key that is used to ensure repeated requests have the same effect as a single request.
+   * 
+   * @example
+   * 86f8e525-9d73-4dac-88aa-7aa4e950c00a
+   */
   clientToken?: string;
   /**
    * @remarks
+   * The configurations of the transcoding task.
+   * 
    * This parameter is required.
    */
   config?: string;
+  /**
+   * @remarks
+   * The ID of the queue.
+   * 
+   * @example
+   * e197ecfb103e4849922b054d3032f954
+   */
   pipelineId?: string;
+  /**
+   * @remarks
+   * The user data.
+   * 
+   * @example
+   * {"videoId":"abcd"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85311,10 +93570,14 @@ export class SubmitMediaConvertJobRequest extends $dara.Model {
 }
 
 export class SubmitMediaConvertJobResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The transcoding task.
+   */
   job?: SubmitMediaConvertJobResponseBodyJob;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -88539,16 +96802,25 @@ export class SubmitVideoTranslationJobResponse extends $dara.Model {
 
 export class TakeoverAIAgentCallRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the human agent that will take over the AI agent (UserId in ARTC). If you do not specify this parameter, it is automatically generated and returned.
+   * 
    * @example
    * uid2
    */
   humanAgentUserId?: string;
   /**
+   * @remarks
+   * The ID of the AI agent that will be taken over.
+   * 
    * @example
    * 39f8e0bc005e4f309379701645f4****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Specifies whether to return the ARTC token. Default value: false.
+   * 
    * @example
    * false
    */
@@ -88580,21 +96852,33 @@ export class TakeoverAIAgentCallRequest extends $dara.Model {
 
 export class TakeoverAIAgentCallResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the ARTC channel.
+   * 
    * @example
    * 70f22d5784194938a7e387052f2b3208
    */
   channelId?: string;
   /**
+   * @remarks
+   * The ID of the human agent.
+   * 
    * @example
    * uid2
    */
   humanAgentUserId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ARTC token.
+   * 
    * @example
    * eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx
    */
@@ -88664,13 +96948,23 @@ export class TakeoverAIAgentCallResponse extends $dara.Model {
 export class UpdateAIAgentInstanceRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AI agent that you want to update.
+   * 
    * This parameter is required.
    * 
    * @example
    * 39f8e0bc005e4f309379701645f4****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The template configurations of the AI agent. The configurations are merged with the template configurations that are used to start the AI agent. For more information, see the definition of TemplateConfig.
+   */
   templateConfig?: AIAgentTemplateConfig;
+  /**
+   * @example
+   * {"VoiceId":"xiaoxia"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88703,13 +96997,23 @@ export class UpdateAIAgentInstanceRequest extends $dara.Model {
 export class UpdateAIAgentInstanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AI agent that you want to update.
+   * 
    * This parameter is required.
    * 
    * @example
    * 39f8e0bc005e4f309379701645f4****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The template configurations of the AI agent. The configurations are merged with the template configurations that are used to start the AI agent. For more information, see the definition of TemplateConfig.
+   */
   templateConfigShrink?: string;
+  /**
+   * @example
+   * {"VoiceId":"xiaoxia"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88738,6 +97042,9 @@ export class UpdateAIAgentInstanceShrinkRequest extends $dara.Model {
 
 export class UpdateAIAgentInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
    */
@@ -88801,7 +97108,12 @@ export class UpdateAIAgentInstanceResponse extends $dara.Model {
 export class UpdateAdInsertionRequest extends $dara.Model {
   /**
    * @remarks
-   * 内容URL前缀
+   * Specifies whether to enable ad marker passthrough. Default value: OFF.
+   * 
+   * Valid values:
+   * 
+   * *   OFF: Disable.
+   * *   ON: Enable.
    * 
    * @example
    * ON
@@ -88809,7 +97121,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   adMarkerPassthrough?: string;
   /**
    * @remarks
-   * 广告策略服务器URL
+   * The request URL of the ad decision server (ADS). HTTP and HTTPS are supported. The maximum length is 2,048 characters.
    * 
    * This parameter is required.
    * 
@@ -88819,7 +97131,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   adsUrl?: string;
   /**
    * @remarks
-   * 广告分片的CDN前缀
+   * The CDN prefix for ad segments. HTTP and HTTPS are supported. The maximum length is 512 characters.
    * 
    * @example
    * http://cdn.com/
@@ -88827,7 +97139,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   cdnAdSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * 视频内容分片的CDN前缀
+   * The CDN prefix for content segments. HTTP and HTTPS are supported. The maximum length is 512 characters.
    * 
    * @example
    * http://cdn.com/
@@ -88835,7 +97147,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   cdnContentSegmentUrlPrefix?: string;
   /**
    * @remarks
-   * 动态配置别名
+   * A JSON string that specifies the player parameter variables and aliases. Format: { "player_params.{name}": { "{key}": "{value}" } }. You can add up to 20 player_params.{name} entries. The name field can be up to 150 characters in length. Each player parameter can include up to 50 key-value pairs. A key can be up to 150 characters long, and a value can be up to 500 characters.
    * 
    * @example
    * { "player_params.p1": { "1": "abc" } }
@@ -88843,7 +97155,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   configAliases?: string;
   /**
    * @remarks
-   * 内容URL前缀
+   * The URL prefix for the source content. HTTP and HTTPS are supported. The maximum length is 512 characters.
    * 
    * This parameter is required.
    * 
@@ -88853,7 +97165,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   contentUrlPrefix?: string;
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The configuration name, which cannot be modified.
    * 
    * This parameter is required.
    * 
@@ -88863,7 +97175,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 个性化配置阈值
+   * Specifies the maximum duration of underfilled time allowed in an ad break. Unit: seconds. Default value: 8 seconds.
    * 
    * @example
    * 5
@@ -88871,7 +97183,7 @@ export class UpdateAdInsertionRequest extends $dara.Model {
   personalizationThreshold?: number;
   /**
    * @remarks
-   * slate广告URL
+   * The HTTP or HTTPS URL of the slate ad. Only MP4 format is supported. The maximum length is 2,048 characters.
    * 
    * @example
    * http://storage.com/slate1.mp4
@@ -88915,8 +97227,15 @@ export class UpdateAdInsertionRequest extends $dara.Model {
 }
 
 export class UpdateAdInsertionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ad insertion configuration.
+   */
   config?: UpdateAdInsertionResponseBodyConfig;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
@@ -89285,17 +97604,25 @@ export class UpdateCategoryResponse extends $dara.Model {
 
 export class UpdateChannelRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable access control.
+   * 
    * @example
    * true
    */
   accessPolicy?: boolean;
   /**
+   * @remarks
+   * The token for accessing the channel.
+   * 
    * @example
    * xxxxx
    */
   accessToken?: string;
   /**
    * @remarks
+   * The name of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -89303,17 +97630,25 @@ export class UpdateChannelRequest extends $dara.Model {
    */
   channelName?: string;
   /**
+   * @remarks
+   * The source location of the filler slate.
+   * 
    * @example
    * MySourceLocation
    */
   fillerSourceLocationName?: string;
   /**
+   * @remarks
+   * The name of the filler slate.
+   * 
    * @example
    * MySource
    */
   fillerSourceName?: string;
   /**
    * @remarks
+   * The channel output configurations.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -89360,8 +97695,15 @@ export class UpdateChannelRequest extends $dara.Model {
 }
 
 export class UpdateChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The channel information.
+   */
   channel?: ChannelAssemblyChannel;
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
@@ -89837,9 +98179,7 @@ export class UpdateEditingProjectResponse extends $dara.Model {
 export class UpdateLivePackageChannelRequest extends $dara.Model {
   /**
    * @remarks
-   * 频道名称，字符必须为大小写英文字母或-、_。
-   * 1 ~ 200个字符。
-   * 格式：[A-Za-z0-9_-]+
+   * The channel name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
    * 
    * This parameter is required.
    * 
@@ -89849,12 +98189,12 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * 频道描述，最大1000个字符
+   * The channel description. It can be up to 1,000 characters in length.
    */
   description?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
    * 
    * This parameter is required.
    * 
@@ -89864,7 +98204,7 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * 输入协议，目前仅支持HLS
+   * The ingest protocol. Only HLS is supported.
    * 
    * This parameter is required.
    * 
@@ -89874,7 +98214,7 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * 输入流m3u8切片个数，2～100
+   * The number of M3U8 segments. Valid values: 2 to 100.
    * 
    * This parameter is required.
    * 
@@ -89884,7 +98224,7 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
   segmentCount?: number;
   /**
    * @remarks
-   * 输入流切片时长，1～30
+   * The segment duration. Valid values: 1 to 30.
    * 
    * This parameter is required.
    * 
@@ -89924,7 +98264,18 @@ export class UpdateLivePackageChannelRequest extends $dara.Model {
 }
 
 export class UpdateLivePackageChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the live package channel.
+   */
   livePackageChannel?: UpdateLivePackageChannelResponseBodyLivePackageChannel;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 771A1414-27BF-53E6-AB73-EFCB*****ACF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89990,25 +98341,32 @@ export class UpdateLivePackageChannelResponse extends $dara.Model {
 export class UpdateLivePackageChannelCredentialsRequest extends $dara.Model {
   /**
    * @remarks
-   * 频道名称，字符必须为大小写英文字母或-、_。
-   * 1 ~ 200个字符。
-   * 格式：[A-Za-z0-9_-]+
+   * The channel name.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * channel-1
    */
   channelName?: string;
   /**
    * @remarks
-   * 频道组名称
+   * The channel group name.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * group-1
    */
   groupName?: string;
   /**
    * @remarks
-   * 刷新密钥选项, 1: 刷新endpoint1，2:刷新endpoint2，3: 刷新endpoint1&2
+   * Specifies whether to update the credentials. 1: updates the credentials of endpoint 1. 2: updates the credentials of endpoint 2. 3: updates the credentials of endpoints 1 and 2.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 3
    */
   rotateCredentials?: number;
   static names(): { [key: string]: string } {
@@ -90037,7 +98395,18 @@ export class UpdateLivePackageChannelCredentialsRequest extends $dara.Model {
 }
 
 export class UpdateLivePackageChannelCredentialsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the ingest endpoint.
+   */
   ingestEndpoints?: UpdateLivePackageChannelCredentialsResponseBodyIngestEndpoints[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 771A1414-27BF-53E6-AB73-EFCB*****ACF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -90103,12 +98472,12 @@ export class UpdateLivePackageChannelCredentialsResponse extends $dara.Model {
 export class UpdateLivePackageChannelGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * 频道组描述
+   * The channel group description. It can be up to 1,000 characters in length.
    */
   description?: string;
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The channel group name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
    * 
    * This parameter is required.
    * 
@@ -90140,8 +98509,15 @@ export class UpdateLivePackageChannelGroupRequest extends $dara.Model {
 }
 
 export class UpdateLivePackageChannelGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the channel group.
+   */
   livePackageChannelGroup?: UpdateLivePackageChannelGroupResponseBodyLivePackageChannelGroup;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * request-1234567890
    */
@@ -90210,7 +98586,7 @@ export class UpdateLivePackageChannelGroupResponse extends $dara.Model {
 export class UpdateLivePackageOriginEndpointRequest extends $dara.Model {
   /**
    * @remarks
-   * 回源授权码，与IpWhitelist必选其一
+   * The authorization code. It can be up to 200 characters in length. You must configure AuthorizationCode, IpWhitelist, or both. Format: [A-Za-z0-9-_.]+
    * 
    * @example
    * Abc123Def456
@@ -90218,9 +98594,7 @@ export class UpdateLivePackageOriginEndpointRequest extends $dara.Model {
   authorizationCode?: string;
   /**
    * @remarks
-   * 频道名称。
-   * 1 ~ 200个字符。
-   * 正则匹配输入：[A-Za-z0-9_-]+
+   * The channel name.
    * 
    * This parameter is required.
    * 
@@ -90230,14 +98604,12 @@ export class UpdateLivePackageOriginEndpointRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * 端点描述，最大1000个字符
+   * The endpoint description.
    */
   description?: string;
   /**
    * @remarks
-   * 端点名称，要求在单个频道中唯一。
-   * 1 ~ 200个字符。
-   * 正则匹配输入：[A-Za-z0-9_-]+
+   * The origin endpoint name. It can contain letters, digits, hyphens (-), and underscores (_). The name must be 1 to 200 characters in length. Format: [A-Za-z0-9_-]+
    * 
    * This parameter is required.
    * 
@@ -90247,9 +98619,7 @@ export class UpdateLivePackageOriginEndpointRequest extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * 频道组名称。
-   * 1 ~ 200个字符。
-   * 正则匹配输入：[A-Za-z0-9_-]+
+   * The channel group name.
    * 
    * This parameter is required.
    * 
@@ -90259,7 +98629,7 @@ export class UpdateLivePackageOriginEndpointRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * IP黑名单，支持无类别域间路由（CIDR），逗号分隔
+   * The IP address blacklist. It supports subnet masks. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * 103.0.0.0/8
@@ -90267,7 +98637,7 @@ export class UpdateLivePackageOriginEndpointRequest extends $dara.Model {
   ipBlacklist?: string;
   /**
    * @remarks
-   * IP白名单，支持无类别域间路由（CIDR），逗号分隔，与AuthorizationCode必选其一
+   * The IP address whitelist. It supports subnet masks. 0.0.0.0/0 is not allowed. It can be up to 1,000 characters in length. Separate multiple IP addresses with commas (,). You must configure AuthorizationCode, IpWhitelist, or both.
    * 
    * @example
    * 192.168.1.0/24,10.0.0.1
@@ -90275,9 +98645,7 @@ export class UpdateLivePackageOriginEndpointRequest extends $dara.Model {
   ipWhitelist?: string;
   /**
    * @remarks
-   * 播放列表名，缺省为manifest。
-   * 1 ~ 100个字符。
-   * 正则匹配输入：[A-Za-z0-9_]+
+   * The playlist name. Default value: manifest.
    * 
    * @example
    * manifest
@@ -90285,7 +98653,7 @@ export class UpdateLivePackageOriginEndpointRequest extends $dara.Model {
   manifestName?: string;
   /**
    * @remarks
-   * 端点分发协议，暂只支持HLS
+   * The protocol. Only HLS is supported.
    * 
    * This parameter is required.
    * 
@@ -90295,7 +98663,7 @@ export class UpdateLivePackageOriginEndpointRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * 时移天数，最大30天，0表示不支持时移
+   * The number of days that time-shifted content is available. Maximum value: 30.
    * 
    * @example
    * 5
@@ -90341,8 +98709,15 @@ export class UpdateLivePackageOriginEndpointRequest extends $dara.Model {
 }
 
 export class UpdateLivePackageOriginEndpointResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the origin endpoint.
+   */
   livePackageOriginEndpoint?: UpdateLivePackageOriginEndpointResponseBodyLivePackageOriginEndpoint;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * b1f8d6c4-a123-4cd5-9e88-d0819e3bfa70
    */
@@ -91098,7 +99473,7 @@ export class UpdateLiveTranscodeTemplateResponse extends $dara.Model {
 export class UpdateMediaConnectFlowInputRequest extends $dara.Model {
   /**
    * @remarks
-   * IP whitelist
+   * The IP address whitelist.
    * 
    * @example
    * 19.168.1.1/32,18.168.1.1/16
@@ -91106,7 +99481,7 @@ export class UpdateMediaConnectFlowInputRequest extends $dara.Model {
   cidrs?: string;
   /**
    * @remarks
-   * Flow instance ID
+   * The flow ID.
    * 
    * This parameter is required.
    * 
@@ -91116,7 +99491,7 @@ export class UpdateMediaConnectFlowInputRequest extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * Input URL, modifiable when the input type is RTMP-PULL/SRT-Listener
+   * The source URL. You can modify this parameter only when the source type is RTMP-PULL or SRT-Listener.
    * 
    * @example
    * rtmp://pull.test.alivecdn.com/live/alitest
@@ -91124,7 +99499,7 @@ export class UpdateMediaConnectFlowInputRequest extends $dara.Model {
   inputFromUrl?: string;
   /**
    * @remarks
-   * Input bitrate
+   * The maximum bitrate. Unit: bit/s.
    * 
    * @example
    * 2000000
@@ -91132,7 +99507,7 @@ export class UpdateMediaConnectFlowInputRequest extends $dara.Model {
   maxBitrate?: number;
   /**
    * @remarks
-   * SRT latency, modifiable when the input type is SRT-Listener/SRT-Caller
+   * The latency for the SRT stream. You can modify this parameter only when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 1000
@@ -91140,7 +99515,7 @@ export class UpdateMediaConnectFlowInputRequest extends $dara.Model {
   srtLatency?: number;
   /**
    * @remarks
-   * SRT encryption key, modifiable when the input type is SRT-Listener/SRT-Caller
+   * The SRT key. You can modify this parameter only when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * FICUBPX4Q77DYHRF
@@ -91148,7 +99523,7 @@ export class UpdateMediaConnectFlowInputRequest extends $dara.Model {
   srtPassphrase?: string;
   /**
    * @remarks
-   * SRT encryption length, modifiable when the input type is SRT-Listener/SRT-Caller
+   * The encryption key length. You can modify this parameter only when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 32
@@ -91190,7 +99565,7 @@ export class UpdateMediaConnectFlowInputRequest extends $dara.Model {
 export class UpdateMediaConnectFlowInputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body
+   * The response body.
    * 
    * @example
    * ""
@@ -91198,7 +99573,7 @@ export class UpdateMediaConnectFlowInputResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Description of the API call
+   * The call description.
    * 
    * @example
    * OK
@@ -91206,7 +99581,7 @@ export class UpdateMediaConnectFlowInputResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 请求 ID
+   * The ID of the request.
    * 
    * @example
    * 52451256-FFEA-5D2E-AA60-EE7053000F22
@@ -91214,7 +99589,7 @@ export class UpdateMediaConnectFlowInputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned error code, 0 indicates success
+   * The returned error code. A value of 0 indicates the call is successful.
    * 
    * @example
    * 0
@@ -91285,7 +99660,7 @@ export class UpdateMediaConnectFlowInputResponse extends $dara.Model {
 export class UpdateMediaConnectFlowOutputRequest extends $dara.Model {
   /**
    * @remarks
-   * IP whitelist
+   * The IP address whitelist.
    * 
    * @example
    * 19.168.1.1/32,18.168.1.1/16
@@ -91293,7 +99668,7 @@ export class UpdateMediaConnectFlowOutputRequest extends $dara.Model {
   cidrs?: string;
   /**
    * @remarks
-   * Flow instance ID
+   * The flow ID.
    * 
    * This parameter is required.
    * 
@@ -91303,7 +99678,7 @@ export class UpdateMediaConnectFlowOutputRequest extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * Output name
+   * The output name.
    * 
    * This parameter is required.
    * 
@@ -91313,7 +99688,7 @@ export class UpdateMediaConnectFlowOutputRequest extends $dara.Model {
   outputName?: string;
   /**
    * @remarks
-   * Output address, modifiable when the output type is RTMP-PUSH/SRT-Caller mode
+   * The output URL. You can modify this parameter only when the output type is RTMP-PUSH or SRT-Caller.
    * 
    * @example
    * rtmp://push.test.alivecdn.com/live/alitest
@@ -91321,7 +99696,7 @@ export class UpdateMediaConnectFlowOutputRequest extends $dara.Model {
   outputToUrl?: string;
   /**
    * @remarks
-   * Player limit
+   * The maximum number of viewers.
    * 
    * @example
    * 5
@@ -91329,7 +99704,7 @@ export class UpdateMediaConnectFlowOutputRequest extends $dara.Model {
   playerLimit?: string;
   /**
    * @remarks
-   * SRT latency, modifiable when the input type is SRT-Listener/SRT-Caller
+   * The latency for the SRT stream. You can modify this parameter only when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 1000
@@ -91337,7 +99712,7 @@ export class UpdateMediaConnectFlowOutputRequest extends $dara.Model {
   srtLatency?: string;
   /**
    * @remarks
-   * SRT encryption key, modifiable when the input type is SRT-Listener/SRT-Caller
+   * The SRT key. You can modify this parameter only when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * FICUBPX4Q77DYHRF
@@ -91345,7 +99720,7 @@ export class UpdateMediaConnectFlowOutputRequest extends $dara.Model {
   srtPassphrase?: string;
   /**
    * @remarks
-   * SRT encryption length, modifiable when the input type is SRT-Listener/SRT-Caller
+   * The encryption key length. You can modify this parameter only when the source type is SRT-Listener or SRT-Caller.
    * 
    * @example
    * 32
@@ -91389,7 +99764,7 @@ export class UpdateMediaConnectFlowOutputRequest extends $dara.Model {
 export class UpdateMediaConnectFlowOutputResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body
+   * The response body.
    * 
    * @example
    * ""
@@ -91397,7 +99772,7 @@ export class UpdateMediaConnectFlowOutputResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Description of the API call
+   * The call description.
    * 
    * @example
    * OK
@@ -91405,7 +99780,7 @@ export class UpdateMediaConnectFlowOutputResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Request ID
+   * The ID of the request.
    * 
    * @example
    * D737D0BC-4CB5-55AA-8119-B540C95DFE6A
@@ -91413,7 +99788,7 @@ export class UpdateMediaConnectFlowOutputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returned error code, 0 indicates success
+   * The returned error code. A value of 0 indicates the call is successful.
    * 
    * @example
    * 0
@@ -91484,7 +99859,7 @@ export class UpdateMediaConnectFlowOutputResponse extends $dara.Model {
 export class UpdateMediaConnectFlowStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * Flow instance ID
+   * The flow ID.
    * 
    * This parameter is required.
    * 
@@ -91494,9 +99869,10 @@ export class UpdateMediaConnectFlowStatusRequest extends $dara.Model {
   flowId?: string;
   /**
    * @remarks
-   * Flow status:
-   * - online: Start Flow
-   * - offline: Stop Flow
+   * The flow state. Valid values:
+   * 
+   * *   online: starts the flow.
+   * *   offline: stops the flow.
    * 
    * This parameter is required.
    * 
@@ -91530,7 +99906,7 @@ export class UpdateMediaConnectFlowStatusRequest extends $dara.Model {
 export class UpdateMediaConnectFlowStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response body
+   * The response body.
    * 
    * @example
    * ""
@@ -91538,7 +99914,7 @@ export class UpdateMediaConnectFlowStatusResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Description of the API call
+   * The call description.
    * 
    * @example
    * ok
@@ -91546,7 +99922,7 @@ export class UpdateMediaConnectFlowStatusResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Request ID
+   * The ID of the request.
    * 
    * @example
    * 20B3A1B6-4BD2-5DE6-BCBC-098C9B4F4E91
@@ -91554,7 +99930,7 @@ export class UpdateMediaConnectFlowStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 返回的错误码，0表示成功
+   * The returned error code. A value of 0 indicates that the call is successful.
    * 
    * @example
    * 0
@@ -91851,6 +100227,606 @@ export class UpdateMediaInfoResponse extends $dara.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateMediaInfoResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The audio settings.
+   */
+  audioSettings?: UpdateMediaLiveChannelRequestAudioSettings[];
+  /**
+   * @remarks
+   * The ID of the channel.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  channelId?: string;
+  /**
+   * @remarks
+   * The inputs associated with the channel.
+   * 
+   * This parameter is required.
+   */
+  inputAttachments?: UpdateMediaLiveChannelRequestInputAttachments[];
+  /**
+   * @remarks
+   * The name of the channel. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mych
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The output groups.
+   * 
+   * This parameter is required.
+   */
+  outputGroups?: UpdateMediaLiveChannelRequestOutputGroups[];
+  /**
+   * @remarks
+   * The video settings.
+   */
+  videoSettings?: UpdateMediaLiveChannelRequestVideoSettings[];
+  static names(): { [key: string]: string } {
+    return {
+      audioSettings: 'AudioSettings',
+      channelId: 'ChannelId',
+      inputAttachments: 'InputAttachments',
+      name: 'Name',
+      outputGroups: 'OutputGroups',
+      videoSettings: 'VideoSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSettings: { 'type': 'array', 'itemType': UpdateMediaLiveChannelRequestAudioSettings },
+      channelId: 'string',
+      inputAttachments: { 'type': 'array', 'itemType': UpdateMediaLiveChannelRequestInputAttachments },
+      name: 'string',
+      outputGroups: { 'type': 'array', 'itemType': UpdateMediaLiveChannelRequestOutputGroups },
+      videoSettings: { 'type': 'array', 'itemType': UpdateMediaLiveChannelRequestVideoSettings },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audioSettings)) {
+      $dara.Model.validateArray(this.audioSettings);
+    }
+    if(Array.isArray(this.inputAttachments)) {
+      $dara.Model.validateArray(this.inputAttachments);
+    }
+    if(Array.isArray(this.outputGroups)) {
+      $dara.Model.validateArray(this.outputGroups);
+    }
+    if(Array.isArray(this.videoSettings)) {
+      $dara.Model.validateArray(this.videoSettings);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The audio settings.
+   */
+  audioSettingsShrink?: string;
+  /**
+   * @remarks
+   * The ID of the channel.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  channelId?: string;
+  /**
+   * @remarks
+   * The inputs associated with the channel.
+   * 
+   * This parameter is required.
+   */
+  inputAttachmentsShrink?: string;
+  /**
+   * @remarks
+   * The name of the channel. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mych
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The output groups.
+   * 
+   * This parameter is required.
+   */
+  outputGroupsShrink?: string;
+  /**
+   * @remarks
+   * The video settings.
+   */
+  videoSettingsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioSettingsShrink: 'AudioSettings',
+      channelId: 'ChannelId',
+      inputAttachmentsShrink: 'InputAttachments',
+      name: 'Name',
+      outputGroupsShrink: 'OutputGroups',
+      videoSettingsShrink: 'VideoSettings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioSettingsShrink: 'string',
+      channelId: 'string',
+      inputAttachmentsShrink: 'string',
+      name: 'string',
+      outputGroupsShrink: 'string',
+      videoSettingsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveChannelResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMediaLiveChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMediaLiveChannelResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveInputRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the input.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  inputId?: string;
+  /**
+   * @remarks
+   * The input settings. An input can have up to two sources: primary and backup sources.
+   * 
+   * This parameter is required.
+   */
+  inputSettings?: UpdateMediaLiveInputRequestInputSettings[];
+  /**
+   * @remarks
+   * The name of the input. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myinput
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The IDs of the security groups to be associated with the input. This parameter is required for PUSH inputs.
+   * 
+   * @example
+   * ["G6G4X5T4SZYPSTT5"]
+   */
+  securityGroupIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      inputId: 'InputId',
+      inputSettings: 'InputSettings',
+      name: 'Name',
+      securityGroupIds: 'SecurityGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputId: 'string',
+      inputSettings: { 'type': 'array', 'itemType': UpdateMediaLiveInputRequestInputSettings },
+      name: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.inputSettings)) {
+      $dara.Model.validateArray(this.inputSettings);
+    }
+    if(Array.isArray(this.securityGroupIds)) {
+      $dara.Model.validateArray(this.securityGroupIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveInputShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the input.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  inputId?: string;
+  /**
+   * @remarks
+   * The input settings. An input can have up to two sources: primary and backup sources.
+   * 
+   * This parameter is required.
+   */
+  inputSettingsShrink?: string;
+  /**
+   * @remarks
+   * The name of the input. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * myinput
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The IDs of the security groups to be associated with the input. This parameter is required for PUSH inputs.
+   * 
+   * @example
+   * ["G6G4X5T4SZYPSTT5"]
+   */
+  securityGroupIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputId: 'InputId',
+      inputSettingsShrink: 'InputSettings',
+      name: 'Name',
+      securityGroupIdsShrink: 'SecurityGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputId: 'string',
+      inputSettingsShrink: 'string',
+      name: 'string',
+      securityGroupIdsShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveInputResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveInputResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMediaLiveInputResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMediaLiveInputResponseBody,
+    };
+  }
+
+  validate() {
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
+    }
+    if(this.body && typeof (this.body as any).validate === 'function') {
+      (this.body as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveInputSecurityGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the security group. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mysg
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The security group rules.
+   * 
+   * This parameter is required.
+   */
+  whitelistRules?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      securityGroupId: 'SecurityGroupId',
+      whitelistRules: 'WhitelistRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      securityGroupId: 'string',
+      whitelistRules: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.whitelistRules)) {
+      $dara.Model.validateArray(this.whitelistRules);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveInputSecurityGroupShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the security group. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mysg
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The ID of the security group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * SEGK5KA6KYKAWQQH
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
+   * The security group rules.
+   * 
+   * This parameter is required.
+   */
+  whitelistRulesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      securityGroupId: 'SecurityGroupId',
+      whitelistRulesShrink: 'WhitelistRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      securityGroupId: 'string',
+      whitelistRulesShrink: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveInputSecurityGroupResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateMediaLiveInputSecurityGroupResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateMediaLiveInputSecurityGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateMediaLiveInputSecurityGroupResponseBody,
     };
   }
 
@@ -92291,12 +101267,17 @@ export class UpdatePipelineResponse extends $dara.Model {
 
 export class UpdateProgramRequest extends $dara.Model {
   /**
+   * @remarks
+   * The information about ad breaks.
+   * 
    * @example
    * [{"MessageType":"SPLICE_INSERT","OffsetMillis":1000,"SourceLocationName":"MySourceLocation","SourceName":"MyAdSource","SpliceInsertSettings":{"AvailNumber":0,"AvailExpected":0,"SpliceEventID":1,"UniqueProgramID":0}}]
    */
   adBreaks?: string;
   /**
    * @remarks
+   * The name of the channel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -92304,12 +101285,17 @@ export class UpdateProgramRequest extends $dara.Model {
    */
   channelName?: string;
   /**
+   * @remarks
+   * Extracts a clip from the source.
+   * 
    * @example
    * {StartOffsetMillis: 213123, EndOffsetMillis: 213134}
    */
   clipRange?: string;
   /**
    * @remarks
+   * The name of the program.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -92317,21 +101303,33 @@ export class UpdateProgramRequest extends $dara.Model {
    */
   programName?: string;
   /**
+   * @remarks
+   * The name of the source location.
+   * 
    * @example
    * MySourceLcation
    */
   sourceLocationName?: string;
   /**
+   * @remarks
+   * The name of the source.
+   * 
    * @example
    * MySource
    */
   sourceName?: string;
   /**
+   * @remarks
+   * The source type of the program. Valid values: vodSource and liveSource.
+   * 
    * @example
    * vodSource
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The program transition method.
+   * 
    * @example
    * {"Type": "RELATIVE", "RelativePosition": "AFTER_PROGRAM", "RelativeProgram": "program2"}
    */
@@ -92372,8 +101370,15 @@ export class UpdateProgramRequest extends $dara.Model {
 }
 
 export class UpdateProgramResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the program.
+   */
   program?: ChannelAssemblyProgram;
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
@@ -92576,6 +101581,8 @@ export class UpdateRtcRobotInstanceResponse extends $dara.Model {
 export class UpdateSourceRequest extends $dara.Model {
   /**
    * @remarks
+   * The source configurations.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -92588,6 +101595,8 @@ export class UpdateSourceRequest extends $dara.Model {
   httpPackageConfigurations?: string;
   /**
    * @remarks
+   * The name of the source location.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -92596,6 +101605,8 @@ export class UpdateSourceRequest extends $dara.Model {
   sourceLocationName?: string;
   /**
    * @remarks
+   * The name of the source.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -92604,6 +101615,8 @@ export class UpdateSourceRequest extends $dara.Model {
   sourceName?: string;
   /**
    * @remarks
+   * The source type. Valid values: vodSource and liveSource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -92639,10 +101652,17 @@ export class UpdateSourceRequest extends $dara.Model {
 
 export class UpdateSourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The source information.
+   */
   source?: ChannelAssemblySource;
   static names(): { [key: string]: string } {
     return {
@@ -92707,22 +101727,33 @@ export class UpdateSourceResponse extends $dara.Model {
 
 export class UpdateSourceLocationRequest extends $dara.Model {
   /**
+   * @remarks
+   * The protocol and hostname of the source location.
+   * 
    * @example
    * http://xxx.com
    */
   baseUrl?: string;
   /**
+   * @remarks
+   * Specifies whether to use an independent domain name to access the segments.
+   * 
    * @example
    * true
    */
   enableSegmentDelivery?: boolean;
   /**
+   * @remarks
+   * The domain name used to access the segments.
+   * 
    * @example
    * http://xxxx.com
    */
   segmentDeliveryUrl?: string;
   /**
    * @remarks
+   * The name of the source location.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -92758,10 +101789,17 @@ export class UpdateSourceLocationRequest extends $dara.Model {
 
 export class UpdateSourceLocationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * **Request ID**
+   * 
    * @example
    * xxx-xxxx-xxxxx-xxxx
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The source location information.
+   */
   sourceLocation?: ChannelAssemblySourceLocation;
   static names(): { [key: string]: string } {
     return {
@@ -93476,7 +102514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加广告插入配置
+   * Adds an ad insertion configuration.
    * 
    * @param request - AddAdInsertionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -93548,7 +102586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加广告插入配置
+   * Adds an ad insertion configuration.
    * 
    * @param request - AddAdInsertionRequest
    * @returns AddAdInsertionResponse
@@ -93718,17 +102756,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add input for MediaConnect instance
+   * Creates a source for a MediaConnect flow.
    * 
    * @remarks
-   * - If the provided Flow instance ID does not exist, the interface will return an error.
-   * - A Flow instance can only have one Input.
-   * ### Description of Input Types
-   * - RTMP-PUSH: Creates an input of the RTMP listening type. You can push to the URL returned by the interface using the RTMP protocol.
-   * - RTMP-PULL: Creates an input of the RTMP origin-pull type. The Flow will pull the RTMP live stream from the source you specify.
-   * - SRT-Listener: Creates an input of the SRT listening type. You can push to the URL returned by the interface using the SRT protocol.
-   * - SRT-Caller: Creates an input of the SRT origin-pull type. The Flow will pull the SRT live stream from the source you specify.
-   * - Flow: Uses the output of another upstream Flow instance as the input. You need to specify both the instance ID and the output name of the paired Flow. The output of the upstream Flow instance must be of the SRT-Listener/RTMP-PULL type. When cascading between Flow instances, a dedicated line is used by default, which can be utilized for cross-regional distribution among multiple Flows.
+   *   When the specified flow ID is not available, an error code is returned.
+   * *   A flow can have only one source.
+   * ### [](#)Source type
+   * *   RTMP-PUSH: An input that you can push to the returned URL over the RTMP protocol.
+   * *   RTMP-PULL: An input that the MediaConnect flow pulls from the specified server over the RTMP protocol.
+   * *   SRT-Listener: An input that you can push to the returned URL over the SRT protocol.
+   * *   SRT-Caller: An input that the MediaConnect flow pulls from the specified server over the SRT protocol.
+   * *   Flow: An input that uses the output of another upstream flow. You must specify an upstream flow and its output. The output type of the upstream flow must be SRT-Listener or RTMP-PULL. By default, a dedicated line is used when flows are cascaded. This allows for cross-region distribution among multiple flows.
    * 
    * @param request - AddMediaConnectFlowInputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -93804,17 +102842,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add input for MediaConnect instance
+   * Creates a source for a MediaConnect flow.
    * 
    * @remarks
-   * - If the provided Flow instance ID does not exist, the interface will return an error.
-   * - A Flow instance can only have one Input.
-   * ### Description of Input Types
-   * - RTMP-PUSH: Creates an input of the RTMP listening type. You can push to the URL returned by the interface using the RTMP protocol.
-   * - RTMP-PULL: Creates an input of the RTMP origin-pull type. The Flow will pull the RTMP live stream from the source you specify.
-   * - SRT-Listener: Creates an input of the SRT listening type. You can push to the URL returned by the interface using the SRT protocol.
-   * - SRT-Caller: Creates an input of the SRT origin-pull type. The Flow will pull the SRT live stream from the source you specify.
-   * - Flow: Uses the output of another upstream Flow instance as the input. You need to specify both the instance ID and the output name of the paired Flow. The output of the upstream Flow instance must be of the SRT-Listener/RTMP-PULL type. When cascading between Flow instances, a dedicated line is used by default, which can be utilized for cross-regional distribution among multiple Flows.
+   *   When the specified flow ID is not available, an error code is returned.
+   * *   A flow can have only one source.
+   * ### [](#)Source type
+   * *   RTMP-PUSH: An input that you can push to the returned URL over the RTMP protocol.
+   * *   RTMP-PULL: An input that the MediaConnect flow pulls from the specified server over the RTMP protocol.
+   * *   SRT-Listener: An input that you can push to the returned URL over the SRT protocol.
+   * *   SRT-Caller: An input that the MediaConnect flow pulls from the specified server over the SRT protocol.
+   * *   Flow: An input that uses the output of another upstream flow. You must specify an upstream flow and its output. The output type of the upstream flow must be SRT-Listener or RTMP-PULL. By default, a dedicated line is used when flows are cascaded. This allows for cross-region distribution among multiple flows.
    * 
    * @param request - AddMediaConnectFlowInputRequest
    * @returns AddMediaConnectFlowInputResponse
@@ -93825,19 +102863,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add output for MediaConnect instance
+   * Creates an output for a MediaConnect flow.
    * 
    * @remarks
-   * - If the provided Flow instance ID does not exist, the interface will return an error.
-   * - A Flow instance can have up to 4 outputs.
-   * - The output names under the same Flow instance cannot be duplicated.
-   * - You can set a maximum number of simultaneous players for each output. New plays will fail once this limit is exceeded. Each output supports up to 5 streams.
-   * ### Description of Output Types
-   * - RTMP-PUSH: Creates an output of the RTMP push type. The Flow will use the RTMP protocol to push the live stream to the origin you set.
-   * - RTMP-PULL: Creates an output of the RTMP pull type. You can use the RTMP protocol to pull the stream from the URL returned by the interface.
-   * - SRT-Caller: Creates an output of the SRT push type. The Flow will use the SRT protocol to push the live stream to the origin you set.
-   * - SRT-Listener: Creates an output of the SRT pull type. You can use the SRT protocol to pull the stream from the URL returned by the interface.
-   * - Flow: Uses the input of another downstream Flow instance as the output. You need to specify both the instance ID and the input name of the paired Flow. The input type of the downstream Flow instance must be a listening type, i.e., SRT-Listener/RTMP-PUSH. This instance will push the live stream to the downstream Flow. When cascading between Flow instances, a dedicated line is used by default, which can be used for cross-regional distribution among multiple Flows.
+   *   When the specified flow ID is not available, an error code is returned.
+   * *   A flow can have a maximum of four outputs.
+   * *   The output names in the same flow cannot be duplicated.
+   * *   You can set an upper limit on the number of concurrent viewers for each output. If this limit is exceeded, any new playback requests will fail. Each output supports up to five streams.
+   * ### [](#)Output types
+   * *   RTMP-PUSH: An output that the MediaConnect flow pushes to the server you specified over the RTMP protocol.
+   * *   RTMP-PULL: An output that you can pull using the returned streaming URL over the RTMP protocol.
+   * *   SRT-Caller: An output that the MediaConnect flow pushes to the server you specified over the SRT protocol.
+   * *   SRT-Listener: An output that you can pull using the returned streaming URL over the SRT protocol.
+   * *   Flow: An output that is pushed to the source URL of another MediaConnect flow. The source type of the destination flow must be SRT-Listener or RTMP-PUSH. By default, a dedicated line is used when flows are cascaded. This allows for cross-region distribution among multiple flows.
    * 
    * @param request - AddMediaConnectFlowOutputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -93913,19 +102951,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add output for MediaConnect instance
+   * Creates an output for a MediaConnect flow.
    * 
    * @remarks
-   * - If the provided Flow instance ID does not exist, the interface will return an error.
-   * - A Flow instance can have up to 4 outputs.
-   * - The output names under the same Flow instance cannot be duplicated.
-   * - You can set a maximum number of simultaneous players for each output. New plays will fail once this limit is exceeded. Each output supports up to 5 streams.
-   * ### Description of Output Types
-   * - RTMP-PUSH: Creates an output of the RTMP push type. The Flow will use the RTMP protocol to push the live stream to the origin you set.
-   * - RTMP-PULL: Creates an output of the RTMP pull type. You can use the RTMP protocol to pull the stream from the URL returned by the interface.
-   * - SRT-Caller: Creates an output of the SRT push type. The Flow will use the SRT protocol to push the live stream to the origin you set.
-   * - SRT-Listener: Creates an output of the SRT pull type. You can use the SRT protocol to pull the stream from the URL returned by the interface.
-   * - Flow: Uses the input of another downstream Flow instance as the output. You need to specify both the instance ID and the input name of the paired Flow. The input type of the downstream Flow instance must be a listening type, i.e., SRT-Listener/RTMP-PUSH. This instance will push the live stream to the downstream Flow. When cascading between Flow instances, a dedicated line is used by default, which can be used for cross-regional distribution among multiple Flows.
+   *   When the specified flow ID is not available, an error code is returned.
+   * *   A flow can have a maximum of four outputs.
+   * *   The output names in the same flow cannot be duplicated.
+   * *   You can set an upper limit on the number of concurrent viewers for each output. If this limit is exceeded, any new playback requests will fail. Each output supports up to five streams.
+   * ### [](#)Output types
+   * *   RTMP-PUSH: An output that the MediaConnect flow pushes to the server you specified over the RTMP protocol.
+   * *   RTMP-PULL: An output that you can pull using the returned streaming URL over the RTMP protocol.
+   * *   SRT-Caller: An output that the MediaConnect flow pushes to the server you specified over the SRT protocol.
+   * *   SRT-Listener: An output that you can pull using the returned streaming URL over the SRT protocol.
+   * *   Flow: An output that is pushed to the source URL of another MediaConnect flow. The source type of the destination flow must be SRT-Listener or RTMP-PUSH. By default, a dedicated line is used when flows are cascaded. This allows for cross-region distribution among multiple flows.
    * 
    * @param request - AddMediaConnectFlowOutputRequest
    * @returns AddMediaConnectFlowOutputResponse
@@ -94133,7 +103171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量创建vod打包资产
+   * Ingests multiple assets for VOD packaging.
    * 
    * @param tmpReq - BatchCreateVodPackagingAssetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -94179,7 +103217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量创建vod打包资产
+   * Ingests multiple assets for VOD packaging.
    * 
    * @param request - BatchCreateVodPackagingAssetRequest
    * @returns BatchCreateVodPackagingAssetResponse
@@ -94477,7 +103515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的频道
+   * Creates a channel in MediaWeaver.
    * 
    * @param request - CreateChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -94541,7 +103579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的频道
+   * Creates a channel in MediaWeaver.
    * 
    * @param request - CreateChannelRequest
    * @returns CreateChannelResponse
@@ -94836,7 +103874,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实时打包频道
+   * Creates a live package channel.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * After you call this operation to create a live package channel, the system will automatically generate the ingest endpoint URL, and username and password required for authentication.
+   * ### [](#)Precautions
+   * *   Channel group names and channel names can contain only letters, digits, underscores (_), and hyphens (-).
+   * *   Only `HLS` is supported.
+   * *   The segment duration must be from 1 to 30 seconds.
+   * *   The number of M3U8 segments must be from 2 to 100.
+   * If the request succeeds, the system will return the details of the newly created channel, including the channel name, creation time, modification time, and ingest endpoint details.
    * 
    * @param request - CreateLivePackageChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -94898,7 +103946,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实时打包频道
+   * Creates a live package channel.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * After you call this operation to create a live package channel, the system will automatically generate the ingest endpoint URL, and username and password required for authentication.
+   * ### [](#)Precautions
+   * *   Channel group names and channel names can contain only letters, digits, underscores (_), and hyphens (-).
+   * *   Only `HLS` is supported.
+   * *   The segment duration must be from 1 to 30 seconds.
+   * *   The number of M3U8 segments must be from 2 to 100.
+   * If the request succeeds, the system will return the details of the newly created channel, including the channel name, creation time, modification time, and ingest endpoint details.
    * 
    * @param request - CreateLivePackageChannelRequest
    * @returns CreateLivePackageChannelResponse
@@ -94909,7 +103967,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加实时打包频道组
+   * Creates a live package channel group with a custom name and description.
+   * 
+   * @remarks
+   * After you create a channel group, the assigned origin domain is returned.
    * 
    * @param request - CreateLivePackageChannelGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -94955,7 +104016,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加实时打包频道组
+   * Creates a live package channel group with a custom name and description.
+   * 
+   * @remarks
+   * After you create a channel group, the assigned origin domain is returned.
    * 
    * @param request - CreateLivePackageChannelGroupRequest
    * @returns CreateLivePackageChannelGroupResponse
@@ -94966,7 +104030,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实时打包源站端点
+   * Creates an origin endpoint for a live package channel to deliver live streams in HLS format.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This API operation is mainly used to configure origin settings, security policies including the IP address blacklist and whitelist and authorization code, and time shifting settings for channels. Before you create an origin endpoint, you must create a live package channel group and channel. After you create the endpoint, the endpoint URL and other configuration details are returned.
    * 
    * @param request - CreateLivePackageOriginEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -95044,7 +104112,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实时打包源站端点
+   * Creates an origin endpoint for a live package channel to deliver live streams in HLS format.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This API operation is mainly used to configure origin settings, security policies including the IP address blacklist and whitelist and authorization code, and time shifting settings for channels. Before you create an origin endpoint, you must create a live package channel group and channel. After you create the endpoint, the endpoint URL and other configuration details are returned.
    * 
    * @param request - CreateLivePackageOriginEndpointRequest
    * @returns CreateLivePackageOriginEndpointResponse
@@ -95238,11 +104310,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create MediaConnect Flow
+   * Creates a MediaConnect flow.
    * 
    * @remarks
-   * - The name of the Flow cannot be duplicated within the same region.
-   * - When the interface responds normally, it will return the Flow instance ID. Please keep it properly.
+   *   The flow names cannot be duplicated in the same region.
+   * *   Take note of the returned flow ID. You may reference it in other API operations.
    * 
    * @param request - CreateMediaConnectFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -95282,11 +104354,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create MediaConnect Flow
+   * Creates a MediaConnect flow.
    * 
    * @remarks
-   * - The name of the Flow cannot be duplicated within the same region.
-   * - When the interface responds normally, it will return the Flow instance ID. Please keep it properly.
+   *   The flow names cannot be duplicated in the same region.
+   * *   Take note of the returned flow ID. You may reference it in other API operations.
    * 
    * @param request - CreateMediaConnectFlowRequest
    * @returns CreateMediaConnectFlowResponse
@@ -95294,6 +104366,243 @@ export default class Client extends OpenApi {
   async createMediaConnectFlow(request: CreateMediaConnectFlowRequest): Promise<CreateMediaConnectFlowResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createMediaConnectFlowWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a MediaLive channel.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param tmpReq - CreateMediaLiveChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMediaLiveChannelResponse
+   */
+  async createMediaLiveChannelWithOptions(tmpReq: CreateMediaLiveChannelRequest, runtime: $dara.RuntimeOptions): Promise<CreateMediaLiveChannelResponse> {
+    tmpReq.validate();
+    let request = new CreateMediaLiveChannelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.audioSettings)) {
+      request.audioSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.audioSettings, "AudioSettings", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.inputAttachments)) {
+      request.inputAttachmentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inputAttachments, "InputAttachments", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.outputGroups)) {
+      request.outputGroupsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outputGroups, "OutputGroups", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.videoSettings)) {
+      request.videoSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoSettings, "VideoSettings", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.audioSettingsShrink)) {
+      body["AudioSettings"] = request.audioSettingsShrink;
+    }
+
+    if (!$dara.isNull(request.inputAttachmentsShrink)) {
+      body["InputAttachments"] = request.inputAttachmentsShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.outputGroupsShrink)) {
+      body["OutputGroups"] = request.outputGroupsShrink;
+    }
+
+    if (!$dara.isNull(request.videoSettingsShrink)) {
+      body["VideoSettings"] = request.videoSettingsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMediaLiveChannel",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateMediaLiveChannelResponse>(await this.callApi(params, req, runtime), new CreateMediaLiveChannelResponse({}));
+    } else {
+      return $dara.cast<CreateMediaLiveChannelResponse>(await this.execute(params, req, runtime), new CreateMediaLiveChannelResponse({}));
+    }
+
+  }
+
+  /**
+   * Creates a MediaLive channel.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - CreateMediaLiveChannelRequest
+   * @returns CreateMediaLiveChannelResponse
+   */
+  async createMediaLiveChannel(request: CreateMediaLiveChannelRequest): Promise<CreateMediaLiveChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMediaLiveChannelWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a MediaLive input.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param tmpReq - CreateMediaLiveInputRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMediaLiveInputResponse
+   */
+  async createMediaLiveInputWithOptions(tmpReq: CreateMediaLiveInputRequest, runtime: $dara.RuntimeOptions): Promise<CreateMediaLiveInputResponse> {
+    tmpReq.validate();
+    let request = new CreateMediaLiveInputShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.inputSettings)) {
+      request.inputSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inputSettings, "InputSettings", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.securityGroupIds)) {
+      request.securityGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.securityGroupIds, "SecurityGroupIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.inputSettingsShrink)) {
+      body["InputSettings"] = request.inputSettingsShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.securityGroupIdsShrink)) {
+      body["SecurityGroupIds"] = request.securityGroupIdsShrink;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMediaLiveInput",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateMediaLiveInputResponse>(await this.callApi(params, req, runtime), new CreateMediaLiveInputResponse({}));
+    } else {
+      return $dara.cast<CreateMediaLiveInputResponse>(await this.execute(params, req, runtime), new CreateMediaLiveInputResponse({}));
+    }
+
+  }
+
+  /**
+   * Creates a MediaLive input.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - CreateMediaLiveInputRequest
+   * @returns CreateMediaLiveInputResponse
+   */
+  async createMediaLiveInput(request: CreateMediaLiveInputRequest): Promise<CreateMediaLiveInputResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMediaLiveInputWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a security group in MediaLive.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param tmpReq - CreateMediaLiveInputSecurityGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMediaLiveInputSecurityGroupResponse
+   */
+  async createMediaLiveInputSecurityGroupWithOptions(tmpReq: CreateMediaLiveInputSecurityGroupRequest, runtime: $dara.RuntimeOptions): Promise<CreateMediaLiveInputSecurityGroupResponse> {
+    tmpReq.validate();
+    let request = new CreateMediaLiveInputSecurityGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.whitelistRules)) {
+      request.whitelistRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.whitelistRules, "WhitelistRules", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.whitelistRulesShrink)) {
+      body["WhitelistRules"] = request.whitelistRulesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMediaLiveInputSecurityGroup",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<CreateMediaLiveInputSecurityGroupResponse>(await this.callApi(params, req, runtime), new CreateMediaLiveInputSecurityGroupResponse({}));
+    } else {
+      return $dara.cast<CreateMediaLiveInputSecurityGroupResponse>(await this.execute(params, req, runtime), new CreateMediaLiveInputSecurityGroupResponse({}));
+    }
+
+  }
+
+  /**
+   * Creates a security group in MediaLive.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - CreateMediaLiveInputSecurityGroupRequest
+   * @returns CreateMediaLiveInputSecurityGroupResponse
+   */
+  async createMediaLiveInputSecurityGroup(request: CreateMediaLiveInputSecurityGroupRequest): Promise<CreateMediaLiveInputSecurityGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMediaLiveInputSecurityGroupWithOptions(request, runtime);
   }
 
   /**
@@ -95352,7 +104661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的节目
+   * Creates a program in a MediaWeaver channel.
    * 
    * @param request - CreateProgramRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -95416,7 +104725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的节目
+   * Creates a program in a MediaWeaver channel.
    * 
    * @param request - CreateProgramRequest
    * @returns CreateProgramResponse
@@ -95539,7 +104848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的源
+   * Creates a source in MediaWeaver.
    * 
    * @param request - CreateSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -95587,7 +104896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的源
+   * Creates a source in MediaWeaver.
    * 
    * @param request - CreateSourceRequest
    * @returns CreateSourceResponse
@@ -95598,7 +104907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的源位置
+   * Creates a source location.
    * 
    * @param request - CreateSourceLocationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -95646,7 +104955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个新的源位置
+   * Creates a source location.
    * 
    * @param request - CreateSourceLocationRequest
    * @returns CreateSourceLocationResponse
@@ -95819,7 +105128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建vod打包资产
+   * Ingests an asset for VOD packaging.
    * 
    * @param tmpReq - CreateVodPackagingAssetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -95877,7 +105186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建vod打包资产
+   * Ingests an asset for VOD packaging.
    * 
    * @param request - CreateVodPackagingAssetRequest
    * @returns CreateVodPackagingAssetResponse
@@ -95888,7 +105197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建点播打包配置
+   * Creates a packaging configuration.
    * 
    * @param tmpReq - CreateVodPackagingConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -95946,7 +105255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建点播打包配置
+   * Creates a packaging configuration.
    * 
    * @param request - CreateVodPackagingConfigurationRequest
    * @returns CreateVodPackagingConfigurationResponse
@@ -95957,7 +105266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建点播打包组
+   * Creates a packaging group.
    * 
    * @param request - CreateVodPackagingGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -95997,7 +105306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建点播打包组
+   * Creates a packaging group.
    * 
    * @param request - CreateVodPackagingGroupRequest
    * @returns CreateVodPackagingGroupResponse
@@ -96106,7 +105415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除广告插入配置
+   * Deletes an ad insertion configuration.
    * 
    * @param request - DeleteAdInsertionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -96142,7 +105451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除广告插入配置
+   * Deletes an ad insertion configuration.
    * 
    * @param request - DeleteAdInsertionRequest
    * @returns DeleteAdInsertionResponse
@@ -96253,7 +105562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除频道
+   * Deletes a channel in MediaWeaver.
    * 
    * @param request - DeleteChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -96289,7 +105598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除频道
+   * Deletes a channel in MediaWeaver.
    * 
    * @param request - DeleteChannelRequest
    * @returns DeleteChannelResponse
@@ -96626,7 +105935,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实时打包频道
+   * Deletes a live package channel by GroupName and ChannelName.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * You need to provide GroupName and ChannelName as parameters to specify exactly which channel to delete. Before you delete a channel, you must delete the origin endpoints associated with the channel.
    * 
    * @param request - DeleteLivePackageChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -96666,7 +105979,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实时打包频道
+   * Deletes a live package channel by GroupName and ChannelName.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * You need to provide GroupName and ChannelName as parameters to specify exactly which channel to delete. Before you delete a channel, you must delete the origin endpoints associated with the channel.
    * 
    * @param request - DeleteLivePackageChannelRequest
    * @returns DeleteLivePackageChannelResponse
@@ -96677,7 +105994,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除直播打包频道组
+   * Deletes a live package channel group by name.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * Make sure that no channels are included in the channel group before you delete it.
    * 
    * @param request - DeleteLivePackageChannelGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -96713,7 +106034,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除直播打包频道组
+   * Deletes a live package channel group by name.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * Make sure that no channels are included in the channel group before you delete it.
    * 
    * @param request - DeleteLivePackageChannelGroupRequest
    * @returns DeleteLivePackageChannelGroupResponse
@@ -96724,7 +106049,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实时打包源站端点
+   * Deletes an origin endpoint associated with a live package channel.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This API operation is used to delete an origin endpoint associated with a live package channel by specifying `GroupName`, `ChannelName`, and `EndpointName`. This operation will permanently delete the relevant configurations. Exercise caution when you perform this operation.
    * 
    * @param request - DeleteLivePackageOriginEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -96768,7 +106097,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除实时打包源站端点
+   * Deletes an origin endpoint associated with a live package channel.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This API operation is used to delete an origin endpoint associated with a live package channel by specifying `GroupName`, `ChannelName`, and `EndpointName`. This operation will permanently delete the relevant configurations. Exercise caution when you perform this operation.
    * 
    * @param request - DeleteLivePackageOriginEndpointRequest
    * @returns DeleteLivePackageOriginEndpointResponse
@@ -97079,12 +106412,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete MediaConnect instance by instance ID
+   * Deletes a MediaConnect flow.
    * 
    * @remarks
-   * - When the input Flow instance ID does not exist, the interface will return an error.
-   * - When deleting a Flow instance, all Inputs and Outputs bound to this Flow will also be deleted.
-   * - You cannot delete a Flow instance that is in the online state.
+   *   When the specified flow ID is not available, an error code is returned.
+   * *   When a flow is deleted, its source and outputs are also deleted.
+   * *   When a flow is in the online state, it cannot be deleted.
    * 
    * @param request - DeleteMediaConnectFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -97120,12 +106453,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete MediaConnect instance by instance ID
+   * Deletes a MediaConnect flow.
    * 
    * @remarks
-   * - When the input Flow instance ID does not exist, the interface will return an error.
-   * - When deleting a Flow instance, all Inputs and Outputs bound to this Flow will also be deleted.
-   * - You cannot delete a Flow instance that is in the online state.
+   *   When the specified flow ID is not available, an error code is returned.
+   * *   When a flow is deleted, its source and outputs are also deleted.
+   * *   When a flow is in the online state, it cannot be deleted.
    * 
    * @param request - DeleteMediaConnectFlowRequest
    * @returns DeleteMediaConnectFlowResponse
@@ -97136,12 +106469,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete the input of a specific MediaConnect instance
+   * Deletes the source of a MediaConnect flow.
    * 
    * @remarks
-   * - If the provided Flow instance ID does not exist, the interface will return an error.
-   * - When the Flow instance status is online, the input cannot be deleted.
-   * - Only after all outputs under the Flow instance have been deleted can the input be deleted.
+   *   When the specified flow ID is not available, an error code is returned.
+   * *   When a flow is in the online state, its source cannot be deleted.
+   * *   You can delete the source only after all outputs of the flow have been deleted.
    * 
    * @param request - DeleteMediaConnectFlowInputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -97177,12 +106510,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete the input of a specific MediaConnect instance
+   * Deletes the source of a MediaConnect flow.
    * 
    * @remarks
-   * - If the provided Flow instance ID does not exist, the interface will return an error.
-   * - When the Flow instance status is online, the input cannot be deleted.
-   * - Only after all outputs under the Flow instance have been deleted can the input be deleted.
+   *   When the specified flow ID is not available, an error code is returned.
+   * *   When a flow is in the online state, its source cannot be deleted.
+   * *   You can delete the source only after all outputs of the flow have been deleted.
    * 
    * @param request - DeleteMediaConnectFlowInputRequest
    * @returns DeleteMediaConnectFlowInputResponse
@@ -97193,11 +106526,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a specific MediaConnect output
+   * Deletes an output of a MediaConnect flow.
    * 
    * @remarks
-   * - When the provided Flow instance ID does not exist, the interface will return an error.
-   * - When the Flow instance status is online, the output cannot be deleted.
+   *   When the specified flow ID is not available, an error code is returned.
+   * *   When a flow is in the online state, its outputs cannot be deleted.
    * 
    * @param request - DeleteMediaConnectFlowOutputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -97237,11 +106570,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete a specific MediaConnect output
+   * Deletes an output of a MediaConnect flow.
    * 
    * @remarks
-   * - When the provided Flow instance ID does not exist, the interface will return an error.
-   * - When the Flow instance status is online, the output cannot be deleted.
+   *   When the specified flow ID is not available, an error code is returned.
+   * *   When a flow is in the online state, its outputs cannot be deleted.
    * 
    * @param request - DeleteMediaConnectFlowOutputRequest
    * @returns DeleteMediaConnectFlowOutputResponse
@@ -97359,6 +106692,183 @@ export default class Client extends OpenApi {
   async deleteMediaInfos(request: DeleteMediaInfosRequest): Promise<DeleteMediaInfosResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMediaInfosWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a MediaLive channel.
+   * 
+   * @remarks
+   * 
+   *  * *   You can only delete a channel that is not running.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - DeleteMediaLiveChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMediaLiveChannelResponse
+   */
+  async deleteMediaLiveChannelWithOptions(request: DeleteMediaLiveChannelRequest, runtime: $dara.RuntimeOptions): Promise<DeleteMediaLiveChannelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channelId)) {
+      body["ChannelId"] = request.channelId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMediaLiveChannel",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteMediaLiveChannelResponse>(await this.callApi(params, req, runtime), new DeleteMediaLiveChannelResponse({}));
+    } else {
+      return $dara.cast<DeleteMediaLiveChannelResponse>(await this.execute(params, req, runtime), new DeleteMediaLiveChannelResponse({}));
+    }
+
+  }
+
+  /**
+   * Deletes a MediaLive channel.
+   * 
+   * @remarks
+   * 
+   *  * *   You can only delete a channel that is not running.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - DeleteMediaLiveChannelRequest
+   * @returns DeleteMediaLiveChannelResponse
+   */
+  async deleteMediaLiveChannel(request: DeleteMediaLiveChannelRequest): Promise<DeleteMediaLiveChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMediaLiveChannelWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a MediaLive input.
+   * 
+   * @remarks
+   * 
+   *  * *   You can delete an input only when it is not associated with a MediaLive channel.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - DeleteMediaLiveInputRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMediaLiveInputResponse
+   */
+  async deleteMediaLiveInputWithOptions(request: DeleteMediaLiveInputRequest, runtime: $dara.RuntimeOptions): Promise<DeleteMediaLiveInputResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.inputId)) {
+      body["InputId"] = request.inputId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMediaLiveInput",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteMediaLiveInputResponse>(await this.callApi(params, req, runtime), new DeleteMediaLiveInputResponse({}));
+    } else {
+      return $dara.cast<DeleteMediaLiveInputResponse>(await this.execute(params, req, runtime), new DeleteMediaLiveInputResponse({}));
+    }
+
+  }
+
+  /**
+   * Deletes a MediaLive input.
+   * 
+   * @remarks
+   * 
+   *  * *   You can delete an input only when it is not associated with a MediaLive channel.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - DeleteMediaLiveInputRequest
+   * @returns DeleteMediaLiveInputResponse
+   */
+  async deleteMediaLiveInput(request: DeleteMediaLiveInputRequest): Promise<DeleteMediaLiveInputResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMediaLiveInputWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a security group in MediaLive.
+   * 
+   * @remarks
+   * 
+   *  * *   You can only delete a security group not associated with an input.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - DeleteMediaLiveInputSecurityGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMediaLiveInputSecurityGroupResponse
+   */
+  async deleteMediaLiveInputSecurityGroupWithOptions(request: DeleteMediaLiveInputSecurityGroupRequest, runtime: $dara.RuntimeOptions): Promise<DeleteMediaLiveInputSecurityGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.securityGroupId)) {
+      body["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMediaLiveInputSecurityGroup",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<DeleteMediaLiveInputSecurityGroupResponse>(await this.callApi(params, req, runtime), new DeleteMediaLiveInputSecurityGroupResponse({}));
+    } else {
+      return $dara.cast<DeleteMediaLiveInputSecurityGroupResponse>(await this.execute(params, req, runtime), new DeleteMediaLiveInputSecurityGroupResponse({}));
+    }
+
+  }
+
+  /**
+   * Deletes a security group in MediaLive.
+   * 
+   * @remarks
+   * 
+   *  * *   You can only delete a security group not associated with an input.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - DeleteMediaLiveInputSecurityGroupRequest
+   * @returns DeleteMediaLiveInputSecurityGroupResponse
+   */
+  async deleteMediaLiveInputSecurityGroup(request: DeleteMediaLiveInputSecurityGroupRequest): Promise<DeleteMediaLiveInputSecurityGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMediaLiveInputSecurityGroupWithOptions(request, runtime);
   }
 
   /**
@@ -97521,7 +107031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除节目
+   * Deletes a program from a channel.
    * 
    * @param request - DeleteProgramRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -97561,7 +107071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除节目
+   * Deletes a program from a channel.
    * 
    * @param request - DeleteProgramRequest
    * @returns DeleteProgramResponse
@@ -97619,7 +107129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除源
+   * Deletes a source from MediaWeaver.
    * 
    * @param request - DeleteSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -97667,7 +107177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除源
+   * Deletes a source from MediaWeaver.
    * 
    * @param request - DeleteSourceRequest
    * @returns DeleteSourceResponse
@@ -97678,7 +107188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除源位置
+   * Deletes a source location.
    * 
    * @param request - DeleteSourceLocationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -97718,7 +107228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除源位置
+   * Deletes a source location.
    * 
    * @param request - DeleteSourceLocationRequest
    * @returns DeleteSourceLocationResponse
@@ -97782,7 +107292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除点播打包资产
+   * Deletes a VOD packaging asset.
    * 
    * @param request - DeleteVodPackagingAssetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -97818,7 +107328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除点播打包资产
+   * Deletes a VOD packaging asset.
    * 
    * @param request - DeleteVodPackagingAssetRequest
    * @returns DeleteVodPackagingAssetResponse
@@ -97829,7 +107339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除点播打包配置
+   * Deletes a packaging configuration.
    * 
    * @param request - DeleteVodPackagingConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -97865,7 +107375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除点播打包配置
+   * Deletes a packaging configuration.
    * 
    * @param request - DeleteVodPackagingConfigurationRequest
    * @returns DeleteVodPackagingConfigurationResponse
@@ -97876,7 +107386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除点播打包组
+   * Deletes a packaging group.
    * 
    * @param request - DeleteVodPackagingGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -97912,7 +107422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除点播打包组
+   * Deletes a packaging group.
    * 
    * @param request - DeleteVodPackagingGroupRequest
    * @returns DeleteVodPackagingGroupResponse
@@ -97923,7 +107433,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例
+   * Queries the information about an AI agent.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * *   **Feature**: You can call this operation to query the information about an AI agent.
+   * *   **Scenario**: If you need to monitor or analyze the performance of an AI agent in a call or debug the agent configurations, you can call this operation to obtain required data.
    * 
    * @param request - DescribeAIAgentInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -97959,7 +107474,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例
+   * Queries the information about an AI agent.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * *   **Feature**: You can call this operation to query the information about an AI agent.
+   * *   **Scenario**: If you need to monitor or analyze the performance of an AI agent in a call or debug the agent configurations, you can call this operation to obtain required data.
    * 
    * @param request - DescribeAIAgentInstanceRequest
    * @returns DescribeAIAgentInstanceResponse
@@ -98261,7 +107781,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 描述回调配置
+   * Queries the event callback configurations of an AI agent.
+   * 
+   * @remarks
+   * You can call this operation to query the detailed callback configurations of an AI agent.
    * 
    * @param request - DescribeNotifyConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -98297,7 +107820,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 描述回调配置
+   * Queries the event callback configurations of an AI agent.
+   * 
+   * @remarks
+   * You can call this operation to query the detailed callback configurations of an AI agent.
    * 
    * @param request - DescribeNotifyConfigRequest
    * @returns DescribeNotifyConfigResponse
@@ -98583,7 +108109,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+   * Creates an AI agent. This operation returns the channel in which the AI agent resides, the username of the AI agent in the channel, and the token that you can use to join the channel.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * You can call this operation to create an AI agent based on the provided ID. You can join the channel based on the returned information and talk to the agent.
+   * **Note:** Make sure that the provided AI agent ID is valid and configure optional parameters based on your business requirements.
    * 
    * @param tmpReq - GenerateAIAgentCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -98593,6 +108124,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new GenerateAIAgentCallShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.chatSyncConfig)) {
+      request.chatSyncConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.chatSyncConfig, "ChatSyncConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.templateConfig)) {
       request.templateConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.templateConfig, "TemplateConfig", "json");
     }
@@ -98600,6 +108135,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.AIAgentId)) {
       query["AIAgentId"] = request.AIAgentId;
+    }
+
+    if (!$dara.isNull(request.chatSyncConfigShrink)) {
+      query["ChatSyncConfig"] = request.chatSyncConfigShrink;
     }
 
     if (!$dara.isNull(request.expire)) {
@@ -98645,7 +108184,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个智能体实例，返回智能体所在的频道、频道内名称以及进入频道所需的token。
+   * Creates an AI agent. This operation returns the channel in which the AI agent resides, the username of the AI agent in the channel, and the token that you can use to join the channel.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * You can call this operation to create an AI agent based on the provided ID. You can join the channel based on the returned information and talk to the agent.
+   * **Note:** Make sure that the provided AI agent ID is valid and configure optional parameters based on your business requirements.
    * 
    * @param request - GenerateAIAgentCallRequest
    * @returns GenerateAIAgentCallResponse
@@ -98752,7 +108296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取广告插入配置
+   * Obtains details of an ad insertion configuration.
    * 
    * @param request - GetAdInsertionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -98788,7 +108332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取广告插入配置
+   * Obtains details of an ad insertion configuration.
    * 
    * @param request - GetAdInsertionRequest
    * @returns GetAdInsertionResponse
@@ -99009,7 +108553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取频道
+   * Queries information about a channel in MediaWeaver.
    * 
    * @param request - GetChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -99045,7 +108589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取频道
+   * Queries information about a channel in MediaWeaver.
    * 
    * @param request - GetChannelRequest
    * @returns GetChannelResponse
@@ -99674,7 +109218,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实时打包频道
+   * Queries the details of a live package channel.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This API operation allows you to query the details of a live package channel, including the creation time, description, ingest endpoint, protocol, number of segments, and segment duration.
    * 
    * @param request - GetLivePackageChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -99714,7 +109262,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实时打包频道
+   * Queries the details of a live package channel.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This API operation allows you to query the details of a live package channel, including the creation time, description, ingest endpoint, protocol, number of segments, and segment duration.
    * 
    * @param request - GetLivePackageChannelRequest
    * @returns GetLivePackageChannelResponse
@@ -99725,7 +109277,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取直播打包频道组
+   * Queries the details of a live package channel group by name.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * You can call this API operation to query the details of a specific channel group, including its name, description, origin domain, and creation and last modification timestamps.
    * 
    * @param request - GetLivePackageChannelGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -99761,7 +109317,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取直播打包频道组
+   * Queries the details of a live package channel group by name.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * You can call this API operation to query the details of a specific channel group, including its name, description, origin domain, and creation and last modification timestamps.
    * 
    * @param request - GetLivePackageChannelGroupRequest
    * @returns GetLivePackageChannelGroupResponse
@@ -99772,7 +109332,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实时打包源站端点
+   * Queries origin endpoints associated with a live package channel.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
    * 
    * @param request - GetLivePackageOriginEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -99816,7 +109379,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实时打包源站端点
+   * Queries origin endpoints associated with a live package channel.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
    * 
    * @param request - GetLivePackageOriginEndpointRequest
    * @returns GetLivePackageOriginEndpointResponse
@@ -100093,11 +109659,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve detailed information of the corresponding MediaConnect based on the instance ID
+   * Obtains information about a specific MediaConnect flow.
    * 
    * @remarks
-   * - When the input Flow instance ID does not exist, the interface will return an error.
-   * - The StartTime returned by the interface is only valid when the Flow status is online.
+   *   When the specified flow ID is not available, an error code is returned.
+   * *   The returned StartTime is valid only when the flow is in the online state.
    * 
    * @param request - GetMediaConnectFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -100133,11 +109699,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve detailed information of the corresponding MediaConnect based on the instance ID
+   * Obtains information about a specific MediaConnect flow.
    * 
    * @remarks
-   * - When the input Flow instance ID does not exist, the interface will return an error.
-   * - The StartTime returned by the interface is only valid when the Flow status is online.
+   *   When the specified flow ID is not available, an error code is returned.
+   * *   The returned StartTime is valid only when the flow is in the online state.
    * 
    * @param request - GetMediaConnectFlowRequest
    * @returns GetMediaConnectFlowResponse
@@ -100148,10 +109714,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get input information under a MediaConnect instance
+   * Obtains information about the source of a MediaConnect flow.
    * 
    * @remarks
-   * - When the provided Flow instance ID does not exist, the interface will return an error.
+   *   When the specified flow ID is not available, an error code is returned.
    * 
    * @param request - GetMediaConnectFlowInputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -100187,10 +109753,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get input information under a MediaConnect instance
+   * Obtains information about the source of a MediaConnect flow.
    * 
    * @remarks
-   * - When the provided Flow instance ID does not exist, the interface will return an error.
+   *   When the specified flow ID is not available, an error code is returned.
    * 
    * @param request - GetMediaConnectFlowInputRequest
    * @returns GetMediaConnectFlowInputResponse
@@ -100201,10 +109767,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve detailed information of a specific output based on outputName
+   * Obtains information about an output of a MediaConnect flow.
    * 
    * @remarks
-   * - When the provided Flow instance ID does not exist, the interface will return an error.
+   *   When the specified flow ID is not available, an error code is returned.
    * 
    * @param request - GetMediaConnectFlowOutputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -100244,10 +109810,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve detailed information of a specific output based on outputName
+   * Obtains information about an output of a MediaConnect flow.
    * 
    * @remarks
-   * - When the provided Flow instance ID does not exist, the interface will return an error.
+   *   When the specified flow ID is not available, an error code is returned.
    * 
    * @param request - GetMediaConnectFlowOutputRequest
    * @returns GetMediaConnectFlowOutputResponse
@@ -100258,7 +109824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 MediaConvert 任务详情
+   * Obtains the details of a transcoding task.
    * 
    * @param request - GetMediaConvertJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -100294,7 +109860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 MediaConvert 任务详情
+   * Obtains the details of a transcoding task.
    * 
    * @param request - GetMediaConvertJobRequest
    * @returns GetMediaConvertJobResponse
@@ -100414,6 +109980,177 @@ export default class Client extends OpenApi {
   async getMediaInfoJob(request: GetMediaInfoJobRequest): Promise<GetMediaInfoJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getMediaInfoJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a MediaLive channel.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - GetMediaLiveChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaLiveChannelResponse
+   */
+  async getMediaLiveChannelWithOptions(request: GetMediaLiveChannelRequest, runtime: $dara.RuntimeOptions): Promise<GetMediaLiveChannelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channelId)) {
+      body["ChannelId"] = request.channelId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMediaLiveChannel",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMediaLiveChannelResponse>(await this.callApi(params, req, runtime), new GetMediaLiveChannelResponse({}));
+    } else {
+      return $dara.cast<GetMediaLiveChannelResponse>(await this.execute(params, req, runtime), new GetMediaLiveChannelResponse({}));
+    }
+
+  }
+
+  /**
+   * Queries a MediaLive channel.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - GetMediaLiveChannelRequest
+   * @returns GetMediaLiveChannelResponse
+   */
+  async getMediaLiveChannel(request: GetMediaLiveChannelRequest): Promise<GetMediaLiveChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMediaLiveChannelWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a MediaLive input.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - GetMediaLiveInputRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaLiveInputResponse
+   */
+  async getMediaLiveInputWithOptions(request: GetMediaLiveInputRequest, runtime: $dara.RuntimeOptions): Promise<GetMediaLiveInputResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.inputId)) {
+      body["InputId"] = request.inputId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMediaLiveInput",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMediaLiveInputResponse>(await this.callApi(params, req, runtime), new GetMediaLiveInputResponse({}));
+    } else {
+      return $dara.cast<GetMediaLiveInputResponse>(await this.execute(params, req, runtime), new GetMediaLiveInputResponse({}));
+    }
+
+  }
+
+  /**
+   * Queries the details of a MediaLive input.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - GetMediaLiveInputRequest
+   * @returns GetMediaLiveInputResponse
+   */
+  async getMediaLiveInput(request: GetMediaLiveInputRequest): Promise<GetMediaLiveInputResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMediaLiveInputWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a security group in MediaLive.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - GetMediaLiveInputSecurityGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMediaLiveInputSecurityGroupResponse
+   */
+  async getMediaLiveInputSecurityGroupWithOptions(request: GetMediaLiveInputSecurityGroupRequest, runtime: $dara.RuntimeOptions): Promise<GetMediaLiveInputSecurityGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.securityGroupId)) {
+      body["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMediaLiveInputSecurityGroup",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<GetMediaLiveInputSecurityGroupResponse>(await this.callApi(params, req, runtime), new GetMediaLiveInputSecurityGroupResponse({}));
+    } else {
+      return $dara.cast<GetMediaLiveInputSecurityGroupResponse>(await this.execute(params, req, runtime), new GetMediaLiveInputSecurityGroupResponse({}));
+    }
+
+  }
+
+  /**
+   * Queries the details of a security group in MediaLive.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - GetMediaLiveInputSecurityGroupRequest
+   * @returns GetMediaLiveInputSecurityGroupResponse
+   */
+  async getMediaLiveInputSecurityGroup(request: GetMediaLiveInputSecurityGroupRequest): Promise<GetMediaLiveInputSecurityGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMediaLiveInputSecurityGroupWithOptions(request, runtime);
   }
 
   /**
@@ -100662,7 +110399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节目
+   * Queries a program.
    * 
    * @param request - GetProgramRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -100702,7 +110439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节目
+   * Queries a program.
    * 
    * @param request - GetProgramRequest
    * @returns GetProgramResponse
@@ -100964,7 +110701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取源
+   * Queries a source in MediaWeaver.
    * 
    * @param request - GetSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101008,7 +110745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取源
+   * Queries a source in MediaWeaver.
    * 
    * @param request - GetSourceRequest
    * @returns GetSourceResponse
@@ -101019,7 +110756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取源位置
+   * Queries a source location.
    * 
    * @param request - GetSourceLocationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101055,7 +110792,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取源位置
+   * Queries a source location.
    * 
    * @param request - GetSourceLocationRequest
    * @returns GetSourceLocationResponse
@@ -101506,7 +111243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询点播打包资产
+   * Queries a VOD packaging asset.
    * 
    * @param request - GetVodPackagingAssetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101542,7 +111279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询点播打包资产
+   * Queries a VOD packaging asset.
    * 
    * @param request - GetVodPackagingAssetRequest
    * @returns GetVodPackagingAssetResponse
@@ -101553,7 +111290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询打包模板配置
+   * Queries a packaging configuration.
    * 
    * @param request - GetVodPackagingConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101589,7 +111326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询打包模板配置
+   * Queries a packaging configuration.
    * 
    * @param request - GetVodPackagingConfigurationRequest
    * @returns GetVodPackagingConfigurationResponse
@@ -101600,7 +111337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取点播打包组
+   * Queries a packaging group.
    * 
    * @param request - GetVodPackagingGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101636,7 +111373,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取点播打包组
+   * Queries a packaging group.
    * 
    * @param request - GetVodPackagingGroupRequest
    * @returns GetVodPackagingGroupResponse
@@ -101824,7 +111561,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出实例
+   * Queries a list of AI agents.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * You can call this operation to query a list of AI agents based on the `AIAgentId`. The optional parameters include `StartTime`, `EndTime`, `PageSize`, and `PageNumber`. The returned result includes the status, runtime configurations, template configurations, custom information, and the URL of call log file for each AI agent.
+   * **Note**:
+   * *   The default value of `PageSize` is 10, and the default value of `PageNumber` is 1.
    * 
    * @param request - ListAIAgentInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101876,7 +111619,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出实例
+   * Queries a list of AI agents.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * You can call this operation to query a list of AI agents based on the `AIAgentId`. The optional parameters include `StartTime`, `EndTime`, `PageSize`, and `PageNumber`. The returned result includes the status, runtime configurations, template configurations, custom information, and the URL of call log file for each AI agent.
+   * **Note**:
+   * *   The default value of `PageSize` is 10, and the default value of `PageNumber` is 1.
    * 
    * @param request - ListAIAgentInstanceRequest
    * @returns ListAIAgentInstanceResponse
@@ -101887,7 +111636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取广告插入配置列表
+   * Obtains ad insertion configurations.
    * 
    * @param request - ListAdInsertionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -101943,7 +111692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取广告插入配置列表
+   * Obtains ad insertion configurations.
    * 
    * @param request - ListAdInsertionsRequest
    * @returns ListAdInsertionsResponse
@@ -101954,7 +111703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取警告
+   * Lists alerts received in MediaWeaver.
    * 
    * @param request - ListAlertsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -102018,7 +111767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取警告
+   * Lists alerts received in MediaWeaver.
    * 
    * @param request - ListAlertsRequest
    * @returns ListAlertsResponse
@@ -102265,7 +112014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取频道警告
+   * Lists alerts for resources in a MediaWeaver channel.
    * 
    * @param request - ListChannelAlertsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -102325,7 +112074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取频道警告
+   * Lists alerts for resources in a MediaWeaver channel.
    * 
    * @param request - ListChannelAlertsRequest
    * @returns ListChannelAlertsResponse
@@ -102336,7 +112085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取频道列表
+   * Lists MediaWeaver channels.
    * 
    * @param request - ListChannelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -102400,7 +112149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取频道列表
+   * Lists MediaWeaver channels.
    * 
    * @param request - ListChannelsRequest
    * @returns ListChannelsResponse
@@ -102886,7 +112635,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实时打包频道组
+   * Queries live package channel groups by page. Fuzzy search by name or description and sorting are supported.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
    * 
    * @param request - ListLivePackageChannelGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -102934,7 +112686,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实时打包频道组
+   * Queries live package channel groups by page. Fuzzy search by name or description and sorting are supported.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
    * 
    * @param request - ListLivePackageChannelGroupsRequest
    * @returns ListLivePackageChannelGroupsResponse
@@ -102945,7 +112700,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实时打包频道
+   * Queries live package channels by channel group and keyword. Paging and sorting are supported.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This API operation allows you to query live package channels by **GroupName** and **Keyword**. Keyword is optional. You can sort the channels by creation time in ascending or descending order and paginate the results. This facilitates the management of channels and retrieval of channel information.
+   * *   **GroupName** is required to specify the channel group to which the channel belongs.
+   * *   **Keyword** supports fuzzy match of channel names or descriptions, which helps quickly filter desired channels.
+   * *   **PageNo** and **PageSize** can help control the paging of returned results to facilitate batch processing of data.
+   * *   **SortBy** allows you to customize how the results are sorted. By default, the results are sorted in descending order.
+   * **RequestId** in the response is used for subsequent troubleshooting. **TotalCount** indicates the total number of channels that meet the conditions.
    * 
    * @param request - ListLivePackageChannelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -102997,7 +112761,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实时打包频道
+   * Queries live package channels by channel group and keyword. Paging and sorting are supported.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This API operation allows you to query live package channels by **GroupName** and **Keyword**. Keyword is optional. You can sort the channels by creation time in ascending or descending order and paginate the results. This facilitates the management of channels and retrieval of channel information.
+   * *   **GroupName** is required to specify the channel group to which the channel belongs.
+   * *   **Keyword** supports fuzzy match of channel names or descriptions, which helps quickly filter desired channels.
+   * *   **PageNo** and **PageSize** can help control the paging of returned results to facilitate batch processing of data.
+   * *   **SortBy** allows you to customize how the results are sorted. By default, the results are sorted in descending order.
+   * **RequestId** in the response is used for subsequent troubleshooting. **TotalCount** indicates the total number of channels that meet the conditions.
    * 
    * @param request - ListLivePackageChannelsRequest
    * @returns ListLivePackageChannelsResponse
@@ -103008,7 +112781,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实时打包源站端点
+   * Queries origin endpoints by channel group and channel name. Paging and sorting are supported.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This API operation allows you to query origin endpoints associated with a live package channel. The results include detailed configurations about the origin endpoints, such as access URL, protocol, and security policies. Paging and sorting by creation time are supported.
    * 
    * @param request - ListLivePackageOriginEndpointsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -103064,7 +112841,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实时打包源站端点
+   * Queries origin endpoints by channel group and channel name. Paging and sorting are supported.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This API operation allows you to query origin endpoints associated with a live package channel. The results include detailed configurations about the origin endpoints, such as access URL, protocol, and security policies. Paging and sorting by creation time are supported.
    * 
    * @param request - ListLivePackageOriginEndpointsRequest
    * @returns ListLivePackageOriginEndpointsResponse
@@ -103639,6 +113420,233 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries MediaLive channels.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - ListMediaLiveChannelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMediaLiveChannelsResponse
+   */
+  async listMediaLiveChannelsWithOptions(request: ListMediaLiveChannelsRequest, runtime: $dara.RuntimeOptions): Promise<ListMediaLiveChannelsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      body["Skip"] = request.skip;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      body["SortOrder"] = request.sortOrder;
+    }
+
+    if (!$dara.isNull(request.states)) {
+      body["States"] = request.states;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMediaLiveChannels",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListMediaLiveChannelsResponse>(await this.callApi(params, req, runtime), new ListMediaLiveChannelsResponse({}));
+    } else {
+      return $dara.cast<ListMediaLiveChannelsResponse>(await this.execute(params, req, runtime), new ListMediaLiveChannelsResponse({}));
+    }
+
+  }
+
+  /**
+   * Queries MediaLive channels.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - ListMediaLiveChannelsRequest
+   * @returns ListMediaLiveChannelsResponse
+   */
+  async listMediaLiveChannels(request: ListMediaLiveChannelsRequest): Promise<ListMediaLiveChannelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMediaLiveChannelsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the security groups in MediaLive.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - ListMediaLiveInputSecurityGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMediaLiveInputSecurityGroupsResponse
+   */
+  async listMediaLiveInputSecurityGroupsWithOptions(request: ListMediaLiveInputSecurityGroupsRequest, runtime: $dara.RuntimeOptions): Promise<ListMediaLiveInputSecurityGroupsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      body["Skip"] = request.skip;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      body["SortOrder"] = request.sortOrder;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMediaLiveInputSecurityGroups",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListMediaLiveInputSecurityGroupsResponse>(await this.callApi(params, req, runtime), new ListMediaLiveInputSecurityGroupsResponse({}));
+    } else {
+      return $dara.cast<ListMediaLiveInputSecurityGroupsResponse>(await this.execute(params, req, runtime), new ListMediaLiveInputSecurityGroupsResponse({}));
+    }
+
+  }
+
+  /**
+   * Queries the security groups in MediaLive.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - ListMediaLiveInputSecurityGroupsRequest
+   * @returns ListMediaLiveInputSecurityGroupsResponse
+   */
+  async listMediaLiveInputSecurityGroups(request: ListMediaLiveInputSecurityGroupsRequest): Promise<ListMediaLiveInputSecurityGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMediaLiveInputSecurityGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries MediaLive inputs.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - ListMediaLiveInputsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMediaLiveInputsResponse
+   */
+  async listMediaLiveInputsWithOptions(request: ListMediaLiveInputsRequest, runtime: $dara.RuntimeOptions): Promise<ListMediaLiveInputsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      body["Skip"] = request.skip;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      body["SortOrder"] = request.sortOrder;
+    }
+
+    if (!$dara.isNull(request.types)) {
+      body["Types"] = request.types;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMediaLiveInputs",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<ListMediaLiveInputsResponse>(await this.callApi(params, req, runtime), new ListMediaLiveInputsResponse({}));
+    } else {
+      return $dara.cast<ListMediaLiveInputsResponse>(await this.execute(params, req, runtime), new ListMediaLiveInputsResponse({}));
+    }
+
+  }
+
+  /**
+   * Queries MediaLive inputs.
+   * 
+   * @remarks
+   * 
+   *  * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - ListMediaLiveInputsRequest
+   * @returns ListMediaLiveInputsResponse
+   */
+  async listMediaLiveInputs(request: ListMediaLiveInputsRequest): Promise<ListMediaLiveInputsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMediaLiveInputsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of marks of a media asset.
    * 
    * @param request - ListMediaMarksRequest
@@ -103891,7 +113899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节目列表
+   * Lists programs.
    * 
    * @param request - ListProgramsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -103943,7 +113951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节目列表
+   * Lists programs.
    * 
    * @param request - ListProgramsRequest
    * @returns ListProgramsResponse
@@ -104025,7 +114033,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节目单
+   * Lists the program schedule of a MediaWeaver channel.
    * 
    * @param request - ListSchedulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -104073,7 +114081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节目单
+   * Lists the program schedule of a MediaWeaver channel.
    * 
    * @param request - ListSchedulesRequest
    * @returns ListSchedulesResponse
@@ -104341,7 +114349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举源位置
+   * Lists source locations.
    * 
    * @param request - ListSourceLocationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -104397,7 +114405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举源位置
+   * Lists source locations.
    * 
    * @param request - ListSourceLocationsRequest
    * @returns ListSourceLocationsResponse
@@ -104408,7 +114416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举源
+   * Lists sources in MediaWeaver.
    * 
    * @param request - ListSourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -104472,7 +114480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举源
+   * Lists sources in MediaWeaver.
    * 
    * @param request - ListSourcesRequest
    * @returns ListSourcesResponse
@@ -104764,7 +114772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举点播打包资产
+   * Lists VOD packaging assets.
    * 
    * @param request - ListVodPackagingAssetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -104816,7 +114824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举点播打包资产
+   * Lists VOD packaging assets.
    * 
    * @param request - ListVodPackagingAssetsRequest
    * @returns ListVodPackagingAssetsResponse
@@ -104827,7 +114835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举点播打包配置列表
+   * Lists packaging configurations.
    * 
    * @param request - ListVodPackagingConfigurationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -104879,7 +114887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举点播打包配置列表
+   * Lists packaging configurations.
    * 
    * @param request - ListVodPackagingConfigurationsRequest
    * @returns ListVodPackagingConfigurationsResponse
@@ -104890,7 +114898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举点播打包组
+   * Lists packaging groups.
    * 
    * @param request - ListVodPackagingGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -104938,7 +114946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举点播打包组
+   * Lists packaging groups.
    * 
    * @param request - ListVodPackagingGroupsRequest
    * @returns ListVodPackagingGroupsResponse
@@ -106608,7 +116616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 向智能体通话发送datachannel消息
+   * Sends a DataChannel message to an AI agent.
    * 
    * @param request - SendAIAgentDataChannelMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -106648,7 +116656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 向智能体通话发送datachannel消息
+   * Sends a DataChannel message to an AI agent.
    * 
    * @param request - SendAIAgentDataChannelMessageRequest
    * @returns SendAIAgentDataChannelMessageResponse
@@ -106659,7 +116667,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用来立即让某个智能体实例播报指定的文本。
+   * Instructs an AI agent to immediately broadcast a text message and supports interruption settings.
+   * 
+   * @remarks
+   * You can call this operation to instruct an AI agent to broadcast the content that you specify. You can determine whether this broadcast can immediately interrupt the ongoing speech. The interruption is allowed by default.
+   * **Note**
+   * *   Make sure that the `InstanceId` is valid and corresponds to an existing AI agent.
+   * *   The content of `Text` must comply with the specifications and does not contain sensitive or inappropriate information.
+   * *   If you do not want the new broadcast to interrupt the ongoing speech, you must set `EnableInterrupt` to `false`.
    * 
    * @param request - SendAIAgentSpeechRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -106703,7 +116718,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用来立即让某个智能体实例播报指定的文本。
+   * Instructs an AI agent to immediately broadcast a text message and supports interruption settings.
+   * 
+   * @remarks
+   * You can call this operation to instruct an AI agent to broadcast the content that you specify. You can determine whether this broadcast can immediately interrupt the ongoing speech. The interruption is allowed by default.
+   * **Note**
+   * *   Make sure that the `InstanceId` is valid and corresponds to an existing AI agent.
+   * *   The content of `Text` must comply with the specifications and does not contain sensitive or inappropriate information.
+   * *   If you do not want the new broadcast to interrupt the ongoing speech, you must set `EnableInterrupt` to `false`.
    * 
    * @param request - SendAIAgentSpeechRequest
    * @returns SendAIAgentSpeechResponse
@@ -106864,6 +116886,77 @@ export default class Client extends OpenApi {
   async sendLiveTranscodeJobCommand(request: SendLiveTranscodeJobCommandRequest): Promise<SendLiveTranscodeJobCommandResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.sendLiveTranscodeJobCommandWithOptions(request, runtime);
+  }
+
+  /**
+   * 向IM客户端发送消息。
+   * 
+   * @param request - SendMessageChatTextRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendMessageChatTextResponse
+   */
+  async sendMessageChatTextWithOptions(request: SendMessageChatTextRequest, runtime: $dara.RuntimeOptions): Promise<SendMessageChatTextResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.AIAgentId)) {
+      query["AIAgentId"] = request.AIAgentId;
+    }
+
+    if (!$dara.isNull(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!$dara.isNull(request.needArchiving)) {
+      query["NeedArchiving"] = request.needArchiving;
+    }
+
+    if (!$dara.isNull(request.receiverId)) {
+      query["ReceiverId"] = request.receiverId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.text)) {
+      query["Text"] = request.text;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendMessageChatText",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<SendMessageChatTextResponse>(await this.callApi(params, req, runtime), new SendMessageChatTextResponse({}));
+    } else {
+      return $dara.cast<SendMessageChatTextResponse>(await this.execute(params, req, runtime), new SendMessageChatTextResponse({}));
+    }
+
+  }
+
+  /**
+   * 向IM客户端发送消息。
+   * 
+   * @param request - SendMessageChatTextRequest
+   * @returns SendMessageChatTextResponse
+   */
+  async sendMessageChatText(request: SendMessageChatTextRequest): Promise<SendMessageChatTextResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.sendMessageChatTextWithOptions(request, runtime);
   }
 
   /**
@@ -107091,7 +117184,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新回调配置
+   * Enables or disables event notifications for an AI agent and configures the callback URL and event types.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * You can call this operation to configure event notifications for an AI agent. You can configure `EnableNotify` to enable or disable event notifications, configure `CallbackUrl` to specify a callback URL, and configure `EventTypes` to specify event types. You can also configure `Token` to specify an authentication token for enhanced security. The system returns a unique `RequestId` for subsequent tracing after a successful request.
    * 
    * @param request - SetNotifyConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -107143,7 +117240,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新回调配置
+   * Enables or disables event notifications for an AI agent and configures the callback URL and event types.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * You can call this operation to configure event notifications for an AI agent. You can configure `EnableNotify` to enable or disable event notifications, configure `CallbackUrl` to specify a callback URL, and configure `EventTypes` to specify event types. You can also configure `Token` to specify an authentication token for enhanced security. The system returns a unique `RequestId` for subsequent tracing after a successful request.
    * 
    * @param request - SetNotifyConfigRequest
    * @returns SetNotifyConfigResponse
@@ -107154,7 +117255,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动一个智能体实例，并加入通话。
+   * Starts an AI agent that is configured in the Intelligent Media Services (IMS) console.
+   * 
+   * @remarks
+   * You can call this operation to start an AI agent instance for a conversation. ````````When the AI agent is started, the system returns a unique `InstanceId` for subsequent tracking and operations.
    * 
    * @param tmpReq - StartAIAgentInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -107164,6 +117268,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new StartAIAgentInstanceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.chatSyncConfig)) {
+      request.chatSyncConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.chatSyncConfig, "ChatSyncConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.runtimeConfig)) {
       request.runtimeConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runtimeConfig, "RuntimeConfig", "json");
     }
@@ -107175,6 +117283,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.AIAgentId)) {
       query["AIAgentId"] = request.AIAgentId;
+    }
+
+    if (!$dara.isNull(request.chatSyncConfigShrink)) {
+      query["ChatSyncConfig"] = request.chatSyncConfigShrink;
     }
 
     if (!$dara.isNull(request.runtimeConfigShrink)) {
@@ -107216,7 +117328,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动一个智能体实例，并加入通话。
+   * Starts an AI agent that is configured in the Intelligent Media Services (IMS) console.
+   * 
+   * @remarks
+   * You can call this operation to start an AI agent instance for a conversation. ````````When the AI agent is started, the system returns a unique `InstanceId` for subsequent tracking and operations.
    * 
    * @param request - StartAIAgentInstanceRequest
    * @returns StartAIAgentInstanceResponse
@@ -107227,7 +117342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动频道
+   * Starts a channel.
    * 
    * @param request - StartChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -107263,7 +117378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动频道
+   * Starts a channel.
    * 
    * @param request - StartChannelRequest
    * @returns StartChannelResponse
@@ -107271,6 +117386,65 @@ export default class Client extends OpenApi {
   async startChannel(request: StartChannelRequest): Promise<StartChannelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.startChannelWithOptions(request, runtime);
+  }
+
+  /**
+   * Starts a MediaLive channel.
+   * 
+   * @remarks
+   * 
+   *  * *   You can call this operation only when the channel is idle. You cannot start a channel repeatedly.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - StartMediaLiveChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartMediaLiveChannelResponse
+   */
+  async startMediaLiveChannelWithOptions(request: StartMediaLiveChannelRequest, runtime: $dara.RuntimeOptions): Promise<StartMediaLiveChannelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channelId)) {
+      body["ChannelId"] = request.channelId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartMediaLiveChannel",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StartMediaLiveChannelResponse>(await this.callApi(params, req, runtime), new StartMediaLiveChannelResponse({}));
+    } else {
+      return $dara.cast<StartMediaLiveChannelResponse>(await this.execute(params, req, runtime), new StartMediaLiveChannelResponse({}));
+    }
+
+  }
+
+  /**
+   * Starts a MediaLive channel.
+   * 
+   * @remarks
+   * 
+   *  * *   You can call this operation only when the channel is idle. You cannot start a channel repeatedly.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - StartMediaLiveChannelRequest
+   * @returns StartMediaLiveChannelResponse
+   */
+  async startMediaLiveChannel(request: StartMediaLiveChannelRequest): Promise<StartMediaLiveChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startMediaLiveChannelWithOptions(request, runtime);
   }
 
   /**
@@ -107410,7 +117584,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止一个智能体实例。
+   * Stops an AI agent instance.
+   * 
+   * @remarks
+   *   When you no longer need an AI agent to participate in a conversation or task, you can call this operation to stop the running agent and release relevant resources.****
+   * *   You must specify the unique ID of the AI agent that you want to stop by using InstanceId.****
+   * *   ****
    * 
    * @param request - StopAIAgentInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -107446,7 +117625,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止一个智能体实例。
+   * Stops an AI agent instance.
+   * 
+   * @remarks
+   *   When you no longer need an AI agent to participate in a conversation or task, you can call this operation to stop the running agent and release relevant resources.****
+   * *   You must specify the unique ID of the AI agent that you want to stop by using InstanceId.****
+   * *   ****
    * 
    * @param request - StopAIAgentInstanceRequest
    * @returns StopAIAgentInstanceResponse
@@ -107457,7 +117641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止频道
+   * Stops a MediaWeaver channel.
    * 
    * @param request - StopChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -107493,7 +117677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止频道
+   * Stops a MediaWeaver channel.
    * 
    * @param request - StopChannelRequest
    * @returns StopChannelResponse
@@ -107501,6 +117685,65 @@ export default class Client extends OpenApi {
   async stopChannel(request: StopChannelRequest): Promise<StopChannelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopChannelWithOptions(request, runtime);
+  }
+
+  /**
+   * Stops a MediaLive channel.
+   * 
+   * @remarks
+   * 
+   *  * *
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - StopMediaLiveChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopMediaLiveChannelResponse
+   */
+  async stopMediaLiveChannelWithOptions(request: StopMediaLiveChannelRequest, runtime: $dara.RuntimeOptions): Promise<StopMediaLiveChannelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channelId)) {
+      body["ChannelId"] = request.channelId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopMediaLiveChannel",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<StopMediaLiveChannelResponse>(await this.callApi(params, req, runtime), new StopMediaLiveChannelResponse({}));
+    } else {
+      return $dara.cast<StopMediaLiveChannelResponse>(await this.execute(params, req, runtime), new StopMediaLiveChannelResponse({}));
+    }
+
+  }
+
+  /**
+   * Stops a MediaLive channel.
+   * 
+   * @remarks
+   * 
+   *  * *
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - StopMediaLiveChannelRequest
+   * @returns StopMediaLiveChannelResponse
+   */
+  async stopMediaLiveChannel(request: StopMediaLiveChannelRequest): Promise<StopMediaLiveChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopMediaLiveChannelWithOptions(request, runtime);
   }
 
   /**
@@ -109018,7 +119261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交媒体处理任务
+   * Submits a transcoding task.
    * 
    * @param request - SubmitMediaConvertJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -109066,7 +119309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交媒体处理任务
+   * Submits a transcoding task.
    * 
    * @param request - SubmitMediaConvertJobRequest
    * @returns SubmitMediaConvertJobResponse
@@ -110315,7 +120558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 切换真人客服接管模式
+   * Hands off a conversation to a human agent.
    * 
    * @param request - TakeoverAIAgentCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -110359,7 +120602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 切换真人客服接管模式
+   * Hands off a conversation to a human agent.
    * 
    * @param request - TakeoverAIAgentCallRequest
    * @returns TakeoverAIAgentCallResponse
@@ -110370,7 +120613,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例的配置
+   * Updates the configurations of an AI agent.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * You can call this operation to update the configurations of an AI agent, such as the tone, by specifying the agent ID and configurations.
    * 
    * @param tmpReq - UpdateAIAgentInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -110420,7 +120667,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例的配置
+   * Updates the configurations of an AI agent.
+   * 
+   * @remarks
+   * ## [](#)Request description
+   * You can call this operation to update the configurations of an AI agent, such as the tone, by specifying the agent ID and configurations.
    * 
    * @param request - UpdateAIAgentInstanceRequest
    * @returns UpdateAIAgentInstanceResponse
@@ -110431,7 +120682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新广告插入配置
+   * Modifies an ad insertion configuration.
    * 
    * @param request - UpdateAdInsertionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -110499,7 +120750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新广告插入配置
+   * Modifies an ad insertion configuration.
    * 
    * @param request - UpdateAdInsertionRequest
    * @returns UpdateAdInsertionResponse
@@ -110638,7 +120889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新频道
+   * Modifies a MediaWeaver channel.
    * 
    * @param request - UpdateChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -110694,7 +120945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新频道
+   * Modifies a MediaWeaver channel.
    * 
    * @param request - UpdateChannelRequest
    * @returns UpdateChannelResponse
@@ -110888,7 +121139,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实时打包频道
+   * Updates the configuration of a live package channel, including the protocol, segment duration, and number of segments.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * You need to provide the name of the channel group to which the channel belongs, channel name, protocol, segment duration, and number of segments to update. In addition, you can choose to add or modify the description of the channel. Make sure that the provided channel group name and channel name conform to the naming conventions.
    * 
    * @param request - UpdateLivePackageChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -110944,7 +121199,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实时打包频道
+   * Updates the configuration of a live package channel, including the protocol, segment duration, and number of segments.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * You need to provide the name of the channel group to which the channel belongs, channel name, protocol, segment duration, and number of segments to update. In addition, you can choose to add or modify the description of the channel. Make sure that the provided channel group name and channel name conform to the naming conventions.
    * 
    * @param request - UpdateLivePackageChannelRequest
    * @returns UpdateLivePackageChannelResponse
@@ -110955,7 +121214,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实时打包频道
+   * Updates the credentials of ingest endpoints associated with a live package channel.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * You can choose to update the primary endpoint, secondary endpoint, or both. The response includes the updated ingest endpoint URL, username, and password for the ingest device to reconfigure.
    * 
    * @param request - UpdateLivePackageChannelCredentialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -110999,7 +121262,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实时打包频道
+   * Updates the credentials of ingest endpoints associated with a live package channel.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * You can choose to update the primary endpoint, secondary endpoint, or both. The response includes the updated ingest endpoint URL, username, and password for the ingest device to reconfigure.
    * 
    * @param request - UpdateLivePackageChannelCredentialsRequest
    * @returns UpdateLivePackageChannelCredentialsResponse
@@ -111010,7 +121277,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改直播打包频道组
+   * Updates the information about a live package channel group including its description.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This API operation allows you to modify the name and description of a live package channel group. The channel group name must conform to the naming conventions and can be up to 1,000 characters. The API response includes the updated channel group details and unique identifier of the request.
    * 
    * @param request - UpdateLivePackageChannelGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -111050,7 +121321,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改直播打包频道组
+   * Updates the information about a live package channel group including its description.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * This API operation allows you to modify the name and description of a live package channel group. The channel group name must conform to the naming conventions and can be up to 1,000 characters. The API response includes the updated channel group details and unique identifier of the request.
    * 
    * @param request - UpdateLivePackageChannelGroupRequest
    * @returns UpdateLivePackageChannelGroupResponse
@@ -111061,7 +121336,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实时打包源站端点
+   * Updates the origin endpoint settings including the protocol, time shifting, and access control settings.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * You can call this operation to modify the origin protocol, set the number of days that time-shifted content is available, define playlist names, and configure the IP address blacklist and whitelist, allowing for fine-grained control over streaming media distribution. Some parameters are required. You must configure IpWhitelist, AuthorizationCode, or both.
    * 
    * @param request - UpdateLivePackageOriginEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -111133,7 +121412,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实时打包源站端点
+   * Updates the origin endpoint settings including the protocol, time shifting, and access control settings.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * You can call this operation to modify the origin protocol, set the number of days that time-shifted content is available, define playlist names, and configure the IP address blacklist and whitelist, allowing for fine-grained control over streaming media distribution. Some parameters are required. You must configure IpWhitelist, AuthorizationCode, or both.
    * 
    * @param request - UpdateLivePackageOriginEndpointRequest
    * @returns UpdateLivePackageOriginEndpointResponse
@@ -111420,11 +121703,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the input information of a specific MediaConnect flow
+   * Modifies the source of a MediaConnect flow.
    * 
    * @remarks
-   * - The input can only be modified when the Flow instance status is offline.
-   * - The input type cannot be modified.
+   *   You can modify the source only when the flow is in the offline state.
+   * *   The source type cannot be modified.
    * 
    * @param request - UpdateMediaConnectFlowInputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -111484,11 +121767,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the input information of a specific MediaConnect flow
+   * Modifies the source of a MediaConnect flow.
    * 
    * @remarks
-   * - The input can only be modified when the Flow instance status is offline.
-   * - The input type cannot be modified.
+   *   You can modify the source only when the flow is in the offline state.
+   * *   The source type cannot be modified.
    * 
    * @param request - UpdateMediaConnectFlowInputRequest
    * @returns UpdateMediaConnectFlowInputResponse
@@ -111499,11 +121782,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify information of a specific output in MediaConnect
+   * Modifies an output of a MediaConnect flow.
    * 
    * @remarks
-   * - The output can only be modified when the Flow instance status is offline.
-   * - The output type cannot be modified.
+   *   You can modify an output only when the flow is in the offline state.
+   * *   The output type cannot be modified.
    * 
    * @param request - UpdateMediaConnectFlowOutputRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -111567,11 +121850,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify information of a specific output in MediaConnect
+   * Modifies an output of a MediaConnect flow.
    * 
    * @remarks
-   * - The output can only be modified when the Flow instance status is offline.
-   * - The output type cannot be modified.
+   *   You can modify an output only when the flow is in the offline state.
+   * *   The output type cannot be modified.
    * 
    * @param request - UpdateMediaConnectFlowOutputRequest
    * @returns UpdateMediaConnectFlowOutputResponse
@@ -111582,7 +121865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify MediaConnect Instance Status
+   * Modifies the state of a MediaConnect flow.
    * 
    * @param request - UpdateMediaConnectFlowStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -111622,7 +121905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify MediaConnect Instance Status
+   * Modifies the state of a MediaConnect flow.
    * 
    * @param request - UpdateMediaConnectFlowStatusRequest
    * @returns UpdateMediaConnectFlowStatusResponse
@@ -111727,6 +122010,259 @@ export default class Client extends OpenApi {
   async updateMediaInfo(request: UpdateMediaInfoRequest): Promise<UpdateMediaInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateMediaInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies a MediaLive channel.
+   * 
+   * @remarks
+   * 
+   *  * *   You can modify a MediaLive channel only when it is not running.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param tmpReq - UpdateMediaLiveChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaLiveChannelResponse
+   */
+  async updateMediaLiveChannelWithOptions(tmpReq: UpdateMediaLiveChannelRequest, runtime: $dara.RuntimeOptions): Promise<UpdateMediaLiveChannelResponse> {
+    tmpReq.validate();
+    let request = new UpdateMediaLiveChannelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.audioSettings)) {
+      request.audioSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.audioSettings, "AudioSettings", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.inputAttachments)) {
+      request.inputAttachmentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inputAttachments, "InputAttachments", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.outputGroups)) {
+      request.outputGroupsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outputGroups, "OutputGroups", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.videoSettings)) {
+      request.videoSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.videoSettings, "VideoSettings", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.audioSettingsShrink)) {
+      body["AudioSettings"] = request.audioSettingsShrink;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      body["ChannelId"] = request.channelId;
+    }
+
+    if (!$dara.isNull(request.inputAttachmentsShrink)) {
+      body["InputAttachments"] = request.inputAttachmentsShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.outputGroupsShrink)) {
+      body["OutputGroups"] = request.outputGroupsShrink;
+    }
+
+    if (!$dara.isNull(request.videoSettingsShrink)) {
+      body["VideoSettings"] = request.videoSettingsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMediaLiveChannel",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateMediaLiveChannelResponse>(await this.callApi(params, req, runtime), new UpdateMediaLiveChannelResponse({}));
+    } else {
+      return $dara.cast<UpdateMediaLiveChannelResponse>(await this.execute(params, req, runtime), new UpdateMediaLiveChannelResponse({}));
+    }
+
+  }
+
+  /**
+   * Modifies a MediaLive channel.
+   * 
+   * @remarks
+   * 
+   *  * *   You can modify a MediaLive channel only when it is not running.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - UpdateMediaLiveChannelRequest
+   * @returns UpdateMediaLiveChannelResponse
+   */
+  async updateMediaLiveChannel(request: UpdateMediaLiveChannelRequest): Promise<UpdateMediaLiveChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMediaLiveChannelWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies an input of MediaLive.
+   * 
+   * @remarks
+   * 
+   *  * *   You can modify an input only when it is not associated with a MediaLive channel.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param tmpReq - UpdateMediaLiveInputRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaLiveInputResponse
+   */
+  async updateMediaLiveInputWithOptions(tmpReq: UpdateMediaLiveInputRequest, runtime: $dara.RuntimeOptions): Promise<UpdateMediaLiveInputResponse> {
+    tmpReq.validate();
+    let request = new UpdateMediaLiveInputShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.inputSettings)) {
+      request.inputSettingsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inputSettings, "InputSettings", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.securityGroupIds)) {
+      request.securityGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.securityGroupIds, "SecurityGroupIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.inputSettingsShrink)) {
+      query["InputSettings"] = request.inputSettingsShrink;
+    }
+
+    if (!$dara.isNull(request.securityGroupIdsShrink)) {
+      query["SecurityGroupIds"] = request.securityGroupIdsShrink;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.inputId)) {
+      body["InputId"] = request.inputId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMediaLiveInput",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateMediaLiveInputResponse>(await this.callApi(params, req, runtime), new UpdateMediaLiveInputResponse({}));
+    } else {
+      return $dara.cast<UpdateMediaLiveInputResponse>(await this.execute(params, req, runtime), new UpdateMediaLiveInputResponse({}));
+    }
+
+  }
+
+  /**
+   * Modifies an input of MediaLive.
+   * 
+   * @remarks
+   * 
+   *  * *   You can modify an input only when it is not associated with a MediaLive channel.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - UpdateMediaLiveInputRequest
+   * @returns UpdateMediaLiveInputResponse
+   */
+  async updateMediaLiveInput(request: UpdateMediaLiveInputRequest): Promise<UpdateMediaLiveInputResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMediaLiveInputWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies a security group created in MediaLive.
+   * 
+   * @remarks
+   * 
+   *  * *   You can modify a security group only when it is not associated with a MediaLive input.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param tmpReq - UpdateMediaLiveInputSecurityGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMediaLiveInputSecurityGroupResponse
+   */
+  async updateMediaLiveInputSecurityGroupWithOptions(tmpReq: UpdateMediaLiveInputSecurityGroupRequest, runtime: $dara.RuntimeOptions): Promise<UpdateMediaLiveInputSecurityGroupResponse> {
+    tmpReq.validate();
+    let request = new UpdateMediaLiveInputSecurityGroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.whitelistRules)) {
+      request.whitelistRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.whitelistRules, "WhitelistRules", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.securityGroupId)) {
+      body["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!$dara.isNull(request.whitelistRulesShrink)) {
+      body["WhitelistRules"] = request.whitelistRulesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMediaLiveInputSecurityGroup",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if ($dara.isNull(this._signatureVersion) || this._signatureVersion != "v4") {
+      return $dara.cast<UpdateMediaLiveInputSecurityGroupResponse>(await this.callApi(params, req, runtime), new UpdateMediaLiveInputSecurityGroupResponse({}));
+    } else {
+      return $dara.cast<UpdateMediaLiveInputSecurityGroupResponse>(await this.execute(params, req, runtime), new UpdateMediaLiveInputSecurityGroupResponse({}));
+    }
+
+  }
+
+  /**
+   * Modifies a security group created in MediaLive.
+   * 
+   * @remarks
+   * 
+   *  * *   You can modify a security group only when it is not associated with a MediaLive input.
+   * ## [](#qps-)QPS limit
+   * This operation can be called up to 50 times per second for each Alibaba Cloud account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation.
+   * 
+   * @param request - UpdateMediaLiveInputSecurityGroupRequest
+   * @returns UpdateMediaLiveInputSecurityGroupResponse
+   */
+  async updateMediaLiveInputSecurityGroup(request: UpdateMediaLiveInputSecurityGroupRequest): Promise<UpdateMediaLiveInputSecurityGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMediaLiveInputSecurityGroupWithOptions(request, runtime);
   }
 
   /**
@@ -111895,7 +122431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新节目
+   * Modifies a program in a MediaWeaver channel.
    * 
    * @param request - UpdateProgramRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -111959,7 +122495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新节目
+   * Modifies a program in a MediaWeaver channel.
    * 
    * @param request - UpdateProgramRequest
    * @returns UpdateProgramResponse
@@ -112027,7 +122563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新源
+   * Modifies a source in MediaWeaver.
    * 
    * @param request - UpdateSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -112075,7 +122611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新源
+   * Modifies a source in MediaWeaver.
    * 
    * @param request - UpdateSourceRequest
    * @returns UpdateSourceResponse
@@ -112086,7 +122622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新源位置
+   * Modifies a source location.
    * 
    * @param request - UpdateSourceLocationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -112134,7 +122670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新源位置
+   * Modifies a source location.
    * 
    * @param request - UpdateSourceLocationRequest
    * @returns UpdateSourceLocationResponse
