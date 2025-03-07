@@ -13784,6 +13784,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
    * gp-xxxxxxxxx
    */
   DBInstanceId?: string;
+  dimension?: number;
   /**
    * @remarks
    * The vectorization algorithm.
@@ -13962,6 +13963,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
     return {
       collection: 'Collection',
       DBInstanceId: 'DBInstanceId',
+      dimension: 'Dimension',
       embeddingModel: 'EmbeddingModel',
       externalStorage: 'ExternalStorage',
       fullTextRetrievalFields: 'FullTextRetrievalFields',
@@ -13984,6 +13986,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
     return {
       collection: 'string',
       DBInstanceId: 'string',
+      dimension: 'number',
       embeddingModel: 'string',
       externalStorage: 'number',
       fullTextRetrievalFields: 'string',
@@ -50932,6 +50935,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.dimension)) {
+      query["Dimension"] = request.dimension;
     }
 
     if (!$dara.isNull(request.embeddingModel)) {
